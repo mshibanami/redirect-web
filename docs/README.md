@@ -1,0 +1,44 @@
+# Introduction
+
+Welcome to the support website for Redirect Web for Safari, a Safari extension for iOS and macOS.
+
+This extension lets you set up redirect rules to jump to a specific website from another website. With Redirect Web, you can save time by automatically redirecting to your preferred websites, without the need to manually type the URLs or navigate through multiple pages.
+
+These are the basic usages of the iOS app and the macOS app:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5eU89Gu73SQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Use Cases
+
+For example, you can create these rules:
+
+- Remove unneeded parameters from a URL
+- Open a Google Meet link on Google Chrome
+- Open a Notion's link on the Notion app
+
+You can find the details and more useful examples of redirect rules on the GitHub Discussions page. Check [the discussions in the "Redirect Rules" category](https://github.com/mshibanami/redirect-web/discussions/categories/redirect-rules).
+
+## Features
+
+Redirect Web comes with the following features:
+
+- Create redirect rules using Regular Expression or Wildcard pattern types
+- Use back-referencing to specify dynamic target URLs
+- Exclude URLs from redirection
+- Process captured text using URL encoding/decoding, base64 encoding/decoding, or replacing occurrences
+
+Also, you can unlock these by the subscription or the one-time purchase:
+
+･ Enable 2 or more redirect settings
+･ Sync redirect settings with your other Mac, iPhone and iPad through iCloud
+
+(Your purchase also supports us in maintaining Redirect Web. 😃)
+Your purchase made on your iOS device can be used on your Mac as well, and vice versa.
+
+---
+
+We hope you find Redirect Web helpful in saving you time and simplifying your browsing experience.
+
+If you have any questions, feedback, or issues, please don't hesitate to [contact us](contact-us).

@@ -1,0 +1,9 @@
+- [Introduction](./)
+- Configuration
+    - [Redirect Rule](./redirect-rule)
+- Questions
+    - [FAQ](./faq)
+    - [Contact Us](./contact-us)
+- Others
+    - [Privacy Policy](./privacy-policy)
+    - [Terms of Use](./terms-of-use)
