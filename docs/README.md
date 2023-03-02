@@ -31,8 +31,8 @@ Redirect Web comes with the following features:
 
 Also, you can unlock these by the subscription or the one-time purchase:
 
-･ Enable 2 or more redirect settings
-･ Sync redirect settings with your other Mac, iPhone and iPad through iCloud
+- Enable 2 or more redirect settings
+- Sync redirect settings with your other Mac, iPhone and iPad through iCloud
 
 (Your purchase also supports us in maintaining Redirect Web. 😃)
 Your purchase made on your iOS device can be used on your Mac as well, and vice versa.
