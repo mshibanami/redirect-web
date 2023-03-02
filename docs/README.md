@@ -29,13 +29,14 @@ Redirect Web comes with the following features:
 - Exclude URLs from redirection
 - Process captured text using URL encoding/decoding, base64 encoding/decoding, or replacing occurrences
 
-Also, you can unlock these by the subscription or the one-time purchase:
+In addition, you can unlock the following features through either a subscription or a one-time purchase:
 
-- Enable 2 or more redirect settings
-- Sync redirect settings with your other Mac, iPhone and iPad through iCloud
+- Enabling 2 or more redirect rules
+- Syncing redirect rules with your other Mac, iPhone, and iPad via iCloud
 
-(Your purchase also supports us in maintaining Redirect Web. 😃)
-Your purchase made on your iOS device can be used on your Mac as well, and vice versa.
+Purchasing the app also supports us in maintaining Redirect Web. 😃
+
+Your purchase made on your iOS device can be used on your Mac and vice versa.
 
 ---
 
