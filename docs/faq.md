@@ -14,6 +14,10 @@ Since we don't collect your personal information as per **[the privacy policy](.
 
 But it’s not required. You can only allow it on specific websites. 👌
 
+## Why are the toggles of my redirect rules not changing or immediately reverting back?
+
+Sorry for the inconvenience. To fix this issue, try changing the sorting order of one of your redirect rules and then restoring it to the previous order.
+
 ## How can I share/back up/export my redirect rules?
 
 You can share, back up, or export your rules by selecting "Share" in the app.
