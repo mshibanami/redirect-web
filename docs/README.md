@@ -6,9 +6,9 @@ This extension lets you set up redirect rules to jump to a specific website from
 
 These are the basic usages of the iOS app and the macOS app:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5eU89Gu73SQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="768" height="432" src="https://www.youtube.com/embed/5eU89Gu73SQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="387" height="688" src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Use Cases
 
