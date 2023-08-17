@@ -1,0 +1,21 @@
+{
+  "formatVersion": "1.0.0",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "appURL": "file:\/\/\/Applications\/Google%20Chrome.app",
+      "comments": "",
+      "destinationURLPattern": "$0",
+      "exampleURLs": [
+        "https:\/\/meet.google.com\/xxx-yyyy-zzz"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https:\/\/meet.google.com\/[a-z]*-[a-z]*-[a-z]*"
+      }
+    }
+  ]
+}
