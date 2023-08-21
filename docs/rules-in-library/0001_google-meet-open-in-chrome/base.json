@@ -1,11 +1,10 @@
 {
-  "formatVersion": "1.0.0",
   "bundleID": "io.github.mshibanami.RedirectWebForSafari",
   "kind": "RedirectList",
   "redirects": [
     {
       "appURL": "file:\/\/\/Applications\/Google%20Chrome.app",
-      "comments": "",
+      "comments": "Use this rule to make Google Meet links in Safari open in Chrome automatically.",
       "destinationURLPattern": "$0",
       "exampleURLs": [
         "https:\/\/meet.google.com\/xxx-yyyy-zzz"
@@ -15,7 +14,8 @@
       "sourceURLPattern": {
         "type": "regularExpression",
         "value": "https:\/\/meet.google.com\/[a-z]*-[a-z]*-[a-z]*"
-      }
+      },
+      "title": "Google Meet: Open in Chrome"
     }
   ]
 }
