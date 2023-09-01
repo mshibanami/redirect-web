@@ -18,7 +18,7 @@ But it’s not required. You can only allow it on specific websites. 👌
 
 **Edit (2023-09-01)**: We fixed this bug in version 5.0.0 for both iOS and macOS.
 
-It's a bug. Sorry for the inconvenience. As a workaround, try changing the sorting order of one of your redirect rules and then restoring it to the previous order.
+~~It's a bug. Sorry for the inconvenience. As a workaround, try changing the sorting order of one of your redirect rules and then restoring it to the previous order.~~
 
 ## How can I share/back up/export my redirect rules?
 
