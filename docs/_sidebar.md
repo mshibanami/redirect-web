@@ -1,6 +1,7 @@
 - [Introduction](/)
-- Configuration
+- How to Use
     - [Redirect Rule](redirect-rule)
+    - [Export/Import Rules](export-or-import-rules)
 - Q&A
     - [FAQ](faq)
     - [Contact Us](contact-us)
