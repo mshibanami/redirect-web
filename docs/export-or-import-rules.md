@@ -41,7 +41,7 @@ You can share the rules like this:
 
 ### iOS
 
-Suppose your rules file is in the Files app. Open it and then tap the Share button, and then select Redirect Web:
+Suppose your rules file is in the Files app. Open it on Files, tap the Share button, and then select Redirect Web:
 
 | Step 1: Tap the Share button on Files | Step 2: Select Redirect Web |
 |-|-|
