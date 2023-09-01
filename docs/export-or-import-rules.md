@@ -1,7 +1,5 @@
 # Export/Import Rules
 
-You can share, back up, or export your rules by selecting "Share" in the app.
-
 ## Export Rules
 
 ### macOS
