@@ -14,6 +14,18 @@ Since we don't collect your personal information as per **[the privacy policy](.
 
 But it’s not required. You can only allow it on specific websites. 👌
 
+## One-time Purchase or Annual Subscription: Which is Best?
+
+We recommend the one-time purchase, as the price difference is only US$2.00.
+The main reason we offer the subscription is to allow you to try all the features through its free trial. Here is the expected use case:
+
+1. Subscribe the annual subscription.
+2. Immediately cancel the subscription by going to the Settings app, searching for "Subscriptions", tapping on this app, and selecting "Cancel Subscription". This lets you enjoy the free trial without any commitment.
+3. Enjoy full access to all features for 7 days.
+4. If you like the features, opt for the one-time purchase.
+
+Of course, there's nothing wrong with continuing with the annual subscription if you prefer!
+
 ## Why are the toggles of my redirect rules not changing or immediately reverting back?
 
 **Edit (2023-09-01)**: We fixed this bug in version 5.0.0 for both iOS and macOS.
