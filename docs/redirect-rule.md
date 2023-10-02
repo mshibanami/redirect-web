@@ -32,13 +32,19 @@ The Capture Group Processing option allows you to specify how to process the tex
 - Base64 Encode/Decode
 - Replace Occurrences
 
+Please note that this setting is for processing each captured group and it doesn't affect which URLs are excluded by the Excluded URL Patterns. For instance, let's say you have this rule:
+
+- **Redirect From**: `https://example.com/(hello.*)`
+- **Capture Group Process**: Replace `.*` with `hello` for `$1`
+- **Excluded URL Pattern**: `https://example.com/hello`
+
+In this case, `https://example.com/hello_world` will not be excluded while `https://example.com/hello` will be excluded.
+
 ### Excluded URL Patterns
 
 The Excluded URL Patterns option allows you to specify the URLs that are not redirected. This can be useful to avoid redirect loops, or to exclude certain parts of a website from being redirected.
 
 You can specify excluded URL patterns using either Regular Expression or Wildcard pattern types.
-
-Please note that if there are conflicts between the excluded URL patterns and the redirect rules, the excluded URL pattern takes priority and the URL will not be redirected.
 
 ### Examples
 
