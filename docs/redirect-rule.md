@@ -10,11 +10,11 @@ The Redirect From option allows you to specify the URL pattern of the website yo
 
 For example, if you specify `https://example.com/*` with wildcard, then, for example, `https://example.com/` and `https://example.com/hello` are matched.
 
-The matched URLs can be referenced in the Redirect To option, using `$0`, `$1` ... which is called back-referencing. Check the details in [URL Pattern](#url-pattern) in this page.
+The matched URLs can be referenced in the Redirect To option, using `$0`, `$1` ... which is called substitution. Check the details in [URL Pattern](#url-pattern) in this page.
 
 ### Redirect To
 
-The Redirect To option specifies the URL you want to redirect to from the URL matched with the Redirect From option. You can use the back-referencing using `$0`, `$1`, ... to dynamically generate the URL. Check the details in [URL Pattern](#url-pattern) in this page.
+The Redirect To option specifies the URL you want to redirect to from the URL matched with the Redirect From option. You can use substitution using `$0`, `$1`, ... to dynamically generate the URL. Check the details in [URL Pattern](#url-pattern) in this page.
 
 For example, if you set `https://example.com/$1` in the Redirect To option, and the URL matched with the Redirect From option is `https://example.com/hello`, then the generated URL will be `https://example.com/hello`.
 
@@ -86,4 +86,4 @@ Wildcard is a simpler pattern type that allows you to use `*` and `?` as wildcar
 - To match `https://example.com/search?q=hello`, you can use `https://example.com/search?q=*`. This will match any value of the `q` parameter.
 - To match any URL that contains the word `blog`, you can use `*blog*`.
 
-You can also use back-referencing in Wildcard as well, which means you can reference the captured text using `$1`, `$2`, etc. For example, if you use `https://example.com/*-world-*`, and the URL is `https://example.com/hello-world-goodbye`, then `$1` would be "hello" and `$2` would be "goodbye". `$0` is also available to reference the entire URL that was matched.
+You can also use substitution in Wildcard as well, which means you can reference portions of the matched URL using `$1`, `$2`, etc. For example, if you use `https://example.com/*-world-*`, and the URL is `https://example.com/hello-world-goodbye`, then `$1` would be "hello" and `$2` would be "goodbye". `$0` is also available to reference the entire URL that was matched.
