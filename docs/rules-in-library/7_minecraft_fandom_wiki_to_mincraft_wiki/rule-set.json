@@ -1,0 +1,19 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "comments": "Enabling this rule, users attempting to access the Minecraft Wiki on Fandom will be automatically redirected to the new domain at minecraft.wiki, ensuring they receive the latest and most accurate information from the official wiki source.",
+      "destinationURLPattern": "https:\/\/minecraft.wiki\/w\/$1",
+      "exampleURLs": [
+        "https:\/\/minecraft.fandom.com\/wiki\/Block"
+      ],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https:\/\/minecraft.fandom.com\/wiki\/*"
+      },
+      "title": "Minecraft Wiki: From Fandom to minecraft.wiki"
+    }
+  ]
+}

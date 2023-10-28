@@ -1,0 +1,19 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "comments": "This rule hides whitespace changes in a pull request on GitHub automatically.",
+      "destinationURLPattern": "https:\/\/github.com\/$1\/$2\/pull\/$3\/files?diff=unified&w=1",
+      "exampleURLs": [
+        "https:\/\/github.com\/mshibanami\/GitHubTrendingRSS\/pull\/6\/files"
+      ],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https:\/\/github.com\/(.*)\/(.*)\/pull\/(.*)\/files"
+      },
+      "title": "GitHub: Ignore Whitespace Changes in a Pull Request"
+    }
+  ]
+}
