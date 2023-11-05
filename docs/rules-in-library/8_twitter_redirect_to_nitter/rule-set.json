@@ -4,7 +4,7 @@
   "redirects": [
     {
       "comments": "This is a rule that automatically redirects users from twitter.com to nitter.com, providing a faster and more privacy-focused browsing experience by avoiding Elon Musk's tracking and advertisements. You can change the nitter.net to another instance of Nitter if you want. Find the list of other instances in https://github.com/zedeus/nitter/wiki/Instances .",
-      "destinationURLPattern": "https:\\\/\\\/nitter\\.net\\\/$2",
+      "destinationURLPattern": "https:\/\/nitter.net\/$2",
       "exampleURLs": [
         "https:\/\/twitter.com\/mshibanami\/status\/1556979987244523520",
         "https:\/\/x.com\/mshibanami\/status\/1556979987244523520"
