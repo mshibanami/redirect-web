@@ -18,7 +18,7 @@ for dir in ../rules-in-library/*; do
     fi
 done
 
-wrapped=$(echo "$combined" | jq '{ "rule-sets": . }')
+wrapped=$(echo "$combined" | jq '{ "ruleSets": . }')
 output_dir="../generated/rule-set/"
 mkdir -p $output_dir
 echo "$wrapped" > $output_dir/list.json
