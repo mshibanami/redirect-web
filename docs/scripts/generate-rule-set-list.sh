@@ -2,10 +2,14 @@
 
 cd "$(dirname "${BASH_SOURCE:-$0}")"
 
-combined='[]'
+supported_json_files=(
+    "rule-set.json"
+    "rule-set.redirectweb"
+)
 
+combined='[]'
 for dir in ../rules-in-library/*; do
-    if [ -d "$dir" ] && [ -f "$dir/rule-set.json" ]; then
+    if [ -d "$dir" ]; then
         id=$(basename "$dir" | cut -d'_' -f1)
 
         if ! [[ $id =~ ^[0-9]+$ ]]; then
@@ -13,8 +17,18 @@ for dir in ../rules-in-library/*; do
             exit 1
         fi
 
-        processed_json=$(jq --argjson id "$id" '{id: $id|tonumber, redirectList: .}' "$dir/rule-set.json")
-        combined=$(echo "$combined" | jq --argjson newElement "$processed_json" '. += [$newElement]')
+        json_file=""
+        for file in "${supported_json_files[@]}"; do
+            if [ -f "$dir/$file" ]; then
+                json_file="$dir/$file"
+                break
+            fi
+        done
+
+        if [ -n "$json_file" ]; then
+            processed_json=$(jq --argjson id "$id" '{id: $id|tonumber, redirectList: .}' "$json_file")
+            combined=$(echo "$combined" | jq --argjson newElement "$processed_json" '. += [$newElement]')
+        fi
     fi
 done
 
