@@ -2,7 +2,7 @@
 
 cd "$(dirname "${BASH_SOURCE:-$0}")"
 
-supported_json_files=(
+supported_rule_set_files=(
     "rule-set.json"
     "rule-set.redirectweb"
 )
@@ -17,23 +17,24 @@ for dir in ../library/rules/*; do
             exit 1
         fi
 
-        json_file=""
-        for file in "${supported_json_files[@]}"; do
+        rule_set_file=""
+        for file in "${supported_rule_set_files[@]}"; do
             if [ -f "$dir/$file" ]; then
-                json_file="$dir/$file"
+                rule_set_file="$dir/$file"
                 break
             fi
         done
+        metadata_file="$dir/metadata.json"
 
-        if [ -n "$json_file" ]; then
-            processed_json=$(jq --argjson id "$id" '{id: $id|tonumber, redirectList: .}' "$json_file")
-            combined=$(echo "$combined" | jq --argjson newElement "$processed_json" '. += [$newElement]')
+        if [ -n "$rule_set_file" ]; then
+            processed_rule_set=$(jq --argjson id "$id" '{id: $id|tonumber, redirectList: ., metadata: .}' "$rule_set_file" "$metadata_file")
+            combined=$(echo "$combined" | jq --argjson newElement "$processed_rule_set" '. += [$newElement]')
         fi
     fi
 done
 
 wrapped=$(echo "$combined" | jq '{ "ruleSets": . }')
-output_dir="../generated/rule-set/"
+output_dir="../generated/rule-sets/"
 mkdir -p $output_dir
 echo "$wrapped" > $output_dir/list.json
-echo "✅ Created list.json"
+echo "✅ Created list.json at $output_dir/list.json"
