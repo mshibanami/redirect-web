@@ -8,7 +8,7 @@ supported_json_files=(
 )
 
 combined='[]'
-for dir in ../rules-in-library/*; do
+for dir in ../library/rules/*; do
     if [ -d "$dir" ]; then
         id=$(basename "$dir" | cut -d'_' -f1)
 
