@@ -17,6 +17,7 @@ for dir in ../library/rules/*; do
             exit 1
         fi
 
+        metadata_file="$dir/metadata.json"
         rule_set_file=""
         for file in "${supported_rule_set_files[@]}"; do
             if [ -f "$dir/$file" ]; then
@@ -24,17 +25,16 @@ for dir in ../library/rules/*; do
                 break
             fi
         done
-        metadata_file="$dir/metadata.json"
 
         if [ -n "$rule_set_file" ]; then
-            processed_rule_set=$(jq --argjson id "$id" '{id: $id|tonumber, redirectList: ., metadata: .}' "$rule_set_file" "$metadata_file")
+            processed_rule_set=$(jq --argjson id "$id" -s '{id: $id, ruleSet: .[0], metadata: .[1]}' "$rule_set_file" "$metadata_file")
             combined=$(echo "$combined" | jq --argjson newElement "$processed_rule_set" '. += [$newElement]')
         fi
     fi
 done
 
 wrapped=$(echo "$combined" | jq '{ "ruleSets": . }')
-output_dir="../generated/rule-sets/"
+output_dir="../generated/rule-sets"
 mkdir -p $output_dir
 echo "$wrapped" > $output_dir/list.json
 echo "✅ Created list.json at $output_dir/list.json"
