@@ -59,7 +59,7 @@ This includes your rule's metadata.
     "aboutURL": "https://somewhere-on-the-internet.com/path-to-the-rule-set-details",
     "title": "A title of the rule set",
     "description": "A description of the rule set.",
-    "category": "game"
+    "categoryID": "game"
     "version": "1.0.0"
 }
 ```
@@ -71,6 +71,6 @@ This includes your rule's metadata.
 - `title`: A title of the rule set.
 - `description` (optional): A description of the rule set.
 - `version`: A version of the rule which consists of `{major}.{minor}.{patch}`.
-- `category`: A category of the rule set.
+- `categoryID`: A category ID of the rule set.
 
 ## Categories
