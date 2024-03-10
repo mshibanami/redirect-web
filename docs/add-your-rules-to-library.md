@@ -68,6 +68,7 @@ This includes your rule's metadata.
     - `name`: An author name.
     - `gitHubID`: A GitHub ID of the author.
 - `imageURLs` (optional): An array of image URLs of the rule set.
+- `videoURLs` (optional): An array of video URLs of the rule set. Not only direct links to the files, YouTube URLs are also supported.
 - `title`: A title of the rule set.
 - `description` (optional): A description of the rule set.
 - `version`: A version of the rule which consists of `{major}.{minor}.{patch}`.
