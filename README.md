@@ -1,6 +1,6 @@
 # Redirect Web for Safari
 
-This is a repository for [the support website of Redirect Web for Safari](https://mshibanami.github.io/redirect-web).
+This is a repository for [the support website of Redirect Web for Safari](https://mshibanami.github.io/redirect-web) and a library of redirect rules.
 
 In addition, we provides these on GitHub:
 
