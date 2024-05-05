@@ -10,6 +10,8 @@ Each rule is identified by a unique integer ID. All data in a rule set should be
 
 - `rule-set.json`
 - `metadata.json`
+- Image files (optional)
+- Video files (optional)
 
 Folders of deleted rule sets remain like `8_DELETED`, ensuring that IDs remain unique.
 
@@ -56,38 +58,34 @@ This file contains metadata of a rule set.
 
 ```json
 {
-    "authors": [
-        {
-            "name": "Author Name 1",
-            "gitHubID": "author-github-id1"
-        },
-        {
-            "name": "Author Name 2",
-            "gitHubID": "author-github-id2",
-        }
+    "authorGitHubId": "<your-github-id>",
+    "imageFiles": [
+      "image.png"
     ],
-    "imageURLs": [
-        "https://somewhere-on-the-internet.com/path/to/your-rule-set-image.jpg"
+    "videoFiles": [
+      "video.mp4"
     ],
-    "aboutURL": "https://somewhere-on-the-internet.com/path/to/the-rule-set-details.html",
-    "title": "A title of the rule set",
-    "description": "A description of the rule set.",
-    "version": "1.0.0",
-    "primaryCategoryID": "gaming",
-    "secondaryCategoryID": "productivity"
+    "aboutURL": "<URL to the rule set details>",
+    "title": "<A title of the rule set>",
+    "description": "<A description of the rule set.>",
+    "primaryCategoryId": "gaming",
+    "secondaryCategoryId": "productivity"
 }
 ```
 
-- `authors`: A list of rule set's authors.
-    - `name`: The name of an author.
-    - `gitHubID`: The GitHub ID of an author.
-- `imageURLs` (optional): A list of image URLs of the rule set.
-- `videoURLs` (optional): A list of video URLs for the rule set, including:
-    - A direct link to a video file that QuickTime Player can play, or,
-    - A YouTube video URL.
+- `authorGitHubId`: An author's GitHub ID.
 - `aboutURL` (optional): A link to a webpage where users can learn more about the rule set.
 - `title`: A short title of the rule set.
 - `description`: A description of the rule set. This is optional when the first rule in the rule set has non-empty `comments`.
-- `version`: A version of the rule set, which should follow [Semantic Versioning](https://semver.org).
-- `primaryCategoryID`: A primary category ID of the rule set. Find a list of the categories in [categories.json](./categories.json).
-- `secondaryCategoryID` (optional): A secondary category ID of the rule set.
+- `primaryCategoryId`: A primary category ID of the rule set. Find a list of the categories in [categories.json](./categories.json).
+- `secondaryCategoryId` (optional): A secondary category ID of the rule set.
+
+## Image files (optional)
+
+Images of the rule set.
+PNG and JPEG images are supported.
+
+## Video files (optional)
+
+A list of video URLs for the rule set.
+Video formats that QuickTime Player can play are supported.
