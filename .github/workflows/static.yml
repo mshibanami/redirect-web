@@ -25,8 +25,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Generate Rule Set List
-        run: docs/scripts/generate-rule-set-list.sh
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
