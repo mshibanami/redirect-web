@@ -58,7 +58,9 @@ This file contains metadata of a rule set.
 
 ```json
 {
-    "authorGitHubId": "<your-github-id>",
+    "contributorGitHubIds": [
+      "<your-github-id>"
+    ],
     "imageFiles": [
       "image.png"
     ],
@@ -73,7 +75,7 @@ This file contains metadata of a rule set.
 }
 ```
 
-- `authorGitHubId`: An author's GitHub ID.
+- `contributorGitHubIds`: An array of contributors' GitHub IDs, sorted by the date they were involved in the rule.
 - `aboutURL` (optional): A link to a webpage where users can learn more about the rule set.
 - `title`: A short title of the rule set.
 - `description`: A description of the rule set. This is optional when the first rule in the rule set has non-empty `comments`.
