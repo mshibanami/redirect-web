@@ -1,0 +1,29 @@
+{
+    "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+    "kind": "RedirectList",
+    "redirects": [
+        {
+            "captureGroupProcesses": [],
+            "comments": "This redirect rule changes Reddit URLs from the newest or old layout to the new layout. This is useful for those who prefer the new theme over other themes.\nMedia URLs are excluded from this redirect, as they are only supported on www.reddit.com.",
+            "destinationURLPattern": "https:\/\/new.reddit.com\/$1",
+            "exampleURLs": [
+                "https:\/\/www.reddit.com\/r\/BeAmazed\/comments\/164qg37\/mind_blown_it_really_is_true\/",
+                "https:\/\/www.reddit.com\/media?url=https%3A%2F%2Fi.redd.it%2Fou5itrizf3lb1.png",
+                "https:\/\/www.reddit.com\/",
+                "https:\/\/old.reddit.com\/"
+            ],
+            "excludeURLPatterns": [
+                {
+                    "type": "wildcard",
+                    "value": "https:\/\/www.reddit.com\/media?url=*"
+                }
+            ],
+            "kind": "Redirect",
+            "sourceURLPattern": {
+                "type": "regularExpression",
+                "value": "https:\/\/(?:www|old).reddit.com\/(.*)"
+            },
+            "title": "Reddit: The \"New\" Layout by Default"
+        }
+    ]
+}
