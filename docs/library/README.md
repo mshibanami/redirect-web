@@ -64,9 +64,6 @@ This file contains metadata of a rule set.
     "imageFiles": [
       "image.png"
     ],
-    "videoFiles": [
-      "video.mp4"
-    ],
     "aboutURL": "<URL to the rule set details>",
     "title": "<A title of the rule set>",
     "description": "<A description of the rule set.>",
@@ -76,6 +73,7 @@ This file contains metadata of a rule set.
 ```
 
 - `contributorGitHubIds`: An array of contributors' GitHub IDs, sorted by the date they were involved in the rule.
+- `imageFiles`: An array of image files of the rule set. JPEG, PNG, and WebP are supported.
 - `aboutURL` (optional): A link to a webpage where users can learn more about the rule set.
 - `title`: A short title of the rule set.
 - `description`: A description of the rule set. This is optional when the first rule in the rule set has non-empty `comments`.
