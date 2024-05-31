@@ -3,15 +3,18 @@
   "kind": "RedirectList",
   "redirects": [
     {
+      "captureGroupProcesses": [],
       "comments": "With this rule, you can open Wikipedia pages in Wikiwand automatically.",
       "destinationURLPattern": "https:\/\/www.wikiwand.com\/$1\/$2",
       "exampleURLs": [
-        "https:\/\/en.wikipedia.org\/wiki\/Ramen"
+        "https:\/\/en.wikipedia.org\/wiki\/Ramen",
+        "https:\/\/en.m.wikipedia.org\/wiki\/Shiga_Prefecture"
       ],
+      "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
-        "type": "wildcard",
-        "value": "https:\/\/*.wikipedia.org\/wiki\/*"
+        "type": "regularExpression",
+        "value": "https:\\\/\\\/([^.]*)(?:\\.[^.]*)?\\.wikipedia\\.org\/wiki\/(.*)"
       },
       "title": "Wikipedia: Open in Wikiwand"
     }
