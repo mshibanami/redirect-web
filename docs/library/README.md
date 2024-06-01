@@ -64,7 +64,7 @@ This file contains metadata of a rule set.
     "imageFiles": [
       "image.png"
     ],
-    "aboutURL": "<URL to the rule set details>",
+    "aboutUrl": "<URL to the rule set details>",
     "title": "<A title of the rule set>",
     "description": "<A description of the rule set.>",
     "primaryCategoryId": "gaming",
@@ -76,7 +76,7 @@ This file contains metadata of a rule set.
 - `imageFiles`:An array of image files of the rule set.
     - JPEG, PNG, and WebP are supported.
     - Recommended images size is under 1MB with 16:10 aspect ratio, but it's just a recommendation. There are no strict rules.
-- `aboutURL` (optional): A link to a web page where users can learn more about the rule set.
+- `aboutUrl` (optional): A link to a web page where users can learn more about the rule set.
 - `title` (optional): A short title of the rule set. This is optional when the first rule in the rule set has non-empty `title`.
 - `description` (optional): A description of the rule set. This is optional when the first rule in the rule set has non-empty `comments`.
 - `primaryCategoryId`: A primary category ID of the rule set. Find a list of the categories in [categories.json](./categories.json).
