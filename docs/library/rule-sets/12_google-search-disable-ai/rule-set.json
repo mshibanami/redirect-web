@@ -7,7 +7,7 @@
       "captureGroupProcesses" : [
 
       ],
-      "comments" : "This rule adds a query parameter udm=14 to display the search results on the Web tab.\n\nThe Web tab disables rich or redundant features such as AI overviews, related images, quotes, the \"People also ask\" section, etc., so you can focus on the actual search results.",
+      "comments" : "This rule adds a query parameter udm=14 to display the search results on the Web tab.\n\nThe Web tab disables extra features such as AI overviews, related images, quotes, the \"People also ask\" section, etc., so you can focus on the actual search results.",
       "destinationURLPattern" : "$0&udm=14",
       "exampleURLs" : [
         "https:\/\/www.google.com\/search?client=safari&rls=en&q=what+is+locomotive+syndrome&ie=UTF-8&oe=UTF-8"
