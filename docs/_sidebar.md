@@ -2,8 +2,7 @@
 - How to Use
     - [Redirect Rule](redirect-rule)
     - [Export/Import Rules](export-or-import-rules)
-- Library
-    - [Add Your Rules to Library](add-your-rules-to-library)
+- [Library](library)
 - Q&A
     - [FAQ](faq)
     - [Contact Us](contact-us)

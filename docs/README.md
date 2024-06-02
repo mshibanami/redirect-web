@@ -18,7 +18,10 @@ For example, you can create these rules:
 - Open a Google Meet link on Google Chrome
 - Open a Notion's link on the Notion app
 
-You can find the details and more useful examples of redirect rules on the GitHub Discussions page. Check [the discussions in the "Redirect Rules" category](https://github.com/mshibanami/redirect-web/discussions/categories/redirect-rules).
+You can find useful rules in these:
+
+- [Library](library) This is shown in the app with a .
+- [GitHub Discussions](https://github.com/mshibanami/redirect-web/discussions/categories/redirect-rules): A community forum where the users can share their rules with others.
 
 ## Features
 
