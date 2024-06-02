@@ -8,7 +8,7 @@ You may see an alert like this when you set up Redirect Web:
 
 > This extension will be able to read and alter webpages and see your browsing history on this website. **This could include sensitive information, including passwords, phone numbers, and credit cards.**
 
-This extension needs your permission to observe the page navigation to redirect to wherever you want to jump. So if you don’t allow it, this extension can't work
+This extension needs your permission to observe the page navigation to redirect to wherever you want to jump, and Safari displays this alert when the extension requests the related permissions. Therefore, if you don’t allow it, this extension can't work.
 
 Since we don't collect your personal information as per **[the privacy policy](./privacy-policy)**, we recommend you **always allow** it on **every website** for your convenience.
 
