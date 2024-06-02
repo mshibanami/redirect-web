@@ -8,7 +8,7 @@ Click either the ellipsis button or the Share button as shown in this screenshot
 
 ![Share on macOS](assets/share-on-macos.png)
 
-You can also multi-select the rules and export them by secondary clicking (right-clicking) them on the rule-listing sidebar:
+You can also multi-select your rules and export them by secondary clicking (right-clicking) them on the rule-listing sidebar:
 
 ![Share multiple rules on macOS](assets/multiselect-on-macos.png)
 
@@ -16,7 +16,7 @@ In addition, you can export all the rules by the menubar > File > Export All Red
 
 ![Menubar > File](assets/menubar-file.png)
 
-If you want to export the rules in the format compatible with [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/), press the Option key (`⌥`) on the context menu or the menubar, then you'll see these:
+If you want to export your rules in the format compatible with [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/), press the Option key (`⌥`) on the context menu or the menubar, then you'll see these:
 
 ![Menubar > File (Redirector)](assets/menubar-file-redirector.png)
 
@@ -26,7 +26,7 @@ Please note that Redirect Web is not fully compatible with Redirector, and vise 
 
 ### iOS
 
-You can share the rules like this:
+You can export your rules like this:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -39,7 +39,7 @@ You can share the rules like this:
 
 ### iOS
 
-Suppose your rules file is in the Files app. Open it on Files, tap the Share button, and then select Redirect Web:
+Suppose your rule file is in the Files app. Open it on Files, tap the Share button, and then select Redirect Web:
 
 | Step 1: Tap the Share button on Files | Step 2: Select Redirect Web |
 |-|-|
