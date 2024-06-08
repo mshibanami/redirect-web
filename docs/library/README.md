@@ -4,7 +4,7 @@ The library is shown in the Redirect Web apps and the data under this `library` 
 
 ## Rule Sets
 
-Rule sets within the library are managed at [library/rule-sets](https://github.com/mshibanami/redirect-web/tree/main/library/rule-sets).
+Rule sets within the library are managed at the [rule-sets](rule-sets) folder.
 
 Each rule is identified by a unique integer ID. All data in a rule set should be in a folder named `{id}_{short-title-of-rule-set}`. This folder should contain:
 
