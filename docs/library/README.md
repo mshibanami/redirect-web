@@ -1,5 +1,7 @@
 # Library
 
+![Library Screenshot](../assets/library-screenshot.webp)
+
 The library is shown in the Redirect Web apps and the data under this `library` folder may be used in the app.
 
 ## Rule Sets

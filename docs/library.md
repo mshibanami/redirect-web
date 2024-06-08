@@ -1,5 +1,7 @@
 # Library
 
+![Library Screenshot](assets/library-screenshot.webp)
+
 The library is available on the Redirect Web app, which provides various useful rules to the users.
 
 You can see all the contents [here](https://github.com/mshibanami/redirect-web/tree/main/docs/library).
