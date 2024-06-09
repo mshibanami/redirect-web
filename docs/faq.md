@@ -14,9 +14,9 @@ Since we don't collect your personal information as per **[the privacy policy](.
 
 But it’s not required. You can only allow it on specific websites. 👌
 
-## Will the contents in the library be paid in the future?
+## Will the library's contents become paid in the future?
 
-It's always free. You can also find the source of all the contents [here](https://github.com/mshibanami/redirect-web/tree/main/docs/library).
+No, it's always free. You can also find the source of all the contents [here](https://github.com/mshibanami/redirect-web/tree/main/docs/library).
 
 ## One-time Purchase or Annual Subscription: Which is Best?
 
