@@ -1,0 +1,27 @@
+{
+  "bundleID" : "io.github.mshibanami.RedirectWebForSafari",
+  "kind" : "RedirectList",
+  "redirects" : [
+    {
+      "captureGroupProcesses" : [
+
+      ],
+      "comments" : "To not get bombarded with random posts that want to grab your attention, this rule always redirects from the Facebook home page to the \"Most Recent\" feed where it shows only the posts of your friends sorted from latest to oldest.\n\n(Doesn't work inside the Facebook app, of course.)",
+      "destinationURLPattern" : "https:\/\/www.facebook.com\/?filter=all&sk=h_chr",
+      "exampleURLs" : [
+        "https:\/\/www.facebook.com",
+        "https:\/\/www.facebook.com\/permalink.php?story_fbid=1234"
+      ],
+      "excludeURLPatterns" : [
+
+      ],
+      "isEnabled" : false,
+      "kind" : "Redirect",
+      "sourceURLPattern" : {
+        "type" : "wildcard",
+        "value" : "https:\/\/www.facebook.com\/"
+      },
+      "title" : "[Facebook] Always show most recent feed instead of main page"
+    }
+  ]
+}
