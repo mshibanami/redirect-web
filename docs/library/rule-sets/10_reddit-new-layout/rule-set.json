@@ -4,7 +4,7 @@
     "redirects": [
         {
             "captureGroupProcesses": [],
-            "comments": "This redirect rule changes Reddit URLs from the newest layout to the new layout. This is useful if prefer the new theme over other layouts.\n\nMedia URLs are excluded from this redirect, as they are only supported on www.reddit.com.",
+            "comments": "This rule changes Reddit URLs from the newest layout to the new layout. This is useful if prefer the new theme over other layouts.\n\nMedia URLs are excluded from this redirect, as they are only supported on www.reddit.com.",
             "destinationURLPattern": "https:\/\/new.reddit.com\/$1",
             "exampleURLs": [
                 "https:\/\/www.reddit.com\/r\/BeAmazed\/comments\/164qg37\/mind_blown_it_really_is_true\/",
