@@ -39,7 +39,7 @@
         "type": "regularExpression",
         "value": "https?:\\\/\\\/(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})\\\/maps\\?(.*)"
       },
-      "title": "[Maps] Open Google Maps links in Apple Maps (part 1)"
+      "title": "(1/3) Open Google Maps links in Apple Maps"
     },
     {
       "captureGroupProcesses": [],
@@ -55,7 +55,7 @@
         "type": "regularExpression",
         "value": "https?:\\\/\\\/(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})\\\/maps\/(?:place|search)\/([^\/]*)\/@([-0-9.]*,[-0-9.]+)(?:,([-0-9.]+)z)?[\/?].*"
       },
-      "title": "[Maps] Open Google Maps links in Apple Maps (part 2)"
+      "title": "(2/3) Open Google Maps links in Apple Maps"
     },
     {
       "captureGroupProcesses": [],
@@ -70,7 +70,7 @@
         "type": "regularExpression",
         "value": "https?:\\\/\\\/(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})\\\/maps\/@([-0-9.]*,[-0-9.]+)(?:,([-0-9.]+)z)?[\/?].*"
       },
-      "title": "[Maps] Open Google Maps links in Apple Maps (part 3)"
+      "title": "(3/3) Open Google Maps links in Apple Maps"
     }
   ]
 }
