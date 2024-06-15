@@ -1,0 +1,38 @@
+{
+  "bundleID" : "io.github.mshibanami.RedirectWebForSafari",
+  "kind" : "RedirectList",
+  "redirects" : [
+    {
+      "captureGroupProcesses" : [
+
+      ],
+      "comments" : "",
+      "destinationURLPattern" : "yattee:\/\/watch?$1",
+      "exampleURLs" : [
+        "https:\/\/piped.video\/watch?v=asqxzaNGRWo",
+        "https:\/\/youtube.com\/watch?v=asqxzaNGRWo",
+        "https:\/\/m.youtube.com\/watch?v=asqxzaNGRWo",
+        "https:\/\/www.youtube.com\/watch?v=asqxzaNGRWo",
+        "https:\/\/youtube.de\/watch?v=asqxzaNGRWo",
+        "https:\/\/youtube-nocookie.com\/watch?v=asqxzaNGRWo",
+        "https:\/\/m.youtube.com\/watch?v=ZxYZkz20lYA&pp=ygUIdGVzdGluZyA%3D"
+      ],
+      "excludeURLPatterns" : [
+        {
+          "type" : "wildcard",
+          "value" : "https:\/\/youtube.com"
+        },
+        {
+          "type" : "wildcard",
+          "value" : "https:\/\/www.youtube.com"
+        }
+      ],
+      "kind" : "Redirect",
+      "sourceURLPattern" : {
+        "type" : "regularExpression",
+        "value" : "(?:https?:\\\/\\\/)?(?:[\\w.-]+)?(?:youtube\\.com|piped\\.video|youtube-nocookie\\.com|youtube\\.de)\\\/watch\\?(.*)"
+      },
+      "title" : "Youtube: Open in Yattee"
+    }
+  ]
+}
