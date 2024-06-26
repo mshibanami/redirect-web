@@ -1,5 +1,7 @@
 # Introduction
 
+[![appstore-badge.svg](./assets/appstore-badge.svg)](https://apps.apple.com/au/app/id1571283503)
+
 Welcome to the support website for Redirect Web for Safari, a Safari extension for iOS and macOS.
 
 This extension lets you set up redirect rules to jump to a specific website from another website. With Redirect Web, you can save time by automatically redirecting to your preferred websites, without the need to manually type the URLs or navigate through multiple pages.
