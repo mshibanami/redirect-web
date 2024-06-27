@@ -1,0 +1,72 @@
+{
+    "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+    "kind": "RedirectList",
+    "redirects": [
+        {
+            "captureGroupProcesses": [
+                {
+                    "groupIndex": 2,
+                    "process": {
+                        "id": "replaceOccurrences",
+                        "matchingPattern": {
+                            "type": "regularExpression",
+                            "value": "([&?])source=[^&]*"
+                        },
+                        "replacement": "$1"
+                    }
+                },
+                {
+                    "groupIndex": 2,
+                    "process": {
+                        "id": "replaceOccurrences",
+                        "matchingPattern": {
+                            "type": "regularExpression",
+                            "value": "[&?]$"
+                        },
+                        "replacement": ""
+                    }
+                },
+                {
+                    "groupIndex": 2,
+                    "process": {
+                        "id": "replaceOccurrences",
+                        "matchingPattern": {
+                            "type": "regularExpression",
+                            "value": "\\?&"
+                        },
+                        "replacement": "?"
+                    }
+                },
+                {
+                    "groupIndex": 2,
+                    "process": {
+                        "id": "replaceOccurrences",
+                        "matchingPattern": {
+                            "type": "regularExpression",
+                            "value": "&&"
+                        },
+                        "replacement": "&"
+                    }
+                }
+            ],
+            "comments": "",
+            "destinationURLPattern": "$1$2",
+            "exampleURLs": [
+                "https:\/\/example.com\/hello?theme=dark",
+                "https:\/\/example.com\/hello",
+                "https:\/\/example.com\/hello?source=twitter",
+                "https:\/\/example.com\/hello?theme=dark&source=twitter",
+                "https:\/\/example.com\/hello?source=twitter&theme=dark",
+                "https:\/\/example.com\/hello?theme=dark&source=twitter&nosource=no",
+                "https:\/\/example.com\/hello?theme=dark&source=twitter&nosource=no"
+            ],
+            "excludeURLPatterns": [],
+            "kind": "Redirect",
+            "sourceURLPattern": {
+                "type": "regularExpression",
+                "value": "(https:\/\/example.com\/[^?]*)(.*[&?]source=.*)"
+            },
+            "title": "Remove source parameter (without junks)"
+        }
+    ]
+}

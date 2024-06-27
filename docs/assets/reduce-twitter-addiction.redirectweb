@@ -1,0 +1,19 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "captureGroupProcesses": [],
+      "comments": "",
+      "destinationURLPattern": "https:\/\/insighttimer.com\/saraauster\/guided-meditations\/calm",
+      "exampleURLs": [],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https:\/\/(twitter|x).com\/.*"
+      },
+      "title": "Reduce Twitter Addiction"
+    }
+  ]
+}
