@@ -1,6 +1,6 @@
 - [Introduction](/)
+- [Getting Started](getting-started)
 - How to Use
-    - [Getting Started](getting-started)
     - [Redirect Rule](redirect-rule)
     - [Export/Import Rules](export-or-import-rules)
 - [Library](library)
