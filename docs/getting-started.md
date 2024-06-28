@@ -54,7 +54,7 @@ Now, Redirect Web brings you to the meditation when you access Twitter!
 **[⬇️ Download the Rule](assets/reduce-twitter-addiction.redirectweb ':ignore')**
 
 
-## Case 2: Add Query Parameters from URL
+## Case 2: Add Query Parameters to URL
 
 Let's say there is a website called `example.com` that shows a mobile layout by default, but you prefer their desktop layout. Fortunately, the website supports a `layout` query parameter to specify which layout the website displays. Let's create a rule that adds `layout=desktop` automatically.
 
@@ -84,9 +84,9 @@ In this case, you can specify an excluded URL pattern that allows you to access 
 * `[&?]`: Matches either `&` or `?`
 * `[^&]`: Matches *any character except `&`
 
-### Problem 2: Target Already Has Existing Parameters
+### Problem 2: Can't handle existing parameters properly
 
-If the target URL already has other query parameters like `example.com/hello?theme=dark`, the destination will be `example.com/hello?theme=dark?layout=desktop`. You can only join the parameters with `&`. `?` is only allowed at the beginning of the parameters. So it's not treated as a valid parameter.
+If the target URL already has other query parameters like `example.com/hello?theme=dark`, the destination will be `example.com/hello?theme=dark?layout=desktop` (There are two `?` in the URL) but you can only join the parameters with `&`. `?` as a special character is only allowed at the beginning of the parameters. So it's not treated as a valid parameter.
 
 In this case, change the settings like this:
 
@@ -127,7 +127,7 @@ This is merely an example. You can also create multiple rules to handle each pro
 
 ## Case 3: Remove Query Parameters from URL
 
-This time, let's say you find out a query parameter `source=twitter` that the website uses to track you, and you decide to remove it to anonymize yourself.
+Suppose you find out a query parameter `source=twitter` that a website `example.com` uses to track you, and you decide to remove it to anonymize yourself.
 
 The rule would look like this:
 
