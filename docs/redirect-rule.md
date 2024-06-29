@@ -34,13 +34,13 @@ You can also specify the Capture Group Processing option to process the text cap
 
 ### Capture Group Processing
 
-The Capture Group Processing option allows you to specify how to process the text captured by the pattern in the Redirect To option. You can choose one or more of the following processes:
+The Capture Group Processing option allows you to specify how to process the captured groups you can substitute in the Redirect To option with `$1`, `$2`... You can choose one or more of the following processes:
 
 - URL Encode/Decode
 - Base64 Encode/Decode
 - Replace Occurrences
 
-> [!Note]
+> [!NOTE]
 > This is for processing each captured group and it doesn't affect which URLs are excluded by the Excluded URL Patterns. For instance, let's say you have this rule:
 >
 > - **Redirect From**: `https://example.com/(hello.*)`
