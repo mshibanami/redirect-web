@@ -8,7 +8,7 @@ This section provides detailed information on how to set up redirect rules using
 
 The **Redirect From** option allows you to specify the URL pattern of the website you want to redirect from. You can choose a URL pattern type from Regular Expression and Wildcard to specify the URL pattern.
 
-For example, if you specify `https://example.com/*` with Wildcard, then, it matches, for example, `https://example.com/` or `https://example.com/hello`.
+For example, if you specify `https://example.com/*` with Wildcard, it matches `https://example.com/` or `https://example.com/hello`.
 
 The matched URLs can be referenced in the Redirect To option, using `$0`, `$1` ... which is called substitution. Check the details in [URL Pattern](#url-pattern) on this page.
 
