@@ -25,12 +25,15 @@ and it matches `https://google.com/hello`, then the destination URL will be `htt
 
 You can also specify a custom URL scheme to open an app, such as `mailto:` to open the default email client. To specify an app, use the format `app:<bundle identifier>/<URL>`. For example, to open the Notion app with a specific page, use `app:notion://openPage?pageId=<page ID>`.
 
-[macOS Only] If you want to specify an app you wish to open the destination URL, use the **Application** combo box.
+You can also specify the **Capture Group Processing** option to process the text captured by the pattern in the Redirect To option. Please see the details in the [Capture Group Processing](#capture-group-processing) section below.
+
+#### [macOS Only] Open in App
+
+If you want to specify an app you wish to open the destination URL, use the **Application** combo box. This is only available on macOS.
 
 > [!WARNING]
 > You can only open an app that supports [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Also, make sure that the app supports opening the URL you want to open.
 
-You can also specify the **Capture Group Processing** option to process the text captured by the pattern in the Redirect To option. Please see the details in the [Capture Group Processing](#capture-group-processing) section below.
 
 ### Capture Group Processing
 
