@@ -8,21 +8,29 @@ This section provides detailed information on how to set up redirect rules using
 
 The Redirect From option allows you to specify the URL pattern of the website you want to redirect from. You can choose a URL pattern type from Regular Expression and Wildcard to specify the URL pattern.
 
-For example, if you specify `https://example.com/*` with wildcard, then, for example, `https://example.com/` and `https://example.com/hello` are matched.
+For example, if you specify `https://example.com/*` with a wildcard, then, it matches, for example, `https://example.com/` or `https://example.com/hello`.
 
-The matched URLs can be referenced in the Redirect To option, using `$0`, `$1` ... which is called substitution. Check the details in [URL Pattern](#url-pattern) in this page.
+The matched URLs can be referenced in the Redirect To option, using `$0`, `$1` ... which is called substitution. Check the details in [URL Pattern](#url-pattern) on this page.
 
 ### Redirect To
 
-The Redirect To option specifies the URL you want to redirect to from the URL matched with the Redirect From option. You can use substitution using `$0`, `$1`, ... to dynamically generate the URL. Check the details in [URL Pattern](#url-pattern) in this page.
+The **Redirect To** option specifies a destination URL you wish to redirect to, from the URL matched with the Redirect From option. You can use substitution using `$0`, `$1`, ... to dynamically generate the URL. Check the details in [URL Pattern](#url-pattern) in this page.
 
-For example, if you set `https://example.com/$1` in the Redirect To option, and the URL matched with the Redirect From option is `https://example.com/hello`, then the generated URL will be `https://example.com/hello`.
+For example, if you set the following rule:
+
+- **Redirect From**: `https://google.com/*` (Wildcard)
+- **Redirect To**: `https://apple.com/$1`
+
+and it matches `https://google.com/hello`, then the destination URL will be `https://apple.com/hello`.
 
 You can also specify a custom URL scheme to open an app, such as `mailto:` to open the default email client. To specify an app, use the format `app:<bundle identifier>/<URL>`. For example, to open the Notion app with a specific page, use `app:notion://openPage?pageId=<page ID>`.
 
-If you want to specify an app you want to open the destination URL with (macOS only), specify it in the Application combo box. Please note that you can only open an app that supports [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Also, make sure that the app supports opening the URL you want to open.
+[macOS Only] If you want to specify an app you wish to open the destination URL, use the Application combo box.
 
-You can also specify the Capture Group Processing option to process the text captured by the pattern in the Redirect To option. Please see the details in the following [Capture Group Processing](#capture-group-processing) section.
+> [!WARNING]
+> You can only open an app that supports [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Also, make sure that the app supports opening the URL you want to open.
+
+You can also specify the Capture Group Processing option to process the text captured by the pattern in the Redirect To option. Please see the details in the [Capture Group Processing](#capture-group-processing) section below.
 
 ### Capture Group Processing
 
@@ -42,31 +50,31 @@ In this case, `https://example.com/hello_world` will not be excluded while `http
 
 ### Excluded URL Patterns
 
-The Excluded URL Patterns option allows you to specify the URLs that are not redirected. This can be useful to avoid redirect loops, or to exclude certain parts of a website from being redirected.
+The Excluded URL Patterns option allows you to specify the URLs that are not redirected. This can be useful to avoid redirect loops or to exclude certain parts of a website from being redirected.
 
 You can specify excluded URL patterns using either Regular Expression or Wildcard pattern types.
 
 ### Examples
 
-The Examples option allows you to test your redirect rule by providing sample URLs. By adding a sample URL, you can check whether the rule works as expected before actually applying it.
+The Examples option allows you to test your redirect rule by providing sample URLs. By adding a sample URL, you can check if the rule works as expected before actually applying it.
 
 ### Comments
 
-The Comments section allows you to add any notes or comments about your redirect rule. This can be useful for keeping track of why you created a specific rule, or for providing context for others who might view your rules.
+The Comments section allows you to add any notes or comments about your redirect rule. This can be useful for keeping track of why you created a specific rule or for providing context for others who might view your rules.
 
 ## URL Pattern
 
 There are 3 options you can specify one or more URL patterns:
 
-- **Redirect From**: To specify the target URLs
-- **Excluded URL Patterns**: To specify the URLs that aren't redirected
-- **Capture Group Processing**: To specify the target string appearing in a captured group in the Replace Occurrences process
+- **Redirect From**: To specify the target URLs.
+- **Excluded URL Patterns**: To specify the URLs that aren't redirected.
+- **Capture Group Processing**: To specify the target string appearing in a captured group during the Replace Occurrences process.
 
 To specify URL patterns, you can use 2 pattern types: Regular Expression and Wildcard.
 
 ### Regular Expression
 
-Regular Expression is a powerful tool for matching patterns in text, powered by Apple's regular expression engine which is described [here](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). It allows you to define a specific pattern that matches a set of strings. Here are some examples:
+Regular Expression is a powerful tool for matching patterns in text, powered by Apple's regular expression engine which is described [here](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). It allows you to define a specific pattern that matches a set of strings. Here are some examples.
 
 - To match `https://example.com/hello`, you can use `https://example.com/(.*)`. This will match any string after `https://example.com/` and store it in a capture group.
 - To match `https://example.com/search?q=hello`, you can use `https://example.com/search\?q=(.*)`. This will match the value of the `q` parameter and store it in a capture group.
@@ -80,10 +88,10 @@ You can learn more about Regex syntax in resources like [RegExr](https://regexr.
 
 ### Wildcard
 
-Wildcard is a simpler pattern type that allows you to use `*` and `?` as wildcards. Here are some examples:
+A Wildcard is a simpler pattern type that allows you to use `*` and `?` as wildcards. Here are some examples:
 
 - To match `https://example.com/hello`, you can use `https://example.com/*`. This will match any string after `https://example.com/`.
-- To match `https://example.com/search?q=hello`, you can use `https://example.com/search?q=*`. This will match any value of the `q` parameter.
+- To match `https://example.com/search?q=hello`, you can use `https://example.com/search?q=*`. This will match any value for the `q` parameter.
 - To match any URL that contains the word `blog`, you can use `*blog*`.
 
 You can also use substitution in Wildcard as well, which means you can reference portions of the matched URL using `$1`, `$2`, etc. For example, if you use `https://example.com/*-world-*`, and the URL is `https://example.com/hello-world-goodbye`, then `$1` would be "hello" and `$2` would be "goodbye". `$0` is also available to reference the entire URL that was matched.
