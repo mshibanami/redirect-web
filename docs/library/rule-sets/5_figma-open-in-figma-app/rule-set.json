@@ -12,7 +12,7 @@
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https:\/\/www.figma.com\/(file\/.*)"
+        "value": "https:\/\/www.figma.com\/((file|design)\/.*)"
       },
       "title": "Figma: Open in Figma App"
     }
