@@ -23,7 +23,14 @@ For example, if you set the following rule:
 
 and it matches `https://google.com/hello`, then the destination URL will be `https://apple.com/hello`.
 
-You can also specify a custom URL scheme to open an app, such as `mailto:` to open the default email client. To specify an app, use the format `app:<bundle identifier>/<URL>`. For example, to open the Notion app with a specific page, use `app:notion://openPage?pageId=<page ID>`.
+You can also specify a custom URL scheme to open an app. These are examples of apps that support deep linking:
+
+- Figma: `figma://file/Your_Figma_ID`
+- Firefox: `firefox://open-url?url=https://example.com/hello`
+- Google Chrome: `googlechromes://example.com`
+- Microsoft Edge: `microsoft-edge://example.com`
+- Notion: `notion://www.notion.so/Your_Note_ID`
+- Slack: `slack://open`
 
 You can also specify the **Capture Group Processing** option to process the text captured by the pattern in the Redirect To option. Please see the details in the [Capture Group Processing](#capture-group-processing) section below.
 
@@ -34,14 +41,13 @@ If you want to specify an app you wish to open the destination URL, use the **Ap
 > [!WARNING]
 > You can only open an app that supports [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Also, make sure that the app supports opening the URL you want to open.
 
-
 ### Capture Group Processing
 
 The **Capture Group Processing** option allows you to specify how to process the captured groups you can substitute in the **Redirect To** option with `$1`, `$2`... You can choose one or more of the following processes:
 
-- URL Encode/Decode
-- Base64 Encode/Decode
-- Replace Occurrences
+- **URL Encode/Decode**: This applies [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) or decoding to a captured group. For example, if you encode `https://example.com/hello`, it's converted to `https%3A%2F%2Fexample.com%2Fhello`. Decode works in an opposite way.
+- **Base64 Encode/Decode**: This decode/encode a text into [Base64](https://en.wikipedia.org/wiki/Base64). For example, you can encode `hello` to `aGVsbG8=`, and decode it back to `hello`.
+- **Replace Occurrences**: This replaces one or more characters in a group, matched by a Target, with a Replacement. For example, if the captured group is `hello`, and the Target is `l` and the Replacement is `y`, it is modified to `heyyo`.
 
 > [!NOTE]
 > This is for processing each captured group and it doesn't affect which URLs are excluded by the **Excluded URL Patterns**. For instance, let's say you have this rule:
