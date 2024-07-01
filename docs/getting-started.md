@@ -11,9 +11,9 @@ Suppose you're addicted to Twitter, and you decide to meditate in Insight Timer 
 
 ### Step 1. Set up "Redirect From"
 
-First, you should set up the **Redirect From** section in the **Edit Rule** screen in the app. The targets are URLs starting with `https://twitter.com/`.
+First, you should set up the *Redirect From* section in the *Edit Rule* screen in the app. The targets are URLs starting with `https://twitter.com/`.
 
-In this case, you can specify the following pattern with the **[Wildcard](redirect-rule?id=wildcard)** mode:
+In this case, you can specify the following pattern with the [Wildcard](redirect-rule?id=wildcard) mode:
 
 ```
 https://twitter.com/*
@@ -107,14 +107,14 @@ Let's take a look step by step.
 > [!NOTE]
 > RegExr shows an error when you don't escape `/` with `\`. Although you can escape it, it's not required since Redirect Web uses a different engine by Apple that doesn't require escaping.
 
-This is not a perfect solution, as it redirects `example.com/hello` to `example.com/hello?layout=desktop&`, which includes an unnecessary `&` at the end of the URL. It's not a big deal in general, but if you wish to remove it, you can use **Capture Group Processing**.
+This is not a perfect solution, as it redirects `example.com/hello` to `example.com/hello?layout=desktop&`, which includes an unnecessary `&` at the end of the URL. It's not a big deal in general, but if you wish to remove it, you can use *Capturing Group Processing*.
 
 In conclusion, this is the final output:
 
 * **Redirect From**: `(https://example.com/[^?]*)((\?(.*))?)` (Regular Expression)
 * **Redirect To**: `$1?layout=desktop$3`
 * **Excluded URL Pattern**: `.*[&?]layout=[^&]*.*` (Regular Expression)
-* **Capture Group Processing**:
+* **Capturing Group Processing**:
     * **Group**: `$3`
     * **Process**: Replace Occurrences
         * **Target**: `\?(.*)`

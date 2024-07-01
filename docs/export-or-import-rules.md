@@ -23,7 +23,7 @@ If you want to export your rules in the format compatible with [Einar Egilsson's
 ![Context Menu (Redirector)](assets/context-menu-redirector.png)
 
 > [!WARNING]
-> Redirect Web is not fully compatible with Redirector, and vise versa. Some settings, such as "Replace Occurrences" for Capture Group Processing, aren't exported with the Redirector's format.
+> Redirect Web is not fully compatible with Redirector, and vise versa. Some settings, such as "Replace Occurrences" for Capturing Group Processing, aren't exported with the Redirector's format.
 
 ### iOS
 
