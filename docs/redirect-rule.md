@@ -74,13 +74,7 @@ The **Comments** section allows you to add any notes or comments about your redi
 
 ## URL Pattern
 
-There are 3 options you can specify one or more URL patterns:
-
-- **Redirect From**: To specify the target URLs.
-- **Excluded URL Patterns**: To specify the URLs that aren't redirected.
-- **Capture Group Processing**: To specify the target string appearing in a captured group during the Replace Occurrences process.
-
-To specify URL patterns, you can use 2 pattern types: Regular Expression and Wildcard.
+There are 3 options you can specify one or more URL patterns. Redirect From, Excluded URL Patterns and Capture Group Processing. And to specify URL patterns, you can use 2 pattern types: **Regular Expression** and **Wildcard**.
 
 ### Regular Expression
 
