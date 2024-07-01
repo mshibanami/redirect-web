@@ -1,8 +1,7 @@
 - [Introduction](/)
 - [Getting Started](getting-started)
-- How to Use
-    - [Redirect Rule](redirect-rule)
-    - [Export/Import Rules](export-or-import-rules)
+- [Redirect Rule](redirect-rule)
+- [Export/Import Rules](export-or-import-rules)
 - [Library](library)
 - Q&A
     - [FAQ](faq)
