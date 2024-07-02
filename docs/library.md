@@ -25,4 +25,4 @@ This might be easier than sending a pull request since you can leave it to us to
 ## Other Information
 
 - You can see all the contents in [the repository on GitHub](https://github.com/mshibanami/redirect-web/tree/main/docs/library).
-- We host our private API server for the library contents so we can provide filtering, etc., and the app fetches the library contents from there. This server doesn't collect your personal information as per [our privacy policy](privacy-policy.md).
+- We host our private API server on Cloudflare for the library contents, enabling ust to provide filtering and other services. The app fetches the library contents from this server. As stated in our [our privacy policy](privacy-policy.md), This server does not collect your personal information.
