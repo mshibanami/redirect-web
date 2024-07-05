@@ -56,7 +56,7 @@ You can choose one or more of the following processes:
 
 - **URL Encode/Decode**: This applies [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) or decoding to a capturing group. For example, if you encode `https://example.com/hello`, it's converted to `https%3A%2F%2Fexample.com%2Fhello`. Decode works in an opposite way.
 - **Base64 Encode/Decode**: This decode/encode a text into [Base64](https://en.wikipedia.org/wiki/Base64). For example, you can encode `hello` to `aGVsbG8=`, and decode it back to `hello`.
-- **Replace Occurrences**: This replaces one or more characters in a group, matched by a Target, with a Replacement. For example, if the capturing group is `hello`, and the Target is `l` and the Replacement is `y`, it is modified to `heyyo`.
+- **Replace Occurrences**: This replaces one or more characters in a group, matched by a **Target**, with a **Replacement**. For example, if the capturing group is `hello`, and the Target is `l` and the Replacement is `y`, it is modified to `heyyo`.
 
 > [!NOTE]
 > This is for processing each capturing group and it doesn't affect which URLs are excluded by the **Excluded URL Patterns**. For instance, let's say you have this rule:
