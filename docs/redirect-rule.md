@@ -6,7 +6,7 @@ This section provides detailed information on how to set up redirect rules using
 
 ### Redirect From
 
-The **Redirect From** option allows you to specify the URL pattern of the website you want to redirect from. You can choose a URL pattern type from Regular Expression and Wildcard to specify the URL pattern.
+The **Redirect From** option allows you to specify a URL pattern of web pages you want to redirect from. You can choose either Wildcard or Regular Expression.
 
 For example, if you specify `https://example.com/*` with Wildcard, it matches `https://example.com/` or `https://example.com/hello`.
 
@@ -83,7 +83,20 @@ The **Comments** section allows you to add any notes or comments about your redi
 
 ## URL Pattern
 
-There are 3 options you can specify one or more URL patterns. Redirect From, Excluded URL Patterns and Capturing Group Processing. And to specify URL patterns, you can use 2 pattern types: **Regular Expression** and **Wildcard**.
+There are 3 options you can specify one or more URL patterns. *Redirect From*, *Excluded URL Patterns* and *Capturing Group Processing*. To specify them, you can choose either **Wildcard** or **Regular Expression**.
+
+### Wildcard
+
+**Wildcard** is a simpler pattern type that allows you to use `*` (matches anything) and `?`  (matches any single character) as wildcards. Here are some examples:
+
+- To match `https://example.com/hello`, you can use `https://example.com/*`. This will match any string after `https://example.com/`.
+- To match `https://example.com/search?q=hello`, you can use `https://example.com/search?q=*`. This will match any value for the `q` parameter.
+- To match any URL that contains the word `blog`, you can use `*blog*`.
+
+You can also use substitution in Wildcard as well, which means you can reference portions of the matched URL using `$1`, `$2`, etc. For example, if you use `https://example.com/*-world-*`, and the URL is `https://example.com/hello-world-goodbye`, then `$1` would be "hello" and `$2` would be "goodbye". `$0` is also available to reference the entire URL matched.
+
+> [!Note]
+> Although substitution is a feature of Regular Expression, you can also use it for Wildcard because Redirect Web internally converts Wildcard to Regular Expression.
 
 ### Regular Expression
 
@@ -96,13 +109,3 @@ There are 3 options you can specify one or more URL patterns. Redirect From, Exc
 You can reference the capturing groups in *Redirect To* or *Replacement* using `$1`, `$2`, ... or `$0` to reference the entire match.
 
 You can learn more about Regex syntax in resources like [RegExr](https://regexr.com/).
-
-### Wildcard
-
-**Wildcard** is a simpler pattern type that allows you to use `*` and `?` as wildcards. Here are some examples:
-
-- To match `https://example.com/hello`, you can use `https://example.com/*`. This will match any string after `https://example.com/`.
-- To match `https://example.com/search?q=hello`, you can use `https://example.com/search?q=*`. This will match any value for the `q` parameter.
-- To match any URL that contains the word `blog`, you can use `*blog*`.
-
-You can also use substitution in Wildcard as well, which means you can reference portions of the matched URL using `$1`, `$2`, etc. For example, if you use `https://example.com/*-world-*`, and the URL is `https://example.com/hello-world-goodbye`, then `$1` would be "hello" and `$2` would be "goodbye". `$0` is also available to reference the entire URL matched.
