@@ -3,25 +3,32 @@
     "kind": "RedirectList",
     "redirects": [
         {
-            "captureGroupProcesses": [],
+            "captureGroupProcesses": [
+                {
+                    "groupIndex": 0,
+                    "process": {
+                        "id": "replaceOccurrences",
+                        "matchingPattern": {
+                            "type": "regularExpression",
+                            "value": "&?source=[^&]*"
+                        },
+                        "replacement": ""
+                    }
+                }
+            ],
             "comments": "",
-            "destinationURLPattern": "$1$2$4",
+            "destinationURLPattern": "$0",
             "exampleURLs": [
-                "https:\/\/example.com\/hello?theme=dark",
-                "https:\/\/example.com\/hello",
-                "https:\/\/example.com\/hello?source=twitter",
-                "https:\/\/example.com\/hello?theme=dark&source=twitter",
-                "https:\/\/example.com\/hello?source=twitter&theme=dark",
-                "https:\/\/example.com\/hello?theme=dark&source=twitter&nosource=no",
-                "https:\/\/example.com\/hello?theme=dark&source=twitter&nosource=no"
+                "https:\/\/example.com\/?source=twitter",
+                "https:\/\/example.com\/?hello=world&source=twitter&foo=bar"
             ],
             "excludeURLPatterns": [],
             "kind": "Redirect",
             "sourceURLPattern": {
-                "type": "regularExpression",
-                "value": "(https:\/\/example.com\/[^?]*)(.*[&?])(source=[^&]*)(.*)"
+                "type": "wildcard",
+                "value": "https:\/\/example.com\/*"
             },
-            "title": "Remove source parameter"
+            "title": "Remove parameters"
         }
     ]
 }

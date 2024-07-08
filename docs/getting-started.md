@@ -53,8 +53,36 @@ Now, Redirect Web brings you to the meditation when you access Twitter!
 
 **[⬇️ Download the Rule](assets/reduce-twitter-addiction.redirectweb ':ignore')**
 
+## Case 2: Remove Query Parameters from URL
 
-## Case 2: Add Query Parameters to URL
+Suppose there is a query parameter `source=twitter` in a URL of `example.com`, and you decided to remove it to anonymize yourself.
+
+In this case, the *Capturing Group Processing* option is the easiest way.:
+
+* **Redirect From**: `https://example.com/*` (Wildcard)
+* **Redirect To**: `$0`
+* **Capturing Group Processing**:
+    * **Group**: `$0`
+    * **Process**: Replace Occurrences
+        * **Target**: `&?source=[^&]*`
+        * **Replacement**: `` (none)
+        * **Text Pattern**: Regular Expression
+
+**[⬇️ Download the Rule](assets/remove-parameters.redirectweb ':ignore')**
+
+This rule works as follows:
+
+```
+https://example.com/?source=twitter
+↪ https://example.com/?
+
+https://example.com/?hello=world&source=twitter&foo=bar
+↪ https://example.com/?hello=world&foo=bar
+```
+
+If you want to remove more parameters, add more processes.
+
+## Case 3: Add Query Parameters to URL
 
 Let's say there is a website called `example.com` that shows a mobile layout by default, but you prefer their desktop layout. Fortunately, the website supports a `layout` query parameter to specify which layout the website displays. Let's create a rule that adds `layout=desktop` automatically.
 
@@ -123,19 +151,3 @@ In conclusion, this is the final output:
 **[⬇️ Download the Rule](assets/add-parameters.redirectweb ':ignore')**
 
 This is merely an example. You can also create multiple rules to handle each problem. It can be much simpler.
-
-
-## Case 3: Remove Query Parameters from URL
-
-Suppose you find out a query parameter `source=twitter` that a website `example.com` uses to track you, and you decide to remove it to anonymize yourself.
-
-The rule would look like this:
-
-* **Redirect From**: `(https://example.com/[^?]*)(.*[&?])(source=[^&]*)(.*)` (Regular Expression)
-* **Redirect To**: `$1$2$4`
-
-**[⬇️ Download the Rule](assets/remove-parameters.redirectweb ':ignore')**
-
-The destination may include unnecessary characters such as `?` at the end, `&&`, and `?&`. Although they don't cause any problems in general, check the rule you can download from the following link if you wish to remove them:
-
-**[⬇️ Download the Rule](assets/remove-parameters-without-junks.redirectweb ':ignore')**
