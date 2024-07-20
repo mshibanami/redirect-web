@@ -6,7 +6,7 @@
       "captureGroupProcesses" : [
 
       ],
-      "comments" : "To not get bombarded with random posts that want to grab your attention, this rule always redirects from the Facebook home page to the \"Most Recent\" feed where it shows only the posts of your friends sorted from latest to oldest.\n\n(Doesn't work inside the Facebook app, of course.)",
+      "comments" : "To not get bombarded with random posts that want to grab your attention, this rule always redirects from the Facebook home page to the \"Most Recent\" feed where it shows only the posts of your friends sorted from latest to oldest.\n\n(Doesn't work inside the Facebook app, of course.)\n\n⚠️ This is unavailable on iPhone (but available on Mac and iPad) because the URLs for Facebook's Feeds and Home pages are both `https://www.facebook.com/` on iPhone.",
       "destinationURLPattern" : "https:\/\/www.facebook.com\/?filter=all&sk=h_chr",
       "exampleURLs" : [
         "https:\/\/www.facebook.com",

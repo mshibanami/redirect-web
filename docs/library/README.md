@@ -69,7 +69,8 @@ This file contains metadata of a rule set.
     "title": "<A title of the rule set>",
     "description": "<A description of the rule set.>",
     "primaryCategoryId": "gaming",
-    "secondaryCategoryId": "productivity"
+    "secondaryCategoryId": "productivity",
+    "supportedDeviceTypes": ["desktop", "tablet"]
 }
 ```
 
@@ -82,3 +83,6 @@ This file contains metadata of a rule set.
 - `description` (optional): A description of the rule set. This is optional when the first rule in the rule set has non-empty `comments`.
 - `primaryCategoryId`: A primary category ID of the rule set. Find a list of the categories in [categories.json](./categories.json).
 - `secondaryCategoryId` (optional): A secondary category ID of the rule set.
+- `supportedDeviceTypes` (optional): An array of device types that support the rule set.
+    - `desktop`, `tablet` and `phone` are available.
+    - All devices are supported by default.
