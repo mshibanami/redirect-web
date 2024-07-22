@@ -4,6 +4,21 @@ This section provides detailed information on how to set up redirect rules using
 
 ## Options
 
+### Type
+
+Specify the **Type** option to control how the app handles redirection. You can choose from these:
+
+* **Original** (Default)
+    * This uses traditional Web APIs to control redirection. Additionally, it uses [the Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) for a fallback.
+    * You can use all the options other than [Resource Type](#resource-type).
+    * This is slower than the *Declarative* type and may cause extra network requests.
+* **Declarative** (Experimental):
+    * This uses [the Declarative Net Request API](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) to handle redirection.
+    * This allows you to specify the [Resource Types](#resource-types) option of web pages you wish to redirect from.
+    * You can't use some options, such as *Capturing Group Processing* and *Excluded URL Patterns*.
+    * You can't include pipes (`|`) in your Regular Expression pattern.
+        * (We sent feedback to Apple as FB13251357 so the pipes will work in the future.)
+
 ### Redirect From
 
 The **Redirect From** option allows you to specify a URL pattern of web pages you want to redirect from. You can choose either Wildcard or Regular Expression.
