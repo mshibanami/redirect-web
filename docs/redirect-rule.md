@@ -13,14 +13,27 @@ For example, if you specify `https://example.com/*` with Wildcard, it matches `h
 > [!NOTE]
 > In the Redirect To option, You can reference the entire match using `$0` or partial matches using `$1`, `$2`, ... Check the details in [URL Pattern](#url-pattern) on this page.
 
+### Resource Types
+
+Set the **Resource Types** option as the context in which a resource was fetched in a web request.
+For example, if you set `script`, you can redirect the JavaScript files loaded by web pages.
+
+Currently, these are available: 
+`main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
+
+Please check the details of each resource type in [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+
+> [!WARNING]
+> Since this is an option for [the Declarative type](#type), this is always `main_frame` only if you choose *Original* for the *Type* option.
+
 ### Redirect To
 
 The **Redirect To** option specifies a destination URL you wish to redirect to, from the source URL matched with the *Redirect From* option. You can also substitute capturing groups with `$1`, `$2`, ... or the entire match with `$0`. These help you dynamically specify the destination. Check the details in [URL Pattern](#url-pattern) in this page.
 
 For example, if you set the following rule:
 
-- **Redirect From**: `https://google.com/*` (Wildcard)
-- **Redirect To**: `https://apple.com/$1`
+* **Redirect From**: `https://google.com/*` (Wildcard)
+* **Redirect To**: `https://apple.com/$1`
 
 and it matches `https://google.com/hello`, then the destination URL will be `https://apple.com/hello`.
 
@@ -29,12 +42,12 @@ Additionally, You can modify the texts of `$1`, `$2`, ... before making substitu
 > [!TIP]
 > You can specify a custom URL scheme to open an app. These are examples of apps that support deep linking:
 >
-> - Figma: `figma://file/Your_Figma_ID`
-> - Firefox: `firefox://open-url?url=https://example.com/hello`
-> - Google Chrome: `googlechromes://example.com`
-> - Microsoft Edge: `microsoft-edge://example.com`
-> - Notion: `notion://www.notion.so/Your_Note_ID`
-> - Slack: `slack://open`
+> * Figma: `figma://file/Your_Figma_ID`
+> * Firefox: `firefox://open-url?url=https://example.com/hello`
+> * Google Chrome: `googlechromes://example.com`
+> * Microsoft Edge: `microsoft-edge://example.com`
+> * Notion: `notion://www.notion.so/Your_Note_ID`
+> * Slack: `slack://open`
 
 #### [macOS Only] Open in App
 
@@ -49,21 +62,21 @@ The **Capturing Group Processing** option allows you to specify how to process t
 
 These are how to make capturing groups:
 
-- **Wildcard**: Texts matched with `*` and `?` are automatically captured.
-- **Regular Expression**: Texts matched with part of the pattern inside `()` are captured.
+* **Wildcard**: Texts matched with `*` and `?` are automatically captured.
+* **Regular Expression**: Texts matched with part of the pattern inside `()` are captured.
 
 You can choose one or more of the following processes:
 
-- **URL Encode/Decode**: This applies [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) or decoding to a capturing group. For example, if you encode `https://example.com/hello`, it's converted to `https%3A%2F%2Fexample.com%2Fhello`. Decode works in an opposite way.
-- **Base64 Encode/Decode**: This decode/encode a text into [Base64](https://en.wikipedia.org/wiki/Base64). For example, you can encode `hello` to `aGVsbG8=`, and decode it back to `hello`.
-- **Replace Occurrences**: This replaces one or more characters in a group, matched by a **Target**, with a **Replacement**. For example, if the capturing group is `hello`, and the Target is `l` and the Replacement is `y`, it is modified to `heyyo`.
+* **URL Encode/Decode**: This applies [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) or decoding to a capturing group. For example, if you encode `https://example.com/hello`, it's converted to `https%3A%2F%2Fexample.com%2Fhello`. Decode works in an opposite way.
+* **Base64 Encode/Decode**: This decode/encode a text into [Base64](https://en.wikipedia.org/wiki/Base64). For example, you can encode `hello` to `aGVsbG8=`, and decode it back to `hello`.
+* **Replace Occurrences**: This replaces one or more characters in a group, matched by a **Target**, with a **Replacement**. For example, if the capturing group is `hello`, and the Target is `l` and the Replacement is `y`, it is modified to `heyyo`.
 
 > [!NOTE]
 > This is for processing each capturing group and it doesn't affect which URLs are excluded by the **Excluded URL Patterns**. For instance, let's say you have this rule:
 >
-> - **Redirect From**: `https://example.com/(hello.*)`
-> - **Capturing Group Process**: Replace `.*` with `hello` for `$1`
-> - **Excluded URL Pattern**: `https://example.com/hello`
+> * **Redirect From**: `https://example.com/(hello.*)`
+> * **Capturing Group Process**: Replace `.*` with `hello` for `$1`
+> * **Excluded URL Pattern**: `https://example.com/hello`
 >
 > In this case, `https://example.com/hello_world` will not be excluded while `https://example.com/hello` will be excluded.
 
