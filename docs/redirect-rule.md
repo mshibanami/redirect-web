@@ -79,7 +79,7 @@ The **Examples** option allows you to test your redirect rule by providing sampl
 
 ### Comments
 
-The **Comments** section allows you to add any notes or comments about your redirect rule. This can be useful for keeping track of why you created a specific rule or for providing context for others who might view your rules.
+The **Comments** option allows you to add any notes or comments about your redirect rule. This can be useful for keeping track of why you created a specific rule or for providing context for others who might view your rules.
 
 ## URL Pattern
 

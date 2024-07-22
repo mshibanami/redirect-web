@@ -57,7 +57,7 @@ Now, Redirect Web brings you to the meditation when you access Twitter!
 
 Suppose there is a query parameter `source=twitter` in a URL of `example.com`, and you decided to remove it to anonymize yourself.
 
-In this case, the *Capturing Group Processing* option is the easiest way.:
+In this case, the **Capturing Group Processing** option is the easiest way.:
 
 * **Redirect From**: `https://example.com/*` (Wildcard)
 * **Redirect To**: `$0`
@@ -65,7 +65,7 @@ In this case, the *Capturing Group Processing* option is the easiest way.:
     * **Group**: `$0`
     * **Process**: Replace Occurrences
         * **Target**: `&?source=[^&]*`
-        * **Replacement**: `` (none)
+        * **Replacement**: *(none)*
         * **Text Pattern**: Regular Expression
 
 **[⬇️ Download the Rule](assets/remove-parameters.redirectweb ':ignore')**
