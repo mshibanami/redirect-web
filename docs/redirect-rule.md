@@ -10,7 +10,7 @@ Specify the **Type** option to control how the app handles redirection. You can 
 
 * **Original** (Default)
     * This uses traditional Web APIs to control redirection. Additionally, it uses [the Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) for a fallback.
-    * You can use all the options other than [Resource Type](#resource-type).
+    * You can use all the options other than [Resource Types](#resource-types).
     * This is slower than the *Declarative* type and may cause extra network requests.
 * **Declarative** (Experimental):
     * This uses [the Declarative Net Request API](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) to handle redirection.
