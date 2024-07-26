@@ -1,6 +1,6 @@
 # Redirect Rule
 
-This section provides detailed information on how to set up redirect rules using Redirect Web.
+This page provides detailed information on how to set up redirect rules using Redirect Web.
 
 ## Options
 
@@ -10,11 +10,11 @@ Specify the **Type** option to control how the app handles redirection. You can 
 
 * **Original** (Default)
     * This uses traditional Web APIs to control redirection. Additionally, it uses [the Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) for a fallback.
-    * You can use all the options other than [Resource Types](#resource-types).
+    * You can use all the options other than [Resource Types](#resource-types) and [Request Methods](#request-methods) in [Redirect From](#redirect-from).
     * This is slower than the *Declarative* type and may cause extra network requests.
 * **Declarative** (Experimental):
     * This uses [the Declarative Net Request API](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) to handle redirection.
-    * This allows you to specify the [Resource Types](#resource-types) option of web pages you wish to redirect from.
+    * This allows you to specify [Resource Types](#resource-types) and [Request Methods](#request-methods) in [Redirect From](#redirect-from).
     * You can't use some options, such as *Capturing Group Processing* and *Excluded URL Patterns*.
     * You can't include pipes (`|`) in your Regular Expression pattern.
         * (We sent feedback to Apple as FB13251357 so the pipes will work in the future.)
@@ -28,7 +28,7 @@ For example, if you specify `https://example.com/*` with Wildcard, it matches `h
 > [!NOTE]
 > In the Redirect To option, You can reference the entire match using `$0` or partial matches using `$1`, `$2`, ... Check the details in [URL Pattern](#url-pattern) on this page.
 
-### Resource Types
+#### Resource Types
 
 Set the **Resource Types** option as the context in which a resource was fetched in a web request.
 For example, if you set `script`, you can redirect the JavaScript files loaded by web pages.
@@ -36,10 +36,23 @@ For example, if you set `script`, you can redirect the JavaScript files loaded b
 Currently, these are available: 
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
+The default setting is `main_frame`, which is the top-level page loaded into a tab.
+
 Please check the details of each resource type in [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
 > [!WARNING]
 > Since this is an option for [the Declarative type](#type), this is always `main_frame` only if you choose *Original* for the *Type* option.
+
+#### Request Methods
+
+The **Resource Types** option lets you set the target HTTP methods of the source URL.
+
+All methods are set by default.
+
+Please check the details of each method in [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+
+> [!WARNING]
+> This option is only available for [the Declarative type](#type).
 
 ### Redirect To
 
