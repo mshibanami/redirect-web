@@ -45,7 +45,7 @@ Please check the details of each resource type in [mdn web docs](https://develop
 
 #### Request Methods
 
-The **Resource Types** option lets you set the target HTTP methods of the source URL.
+The **Request Methods** option lets you set the target HTTP methods of the source URL.
 
 All methods are set by default.
 

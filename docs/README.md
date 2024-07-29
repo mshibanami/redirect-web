@@ -22,7 +22,7 @@ For example, you can create these rules:
 
 You can find useful rules in these:
 
-- [Library](library) This is shown in the app with a .
+- [Library](library): This offers you many useful pre-defined rules you can easily get by tapping a Get button.
 - [GitHub Discussions](https://github.com/mshibanami/redirect-web/discussions/categories/redirect-rules): A community forum where the users can share their rules with others.
 
 ## Features
