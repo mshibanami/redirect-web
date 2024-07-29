@@ -32,7 +32,7 @@ For example, if you specify `https://example.com/*` with Wildcard, it matches `h
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-Set the **Resource Types** option as the context in which a resource was fetched in a web request.
+The **Resource Types** option lets you specify the categories of web requests, such as images, JavaScripts, and style sheets, to which the rule applies.
 For example, if you set `script`, you can redirect the JavaScript files loaded by web pages.
 
 Currently, these are available: 
