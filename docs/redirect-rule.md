@@ -12,12 +12,12 @@ Specify the **Type** option to control how the app handles redirection. You can 
     * This uses traditional Web APIs to control redirection. Additionally, it uses [the Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) for a fallback.
     * You can use all the options other than [Resource Types](#resource-types) and [Request Methods](#request-methods) in [Redirect From](#redirect-from).
     * This is slower than the *Declarative* type and may cause extra network requests.
-* **Declarative** (Experimental):
-    * This uses [the Declarative Net Request API](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) to handle redirection.
-    * This allows you to specify [Resource Types](#resource-types) and [Request Methods](#request-methods) in [Redirect From](#redirect-from).
-    * You can't use some options, such as *Capturing Group Processing* and *Excluded URL Patterns*.
-    * You can't include pipes (`|`) in your Regular Expression pattern.
-        * (We sent feedback to Apple as FB13251357 so the pipes will work in the future.)
+* **DNR** (Experimental):
+    * This uses the [Declarative Net Request](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) (DNR) API to handle redirection.
+    * This allows you to specify [Resource Types](#resource-types) ~~and [Request Methods](#request-methods)~~ in [Redirect From](#redirect-from).
+    * You can't use some options, such as **Capturing Group Processing** and **Excluded URL Patterns**.
+    * Currently, you can't include pipes (`|`) in your Regular Expression pattern. [Details](https://github.com/mshibanami/redirect-web/issues/44)
+    * Since the DNR API still has some issues, we consider that is still an experimental feature. You can find the list of all the known issues [here](https://github.com/mshibanami/redirect-web/labels/DNR).
 
 ### Redirect From
 
@@ -38,10 +38,10 @@ Currently, these are available:
 
 The default setting is `main_frame`, which is the top-level page loaded into a tab.
 
-Please check the details of each resource type in [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
-
 > [!WARNING]
-> Since this is an option for [the Declarative type](#type), this is always `main_frame` only if you choose *Original* for the *Type* option.
+> This is an option for [the DNR type](#type) and this is always `main_frame` if you choose *Original* for the *Type* option.
+
+Please check the details of each resource type in [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
 #### Request Methods
 
@@ -52,7 +52,9 @@ All methods are set by default.
 Please check the details of each method in [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 > [!WARNING]
-> This option is only available for [the Declarative type](#type).
+>
+> * This option is currently not available because Apple's implementation for the DNR type doesn't seem to handle it currently. We sent feedback to Apple as FB14502272.
+> * This option is only for [the DNR type](#type).
 
 ### Redirect To
 
@@ -88,6 +90,9 @@ If you want to specify an app you wish to open the destination URL, use the **Ap
 
 The **Capturing Group Processing** option allows you to specify how to process the captured groups you can substitute in the *Redirect To* option with `$1`, `$2`...
 
+> [!WARNING]
+> This option is only for [the Original type](#type).
+
 These are how to make capturing groups:
 
 * **Wildcard**: Texts matched with `*` and `?` are automatically captured.
@@ -97,7 +102,7 @@ You can choose one or more of the following processes:
 
 * **URL Encode/Decode**: This applies [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) or decoding to a capturing group. For example, if you encode `https://example.com/hello`, it's converted to `https%3A%2F%2Fexample.com%2Fhello`. Decode works in an opposite way.
 * **Base64 Encode/Decode**: This decode/encode a text into [Base64](https://en.wikipedia.org/wiki/Base64). For example, you can encode `hello` to `aGVsbG8=`, and decode it back to `hello`.
-* **Replace Occurrences**: This replaces one or more characters in a group, matched by a **Target**, with a **Replacement**. For example, if the capturing group is `hello`, and the Target is `l` and the Replacement is `y`, it is modified to `heyyo`.
+* **Replace Occurrences**: This replaces one or more characters in a group, matched by a **Target**, with a **Replacement**. For example, if the *Group* is `hello` and the *Target* is `l` and the Replacement is `y`, it is modified to `heyyo`.
 
 > [!NOTE]
 > This is for processing each capturing group and it doesn't affect which URLs are excluded by the **Excluded URL Patterns**. For instance, let's say you have this rule:

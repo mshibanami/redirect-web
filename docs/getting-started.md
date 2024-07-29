@@ -32,7 +32,7 @@ https://(twitter|x).com/.*
 * `(twitter|x)`: it targets both `twitter` and `x`. (`|` is called *a pipe*.)
 * `.*`: It's the same as Wildcard's `*`. More specifically, `.` means *any character* and `*` means *anything before this symbol repeated any number of times*, resulting in it matches anything.
 
-It's a bit complicated, but once you get used to it, it will be a super powerful tool. We recommend using [RegExr](https://regexr.com) as a playground to analyze how your Regular Expression pattern works.
+Regular Expression is a bit complicated, but once you get used to it, it will be a powerful tool. We recommend using [RegExr](https://regexr.com) as a playground to analyze how your Regular Expression pattern works.
 
 > [!NOTE]
 > In Regular Expressions, `.` in `(twitter|x).com` is also treated as *any character*. Therefore, `(twitter|x).com/.*` also matches, for example, `twitter1com/` or `x_com/`.
@@ -110,7 +110,7 @@ In this case, you can specify an excluded URL pattern that allows you to access 
 
 * `.*`: Matches anything
 * `[&?]`: Matches either `&` or `?`
-* `[^&]`: Matches *any character except `&`
+* `[^&]*`: Matches anything except `&`
 
 ### Problem 2: Can't handle existing parameters properly
 
@@ -124,7 +124,7 @@ In this case, change the settings like this:
 Let's take a look step by step.
 
 * `(https://example.com/[^?]*)`: Matches the part until the previous character of `?`.
-    * `[^?]` matches *any character except `?`.
+    * `[^?]*` matches anything except `?`.
     * This is wrapped with `()` so you can reference it with `$1` later.
 * `(\?(.*))?`: Matches a string start with `?`, which means query parameters.
     * This also matches empty string by the `?` quantifier at the end of the pattern, which *matches zero or one time*.
