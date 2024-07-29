@@ -30,6 +30,8 @@ For example, if you specify `https://example.com/*` with Wildcard, it matches `h
 
 #### Resource Types
 
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
+
 Set the **Resource Types** option as the context in which a resource was fetched in a web request.
 For example, if you set `script`, you can redirect the JavaScript files loaded by web pages.
 
@@ -38,23 +40,20 @@ Currently, these are available:
 
 The default setting is `main_frame`, which is the top-level page loaded into a tab.
 
-> [!WARNING]
-> This is an option for [the DNR type](#type) and this is always `main_frame` if you choose *Original* for the *Type* option.
-
 Please check the details of each resource type in [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
 #### Request Methods
 
-The **Request Methods** option lets you set the target HTTP methods of the source URL.
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-All methods are set by default.
+~~The **Request Methods** option lets you set the target HTTP methods of the source URL.~~
 
-Please check the details of each method in [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+~~All methods are set by default.~~
+
+~~Please check the details of each method in [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).~~
 
 > [!WARNING]
->
-> * This option is currently not available because Apple's implementation for the DNR type doesn't seem to handle it currently. We sent feedback to Apple as FB14502272.
-> * This option is only for [the DNR type](#type).
+> This option is currently not available because Apple's implementation for the DNR type doesn't seem to handle it currently. We sent feedback to Apple as FB14502272.
 
 ### Redirect To
 
@@ -79,7 +78,9 @@ Additionally, You can modify the texts of `$1`, `$2`, ... before making substitu
 > * Notion: `notion://www.notion.so/Your_Note_ID`
 > * Slack: `slack://open`
 
-#### [macOS Only] Open in App
+#### Application
+
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
 If you want to specify an app you wish to open the destination URL, use the **Application** combo box. This is only available on macOS.
 
@@ -88,10 +89,9 @@ If you want to specify an app you wish to open the destination URL, use the **Ap
 
 ### Capturing Group Processing
 
-The **Capturing Group Processing** option allows you to specify how to process the captured groups you can substitute in the *Redirect To* option with `$1`, `$2`...
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
-> [!WARNING]
-> This option is only for [the Original type](#type).
+The **Capturing Group Processing** option allows you to specify how to process the captured groups you can substitute in the *Redirect To* option with `$1`, `$2`...
 
 These are how to make capturing groups:
 
@@ -118,6 +118,8 @@ You can choose one or more of the following processes:
 
 ### Excluded URL Patterns
 
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
+
 The **Excluded URL Patterns** option allows you to specify the URLs that are not redirected. This can be useful to avoid redirect loops or to exclude certain parts of a website from being redirected.
 
 You can specify excluded URL patterns using either Regular Expression or Wildcard pattern types.
@@ -138,9 +140,9 @@ There are 3 options you can specify one or more URL patterns. *Redirect From*, *
 
 **Wildcard** is a simpler pattern type that allows you to use `*` (matches anything) and `?`  (matches any single character) as wildcards. Here are some examples:
 
-- To match `https://example.com/hello`, you can use `https://example.com/*`. This will match any string after `https://example.com/`.
-- To match `https://example.com/search?q=hello`, you can use `https://example.com/search?q=*`. This will match any value for the `q` parameter.
-- To match any URL that contains the word `blog`, you can use `*blog*`.
+* To match `https://example.com/hello`, you can use `https://example.com/*`. This will match any string after `https://example.com/`.
+* To match `https://example.com/search?q=hello`, you can use `https://example.com/search?q=*`. This will match any value for the `q` parameter.
+* To match any URL that contains the word `blog`, you can use `*blog*`.
 
 You can also use substitution in Wildcard as well, which means you can reference portions of the matched URL using `$1`, `$2`, etc. For example, if you use `https://example.com/*-world-*`, and the URL is `https://example.com/hello-world-goodbye`, then `$1` would be "hello" and `$2` would be "goodbye". `$0` is also available to reference the entire URL matched.
 
