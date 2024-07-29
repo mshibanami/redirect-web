@@ -15,7 +15,7 @@ Specify the **Type** option to control how the app handles redirection. You can 
 * **DNR** (Experimental):
     * This uses the [Declarative Net Request](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) (DNR) API to handle redirection.
     * This allows you to specify [Resource Types](#resource-types) ~~and [Request Methods](#request-methods)~~ in [Redirect From](#redirect-from).
-    * You can't use some options, such as **Capturing Group Processing** and **Excluded URL Patterns**.
+    * You can't use some options, such as [Capturing Group Processing](#capturing-group-processing) and [Excluded URL Patterns](#excluded-url-patterns).
     * Currently, you can't include pipes (`|`) in your Regular Expression pattern. [Details](https://github.com/mshibanami/redirect-web/issues/44)
     * Since the DNR API still has some issues, we consider that is still an experimental feature. You can find the list of all the known issues [here](https://github.com/mshibanami/redirect-web/labels/DNR).
 
@@ -105,10 +105,13 @@ You can choose one or more of the following processes:
 * **Replace Occurrences**: This replaces one or more characters in a group, matched by a **Target**, with a **Replacement**. For example, if the *Group* is `hello` and the *Target* is `l` and the Replacement is `y`, it is modified to `heyyo`.
 
 > [!NOTE]
-> This is for processing each capturing group and it doesn't affect which URLs are excluded by the **Excluded URL Patterns**. For instance, let's say you have this rule:
+> This is for processing each capturing group and it doesn't affect which URLs are excluded by the [Excluded URL Patterns](#excluded-url-patterns). For instance, let's say you have this rule:
 >
 > * **Redirect From**: `https://example.com/(hello.*)`
-> * **Capturing Group Process**: Replace `.*` with `hello` for `$1`
+> * **Capturing Group Processing**:
+>     * Group: `$1`
+>     * Target: `.*` (Regular Expression)
+>     * Replacement: `hello`
 > * **Excluded URL Pattern**: `https://example.com/hello`
 >
 > In this case, `https://example.com/hello_world` will not be excluded while `https://example.com/hello` will be excluded.
