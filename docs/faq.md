@@ -18,7 +18,7 @@ But it’s not required. You can only allow it on specific websites. 👌
 
 You may see this alert on Safari after updating Redirect Web:
 
-![An alert of disabling the app](assets/safari-additional-permission-alert.webp ':size=200')
+![An alert of disabling the app](assets/safari-additional-permission-alert.webp ':size=280')
 
 > "Redirect Web for Safari" has been updated and is requesting additional permissions. To protect your privacy, this extension has been turned off.
 >
