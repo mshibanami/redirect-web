@@ -16,7 +16,7 @@ But it’s not required. You can only allow it on specific websites. 👌
 
 ## Why does this extension require a new permission? :id=permission-alert-on-safari
 
-You may see this alert on Safari after updating Redirect Web:
+You may see this alert in Safari after updating Redirect Web:
 
 ![An alert of disabling the app](assets/safari-additional-permission-alert.webp ':size=280')
 
