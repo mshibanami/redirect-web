@@ -10,14 +10,15 @@ Specify the **Type** option to control how the app handles redirection. You can 
 
 * **Original** (Default)
     * This uses traditional Web APIs to control redirection. Additionally, it uses [the Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) for a fallback.
-    * You can use all the options other than [Resource Types](#resource-types) and [Request Methods](#request-methods) in [Redirect From](#redirect-from).
+    * You can use all the options other than [Resource Types](#resource-types) and [Request Methods](#request-methods).
     * This is slower than the *Declarative* type and may cause extra network requests.
 * **DNR** (Experimental):
-    * This uses the [Declarative Net Request](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) (DNR) API to handle redirection.
     * This allows you to specify [Resource Types](#resource-types) ~~and [Request Methods](#request-methods)~~ in [Redirect From](#redirect-from).
-    * You can't use some options, such as [Capturing Group Processing](#capturing-group-processing) and [Excluded URL Patterns](#excluded-url-patterns).
-    * Currently, you can't include pipes (`|`) in your Regular Expression pattern. [Details](https://github.com/mshibanami/redirect-web/issues/44)
-    * Since the DNR API still has some issues, we consider that is still an experimental feature. You can find the list of all the known issues [here](https://github.com/mshibanami/redirect-web/labels/DNR).
+    * This type works much faster than the Original type because it doesn't initiate a network request for the source URL.
+    * ⚠️ If you update Redirect Web to version 7 or later, you may see an alert on Safari that disables the extension due to a new permission request. [Details](./faq#permission-alert-on-safari)
+    * ⚠️ You can't use some options, such as [Capturing Group Processing](#capturing-group-processing) and [Excluded URL Patterns](#excluded-url-patterns).
+    * ⚠️ Currently, you can't include pipes (`|`) in your Regular Expression pattern. [Details](https://github.com/mshibanami/redirect-web/issues/44)
+    * ⚠️ Since the DNR API still has some issues, we consider that is still an experimental feature. You can find the list of all the known issues [here](https://github.com/mshibanami/redirect-web/labels/DNR).
 
 ### Redirect From
 

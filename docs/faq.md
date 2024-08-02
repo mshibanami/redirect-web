@@ -14,6 +14,18 @@ Since we don't collect your personal information as per **[the privacy policy](.
 
 But it’s not required. You can only allow it on specific websites. 👌
 
+## Why does this extension require a new permission? :id=permission-alert-on-safari
+
+You may see this alert on Safari after updating Redirect Web:
+
+![An alert of disabling the app](assets/safari-additional-permission-alert.webp)
+
+> "Redirect Web for Safari" has been updated and is requesting additional permissions. To protect your privacy, this extension has been turned off.
+>
+> You can turn this extension on in the Extensions section of Safari Settings.
+
+This is due to the [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) permission required by the [DNR](./redirect-rule#type) type introduced in version 7. Please re-enable the extension. Sorry for the inconvenience.
+
 ## Will the library's contents become paid in the future?
 
 No, it's always free. You can also find the source of all the contents [here](https://github.com/mshibanami/redirect-web/tree/main/docs/library).
