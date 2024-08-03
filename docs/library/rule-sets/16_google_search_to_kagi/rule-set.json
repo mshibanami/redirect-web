@@ -1,0 +1,25 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "2",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "captureGroupProcesses": [],
+      "comments": "We now can set Kagi as the default search engine for Safari.",
+      "destinationURLPattern": "https:\/\/kagi.com\/search?q=$1",
+      "exampleURLs": [
+        "https:\/\/www.google.com\/search?q=hello&ie=UTF-8&oe=UTF-8&hl=en&client=safari",
+        "https:\/\/www.google.com\/search?client=safari&rls=en&q=hello&ie=UTF-8&oe=UTF-8"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https?:\\\/\\\/(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})\\\/search\\?(?:.*&)?q=([^&]*).*"
+      },
+      "title": "Google -> Kagi",
+      "type": "originalRedirect"
+    }
+  ]
+}
+ 
