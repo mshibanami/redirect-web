@@ -1,0 +1,32 @@
+---
+sidebar_position: 2
+---
+
+# Library
+
+![Library Screenshot](/img/library-screenshot.webp)
+
+Welcome to our library, where you can get redirect rules for free!
+
+The library can be accessed through the Redirect Web app, as long as it's version 6.0.0 or higher.
+
+## Add Rules to Library
+
+The current library has only a few rules, so we appreciate your contribution!
+
+There are 2 options to add your rules to the library:
+
+### Option 1: Send a Pull Request
+
+You can send a pull request to the repository. To do that, you need to know which files to add to the repository. Please check [the instructions](https://github.com/mshibanami/redirect-web/blob/main/docs/library/README.md) for details.
+
+### Option 2: Post a Rule on the Forum
+
+Share your redirect rule with other users on [the forum](https://github.com/mshibanami/redirect-web/discussions/categories/redirect-rules). Then we may request if we could put your rule in the library as well.
+
+This might be easier than sending a pull request since you can leave it to us to add.
+
+## Other Information
+
+- You can see all the contents in [the repository on GitHub](https://github.com/mshibanami/redirect-web/tree/main/docs/library).
+- We host our private API server on Cloudflare for the library contents, enabling ust to provide filtering and other services. The app fetches the library contents from this server. As stated in our [our privacy policy](privacy-policy.md), This server does not collect your personal information.

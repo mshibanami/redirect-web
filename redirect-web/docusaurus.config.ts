@@ -25,8 +25,11 @@ const config: Config = {
       'classic',
       {
         docs: {
+          routeBasePath: '/',
           sidebarPath: './sidebars.ts',
+          sidebarCollapsible: false,
         },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -48,12 +51,12 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
+        // {
+        //   type: 'docSidebar',
+        //   sidebarId: 'tutorialSidebar',
+        //   position: 'left',
+        //   label: 'Tutorial',
+        // },
         {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',

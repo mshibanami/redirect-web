@@ -1,0 +1,55 @@
+---
+slug: /
+sidebar_position: 0
+---
+
+# Introduction
+
+[![appstore-badge.svg](/img/appstore-badge.svg)](https://apps.apple.com/au/app/id1571283503)
+
+Welcome to the support website for Redirect Web for Safari, a Safari extension for iOS and macOS.
+
+This extension lets you set up redirect rules to jump to a specific website from another website. With Redirect Web, you can save time by automatically redirecting to your preferred websites, without the need to manually type the URLs or navigate through multiple pages.
+
+These are the basic usages of the iOS app and the macOS app:
+
+<iframe width="768" height="432" src="https://www.youtube.com/embed/5eU89Gu73SQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<iframe width="387" height="688" src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Use Cases
+
+For example, you can create these rules:
+
+- Remove unneeded parameters from a URL
+- Open a Google Meet link on Google Chrome
+- Open a Notion's link on the Notion app
+
+You can find useful rules in these:
+
+- [Library](library): This offers you many useful pre-defined rules you can easily get by tapping a Get button.
+- [GitHub Discussions](https://github.com/mshibanami/redirect-web/discussions/categories/redirect-rules): A community forum where the users can share their rules with others.
+
+## Features
+
+Redirect Web comes with the following features:
+
+- Create redirect rules using Regular Expression or Wildcard pattern types
+- Use back-referencing to specify dynamic target URLs
+- Exclude URLs from redirection
+- Process captured text using URL encoding/decoding, base64 encoding/decoding, or replacing occurrences
+
+In addition, you can unlock the following features through either a subscription or a one-time purchase:
+
+- Enabling 2 or more redirect rules
+- Syncing redirect rules with your other Mac, iPhone, and iPad via iCloud
+
+Purchasing the app also supports us in maintaining Redirect Web. 😃
+
+Your purchase made on your iOS device can be used on your Mac and vice versa.
+
+---
+
+We hope you find Redirect Web helpful in saving you time and simplifying your browsing experience.
+
+If you have any questions, feedback, or issues, please don't hesitate to [contact us](contact-us).
