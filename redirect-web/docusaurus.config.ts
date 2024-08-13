@@ -1,6 +1,7 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 
 const config: Config = {
   title: 'Redirect Web for Safari',
@@ -28,6 +29,7 @@ const config: Config = {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
           sidebarCollapsible: false,
+          beforeDefaultRemarkPlugins: [remarkGithubAdmonitionsToDirectives],
         },
         blog: false,
         theme: {
