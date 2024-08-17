@@ -1,0 +1,40 @@
+{
+    "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+    "kind": "RedirectList",
+    "redirects": [
+        {
+            "captureGroupProcesses": [
+                {
+                    "groupIndex": 3,
+                    "process": {
+                        "id": "replaceOccurrences",
+                        "matchingPattern": {
+                            "type": "regularExpression",
+                            "value": "\\?(.*)"
+                        },
+                        "replacement": "&$1"
+                    }
+                }
+            ],
+            "comments": "",
+            "destinationURLPattern": "$1?layout=desktop$3",
+            "exampleURLs": [
+                "https:\/\/example.com\/hello?theme=dark",
+                "https:\/\/example.com\/hello",
+                "https:\/\/example.com\/hello?layout=desktop&theme=dark"
+            ],
+            "excludeURLPatterns": [
+                {
+                    "type": "regularExpression",
+                    "value": ".*[&?]layout=[^&]*.*"
+                }
+            ],
+            "kind": "Redirect",
+            "sourceURLPattern": {
+                "type": "regularExpression",
+                "value": "(https:\/\/example.com\/[^?]*)((\\?(.*))?)"
+            },
+            "title": "Always Use Desktop Layout"
+        }
+    ]
+}
