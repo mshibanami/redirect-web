@@ -53,12 +53,6 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        // {
-        //   type: 'docSidebar',
-        //   sidebarId: 'tutorialSidebar',
-        //   position: 'left',
-        //   label: 'Tutorial',
-        // },
         {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
@@ -68,26 +62,6 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/mshibanami/redirect-web',
-            },
-          ],
-        },
-      ],
       copyright: `© ${new Date().getFullYear()} Manabu Nakazawa`,
     },
     prism: {
