@@ -8,7 +8,7 @@ const config: Config = {
   tagline: 'Redirect any website',
 
   url: 'https://mshibanami.github.io/',
-  baseUrl: '/redirect-web',
+  baseUrl: '/redirect-web/new/',
 
   organizationName: 'mshibanami',
   projectName: 'redirect-web',
