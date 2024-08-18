@@ -12,11 +12,11 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
-    "export-or-import-rules",
-    "getting-started",
     "introduction",
-    "library",
+    "getting-started",
     "rule-settings",
+    "library",
+    "export-or-import-rules",
     {
       type: 'category',
       label: 'Q&A',
