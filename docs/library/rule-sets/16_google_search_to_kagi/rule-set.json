@@ -5,7 +5,7 @@
   "redirects": [
     {
       "captureGroupProcesses": [],
-      "comments": "We now can set Kagi as the default search engine for Safari.",
+      "comments": "This redirects from Google Search to Kagi automatically.",
       "destinationURLPattern": "https:\/\/kagi.com\/search?q=$1",
       "exampleURLs": [
         "https:\/\/www.google.com\/search?q=hello&ie=UTF-8&oe=UTF-8&hl=en&client=safari",
@@ -17,7 +17,7 @@
         "type": "regularExpression",
         "value": "https?:\\\/\\\/(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})\\\/search\\?(?:.*&)?q=([^&]*).*"
       },
-      "title": "Google -> Kagi",
+      "title": "Google → Kagi",
       "type": "originalRedirect"
     }
   ]
