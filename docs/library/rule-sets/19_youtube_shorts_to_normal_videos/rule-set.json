@@ -1,0 +1,25 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "2",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "comments": "This converts YouTube Shorts into regular videos, allowing them to be played on a less addictive UI with full controls.",
+      "destinationURLPattern": "https:\/\/$1.youtube.com\/watch?v=$2",
+      "exampleURLs": [
+        "https:\/\/www.youtube.com\/shorts\/ontm1vqONVY",
+        "https:\/\/m.youtube.com\/shorts\/ontm1vqONVY"
+      ],
+      "kind": "Redirect",
+      "resourceTypes": [
+        "main_frame"
+      ],
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https:\/\/((?:www)*(?:m)*)\\.youtube\\.com\/shorts\/([^?]+).*"
+      },
+      "title": "YouTube: Watch Short Videos as Normal Videos",
+      "type": "declarativeNetRequestRedirect"
+    }
+  ]
+}
