@@ -1,0 +1,21 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "2",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "comments": "Do you know OpenPuppies (https:\/\/openpuppies.com\/)? It’s a website where you can watch random short videos of puppies. However, the videos don’t load properly on mobile devices. This rule fixes that, so you can enjoy cute puppy videos on your phone or tablet!",
+      "destinationURLPattern": "$1.mp4",
+      "kind": "Redirect",
+      "resourceTypes": [
+        "image"
+      ],
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "(https:\/\/openpuppies\\.com\/mp4\/[^.]*)\\.gif"
+      },
+      "title": "Fix OpenPuppies for Mobile Devices",
+      "type": "declarativeNetRequestRedirect"
+    }
+  ]
+}
