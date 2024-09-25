@@ -4,7 +4,7 @@
 
 You may see an alert like this when you set up Redirect Web:
 
-![](./assets/prepareExtensionPermissionAlert@3x.png ':size=200')
+<img src={require("/img/prepareExtensionPermissionAlert@3x.png").default} alt="An permission requiring alert" width="200" />
 
 > This extension will be able to read and alter webpages and see your browsing history on this website. **This could include sensitive information, including passwords, phone numbers, and credit cards.**
 
@@ -14,17 +14,17 @@ Since we don't collect your personal information as per **[the privacy policy](.
 
 But it’s not required. You can only allow it on specific websites. 👌
 
-## Why does this extension require a new permission? :id=permission-alert-on-safari
+## Why does this extension require a new permission? \{#permission-alert-on-safari}
 
 You may see this alert in Safari after updating Redirect Web:
 
-![An alert of disabling the app](assets/safari-additional-permission-alert.webp ':size=280')
+<img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
 
 > "Redirect Web for Safari" has been updated and is requesting additional permissions. To protect your privacy, this extension has been turned off.
 >
 > You can turn this extension on in the Extensions section of Safari Settings.
 
-This is due to the [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) permission required by the [DNR](./redirect-rule#type) type introduced in version 7. Please re-enable the extension. Sorry for the inconvenience.
+This is due to the [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) permission required by the [DNR](./rule-settings#type) type introduced in version 7. Please re-enable the extension. Sorry for the inconvenience.
 
 ## Will the library's contents become paid in the future?
 
