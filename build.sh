@@ -4,15 +4,15 @@ set -e
 
 cd "$(dirname "${BASH_SOURCE:-$0}")"
 
-rm -rf output
-mkdir -p output/
+rm -rf build
 
 npm install
 npm run build
-cp -R build/* output
 
-mkdir -p output/new
+cp -R library build/
+
+mkdir -p build/new
 cd docusaurus
 npm install
 npm run build
-cp -R build/* ../output/new
+cp -R build/* ../build/new
