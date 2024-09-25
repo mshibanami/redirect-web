@@ -54,7 +54,7 @@ const config: Config = {
       },
       items: [
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/mshibanami/redirect-web',
           label: 'GitHub',
           position: 'right',
         },
