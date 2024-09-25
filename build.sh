@@ -4,7 +4,10 @@ cd "$(dirname "${BASH_SOURCE:-$0}")"
 
 rm -rf output
 mkdir -p output/
-cp -R docs/* output/
+
+npm install
+npm run build
+cp -R build/* ../output
 
 mkdir -p output/new
 cd docusaurus
