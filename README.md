@@ -1,6 +1,6 @@
 # Redirect Web for Safari
 
-[![appstore-badge.svg](./docs/assets/appstore-badge.svg)](https://apps.apple.com/au/app/id1571283503)
+[![appstore-badge.svg](./static/img/appstore-badge.svg)](https://apps.apple.com/au/app/id1571283503)
 
 This is a repository for [the support website of Redirect Web for Safari](https://mshibanami.github.io/redirect-web).
 
