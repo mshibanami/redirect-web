@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Redirect - Redirect Web for Safari</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        body {
+            padding: 20px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        a {
+            color: #0066cc;
+        }
+
+        #redirect-url {
+            word-break: break-all;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #f0f0f0;
+            }
+
+            h1 {
+                color: #f0f0f0;
+            }
+
+            a {
+                color: #4da6ff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <h1>Redirecting...</h1>
+        <p>You are being redirected to: <strong id="redirect-url"></strong></p>
+        <p>If you are not redirected automatically, please <a id="manual-link" href="#">click here</a>.</p>
+    </div>
+
+    <script>
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        var url = getUrlParameter('url');
+        if (url) {
+            document.getElementById('redirect-url').textContent = url;
+            document.getElementById('manual-link').href = url;
+            window.open(url, '_self');
+        } else {
+            document.getElementById('content').innerHTML = `
+                <h1>Error: No URL Specified</h1>
+                <p>The 'url' parameter is missing from the request. This page requires a URL to be specified in the query parameters for redirection.</p>
+                <h2>How to use this page:</h2>
+                <ol>
+                    <li>Append '?url=' to the end of this page's URL.</li>
+                    <li>After '?url=', add the URL you want to redirect to, properly encoded.</li>
+                </ol>
+                <p>Example: ${window.location.href.split('?')[0]}?url=myapp%3A%2F%2Fopen%2Fitem%2F12345</p>
+                <p>If you believe this is an error and you've included the 'url' parameter, please check the URL and try again. If the issue persists, please <a href="https://mshibanami.github.io/redirect-web/contact-us">contact us</a>.</p>
+            `;
+        }
+    </script>
+</body>
+
+</html>
