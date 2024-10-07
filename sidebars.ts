@@ -29,6 +29,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Misc.',
       items: [
+        "release-notes",
         "privacy-policy",
         "terms-of-use",
       ]
