@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit → Redlib</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #status {
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .loading {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        #spinner {
+            visibility: hidden;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading #spinner {
+            visibility: visible;
+        }
+
+        .info {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .info h2 {
+            margin-top: 0;
+            color: #495057;
+        }
+
+        .info ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .info li {
+            margin: 8px 0;
+        }
+
+        .example {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #cache-status {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <h1>Reddit → Redlib</h1>
+    </header>
+
+    <main class="container">
+        <section class="info" aria-labelledby="about-heading">
+            <h2 id="about-heading">About</h2>
+            <p>This tool automatically redirects Reddit links to available Redlib instances. Redlib is a private
+                front-end for Reddit that doesn't require JavaScript to work.</p>
+
+            <h2 id="usage-heading">How to Use</h2>
+            <ul aria-labelledby="usage-heading">
+                <li>Add your Reddit URL as a parameter to this page using <code>?url=</code> (make sure the URL is
+                    properly URL-encoded)</li>
+                <li>The redirector will find an available Redlib instance and redirect you there</li>
+                <li>Previously working instances are cached and prioritized for faster access</li>
+            </ul>
+
+            <h2 id="example-heading">Example</h2>
+            <p>To visit r/privacy on Redlib, use:</p>
+            <div class="example" aria-labelledby="example-heading">
+                <span id="current-domain">reddit-redirector.html</span>?url=https%3A%2F%2Freddit.com%2Fr%2Fprivacy
+            </div>
+        </section>
+
+        <section id="status" role="status" aria-live="polite">
+            <div id="spinner"></div>
+            <span id="status-text"></span>
+        </section>
+        <div id="cache-status"></div>
+    </main>
+
+    <footer class="footer">
+        <p>Source code available on <a href="https://github.com/mshibanami/redirect-web" target="_blank">GitHub</a>
+        </p>
+    </footer>
+
+    <script>
+        const INSTANCES_URL = 'https://raw.githubusercontent.com/redlib-org/redlib-instances/refs/heads/main/instances.json';
+        const STATUS_TIMEOUT = 3000;
+        const CACHE_KEY = 'redlib_working_instances';
+        const CACHE_EXPIRY = 24 * 60 * 60 * 1000; // 24 hours
+
+        document.getElementById('current-domain').textContent = window.location.href.split('?')[0];
+
+        function getCachedInstances() {
+            try {
+                const cached = localStorage.getItem(CACHE_KEY);
+                if (!cached) return null;
+
+                const { instances, timestamp } = JSON.parse(cached);
+                if (Date.now() - timestamp > CACHE_EXPIRY) {
+                    localStorage.removeItem(CACHE_KEY);
+                    return null;
+                }
+
+                return instances;
+            } catch (error) {
+                console.error('Cache read error:', error);
+                return null;
+            }
+        }
+
+        function cacheWorkingInstance(instance) {
+            try {
+                const existingCache = getCachedInstances() || [];
+                const newCache = [
+                    instance,
+                    ...existingCache.filter(i => i.url !== instance.url)
+                ].slice(0, 5);
+
+                localStorage.setItem(CACHE_KEY, JSON.stringify({
+                    instances: newCache,
+                    timestamp: Date.now()
+                }));
+            } catch (error) {
+                console.error('Cache write error:', error);
+            }
+        }
+
+        function checkInstanceAvailability(instance) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                const timeout = setTimeout(() => {
+                    img.src = '';
+                    resolve(false);
+                }, STATUS_TIMEOUT);
+
+                img.onload = () => {
+                    clearTimeout(timeout);
+                    resolve(true);
+                };
+
+                img.onerror = () => {
+                    clearTimeout(timeout);
+                    resolve(false);
+                };
+
+                img.src = `${instance.url}/favicon.ico`;
+            });
+        }
+
+        function convertRedditUrl(redlibUrl, redditUrl) {
+            try {
+                const url = new URL(redditUrl);
+                if (!url.hostname.includes('reddit.com')) {
+                    throw new Error('Not a Reddit URL');
+                }
+                return redlibUrl + url.pathname + url.search + url.hash;
+            } catch (error) {
+                return null;
+            }
+        }
+
+        async function findWorkingInstance(allInstances) {
+            const shuffledInstances = allInstances.sort(() => Math.random() - 0.5);
+            const cachedInstances = getCachedInstances();
+            if (cachedInstances?.length > 0) {
+                document.getElementById('cache-status').textContent = 'Checking cached instances...';
+
+                for (const instance of cachedInstances) {
+                    const isAvailable = await checkInstanceAvailability(instance);
+                    if (isAvailable) {
+                        document.getElementById('cache-status').textContent = 'Using cached instance';
+                        return instance;
+                    }
+                }
+
+                document.getElementById('cache-status').textContent = 'Cached instances unavailable, checking others...';
+            }
+
+            const remainingInstances = shuffledInstances.filter(instance =>
+                !cachedInstances?.some(cached => cached.url === instance.url)
+            );
+
+            for (const instance of remainingInstances) {
+                const isAvailable = await checkInstanceAvailability(instance);
+                if (isAvailable) {
+                    cacheWorkingInstance(instance);
+                    document.getElementById('cache-status').textContent = 'New working instance found and cached';
+                    return instance;
+                }
+            }
+
+            document.getElementById('cache-status').textContent = '';
+            return null;
+        }
+
+        function updateStatus(type, message) {
+            const statusEl = document.getElementById('status');
+            const statusTextEl = document.getElementById('status-text');
+            statusEl.className = type;
+            statusTextEl.textContent = message;
+        }
+
+        async function init() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const redditUrl = urlParams.get('url');
+            if (!redditUrl) {
+                updateStatus('error', 'No URL parameter provided. See usage instructions above.');
+                document.getElementById('cache-status').textContent = '';
+                return;
+            }
+
+            const decodedRedditUrl = decodeURIComponent(redditUrl);
+            if (!decodedRedditUrl.includes('reddit.com')) {
+                updateStatus('error', 'Invalid or malformed Reddit URL. Make sure the URL is properly URL-encoded.');
+                document.getElementById('cache-status').textContent = '';
+                return;
+            }
+
+            try {
+                updateStatus('loading', 'Checking for available instances...');
+                const response = await fetch(INSTANCES_URL);
+                const data = await response.json();
+                const workingInstance = await findWorkingInstance(data.instances);
+
+                if (!workingInstance) {
+                    throw new Error('No available instances found. Please try again later.');
+                }
+
+                const redirectUrl = convertRedditUrl(workingInstance.url, decodedRedditUrl);
+                if (!redirectUrl) {
+                    throw new Error('Invalid Reddit URL.');
+                }
+
+                updateStatus('success', `Redirecting to ${workingInstance.url}...`);
+                setTimeout(() => {
+                    window.location.href = redirectUrl;
+                }, 1000);
+
+            } catch (error) {
+                updateStatus('error', error.message);
+                document.getElementById('cache-status').textContent = '';
+            }
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
