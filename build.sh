@@ -10,9 +10,3 @@ npm install
 npm run build
 
 cp -R library build/
-
-mkdir -p build/new
-cd docusaurus
-npm install
-npm run build
-cp -R build/* ../build/new
