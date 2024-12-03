@@ -11,7 +11,7 @@
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https?:\\\/\\\/(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})\\\/search\\?(?:.*&)?(?:(?:tbm=vid&?)(?:&.+)?&q=([^&]*)|q=([^&]*)(?:&.+)?(?:&tbm=vid&?).*)"
+        "value": "https?:\\\/\\\/(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})\\\/search\\?(?:.*&)?(?:(?:(?:tbm=vid|udm=7)&?)(?:&.+)?&q=([^&]*)|q=([^&]*)(?:&.+)?(?:&(?:tbm=vid|udm=7)&?).*)"
       },
       "title": "Google Search: From Video Tab to YouTube's Search Results"
     }
