@@ -6,7 +6,7 @@ This is a repository for [the support website of Redirect Web for Safari](https:
 
 In addition, we provides these on GitHub:
 
-- [Library Contents](./docs/library): The contents shown in the Library section in the app.
+- [Library Contents](./library): The contents shown in the Library section in the app.
 - [Issues](https://github.com/mshibanami/RedirectWeb/issues): Report any bugs, request new features, and more.
 - [Discussions](https://github.com/mshibanami/RedirectWeb/discussions): Ask any questions and get help from the developer or other users.
 
