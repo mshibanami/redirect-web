@@ -6,7 +6,7 @@ Thank you for investing your time in contributing to our project!
 
 All the contents hosted as [mshibanami.github.io/redirect-web](https://mshibanami.github.io/redirect-web/) are in the [docs](docs) folder.
 
-Contents of the library available on the app are in [docs/library](docs/library). If you want to modify the contents, please check [README.md in the folder](docs/library/README.md).
+Contents of the library available on the app are in [library](library). If you want to modify the contents, please check [README.md in the folder](library/README.md).
 
 ## Livereload
 
