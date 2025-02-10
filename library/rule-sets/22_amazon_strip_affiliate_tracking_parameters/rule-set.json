@@ -1,0 +1,27 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "2",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "captureGroupProcesses": [],
+      "comments": "This rule strips unnecessary parameters from Amazon product links, including affiliate and tracking codes.\n\nIt also adds a `th=1` parameter to prevent an infinite loop caused by Amazon automatically appending it.",
+      "destinationURLPattern": "$1$5?th=1",
+      "exampleURLs": [
+        "https:\/\/www.amazon.co.jp\/dp\/B0B13WY4DL?th=1&linkCode=sl1&tag=redirectwebtest-22&linkId=0123456789abcdefghijklmnopqrstuvw&ref_=as_li_ss_tl",
+        "https:\/\/www.amazon.com.au\/Imabari-Factory-Certified-Approx-inches\/dp\/B09RWHGLVM\/ref=sr_1_3?hello=world",
+        "https:\/\/www.amazon.com\/dp\/B0B13WY4DL?",
+        "https:\/\/www.amazon.it\/dp\/B09PG7M43W?tag=redirectwebtest-22",
+        "https:\/\/www.amazon.com.au\/dp\/B0B13WY4DL"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "(https:\/\/(www\\.)?amazon\\.(com\\.au|com\\.be|com\\.br|ca|cn|eg|fr|de|in|it|co\\.jp|com\\.mx|nl|pl|sa|sg|es|se|com\\.tr|ae|co\\.uk|com|co|com\\.cn|com\\.sg)\/)(.+\/)?(dp\/[^\/?]+).*"
+      },
+      "title": "Amazon: Strip Affiliate and Tracking Parameters",
+      "type": "originalRedirect"
+    }
+  ]
+}
