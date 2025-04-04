@@ -1,6 +1,19 @@
 # Release Notes
 
-## Version 7.12.0 (Current)
+## Version 7.14.0 (Current)
+
+![Supported Platforms: iOS and macOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS-white)
+
+* **[macOS]** Added support for Sequoia 15.4
+    * Fixed an issue where deep link redirection was not working. (The same change is also applied to iOS extension, which might fix a potential issue.)
+* Added support for redirecting to URLs using the Original redirection type, which starts with the following URI schemes:
+    * `file:///...` (local file)
+    * `data:...` (data URL)
+    * **[macOS]** `javascript:...` (JavaScript)
+        * This is available only when you enable `Allow JavaScript from Smart Search field` in Safari, which requires system authentication.
+* Added a Release Notes section for your convenience.
+
+## Version 7.12.0
 
 ![Supported Platforms: iOS and macOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS-white)
 
