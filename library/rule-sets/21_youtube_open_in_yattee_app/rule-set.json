@@ -6,7 +6,7 @@
       "captureGroupProcesses" : [
 
       ],
-      "comments" : "",
+      "comments" : "This rule intercepts YouTube and related privacy frontends video URLs and redirects them to open in the Yattee app via a custom URL scheme (yattee://watch?).",
       "destinationURLPattern" : "yattee:\/\/watch?$1",
       "exampleURLs" : [
         "https:\/\/piped.video\/watch?v=asqxzaNGRWo",
