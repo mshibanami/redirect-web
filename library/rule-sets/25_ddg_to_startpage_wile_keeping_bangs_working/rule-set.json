@@ -1,0 +1,31 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "2",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "captureGroupProcesses": [],
+      "comments": "This redirects from DuckDuckGo Search to Startpage automatically while keeping bangs functional.",
+      "destinationURLPattern": "https:\/\/www.startpage.com\/sp\/search?query=$1",
+      "exampleURLs": [
+        "https:\/\/duckduckgo.com\/?q=search&kp=-1&kl=us-en",
+        "https:\/\/www.duckduckgo.com\/?q=search&kp=-1&kl=us-en",
+        "https:\/\/www.duckduckgo.com\/?q=!a%20search&kp=-1&kl=us-en"
+      ],
+      "excludeURLPatterns": [
+        {
+          "type": "regularExpression",
+          "value": "https?:\\\/\\\/(?:www\\.)?duckduckgo\\.com\\\/\\?(?:.*&)?q=\\!\\w+.*"
+        }
+      ],
+      "isEnabled": true,
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https?:\\\/\\\/(?:www\\.)?duckduckgo\\.com\\\/\\?(?:.*&)?q=([^&]*).*"
+      },
+      "title": "DuckDuckGo -> Startpage while keeping bangs working",
+      "type": "originalRedirect"
+    }
+  ]
+}
