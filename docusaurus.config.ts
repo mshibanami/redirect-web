@@ -43,7 +43,7 @@ const config: Config = {
           blogListComponent: '@site/src/components/ReleaseNotesList',
           feedOptions: {
             type: ['rss', 'atom', 'json'],
-            title: 'Release Notes',
+            title: 'Redirect Web Release Notes',
             description: 'An RSS feed of changelogs for Redirect Web',
             language: 'en',
           },
