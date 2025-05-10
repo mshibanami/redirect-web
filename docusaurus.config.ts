@@ -41,6 +41,7 @@ const config: Config = {
           blogSidebarCount: 'ALL',
           blogDescription: 'Release notes for Redirect Web.',
           blogListComponent: '@site/src/components/ReleaseNotesList',
+          showReadingTime: false,
           feedOptions: {
             type: ['rss', 'atom', 'json'],
             title: 'Redirect Web Release Notes',
