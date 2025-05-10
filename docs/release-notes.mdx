@@ -1,83 +1,8 @@
-# Release Notes
+---
+title: Release Notes
+---
 
-## Version 7.17.1 (Current)
+import React from 'react';
+import { Redirect } from '@docusaurus/router';
 
-![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
-
-* Hot fix of displaying the detailed error message introduced in 7.17.0.
-* Updated the app screenshots in the App Store.
-
-## Version 7.17.0
-
-![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
-
-* Now the app displays more detailed error messages, highlighting specific characters when an invalid pattern is entered in the Redirect From section.
-* [iOS] Improved the dark themed app icon.
-
-## Version 7.16.0
-
-![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
-
-* A major improvement to the `Original` redirection type. Now it works faster & reliable than before.
-* Improved the localized app name in the App Store for Chinese, Japanese, Korean, and Russian languages.
-* [iOS] Supported dark themed app icon for iOS 18 or later.
-
-## Version 7.15.0
-
-![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
-
-* [iPad, visionOS] Fixed broken layout of the extension popup shown in Safari.
-* Improved the UI of the extension popup in Safari.
-* Fixed localizations for non-English languages.
-* Other minor improvements and bug fixes.
-
-## Version 7.14.0
-
-![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
-
-* **[macOS]** Added support for Sequoia 15.4
-    * Fixed an issue where deep link redirection was not working. (The same change is also applied to iOS extension, which might fix a potential issue.)
-* Added support for redirecting to URLs using the Original redirection type, which starts with the following URI schemes:
-    * `file:///...` (local file)
-    * `data:...` (data URL)
-    * **[macOS]** `javascript:...` (JavaScript)
-        * This is available only when you enable `Allow JavaScript from Smart Search field` in Safari, which requires system authentication.
-* Added a Release Notes section for your convenience.
-
-## Version 7.12.0
-
-![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
-
-* **[macOS]** Fixed an issue where the app initiated redirection while the user was still typing in the address bar. This occurred when a rule was set to redirect to another application.
-* **[macOS]** Adjusted the color of the buttons in dark mode for improved visibility. It was too vivid.
-* Other minor improvements and bug fixes.
-
-## Version 7.11.0
-
-![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
-
-* Fixed an issue where the Rule Details screen in the Library showed nothing on iOS 17 or earlier, and macOS Sonoma or earlier.
-
-## New Features in Version 7
-
-- **New Redirection Type**
-
-    ![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
-
-    We have added a new redirection type called **DNR**.
-    It allows you to redirect anything, including iframes, images, JavaScript, etc. (Finally!)
-    Moreover, it works much faster than the original redirection type.
-
-    > [!WARNING]
-    > After updating the app, you may see an alert in Safari that disables the extension due to a new permission requested. This is because the DNR type requires it to work. Please re-enable the extension. Sorry for the inconvenience.
-
-    Learn more about the DNR type [here](rule-settings#type).
-
-- **App Lock (Version 7.2 or later)**
-
-    ![Supported Platforms: iOS](https://img.shields.io/badge/Platforms-iOS-white)
-    
-    You can now secure both the app and the extension. It's perfect for use with parental controls. Set it up in Settings > App Lock. (Note: This feature is not available on macOS.)
-
-> [!NOTE]
-> If you are looking for the release notes of 7.10.0 or earlier, please check [the app page in the App Store](https://apps.apple.com/app/redirect-web-for-safari/id1571283503).
+<Redirect to="/release-notes" />

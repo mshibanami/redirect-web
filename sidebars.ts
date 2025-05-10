@@ -29,7 +29,11 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Misc.',
       items: [
-        "release-notes",
+        {
+          type: 'link',
+          label: 'Release Notes',
+          href: 'release-notes',
+        },
         "privacy-policy",
         "terms-of-use",
       ]

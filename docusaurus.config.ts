@@ -31,14 +31,27 @@ const config: Config = {
           sidebarCollapsible: false,
           beforeDefaultRemarkPlugins: [remarkGithubAdmonitionsToDirectives],
         },
-        blog: false,
+        blog: {
+          path: 'release-notes',
+          routeBasePath: '/release-notes',
+          blogSidebarTitle: 'Release Notes',
+          blogTitle: 'Release Notes',
+          blogSidebarCount: 'ALL',
+          blogDescription: 'Release notes for Redirect Web.',
+          blogListComponent: '@site/src/components/ReleaseNotesList',
+          feedOptions: {
+            type: ['rss', 'atom', 'json'],
+            title: 'Release Notes',
+            description: 'An RSS feed of changelogs for Redirect Web',
+            language: 'en',
+          },
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -53,6 +66,7 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
+        { to: 'release-notes', label: 'Release Notes', position: 'left' },
         {
           href: 'https://github.com/mshibanami/redirect-web',
           label: 'GitHub',
