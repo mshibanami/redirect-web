@@ -3,15 +3,17 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 
+const projectName = 'redirect-web';
+
 const config: Config = {
   title: 'Redirect Web for Safari',
   tagline: 'Redirect any website',
 
   url: 'https://mshibanami.github.io/',
-  baseUrl: '/redirect-web/',
+  baseUrl: `/${projectName}/`,
 
   organizationName: 'mshibanami',
-  projectName: 'redirect-web',
+  projectName: projectName,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -66,7 +68,8 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        { to: 'release-notes', label: 'Release Notes', position: 'left' },
+        { to: '/', label: 'Docs', position: 'left', activeBaseRegex: `^/${projectName}/(?!release-notes).*` },
+        { to: '/release-notes', label: 'Release Notes', position: 'left', activeBaseRegex: `^/${projectName}/release-notes/?.*` },
         {
           href: 'https://github.com/mshibanami/redirect-web',
           label: 'GitHub',
