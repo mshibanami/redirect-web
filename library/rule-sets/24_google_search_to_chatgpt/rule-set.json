@@ -21,14 +21,15 @@
       "destinationURLPattern": "https:\/\/chatgpt.com\/?q=$1&hints=search&temporary-chat=true",
       "exampleURLs": [
         "https:\/\/www.google.com\/search?client=safari&rls=en&q=hello+world&ie=UTF-8&oe=UTF-8",
-        "https:\/\/www.google.com\/search?q=gpt+What+kind+of+bear+is+best?"
+        "https:\/\/www.google.com\/search?q=gpt+What+kind+of+bear+is+best?",
+        "https:\/\/www.google.com\/search?client=safari&rls=en&q=gpt+hello+world&ie=UTF-8&oe=UTF-8"
       ],
       "excludeURLPatterns": [],
       "isEnabled": true,
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https?:\\\/\\\/(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})\\\/search\\?(?:.*&)?q=(gpt\\+.*).*"
+        "value": "https?:\\\/\\\/(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})\\\/search\\?(?:.*&)?q=(gpt\\+[^&]*).*"
       },
       "title": "Google Search “gpt ” Prefix → ChatGPT",
       "type": "originalRedirect"
