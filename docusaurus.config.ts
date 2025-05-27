@@ -6,7 +6,7 @@ import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-di
 const projectName = 'redirect-web';
 
 const config: Config = {
-  title: 'Redirect Web for Safari',
+  title: 'Redirect Web',
   tagline: 'Redirect any website',
 
   url: 'https://mshibanami.github.io/',
@@ -63,7 +63,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Redirect Web for Safari',
+      title: 'Redirect Web',
       logo: {
         alt: 'Site Logo',
         src: 'img/logo.svg',
