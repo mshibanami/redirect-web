@@ -9,24 +9,35 @@ A new major version update! 🚀
 
 ### 1. Multi-browser support on Mac is here!
 
-Redirect Web is now available on **Google Chrome**, **Firefox**, **Microsoft Edge**! This means you can now use Redirect Web on your Mac with your favorite browser, not just Safari.
+Redirect Web is now available on **Google Chrome**, **Firefox**, **Microsoft Edge**, and other compatible browsers! This means you can now use Redirect Web on your Mac with your favorite browser, not just Safari.
 
 ⏬️ Download links:
 
 - [Google Chrome](https://example.com/)
 - [Firefox](https://example.com/)
+    - Since Firefox still supports Manifest V2, Redirect Web uses the `webRequestBlocking` permission for the Original type, which is a more reliable & flexible way to redirect requests.
 - [Microsoft Edge](https://example.com/)
 
-Please note:
+:::note
 
-- you still need to download the Redirect Web app from the Mac App Store to use it with these browsers. The app will automatically detect the installed browsers and enable the extension for them.
+- You still need to download the [Redirect Web app from the Mac App Store](https://apps.apple.com/app/id1571283503) to use the extension on these browsers since the extensions need to communicate with [the native messaging host](https://developer.chrome.com/docs/extensions/develop/concepts/native-messaging#native-messaging-host) in the Redirect Web app bundle. The app will automatically detect the installed browsers and activate the extension for them.
 - The multi-browser support is only available on Mac.
 
-### 2. Changed the main app name to Redirect Web
+:::
 
-The former name "Redirect for Safari" has been changed to **Redirect Web** since it now supports multiple browsers on Mac.
+### 2. Changed the app name to Redirect Web
+
+The former name "Redirect for Safari" for macOS has been changed to **Redirect Web** since it now supports multiple browsers. Sorry for making the name less searchable on your search engine. 😅
 
 ### 3. Bug fixes and improvements
 
-- Fixed a bug of the DNR redirection type. Now Redirect Web can set your DNR rules more reliably.
-- Rewrite the codebase using [WXT](https://wxt.dev).
+- Fixed a bug of the DNR redirection type. Now, Redirect Web can set your DNR rules more reliably.
+- Fixed the toggle switches for enabling and disabling each rule in the extension popup. Previously, the switch animation was not smooth. It appeared to briefly revert to the previous state when clicked.
+- Fixed occasional redirection loop caused when you use the `Original` redirection type.
+- Fixed the extension popup is not displayed when you enable the App Lock feature on iOS 18.
+- Improved the performance of the extension by optimizing the background script.
+- Rewrote the codebase using [WXT](https://wxt.dev).
+
+---
+
+If you enjoy using Redirect Web, please consider leaving a review on the stores. It really helps!
