@@ -6,12 +6,13 @@
       "comments": "Enabling this rule, you are automatically redirected from the Videos tab on Google Search to the search results on YouTube.",
       "destinationURLPattern": "https://www.youtube.com/results?search_query=$1$2",
       "exampleURLs": [
-        "https://www.google.com/search?q=ramen&client=safari&sca_esv=577385484&rls=en&tbm=vid&source=lnms&sa=X&ved=2ahUKEwid4fvdh5iCAxWUr1YBHUfYAqQQ_AUoBHoECAQQBg"
+        "https://www.google.com/search?q=ramen&client=safari&sca_esv=577385484&rls=en&tbm=vid&source=lnms&sa=X&ved=2ahUKEwid4fvdh5iCAxWUr1YBHUfYAqQQ_AUoBHoECAQQBg",
+        "https://www.google.com/search?udm=7&q=Hello&foo=bar"
       ],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https?://(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/search\\?(?:.*&)?(?:(?:(?:tbm=vid|udm=7)&?)(?:&.+)?&q=([^&]*)|q=([^&]*)(?:&.+)?(?:&(?:tbm=vid|udm=7)&?).*)"
+        "value": "https?://(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/search\\?(?:.*&)?(?:(?:(?:tbm=vid|udm=7)&?)(?:&.+)?&q=([^&]*).*|q=([^&]*)(?:&.+)?(?:&(?:tbm=vid|udm=7)&?).*)"
       },
       "title": "Google Search: From Video Tab to YouTube's Search Results"
     }
