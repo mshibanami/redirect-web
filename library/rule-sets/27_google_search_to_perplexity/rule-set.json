@@ -6,16 +6,16 @@
     {
       "captureGroupProcesses": [],
       "comments": "This rule redirects Google Search to Perplexity, allowing you to use Perplexity as your default search engine.",
-      "destinationURLPattern": "https:\/\/www.perplexity.ai\/search?q=$1",
+      "destinationURLPattern": "https://www.perplexity.ai/search?q=$1",
       "exampleURLs": [
-        "https:\/\/www.google.com\/search?client=safari&rls=en&q=hello+world",
-        "https:\/\/www.google.com\/search?client=safari&rls=en&q=hello+world&ie=UTF-8&oe=UTF-8"
+        "https://www.google.com/search?client=safari&rls=en&q=hello+world",
+        "https://www.google.com/search?client=safari&rls=en&q=hello+world&ie=UTF-8&oe=UTF-8"
       ],
       "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https?:\\\/\\\/(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})\\\/search\\?(?:.*&)?q=([^&]*).*"
+        "value": "https?://(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/search\\?(?:.*&)?q=([^&]*).*"
       },
       "title": "Google Search → Perplexity",
       "type": "originalRedirect"

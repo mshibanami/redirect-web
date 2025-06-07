@@ -5,28 +5,28 @@
         {
             "captureGroupProcesses": [],
             "comments": "This rule changes Reddit URLs from the newest layout to the old layout. This is useful if you prefer the old layout over other layouts.\n\nMedia and gallery URLs are excluded from this redirect, as they are not supported on this layout.\n\n⚠️ Please enable this rule AFTER logging into your Reddit account. Otherwise, Reddit may redirect you to www.reddit.com, resulting in an infinite loop.",
-            "destinationURLPattern": "https:\/\/old.reddit.com\/$1",
+            "destinationURLPattern": "https://old.reddit.com/$1",
             "exampleURLs": [
-                "https:\/\/www.reddit.com\/r\/BeAmazed\/comments\/164qg37\/mind_blown_it_really_is_true\/",
-                "https:\/\/www.reddit.com\/media?url=https%3A%2F%2Fi.redd.it%2Fou5itrizf3lb1.png",
-                "https:\/\/www.reddit.com\/",
-                "https:\/\/new.reddit.com\/",
-                "https:\/\/www.reddit.com\/gallery\/164qg37"
+                "https://www.reddit.com/r/BeAmazed/comments/164qg37/mind_blown_it_really_is_true/",
+                "https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fou5itrizf3lb1.png",
+                "https://www.reddit.com/",
+                "https://new.reddit.com/",
+                "https://www.reddit.com/gallery/164qg37"
             ],
             "excludeURLPatterns": [
                 {
                     "type": "wildcard",
-                    "value": "https:\/\/www.reddit.com\/media?url=*"
+                    "value": "https://www.reddit.com/media?url=*"
                 },
                 {
                     "type": "wildcard",
-                    "value": "https:\/\/www.reddit.com\/gallery\/*"
+                    "value": "https://www.reddit.com/gallery/*"
                 }
             ],
             "kind": "Redirect",
             "sourceURLPattern": {
                 "type": "regularExpression",
-                "value": "https:\/\/www.reddit.com\/(.*)"
+                "value": "https://www.reddit.com/(.*)"
             },
             "title": "Reddit: Old Layout by Default"
         }

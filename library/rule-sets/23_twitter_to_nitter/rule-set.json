@@ -5,17 +5,17 @@
   "redirects": [
     {
       "captureGroupProcesses": [],
-      "comments": "This allows you to redirect from X (Twitter) to xcancel.com, which is powered by Nitter.\n\nNitter is a free and open-source alternative Twitter front-end focused on privacy and performance.\n\nxcancel.com is one of the most popular Nitter instances, but it's just one of many instances. You can find others here:\nhttps:\/\/status.d420.de\n",
-      "destinationURLPattern": "https:\/\/xcancel.com\/$1",
+      "comments": "This allows you to redirect from X (Twitter) to xcancel.com, which is powered by Nitter.\n\nNitter is a free and open-source alternative Twitter front-end focused on privacy and performance.\n\nxcancel.com is one of the most popular Nitter instances, but it's just one of many instances. You can find others here:\nhttps://status.d420.de\n",
+      "destinationURLPattern": "https://xcancel.com/$1",
       "exampleURLs": [
-        "https:\/\/x.com\/UN\/status\/1841123718212284495",
-        "https:\/\/twitter.com\/search?f=tweets&q=world"
+        "https://x.com/UN/status/1841123718212284495",
+        "https://twitter.com/search?f=tweets&q=world"
       ],
       "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https:\/\/(?:x|twitter).com\/(.*)"
+        "value": "https://(?:x|twitter).com/(.*)"
       },
       "title": "X (Twitter) → Nitter (xcancel.com)",
       "type": "originalRedirect"

@@ -3,16 +3,16 @@
   "kind": "RedirectList",
   "redirects": [
     {
-      "appURL": "file:\/\/\/Applications\/Figma.app",
+      "appURL": "file:///Applications/Figma.app",
       "comments": "This is a rule to open Figma links in the Figma app automatically.",
-      "destinationURLPattern": "figma:\/\/$1",
+      "destinationURLPattern": "figma://$1",
       "exampleURLs": [
-        "https:\/\/www.figma.com\/file\/XZp2hMcv4s3gmqKtXg4uupfX\/Personal-Colors?node-id=2%3A22"
+        "https://www.figma.com/file/XZp2hMcv4s3gmqKtXg4uupfX/Personal-Colors?node-id=2%3A22"
       ],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https:\/\/www.figma.com\/((file|design)\/.*)"
+        "value": "https://www.figma.com/((file|design)/.*)"
       },
       "title": "Figma: Open in Figma App"
     }

@@ -4,14 +4,14 @@
   "redirects": [
     {
       "comments": "Enabling this rule, users attempting to access the Terraria Wiki on Fandom will be automatically redirected to the new domain at wiki.gg, ensuring they receive the latest and most accurate information from the official wiki source.",
-      "destinationURLPattern": "https:\/\/terraria.wiki.gg\/$1",
+      "destinationURLPattern": "https://terraria.wiki.gg/$1",
       "exampleURLs": [
-        "https:\/\/terraria.fandom.com\/wiki\/Guide:Getting_started"
+        "https://terraria.fandom.com/wiki/Guide:Getting_started"
       ],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "wildcard",
-        "value": "https:\/\/terraria.fandom.com\/*"
+        "value": "https://terraria.fandom.com/*"
       },
       "title": "Terraria Wiki: From Fandom to wiki.gg"
     }

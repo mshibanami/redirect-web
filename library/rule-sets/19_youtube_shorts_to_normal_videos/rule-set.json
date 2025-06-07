@@ -5,10 +5,10 @@
   "redirects": [
     {
       "comments": "This converts YouTube Shorts into regular videos, allowing them to be played on a less addictive UI with full controls.",
-      "destinationURLPattern": "https:\/\/$1.youtube.com\/watch?v=$2",
+      "destinationURLPattern": "https://$1.youtube.com/watch?v=$2",
       "exampleURLs": [
-        "https:\/\/www.youtube.com\/shorts\/ontm1vqONVY",
-        "https:\/\/m.youtube.com\/shorts\/ontm1vqONVY"
+        "https://www.youtube.com/shorts/ontm1vqONVY",
+        "https://m.youtube.com/shorts/ontm1vqONVY"
       ],
       "kind": "Redirect",
       "resourceTypes": [
@@ -16,7 +16,7 @@
       ],
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https:\/\/((?:www)*(?:m)*)\\.youtube\\.com\/shorts\/([^?]+).*"
+        "value": "https://((?:www)*(?:m)*)\\.youtube\\.com/shorts/([^?]+).*"
       },
       "title": "YouTube: Watch Short Videos as Normal Videos",
       "type": "declarativeNetRequestRedirect"

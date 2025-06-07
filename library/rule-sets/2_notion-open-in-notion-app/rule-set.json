@@ -3,16 +3,16 @@
   "kind": "RedirectList",
   "redirects": [
     {
-      "appURL": "file:\/\/\/Applications\/Notion.app",
+      "appURL": "file:///Applications/Notion.app",
       "comments": "Notion allows you to open the Notion app by changing the scheme of the Notion page URL from https to notion. This rule automates that process.",
-      "destinationURLPattern": "notion:\/\/$1",
+      "destinationURLPattern": "notion://$1",
       "exampleURLs": [
-        "https:\/\/www.notion.so\/Quick-Note-c5a2f0fa248e4de38ab1866c25cffe10"
+        "https://www.notion.so/Quick-Note-c5a2f0fa248e4de38ab1866c25cffe10"
       ],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https:\/\/(www.notion.so\/.+)"
+        "value": "https://(www.notion.so/.+)"
       },
       "title": "Notion: Open in Notion App"
     }

@@ -5,17 +5,17 @@
     {
       "captureGroupProcesses": [],
       "comments": "If you, like me, have no use for the comments section, related videos, or annoying popup messages on YouTube, this redirect rule will take you from YouTube \"watch\" links to \"embed\" links automatically—the latter fills the screen.",
-      "destinationURLPattern": "https:\/\/www.youtube.com\/embed\/$2?autoplay=1",
+      "destinationURLPattern": "https://www.youtube.com/embed/$2?autoplay=1",
       "exampleURLs": [
-        "https:\/\/www.youtube.com\/watch?v=jfKfPfyJRdk",
-        "https:\/\/m.youtube.com\/watch?v=jfKfPfyJRdk",
-        "https:\/\/www.youtube.com\/watch?v=jfKfPfyJRdk&foo=bar"
+        "https://www.youtube.com/watch?v=jfKfPfyJRdk",
+        "https://m.youtube.com/watch?v=jfKfPfyJRdk",
+        "https://www.youtube.com/watch?v=jfKfPfyJRdk&foo=bar"
       ],
       "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https:\/\/(www.|m.)youtube.com\/watch\\?v=([^&]*).*"
+        "value": "https://(www.|m.)youtube.com/watch\\?v=([^&]*).*"
       },
       "title": "YouTube Watch → Embed"
     }
