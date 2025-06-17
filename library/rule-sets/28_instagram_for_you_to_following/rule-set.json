@@ -1,0 +1,21 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "2",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "comments": "This rule always redirects from the Instagram default home page \"For You\" to the \"Following\" feed where it shows only the posts of the accounts you’re following.",
+      "destinationURLPattern": "https://www.instagram.com/?variant=following",
+      "exampleURLs": [
+        "https://www.instagram.com/"
+      ],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://www.instagram.com/"
+      },
+      "title": "Instagram For You -> Following",
+      "type": "originalRedirect"
+    }
+  ]
+}
