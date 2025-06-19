@@ -1,0 +1,23 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "2",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "comments": "Allows you to view TikTok while unauthenticated, using a privacy friendly frontend.\n\nOfftiktok is an open source alternative Tiktok client. Details: https://github.com/MarsHeer/offtiktok",
+      "destinationURLPattern": "https://$1offtiktok.com/$2",
+      "exampleURLs": [
+        "https://www.tiktok.com/@unitednations/video/7513620858330467615?is_from_webapp=1&sender_device=pc&web_id=1234567890",
+        "https://vt.tiktok.com/ZSkqww567/",
+        "https://vm.tiktok.com/ZMrDoAsEu/"
+      ],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "(?:https?://)(?:www\\.)?((?:vm|vt)\\.)?(?:tiktok\\.com)/(.*)"
+      },
+      "title": "TikTok → Offtiktok",
+      "type": "originalRedirect"
+    }
+  ]
+}
