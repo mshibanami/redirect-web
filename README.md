@@ -1,4 +1,4 @@
-# Redirect Web for Safari
+# Redirect Web
 
 [![appstore-badge.svg](./static/img/appstore-badge.svg)](https://apps.apple.com/au/app/id1571283503)
 
