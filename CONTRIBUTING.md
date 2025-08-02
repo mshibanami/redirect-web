@@ -10,13 +10,12 @@ Contents of the library available on the app are in [library](library). If you w
 
 ## Livereload
 
-The documentation is powered by Docsify, and you can livereload it with their `docsify-cli`.
-Please check [their repository](https://github.com/docsifyjs/docsify-cli), and install it.
+Firstly, run npm install to install the dependencies.
 
-Once it's ready, run this command in the repository root:
+Then, to start the development server with livereload, you can use:
 
 ```sh
-docsify serve docs/
+npm run start
 ```
 
-Livereload makes maintaining the documentation easier.
+You can now edit the files in the `docs` folder, and the changes will be reflected immediately in your browser without needing to refresh the page.
