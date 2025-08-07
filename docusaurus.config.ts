@@ -72,6 +72,11 @@ const config: Config = {
         { to: '/', label: 'Docs', position: 'left', activeBaseRegex: `^/${projectName}/(?!release-notes).*` },
         { to: '/release-notes', label: 'Release Notes', position: 'left', activeBaseRegex: `^/${projectName}/release-notes/?.*` },
         {
+          href: 'https://apps.apple.com/app/id1571283503',
+          label: 'App Store',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/mshibanami/redirect-web',
           label: 'GitHub',
           position: 'right',
