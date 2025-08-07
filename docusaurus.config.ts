@@ -68,9 +68,10 @@ const config: Config = {
         { to: '/', label: 'Docs', position: 'left', activeBaseRegex: `^/${projectName}/(?!release-notes).*` },
         { to: '/release-notes', label: 'Release Notes', position: 'left', activeBaseRegex: `^/${projectName}/release-notes/?.*` },
         {
-          href: 'https://apps.apple.com/app/id1571283503',
-          label: 'Download on the App Store',
+          type: 'html',
           position: 'right',
+          value: '<a href="https://apps.apple.com/app/id1571283503" class="navbar__appstore_button navbar__item_force"><img src="img/appstore-badge.svg" alt="Apple Logo" /></a>',
+          className: "navbar__item_force"
         },
         {
           href: 'https://github.com/mshibanami/redirect-web',
