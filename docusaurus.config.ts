@@ -73,7 +73,7 @@ const config: Config = {
         { to: '/release-notes', label: 'Release Notes', position: 'left', activeBaseRegex: `^/${projectName}/release-notes/?.*` },
         {
           href: 'https://apps.apple.com/app/id1571283503',
-          label: 'App Store',
+          label: 'Download on the App Store',
           position: 'right',
         },
         {
