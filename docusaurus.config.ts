@@ -8,21 +8,16 @@ const projectName = 'redirect-web';
 const config: Config = {
   title: 'Redirect Web',
   tagline: 'Redirect any website',
-
   url: 'https://mshibanami.github.io/',
   baseUrl: `/${projectName}/`,
-
   organizationName: 'mshibanami',
   projectName: projectName,
-
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
   presets: [
     [
       'classic',
