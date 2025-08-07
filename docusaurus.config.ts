@@ -63,6 +63,7 @@ const config: Config = {
         alt: 'Site Logo',
         src: 'img/logo.svg',
       },
+      hideOnScroll: true,
       items: [
         { to: '/', label: 'Docs', position: 'left', activeBaseRegex: `^/${projectName}/(?!release-notes).*` },
         { to: '/release-notes', label: 'Release Notes', position: 'left', activeBaseRegex: `^/${projectName}/release-notes/?.*` },
