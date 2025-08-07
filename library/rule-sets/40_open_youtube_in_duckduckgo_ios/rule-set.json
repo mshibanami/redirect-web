@@ -5,7 +5,7 @@
   "redirects": [
     {
       "captureGroupProcesses": [],
-      "comments": "This rule is for playing YouTube videos in Duck Player.\n\nDuck Player is a free YouTube player built in to the DuckDuckGo app, which lets you watch YouTube without targeted ads and keeps what you watch from influencing your YouTube recommendations.‌‌\n\n⚠️ This rule is only supported on iOS since the DuckDuckGo app for macOS may not support \"ddgquicklink:\/\/\" for deeplinking. For Mac, disable this rule on your Mac while leaving it enabled on iOS, then get the equivalent rule in the Mac app. (It appears exclusively in the Mac app’s library.)",
+      "comments": "This rule is for playing YouTube videos in Duck Player.\n\nDuck Player is a YouTube player built in to the DuckDuckGo app, which lets you watch YouTube without targeted ads and keeps what you watch from influencing your YouTube recommendations.‌‌\n\nThe DuckDuckGo app is available on the App Store: https://apps.apple.com/app/id663592361\n\n⚠️ This rule is only supported on iOS since the DuckDuckGo app for macOS may not support \"ddgquicklink:\/\/\" for deeplinking. For Mac, disable this rule on your Mac while leaving it enabled on iOS, then get the equivalent rule in the Mac app. (It appears exclusively in the Mac app’s library.)",
       "destinationURLPattern": "ddgquicklink://youtube.com/watch?$1",
       "exampleURLs": [
         "https://youtube.com/watch?v=asqxzaNGRWo",

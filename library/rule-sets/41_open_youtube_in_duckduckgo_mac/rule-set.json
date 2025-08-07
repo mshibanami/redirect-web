@@ -6,7 +6,7 @@
     {
       "appURL": "file:///Applications/DuckDuckGo.app",
       "captureGroupProcesses": [],
-      "comments": "This rule is for playing YouTube videos in Duck Player.\n\nDuck Player is a free YouTube player built in to the DuckDuckGo app, which lets you watch YouTube without targeted ads and keeps what you watch from influencing your YouTube recommendations.‌‌\n\n⚠️ This rule is only supported on Mac since it uses the native app-opening feature. For iOS, disable this rule on your iOS device while leaving it enabled on Mac, then get the equivalent rule in the iOS app. (It appears exclusively in the iOS app’s library.)",
+      "comments": "This rule is for playing YouTube videos in Duck Player.\n\nDuck Player is a YouTube player built in to the DuckDuckGo app, which lets you watch YouTube without targeted ads and keeps what you watch from influencing your YouTube recommendations.‌‌\n\nThe DuckDuckGo app is available on the App Store: https://apps.apple.com/app/id663592361\n\n⚠️ This rule is only supported on Mac since it uses the native app-opening feature. For iOS, disable this rule on your iOS device while leaving it enabled on Mac, then get the equivalent rule in the iOS app. (It appears exclusively in the iOS app’s library.)",
       "destinationURLPattern": "$0",
       "exampleURLs": [
         "https://youtube.com/watch?v=asqxzaNGRWo",
