@@ -10,13 +10,14 @@
       "exampleURLs": [
         "https://xkcd.com/2347/",
         "https://xkcd.com/about/",
-        "https://xkcd.com/"
+        "https://xkcd.com/",
+        "https://www.xkcd.com/386"
       ],
       "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https://xkcd\\.com/([0-9]+).*"
+        "value": "https://(?:www\\.)?xkcd\\.com/([0-9]+).*"
       },
       "title": "xkcd → explain xkcd",
       "type": "originalRedirect"
