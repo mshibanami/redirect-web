@@ -1,0 +1,25 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "2",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "captureGroupProcesses": [],
+      "comments": "There's a web comic strip called xkcd.  The content is usually scientific/mathematic/computer stuff.  Sometimes it's a real heads scratcher as to what the author is trying to convey  (some jokes DO need to be explained).   \n\nWell, there's a separate website specifically for explaining xkcd.   It's URL format is exactly like that of the original, with a simple text replacement\n\nThe website is here: https://xkcd.com",
+      "destinationURLPattern": "https://explainxkcd.com/$1",
+      "exampleURLs": [
+        "https://xkcd.com/2347/",
+        "https://xkcd.com/about/",
+        "https://xkcd.com/"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https://xkcd\\.com/([0-9]+).*"
+      },
+      "title": "xkcd → explain xkcd",
+      "type": "originalRedirect"
+    }
+  ]
+}
