@@ -1,0 +1,24 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "2",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "captureGroupProcesses": [],
+      "comments": "Using this rule, when you open Instagram posts, you are redirected to Imginn.\n\nImginn is an online instagram backup tool that helps users save instagram photos through the instagram public API.",
+      "destinationURLPattern": "https://imginn.com/p/$1/",
+      "exampleURLs": [
+        "https://www.instagram.com/p/DFxjb8PJcI5/?igsh=YWJjZGVmZ2hpamtsbW4=",
+        "https://www.instagram.com/p/DFxjb8PJcI5/"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https://www\\.instagram\\.com/p/([^/]+).*"
+      },
+      "title": "Instagram posts → Imginn",
+      "type": "originalRedirect"
+    }
+  ]
+}
