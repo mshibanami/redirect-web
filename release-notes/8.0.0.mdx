@@ -24,13 +24,15 @@ Meanwhile, on the App Store for iPhone, iPad, and Apple Vision Pro, it is still 
 - Fixed a bug of the DNR redirection type. Now, Redirect Web can set your DNR rules more reliably.
 - Fixed occasional redirection loop caused when you use the `Original` redirection type.
 - Improved the performance of the extension by optimizing the background script.
+- Changed the name of the Rules screen to **My Rules** for better clarity.
 - Stopped adding escape sequences for slashes in the strings in exported rule files. It was unnecessary and only decreased readability.
-- [iOS] Fixed the extension popup is not displayed when you enable the App Lock feature on iOS 18 or later.
+- [iOS] Fixed an issue where the extension popup was not displayed when the App Lock feature was enabled on iOS 18 or later.
 - [iOS] Added a Change Passcode button to the App Lock settings screen.
 - Other minor UI improvements and bug fixes.
     - Fixed the toggle switches for enabling and disabling each rule in the extension popup. Previously, the switch animation was not smooth. It appeared to briefly revert to the previous state when clicked.
-    - [iOS] Improved the animation shown when pushing the Get button for a pre-defined rule in the Library.
-    - [iOS] Fixed an issue where the title of the Rules screen remained stuck at the top when scrolling.
+    - [iOS] Edit Rule screen: Improved usability and intuitiveness.
+    - [iOS] Library screen: Improved the animation shown when pushing the Get button for a pre-defined rule.
+    - [iOS] My Rules screen: Fixed an issue where the title of the Rules screen remained stuck at the top when scrolling.
     - [iPad] Fixed a bug where the navigation bar buttons and the tab bar were misaligned on the Rules tab.
     - [iPad] Restored the screen title of each tab previously removed in iPadOS 18 as a workaround for the alignment issue. Now that the bug is fixed, the titles are shown again.
 
