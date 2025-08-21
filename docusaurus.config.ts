@@ -43,6 +43,7 @@ const config: Config = {
             description: 'An RSS feed of changelogs for Redirect Web',
             language: 'en',
           },
+          onUntruncatedBlogPosts: 'ignore'
         },
         theme: {
           customCss: './src/css/custom.css',
