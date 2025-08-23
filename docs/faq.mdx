@@ -1,18 +1,30 @@
+import IfBrowserStore from "@site/src/components/IfBrowserStore";
+import Image from "@site/src/components/Image";
+import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
+import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
+
 # FAQ
 
-## Why should I allow the extension to read my information?
+## Why should I allow the extension to read/change my information?
 
 You may see an alert like this when you set up Redirect Web:
 
-<img src={require("/img/prepareExtensionPermissionAlert@3x.png").default} alt="An permission requiring alert" width="200" />
+<IfBrowserStore stores='appStore'>
+    <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow={true} />
 
-> This extension will be able to read and alter webpages and see your browsing history on this website. **This could include sensitive information, including passwords, phone numbers, and credit cards.**
+    > This extension will be able to read and alter webpages and see your browsing history on this website. **This could include sensitive information, including passwords, phone numbers, and credit cards.**
+</IfBrowserStore>
 
-This extension needs your permission to observe the page navigation to redirect to wherever you want to jump, and Safari displays this alert when the extension requests the related permissions. Therefore, if you don’t allow it, this extension can't work.
+<IfBrowserStore stores='appStore' includes={false}>
+    <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
 
-Since we don't collect your personal information as per **[the privacy policy](./privacy-policy)**, we recommend you **always allow** it on **every website** for your convenience.
+    > It can:  
+    > Read and change **all your data** on **all websites**
+</IfBrowserStore>
 
-But it’s not required. You can only allow it on specific websites. 👌
+This extension needs your permission to observe the page navigation to redirect to wherever you want to jump, and your browser displays this when the extension requests the related permissions. Therefore, if you don’t allow it, this extension can't work.
+
+Granted permissions will only be used for app functions like redirection, in compliance with the **[the privacy policy](./privacy-policy)**.
 
 ## Should I still get the app after installing the extension for Chrome, Firefox, or Edge? \{#app-for-non-safari-browsers}
 
