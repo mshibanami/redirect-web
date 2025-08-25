@@ -115,7 +115,7 @@ These are how to make capturing groups:
 
 You can choose one or more of the following processes:
 
-* **URL Encode/Decode**: This applies [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) or decoding to a capturing group. For example, if you encode `https://example.com/hello`, it's converted to `https%3A%2F%2Fexample.com%2Fhello`. Decode works in an opposite way.
+* **URL Encode/Decode**: This applies [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) or decoding to a capturing group. For example, if you encode `https://example.com/hello`, it's converted to `https%3A%2F%2Fexample.com%2Fhello`. Decode works in the opposite way.
 * **Base64 Encode/Decode**: This decode/encode a text into [Base64](https://en.wikipedia.org/wiki/Base64). For example, you can encode `hello` to `aGVsbG8=`, and decode it back to `hello`.
 * **Replace Occurrences**: This replaces one or more characters in a group, matched by a **Target**, with a **Replacement**. For example, if the *Group* is `hello` and the *Target* is `l` and the Replacement is `y`, it is modified to `heyyo`.
 
@@ -174,4 +174,4 @@ You can also use substitution in Wildcard as well, which means you can reference
 
 You can reference the capturing groups in *Redirect To* or *Replacement* using `$1`, `$2`, ... or `$0` to reference the entire match.
 
-You can learn more about Regex syntax in resources like [RegExr](https://regexr.com/).
+More information about Regex syntax can be found in resources like [RegExr](https://regexr.com/).

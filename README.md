@@ -20,9 +20,9 @@ Download the app and the extension from the following links:
 <img src="./static/img/microsoft-store-badge.svg" alt="Go to Edge Add-ons" height="40">
 </a>
 
-In addition, we provides these on GitHub:
+In addition, we provide these on GitHub:
 
-- [Library Contents](./library): The contents shown in the Library section in the app.
+- [Library Contents](./library): This contains the contents shown in the Library section in the app.
 - [Issues](https://github.com/mshibanami/RedirectWeb/issues): Report any bugs, request new features, and more.
 - [Discussions](https://github.com/mshibanami/RedirectWeb/discussions): Ask any questions and get help from the developer or other users.
 

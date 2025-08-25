@@ -18,4 +18,4 @@ Then, to start the development server with livereload, you can use:
 npm run start
 ```
 
-You can now edit the files in the `docs` folder, and the changes will be reflected immediately in your browser without needing to refresh the page.
+You can now edit the files in the `docs` folder. The changes will be reflected immediately in your browser without needing to refresh the page.
