@@ -1,6 +1,6 @@
 # Rule Settings
 
-This page provides detailed information on how to set up rules using Redirect Web.
+This page provides detailed information of each setting in the Edit Rule screen in the Redirect Web app.
 
 ## Options
 
@@ -10,19 +10,19 @@ Specify the **Type** option to control how the app handles redirection. You can 
 
 * **Original** (Default)
     * This uses traditional Web APIs to control redirection. Additionally, it uses [the Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) for a fallback.
+        * In Firefox, it uses the [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) to handle redirection.
     * You can use all the options other than [Resource Types](#resource-types) and [Request Methods](#request-methods).
     * This is slower than the *Declarative* type and may cause extra network requests.
-* **DNR** (Experimental):
-    * This allows you to specify [Resource Types](#resource-types) ~~and [Request Methods](#request-methods)~~.
+* **DNR** (Experimental for Safari):
     * This type works much faster than the Original type because it doesn't initiate a network request for the source URL.
-    * ⚠️ If you update Redirect Web to version 7 or later, you may see an alert in Safari that disables the extension due to a new permission request for this type. [Details](/faq#permission-alert-on-safari)
-    * ⚠️ You can't use some options, such as [Capturing Group Processing](#capturing-group-processing) and [Excluded URL Patterns](#excluded-url-patterns).
-    * ⚠️ Currently, you can't include pipes (`|`) in your Regular Expression pattern. [Details](https://github.com/mshibanami/redirect-web/issues/44)
-    * ⚠️ Since the DNR API still has some issues, we consider that is still an experimental feature. You can find the list of all the known issues [here](https://github.com/mshibanami/redirect-web/labels/DNR).
+    * This allows you to specify [Resource Types](#resource-types) and [Request Methods](#request-methods).
+    * ⚠️ You can't use some options, such as [Capturing Group Processing](#capturing-group-processing) and [Excluded URL Patterns](#excluded-url-patterns) since they haven't been supported by the DNR API yet.
+    * ⚠️ In Safari, currently you can't include pipes (`|`) in your Regular Expression pattern. [Details](https://github.com/mshibanami/redirect-web/issues/44)
+    * ⚠️ Since Safari's DNR API still has some issues, we consider that is still an experimental feature for Safari. You can find the list of all the known issues [here](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
 ### Redirect From
 
-The **Redirect From** option allows you to specify a URL pattern of web pages you want to redirect from. You can choose either Wildcard or Regular Expression.
+The **Redirect From** option allows you to specify a URL pattern of web pages you want to redirect from. You can choose either [Wildcard](#wildcard) or [Regular Expression](#regular-expression).
 
 For example, if you specify `https://example.com/*` with Wildcard, it matches `https://example.com/` or `https://example.com/hello`.
 
@@ -47,14 +47,28 @@ Please check the details of each resource type in [mdn web docs](https://develop
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-~~The **Request Methods** option lets you set the target HTTP methods of the source URL.~~
+The **Request Methods** option lets you set the target HTTP methods of the source URL.
 
-~~All methods are set by default.~~
+All methods are set by default.
 
-~~Please check the details of each method in [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).~~
+Please check the details of each method in [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 > [!WARNING]
-> This option is currently not available because Apple's implementation for the DNR type doesn't seem to handle it currently. We sent feedback to Apple as FB14502272.
+> In Safari, this option may not be available because Apple's implementation for the DNR type doesn't seem to handle it currently. We sent feedback to Apple as FB14502272.
+
+#### Target Browsers
+
+![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+The **Target Browsers** option allows you to specify which browser the rule should or shouldn't be applied to.
+
+* There are 2 types of browsers you can choose:
+    * **Browsers you can choose by default**: You can choose Safari, Chrome, Firefox, Edge, Opera, Arc, Brave, and Vivaldi by default. This doesn't differentiate variants of the same browser, such as Safari and Safari Technology Preview.
+    * **User specified browsers**: By tapping the Add button on the popover, you can select any browser other than Safari or Safari Technology Preview that has the Redirect Web extension installed.
+* The **All except selected** checkbox lets you target every browser except the ones you’ve chosen.
+
+> [!WARNING]
+> Redirect Web can't differentiate whether the browser is **Safari** or **Safari Technology Preview** because the app checks the parent process of the extension to detect it but these two browsers share the same parent process (`/sbin/launchd`).
 
 ### Redirect To
 

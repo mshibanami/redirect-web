@@ -8,21 +8,16 @@ const projectName = 'redirect-web';
 const config: Config = {
   title: 'Redirect Web',
   tagline: 'Redirect any website',
-
   url: 'https://mshibanami.github.io/',
   baseUrl: `/${projectName}/`,
-
   organizationName: 'mshibanami',
   projectName: projectName,
-
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
   presets: [
     [
       'classic',
@@ -48,6 +43,7 @@ const config: Config = {
             description: 'An RSS feed of changelogs for Redirect Web',
             language: 'en',
           },
+          onUntruncatedBlogPosts: 'ignore'
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -68,9 +64,16 @@ const config: Config = {
         alt: 'Site Logo',
         src: 'img/logo.svg',
       },
+      hideOnScroll: true,
       items: [
         { to: '/', label: 'Docs', position: 'left', activeBaseRegex: `^/${projectName}/(?!release-notes).*` },
         { to: '/release-notes', label: 'Release Notes', position: 'left', activeBaseRegex: `^/${projectName}/release-notes/?.*` },
+        {
+          type: 'html',
+          position: 'right',
+          value: '<a href="https://apps.apple.com/app/id1571283503" class="navbar__appstore_button navbar__item_force"><img src="img/appstore-badge.svg" alt="Apple Logo" /></a>',
+          className: "navbar__item_force"
+        },
         {
           href: 'https://github.com/mshibanami/redirect-web',
           label: 'GitHub',

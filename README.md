@@ -1,8 +1,24 @@
-# Redirect Web
-
-[![appstore-badge.svg](./static/img/appstore-badge.svg)](https://apps.apple.com/au/app/id1571283503)
+# Redirect Web - Browser Extension
 
 This is a repository for [the support website of Redirect Web](https://mshibanami.github.io/redirect-web).
+
+Download the app and the extension from the following links:
+
+<a href="https://apps.apple.com/app/id1571283503" target="_blank">
+<img src="./static/img/appstore-badge.svg" alt="Go to App Store" height="40">
+</a>
+
+<a href="https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh" target="_blank">
+<img src="./static/img/chrome-store-badge.svg" alt="Go to Chrome Web Store" height="40">
+</a>
+
+<a href="https://addons.mozilla.org/firefox/addon/redirect-web/" target="_blank">
+<img src="./static/img/firefox-store-badge.svg" alt="Go to Firefox Add-ons" height="40">
+</a>
+
+<a href="https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga" target="_blank">
+<img src="./static/img/microsoft-store-badge.svg" alt="Go to Edge Add-ons" height="40">
+</a>
 
 In addition, we provides these on GitHub:
 

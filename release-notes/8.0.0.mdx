@@ -1,0 +1,58 @@
+---
+title: Version 8.0.0
+date: 2025-08-25
+---
+
+![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
+
+A new major version update! 🚀
+
+### Multi-browser support on Mac is here!
+
+![8.0.0 header](/img/release-notes/multi-browser-support.png)
+
+Redirect Web is now available on **Chrome**, **Firefox**, **Edge**, and many other browsers on Mac!
+
+:::note
+
+- Multi-browser support is only available on Mac.
+- Even if you don't use Safari, you still need to download [the Redirect Web app from the Mac App Store](https://apps.apple.com/app/id1571283503) to use the extension on non-Safari browsers, as the extensions must communicate with the app to access your rules, settings, and more.
+
+:::
+
+## ⬇️ Download links
+
+- Safari: The extension is already bundled in [the native app](https://apps.apple.com/app/id1571283503).
+- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
+- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox Add-ons)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge Add-ons)
+
+
+### Updated Terms & Privacy Policy
+
+Since we started supporting many browsers, we changed the app’s brand name to **Redirect Web** from Redirect Web for Safari, and we also updated our [Terms of Use](/terms-of-use) and [Privacy Policy](/privacy-policy) to reflect the renaming. Find the full diff [here](https://github.com/mshibanami/redirect-web/commit/417f0571b3300e8c9c842a6b82cfb224a625d5ff).
+
+:::note
+
+Meanwhile, it is still listed as “Redirect Web for Safari” on the App Store for non-Mac devices. This reflects the fact that the iOS version supports only Safari, and the “for Safari” part simply indicates the supported platform, not the app’s brand name.
+
+:::
+
+### Bug fixes and improvements
+
+- Fixed a bug of the DNR redirection type. Now, Redirect Web can set your DNR rules more reliably.
+- Fixed occasional redirection loop caused when you use the `Original` redirection type.
+- Improved the performance of the extension by optimizing the background script.
+- Changed the name of the Rules screen to **My Rules** for better clarity.
+- Stopped adding escape sequences for slashes in the strings in exported rule files. It was unnecessary and only decreased readability.
+- [iOS] Edit Rule screen: Improved usability and intuitiveness.
+- [iOS] Fixed an issue where the extension popup was not displayed when the App Lock feature was enabled on iOS 18 or later.
+- [iOS] Added a Change Passcode button to the App Lock settings screen.
+- Other minor UI improvements and bug fixes.
+    - Fixed the toggle switches for enabling and disabling each rule in the extension popup. Previously, the switch animation was not smooth. It appeared to briefly revert to the previous state when clicked.
+    - [iOS] Library screen: Improved the animation shown when pushing the Get button for a pre-defined rule.
+    - [iOS] My Rules screen: Fixed an issue where the title of the Rules screen remained stuck at the top when scrolling.
+    - [iPad] Fixed a bug where the navigation bar buttons and the tab bar were misaligned on the Rules tab.
+    - [iPad] Restored the screen title of each tab previously removed in iPadOS 18 as a workaround for the alignment issue. Now that the bug is fixed, the titles are shown again.
+
+Thank you for your continued support! If you enjoy using Redirect Web, please consider leaving a review on the stores. It really helps!

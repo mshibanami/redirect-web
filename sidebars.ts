@@ -21,8 +21,8 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Q&A',
       items: [
-        "contact-us",
         "faq",
+        "contact-us",
       ],
     },
     {

@@ -54,7 +54,7 @@ export default function ReleaseNotesListHeader({
                     id="release-notes.description.oldReleaseNotes"
                     values={{
                         appStoreLink: (
-                            <Link href="https://apps.apple.com/app/redirect-web-for-safari/id1571283503">
+                            <Link href="https://apps.apple.com/app/id1571283503">
                                 <Translate id="release-notes.description.appPageInAppStore">
                                     the app page in the App Store
                                 </Translate>
