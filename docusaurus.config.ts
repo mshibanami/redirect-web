@@ -4,12 +4,13 @@ import type * as Preset from '@docusaurus/preset-classic';
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 
 const projectName = 'redirect-web';
+const baseUrl = `/${projectName}/`;
 
 const config: Config = {
   title: 'Redirect Web',
   tagline: 'Redirect any website',
   url: 'https://mshibanami.github.io/',
-  baseUrl: `/${projectName}/`,
+  baseUrl: baseUrl,
   organizationName: 'mshibanami',
   projectName: projectName,
   onBrokenLinks: 'throw',
@@ -71,7 +72,7 @@ const config: Config = {
         {
           type: 'html',
           position: 'right',
-          value: '<a href="https://apps.apple.com/app/id1571283503" class="navbar__appstore_button navbar__item_force"><img src="img/appstore-badge.svg" alt="Apple Logo" /></a>',
+          value: `<a href="https://apps.apple.com/app/id1571283503" class="navbar__appstore_button navbar__item_force"><img src="${baseUrl}img/appstore-badge.svg" alt="Go to Apple Store" /></a>`,
           className: "navbar__item_force"
         },
         {
