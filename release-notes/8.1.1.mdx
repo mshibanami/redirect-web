@@ -1,0 +1,24 @@
+---
+title: Version 8.1.1
+date: 2025-08-28
+---
+
+![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
+
+* [Mac] Fixed a crash that occurred when opening a URL in an app that doesn’t support it. For example, the Figma app doesn’t handle https links because they aren’t listed in its `Info.plist`. Attempting to open `https://figma.com/...` in Figma via Redirect Web caused the extension to crash. This wasn’t obvious at first because Safari automatically relaunched the extension, but since we now support non-Safari browsers that lack crash recovery, it became a major bug for them.
+
+* Extension Popup: Fixed that the toggle switches of enabling/disabling the rules were misaligned.
+* [Chrome, Firefox] Extension Popup: Fixed that some texts were too small.
+
+<!--truncate-->
+
+(The recent major update is [here](./8.0.0) in case you missed it!)
+
+## ⬇️ Download links
+
+- Safari: The extension is already bundled in [the native app](https://apps.apple.com/app/id1571283503).
+- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
+- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox Add-ons)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge Add-ons)
+
+Thank you for your continued support! If you enjoy using Redirect Web, please consider leaving a review on the stores. It really helps!
