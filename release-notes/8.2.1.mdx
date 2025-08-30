@@ -1,0 +1,19 @@
+---
+title: Version 8.2.1
+date: 2025-08-30
+---
+
+![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+* [macOS] Fixed an issue where extensions for Firefox couldn't connect to the Redirect Web app. The problem occurred when the [folder for manifest files of native messaging hosts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#macos) didn't exist. Mozilla considers it the browser’s responsibility to create this folder, but they haven't done so as noted in [their 8-year-old bug report](https://bugzilla.mozilla.org/show_bug.cgi?id=1367100). To address this, we added a check that creates the folder if it's missing. This fallback mechanism is applied to all supported browsers just in case.
+
+(The recent major update is [here](./8.0.0.mdx) in case you missed it!)
+
+## ⬇️ Download links
+
+- Safari: Bundled in [the native app](https://apps.apple.com/app/id1571283503).
+- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
+- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox Add-ons)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge Add-ons)
+
+Thank you for your continued support! If you enjoy using Redirect Web, please consider leaving a review on the stores. It really helps!
