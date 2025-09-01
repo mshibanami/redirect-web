@@ -176,7 +176,7 @@ async function main({
 - Translate only natural language content and comments.
 - Maintain placeholders like {like_this}, %s, {{mustache}}, <tags>, and \\n escapes.
 - If the text is already mostly ${targetLang}, lightly edit for fluency but avoid changing technical terms.
-- Respond with ONLY the translated content inside the "<CONTENT>" tags (= without the tags); do not add explanations.`;
+- IMPORTANT: Output ONLY the translated text itself. Do NOT include <CONTENT> tags or any other wrapping.`;
 
         const prompt = `File: ${meta.file}\n\n<CONTENT>\n${text}\n</CONTENT>`;
         const { text: out } = await generateText({
