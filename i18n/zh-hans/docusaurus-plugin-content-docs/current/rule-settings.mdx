@@ -1,0 +1,177 @@
+# 规则设置
+
+此页面详细介绍了 Redirect Web 应用中“编辑规则”屏幕上的各项设置。
+
+## 选项
+
+### 类型
+
+指定**类型**选项以控制应用如何处理重定向。您可以从以下选项中选择：
+
+*   **原始**（默认）
+    *   此类型使用传统的 Web API 来控制重定向。此外，它还使用 [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) 作为备用方案。
+        *   在 Firefox 中，它使用 [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) 来处理重定向。
+    *   您可以使用除 [资源类型](#resource-types) 和 [请求方法](#request-methods) 之外的所有选项。
+    *   这比“声明式”类型要慢，并且可能会导致额外的网络请求。
+*   **DNR**（Safari 实验性功能）：
+    *   此类型比“原始”类型快得多，因为它不会为源 URL 发起网络请求。
+    *   这允许您指定 [资源类型](#resource-types) 和 [请求方法](#request-methods)。
+    *   ⚠️ 您不能使用某些选项，例如 [捕获组处理](#capturing-group-processing) 和 [排除的 URL 模式](#excluded-url-patterns)，因为 DNR API 尚未支持它们。
+    *   ⚠️ 在 Safari 中，目前您不能在正则表达式模式中包含管道符 (`|`)。[详情](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ 由于 Safari 的 DNR API 仍存在一些问题，我们认为它仍然是 Safari 的实验性功能。您可以在 [此处](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari) 找到所有已知问题的列表。
+
+### 重定向来源
+
+**重定向来源**选项允许您指定要重定向的网页的 URL 模式。您可以选择 [通配符](#wildcard) 或 [正则表达式](#regular-expression)。
+
+例如，如果使用通配符指定 `https://example.com/*`，它将匹配 `https://example.com/` 或 `https://example.com/hello`。
+
+> [!NOTE]
+> 在“重定向目标”选项中，您可以使用 `$0` 引用整个匹配项，或使用 `$1`、`$2` 等引用部分匹配项。请参阅本页 [URL 模式](#url-pattern) 中的详细信息。
+
+#### 资源类型
+
+![支持的类型：DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+**资源类型**选项允许您指定规则适用的 Web 请求类别，例如图片、JavaScript 脚本和样式表。
+例如，如果将此选项设置为 `script`，则可以重定向网页加载的 JavaScript 文件。
+
+目前，这些类型可用：
+`main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
+
+默认设置为 `main_frame`，即加载到标签页中的顶层页面。
+
+请在 [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType) 中查看每种资源类型的详细信息。
+
+#### 请求方法
+
+![支持的类型：DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+**请求方法**选项允许您设置源 URL 的目标 HTTP 方法。
+
+默认情况下，所有方法都已设置。
+
+请在 [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) 中查看每种方法的详细信息。
+
+> [!WARNING]
+> 在 Safari 中，此选项可能不可用，因为 Apple 对 DNR 类型的实现目前似乎不支持此功能。我们已将此反馈发送给 Apple，反馈编号为 FB14502272。
+
+#### 目标浏览器
+
+![支持的平台：macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+**目标浏览器**选项允许您指定规则应该或不应该应用于哪些浏览器。
+
+*   您可以选择两种类型的浏览器：
+    *   **默认可选择的浏览器**：您可以默认选择 Safari、Chrome、Firefox、Edge、Opera、Arc、Brave 和 Vivaldi。这不区分相同浏览器的变体，例如 Safari 和 Safari Technology Preview。
+    *   **用户指定的浏览器**：通过点击弹出窗口上的“添加”按钮，您可以选择除了 Safari 或 Safari Technology Preview 之外，已安装 Redirect Web 扩展的任何浏览器。
+*   “**除选定项外所有**”复选框允许您定位除已选择的浏览器之外的所有浏览器。
+
+> [!WARNING]
+> Redirect Web 无法区分浏览器是 **Safari** 还是 **Safari Technology Preview**，因为该应用通过检查扩展的父进程来检测浏览器，但这两个浏览器共享相同的父进程 (`/sbin/launchd`)。
+
+### 重定向目标
+
+**重定向目标**选项指定您希望从与“重定向来源”选项匹配的源 URL 重定向到的目标 URL。您还可以使用 `$1`、`$2` 等替换捕获组，或使用 `$0` 替换整个匹配项。这些有助于您动态指定目标。请查看本页 [URL 模式](#url-pattern) 中的详细信息。
+
+例如，如果您设置以下规则：
+
+*   **重定向来源**: `https://google.com/*` (通配符)
+*   **重定向目标**: `https://apple.com/$1`
+
+并且它匹配 `https://google.com/hello`，那么目标 URL 将是 `https://apple.com/hello`。
+
+此外，您可以在进行替换之前修改 `$1`、`$2` 等的文本。请查看 [捕获组处理](#capturing-group-processing) 部分了解详细信息。
+
+> [!TIP]
+> 您可以指定自定义 URL 方案来打开应用。以下是支持深度链接的应用示例：
+>
+> *   Figma: `figma://file/Your_Figma_ID`
+> *   Firefox: `firefox://open-url?url=https://example.com/hello`
+> *   Google Chrome: `googlechromes://example.com`
+> *   Microsoft Edge: `microsoft-edge://example.com`
+> *   Notion: `notion://www.notion.so/Your_Note_ID`
+> *   Slack: `slack://open`
+
+#### 应用程序
+
+![支持的类型：原始](https://img.shields.io/badge/Types-Original-blue) ![支持的平台：macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+如果您希望指定一个应用程序来打开目标 URL，请使用“**应用程序**”组合框。此功能仅在 macOS 上可用。
+
+> [!WARNING]
+> 您只能打开支持 [应用沙盒](https://developer.apple.com/documentation/security/app_sandbox) 的应用。此外，请确保该应用支持打开您想要打开的 URL。
+
+### 捕获组处理
+
+![支持的类型：原始](https://img.shields.io/badge/Types-Original-blue)
+
+**捕获组处理**选项允许您指定如何处理在“重定向目标”选项中可以使用 `$1`、`$2`... 替换的捕获组。
+
+以下是创建捕获组的方式：
+
+*   **通配符**：与 `*` 和 `?` 匹配的文本会自动捕获。
+*   **正则表达式**：与 `()` 内模式的一部分匹配的文本会被捕获。
+
+您可以选择以下一个或多个处理方式：
+
+*   **URL 编码/解码**：这会将 [百分比编码](https://en.wikipedia.org/wiki/Percent-encoding) 或解码应用于捕获组。例如，如果您编码 `https://example.com/hello`，它将转换为 `https%3A%2F%2Fexample.com%2Fhello`。解码则以相反的方式工作。
+*   **Base64 编码/解码**：这会将文本编码或解码为 [Base64](https://en.wikipedia.org/wiki/Base64)。例如，您可以将 `hello` 编码为 `aGVsbG8=`，并将其解码回 `hello`。
+*   **替换出现项**：这会将组中由**目标**匹配的一个或多个字符替换为**替换项**。例如，如果*组*是 `hello`，*目标*是 `l`，*替换项*是 `y`，它将被修改为 `heyyo`。
+
+> [!NOTE]
+> 这是用于处理每个捕获组的，它不影响 [排除的 URL 模式](#excluded-url-patterns) 排除哪些 URL。例如，假设您有以下规则：
+>
+> *   **重定向来源**: `https://example.com/(hello.*)`
+> *   **捕获组处理**：
+>     *   组: `$1`
+>     *   目标: `.*` (正则表达式)
+>     *   替换项: `hello`
+> *   **排除的 URL 模式**: `https://example.com/hello`
+>
+> 在这种情况下，`https://example.com/hello_world` 将不会被排除，而 `https://example.com/hello` 将被排除。
+
+### 排除的 URL 模式
+
+![支持的类型：原始](https://img.shields.io/badge/Types-Original-blue)
+
+**排除的 URL 模式**选项允许您指定不进行重定向的 URL。这对于避免重定向循环或将网站的某些部分排除在重定向之外非常有用。
+
+您可以使用正则表达式或通配符模式类型指定排除的 URL 模式。
+
+### 示例
+
+**示例**选项允许您通过提供示例 URL 来测试您的重定向规则。通过添加示例 URL，您可以在实际应用规则之前检查其是否按预期工作。
+
+### 备注
+
+**备注**选项允许您添加关于重定向规则的任何注释或备注。这对于跟踪创建特定规则的原因或为其他可能查看您规则的人提供上下文很有用。
+
+## URL 模式
+
+您可以通过 3 个选项指定一个或多个 URL 模式：*重定向来源*、*排除的 URL 模式*和*捕获组处理*。要指定它们，您可以选择**通配符**或**正则表达式**。
+
+### 通配符
+
+**通配符**是一种更简单的模式类型，允许您使用 `*`（匹配任何内容）和 `?`（匹配任何单个字符）作为通配符。以下是一些示例：
+
+*   要匹配 `https://example.com/hello`，您可以使用 `https://example.com/*`。这将匹配 `https://example.com/` 之后的任何字符串。
+*   要匹配 `https://example.com/search?q=hello`，您可以使用 `https://example.com/search?q=*`。这将匹配 `q` 参数的任何值。
+*   要匹配包含单词 `blog` 的任何 URL，您可以使用 `*blog*`。
+
+您也可以在通配符中使用替换，这意味着您可以使用 `$1`、`$2` 等引用匹配 URL 的部分。例如，如果您使用 `https://example.com/*-world-*`，并且 URL 是 `https://example.com/hello-world-goodbye`，那么 `$1` 将是 "hello"，`$2` 将是 "goodbye"。`$0` 也可用于引用整个匹配的 URL。
+
+> [!Note]
+> 尽管替换是正则表达式的一项功能，但您也可以将其用于通配符，因为 Redirect Web 会在内部将通配符转换为正则表达式。
+
+### 正则表达式
+
+**正则表达式**（Regex）是一种强大的文本模式匹配工具，由 Apple 的正则表达式引擎提供支持，[此处](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) 描述了该引擎。它允许您定义一个特定模式来匹配一组字符串。以下是一些示例。
+
+-   要匹配 `https://example.com/hello`，您可以使用 `https://example.com/(.*)`。这将匹配 `https://example.com/` 之后的任何字符串并将其存储在一个捕获组中。
+-   要匹配 `https://example.com/search?q=hello`，您可以使用 `https://example.com/search\?q=(.*)`。这将匹配 `q` 参数的值并将其存储在一个捕获组中。
+-   要匹配包含单词 `blog` 的任何 URL，您可以使用 `.*blog.*`。
+
+您可以使用 `$1`、`$2` 等在“重定向目标”或“替换项”中引用捕获组，或使用 `$0` 引用整个匹配项。
+
+有关正则表达式语法的更多信息可以在 [RegExr](https://regexr.com/) 等资源中找到。
