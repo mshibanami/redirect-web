@@ -1,0 +1,177 @@
+# ルール設定
+
+このページでは、Redirect Webアプリの「ルールを編集」画面にある各設定の詳細情報を提供します。
+
+## オプション
+
+### タイプ
+
+アプリがリダイレクトをどのように処理するかを制御するために「**タイプ**」オプションを指定します。以下から選択できます。
+
+*   **オリジナル** (デフォルト)
+    *   これは従来からのWeb APIを使用してリダイレクトを制御します。さらに、フォールバックとして[Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs)も使用します。
+        *   Firefoxでは、[WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest)を使用してリダイレクトを処理します。
+    *   [リソースタイプ](#resource-types)と[リクエストメソッド](#request-methods)以外のすべてのオプションを使用できます。
+    *   これは「*宣言型*」タイプよりも処理が遅く、余分なネットワークリクエストを引き起こす可能性があります。
+*   **DNR** (Safariでの実験的機能):
+    *   このタイプは、ソースURLに対してネットワークリクエストを開始しないため、「オリジナル」タイプよりもはるかに高速に動作します。
+    *   これにより、[リソースタイプ](#resource-types)と[リクエストメソッド](#request-methods)を指定できます。
+    *   ⚠️ [キャプチャグループの処理](#capturing-group-processing)や[除外URLパターン](#excluded-url-patterns)などの一部のオプションは、まだDNR APIでサポートされていないため、使用できません。
+    *   ⚠️ Safariでは、現在、正規表現パターンにパイプ（`|`）を含めることはできません。[詳細](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ SafariのDNR APIにはまだいくつかの問題があるため、これはSafariの実験的機能であると考えています。既知のすべての問題のリストは[こちら](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari)で確認できます。
+
+### リダイレクト元
+
+「**リダイレクト元**」オプションを使用すると、リダイレクトしたいWebページのURLパターンを指定できます。[ワイルドカード](#wildcard)または[正規表現](#regular-expression)のいずれかを選択できます。
+
+例えば、ワイルドカードで`https://example.com/*`を指定した場合、`https://example.com/`または`https://example.com/hello`に一致します。
+
+> [!NOTE]
+> 「リダイレクト先」オプションでは、一致全体を`$0`で、部分一致を`$1`、`$2`、...で参照できます。詳細はこのページの[URLパターン](#url-pattern)で確認してください。
+
+#### リソースタイプ
+
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+「**リソースタイプ**」オプションでは、画像、JavaScript、スタイルシートなど、ルールが適用されるWebリクエストのカテゴリを指定できます。
+例えば、`script`を設定すると、Webページによって読み込まれるJavaScriptファイルをリダイレクトできます。
+
+現在、以下のタイプが利用可能です:
+`main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
+
+デフォルト設定は`main_frame`で、これはタブに読み込まれるトップレベルのページです。
+
+各リソースタイプの詳細については、[mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType)を確認してください。
+
+#### リクエストメソッド
+
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+「**リクエストメソッド**」オプションでは、ソースURLの対象HTTPメソッドを設定できます。
+
+デフォルトではすべてのメソッドが設定されています。
+
+各メソッドの詳細については、[mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)を確認してください。
+
+> [!WARNING]
+> Safariでは、AppleのDNRタイプの実装が現在これを処理しないため、このオプションが利用できない場合があります。AppleにFB14502272としてフィードバックを送信しました。
+
+#### ターゲットブラウザ
+
+![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+「**ターゲットブラウザ**」オプションを使用すると、ルールを適用すべきブラウザと適用すべきでないブラウザを指定できます。
+
+*   選択できるブラウザは2種類あります:
+    *   **デフォルトで選択できるブラウザ**: デフォルトでSafari、Chrome、Firefox、Edge、Opera、Arc、Brave、Vivaldiを選択できます。これは、SafariとSafari Technology Previewのような同じブラウザのバリアントを区別しません。
+    *   **ユーザー指定のブラウザ**: ポップオーバーの「追加」ボタンをタップすると、Redirect Web拡張機能がインストールされているSafariまたはSafari Technology Preview以外の任意のブラウザを選択できます。
+*   「**選択したものを除くすべて**」チェックボックスを使用すると、選択したブラウザ以外のすべてのブラウザをターゲットにできます。
+
+> [!WARNING]
+> Redirect Webは、拡張機能の親プロセスをチェックしてブラウザを検出しますが、SafariとSafari Technology Previewは同じ親プロセス（`/sbin/launchd`）を共有するため、これらを区別することはできません。
+
+### リダイレクト先
+
+「**リダイレクト先**」オプションは、「*リダイレクト元*」オプションに一致したソースURLからリダイレクトしたい宛先URLを指定します。キャプチャグループを`$1`、`$2`、...で置換したり、一致全体を`$0`で置換したりすることもできます。これらは、宛先を動的に指定するのに役立ちます。詳細はこのページの[URLパターン](#url-pattern)で確認してください。
+
+例えば、次のルールを設定した場合：
+
+*   **リダイレクト元**: `https://google.com/*` (ワイルドカード)
+*   **リダイレクト先**: `https://apple.com/$1`
+
+そして`https://google.com/hello`に一致した場合、宛先URLは`https://apple.com/hello`になります。
+
+さらに、置換を行う前に`$1`、`$2`、...のテキストを変更することもできます。詳細については、「[キャプチャグループの処理](#capturing-group-processing)」セクションを参照してください。
+
+> [!TIP]
+> アプリを開くためのカスタムURLスキームを指定できます。これらは、ディープリンクをサポートするアプリの例です。
+>
+> *   Figma: `figma://file/Your_Figma_ID`
+> *   Firefox: `firefox://open-url?url=https://example.com/hello`
+> *   Google Chrome: `googlechromes://example.com`
+> *   Microsoft Edge: `microsoft-edge://example.com`
+> *   Notion: `notion://www.notion.so/Your_Note_ID`
+> *   Slack: `slack://open`
+
+#### アプリケーション
+
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+宛先URLを開きたいアプリを指定する場合は、「**アプリケーション**」コンボボックスを使用します。これはmacOSでのみ利用可能です。
+
+> [!WARNING]
+> [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox)をサポートするアプリのみを開くことができます。また、そのアプリがあなたが開きたいURLを開くことをサポートしていることを確認してください。
+
+### キャプチャグループの処理
+
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
+
+「**キャプチャグループの処理**」オプションでは、「*リダイレクト先*」オプションで`$1`、`$2`...で置換できるキャプチャされたグループをどのように処理するかを指定できます。
+
+キャプチャグループを作成する方法は次のとおりです:
+
+*   **ワイルドカード**: `*`と`?`に一致するテキストは自動的にキャプチャされます。
+*   **正規表現**: パターン内の`()`の内側に一致するテキストがキャプチャされます。
+
+以下のプロセスを1つ以上選択できます。
+
+*   **URLエンコード/デコード**: これは、キャプチャグループに[パーセントエンコーディング](https://en.wikipedia.org/wiki/Percent-encoding)またはデコードを適用します。例えば、`https://example.com/hello`をエンコードすると、`https%3A%2F%2Fexample.com%2Fhello`に変換されます。デコードはその逆を行います。
+*   **Base64エンコード/デコード**: これはテキストを[Base64](https://en.wikipedia.org/wiki/Base64)にデコード/エンコードします。例えば、`hello`を`aGVsbG8=`にエンコードし、`hello`に戻すことができます。
+*   **出現箇所を置換**: これは、「**ターゲット**」に一致するグループ内の1つ以上の文字を「**置換文字列**」で置き換えます。例えば、「*グループ*」が`hello`で、「*ターゲット*」が`l`、「*置換文字列*」が`y`の場合、`heyyo`に変更されます。
+
+> [!NOTE]
+> これは各キャプチャグループを処理するためのものであり、[除外URLパターン](#excluded-url-patterns)によって除外されるURLには影響しません。例えば、次のルールがあるとします。
+>
+> *   **リダイレクト元**: `https://example.com/(hello.*)`
+> *   **キャプチャグループの処理**:
+>     *   グループ: `$1`
+>     *   ターゲット: `.*` (正規表現)
+>     *   置換文字列: `hello`
+> *   **除外URLパターン**: `https://example.com/hello`
+>
+> この場合、`https://example.com/hello_world`は除外されず、`https://example.com/hello`は除外されます。
+
+### 除外URLパターン
+
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
+
+「**除外URLパターン**」オプションを使用すると、リダイレクトされないURLを指定できます。これは、リダイレクトループを回避したり、ウェブサイトの特定の部分がリダイレクトされるのを防ぐのに役立ちます。
+
+除外URLパターンは、正規表現またはワイルドカードパターンのいずれかを使用して指定できます。
+
+### 例
+
+「**例**」オプションを使用すると、サンプルURLを提供してリダイレクトルールをテストできます。サンプルURLを追加することで、実際に適用する前にルールが期待通りに機能するかどうかを確認できます。
+
+### コメント
+
+「**コメント**」オプションを使用すると、リダイレクトルールに関するメモやコメントを追加できます。これは、特定のルールを作成した理由を記録したり、ルールを閲覧する可能性のある他の人にコンテキストを提供したりするのに役立ちます。
+
+## URLパターン
+
+URLパターンを指定できるオプションは、「*リダイレクト元*」、「*除外URLパターン*」、および「*キャプチャグループの処理*」の3つです。これらを指定するには、「**ワイルドカード**」または「**正規表現**」のいずれかを選択できます。
+
+### ワイルドカード
+
+**ワイルドカード**はよりシンプルなパターンタイプで、`*`（任意の文字列に一致）と`?`（任意の単一文字に一致）をワイルドカードとして使用できます。いくつかの例を挙げます。
+
+*   `https://example.com/hello`に一致させるには、`https://example.com/*`を使用できます。これは`https://example.com/`以降の任意の文字列に一致します。
+*   `https://example.com/search?q=hello`に一致させるには、`https://example.com/search?q=*`を使用できます。これは`q`パラメーターの任意の値に一致します。
+*   `blog`という単語を含む任意のURLに一致させるには、`*blog*`を使用できます。
+
+ワイルドカードでも置換を使用できます。これは、一致したURLの一部を`$1`、`$2`などで参照できることを意味します。例えば、`https://example.com/*-world-*`を使用し、URLが`https://example.com/hello-world-goodbye`の場合、`$1`は「hello」に、`$2`は「goodbye」になります。一致したURL全体を参照する`$0`も利用できます。
+
+> [!Note]
+> 置換は正規表現の機能ですが、Redirect Webが内部的にワイルドカードを正規表現に変換するため、ワイルドカードでも使用できます。
+
+### 正規表現
+
+**正規表現** (Regex) は、[Appleの正規表現エンジン](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042)によって提供される、テキスト内のパターンに一致させるための強力なツールです。特定の文字列のセットに一致する特定のパターンを定義できます。いくつかの例を挙げます。
+
+*   `https://example.com/hello`に一致させるには、`https://example.com/(.*)`を使用できます。これは`https://example.com/`以降の任意の文字列に一致し、それをキャプチャグループに格納します。
+*   `https://example.com/search?q=hello`に一致させるには、`https://example.com/search\?q=(.*)`を使用できます。これは`q`パラメーターの値を一致させ、それをキャプチャグループに格納します。
+*   `blog`という単語を含む任意のURLに一致させるには、`.*blog.*`を使用できます。
+
+「*リダイレクト先*」または「*置換文字列*」で、`$1`、`$2`、...を使用してキャプチャグループを参照したり、`$0`を使用して一致全体を参照したりできます。
+
+正規表現の構文に関する詳細情報は、[RegExr](https://regexr.com/)のようなリソースで確認できます。
