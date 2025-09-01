@@ -16,7 +16,6 @@ import fg from "fast-glob";
 import globParent from "glob-parent";
 import fs from "fs-extra";
 import path from "node:path";
-import pc from "picocolors";
 
 import {
     command,
@@ -93,11 +92,11 @@ async function main({
     modelName: string;
 }) {
     if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
-        console.error(pc.red("Error: GOOGLE_GENERATIVE_AI_API_KEY is not set."));
+        console.error("Error: GOOGLE_GENERATIVE_AI_API_KEY is not set.");
         process.exit(1);
     }
     if (inputsRaw.length === 0) {
-        console.error(pc.red("Error: at least one --input is required."));
+        console.error("Error: at least one --input is required.");
         process.exit(1);
     }
     // normalize extensions
@@ -124,7 +123,7 @@ async function main({
             } else {
                 const stat = await fs.stat(p).catch(() => undefined);
                 if (!stat) {
-                    console.error(pc.red(`Input not found: ${p}`));
+                    console.error(`Input not found: ${p}`);
                     continue;
                 }
                 if (stat.isDirectory()) {
@@ -191,19 +190,19 @@ async function main({
     const toProcess = entries.filter((e) => shouldKeepByExt({ file: e.absPath }));
 
     if (toProcess.length === 0) {
-        console.log(pc.yellow("No files matched your criteria."));
+        console.log("No files matched your criteria.");
         process.exit(0);
     }
 
     await fs.ensureDir(outputDir);
 
-    console.log(pc.cyan(`Model: ${modelName}`));
-    console.log(pc.cyan(`Target language: ${targetLang}`));
+    console.log(`Model: ${modelName}`);
+    console.log(`Target language: ${targetLang}`);
     if (sourceLang) {
-        console.log(pc.cyan(`Source language: ${sourceLang}`));
+        console.log(`Source language: ${sourceLang}`);
     }
-    console.log(pc.cyan(`Output dir: ${outputDir}`));
-    console.log(pc.cyan(`Files: ${toProcess.length}`));
+    console.log(`Output dir: ${outputDir}`);
+    console.log(`Files: ${toProcess.length}`);
 
     let ok = 0, fail = 0;
 
@@ -218,14 +217,14 @@ async function main({
             const translated = await translateText(raw, { file: path.basename(src) });
             await fs.writeFile(dest, translated, "utf8");
             ok++;
-            console.log(pc.green(`✅️ ${path.relative(process.cwd(), src)} -> ${path.relative(process.cwd(), dest)}`));
+            console.log(`✅️ ${path.relative(process.cwd(), src)} -> ${path.relative(process.cwd(), dest)}`);
         } catch (err: any) {
             fail++;
-            console.error(pc.red(`❌️ ${src}: ${err?.message || err}`));
+            console.error(`❌️ ${src}: ${err?.message || err}`);
         }
     }
 
-    console.log(pc.bold(`\nDone. Success: ${ok}, Failed: ${fail}`));
+    console.log(`\nDone. Success: ${ok}, Failed: ${fail}`);
     if (fail > 0) {
         process.exitCode = 1;
     }
