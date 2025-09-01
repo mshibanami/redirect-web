@@ -17,7 +17,7 @@ const config: Config = {
   onBrokenMarkdownLinks: 'warn',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'ja'],
   },
   presets: [
     [
@@ -78,6 +78,10 @@ const config: Config = {
         {
           href: 'https://github.com/mshibanami/redirect-web',
           label: 'GitHub',
+          position: 'right',
+        },
+        {
+          type: 'localeDropdown',
           position: 'right',
         },
       ],
