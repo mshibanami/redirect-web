@@ -1,0 +1,153 @@
+# Začíname
+
+Táto stránka popisuje bežné prípady použitia na vytváranie pravidiel v aplikácii Redirect Web.
+
+(Detaily nastavení pravidiel sa dozviete aj na stránke [Nastavenia pravidiel](./rule-settings).)
+
+
+## Prípad 1: Otvorenie inej webovej stránky
+
+Predpokladajme, že ste závislí od Twitteru a rozhodnete sa meditovať v Insight Timer vždy, keď náhodou otvoríte Twitter. Vytvorme si na to pravidlo!
+
+### Krok 1: Nastavte „Presmerovať z“
+
+Najprv by ste mali v aplikácii na obrazovke *Upraviť pravidlo* nastaviť sekciu *Presmerovať z*. Ciele sú URL adresy začínajúce sa na `https://twitter.com/`.
+
+V tomto prípade môžete určiť nasledujúci vzor v režime [Zástupný znak](rule-settings?id=wildcard):
+
+```
+https://twitter.com/*
+```
+
+V režime zástupného znaku `*` znamená, že zodpovedá čomukoľvek (= nula alebo viac znakov).
+
+Avšak, počkajte. `twitter.com` bol premenovaný na `x.com`. Môžete jednoducho nahradiť `twitter.com` za `x.com`, ale nikto nevie, kedy si nový majiteľ znova zmení názor a vráti to späť. Preto sa zamerajme na `twitter.com` aj `x.com`.
+
+Ak to chcete urobiť, prepnite z režimu zástupného znaku na [Regulárny výraz](rule-settings?id=regular-expression) a nastavte toto ako vzor:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: cielia na `twitter` aj `x`. (`|` sa nazýva *pipe*.)
+* `.*`: Je to to isté ako zástupný znak `*`. Presnejšie, `.` znamená *akýkoľvek znak* a `*` znamená *čokoľvek pred týmto symbolom opakované ľubovoľný počet krát*, čo vedie k tomu, že zodpovedá čomukoľvek.
+
+Regulárny výraz je trochu komplikovaný, ale akonáhle si naň zvyknete, bude to silný nástroj. Odporúčame použiť [RegExr](https://regexr.com) ako cvičisko na analýzu, ako funguje váš vzor regulárneho výrazu.
+
+> [!NOTE]
+> V regulárnych výrazoch sa `.` v `(twitter|x).com` tiež považuje za *akýkoľvek znak*. Preto `(twitter|x).com/.*` zodpovedá napríklad aj `twitter1com/` alebo `x_com/`.
+> 
+> Aby ste sa tomu vyhli, môžete to zmeniť na `(twitter|x)\.com/.*`. `\` sa používa na únik špeciálneho znaku.
+>
+> V bežnom internetovom prostredí však takéto URL adresy neexistujú. Preto môžete nechať `.` ako špeciálny znak, ak uprednostňujete. Vaše pravidlo je pre vaše vlastné použitie, takže ho implementujte podľa svojho uváženia.
+
+### Krok 2: Nastavte „Presmerovať na“
+
+Jednoducho zadajte URL adresu nasledovne:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+Teraz vás Redirect Web presmeruje na meditáciu, keď pristúpite na Twitter!
+
+**[⬇️ Stiahnuť pravidlo](/rules/reduce-twitter-addiction.redirectweb)**
+
+## Prípad 2: Odstránenie parametrov dotazu z URL
+
+Predpokladajme, že v URL adrese `example.com` existuje parameter dotazu `source=twitter` a rozhodli ste sa ho odstrániť, aby ste sa anonymizovali.
+
+V tomto prípade je možnosť **Spracovanie zachytávacej skupiny** najjednoduchšou cestou:
+
+* **Presmerovať z**: `https://example.com/*` (Zástupný znak)
+* **Presmerovať na**: `$0`
+* **Spracovanie zachytávacej skupiny**:
+    * **Skupina**: `$0`
+    * **Proces**: Nahradiť výskyty
+        * **Cieľ**: `&?source=[^&]*`
+        * **Náhrada**: *(žiadna)*
+        * **Textový vzor**: Regulárny výraz
+
+**[⬇️ Stiahnuť pravidlo](/rules/remove-parameters.redirectweb)**
+
+Toto pravidlo funguje nasledovne:
+
+```
+https://example.com/?source=twitter
+↪ https://example.com/?
+
+https://example.com/?hello=world&source=twitter&foo=bar
+↪ https://example.com/?hello=world&foo=bar
+```
+
+Ak chcete odstrániť viac parametrov, pridajte ďalšie procesy.
+
+## Prípad 3: Pridanie parametrov dotazu do URL
+
+Povedzme, že existuje webová stránka `example.com`, ktorá predvolene zobrazuje mobilné rozloženie, ale vy uprednostňujete ich desktopové rozloženie. Našťastie, webová stránka podporuje parameter dotazu `layout` na určenie, ktoré rozloženie stránka zobrazí. Vytvorme pravidlo, ktoré automaticky pridá `layout=desktop`.
+
+Možno si myslíte, že by ste to mohli definovať takto:
+
+* **Presmerovať z**: `https://example.com/.*` (Regulárny výraz)
+* **Presmerovať na**: `$0?layout=desktop`
+
+`$0` odkazuje na cieľovú URL. Ak sa pokúsite získať prístup k `example.com/hello`, budete presmerovaní na `example.com/hello?layout=desktop`. Táto funkcia sa nazýva *substitúcia*.
+
+> [!TIP]
+> Substitúcia je k dispozícii aj pre režim zástupného znaku, pretože je interne prevedený na regulárny výraz.
+
+Avšak, s týmito nastaveniami je niekoľko problémov.
+
+### Problém 1: Nekonečná slučka
+
+Aktuálne nastavenie vytvára nekonečnú slučku presmerovania, pretože `https://example.com/.*` tiež cieli na `https://example.com/hello?layout=desktop`.
+
+V tomto prípade môžete určiť vylúčený vzor URL, ktorý vám umožní prístup bez presmerovania, napríklad takto s regulárnym výrazom:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Zodpovedá čomukoľvek
+* `[&?]`: Zodpovedá `&` alebo `?`
+* `[^&]*`: Zodpovedá čomukoľvek okrem `&`
+
+### Problém 2: Nesprávne spracovanie existujúcich parametrov
+
+Ak cieľová URL už obsahuje iné parametre dotazu ako `example.com/hello?theme=dark`, cieľom bude `example.com/hello?theme=dark?layout=desktop` (v URL sú dva `?`), ale parametre môžete spojiť iba pomocou `&`. `?` ako špeciálny znak je povolený iba na začiatku parametrov. Preto sa nepovažuje za platný parameter.
+
+V tomto prípade zmeňte nastavenia takto:
+
+* **Presmerovať z**: `(https://example.com/[^?]*)(\?(.*))?`
+* **Presmerovať na**: `$1?layout=desktop&$3`
+
+Pozrime sa krok za krokom.
+
+* `(https://example.com/[^?]*)`: Zodpovedá časti až po predchádzajúci znak `?`.
+    * `[^?]*` zodpovedá čomukoľvek okrem `?`.
+    * Toto je zabalené do `()`, aby ste na to mohli neskôr odkazovať pomocou `$1`.
+* `(\?(.*))?`: Zodpovedá reťazcu začínajúcemu sa `?`, čo znamená parametre dotazu.
+    * Toto tiež zodpovedá prázdnemu reťazcu vďaka kvantifikátoru `?` na konci vzoru, ktorý *zodpovedá nule alebo jednému výskytu*.
+    * Vonkajšie `()` a vnútorné `()` môžu byť neskôr odkazované pomocou `$2` a `$3`.
+
+[RegExr](https://regexr.com) vám môže pomôcť pochopiť detaily.
+
+> [!NOTE]
+> RegExr zobrazí chybu, ak neunescapujete `/` pomocou `\`. Hoci ho môžete unescapovať, nie je to povinné, pretože Redirect Web používa iný engine od Apple, ktorý nevyžaduje unescapovanie.
+
+Toto nie je dokonalé riešenie, pretože presmeruje `example.com/hello` na `example.com/hello?layout=desktop&`, čo zahŕňa zbytočný `&` na konci URL. Vo všeobecnosti to nie je veľký problém, ale ak si želáte ho odstrániť, môžete použiť *Spracovanie zachytávacej skupiny*.
+
+Na záver, toto je konečný výstup:
+
+* **Presmerovať z**: `(https://example.com/[^?]*)((\?(.*))?)` (Regulárny výraz)
+* **Presmerovať na**: `$1?layout=desktop$3`
+* **Vylúčený vzor URL**: `.*[&?]layout=[^&]*.*` (Regulárny výraz)
+* **Spracovanie zachytávacej skupiny**:
+    * **Skupina**: `$3`
+    * **Proces**: Nahradiť výskyty
+        * **Cieľ**: `\?(.*)`
+        * **Náhrada**: `&$1`
+
+**[⬇️ Stiahnuť pravidlo](/rules/add-parameters.redirectweb)**
+
+Toto je len príklad. Na vyriešenie každého problému môžete tiež vytvoriť viacero pravidiel. Môže to byť oveľa jednoduchšie.

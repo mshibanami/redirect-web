@@ -1,0 +1,83 @@
+import IfBrowserStore from "@site/src/components/IfBrowserStore";
+import Image from "@site/src/components/Image";
+import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
+import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
+
+# FAQ
+
+## Hvorfor skal jeg give udvidelsen tilladelse til at læse/ændre mine oplysninger?
+
+Du kan se en advarsel som denne, når du opsætter Redirect Web:
+
+<IfBrowserStore stores='appStore'>
+    <Image src={PermissionAlertSafari} alt="En tilladelseskrævende advarsel" width="200" margin="0 0 16px 0" hasShadow={true} />
+
+    > Denne udvidelse vil kunne læse og ændre websider og se din browserhistorik på dette website. **Dette kan inkludere følsomme oplysninger, herunder adgangskoder, telefonnumre og kreditkort.**
+</IfBrowserStore>
+
+<IfBrowserStore stores='appStore' includes={false}>
+    <Image src={PermissionAlertChrome} alt="En tilladelseskrævende advarsel" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+
+    > Den kan:  
+    > Læse og ændre **alle dine data** på **alle websites**
+</IfBrowserStore>
+
+Denne udvidelse har brug for din tilladelse til at observere sidenavigation for at omdirigere til det sted, du ønsker at hoppe til, og din browser viser dette, når udvidelsen anmoder om de relaterede tilladelser. Derfor, hvis du ikke tillader det, kan denne udvidelse ikke fungere.
+
+Tildelte tilladelser vil kun blive brugt til appfunktioner som omdirigering, i overensstemmelse med **[persondatapolitikken](./privacy-policy)**.
+
+## Skal jeg stadig downloade appen efter at have installeret udvidelsen til Chrome, Firefox eller Edge? \{#app-for-non-safari-browsers}
+
+Ja. Du skal downloade [Redirect Web-appen fra App Store](https://apps.apple.com/app/id1571283503), uanset hvilken browser du bruger. Du kan installere udvidelsen fra din browsers udvidelsesbutik, men appen er påkrævet for at administrere dine regler, købshistorik og andre indstillinger på tværs af enheder via iCloud.
+
+## Fungerer Redirect Web på Windows, Android, Linux eller andre platforme? \{#non-apple-platforms}
+
+Ikke på nuværende tidspunkt. Redirect Web er tæt knyttet til Apples økosystem, herunder iCloud og Universal Purchase, hvilket gør det svært at tilbyde.
+
+## Hvorfor ikke [Redirector](https://github.com/einaregilsson/Redirector)?
+
+Redirector er stadig en fremragende omdirigeringsudvidelse. Den er helt gratis, open source og fungerer også på ikke-Apple-platforme. Men Redirect Web har nogle ekstra funktioner, du måske vil sætte pris på:
+
+*   **Detaljerede Regelindstillinger:** Flere udeladelsesmønstre, flere procesmatch og strengerstatningsfunktioner er kun tilgængelige i Redirect Web.
+*   **Åbn i native apps:** På Mac kan du vælge, hvor mål-URL'en skal åbnes. (Den kalder `open`-kommandoen direkte. Ikke deep links.)
+*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/)-understøttelse:** Giver lynhurtig omdirigering.
+*   **Centraliseret regelstyring:** Administrer regler for alle browsere ét sted via den native app.
+*   **Manifest V3 & V2 understøttelse:** Nyttigt mens V2 udfases i Chrome.
+
+## Hvorfor kræver denne udvidelse en ny tilladelse? \{#permission-alert-on-safari}
+
+Du kan se denne advarsel i Safari efter at have opdateret Redirect Web:
+
+<img src={require("/img/safari-additional-permission-alert.webp").default} alt="En advarsel om deaktivering af appen" width="280" />
+
+> "Redirect Web" er blevet opdateret og anmoder om yderligere tilladelser. For at beskytte dit privatliv er denne udvidelse blevet slået fra.
+>
+> Du kan slå denne udvidelse til i sektionen "Udvidelser" i Safari-indstillinger.
+
+Dette skyldes [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension)-tilladelsen, som kræves af [DNR](./rule-settings#type)-typen introduceret i version 7. Genaktiver venligst udvidelsen. Beklager ulejligheden.
+
+## Bliver bibliotekets indhold betalt i fremtiden?
+
+Nej, det er altid gratis. Du kan også finde kilden til alt indhold [her](https://github.com/mshibanami/redirect-web/tree/main/library).
+
+## Engangskøb eller årligt abonnement: Hvilket er bedst?
+
+Vi anbefaler engangskøbet, da prisforskellen kun er US$2,00.
+Hovedårsagen til, at vi tilbyder abonnementet, er at give dig mulighed for at prøve alle funktioner gennem dets gratis prøveperiode. Her er det forventede brugsscenarie:
+
+1.  Abonner på det årlige abonnement.
+2.  Annuller øjeblikkeligt abonnementet ved at gå til Indstillinger-appen, søge efter "Abonnementer", trykke på denne app og vælge "Annuller abonnement". Dette giver dig mulighed for at nyde den gratis prøveperiode uden nogen forpligtelse.
+3.  Nyd fuld adgang til alle funktioner i 7 dage.
+4.  Hvis du kan lide funktionerne, vælg engangskøbet.
+
+Der er selvfølgelig intet galt i at fortsætte med det årlige abonnement, hvis du foretrækker det!
+
+## Indsprøjter Redirect Web annoncer eller andet uvedkommende indhold på websites?
+
+Nej, den indsprøjter ikke sådant indhold. Kun kode, der er nødvendig for at levere de funktioner, der er beskrevet i denne dokumentation og på app-siden i App Store, indsprøjtes på websites i Safari.
+
+## Er der nogen chance for, at Redirect Web nogensinde kunne blive solgt til en anden?
+
+100% nej. Browserudvidelser har dyb kontrol over din browsing og dine data, og at overdrage Redirect Web til en anden ejer ville åbne døren for brud på privatlivets fred. Vi har set udvidelser skifte hænder og derefter indsamle brugerdata eller indsætte annoncer uden varsel. Det vil aldrig ske her. For mere om disse risici, se Matt Frisbies artikel ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) og Brian Krebs' undersøgelse ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+
+Redirect Web er bygget på tillid og ansvar. Vi anser det for vores pligt at holde dine oplysninger sikre, og vi nægter under ingen omstændigheder at overføre ejerskab. Redirect Web vil altid forblive i vores hænder, så du kan browse med fuld tillid.

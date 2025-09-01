@@ -1,0 +1,153 @@
+# Začetek
+
+Ta stran opisuje pogoste primere uporabe za ustvarjanje pravil v aplikaciji Redirect Web.
+
+(Podrobnosti o nastavitvah pravil lahko preberete tudi na strani [Nastavitve pravil](./rule-settings).)
+
+
+## Primer 1: Odpiranje drugega spletnega mesta
+
+Recimo, da ste zasvojeni s Twitterjem in se odločite meditirati v Insight Timerju vsakič, ko pomotoma odprete Twitter. Ustvarimo pravilo za to!
+
+### 1. korak: Nastavite "Preusmeri iz"
+
+Najprej morate v aplikaciji na zaslonu *Uredi pravilo* nastaviti razdelek *Preusmeri iz*. Cilji so URL-ji, ki se začnejo z `https://twitter.com/`.
+
+V tem primeru lahko določite naslednji vzorec z načinom [Džoker znak](rule-settings?id=wildcard):
+
+```
+https://twitter.com/*
+```
+
+V načinu džoker znaka `*` pomeni, da se ujema s čimerkoli (= nič ali več znakov).
+
+Vendar počakajte. `twitter.com` je bil preimenovan v `x.com`. Preprosto lahko zamenjate `twitter.com` z `x.com`, vendar nihče ne ve, kdaj si bo novi lastnik spet premislil in ga vrnil nazaj. Zato ciljajmo na `twitter.com` in `x.com`.
+
+Za to preklopite iz džoker znaka na [Regularni izraz](rule-settings?id=regular-expression) in nastavite to kot vzorec:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: cilja na `twitter` in `x`. (`|` se imenuje *cev*.)
+* `.*`: To je enako kot `*` pri džoker znaku. Natančneje, `.` pomeni *poljuben znak* in `*` pomeni *karkoli pred tem simbolom ponovljeno poljubno število krat*, kar pomeni, da se ujema s čimerkoli.
+
+Regularni izraz je nekoliko zapleten, a ko se ga navadite, bo postal močno orodje. Priporočamo uporabo [RegExr](https://regexr.com) kot igrišče za analizo delovanja vašega vzorca regularnega izraza.
+
+> [!OPOMBA]
+> V regularnih izrazih se `.` v `(twitter|x).com` prav tako obravnava kot *poljuben znak*. Zato se `(twitter|x).com/.*` ujema tudi, na primer, z `twitter1com/` ali `x_com/`.
+> 
+> Da bi se temu izognili, lahko spremenite v `(twitter|x)\.com/.*`. `\` se uporablja za pobeg iz posebnega znaka.
+>
+> Vendar takšnih URL-jev v splošnem internetnem okolju ni. Zato lahko `.` pustite kot poseben znak, če vam je tako ljubše. Vaše pravilo je za vašo lastno uporabo, zato ga implementirajte, kot se vam zdi primerno.
+
+### 2. korak: Nastavite "Preusmeri na"
+
+Preprosto določite URL, kot sledi:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+Sedaj vas bo Redirect Web preusmeril na meditacijo, ko boste dostopali do Twitterja!
+
+**[⬇️ Prenesi pravilo](/rules/reduce-twitter-addiction.redirectweb)**
+
+## Primer 2: Odstranitev parametrov poizvedbe iz URL-ja
+
+Recimo, da obstaja parameter poizvedbe `source=twitter` v URL-ju `example.com` in ste se odločili, da ga odstranite, da se anonimizirate.
+
+V tem primeru je možnost **Obdelava zajete skupine** najlažji način:
+
+* **Preusmeri iz**: `https://example.com/*` (Džoker znak)
+* **Preusmeri na**: `$0`
+* **Obdelava zajete skupine**:
+    * **Skupina**: `$0`
+    * **Proces**: Zamenjaj pojavitve
+        * **Cilj**: `&?source=[^&]*`
+        * **Nadomestilo**: *(nobeno)*
+        * **Vzorec besedila**: Regularni izraz
+
+**[⬇️ Prenesi pravilo](/rules/remove-parameters.redirectweb)**
+
+To pravilo deluje takole:
+
+```
+https://example.com/?source=twitter
+↪ https://example.com/?
+
+https://example.com/?hello=world&source=twitter&foo=bar
+↪ https://example.com/?hello=world&foo=bar
+```
+
+Če želite odstraniti več parametrov, dodajte več procesov.
+
+## Primer 3: Dodajanje parametrov poizvedbe v URL
+
+Recimo, da obstaja spletno mesto `example.com`, ki privzeto prikazuje mobilno postavitev, vi pa imate raje namizno postavitev. Na srečo spletno mesto podpira parameter poizvedbe `layout`, ki določa, katero postavitev spletno mesto prikaže. Ustvarimo pravilo, ki samodejno doda `layout=desktop`.
+
+Morda menite, da bi ga lahko definirali takole:
+
+* **Preusmeri iz**: `https://example.com/.*` (Regularni izraz)
+* **Preusmeri na**: `$0?layout=desktop`
+
+`$0` se nanaša na ciljni URL. Če poskusite dostopati do `example.com/hello`, ste preusmerjeni na `example.com/hello?layout=desktop`. Ta funkcija se imenuje *nadomeščanje*.
+
+> [!NAMIG]
+> Nadomeščanje je na voljo tudi za način džoker znaka, saj se interno pretvori v regularni izraz.
+
+Vendar pa obstaja nekaj težav s temi nastavitvami.
+
+### Težava 1: Neskončna zanka
+
+Trenutna nastavitev ustvarja neskončno zanko preusmeritve, saj `https://example.com/.*` cilja tudi na `https://example.com/hello?layout=desktop`.
+
+V tem primeru lahko določite izključen vzorec URL-ja, ki vam omogoča dostop brez preusmeritve, kot to z regularnim izrazom:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Ujema se s čimerkoli
+* `[&?]`: Ujema se z `&` ali `?`
+* `[^&]*`: Ujema se s čimerkoli razen z `&`
+
+### Težava 2: Ne more pravilno obravnavati obstoječih parametrov
+
+Če ima ciljni URL že druge parametre poizvedbe, kot je `example.com/hello?theme=dark`, bo destinacija `example.com/hello?theme=dark?layout=desktop` (v URL-ju sta dva `?`), vendar lahko parametre združite le z `&`. `?` kot poseben znak je dovoljen le na začetku parametrov. Zato ni obravnavan kot veljaven parameter.
+
+V tem primeru spremenite nastavitve takole:
+
+* **Preusmeri iz**: `(https://example.com/[^?]*)(\?(.*))?`
+* **Preusmeri na**: `$1?layout=desktop&$3`
+
+Poglejmo korak za korakom.
+
+* `(https://example.com/[^?]*)`: Ujema se z delom do predhodnega znaka `?`.
+    * `[^?]*` se ujema s čimerkoli razen z `?`.
+    * To je ovito z `()` , tako da se lahko nanj sklicujete z `$1` pozneje.
+* `(\?(.*))?`: Ujema se z nizom, ki se začne z `?`, kar pomeni parametre poizvedbe.
+    * To se ujema tudi s praznim nizom zaradi kvantifikatorja `?` na koncu vzorca, ki *se ujema ničkrat ali enkrat*.
+    * Zunanji `()` in notranji `()` se lahko kasneje sklicujeta z `$2` in `$3`.
+
+[RegExr](https://regexr.com) vam lahko pomaga razumeti podrobnosti.
+
+> [!OPOMBA]
+> RegExr prikaže napako, če ne pobegnete `/` z `\`. Čeprav lahko pobegnete, to ni potrebno, saj Redirect Web uporablja drugačen mehanizem podjetja Apple, ki ne zahteva pobega.
+
+To ni popolna rešitev, saj preusmerja `example.com/hello` na `example.com/hello?layout=desktop&`, kar vključuje nepotreben `&` na koncu URL-ja. Na splošno to ni velika težava, a če ga želite odstraniti, lahko uporabite *Obdelavo zajete skupine*.
+
+Skratka, to je končni rezultat:
+
+* **Preusmeri iz**: `(https://example.com/[^?]*)((\?(.*))?)` (Regularni izraz)
+* **Preusmeri na**: `$1?layout=desktop$3`
+* **Izključen vzorec URL-ja**: `.*[&?]layout=[^&]*.*` (Regularni izraz)
+* **Obdelava zajete skupine**:
+    * **Skupina**: `$3`
+    * **Proces**: Zamenjaj pojavitve
+        * **Cilj**: `\?(.*)`
+        * **Nadomestilo**: `&$1`
+
+**[⬇️ Prenesi pravilo](/rules/add-parameters.redirectweb)**
+
+To je zgolj primer. Ustvarite lahko tudi več pravil za obravnavanje vsake težave. Lahko je veliko preprostejše.

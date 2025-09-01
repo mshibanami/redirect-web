@@ -1,0 +1,152 @@
+# Memulai
+
+Halaman ini menjelaskan kasus penggunaan umum untuk membuat aturan di aplikasi web Redirect.
+
+(Anda juga bisa mempelajari detail pengaturan aturan di halaman [Pengaturan Aturan](./rule-settings).)
+
+## Kasus 1: Membuka situs web lain
+
+Misalkan Anda kecanduan Twitter, dan Anda memutuskan untuk bermeditasi di Insight Timer setiap kali Anda tidak sengaja membuka Twitter. Mari buat aturan untuk itu!
+
+### Langkah 1. Atur "Redirect From"
+
+Pertama, Anda harus mengatur bagian *Redirect From* di layar *Edit Rule* di aplikasi. Targetnya adalah URL yang dimulai dengan `https://twitter.com/`.
+
+Dalam kasus ini, Anda dapat menentukan pola berikut dengan mode [Wildcard](rule-settings?id=wildcard):
+
+```
+https://twitter.com/*
+```
+
+Dalam mode Wildcard, `*` berarti cocok dengan apa pun (= nol atau lebih karakter).
+
+Namun, tunggu dulu. `twitter.com` diubah namanya menjadi `x.com`. Anda bisa saja mengganti `twitter.com` dengan `x.com` tetapi tidak ada yang tahu kapan pemilik baru akan berubah pikiran lagi untuk mengembalikannya. Oleh karena itu, mari targetkan `twitter.com` dan `x.com`.
+
+Untuk melakukan itu, beralih dari Wildcard ke [Regular Expression](rule-settings?id=regular-expression), dan atur ini sebagai pola:
+
+```
+https://(twitter|x).com/.*
+```
+
+*   `(twitter|x)`: menargetkan `twitter` dan `x`. (`|` disebut *a pipe*.)
+*   `.*`: Ini sama dengan `*` pada Wildcard. Lebih spesifik, `.` berarti *karakter apa pun* dan `*` berarti *apa pun sebelum simbol ini diulang berapa pun jumlahnya*, yang menghasilkan kecocokan dengan apa pun.
+
+Regular Expression sedikit rumit, tetapi setelah Anda terbiasa, itu akan menjadi alat yang ampuh. Kami merekomendasikan menggunakan [RegExr](https://regexr.com) sebagai tempat latihan untuk menganalisis cara kerja pola Regular Expression Anda.
+
+> [!NOTE]
+> Dalam Regular Expressions, `.` di `(twitter|x).com` juga diperlakukan sebagai *karakter apa pun*. Oleh karena itu, `(twitter|x).com/.*` juga cocok, misalnya, `twitter1com/` atau `x_com/`.
+>
+> Untuk menghindarinya, Anda bisa mengubahnya menjadi `(twitter|x)\.com/.*`. `\` digunakan untuk meloloskan karakter khusus.
+>
+> Namun, tidak ada URL seperti itu di lingkungan internet umum. Oleh karena itu, Anda dapat membiarkan `.` sebagai karakter khusus jika Anda mau. Aturan Anda adalah untuk penggunaan pribadi Anda, jadi terapkanlah sesuai keinginan Anda.
+
+### Langkah 2: Atur "Redirect To"
+
+Cukup tentukan URL sebagai berikut:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+Sekarang, Redirect Web membawa Anda ke meditasi saat Anda mengakses Twitter!
+
+**[⬇️ Unduh Aturan](/rules/reduce-twitter-addiction.redirectweb)**
+
+## Kasus 2: Menghapus Parameter Kueri dari URL
+
+Misalkan ada parameter kueri `source=twitter` di URL `example.com`, dan Anda memutuskan untuk menghapusnya untuk menganonimkan diri Anda.
+
+Dalam kasus ini, opsi **Capturing Group Processing** adalah cara termudah:
+
+*   **Redirect From**: `https://example.com/*` (Wildcard)
+*   **Redirect To**: `$0`
+*   **Capturing Group Processing**:
+    *   **Group**: `$0`
+    *   **Process**: Replace Occurrences
+        *   **Target**: `&?source=[^&]*`
+        *   **Replacement**: *(none)*
+        *   **Text Pattern**: Regular Expression
+
+**[⬇️ Unduh Aturan](/rules/remove-parameters.redirectweb)**
+
+Aturan ini bekerja sebagai berikut:
+
+```
+https://example.com/?source=twitter
+↪ https://example.com/?
+
+https://example.com/?hello=world&source=twitter&foo=bar
+↪ https://example.com/?hello=world&foo=bar
+```
+
+Jika Anda ingin menghapus lebih banyak parameter, tambahkan lebih banyak proses.
+
+## Kasus 3: Menambahkan Parameter Kueri ke URL
+
+Misalkan ada situs web bernama `example.com` yang secara default menampilkan tata letak seluler, tetapi Anda lebih suka tata letak desktop mereka. Untungnya, situs web tersebut mendukung parameter kueri `layout` untuk menentukan tata letak yang ditampilkan situs web. Mari buat aturan yang secara otomatis menambahkan `layout=desktop`.
+
+Mungkin Anda berpikir bisa menentukannya sebagai berikut:
+
+*   **Redirect From**: `https://example.com/.*` (Regular Expression)
+*   **Redirect To**: `$0?layout=desktop`
+
+`$0` mereferensikan URL target. Jika Anda mencoba mengakses `example.com/hello`, Anda akan dialihkan ke `example.com/hello?layout=desktop`. Fitur ini disebut *substitusi*.
+
+> [!TIP]
+> Substitusi juga tersedia untuk mode Wildcard karena secara internal dikonversi ke Regular Expression.
+
+Namun, ada beberapa masalah dengan pengaturan ini.
+
+### Masalah 1: Putaran tak terbatas
+
+Pengaturan saat ini menciptakan putaran pengalihan tak terbatas karena `https://example.com/.*` juga menargetkan `https://example.com/hello?layout=desktop`.
+
+Dalam kasus ini, Anda dapat menentukan pola URL yang dikecualikan yang memungkinkan Anda mengakses tanpa pengalihan, seperti ini dengan Regular Expression:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+*   `.*`: Cocok dengan apa pun
+*   `[&?]`: Cocok dengan `&` atau `?`
+*   `[^&]*`: Cocok dengan apa pun kecuali `&`
+
+### Masalah 2: Tidak dapat menangani parameter yang ada dengan benar
+
+Jika URL target sudah memiliki parameter kueri lain seperti `example.com/hello?theme=dark`, tujuan akan menjadi `example.com/hello?theme=dark?layout=desktop` (Ada dua `?` di URL) tetapi Anda hanya dapat menggabungkan parameter dengan `&`. `?` sebagai karakter khusus hanya diizinkan di awal parameter. Jadi, itu tidak diperlakukan sebagai parameter yang valid.
+
+Dalam kasus ini, ubah pengaturannya seperti ini:
+
+*   **Redirect From**: `(https://example.com/[^?]*)(\?(.*))?`
+*   **Redirect To**: `$1?layout=desktop&$3`
+
+Mari kita lihat langkah demi langkah.
+
+*   `(https://example.com/[^?]*)`: Cocok dengan bagian sampai karakter sebelumnya dari `?`.
+    *   `[^?]*` cocok dengan apa pun kecuali `?`.
+    *   Ini dibungkus dengan `()` sehingga Anda dapat mereferensikannya dengan `$1` nanti.
+*   `(\?(.*))?`: Cocok dengan string yang dimulai dengan `?`, yang berarti parameter kueri.
+    *   Ini juga cocok dengan string kosong dengan kuantifikasi `?` di akhir pola, yang *cocok nol atau satu kali*.
+    *   `()` luar dan `()` dalam dapat direferensikan dengan `$2` dan `$3` nanti.
+
+[RegExr](https://regexr.com) mungkin membantu Anda memahami detailnya.
+
+> [!NOTE]
+> RegExr menunjukkan kesalahan ketika Anda tidak meloloskan `/` dengan `\`. Meskipun Anda bisa meloloskannya, itu tidak diperlukan karena Redirect Web menggunakan mesin berbeda oleh Apple yang tidak memerlukan pelolosan.
+
+Ini bukan solusi yang sempurna, karena mengalihkan `example.com/hello` ke `example.com/hello?layout=desktop&`, yang mencakup `&` yang tidak perlu di akhir URL. Ini bukan masalah besar secara umum, tetapi jika Anda ingin menghapusnya, Anda dapat menggunakan *Capturing Group Processing*.
+
+Kesimpulannya, ini adalah keluaran akhir:
+
+*   **Redirect From**: `(https://example.com/[^?]*)((\?(.*))?)` (Regular Expression)
+*   **Redirect To**: `$1?layout=desktop$3`
+*   **Excluded URL Pattern**: `.*[&?]layout=[^&]*.*` (Regular Expression)
+*   **Capturing Group Processing**:
+    *   **Group**: `$3`
+    *   **Process**: Replace Occurrences
+        *   **Target**: `\?(.*)`
+        *   **Replacement**: `&$1`
+
+**[⬇️ Unduh Aturan](/rules/add-parameters.redirectweb)**
+
+Ini hanyalah sebuah contoh. Anda juga dapat membuat beberapa aturan untuk menangani setiap masalah. Itu bisa jauh lebih sederhana.

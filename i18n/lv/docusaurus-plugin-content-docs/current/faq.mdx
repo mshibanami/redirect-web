@@ -1,0 +1,83 @@
+import IfBrowserStore from "@site/src/components/IfBrowserStore";
+import Image from "@site/src/components/Image";
+import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
+import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
+
+# Biežāk uzdotie jautājumi
+
+## Kāpēc man vajadzētu atļaut paplašinājumam lasīt/mainīt manu informāciju?
+
+Iespējams, ka, iestatot Redirect Web, redzēsiet šādu brīdinājumu:
+
+<IfBrowserStore stores='appStore'>
+    <Image src={PermissionAlertSafari} alt="Brīdinājums, kas pieprasa atļauju" width="200" margin="0 0 16px 0" hasShadow={true} />
+
+    > Šis paplašinājums varēs lasīt un mainīt tīmekļa lapas un redzēt jūsu pārlūkošanas vēsturi šajā vietnē. **Tas var ietvert sensitīvu informāciju, tostarp paroles, tālruņa numurus un kredītkartes.**
+</IfBrowserStore>
+
+<IfBrowserStore stores='appStore' includes={false}>
+    <Image src={PermissionAlertChrome} alt="Brīdinājums, kas pieprasa atļauju" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+
+    > Tas var:  
+    > Lasīt un mainīt **visus jūsu datus** **visās vietnēs**
+</IfBrowserStore>
+
+Šim paplašinājumam ir nepieciešama jūsu atļauja, lai novērotu lapas navigāciju un pāradresētu uz jebkuru vietu, kur vēlaties pāriet, un jūsu pārlūkprogramma to parāda, kad paplašinājums pieprasa attiecīgās atļaujas. Tādēļ, ja jūs to neatļausiet, šis paplašinājums nevarēs darboties.
+
+Piešķirtās atļaujas tiks izmantotas tikai lietotnes funkcijām, piemēram, pāradresācijai, saskaņā ar **[privātuma politiku](./privacy-policy)**.
+
+## Vai man joprojām ir jāiegūst lietotne pēc paplašinājuma instalēšanas Chrome, Firefox vai Edge pārlūkprogrammām? \{#app-for-non-safari-browsers}
+
+Jā. Jums ir jālejupielādē [Redirect Web lietotne no App Store](https://apps.apple.com/app/id1571283503) neatkarīgi no tā, kuru pārlūkprogrammu izmantojat. Jūs varat instalēt paplašinājumu no savas pārlūkprogrammas paplašinājumu veikala, taču lietotne ir nepieciešama, lai pārvaldītu jūsu noteikumus, pirkumu vēsturi un citus iestatījumus starp ierīcēm, izmantojot iCloud.
+
+## Vai Redirect Web darbojas operētājsistēmās Windows, Android, Linux vai citās platformās? \{#non-apple-platforms}
+
+Šobrīd nē. Redirect Web ir cieši saistīts ar Apple ekosistēmu, tostarp iCloud un Universal Purchase, kas apgrūtina tās piedāvāšanu.
+
+## Kāpēc ne [Redirector](https://github.com/einaregilsson/Redirector)?
+
+Redirector joprojām ir lielisks pāradresācijas paplašinājums. Tas ir pilnīgi bezmaksas, atvērta koda un darbojas arī uz citām platformām, kas nav Apple. Bet Redirect Web ir dažas papildu funkcijas, kas jums varētu patikt:
+
+*   **Detalizēti noteikumu iestatījumi:** Vairāki izslēgšanas modeļi, vairāki atbilstības apstrādes veidi un virkņu aizstāšanas funkcijas ir pieejamas tikai Redirect Web.
+*   **Atvērt vietējās lietotnēs:** Mac datorā varat izvēlēties, kur atvērt mērķa URL. (Tas tieši izsauc `open` komandu. Ne dziļās saites.)
+*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) atbalsts:** Nodrošina ļoti ātru pāradresāciju.
+*   **Centralizēta noteikumu pārvaldība:** Pārvaldiet noteikumus visām pārlūkprogrammām vienuviet, izmantojot vietējo lietotni.
+*   **Manifest V3 un V2 atbalsts:** Noderīgi, kamēr V2 tiek pakāpeniski izņemts no Chrome.
+
+## Kāpēc šim paplašinājumam ir nepieciešama jauna atļauja? \{#permission-alert-on-safari}
+
+Pēc Redirect Web atjaunināšanas jūs varat redzēt šādu brīdinājumu Safari pārlūkprogrammā:
+
+<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Brīdinājums par lietotnes atspējošanu" width="280" />
+
+> "Redirect Web" ir atjaunināts un pieprasa papildu atļaujas. Lai aizsargātu jūsu privātumu, šis paplašinājums ir izslēgts.
+>
+> Jūs varat ieslēgt šo paplašinājumu Safari iestatījumu sadaļā "Paplašinājumi".
+
+Tas ir saistīts ar [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) atļauju, kas nepieciešama [DNR](./rule-settings#type) tipam, kurš ieviests 7. versijā. Lūdzu, atkārtoti iespējojiet paplašinājumu. Atvainojamies par sagādātajām neērtībām.
+
+## Vai bibliotēkas saturs nākotnē kļūs maksas?
+
+Nē, tas vienmēr ir bez maksas. Visu saturu avotu varat atrast arī [šeit](https://github.com/mshibanami/redirect-web/tree/main/library).
+
+## Vienreizējs pirkums vai gada abonements: Kas ir labākais?
+
+Mēs iesakām vienreizēju pirkumu, jo cenu atšķirība ir tikai US$2.00.
+Galvenais iemesls, kāpēc mēs piedāvājam abonementu, ir dot jums iespēju izmēģināt visas funkcijas, izmantojot bezmaksas izmēģinājuma versiju. Lūk, paredzamais lietošanas scenārijs:
+
+1.  Abonējiet gada abonementu.
+2.  Nekavējoties atceliet abonementu, dodoties uz lietotni Iestatījumi, meklējot "Abonementi", pieskaroties šai lietotnei un izvēloties "Atcelt abonementu". Tas ļauj jums baudīt bezmaksas izmēģinājuma versiju bez jebkādām saistībām.
+3.  Izbaudiet pilnu piekļuvi visām funkcijām 7 dienas.
+4.  Ja jums patīk funkcijas, izvēlieties vienreizēju pirkumu.
+
+Protams, nav nekā nepareiza turpināt izmantot gada abonementu, ja jums tā ir ērtāk!
+
+## Vai Redirect Web ievieto reklāmas vai citu nesaistītu saturu vietnēs?
+
+Nē, tas neievieto nekādu šādu saturu. Tīmekļa vietnēs Safari tiek ievadīts tikai kods, kas ir nepieciešams, lai nodrošinātu šajā dokumentācijā un lietotnes lapā App Store aprakstītās funkcijas.
+
+## Vai pastāv iespēja, ka Redirect Web varētu tikt pārdots kādam citam?
+
+100% nē. Pārlūkprogrammas paplašinājumi nodrošina dziļu kontroli pār jūsu pārlūkošanu un datiem, un Redirect Web nodošana citam īpašniekam pavērtu durvis privātuma pārkāpumiem. Mēs esam redzējuši, ka paplašinājumi maina īpašniekus un pēc tam bez brīdinājuma ievāc lietotāju datus vai ievieto reklāmas. Tas šeit nekad nenotiks. Lai uzzinātu vairāk par šiem riskiem, skatiet Matta Frisbija rakstu ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) un Braiena Krebsa izmeklēšanu ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+
+Redirect Web pamatā ir uzticība un atbildība. Mēs uzskatām par savu pienākumu nodrošināt jūsu informācijas drošību un atsakāmies nodot īpašumtiesības jebkādos apstākļos. Redirect Web vienmēr paliks mūsu rokās, lai jūs varētu pārlūkot tīmekli ar pilnīgu pārliecību.

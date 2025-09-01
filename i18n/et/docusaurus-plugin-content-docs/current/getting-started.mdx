@@ -1,0 +1,153 @@
+# Alustamine
+
+See leht kirjeldab tavalisi kasutusjuhtumeid reeglite loomiseks Redirect Web rakenduses.
+
+(Reeglisätete üksikasjadega saate tutvuda ka lehel [Reeglisätted](./rule-settings).)
+
+
+## Juhtum 1: Ava teine veebisait
+
+Oletame, et olete sõltuvuses Twitterist ja otsustate mediteerida Insight Timeris iga kord, kui Twitteri kogemata avate. Loome selleks reegli!
+
+### Samm 1. Määra "Suuna siit"
+
+Esmalt peaksite rakenduse ekraanil *Redigeeri reeglit* seadistama jaotise *Suuna siit*. Sihtmärgiks on URL-id, mis algavad `https://twitter.com/`.
+
+Sel juhul saate [metamärgi](rule-settings?id=wildcard) režiimis määrata järgmise mustri:
+
+```
+https://twitter.com/*
+```
+
+Metamärgi režiimis tähendab `*` seda, et see sobitab kõigega (= null või rohkem märki).
+
+Kuid pidage meeles. `twitter.com` nimetati ümber `x.com`-iks. Saate lihtsalt asendada `twitter.com` `x.com`-iga, kuid keegi ei tea, millal uus omanik oma meelt uuesti muudab ja selle tagasi pöörab. Seepärast suuname mõlemale, `twitter.com`-ile ja `x.com`-ile.
+
+Selleks lülitage metamärgilt [regulaaravaldisele](rule-settings?id=regular-expression) ja määrake see mustriks:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: see sihib nii `twitter`-it kui ka `x`-i. (`|`-i nimetatakse *püstratturiks*.)
+* `.*`: See on sama mis metamärgi `*`. Täpsemalt, `.` tähendab *mis tahes märki* ja `*` tähendab *kõike enne seda sümbolit, mis on kordunud mis tahes arv kordi*, mille tulemusena sobitab see kõigega.
+
+Regulaaravaldis on veidi keeruline, kuid kui sellega harjute, on see võimas tööriist. Soovitame kasutada [RegExr](https://regexr.com) mänguväljakuna, et analüüsida, kuidas teie regulaaravaldise muster töötab.
+
+> [!MÄRKUS]
+> Regulaaravaldistes käsitletakse `.` `(twitter|x).com` puhul samuti kui *mis tahes märki*. Seetõttu sobib `(twitter|x).com/.*` näiteks ka `twitter1com/` või `x_com/`.
+> 
+> Selle vältimiseks saate seda muuta `(twitter|x)\.com/.*`. `\` kasutatakse erimärgi escapesimiseks.
+>
+> Üldises internetikeskkonnas selliseid URL-e aga ei ole. Seega võite soovi korral jätta `.` erimärgiks. Teie reegel on teie enda tarbeks, seega rakendage seda nii, nagu teile sobib.
+
+### Samm 2: Määra "Suuna siia"
+
+Lihtsalt määrake URL järgmiselt:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+Nüüd suunab Redirect Web teid meditatsioonile, kui avate Twitteri!
+
+**[⬇️ Laadi reegel alla](/rules/reduce-twitter-addiction.redirectweb)**
+
+## Juhtum 2: Eemalda URL-ist päringuparameetrid
+
+Oletame, et `example.com` URL-is on päringuparameeter `source=twitter` ja otsustasite selle eemaldada, et ennast anonüümseks muuta.
+
+Sel juhul on **Püüdmisrühma töötlemine** valik kõige lihtsam viis:
+
+* **Suuna siit**: `https://example.com/*` (Metamärk)
+* **Suuna siia**: `$0`
+* **Püüdmisrühma töötlemine**:
+    * **Rühm**: `$0`
+    * **Protsess**: Asenda esinemised
+        * **Sihtmärk**: `&?source=[^&]*`
+        * **Asendus**: *(puudub)*
+        * **Tekstimuster**: Regulaaravaldis
+
+**[⬇️ Laadi reegel alla](/rules/remove-parameters.redirectweb)**
+
+See reegel töötab järgmiselt:
+
+```
+https://example.com/?source=twitter
+↪ https://example.com/?
+
+https://example.com/?hello=world&source=twitter&foo=bar
+↪ https://example.com/?hello=world&foo=bar
+```
+
+Kui soovite eemaldada rohkem parameetreid, lisage rohkem protsesse.
+
+## Juhtum 3: Lisa URL-ile päringuparameetrid
+
+Oletame, et on olemas veebisait nimega `example.com`, mis näitab vaikimisi mobiilset paigutust, kuid te eelistate selle töölaua paigutust. Õnneks toetab veebisait `layout` päringuparameetrit, et määrata, millist paigutust veebisait kuvab. Loome reegli, mis lisab `layout=desktop` automaatselt.
+
+Võib-olla arvate, et saate selle määrata järgmiselt:
+
+* **Suuna siit**: `https://example.com/.*` (Regulaaravaldis)
+* **Suuna siia**: `$0?layout=desktop`
+
+`$0` viitab siht-URL-ile. Kui proovite avada `example.com/hello`, suunatakse teid ümber `example.com/hello?layout=desktop`-ile. Seda funktsiooni nimetatakse *asendamiseks*.
+
+> [!NÕUANNE]
+> Asendamine on saadaval ka metamärgi režiimis, kuna see konverteeritakse sisemiselt regulaaravaldiseks.
+
+Nende sätetega on aga mõned probleemid.
+
+### Probleem 1: Lõpmatu tsükkel
+
+Praegune säte loob lõpmatu ümbersuunamistsükli, kuna `https://example.com/.*` sihib ka `https://example.com/hello?layout=desktop`-i.
+
+Sel juhul saate määrata välistatud URL-mustri, mis võimaldab teil juurdepääsu ilma ümbersuunamiseta, näiteks regulaaravaldist kasutades:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Sobib kõigega
+* `[&?]`: Sobib kas `&`-i või `?`-ga
+* `[^&]*`: Sobib kõigega peale `&`-i
+
+### Probleem 2: Olemasolevaid parameetreid ei saa korralikult käsitleda
+
+Kui siht-URL-il on juba teisi päringuparameetreid, nagu `example.com/hello?theme=dark`, on sihtkoht `example.com/hello?theme=dark?layout=desktop` (URL-is on kaks `?`-märki), kuid parameetreid saab ühendada ainult `&`-iga. `?` erimärgina on lubatud ainult parameetrite alguses. Seega ei käsitleta seda kehtiva parameetrina.
+
+Sel juhul muutke sätteid järgmiselt:
+
+* **Suuna siit**: `(https://example.com/[^?]*)(\?(.*))?`
+* **Suuna siia**: `$1?layout=desktop&$3`
+
+Vaatame seda samm-sammult.
+
+* `(https://example.com/[^?]*)`: Sobib osaga kuni `?`-märgi eelmise märgini.
+    * `[^?]*` sobib kõigega peale `?`-märgi.
+    * See on mähitud `()`-märkidesse, et saaksite sellele hiljem `$1`-ga viidata.
+* `(\?(.*))?`: Sobib stringiga, mis algab `?`-ga, mis tähendab päringuparameetreid.
+    * See sobitab ka tühja stringiga mustri lõpus oleva `?` kvantifikaatori abil, mis *sobitab null või ühe korra*.
+    * Välimisele `()`-le ja sisemisele `()`-le saab hiljem viidata `$2` ja `$3`-ga.
+
+[RegExr](https://regexr.com) võib aidata teil üksikasjadest aru saada.
+
+> [!MÄRKUS]
+> RegExr näitab viga, kui te ei escapes `/`-i `\`-ga. Kuigi te saate seda escapesida, ei ole see nõutav, kuna Redirect Web kasutab Apple'i teistsugust mootorit, mis ei nõua escapesimist.
+
+See ei ole täiuslik lahendus, kuna see suunab `example.com/hello` ümber `example.com/hello?layout=desktop&`-ile, mis sisaldab URL-i lõpus tarbetut `&`-märki. Üldiselt pole see suur probleem, kuid kui soovite seda eemaldada, saate kasutada *Püüdmisrühma töötlemist*.
+
+Kokkuvõttes on see lõplik väljund:
+
+* **Suuna siit**: `(https://example.com/[^?]*)((\?(.*))?)` (Regulaaravaldis)
+* **Suuna siia**: `$1?layout=desktop$3`
+* **Välistatud URL-muster**: `.*[&?]layout=[^&]*.*` (Regulaaravaldis)
+* **Püüdmisrühma töötlemine**:
+    * **Rühm**: `$3`
+    * **Protsess**: Asenda esinemised
+        * **Sihtmärk**: `\?(.*)`
+        * **Asendus**: `&$1`
+
+**[⬇️ Laadi reegel alla](/rules/add-parameters.redirectweb)**
+
+See on pelgalt näide. Võite luua ka mitu reeglit iga probleemi käsitlemiseks. See võib olla palju lihtsam.

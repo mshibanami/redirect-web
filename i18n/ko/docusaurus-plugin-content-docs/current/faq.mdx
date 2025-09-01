@@ -1,0 +1,83 @@
+import IfBrowserStore from "@site/src/components/IfBrowserStore";
+import Image from "@site/src/components/Image";
+import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
+import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
+
+# 자주 묻는 질문
+
+## 왜 확장 프로그램이 내 정보를 읽고 변경하는 것을 허용해야 하나요?
+
+Redirect Web을 설정할 때 다음과 같은 알림이 표시될 수 있습니다:
+
+<IfBrowserStore stores='appStore'>
+    <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow={true} />
+
+    > 이 확장 프로그램은 웹 페이지를 읽고 변경하며, 이 웹 사이트에서 귀하의 브라우징 기록을 볼 수 있습니다. **여기에는 비밀번호, 전화번호, 신용카드와 같은 민감한 정보가 포함될 수 있습니다.**
+</IfBrowserStore>
+
+<IfBrowserStore stores='appStore' includes={false}>
+    <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+
+    > 다음 작업을 수행할 수 있습니다:  
+    > **모든 웹사이트**에서 **모든 데이터**를 읽고 변경하기
+</IfBrowserStore>
+
+이 확장 프로그램은 사용자가 원하는 곳으로 리디렉션하기 위해 페이지 탐색을 관찰할 권한이 필요하며, 확장 프로그램이 관련 권한을 요청할 때 브라우저에 이 내용이 표시됩니다. 따라서 허용하지 않으면 이 확장 프로그램은 작동할 수 없습니다.
+
+부여된 권한은 리디렉션과 같은 앱 기능에만 사용되며, **[개인정보 처리방침](./privacy-policy)**을 준수합니다.
+
+## Chrome, Firefox 또는 Edge용 확장 프로그램을 설치한 후에도 앱을 받아야 하나요? \{#app-for-non-safari-browsers}
+
+예. 어떤 브라우저를 사용하시든 관계없이 [App Store에서 Redirect Web 앱](https://apps.apple.com/app/id1571283503)을 다운로드해야 합니다. 브라우저의 확장 프로그램 스토어에서 확장 프로그램을 설치할 수 있지만, 앱은 iCloud를 통해 기기 간 규칙, 구매 내역 및 기타 설정을 관리하는 데 필요합니다.
+
+## Redirect Web은 Windows, Android, Linux 또는 다른 플랫폼에서도 작동하나요? \{#non-apple-platforms}
+
+현재로서는 지원되지 않습니다. Redirect Web은 iCloud 및 Universal Purchase를 포함한 Apple 생태계에 긴밀하게 연결되어 있어 다른 플랫폼에서 제공하기 어렵습니다.
+
+## [Redirector](https://github.com/einaregilsson/Redirector) 대신 Redirect Web을 사용하는 이유는 무엇인가요?
+
+Redirector는 여전히 훌륭한 리디렉션 확장 프로그램입니다. 완전히 무료이며, 오픈 소스이고, 비 Apple 플랫폼에서도 작동합니다. 하지만 Redirect Web에는 다음과 같은 추가 기능이 있습니다:
+
+*   **세부 규칙 설정:** Redirect Web에서만 제공되는 여러 제외 패턴, 여러 프로세스 일치, 문자열 대체 기능.
+*   **네이티브 앱에서 열기:** Mac에서는 대상 URL을 열 위치를 선택할 수 있습니다. (`open` 명령을 직접 호출합니다. 딥 링크가 아닙니다.)
+*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) 지원:** 매우 빠른 리디렉션을 제공합니다.
+*   **중앙 집중식 규칙 관리:** 네이티브 앱을 통해 모든 브라우저의 규칙을 한 곳에서 관리할 수 있습니다.
+*   **Manifest V3 & V2 지원:** Chrome에서 V2가 점진적으로 중단되는 동안 유용합니다.
+
+## 왜 이 확장 프로그램은 새로운 권한을 요구하나요? \{#permission-alert-on-safari}
+
+Redirect Web을 업데이트한 후 Safari에서 다음과 같은 알림이 표시될 수 있습니다:
+
+<img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
+
+> "Redirect Web"이 업데이트되어 추가 권한을 요청하고 있습니다. 개인 정보 보호를 위해 이 확장 프로그램은 비활성화되었습니다.
+>
+> Safari 설정의 확장 프로그램 섹션에서 이 확장 프로그램을 켤 수 있습니다.
+
+이는 버전 7에서 도입된 [DNR](./rule-settings#type) 유형에 필요한 [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) 권한 때문입니다. 확장 프로그램을 다시 활성화해 주십시오. 불편을 드려 죄송합니다.
+
+## 라이브러리 콘텐츠는 나중에 유료가 되나요?
+
+아니요, 항상 무료입니다. 모든 콘텐츠의 소스는 [여기](https://github.com/mshibanami/redirect-web/tree/main/library)에서 찾을 수 있습니다.
+
+## 일회성 구매 또는 연간 구독: 어떤 것이 가장 좋나요?
+
+가격 차이가 미화 2.00달러에 불과하므로 일회성 구매를 권장합니다.
+구독을 제공하는 주된 이유는 무료 평가판을 통해 모든 기능을 사용해 볼 수 있도록 하기 위함입니다. 예상되는 사용 사례는 다음과 같습니다:
+
+1.  연간 구독을 신청합니다.
+2.  설정 앱으로 이동하여 "구독"을 검색하고, 이 앱을 탭한 후 "구독 취소"를 선택하여 즉시 구독을 취소합니다. 이렇게 하면 아무런 약정 없이 무료 평가판을 즐길 수 있습니다.
+3.  7일 동안 모든 기능에 대한 전체 액세스를 즐깁니다.
+4.  기능이 마음에 든다면 일회성 구매를 선택합니다.
+
+물론, 원하신다면 연간 구독을 계속 유지하는 것도 전혀 문제가 없습니다!
+
+## Redirect Web은 웹사이트에 광고나 기타 관련 없는 콘텐츠를 삽입하나요?
+
+아니요, 그러한 콘텐츠를 전혀 삽입하지 않습니다. 이 문서와 App Store 앱 페이지에 설명된 기능을 제공하는 데 필요한 코드만 Safari 웹사이트에 삽입됩니다.
+
+## Redirect Web이 다른 사람에게 판매될 가능성이 있나요?
+
+절대 그렇지 않습니다. 브라우저 확장 프로그램은 사용자의 브라우징 및 데이터에 대한 깊은 제어 권한을 가지고 있으며, Redirect Web을 다른 소유자에게 넘기는 것은 개인 정보 침해의 문을 열 수 있습니다. 저희는 확장 프로그램의 소유권이 변경된 후 경고 없이 사용자 데이터를 수집하거나 광고를 삽입하는 경우를 보아왔습니다. 여기서는 절대 그런 일이 없을 것입니다. 이러한 위험에 대해 더 자세히 알아보려면 Matt Frisbie의 기사 ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser)와 Brian Krebs의 조사 ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)를 참조하십시오.
+
+Redirect Web은 신뢰와 책임 위에 설립되었습니다. 저희는 귀하의 정보를 안전하게 보호하는 것을 우리의 의무로 생각하며, 어떠한 경우에도 소유권을 이전하는 것을 거부합니다. Redirect Web은 항상 저희의 손에 남아 있을 것이므로, 안심하고 브라우징할 수 있습니다.

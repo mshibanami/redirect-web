@@ -1,0 +1,83 @@
+import IfBrowserStore from "@site/src/components/IfBrowserStore";
+import Image from "@site/src/components/Image";
+import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
+import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
+
+# Pogosta vprašanja
+
+## Zakaj naj dovolim razširitvi branje/spreminjanje mojih podatkov?
+
+Ko nastavljate Redirect Web, se vam lahko prikaže opozorilo, kot je tole:
+
+<IfBrowserStore stores='appStore'>
+    <Image src={PermissionAlertSafari} alt="Opozorilo, ki zahteva dovoljenje" width="200" margin="0 0 16px 0" hasShadow={true} />
+
+    > Ta razširitev bo lahko brala in spreminjala spletne strani ter videla vašo zgodovino brskanja na tem spletnem mestu. **To lahko vključuje občutljive podatke, vključno z gesli, telefonskimi številkami in kreditnimi karticami.**
+</IfBrowserStore>
+
+<IfBrowserStore stores='appStore' includes={false}>
+    <Image src={PermissionAlertChrome} alt="Opozorilo, ki zahteva dovoljenje" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+
+    > Lahko:  
+    > Bralo in spreminjalo **vse vaše podatke** na **vseh spletnih mestih**
+</IfBrowserStore>
+
+Ta razširitev potrebuje vaše dovoljenje za opazovanje navigacije po straneh, da vas preusmeri tja, kamor želite skočiti, in vaš brskalnik to prikaže, ko razširitev zahteva povezana dovoljenja. Zato, če tega ne dovolite, ta razširitev ne more delovati.
+
+Podeljena dovoljenja bodo uporabljena samo za funkcije aplikacije, kot je preusmeritev, v skladu z **[politiko zasebnosti](./privacy-policy)**.
+
+## Ali moram še vedno dobiti aplikacijo po namestitvi razširitve za Chrome, Firefox ali Edge? \{#app-for-non-safari-browsers}
+
+Da. Prenesti morate [aplikacijo Redirect Web iz App Store](https://apps.apple.com/app/id1571283503), ne glede na to, kateri brskalnik uporabljate. Razširitev lahko namestite iz trgovine z razširitvami vašega brskalnika, vendar je aplikacija potrebna za upravljanje vaših pravil, zgodovine nakupov in drugih nastavitev med napravami prek iClouda.
+
+## Ali Redirect Web deluje na Windows, Android, Linux ali drugih platformah? \{#non-apple-platforms}
+
+Trenutno ne. Redirect Web je tesno povezan z Applovim ekosistemom, vključno z iCloudom in Universal Purchase, kar otežuje ponudbo.
+
+## Zakaj ne [Redirector](https://github.com/einaregilsson/Redirector)?
+
+Redirector je še vedno odlična razširitev za preusmerjanje. Je popolnoma brezplačna, odprtokodna in deluje tudi na platformah, ki niso Apple. Vendar pa ima Redirect Web nekaj dodatnih funkcij, ki bi vam morda bile všeč:
+
+*   **Podrobne nastavitve pravil:** Več vzorcev izključitev, več ujemanja procesov in funkcije zamenjave nizov so na voljo samo v Redirect Web.
+*   **Odpiranje v izvornih aplikacijah:** Na Macu lahko izberete, kje se odpre ciljni URL. (Neposredno kliče ukaz `open`. Ne globinske povezave.)
+*   **Podpora za [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Zagotavlja izjemno hitro preusmeritev.
+*   **Centralizirano upravljanje pravil:** Upravljajte pravila za vse brskalnike na enem mestu prek izvorne aplikacije.
+*   **Podpora za Manifest V3 in V2:** Koristno, medtem ko se V2 postopoma opušča v Chromu.
+
+## Zakaj ta razširitev zahteva novo dovoljenje? \{#permission-alert-on-safari}
+
+To opozorilo se vam lahko prikaže v Safariju po posodobitvi Redirect Web:
+
+<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Opozorilo o onemogočitvi aplikacije" width="280" />
+
+> "Redirect Web" je bil posodobljen in zahteva dodatna dovoljenja. Za zaščito vaše zasebnosti je bila ta razširitev izklopljena.
+>
+> To razširitev lahko vklopite v razdelku Razširitve v nastavitvah Safarija.
+
+To je posledica dovoljenja [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension), ki ga zahteva vrsta [DNR](./rule-settings#type), uvedena v različici 7. Prosimo, ponovno omogočite razširitev. Opravičujemo se za nevšečnosti.
+
+## Ali bo vsebina knjižnice v prihodnosti plačljiva?
+
+Ne, vedno je brezplačna. Vir vse vsebine najdete tudi [tukaj](https://github.com/mshibanami/redirect-web/tree/main/library).
+
+## Enkratni nakup ali letna naročnina: kaj je boljše?
+
+Priporočamo enkratni nakup, saj je razlika v ceni le 2,00 USD.
+Glavni razlog, zakaj ponujamo naročnino, je, da vam omogočimo preizkus vseh funkcij prek brezplačnega preizkusa. Tukaj je pričakovani scenarij uporabe:
+
+1.  Naročite se na letno naročnino.
+2.  Takoj prekličite naročnino tako, da odprete aplikacijo Nastavitve, poiščete "Naročnine", tapnete to aplikacijo in izberete "Prekliči naročnino". To vam omogoča, da uživate v brezplačnem preizkusu brez kakršnih koli obveznosti.
+3.  Uživajte v polnem dostopu do vseh funkcij 7 dni.
+4.  Če so vam funkcije všeč, se odločite za enkratni nakup.
+
+Seveda, ni nič narobe, če raje nadaljujete z letno naročnino!
+
+## Ali Redirect Web vnaša oglase ali drugo nepovezano vsebino na spletna mesta?
+
+Ne, ne vnaša nobene takšne vsebine. Samo koda, ki je potrebna za zagotavljanje funkcij, opisanih v tej dokumentaciji in na strani aplikacije v App Store, je vstavljena na spletna mesta v Safariju.
+
+## Ali obstaja možnost, da bi bil Redirect Web kdaj prodan nekomu drugemu?
+
+100 % ne. Razširitve brskalnika imajo globok nadzor nad vašim brskanjem in podatki, in predaja Redirect Web drugemu lastniku bi odprla vrata kršitvam zasebnosti. Videli smo, kako so razširitve zamenjale lastnike in nato zbirale uporabniške podatke ali vnašale oglase brez opozorila. To se tukaj nikoli ne bo zgodilo. Več o teh tveganjih si preberite v članku Matta Frisbieja ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) in preiskavi Briana Krebsa ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+
+Redirect Web temelji na zaupanju in odgovornosti. Menimo, da je naša dolžnost, da varujemo vaše podatke, in pod nobenim pogojem ne bomo prenesli lastništva. Redirect Web bo vedno ostal v naših rokah, tako da lahko brskate s popolnim zaupanjem.

@@ -1,0 +1,153 @@
+# Erste Schritte
+
+Diese Seite beschreibt gängige Anwendungsfälle für das Erstellen von Regeln in der Redirect Web App.
+
+(Details zu den Regeleinstellungen finden Sie auch auf der Seite [Regeleinstellungen](./rule-settings).)
+
+
+## Fall 1: Eine andere Website öffnen
+
+Angenommen, Sie sind süchtig nach Twitter und entscheiden sich, in Insight Timer zu meditieren, wann immer Sie versehentlich Twitter öffnen. Lassen Sie uns dafür eine Regel erstellen!
+
+### Schritt 1. "Weiterleiten von" einrichten
+
+Zuerst sollten Sie den Abschnitt *Weiterleiten von* im Bildschirm *Regel bearbeiten* in der App einrichten. Die Ziele sind URLs, die mit `https://twitter.com/` beginnen.
+
+In diesem Fall können Sie das folgende Muster mit dem [Wildcard](rule-settings?id=wildcard)-Modus angeben:
+
+```
+https://twitter.com/*
+```
+
+Im Wildcard-Modus bedeutet `*`, dass alles übereinstimmt (= null oder mehr Zeichen).
+
+Doch halt. `twitter.com` wurde in `x.com` umbenannt. Sie können `twitter.com` einfach durch `x.com` ersetzen, aber niemand weiß, wann der neue Besitzer seine Meinung wieder ändern wird, um es rückgängig zu machen. Daher sollten wir sowohl `twitter.com` als auch `x.com` anvisieren.
+
+Wechseln Sie dazu von Wildcard zu [Regulärer Ausdruck](rule-settings?id=regular-expression) und legen Sie dies als Muster fest:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: zielt sowohl auf `twitter` als auch auf `x`. (`|` wird als *Pipe* bezeichnet.)
+* `.*`: Ist dasselbe wie `*` bei Wildcard. Genauer gesagt bedeutet `.` *jedes Zeichen* und `*` bedeutet *alles vor diesem Symbol, beliebig oft wiederholt*, was dazu führt, dass es mit allem übereinstimmt.
+
+Reguläre Ausdrücke sind etwas kompliziert, aber wenn man sich daran gewöhnt hat, werden sie zu einem mächtigen Werkzeug. Wir empfehlen die Verwendung von [RegExr](https://regexr.com) als Spielplatz, um zu analysieren, wie Ihr reguläres Ausdrucksmuster funktioniert.
+
+> [!NOTE]
+> In regulären Ausdrücken wird `.` in `(twitter|x).com` auch als *beliebiges Zeichen* behandelt. Daher passt `(twitter|x).com/.*` auch zu beispielsweise `twitter1com/` oder `x_com/`.
+>
+> Um dies zu vermeiden, können Sie es in `(twitter|x)\.com/.*` ändern. `\` wird verwendet, um ein Sonderzeichen zu escapen.
+>
+> Solche URLs gibt es jedoch im allgemeinen Internet nicht. Daher können Sie `.` als Sonderzeichen belassen, wenn Sie dies bevorzugen. Ihre Regel ist für Ihren eigenen Gebrauch, also implementieren Sie sie, wie Sie es für richtig halten.
+
+### Schritt 2: "Weiterleiten an" einrichten
+
+Geben Sie einfach die URL wie folgt an:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+Jetzt leitet Sie Redirect Web zur Meditation weiter, wenn Sie auf Twitter zugreifen!
+
+**[⬇️ Regel herunterladen](/rules/reduce-twitter-addiction.redirectweb)**
+
+## Fall 2: Abfrageparameter aus der URL entfernen
+
+Angenommen, es gibt einen Abfrageparameter `source=twitter` in einer URL von `example.com`, und Sie haben beschlossen, ihn zu entfernen, um sich selbst zu anonymisieren.
+
+In diesem Fall ist die Option **Verarbeitung von erfassenden Gruppen** der einfachste Weg:
+
+* **Weiterleiten von**: `https://example.com/*` (Wildcard)
+* **Weiterleiten an**: `$0`
+* **Verarbeitung von erfassenden Gruppen**:
+    * **Gruppe**: `$0`
+    * **Verfahren**: Vorkommen ersetzen
+        * **Ziel**: `&?source=[^&]*`
+        * **Ersetzung**: *(keine)*
+        * **Textmuster**: Regulärer Ausdruck
+
+**[⬇️ Regel herunterladen](/rules/remove-parameters.redirectweb)**
+
+Diese Regel funktioniert wie folgt:
+
+```
+https://example.com/?source=twitter
+↪ https://example.com/?
+
+https://example.com/?hello=world&source=twitter&foo=bar
+↪ https://example.com/?hello=world&foo=bar
+```
+
+Wenn Sie weitere Parameter entfernen möchten, fügen Sie weitere Prozesse hinzu.
+
+## Fall 3: Abfrageparameter zur URL hinzufügen
+
+Nehmen wir an, es gibt eine Website namens `example.com`, die standardmäßig ein mobiles Layout anzeigt, Sie aber ihr Desktop-Layout bevorzugen. Glücklicherweise unterstützt die Website einen Abfrageparameter `layout`, um anzugeben, welches Layout die Website anzeigt. Erstellen wir eine Regel, die `layout=desktop` automatisch hinzufügt.
+
+Vielleicht denken Sie, Sie könnten es wie folgt definieren:
+
+* **Weiterleiten von**: `https://example.com/.*` (Regulärer Ausdruck)
+* **Weiterleiten an**: `$0?layout=desktop`
+
+`$0` verweist auf die Ziel-URL. Wenn Sie versuchen, auf `example.com/hello` zuzugreifen, werden Sie zu `example.com/hello?layout=desktop` weitergeleitet. Diese Funktion wird als *Substitution* bezeichnet.
+
+> [!TIP]
+> Die Substitution ist auch für den Wildcard-Modus verfügbar, da dieser intern in einen regulären Ausdruck umgewandelt wird.
+
+Diese Einstellungen haben jedoch einige Probleme.
+
+### Problem 1: Endlosschleife
+
+Die aktuelle Einstellung erzeugt eine unendliche Weiterleitungsschleife, da `https://example.com/.*` auch auf `https://example.com/hello?layout=desktop` abzielt.
+
+In diesem Fall können Sie ein ausgeschlossenes URL-Muster angeben, das den Zugriff ohne Weiterleitung ermöglicht, wie hier mit regulärem Ausdruck:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Passt zu allem
+* `[&?]`: Passt entweder zu `&` oder `?`
+* `[^&]*`: Passt zu allem außer `&`
+
+### Problem 2: Kann vorhandene Parameter nicht richtig verarbeiten
+
+Wenn die Ziel-URL bereits andere Abfrageparameter wie `example.com/hello?theme=dark` enthält, lautet das Ziel `example.com/hello?theme=dark?layout=desktop` (es gibt zwei `?` in der URL), aber Sie können die Parameter nur mit `&` verbinden. `?` als Sonderzeichen ist nur am Anfang der Parameter erlaubt. Es wird also nicht als gültiger Parameter behandelt.
+
+Ändern Sie in diesem Fall die Einstellungen wie folgt:
+
+* **Weiterleiten von**: `(https://example.com/[^?]*)(\?(.*))?`
+* **Weiterleiten an**: `$1?layout=desktop&$3`
+
+Schauen wir uns das Schritt für Schritt an.
+
+* `(https://example.com/[^?]*)`: Passt zu dem Teil bis zum vorherigen Zeichen von `?`.
+    * `[^?]*` passt zu allem außer `?`.
+    * Dies ist mit `()` umschlossen, sodass Sie später mit `$1` darauf verweisen können.
+* `(\?(.*))?`: Passt zu einer Zeichenfolge, die mit `?` beginnt, was Abfrageparameter bedeutet.
+    * Dies passt auch zu einem leeren String durch den `?`-Quantifizierer am Ende des Musters, der *null oder einmal* passt.
+    * Die äußeren `()` und die inneren `()` können später mit `$2` und `$3` referenziert werden.
+
+[RegExr](https://regexr.com) kann Ihnen helfen, die Details zu verstehen.
+
+> [!NOTE]
+> RegExr zeigt einen Fehler an, wenn Sie `/` nicht mit `\` escapen. Obwohl Sie es escapen können, ist es nicht erforderlich, da Redirect Web eine andere Engine von Apple verwendet, die kein Escaping erfordert.
+
+Dies ist keine perfekte Lösung, da sie `example.com/hello` zu `example.com/hello?layout=desktop&` weiterleitet, was ein unnötiges `&` am Ende der URL enthält. Das ist im Allgemeinen kein großes Problem, aber wenn Sie es entfernen möchten, können Sie die *Verarbeitung von erfassenden Gruppen* verwenden.
+
+Zusammenfassend ist dies die endgültige Ausgabe:
+
+* **Weiterleiten von**: `(https://example.com/[^?]*)((\?(.*))?)` (Regulärer Ausdruck)
+* **Weiterleiten an**: `$1?layout=desktop$3`
+* **Ausgeschlossenes URL-Muster**: `.*[&?]layout=[^&]*.*` (Regulärer Ausdruck)
+* **Verarbeitung von erfassenden Gruppen**:
+    * **Gruppe**: `$3`
+    * **Verfahren**: Vorkommen ersetzen
+        * **Ziel**: `\?(.*)`
+        * **Ersetzung**: `&$1`
+
+**[⬇️ Regel herunterladen](/rules/add-parameters.redirectweb)**
+
+Dies ist lediglich ein Beispiel. Sie können auch mehrere Regeln erstellen, um jedes Problem zu lösen. Das kann viel einfacher sein.

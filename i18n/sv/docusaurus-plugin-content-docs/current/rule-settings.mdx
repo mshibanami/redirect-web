@@ -1,0 +1,177 @@
+# Regelinställningar
+
+Denna sida innehåller detaljerad information om varje inställning i skärmen Redigera regel i Redirect Web-appen.
+
+## Alternativ
+
+### Typ
+
+Ange alternativet **Typ** för att kontrollera hur appen hanterar omdirigering. Du kan välja mellan dessa:
+
+*   **Original** (Standard)
+    *   Denna använder traditionella webb-API:er för att kontrollera omdirigering. Dessutom använder den [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) som en fallback.
+        *   I Firefox använder den [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) för att hantera omdirigering.
+    *   Du kan använda alla alternativ utom [Resurstyper](#resource-types) och [Begärandemetoder](#request-methods).
+    *   Denna är långsammare än typen *Declarative* och kan orsaka extra nätverksbegäranden.
+*   **DNR** (Experimentell för Safari):
+    *   Denna typ fungerar mycket snabbare än Originaltypen eftersom den inte initierar en nätverksbegäran för käll-URL:en.
+    *   Detta gör att du kan ange [Resurstyper](#resource-types) och [Begärandemetoder](#request-methods).
+    *   ⚠️ Du kan inte använda vissa alternativ, såsom [Bearbetning av fångstgrupper](#capturing-group-processing) och [Uteslutna URL-mönster](#excluded-url-patterns) eftersom de ännu inte har stödts av DNR API:et.
+    *   ⚠️ I Safari kan du för närvarande inte inkludera rör (`|`) i ditt reguljära uttrycksmönster. [Detaljer](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ Eftersom Safaris DNR API fortfarande har vissa problem anser vi att det fortfarande är en experimentell funktion för Safari. Du hittar listan över alla kända problem [här](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+
+### Omdirigera från
+
+Alternativet **Omdirigera från** låter dig ange ett URL-mönster för webbsidor som du vill omdirigera från. Du kan välja antingen [Wildcard](#wildcard) eller [Reguljärt uttryck](#regular-expression).
+
+Till exempel, om du anger `https://example.com/*` med Wildcard, matchar det `https://example.com/` eller `https://example.com/hello`.
+
+> [!NOTE]
+> I alternativet Omdirigera till kan du referera till hela matchningen med `$0` eller delvisa matchningar med `$1`, `$2`, ... Se detaljerna under [URL-mönster](#url-pattern) på denna sida.
+
+#### Resurstyper
+
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+Alternativet **Resurstyper** låter dig ange kategorierna av webbegäranden, såsom bilder, JavaScript och stilmallar, som regeln ska tillämpas på.
+Till exempel, om du ställer in `script`, kan du omdirigera JavaScript-filer som laddats av webbsidor.
+
+För närvarande är dessa tillgängliga:
+`main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
+
+Standardinställningen är `main_frame`, vilket är den översta nivån av en sida som laddas i en flik.
+
+Se detaljerna för varje resurstyp i [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+
+#### Begärandemetoder
+
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+Alternativet **Begärandemetoder** låter dig ställa in de HTTP-metoder som käll-URL:en ska använda.
+
+Alla metoder är inställda som standard.
+
+Se detaljerna för varje metod i [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+
+> [!VARNING]
+> I Safari kanske detta alternativ inte är tillgängligt eftersom Apples implementering för DNR-typen för närvarande inte verkar hantera det. Vi har skickat feedback till Apple som FB14502272.
+
+#### Målwebbläsare
+
+![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+Alternativet **Målwebbläsare** låter dig ange vilken webbläsare regeln ska eller inte ska tillämpas på.
+
+*   Det finns 2 typer av webbläsare du kan välja:
+    *   **Standardwebbläsare att välja**: Du kan välja Safari, Chrome, Firefox, Edge, Opera, Arc, Brave och Vivaldi som standard. Detta skiljer inte mellan varianter av samma webbläsare, som Safari och Safari Technology Preview.
+    *   **Användarspecifika webbläsare**: Genom att trycka på knappen Lägg till i popovern kan du välja vilken webbläsare som helst, förutom Safari eller Safari Technology Preview, som har Redirect Web-tillägget installerat.
+*   Kryssrutan **Alla utom valda** låter dig rikta in dig på alla webbläsare utom de du har valt.
+
+> [!VARNING]
+> Redirect Web kan inte skilja på om webbläsaren är **Safari** eller **Safari Technology Preview** eftersom appen kontrollerar tilläggets föräldraprocess för att upptäcka detta, men dessa två webbläsare delar samma föräldraprocess (`/sbin/launchd`).
+
+### Omdirigera till
+
+Alternativet **Omdirigera till** anger en destinations-URL som du vill omdirigera till, från käll-URL:en som matchades med alternativet *Omdirigera från*. Du kan också ersätta fångstgrupper med `$1`, `$2`, ... eller hela matchningen med `$0`. Dessa hjälper dig att dynamiskt ange destinationen. Se detaljerna under [URL-mönster](#url-pattern) på denna sida.
+
+Till exempel, om du ställer in följande regel:
+
+*   **Omdirigera från**: `https://google.com/*` (Wildcard)
+*   **Omdirigera till**: `https://apple.com/$1`
+
+och den matchar `https://google.com/hello`, då blir destinations-URL:en `https://apple.com/hello`.
+
+Dessutom kan du ändra texterna i `$1`, `$2`, ... innan du gör ersättningar. Se avsnittet [Bearbetning av fångstgrupper](#capturing-group-processing) för detaljer.
+
+> [!TIPS]
+> Du kan ange ett anpassat URL-schema för att öppna en app. Dessa är exempel på appar som stöder djuplänkning:
+>
+> *   Figma: `figma://file/Your_Figma_ID`
+> *   Firefox: `firefox://open-url?url=https://example.com/hello`
+> *   Google Chrome: `googlechromes://example.com`
+> *   Microsoft Edge: `microsoft-edge://example.com`
+> *   Notion: `notion://www.notion.so/Your_Note_ID`
+> *   Slack: `slack://open`
+
+#### Applikation
+
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+Om du vill ange en app som du vill öppna destinations-URL:en med, använd kombinationsrutan **Applikation**. Detta är endast tillgängligt på macOS.
+
+> [!VARNING]
+> Du kan endast öppna en app som stöder [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Se också till att appen stöder öppning av den URL du vill öppna.
+
+### Bearbetning av fångstgrupper
+
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
+
+Alternativet **Bearbetning av fångstgrupper** låter dig ange hur de fångstgrupper ska bearbetas som du kan ersätta i alternativet *Omdirigera till* med `$1`, `$2`...
+
+Så här skapar du fångstgrupper:
+
+*   **Wildcard**: Texter som matchas med `*` och `?` fångas automatiskt.
+*   **Reguljärt uttryck**: Texter som matchas med en del av mönstret inom `()` fångas.
+
+Du kan välja en eller flera av följande processer:
+
+*   **URL-kodning/-avkodning**: Detta tillämpar [procentkodning](https://en.wikipedia.org/wiki/Percent-encoding) eller avkodning på en fångstgrupp. Till exempel, om du kodar `https://example.com/hello`, konverteras det till `https%3A%2F%2Fexample.com%2Fhello`. Avkodning fungerar på motsatt sätt.
+*   **Base64-kodning/-avkodning**: Detta avkodar/kodar en text till [Base64](https://en.wikipedia.org/wiki/Base64). Till exempel kan du koda `hello` till `aGVsbG8=`, och avkoda det tillbaka till `hello`.
+*   **Ersätt förekomster**: Detta ersätter en eller flera tecken i en grupp, matchade av ett **Mål**, med en **Ersättning**. Till exempel, om *Gruppen* är `hello` och *Målet* är `l` och Ersättningen är `y`, ändras det till `heyyo`.
+
+> [!NOTE]
+> Detta är för bearbetning av varje fångstgrupp och det påverkar inte vilka URL:er som exkluderas av [Uteslutna URL-mönster](#excluded-url-patterns). Till exempel, låt oss säga att du har denna regel:
+>
+> *   **Omdirigera från**: `https://example.com/(hello.*)`
+> *   **Bearbetning av fångstgrupper**:
+>     *   Grupp: `$1`
+>     *   Mål: `.*` (Reguljärt uttryck)
+>     *   Ersättning: `hello`
+> *   **Uteslutet URL-mönster**: `https://example.com/hello`
+>
+> I detta fall kommer `https://example.com/hello_world` inte att uteslutas medan `https://example.com/hello` kommer att uteslutas.
+
+### Uteslutna URL-mönster
+
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
+
+Alternativet **Uteslutna URL-mönster** låter dig ange de URL:er som inte ska omdirigeras. Detta kan vara användbart för att undvika omdirigeringsslingor eller för att exkludera vissa delar av en webbplats från att omdirigeras.
+
+Du kan ange uteslutna URL-mönster med antingen reguljära uttryck eller Wildcard-mönstertyper.
+
+### Exempel
+
+Alternativet **Exempel** låter dig testa din omdirigeringsregel genom att ange exempel-URL:er. Genom att lägga till en exempel-URL kan du kontrollera om regeln fungerar som förväntat innan du faktiskt tillämpar den.
+
+### Kommentarer
+
+Alternativet **Kommentarer** låter dig lägga till anteckningar eller kommentarer om din omdirigeringsregel. Detta kan vara användbart för att hålla reda på varför du skapade en specifik regel eller för att ge kontext till andra som kan komma att se dina regler.
+
+## URL-mönster
+
+Det finns 3 alternativ där du kan ange ett eller flera URL-mönster: *Omdirigera från*, *Uteslutna URL-mönster* och *Bearbetning av fångstgrupper*. För att ange dem kan du välja antingen **Wildcard** eller **Reguljärt uttryck**.
+
+### Wildcard
+
+**Wildcard** är en enklare mönstertyp som låter dig använda `*` (matchar vad som helst) och `?` (matchar ett enskilt tecken) som wildcards. Här är några exempel:
+
+*   För att matcha `https://example.com/hello` kan du använda `https://example.com/*`. Detta kommer att matcha vilken sträng som helst efter `https://example.com/`.
+*   För att matcha `https://example.com/search?q=hello` kan du använda `https://example.com/search?q=*`. Detta kommer att matcha vilket värde som helst för parametern `q`.
+*   För att matcha vilken URL som helst som innehåller ordet `blog`, kan du använda `*blog*`.
+
+Du kan också använda substitution i Wildcard, vilket innebär att du kan referera till delar av den matchade URL:en med `$1`, `$2`, etc. Till exempel, om du använder `https://example.com/*-world-*` och URL:en är `https://example.com/hello-world-goodbye`, då skulle `$1` vara "hello" och `$2` skulle vara "goodbye". `$0` är också tillgängligt för att referera till hela den matchade URL:en.
+
+> [!NOTE]
+> Även om substitution är en funktion i Reguljära uttryck, kan du också använda den för Wildcard eftersom Redirect Web internt konverterar Wildcard till Reguljära uttryck.
+
+### Reguljärt uttryck
+
+**Reguljärt uttryck** (Regex) är ett kraftfullt verktyg för att matcha mönster i text, drivet av Apples reguljära uttrycksmotor som beskrivs [här](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Det låter dig definiera ett specifikt mönster som matchar en uppsättning strängar. Här är några exempel.
+
+*   För att matcha `https://example.com/hello` kan du använda `https://example.com/(.*)`. Detta kommer att matcha vilken sträng som helst efter `https://example.com/` och lagra den i en fångstgrupp.
+*   För att matcha `https://example.com/search?q=hello` kan du använda `https://example.com/search\?q=(.*)`. Detta kommer att matcha värdet för parametern `q` och lagra det i en fångstgrupp.
+*   För att matcha vilken URL som helst som innehåller ordet `blog`, kan du använda `.*blog.*`.
+
+Du kan referera till fångstgrupperna i *Omdirigera till* eller *Ersättning* med `$1`, `$2`, ... eller `$0` för att referera till hela matchningen.
+
+Mer information om Regex-syntax finns i resurser som [RegExr](https://regexr.com/).

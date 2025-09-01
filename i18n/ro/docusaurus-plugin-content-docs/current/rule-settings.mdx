@@ -1,0 +1,177 @@
+# Setări reguli
+
+Această pagină oferă informații detaliate despre fiecare setare din ecranul de Editare regulă din aplicația Redirect Web.
+
+## Opțiuni
+
+### Tip
+
+Specificați opțiunea **Tip** pentru a controla modul în care aplicația gestionează redirecționarea. Puteți alege dintre următoarele:
+
+*   **Original** (Implicit)
+    *   Acesta utilizează API-uri web tradiționale pentru a controla redirecționarea. În plus, utilizează [API-ul Tabs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) ca soluție de rezervă.
+        *   În Firefox, utilizează [API-ul WebRequest](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) pentru a gestiona redirecționarea.
+    *   Puteți utiliza toate opțiunile, cu excepția [Tipuri de resurse](#resource-types) și [Metode de solicitare](#request-methods).
+    *   Acesta este mai lent decât tipul *Declarativ* și poate provoca solicitări de rețea suplimentare.
+*   **DNR** (Experimental pentru Safari):
+    *   Acest tip funcționează mult mai rapid decât tipul Original, deoarece nu inițiază o solicitare de rețea pentru URL-ul sursă.
+    *   Acesta vă permite să specificați [Tipuri de resurse](#resource-types) și [Metode de solicitare](#request-methods).
+    *   ⚠️ Nu puteți utiliza unele opțiuni, cum ar fi [Procesarea grupurilor de captură](#capturing-group-processing) și [Modele URL excluse](#excluded-url-patterns), deoarece acestea nu au fost încă acceptate de API-ul DNR.
+    *   ⚠️ În Safari, în prezent nu puteți include pipe-uri (`|`) în modelul dvs. de Expresie Regulată. [Detalii](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ Deoarece API-ul DNR din Safari încă prezintă unele probleme, considerăm că este încă o funcționalitate experimentală pentru Safari. Puteți găsi lista tuturor problemelor cunoscute [aici](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+
+### Redirecționare de la
+
+Opțiunea **Redirecționare de la** vă permite să specificați un model URL al paginilor web de la care doriți să redirecționați. Puteți alege fie [Wildcard](#wildcard), fie [Expresie Regulată](#regular-expression).
+
+De exemplu, dacă specificați `https://example.com/*` cu Wildcard, acesta se va potrivi cu `https://example.com/` sau `https://example.com/hello`.
+
+> [!NOTE]
+> În opțiunea Redirecționare către, puteți face referire la întreaga potrivire utilizând `$0` sau la potriviri parțiale utilizând `$1`, `$2`, ... Verificați detaliile în [Model URL](#url-pattern) de pe această pagină.
+
+#### Tipuri de resurse
+
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+Opțiunea **Tipuri de resurse** vă permite să specificați categoriile de solicitări web, cum ar fi imagini, JavaScript-uri și foi de stil, la care se aplică regula.
+De exemplu, dacă setați `script`, puteți redirecționa fișierele JavaScript încărcate de paginile web.
+
+În prezent, sunt disponibile următoarele:
+`main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
+
+Setarea implicită este `main_frame`, care este pagina de nivel superior încărcată într-o filă.
+
+Vă rugăm să verificați detaliile fiecărui tip de resursă în [documentația web mdn](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+
+#### Metode de solicitare
+
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+Opțiunea **Metode de solicitare** vă permite să setați metodele HTTP vizate ale URL-ului sursă.
+
+Toate metodele sunt setate implicit.
+
+Vă rugăm să verificați detaliile fiecărei metode în [documentația web mdn](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+
+> [!WARNING]
+> În Safari, această opțiune ar putea să nu fie disponibilă, deoarece implementarea Apple pentru tipul DNR nu pare să o gestioneze în prezent. Am trimis feedback către Apple sub numărul FB14502272.
+
+#### Browsere vizate
+
+![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+Opțiunea **Browsere vizate** vă permite să specificați la ce browser ar trebui sau nu ar trebui aplicată regula.
+
+*   Există 2 tipuri de browsere pe care le puteți alege:
+    *   **Browsere pe care le puteți alege implicit**: Puteți alege Safari, Chrome, Firefox, Edge, Opera, Arc, Brave și Vivaldi în mod implicit. Acest lucru nu diferențiază variantele aceluiași browser, cum ar fi Safari și Safari Technology Preview.
+    *   **Browsere specificate de utilizator**: Atingând butonul Adăugare din popover, puteți selecta orice browser, altul decât Safari sau Safari Technology Preview, care are instalată extensia Redirect Web.
+*   Caseta de validare **Toate, cu excepția celor selectate** vă permite să vizați fiecare browser, cu excepția celor pe care le-ați ales.
+
+> [!WARNING]
+> Redirect Web nu poate diferenția dacă browserul este **Safari** sau **Safari Technology Preview**, deoarece aplicația verifică procesul părinte al extensiei pentru a-l detecta, dar aceste două browsere partajează același proces părinte (`/sbin/launchd`).
+
+### Redirecționare către
+
+Opțiunea **Redirecționare către** specifică un URL de destinație către care doriți să redirecționați, de la URL-ul sursă potrivit cu opțiunea *Redirecționare de la*. De asemenea, puteți substitui grupurile de captură cu `$1`, `$2`, ... sau întreaga potrivire cu `$0`. Acestea vă ajută să specificați dinamic destinația. Verificați detaliile în [Model URL](#url-pattern) de pe această pagină.
+
+De exemplu, dacă setați următoarea regulă:
+
+*   **Redirecționare de la**: `https://google.com/*` (Wildcard)
+*   **Redirecționare către**: `https://apple.com/$1`
+
+și se potrivește cu `https://google.com/hello`, atunci URL-ul de destinație va fi `https://apple.com/hello`.
+
+În plus, puteți modifica textele `$1`, `$2`, ... înainte de a face substituiri. Verificați secțiunea [Procesarea grupurilor de captură](#capturing-group-processing) pentru detalii.
+
+> [!TIP]
+> Puteți specifica o schemă URL personalizată pentru a deschide o aplicație. Acestea sunt exemple de aplicații care acceptă legături profunde (deep linking):
+>
+> *   Figma: `figma://file/Your_Figma_ID`
+> *   Firefox: `firefox://open-url?url=https://example.com/hello`
+> *   Google Chrome: `googlechromes://example.com`
+> *   Microsoft Edge: `microsoft-edge://example.com`
+> *   Notion: `notion://www.notion.so/Your_Note_ID`
+> *   Slack: `slack://open`
+
+#### Aplicație
+
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+Dacă doriți să specificați o aplicație în care doriți să deschideți URL-ul de destinație, utilizați caseta combinată **Aplicație**. Aceasta este disponibilă numai pe macOS.
+
+> [!WARNING]
+> Puteți deschide numai o aplicație care acceptă [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). De asemenea, asigurați-vă că aplicația acceptă deschiderea URL-ului pe care doriți să-l deschideți.
+
+### Procesarea grupurilor de captură
+
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
+
+Opțiunea **Procesarea grupurilor de captură** vă permite să specificați cum să procesați grupurile capturate pe care le puteți substitui în opțiunea *Redirecționare către* cu `$1`, `$2`...
+
+Iată cum se creează grupurile de captură:
+
+*   **Wildcard**: Textele potrivite cu `*` și `?` sunt capturate automat.
+*   **Expresie Regulată**: Textele potrivite cu o parte a modelului din interiorul `()` sunt capturate.
+
+Puteți alege unul sau mai multe dintre următoarele procese:
+
+*   **Codare/Decodare URL**: Aceasta aplică [codificarea în procente](https://en.wikipedia.org/wiki/Percent-encoding) sau decodarea unui grup de captură. De exemplu, dacă codificați `https://example.com/hello`, acesta este convertit în `https%3A%2F%2Fexample.com%2Fhello`. Decodarea funcționează în sens invers.
+*   **Codare/Decodare Base64**: Aceasta decodează/codează un text în [Base64](https://en.wikipedia.org/wiki/Base64). De exemplu, puteți codifica `hello` în `aGVsbG8=`, și decoda înapoi la `hello`.
+*   **Înlocuire apariții**: Aceasta înlocuiește unul sau mai multe caractere dintr-un grup, potrivite de o **Țintă**, cu o **Înlocuire**. De exemplu, dacă *Grupul* este `hello` și *Ținta* este `l` și Înlocuirea este `y`, acesta este modificat în `heyyo`.
+
+> [!NOTE]
+> Aceasta este pentru procesarea fiecărui grup de captură și nu afectează URL-urile care sunt excluse de [Modele URL excluse](#excluded-url-patterns). De exemplu, să presupunem că aveți această regulă:
+>
+> *   **Redirecționare de la**: `https://example.com/(hello.*)`
+> *   **Procesarea grupurilor de captură**:
+>     *   Grup: `$1`
+>     *   Țintă: `.*` (Expresie Regulată)
+>     *   Înlocuire: `hello`
+> *   **Model URL exclus**: `https://example.com/hello`
+>
+> În acest caz, `https://example.com/hello_world` nu va fi exclus, în timp ce `https://example.com/hello` va fi exclus.
+
+### Modele URL excluse
+
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
+
+Opțiunea **Modele URL excluse** vă permite să specificați URL-urile care nu sunt redirecționate. Acest lucru poate fi util pentru a evita buclele de redirecționare sau pentru a exclude anumite părți ale unui site web de la redirecționare.
+
+Puteți specifica modele URL excluse utilizând fie Expresii Regulate, fie tipuri de modele Wildcard.
+
+### Exemple
+
+Opțiunea **Exemple** vă permite să testați regula de redirecționare furnizând URL-uri eșantion. Prin adăugarea unui URL eșantion, puteți verifica dacă regula funcționează conform așteptărilor înainte de a o aplica efectiv.
+
+### Comentarii
+
+Opțiunea **Comentarii** vă permite să adăugați orice note sau comentarii despre regula dvs. de redirecționare. Acest lucru poate fi util pentru a ține evidența motivului pentru care ați creat o anumită regulă sau pentru a oferi context altor persoane care ar putea vizualiza regulile dvs.
+
+## Model URL
+
+Există 3 opțiuni în care puteți specifica unul sau mai multe modele URL: *Redirecționare de la*, *Modele URL excluse* și *Procesarea grupurilor de captură*. Pentru a le specifica, puteți alege fie **Wildcard**, fie **Expresie Regulată**.
+
+### Wildcard
+
+**Wildcard** este un tip de model mai simplu care vă permite să utilizați `*` (se potrivește cu orice) și `?` (se potrivește cu orice caracter unic) ca wildcards. Iată câteva exemple:
+
+*   Pentru a se potrivi cu `https://example.com/hello`, puteți utiliza `https://example.com/*`. Acesta se va potrivi cu orice șir după `https://example.com/`.
+*   Pentru a se potrivi cu `https://example.com/search?q=hello`, puteți utiliza `https://example.com/search?q=*`. Acesta se va potrivi cu orice valoare pentru parametrul `q`.
+*   Pentru a se potrivi cu orice URL care conține cuvântul `blog`, puteți utiliza `*blog*`.
+
+Puteți utiliza substituirea și în Wildcard, ceea ce înseamnă că puteți face referire la porțiuni ale URL-ului potrivit utilizând `$1`, `$2`, etc. De exemplu, dacă utilizați `https://example.com/*-world-*`, și URL-ul este `https://example.com/hello-world-goodbye`, atunci `$1` ar fi "hello" și `$2` ar fi "goodbye". `$0` este, de asemenea, disponibil pentru a face referire la întregul URL potrivit.
+
+> [!Note]
+> Deși substituirea este o funcționalitate a Expresiilor Regulate, o puteți utiliza și pentru Wildcard, deoarece Redirect Web convertește intern Wildcard în Expresie Regulată.
+
+### Expresie Regulată
+
+**Expresia Regulată** (Regex) este un instrument puternic pentru potrivirea modelelor în text, alimentat de motorul de expresii regulate Apple, descris [aici](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Vă permite să definiți un model specific care se potrivește cu un set de șiruri. Iată câteva exemple.
+
+-   Pentru a se potrivi cu `https://example.com/hello`, puteți utiliza `https://example.com/(.*)`. Acesta se va potrivi cu orice șir după `https://example.com/` și îl va stoca într-un grup de captură.
+-   Pentru a se potrivi cu `https://example.com/search?q=hello`, puteți utiliza `https://example.com/search\?q=(.*)`. Acesta se va potrivi cu valoarea parametrului `q` și o va stoca într-un grup de captură.
+-   Pentru a se potrivi cu orice URL care conține cuvântul `blog`, puteți utiliza `.*blog.*`.
+
+Puteți face referire la grupurile de captură din *Redirecționare către* sau *Înlocuire* utilizând `$1`, `$2`, ... sau `$0` pentru a face referire la întreaga potrivire.
+
+Mai multe informații despre sintaxa Regex pot fi găsite în resurse precum [RegExr](https://regexr.com/).

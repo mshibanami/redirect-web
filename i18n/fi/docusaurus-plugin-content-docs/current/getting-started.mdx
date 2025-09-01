@@ -1,0 +1,153 @@
+# Aloittaminen
+
+Tämä sivu kuvaa yleisiä käyttötapauksia sääntöjen luomiseen Redirect Web -sovelluksessa.
+
+(Voit oppia sääntöasetusten yksityiskohdista myös [Sääntöasetukset](./rule-settings)-sivulta.)
+
+
+## Tapausesimerkki 1: Toisen verkkosivuston avaaminen
+
+Oletetaan, että olet riippuvainen Twitteristä, ja päätät meditoida Insight Timerissa aina, kun vahingossa avaat Twitterin. Luodaan sääntö tälle!
+
+### Vaihe 1. Määritä "Uudelleenohjaa tästä"
+
+Ensin sinun tulee määrittää *Uudelleenohjaa tästä* -osio sovelluksen *Muokkaa sääntöä* -näytössä. Kohteena ovat URL-osoitteet, jotka alkavat `https://twitter.com/`.
+
+Tässä tapauksessa voit määrittää seuraavan mallin [Wildcard](rule-settings?id=wildcard)-tilassa:
+
+```
+https://twitter.com/*
+```
+
+Wildcard-tilassa `*` tarkoittaa, että se vastaa mitä tahansa (= nolla tai useampi merkki).
+
+Odota kuitenkin. `twitter.com` nimettiin uudelleen `x.com`:ksi. Voit yksinkertaisesti korvata `twitter.com`:in `x.com`:lla, mutta kukaan ei tiedä, milloin uusi omistaja muuttaa mieltään ja palauttaa sen. Siksi kohdennetaan sekä `twitter.com` että `x.com`.
+
+Tehdäksesi tämän, vaihda Wildcardista [Säännölliseen lausekkeeseen (Regular Expression)](rule-settings?id=regular-expression) ja aseta tämä malliksi:
+
+```
+https://(twitter|x).com/.*
+```
+
+*   `(twitter|x)`: se kohdistaa sekä `twitter`iin että `x`:ään. (`|`-merkkiä kutsutaan *pystyviivaksi*.)
+*   `.*`: Se on sama kuin Wildcardin `*`. Tarkemmin sanottuna `.` tarkoittaa *mitä tahansa merkkiä* ja `*` tarkoittaa *mitä tahansa ennen tätä symbolia toistettuna minkä tahansa määrän kertoja*, mikä tarkoittaa, että se vastaa mitä tahansa.
+
+Säännölliset lausekkeet ovat hieman monimutkaisia, mutta kun niihin tottuu, niistä tulee tehokas työkalu. Suosittelemme käyttämään [RegExr](https://regexr.com)-palvelua "leikkikenttänä" analysoidaksesi, miten säännöllinen lausekemallisi toimii.
+
+> [!HUOMIO]
+> Säännöllisissä lausekkeissa `.` merkissä `(twitter|x).com` käsitellään myös *minä tahansa merkkinä*. Siksi `(twitter|x).com/.*` vastaa myös esimerkiksi `twitter1com/` tai `x_com/`.
+> 
+> Jotta vältät tämän, voit muuttaa sen muotoon `(twitter|x)\.com/.*`. `\`-merkkiä käytetään erikoismerkin "escapointiin".
+>
+> Yleisessä internet-ympäristössä tällaisia URL-osoitteita ei kuitenkaan ole. Siksi voit jättää `.`-merkin erikoismerkiksi, jos haluat. Sääntösi on omaan käyttöösi, joten toteuta se haluamallasi tavalla.
+
+### Vaihe 2: Määritä "Uudelleenohjaa kohteeseen"
+
+Määritä URL-osoite yksinkertaisesti seuraavasti:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+Nyt Redirect Web ohjaa sinut meditaatioon, kun avaat Twitterin!
+
+**[⬇️ Lataa sääntö](/rules/reduce-twitter-addiction.redirectweb)**
+
+## Tapausesimerkki 2: Kyselyparametrien poistaminen URL-osoitteesta
+
+Oletetaan, että URL-osoitteessa `example.com` on kyselyparametri `source=twitter`, ja päätit poistaa sen anonymisoidaksesi itsesi.
+
+Tässä tapauksessa **Ryhmän kaappaamisen käsittely (Capturing Group Processing)** -vaihtoehto on helpoin tapa.:
+
+*   **Redirect From**: `https://example.com/*` (Wildcard)
+*   **Redirect To**: `$0`
+*   **Capturing Group Processing**:
+    *   **Group**: `$0`
+    *   **Process**: Korvaa esiintymät
+        *   **Target**: `&?source=[^&]*`
+        *   **Replacement**: *(ei mitään)*
+        *   **Text Pattern**: Säännöllinen lauseke
+
+**[⬇️ Lataa sääntö](/rules/remove-parameters.redirectweb)**
+
+Tämä sääntö toimii seuraavasti:
+
+```
+https://example.com/?source=twitter
+↪ https://example.com/?
+
+https://example.com/?hello=world&source=twitter&foo=bar
+↪ https://example.com/?hello=world&foo=bar
+```
+
+Jos haluat poistaa lisää parametreja, lisää prosesseja.
+
+## Tapausesimerkki 3: Kyselyparametrien lisääminen URL-osoitteeseen
+
+Oletetaan, että on olemassa verkkosivusto nimeltä `example.com`, joka näyttää mobiiliversion oletuksena, mutta sinä suosit sen työpöytäversiota. Onneksi verkkosivusto tukee `layout`-kyselyparametria, jolla voi määrittää, minkä ulkoasun verkkosivusto näyttää. Luodaan sääntö, joka lisää `layout=desktop`-parametrin automaattisesti.
+
+Ehkä ajattelet, että voit määrittää sen seuraavasti:
+
+*   **Redirect From**: `https://example.com/.*` (Säännöllinen lauseke)
+*   **Redirect To**: `$0?layout=desktop`
+
+`$0` viittaa kohde-URL-osoitteeseen. Jos yrität avata `example.com/hello`, sinut ohjataan uudelleen `example.com/hello?layout=desktop`. Tätä ominaisuutta kutsutaan *sijoitukseksi*.
+
+> [!VINKKI]
+> Sijoitus on käytettävissä myös Wildcard-tilassa, koska se muunnetaan sisäisesti säännölliseksi lausekkeeksi.
+
+Näissä asetuksissa on kuitenkin muutama ongelma.
+
+### Ongelma 1: Ikuinen silmukka
+
+Nykyinen asetus luo ikuisen uudelleenohjaussilmukan, koska `https://example.com/.*` kohdistaa myös `https://example.com/hello?layout=desktop`-osoitteeseen.
+
+Tässä tapauksessa voit määrittää poissuljetun URL-mallin, joka mahdollistaa pääsyn ilman uudelleenohjausta, näin säännöllisellä lausekkeella:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+*   `.*`: Vastaa mitä tahansa
+*   `[&?]`: Vastaa joko `&`- tai `?`-merkkiä
+*   `[^&]*`: Vastaa mitä tahansa paitsi `&`-merkkiä
+
+### Ongelma 2: Olemassa olevien parametrien virheellinen käsittely
+
+Jos kohde-URL-osoitteessa on jo muita kyselyparametreja, kuten `example.com/hello?theme=dark`, määränpääksi tulee `example.com/hello?theme=dark?layout=desktop` (URL-osoitteessa on kaksi `?`-merkkiä), mutta parametrit voi yhdistää vain `&`-merkillä. `?` erikoismerkkinä sallitaan vain parametrien alussa. Siksi sitä ei käsitellä kelvollisena parametrina.
+
+Tässä tapauksessa muuta asetuksia näin:
+
+*   **Redirect From**: `(https://example.com/[^?]*)(\?(.*))?`
+*   **Redirect To**: `$1?layout=desktop&$3`
+
+Katsotaanpa askel askeleelta.
+
+*   `(https://example.com/[^?]*)`: Vastaa osaa aina `?`-merkin edelliseen merkkiin asti.
+    *   `[^?]*` vastaa mitä tahansa paitsi `?`-merkkiä.
+    *   Tämä on ympäröity `()`-sulkeilla, jotta voit viitata siihen `$1`-merkillä myöhemmin.
+*   `(\?(.*))?`: Vastaa `?`-merkillä alkavaa merkkijonoa, mikä tarkoittaa kyselyparametreja.
+    *   Tämä vastaa myös tyhjää merkkijonoa mallin lopussa olevan `?`-kvantifikaattorin avulla, joka *vastaa nolla tai yksi kerta*.
+    *   Ulompaan `()`-sulkeeseen ja sisempään `()`-sulkeeseen voidaan viitata `$2`- ja `$3`-merkeillä myöhemmin.
+
+[RegExr](https://regexr.com) voi auttaa sinua ymmärtämään yksityiskohtia.
+
+> [!HUOMIO]
+> RegExr näyttää virheen, jos et escapea `/`-merkkiä `\`-merkillä. Vaikka voit escapea sen, se ei ole pakollista, koska Redirect Web käyttää Applen eri moottoria, joka ei vaadi escapointia.
+
+Tämä ei ole täydellinen ratkaisu, sillä se ohjaa `example.com/hello`-osoitteen uudelleen `example.com/hello?layout=desktop&`-osoitteeseen, joka sisältää tarpeettoman `&`-merkin URL-osoitteen lopussa. Se ei ole yleensä suuri juttu, mutta jos haluat poistaa sen, voit käyttää *Ryhmän kaappaamisen käsittelyä*.
+
+Yhteenvetona, tämä on lopullinen tulos:
+
+*   **Redirect From**: `(https://example.com/[^?]*)((\?(.*))?)` (Säännöllinen lauseke)
+*   **Redirect To**: `$1?layout=desktop$3`
+*   **Excluded URL Pattern**: `.*[&?]layout=[^&]*.*` (Säännöllinen lauseke)
+*   **Capturing Group Processing**:
+    *   **Group**: `$3`
+    *   **Process**: Korvaa esiintymät
+        *   **Target**: `\?(.*)`
+        *   **Replacement**: `&$1`
+
+**[⬇️ Lataa sääntö](/rules/add-parameters.redirectweb)**
+
+Tämä on vain esimerkki. Voit myös luoda useita sääntöjä käsittelemään kutakin ongelmaa. Se voi olla paljon yksinkertaisempaa.

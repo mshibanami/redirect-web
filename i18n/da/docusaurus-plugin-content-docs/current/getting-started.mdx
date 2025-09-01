@@ -1,0 +1,152 @@
+# Kom i gang
+
+Denne side beskriver almindelige anvendelsestilfælde for at oprette regler i Redirect Web-appen.
+
+(Du kan også lære detaljerne om regelindstillinger på siden [Regelindstillinger](./rule-settings).)
+
+## Tilfælde 1: Åbn en anden hjemmeside
+
+Forestil dig, at du er afhængig af Twitter, og du beslutter dig for at meditere i Insight Timer, når du ved et uheld åbner Twitter. Lad os oprette en regel for det!
+
+### Trin 1. Opsæt "Omdiriger fra"
+
+Først skal du opsætte sektionen *Omdiriger fra* på skærmen *Rediger regel* i appen. Målene er URL'er, der starter med `https://twitter.com/`.
+
+I dette tilfælde kan du angive følgende mønster med [Wildcard](rule-settings?id=wildcard)-tilstand:
+
+```
+https://twitter.com/*
+```
+
+I Wildcard-tilstand betyder `*`, at det matcher alt (= nul eller flere tegn).
+
+Men vent. `twitter.com` blev omdøbt til `x.com`. Du kan blot erstatte `twitter.com` med `x.com`, men ingen ved, hvornår den nye ejer igen vil ændre mening og rulle det tilbage. Lad os derfor målrette både `twitter.com` og `x.com`.
+
+For at gøre dette, skift fra Wildcard til [Regulært udtryk](rule-settings?id=regular-expression), og angiv dette som mønsteret:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: det målretter både `twitter` og `x`. (`|` kaldes *en pipe*.)
+* `.*`: Det er det samme som Wildcard's `*`. Mere specifikt betyder `.` *ethvert tegn*, og `*` betyder *alt før dette symbol gentaget et vilkårligt antal gange*, hvilket resulterer i, at det matcher alt.
+
+Regulære udtryk er lidt komplicerede, men når du først vænner dig til det, vil det være et kraftfuldt værktøj. Vi anbefaler at bruge [RegExr](https://regexr.com) som en legeplads til at analysere, hvordan dit mønster for regulære udtryk fungerer.
+
+> [!NOTE]
+> I regulære udtryk behandles `.` i `(twitter|x).com` også som *ethvert tegn*. Derfor matcher `(twitter|x).com/.*` også for eksempel `twitter1com/` eller `x_com/`.
+>
+> For at undgå det kan du ændre det til `(twitter|x)\.com/.*`. `\` bruges til at undslippe et specielt tegn.
+>
+> Der findes dog ingen sådanne URL'er i det generelle internetmiljø. Derfor kan du lade `.` være et specielt tegn, hvis du foretrækker det. Din regel er til dit eget brug, så implementer den, som du finder passende.
+
+### Trin 2: Opsæt "Omdiriger til"
+
+Angiv blot URL'en som følger:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+Nu bringer Redirect Web dig til meditation, når du tilgår Twitter!
+
+**[⬇️ Download reglen](/rules/reduce-twitter-addiction.redirectweb)**
+
+## Tilfælde 2: Fjern forespørgselsparametre fra URL
+
+Antag, at der er en forespørgselsparameter `source=twitter` i en URL for `example.com`, og du besluttede at fjerne den for at anonymisere dig selv.
+
+I dette tilfælde er indstillingen **Behandling af fangstgruppe** den nemmeste måde:
+
+*   **Omdiriger fra**: `https://example.com/*` (Wildcard)
+*   **Omdiriger til**: `$0`
+*   **Behandling af fangstgruppe**:
+    *   **Gruppe**: `$0`
+    *   **Proces**: Erstat forekomster
+        *   **Mål**: `&?source=[^&]*`
+        *   **Erstatning**: *(ingen)*
+        *   **Tekstmønster**: Regulært udtryk
+
+**[⬇️ Download reglen](/rules/remove-parameters.redirectweb)**
+
+Denne regel fungerer som følger:
+
+```
+https://example.com/?source=twitter
+↪ https://example.com/?
+
+https://example.com/?hello=world&source=twitter&foo=bar
+↪ https://example.com/?hello=world&foo=bar
+```
+
+Hvis du vil fjerne flere parametre, skal du tilføje flere processer.
+
+## Tilfælde 3: Tilføj forespørgselsparametre til URL
+
+Lad os sige, at der er en hjemmeside kaldet `example.com`, som viser et mobilt layout som standard, men du foretrækker deres desktop-layout. Heldigvis understøtter hjemmesiden en `layout`-forespørgselsparameter til at angive, hvilket layout hjemmesiden viser. Lad os oprette en regel, der automatisk tilføjer `layout=desktop`.
+
+Måske tænker du, at du kunne definere det som følger:
+
+*   **Omdiriger fra**: `https://example.com/.*` (Regulært udtryk)
+*   **Omdiriger til**: `$0?layout=desktop`
+
+`$0` refererer til mål-URL'en. Hvis du forsøger at tilgå `example.com/hello`, bliver du omdirigeret til `example.com/hello?layout=desktop`. Denne funktion kaldes *substitution*.
+
+> [!TIP]
+> Substitution er også tilgængelig for Wildcard-tilstand, da den internt konverteres til et regulært udtryk.
+
+Der er dog et par problemer med disse indstillinger.
+
+### Problem 1: Uendelig løkke
+
+Den nuværende indstilling skaber en uendelig omdirigeringsløkke, da `https://example.com/.*` også målretter `https://example.com/hello?layout=desktop`.
+
+I dette tilfælde kan du angive et udelukket URL-mønster, der giver dig adgang uden omdirigering, som dette med regulært udtryk:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+*   `.*`: Matcher alt
+*   `[&?]`: Matcher enten `&` eller `?`
+*   `[^&]*`: Matcher alt undtagen `&`
+
+### Problem 2: Kan ikke håndtere eksisterende parametre korrekt
+
+Hvis mål-URL'en allerede har andre forespørgselsparametre som `example.com/hello?theme=dark`, vil destinationen være `example.com/hello?theme=dark?layout=desktop` (Der er to `?` i URL'en), men du kan kun sammenføje parametrene med `&`. `?` som et specielt tegn er kun tilladt i begyndelsen af parametrene. Så det behandles ikke som en gyldig parameter.
+
+I dette tilfælde skal du ændre indstillingerne sådan her:
+
+*   **Omdiriger fra**: `(https://example.com/[^?]*)(\?(.*))?`
+*   **Omdiriger til**: `$1?layout=desktop&$3`
+
+Lad os tage et kig trin for trin.
+
+*   `(https://example.com/[^?]*)`: Matcher den del indtil det foregående tegn af `?`.
+    *   `[^?]*` matcher alt undtagen `?`.
+    *   Dette er omsluttet af `()`, så du kan henvise til det med `$1` senere.
+*   `(\?(.*))?`: Matcher en streng, der starter med `?`, hvilket betyder forespørgselsparametre.
+    *   Dette matcher også en tom streng ved `?`-kvantifikatoren i slutningen af mønsteret, som *matcher nul eller én gang*.
+    *   Den ydre `()` og den indre `()` kan henvises til med `$2` og `$3` senere.
+
+[RegExr](https://regexr.com) kan hjælpe dig med at forstå detaljerne.
+
+> [!NOTE]
+> RegExr viser en fejl, når du ikke undslipper `/` med `\`. Selvom du kan undslippe det, er det ikke påkrævet, da Redirect Web bruger en anden motor fra Apple, der ikke kræver undslip.
+
+Dette er ikke en perfekt løsning, da den omdirigerer `example.com/hello` til `example.com/hello?layout=desktop&`, som inkluderer et unødvendigt `&` i slutningen af URL'en. Det er generelt ikke et stort problem, men hvis du ønsker at fjerne det, kan du bruge *Behandling af fangstgruppe*.
+
+Sammenfattende er dette det endelige resultat:
+
+*   **Omdiriger fra**: `(https://example.com/[^?]*)((\?(.*))?)` (Regulært udtryk)
+*   **Omdiriger til**: `$1?layout=desktop$3`
+*   **Udelukket URL-mønster**: `.*[&?]layout=[^&]*.*` (Regulært udtryk)
+*   **Behandling af fangstgruppe**:
+    *   **Gruppe**: `$3`
+    *   **Proces**: Erstat forekomster
+        *   **Mål**: `\?(.*)`
+        *   **Erstatning**: `&$1`
+
+**[⬇️ Download reglen](/rules/add-parameters.redirectweb)**
+
+Dette er blot et eksempel. Du kan også oprette flere regler til at håndtere hvert problem. Det kan være meget enklere.

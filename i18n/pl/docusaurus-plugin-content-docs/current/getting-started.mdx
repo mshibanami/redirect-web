@@ -1,0 +1,153 @@
+# Pierwsze kroki
+
+Ta strona opisuje typowe przypadki użycia do tworzenia reguł w aplikacji Redirect Web.
+
+(Szczegóły ustawień reguł znajdziesz również na stronie [Ustawienia reguł](./rule-settings).)
+
+
+## Przypadek 1: Otwieranie innej strony internetowej
+
+Załóżmy, że jesteś uzależniony od Twittera i decydujesz się medytować w Insight Timer za każdym razem, gdy przypadkowo otworzysz Twittera. Stwórzmy dla tego regułę!
+
+### Krok 1. Skonfiguruj „Przekieruj z”
+
+Najpierw należy skonfigurować sekcję *Przekieruj z* na ekranie *Edytuj regułę* w aplikacji. Celami są adresy URL zaczynające się od `https://twitter.com/`.
+
+W tym przypadku możesz określić następujący wzorzec w trybie [Wildcard](rule-settings?id=wildcard):
+
+```
+https://twitter.com/*
+```
+
+W trybie Wildcard, `*` oznacza, że pasuje do wszystkiego (= zero lub więcej znaków).
+
+Jednak chwileczkę. `twitter.com` został zmieniony na `x.com`. Możesz po prostu zastąpić `twitter.com` przez `x.com`, ale nikt nie wie, kiedy nowy właściciel ponownie zmieni zdanie, aby to cofnąć. Dlatego będziemy celować zarówno w `twitter.com`, jak i `x.com`.
+
+Aby to zrobić, przełącz z Wildcard na [Wyrażenie regularne](rule-settings?id=regular-expression) i ustaw ten wzorzec:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: celuje zarówno w `twitter`, jak i `x`. (`|` nazywa się *pionową kreską*.)
+* `.*`: Jest to to samo co `*` w Wildcard. Dokładniej, `.` oznacza *dowolny znak*, a `*` oznacza *cokolwiek przed tym symbolem powtórzone dowolną liczbę razy*, co w rezultacie pasuje do wszystkiego.
+
+Wyrażenia regularne są nieco skomplikowane, ale gdy się do nich przyzwyczaisz, staną się potężnym narzędziem. Polecamy korzystanie z [RegExr](https://regexr.com) jako placu zabaw do analizowania, jak działa twój wzorzec wyrażenia regularnego.
+
+> [!UWAGA]
+> W wyrażeniach regularnych, `.` w `(twitter|x).com` jest również traktowany jako *dowolny znak*. Dlatego `(twitter|x).com/.*` pasuje również do, na przykład, `twitter1com/` lub `x_com/`.
+> 
+> Aby tego uniknąć, możesz zmienić to na `(twitter|x)\.com/.*`. `\` służy do escape'owania znaku specjalnego.
+>
+> Jednakże, w ogólnym środowisku internetowym nie ma takich adresów URL. Dlatego, jeśli wolisz, możesz pozostawić `.` jako znak specjalny. Twoja reguła jest przeznaczona do własnego użytku, więc zaimplementuj ją tak, jak uznasz za stosowne.
+
+### Krok 2: Skonfiguruj „Przekieruj do”
+
+Po prostu określ adres URL w następujący sposób:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+Teraz Redirect Web przeniesie Cię do medytacji, gdy wejdziesz na Twittera!
+
+**[⬇️ Pobierz regułę](/rules/reduce-twitter-addiction.redirectweb)**
+
+## Przypadek 2: Usuwanie parametrów zapytania z adresu URL
+
+Załóżmy, że w adresie URL `example.com` znajduje się parametr zapytania `source=twitter`, a Ty zdecydowałeś się go usunąć, aby się anonimizować.
+
+W tym przypadku opcja **Przetwarzanie grupy przechwytującej** jest najłatwiejszym sposobem:
+
+*   **Przekieruj z**: `https://example.com/*` (Wildcard)
+*   **Przekieruj do**: `$0`
+*   **Przetwarzanie grupy przechwytującej**:
+    *   **Grupa**: `$0`
+    *   **Proces**: Zastąpienie wystąpień
+        *   **Cel**: `&?source=[^&]*`
+        *   **Zastąpienie**: *(brak)*
+        *   **Wzorzec tekstu**: Wyrażenie regularne
+
+**[⬇️ Pobierz regułę](/rules/remove-parameters.redirectweb)**
+
+Ta reguła działa w następujący sposób:
+
+```
+https://example.com/?source=twitter
+↪ https://example.com/?
+
+https://example.com/?hello=world&source=twitter&foo=bar
+↪ https://example.com/?hello=world&foo=bar
+```
+
+Jeśli chcesz usunąć więcej parametrów, dodaj więcej procesów.
+
+## Przypadek 3: Dodawanie parametrów zapytania do adresu URL
+
+Załóżmy, że istnieje strona internetowa o nazwie `example.com`, która domyślnie wyświetla układ mobilny, ale Ty wolisz układ desktopowy. Na szczęście strona obsługuje parametr zapytania `layout`, aby określić, jaki układ ma być wyświetlany. Stwórzmy regułę, która automatycznie dodaje `layout=desktop`.
+
+Być może myślisz, że możesz to zdefiniować w następujący sposób:
+
+*   **Przekieruj z**: `https://example.com/.*` (Wyrażenie regularne)
+*   **Przekieruj do**: `$0?layout=desktop`
+
+`$0` odwołuje się do docelowego adresu URL. Jeśli spróbujesz uzyskać dostęp do `example.com/hello`, zostaniesz przekierowany do `example.com/hello?layout=desktop`. Ta funkcja nazywa się *podstawieniem*.
+
+> [!WSKAZÓWKA]
+> Podstawienie jest również dostępne dla trybu Wildcard, ponieważ wewnętrznie jest konwertowane na wyrażenie regularne.
+
+Jednakże, istnieje kilka problemów z tymi ustawieniami.
+
+### Problem 1: Nieskończona pętla
+
+Obecne ustawienie tworzy nieskończoną pętlę przekierowań, ponieważ `https://example.com/.*` celuje również w `https://example.com/hello?layout=desktop`.
+
+W tym przypadku możesz określić wzorzec wykluczonego adresu URL, który pozwoli na dostęp bez przekierowania, tak jak to, za pomocą wyrażenia regularnego:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+*   `.*`: Pasuje do wszystkiego
+*   `[&?]`: Pasuje do `&` lub `?`
+*   `[^&]*`: Pasuje do wszystkiego oprócz `&`
+
+### Problem 2: Nieprawidłowe obsługa istniejących parametrów
+
+Jeśli docelowy adres URL ma już inne parametry zapytania, takie jak `example.com/hello?theme=dark`, miejscem docelowym będzie `example.com/hello?theme=dark?layout=desktop` (w adresie URL są dwa `?`), ale parametry można łączyć tylko za pomocą `&`. `?` jako znak specjalny jest dozwolony tylko na początku parametrów. Więc nie jest traktowany jako prawidłowy parametr.
+
+W tym przypadku zmień ustawienia w następujący sposób:
+
+*   **Przekieruj z**: `(https://example.com/[^?]*)(\?(.*))?`
+*   **Przekieruj do**: `$1?layout=desktop&$3`
+
+Przyjrzyjmy się krok po kroku.
+
+*   `(https://example.com/[^?]*)`: Pasuje do części aż do znaku poprzedzającego `?`.
+    *   `[^?]*` pasuje do wszystkiego oprócz `?`.
+    *   Jest to owinięte w `()`, aby można było się do tego odwołać później za pomocą `$1`.
+*   `(\?(.*))?`: Pasuje do ciągu znaków zaczynającego się od `?`, co oznacza parametry zapytania.
+    *   Pasuje to również do pustego ciągu znaków dzięki kwantyfikatorowi `?` na końcu wzorca, który *pasuje zero lub jeden raz*.
+    *   Zewnętrzne `()` i wewnętrzne `()` mogą być później odwołane za pomocą `$2` i `$3`.
+
+[RegExr](https://regexr.com) może pomóc Ci zrozumieć szczegóły.
+
+> [!UWAGA]
+> RegExr pokazuje błąd, gdy nie escape'ujesz `/` za pomocą `\`. Chociaż możesz to escape'ować, nie jest to wymagane, ponieważ Redirect Web używa innego silnika firmy Apple, który nie wymaga escape'owania.
+
+Nie jest to idealne rozwiązanie, ponieważ przekierowuje `example.com/hello` na `example.com/hello?layout=desktop&`, co zawiera niepotrzebny `&` na końcu adresu URL. Ogólnie rzecz biorąc, nie jest to wielki problem, ale jeśli chcesz go usunąć, możesz użyć *Przetwarzania grupy przechwytującej*.
+
+Podsumowując, oto ostateczny wynik:
+
+*   **Przekieruj z**: `(https://example.com/[^?]*)((\?(.*))?)` (Wyrażenie regularne)
+*   **Przekieruj do**: `$1?layout=desktop$3`
+*   **Wzorzec wykluczonego adresu URL**: `.*[&?]layout=[^&]*.*` (Wyrażenie regularne)
+*   **Przetwarzanie grupy przechwytującej**:
+    *   **Grupa**: `$3`
+    *   **Proces**: Zastąpienie wystąpień
+        *   **Cel**: `\?(.*)`
+        *   **Zastąpienie**: `&$1`
+
+**[⬇️ Pobierz regułę](/rules/add-parameters.redirectweb)**
+
+To tylko przykład. Możesz również utworzyć wiele reguł, aby rozwiązać każdy problem. Może to być znacznie prostsze.
