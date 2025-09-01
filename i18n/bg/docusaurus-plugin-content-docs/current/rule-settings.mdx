@@ -1,0 +1,356 @@
+# Настройки на правилата
+
+Тази страница предоставя подробна информация за всяка настройка в екрана за редактиране на правила в уеб приложението Redirect Web.
+
+## Опции
+
+### Тип
+
+Задайте опцията **Type** (Тип), за да контролирате как приложението обработва пренасочването. Можете да избирате от следните:
+
+*   **Original** (Оригинален) (По подразбиране)
+    *   Това използва традиционни уеб API за контролиране на пренасочването. Освен това, то използва [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) за резервен вариант.
+        *   Във Firefox се използва [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) за обработка на пренасочването.
+    *   Можете да използвате всички опции освен [Resource Types](#resource-types) (Типове ресурси) и [Request Methods](#request-methods) (Методи на заявката).
+    *   Това е по-бавно от типа *Declarative* и може да причини допълнителни мрежови заявки.
+*   **DNR** (Експериментално за Safari):
+    *   Този тип работи много по-бързо от типа Original, защото не инициира мрежова заявка за изходния URL адрес.
+    *   Това ви позволява да зададете [Resource Types](#resource-types) (Типове ресурси) и [Request Methods](#request-methods) (Методи на заявката).
+    *   ⚠️ Не можете да използвате някои опции, като [Capturing Group Processing](#capturing-group-processing) (Обработка на заснети групи) и [Excluded URL Patterns](#excluded-url-patterns) (Изключени URL модели), тъй като те все още не се поддържат от DNR API.
+    *   ⚠️ В Safari, в момента не можете да включвате вертикални черти (`|`) във вашия модел на регулярен израз. [Подробности](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ Тъй като DNR API на Safari все още има някои проблеми, считаме, че това все още е експериментална функция за Safari. Можете да намерите списъка с всички известни проблеми [тук](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+
+### Пренасочване от (Redirect From)
+
+Опцията **Redirect From** (Пренасочване от) ви позволява да зададете URL модел на уеб страници, от които искате да пренасочите. Можете да изберете [Wildcard](#wildcard) (Заместващ знак) или [Regular Expression](#regular-expression) (Регулярен израз).
+
+Например, ако зададете `https://example.com/*` с Wildcard, това ще съвпадне с `https://example.com/` или `https://example.com/hello`.
+
+> [!NOTE]
+> В опцията Redirect To (Пренасочване към) можете да реферирате цялото съвпадение, използвайки `$0` или частични съвпадения, използвайки `$1`, `$2`, ... Проверете подробностите в [URL Pattern](#url-pattern) (URL модел) на тази страница.
+
+#### Типове ресурси (Resource Types)
+
+![Поддържани типове: DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+Опцията **Resource Types** (Типове ресурси) ви позволява да зададете категориите на уеб заявките, като изображения, JavaScript файлове и стилови листове, за които се прилага правилото.
+Например, ако зададете `script`, можете да пренасочите JavaScript файловете, заредени от уеб страници.
+
+Понастоящем са налични следните:
+`main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
+
+Настройката по подразбиране е `main_frame`, което е страницата от най-високо ниво, заредена в таб.
+
+Моля, проверете подробностите за всеки тип ресурс в [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+
+#### Методи на заявката (Request Methods)
+
+![Поддържани типове: DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+Опцията **Request Methods** (Методи на заявката) ви позволява да зададете целевите HTTP методи на изходния URL адрес.
+
+Всички методи са зададени по подразбиране.
+
+Моля, проверете подробностите за всеки метод в [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+
+> [!WARNING]
+> В Safari тази опция може да не е налична, тъй като имплементацията на Apple за типа DNR изглежда, че не я обработва в момента. Изпратихме обратна връзка до Apple като FB14502272.
+
+#### Целеви браузъри (Target Browsers)
+
+![Поддържани платформи: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+Опцията **Target Browsers** (Целеви браузъри) ви позволява да зададете кой браузър трябва или не трябва да се прилага правилото.
+
+*   Има 2 типа браузъри, които можете да изберете:
+    *   **Браузъри, които можете да изберете по подразбиране**: Можете да изберете Safari, Chrome, Firefox, Edge, Opera, Arc, Brave и Vivaldi по подразбиране. Това не прави разлика между варианти на един и същ браузър, като Safari и Safari Technology Preview.
+    *   **Потребителски зададени браузъри**: С докосване на бутона Add (Добавяне) в изскачащия прозорец можете да изберете всеки браузър, различен от Safari или Safari Technology Preview, който има инсталирано разширението Redirect Web.
+*   Отметката **All except selected** (Всички освен избраните) ви позволява да таргетирате всеки браузър, освен тези, които сте избрали.
+
+> [!WARNING]
+> Redirect Web не може да различи дали браузърът е **Safari** или **Safari Technology Preview**, защото приложението проверява родителския процес на разширението, за да го открие, но тези два браузъра споделят един и същ родителски процес (`/sbin/launchd`).
+
+### Пренасочване към (Redirect To)
+
+Опцията **Redirect To** (Пренасочване към) задава URL адрес на местоназначение, към който желаете да пренасочите от изходния URL адрес, съвпаднал с опцията *Redirect From*. Можете също така да заместите заснети групи с `$1`, `$2`, ... или цялото съвпадение с `$0`. Тези елементи ви помагат динамично да зададете дестинацията. Проверете подробностите в [URL Pattern](#url-pattern) (URL модел) на тази страница.
+
+Например, ако зададете следното правило:
+
+*   **Redirect From**: `https://google.com/*` (Wildcard)
+*   **Redirect To**: `https://apple.com/$1`
+
+и то съвпадне с `https://google.com/hello`, тогава целевият URL адрес ще бъде `https://apple.com/hello`.
+
+Освен това можете да модифицирате текстовете на `$1`, `$2`, ... преди да направите заместванията. Проверете секцията [Capturing Group Processing](#capturing-group-processing) (Обработка на заснети групи) за подробности.
+
+> [!TIP]
+> Можете да зададете персонализирана URL схема за отваряне на приложение. Това са примери за приложения, които поддържат deep linking:
+>
+> *   Figma: `figma://file/Your_Figma_ID`
+> *   Firefox: `firefox://open-url?url=https://example.com/hello`
+> *   Google Chrome: `googlechromes://example.com`
+> *   Microsoft Edge: `microsoft-edge://example.com`
+> *   Notion: `notion://www.notion.so/Your_Note_ID`
+> *   Slack: `slack://open`
+
+#### Приложение (Application)
+
+![Поддържани типове: Original](https://img.shields.io/badge/Types-Original-blue) ![Поддържани платформи: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+Ако искате да посочите приложение, с което желаете да отворите целевия URL адрес, използвайте комбо кутията **Application** (Приложение). Това е достъпно само за macOS.
+
+> [!WARNING]
+> Можете да отворите само приложение, което поддържа [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Също така, уверете се, че приложението поддържа отваряне на URL адреса, който искате да отворите.
+
+### Обработка на заснети групи (Capturing Group Processing)
+
+![Поддържани типове: Original](https://img.shields.io/badge/Types-Original-blue)
+
+Опцията **Capturing Group Processing** (Обработка на заснети групи) ви позволява да зададете как да се обработват заснетите групи, които можете да заместите в опцията *Redirect To* с `$1`, `$2`...
+
+Ето как се правят заснемащи групи:
+
+*   **Wildcard**: Текстове, съвпадащи с `*` и `?`, се заснемат автоматично.
+*   **Regular Expression**: Текстове, съвпадащи с част от шаблона вътре в `()`, се заснемат.
+
+Можете да изберете един или повече от следните процеси:
+
+*   **URL Encode/Decode** (URL кодиране/декодиране): Това прилага [процентно кодиране](https://en.wikipedia.org/wiki/Percent-encoding) или декодиране към заснемаща група. Например, ако кодирате `https://example.com/hello`, то се преобразува в `https%3A%2F%2Fexample.com%2Fhello`. Декодирането работи по обратния начин.
+*   **Base64 Encode/Decode** (Base64 кодиране/декодиране): Това декодира/кодира текст в [Base64](https://en.wikipedia.org/wiki/Base64). Например, можете да кодирате `hello` в `aGVsbG8=`, и да го декодирате обратно до `hello`.
+*   **Replace Occurrences** (Замяна на срещания): Това заменя един или повече символи в група, съвпаднали от **Target** (Цел), с **Replacement** (Замяна). Например, ако *Group* е `hello`, *Target* е `l`, а *Replacement* е `y`, то се модифицира на `heyyo`.
+
+> [!NOTE]
+> Това е за обработка на всяка заснемаща група и не влияе на това кои URL адреси се изключват от [Excluded URL Patterns](#excluded-url-patterns). Например, да кажем, че имате това правило:
+>
+> *   **Redirect From**: `https://example.com/(hello.*)`
+> *   **Capturing Group Processing**:
+>     *   Group: `$1`
+>     *   Target: `.*` (Regular Expression)
+>     *   Replacement: `hello`
+> *   **Excluded URL Pattern**: `https://example.com/hello`
+>
+> В този случай, `https://example.com/hello_world` няма да бъде изключен, докато `https://example.com/hello` ще бъде изключен.
+
+### Изключени URL модели (Excluded URL Patterns)
+
+![Поддържани типове: Original](https://img.shields.io/badge/Types-Original-blue)
+
+Опцията **Excluded URL Patterns** (Изключени URL модели) ви позволява да зададете URL адресите, които не се пренасочват. Това може да бъде полезно, за да избегнете цикли на пренасочване или да изключите определени части от уебсайт от пренасочване.
+
+Можете да зададете изключени URL модели, използвайки типове модели Regular Expression или Wildcard.
+
+### Примери (Examples)
+
+Опцията **Examples** (Примери) ви позволява да тествате правилото си за пренасочване, като предоставите примерни URL адреси. Като добавите примерен URL адрес, можете да проверите дали правилото работи както се очаква, преди действително да го приложите.
+
+### Коментари (Comments)
+
+Опцията **Comments** (Коментари) ви позволява да добавите всякакви бележки или коментари относно вашето правило за пренасочване. Това може да бъде полезно за проследяване защо сте създали конкретно правило или за предоставяне на контекст за други, които биха могли да преглеждат вашите правила.
+
+## URL Модел (URL Pattern)
+
+Има 3 опции, където можете да зададете един или повече URL модели. *Redirect From* (Пренасочване от), *Excluded URL Patterns* (Изключени URL модели) и *Capturing Group Processing* (Обработка на заснети групи). За да ги зададете, можете да изберете **Wildcard** (Заместващ знак) или **Regular Expression** (Регулярен израз).
+
+### Заместващ знак (Wildcard)
+
+**Wildcard** (Заместващ знак) е по-прост тип модел, който ви позволява да използвате `*` (съвпада с всичко) и `?` (съвпада с всеки един символ) като заместващи знаци. Ето няколко примера:
+
+*   За да съвпадне с `https://example.com/hello`, можете да използвате `https://example.com/*`. Това ще съвпадне с всеки низ след `https://example.com/`.
+*   За да съвпадне с `https://example.com/search?q=hello`, можете да използвате `https://example.com/search?q=*`. Това ще съвпадне с всяка стойност за параметъра `q`.
+*   За да съвпадне с всеки URL адрес, който съдържа думата `blog`, можете да използвате `*blog*`.
+
+Можете също така да използвате заместване в Wildcard, което означава, че можете да реферирате части от съвпадащия URL адрес, използвайки `$1`, `$2` и т.н. Например, ако използвате `https://example.com/*-world-*` и URL адресът е `https://example.com/hello-world-goodbye`, тогава `$1` ще бъде "hello", а `$2` ще бъде "goodbye". `$0` също е налично за рефериране на целия съвпаднал URL адрес.
+
+> [!Note]
+> Въпреки че заместването е функция на Regular Expression, можете да го използвате и за Wildcard, тъй като Redirect Web вътрешно преобразува Wildcard в Regular Expression.
+
+### Регулярен израз (Regular Expression)
+
+**Regular Expression** (Regex) е мощен инструмент за съвпадение на шаблони в текст, задвижван от механизма за регулярни изрази на Apple, описан [тук](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Той ви позволява да дефинирате специфичен шаблон, който съвпада с набор от низове. Ето няколко примера.
+
+-   За да съвпадне с `https://example.com/hello`, можете да използвате `https://example.com/(.*)`. Това ще съвпадне с всеки низ след `https://example.com/` и ще го съхрани в заснемаща група.
+-   За да съвпадне с `https://example.com/search?q=hello`, можете да използвате `https://example.com/search\?q=(.*)`. Това ще съвпадне със стойността на параметъра `q` и ще го съхрани в заснемаща група.
+-   За да съвпадне с всеки URL адрес, който съдържа думата `blog`, можете да използвате `.*blog.*`.
+
+Можете да реферирате заснетите групи в *Redirect To* или *Replacement*, използвайки `$1`, `$2`, ... или `$0`, за да реферирате цялото съвпадение.
+
+Повече информация за синтаксиса на Regex може да бъде намерена в ресурси като [RegExr](https://regexr.com/).
+</CONTENT>```bg
+<CONTENT>
+# Настройки на правилата
+
+Тази страница предоставя подробна информация за всяка настройка в екрана за редактиране на правила в уеб приложението Redirect Web.
+
+## Опции
+
+### Тип
+
+Задайте опцията **Type** (Тип), за да контролирате как приложението обработва пренасочването. Можете да избирате от следните:
+
+*   **Original** (Оригинален) (По подразбиране)
+    *   Това използва традиционни уеб API за контролиране на пренасочването. Освен това, то използва [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) за резервен вариант.
+        *   Във Firefox се използва [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) за обработка на пренасочването.
+    *   Можете да използвате всички опции освен [Resource Types](#resource-types) (Типове ресурси) и [Request Methods](#request-methods) (Методи на заявката).
+    *   Това е по-бавно от типа *Declarative* и може да причини допълнителни мрежови заявки.
+*   **DNR** (Експериментално за Safari):
+    *   Този тип работи много по-бързо от типа Original, защото не инициира мрежова заявка за изходния URL адрес.
+    *   Това ви позволява да зададете [Resource Types](#resource-types) (Типове ресурси) и [Request Methods](#request-methods) (Методи на заявката).
+    *   ⚠️ Не можете да използвате някои опции, като [Capturing Group Processing](#capturing-group-processing) (Обработка на заснети групи) и [Excluded URL Patterns](#excluded-url-patterns) (Изключени URL модели), тъй като те все още не се поддържат от DNR API.
+    *   ⚠️ В Safari, в момента не можете да включвате вертикални черти (`|`) във вашия модел на регулярен израз. [Подробности](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ Тъй като DNR API на Safari все още има някои проблеми, считаме, че това все още е експериментална функция за Safari. Можете да намерите списъка с всички известни проблеми [тук](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+
+### Пренасочване от (Redirect From)
+
+Опцията **Redirect From** (Пренасочване от) ви позволява да зададете URL модел на уеб страници, от които искате да пренасочите. Можете да изберете [Wildcard](#wildcard) (Заместващ знак) или [Regular Expression](#regular-expression) (Регулярен израз).
+
+Например, ако зададете `https://example.com/*` с Wildcard, това ще съвпадне с `https://example.com/` или `https://example.com/hello`.
+
+> [!NOTE]
+> В опцията Redirect To (Пренасочване към) можете да реферирате цялото съвпадение, използвайки `$0` или частични съвпадения, използвайки `$1`, `$2`, ... Проверете подробностите в [URL Pattern](#url-pattern) (URL модел) на тази страница.
+
+#### Типове ресурси (Resource Types)
+
+![Поддържани типове: DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+Опцията **Resource Types** (Типове ресурси) ви позволява да зададете категориите на уеб заявките, като изображения, JavaScript файлове и стилови листове, за които се прилага правилото.
+Например, ако зададете `script`, можете да пренасочите JavaScript файловете, заредени от уеб страници.
+
+Понастоящем са налични следните:
+`main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
+
+Настройката по подразбиране е `main_frame`, което е страницата от най-високо ниво, заредена в таб.
+
+Моля, проверете подробностите за всеки тип ресурс в [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+
+#### Методи на заявката (Request Methods)
+
+![Поддържани типове: DNR](https://img.shields.io/badge/Types-DNR-blue)
+
+Опцията **Request Methods** (Методи на заявката) ви позволява да зададете целевите HTTP методи на изходния URL адрес.
+
+Всички методи са зададени по подразбиране.
+
+Моля, проверете подробностите за всеки метод в [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+
+> [!WARNING]
+> В Safari тази опция може да не е налична, тъй като имплементацията на Apple за типа DNR изглежда, че не я обработва в момента. Изпратихме обратна връзка до Apple като FB14502272.
+
+#### Целеви браузъри (Target Browsers)
+
+![Поддържани платформи: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+Опцията **Target Browsers** (Целеви браузъри) ви позволява да зададете кой браузър трябва или не трябва да се прилага правилото.
+
+*   Има 2 типа браузъри, които можете да изберете:
+    *   **Браузъри, които можете да изберете по подразбиране**: Можете да изберете Safari, Chrome, Firefox, Edge, Opera, Arc, Brave и Vivaldi по подразбиране. Това не прави разлика между варианти на един и същ браузър, като Safari и Safari Technology Preview.
+    *   **Потребителски зададени браузъри**: С докосване на бутона Add (Добавяне) в изскачащия прозорец можете да изберете всеки браузър, различен от Safari или Safari Technology Preview, който има инсталирано разширението Redirect Web.
+*   Отметката **All except selected** (Всички освен избраните) ви позволява да таргетирате всеки браузър, освен тези, които сте избрали.
+
+> [!WARNING]
+> Redirect Web не може да различи дали браузърът е **Safari** или **Safari Technology Preview**, защото приложението проверява родителския процес на разширението, за да го открие, но тези два браузъра споделят един и същ родителски процес (`/sbin/launchd`).
+
+### Пренасочване към (Redirect To)
+
+Опцията **Redirect To** (Пренасочване към) задава URL адрес на местоназначение, към който желаете да пренасочите от изходния URL адрес, съвпаднал с опцията *Redirect From*. Можете също така да заместите заснети групи с `$1`, `$2`, ... или цялото съвпадение с `$0`. Тези елементи ви помагат динамично да зададете дестинацията. Проверете подробностите в [URL Pattern](#url-pattern) (URL модел) на тази страница.
+
+Например, ако зададете следното правило:
+
+*   **Redirect From**: `https://google.com/*` (Wildcard)
+*   **Redirect To**: `https://apple.com/$1`
+
+и то съвпадне с `https://google.com/hello`, тогава целевият URL адрес ще бъде `https://apple.com/hello`.
+
+Освен това можете да модифицирате текстовете на `$1`, `$2`, ... преди да направите заместванията. Проверете секцията [Capturing Group Processing](#capturing-group-processing) (Обработка на заснети групи) за подробности.
+
+> [!TIP]
+> Можете да зададете персонализирана URL схема за отваряне на приложение. Това са примери за приложения, които поддържат deep linking:
+>
+> *   Figma: `figma://file/Your_Figma_ID`
+> *   Firefox: `firefox://open-url?url=https://example.com/hello`
+> *   Google Chrome: `googlechromes://example.com`
+> *   Microsoft Edge: `microsoft-edge://example.com`
+> *   Notion: `notion://www.notion.so/Your_Note_ID`
+> *   Slack: `slack://open`
+
+#### Приложение (Application)
+
+![Поддържани типове: Original](https://img.shields.io/badge/Types-Original-blue) ![Поддържани платформи: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+
+Ако искате да посочите приложение, с което желаете да отворите целевия URL адрес, използвайте комбо кутията **Application** (Приложение). Това е достъпно само за macOS.
+
+> [!WARNING]
+> Можете да отворите само приложение, което поддържа [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Също така, уверете се, че приложението поддържа отваряне на URL адреса, който искате да отворите.
+
+### Обработка на заснети групи (Capturing Group Processing)
+
+![Поддържани типове: Original](https://img.shields.io/badge/Types-Original-blue)
+
+Опцията **Capturing Group Processing** (Обработка на заснети групи) ви позволява да зададете как да се обработват заснетите групи, които можете да заместите в опцията *Redirect To* с `$1`, `$2`...
+
+Ето как се правят заснемащи групи:
+
+*   **Wildcard**: Текстове, съвпадащи с `*` и `?`, се заснемат автоматично.
+*   **Regular Expression**: Текстове, съвпадащи с част от шаблона вътре в `()`, се заснемат.
+
+Можете да изберете един или повече от следните процеси:
+
+*   **URL Encode/Decode** (URL кодиране/декодиране): Това прилага [процентно кодиране](https://en.wikipedia.org/wiki/Percent-encoding) или декодиране към заснемаща група. Например, ако кодирате `https://example.com/hello`, то се преобразува в `https%3A%2F%2Fexample.com%2Fhello`. Декодирането работи по обратния начин.
+*   **Base64 Encode/Decode** (Base64 кодиране/декодиране): Това декодира/кодира текст в [Base64](https://en.wikipedia.org/wiki/Base64). Например, можете да кодирате `hello` в `aGVsbG8=`, и да го декодирате обратно до `hello`.
+*   **Replace Occurrences** (Замяна на срещания): Това заменя един или повече символи в група, съвпаднали от **Target** (Цел), с **Replacement** (Замяна). Например, ако *Group* е `hello`, *Target* е `l`, а *Replacement* е `y`, то се модифицира на `heyyo`.
+
+> [!NOTE]
+> Това е за обработка на всяка заснемаща група и не влияе на това кои URL адреси се изключват от [Excluded URL Patterns](#excluded-url-patterns). Например, да кажем, че имате това правило:
+>
+> *   **Redirect From**: `https://example.com/(hello.*)`
+> *   **Capturing Group Processing**:
+>     *   Group: `$1`
+>     *   Target: `.*` (Regular Expression)
+>     *   Replacement: `hello`
+> *   **Excluded URL Pattern**: `https://example.com/hello`
+>
+> В този случай, `https://example.com/hello_world` няма да бъде изключен, докато `https://example.com/hello` ще бъде изключен.
+
+### Изключени URL модели (Excluded URL Patterns)
+
+![Поддържани типове: Original](https://img.shields.io/badge/Types-Original-blue)
+
+Опцията **Excluded URL Patterns** (Изключени URL модели) ви позволява да зададете URL адресите, които не се пренасочват. Това може да бъде полезно, за да избегнете цикли на пренасочване или да изключите определени части от уебсайт от пренасочване.
+
+Можете да зададете изключени URL модели, използвайки типове модели Regular Expression или Wildcard.
+
+### Примери (Examples)
+
+Опцията **Examples** (Примери) ви позволява да тествате правилото си за пренасочване, като предоставите примерни URL адреси. Като добавите примерен URL адрес, можете да проверите дали правилото работи както се очаква, преди действително да го приложите.
+
+### Коментари (Comments)
+
+Опцията **Comments** (Коментари) ви позволява да добавите всякакви бележки или коментари относно вашето правило за пренасочване. Това може да бъде полезно за проследяване защо сте създали конкретно правило или за предоставяне на контекст за други, които биха могли да преглеждат вашите правила.
+
+## URL Модел (URL Pattern)
+
+Има 3 опции, където можете да зададете един или повече URL модели. *Redirect From* (Пренасочване от), *Excluded URL Patterns* (Изключени URL модели) и *Capturing Group Processing* (Обработка на заснети групи). За да ги зададете, можете да изберете **Wildcard** (Заместващ знак) или **Regular Expression** (Регулярен израз).
+
+### Заместващ знак (Wildcard)
+
+**Wildcard** (Заместващ знак) е по-прост тип модел, който ви позволява да използвате `*` (съвпада с всичко) и `?` (съвпада с всеки един символ) като заместващи знаци. Ето няколко примера:
+
+*   За да съвпадне с `https://example.com/hello`, можете да използвате `https://example.com/*`. Това ще съвпадне с всеки низ след `https://example.com/`.
+*   За да съвпадне с `https://example.com/search?q=hello`, можете да използвате `https://example.com/search?q=*`. Това ще съвпадне с всяка стойност за параметъра `q`.
+*   За да съвпадне с всеки URL адрес, който съдържа думата `blog`, можете да използвате `*blog*`.
+
+Можете също така да използвате заместване в Wildcard, което означава, че можете да реферирате части от съвпадащия URL адрес, използвайки `$1`, `$2` и т.н. Например, ако използвате `https://example.com/*-world-*` и URL адресът е `https://example.com/hello-world-goodbye`, тогава `$1` ще бъде "hello", а `$2` ще бъде "goodbye". `$0` също е налично за рефериране на целия съвпаднал URL адрес.
+
+> [!Note]
+> Въпреки че заместването е функция на Regular Expression, можете да го използвате и за Wildcard, тъй като Redirect Web вътрешно преобразува Wildcard в Regular Expression.
+
+### Регулярен израз (Regular Expression)
+
+**Regular Expression** (Regex) е мощен инструмент за съвпадение на шаблони в текст, задвижван от механизма за регулярни изрази на Apple, описан [тук](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Той ви позволява да дефинирате специфичен шаблон, който съвпада с набор от низове. Ето няколко примера.
+
+-   За да съвпадне с `https://example.com/hello`, можете да използвате `https://example.com/(.*)`. Това ще съвпадне с всеки низ след `https://example.com/` и ще го съхрани в заснемаща група.
+-   За да съвпадне с `https://example.com/search?q=hello`, можете да използвате `https://example.com/search\?q=(.*)`. Това ще съвпадне със стойността на параметъра `q` и ще го съхрани в заснемаща група.
+-   За да съвпадне с всеки URL адрес, който съдържа думата `blog`, можете да използвате `.*blog.*`.
+
+Можете да реферирате заснетите групи в *Redirect To* или *Replacement*, използвайки `$1`, `$2`, ... или `$0`, за да реферирате цялото съвпадение.
+
+Повече информация за синтаксиса на Regex може да бъде намерена в ресурси като [RegExr](https://regexr.com/).
