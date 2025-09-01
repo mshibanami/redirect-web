@@ -1,0 +1,83 @@
+import IfBrowserStore from "@site/src/components/IfBrowserStore";
+import Image from "@site/src/components/Image";
+import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
+import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
+
+# FAQ
+
+## Proč bych měl povolit rozšíření číst/měnit mé informace?
+
+Při nastavení Redirect Web se může zobrazit upozornění jako toto:
+
+<IfBrowserStore stores='appStore'>
+    <Image src={PermissionAlertSafari} alt="Upozornění vyžadující povolení" width="200" margin="0 0 16px 0" hasShadow={true} />
+
+    > Toto rozšíření bude moci číst a měnit webové stránky a zobrazovat vaši historii prohlížení na této webové stránce. **To může zahrnovat citlivé informace, včetně hesel, telefonních čísel a kreditních karet.**
+</IfBrowserStore>
+
+<IfBrowserStore stores='appStore' includes={false}>
+    <Image src={PermissionAlertChrome} alt="Upozornění vyžadující povolení" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+
+    > Může:
+    > Číst a měnit **všechna vaše data** na **všech webových stránkách**
+</IfBrowserStore>
+
+Toto rozšíření potřebuje vaše povolení ke sledování navigace po stránce, aby mohlo přesměrovávat tam, kam chcete přejít. Váš prohlížeč toto upozornění zobrazí, když rozšíření požádá o související oprávnění. Proto pokud jej nepovolíte, toto rozšíření nemůže fungovat.
+
+Udělená oprávnění budou použita pouze pro funkce aplikace, jako je přesměrování, v souladu s **[zásadami ochrany osobních údajů](./privacy-policy)**.
+
+## Mám si stále pořídit aplikaci po instalaci rozšíření pro Chrome, Firefox nebo Edge? \{#app-for-non-safari-browsers}
+
+Ano. Musíte si stáhnout [aplikaci Redirect Web z App Store](https://apps.apple.com/app/id1571283503) bez ohledu na to, jaký prohlížeč používáte. Rozšíření si můžete nainstalovat z obchodu s rozšířeními vašeho prohlížeče, ale aplikace je vyžadována pro správu vašich pravidel, historie nákupů a dalších nastavení napříč zařízeními prostřednictvím iCloudu.
+
+## Funguje Redirect Web na Windows, Android, Linux nebo jiných platformách? \{#non-apple-platforms}
+
+V tuto chvíli ne. Redirect Web je úzce spjat s ekosystémem Apple, včetně iCloudu a Universal Purchase, což ztěžuje jeho nabídku na jiných platformách.
+
+## Proč ne [Redirector](https://github.com/einaregilsson/Redirector)?
+
+Redirector je stále skvělé rozšíření pro přesměrování. Je zcela zdarma, open-source a funguje i na jiných než Apple platformách. Ale Redirect Web má některé další funkce, které by se vám mohly líbit:
+
+*   **Detailní nastavení pravidel:** Funkce vícenásobných vzorů vyloučení, vícenásobných shod procesů a nahrazování řetězců dostupné pouze v Redirect Web.
+*   **Otevřít v nativních aplikacích:** Na Macu si můžete vybrat, kde se má cílová URL otevřít. (Volá přímo příkaz `open`. Ne jedná se o deep linky.)
+*   **Podpora [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Poskytuje bleskově rychlé přesměrování.
+*   **Centralizovaná správa pravidel:** Spravujte pravidla pro všechny prohlížeče na jednom místě prostřednictvím nativní aplikace.
+*   **Podpora Manifestu V3 a V2:** Užitečné, zatímco je V2 v Chrome postupně ukončováno.
+
+## Proč toto rozšíření vyžaduje nové oprávnění? \{#permission-alert-on-safari}
+
+Po aktualizaci Redirect Web se v Safari může zobrazit toto upozornění:
+
+<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Upozornění na deaktivaci aplikace" width="280" />
+
+> „Redirect Web“ byl aktualizován a požaduje dodatečná oprávnění. Pro ochranu vašeho soukromí bylo toto rozšíření vypnuto.
+>
+> Toto rozšíření můžete zapnout v sekci Rozšíření v Nastavení Safari.
+
+To je způsobeno oprávněním [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) vyžadovaným typem [DNR](./rule-settings#type) zavedeným ve verzi 7. Prosím, znovu povolte rozšíření. Omlouváme se za nepříjemnosti.
+
+## Bude obsah knihovny v budoucnu zpoplatněn?
+
+Ne, je vždy zdarma. Zdroj veškerého obsahu naleznete také [zde](https://github.com/mshibanami/redirect-web/tree/main/library).
+
+## Jednorázový nákup nebo roční předplatné: Co je lepší?
+
+Doporučujeme jednorázový nákup, jelikož cenový rozdíl je pouze 2,00 USD.
+Hlavním důvodem, proč nabízíme předplatné, je umožnit vám vyzkoušet všechny funkce prostřednictvím bezplatné zkušební verze. Zde je očekávaný scénář použití:
+
+1.  Přihlaste se k ročnímu předplatnému.
+2.  Okamžitě zrušte předplatné tak, že přejdete do aplikace Nastavení, vyhledáte „Předplatná“, klepnete na tuto aplikaci a vyberete „Zrušit předplatné“. To vám umožní využít bezplatnou zkušební verzi bez jakýchkoli závazků.
+3.  Užijte si plný přístup ke všem funkcím po dobu 7 dnů.
+4.  Pokud se vám funkce líbí, zvolte jednorázový nákup.
+
+Samozřejmě, pokud dáváte přednost ročnímu předplatnému, není nic špatného na jeho pokračování!
+
+## Vkládá Redirect Web reklamy nebo jiný nesouvisející obsah do webových stránek?
+
+Ne, takový obsah nevkládá. Pouze kód, který je nezbytný k poskytování funkcí popsaných v této dokumentaci a na stránce aplikace v App Store, je vkládán do webových stránek v Safari.
+
+## Existuje šance, že by Redirect Web mohl být někdy prodán někomu jinému?
+
+100% ne. Rozšíření prohlížeče mají hlubokou kontrolu nad vaším prohlížením a daty, a předání Redirect Web jinému vlastníkovi by otevřelo dveře porušování soukromí. Viděli jsme, jak rozšíření změnila majitele a poté bez varování shromažďovala uživatelská data nebo vkládala reklamy. To se zde nikdy nestane. Více o těchto rizicích naleznete v článku Matta Frisbieho „[The Ugly Business of Monetizing Browser](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser)“ a v investigaci Briana Krebse „[Is Your Browser Extension a Botnet Backdoor?](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)“
+
+Redirect Web je založen na důvěře a odpovědnosti. Považujeme za naši povinnost udržovat vaše informace v bezpečí a za žádných okolností odmítáme převést vlastnictví. Redirect Web zůstane vždy v našich rukou, takže můžete procházet web s naprostou důvěrou.
