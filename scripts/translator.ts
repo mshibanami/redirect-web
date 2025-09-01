@@ -4,7 +4,8 @@
 // Usage examples:
 // npx tsx translator.ts \
 // --input "docs/**/*.md" src/notes \
-// --excluded-input "**/node_modules/**" "**/*.min.*" \
+// --excluded-input "**/node_modules/**" \
+// --excluded-input "**/*.min.*" \
 // --input-extensions .md,.txt,.srt \
 // --output-dir translated-ja \
 // --target-lang ja \
@@ -175,7 +176,7 @@ async function main({
 - Translate only natural language content and comments.
 - Maintain placeholders like {like_this}, %s, {{mustache}}, <tags>, and \\n escapes.
 - If the text is already mostly ${targetLang}, lightly edit for fluency but avoid changing technical terms.
-- Respond with ONLY the translated content; do not add explanations.`;
+- Respond with ONLY the translated content inside the "<CONTENT>" tags (= without the tags); do not add explanations.`;
 
         const prompt = `File: ${meta.file}\n\n<CONTENT>\n${text}\n</CONTENT>`;
         const { text: out } = await generateText({
