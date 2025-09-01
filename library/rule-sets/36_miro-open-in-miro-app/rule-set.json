@@ -1,0 +1,28 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "3",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "appURL": "file:///Applications/Miro.app",
+      "captureGroupProcesses": [],
+      "comments": "This rule opens Miro URLs in the Miro desktop app.\n\nQ. \"Is this really useful? The Miro website already launches the app.\"\nA. Yes, because you still need to wait for the page to load, and Miro’s web page stays open in your browser even after the desktop app launches, which consumes your Mac’s resources. With this rule, you can seamlessly navigate to the Miro app without the extra overhead.",
+      "destinationURLPattern": "miroapp://$1",
+      "exampleURLs": [
+        "https://miro.com/app/board/uXjVJOdZUSA=/?share_link_id=742816343193"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https://(miro\\.com/app/.*)"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "Miro: Open Miro links in Miro app",
+      "type": "originalRedirect"
+    }
+  ]
+}
