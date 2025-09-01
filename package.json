@@ -15,11 +15,16 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@ai-sdk/google": "^2.0.11",
     "@docusaurus/core": "^3.8.1",
     "@docusaurus/preset-classic": "^3.8.1",
     "@mdx-js/react": "^3.1.0",
+    "ai": "^5.0.28",
     "bowser": "^2.12.0",
     "clsx": "^2.1.1",
+    "fast-glob": "^3.3.3",
+    "fs-extra": "^11.3.1",
+    "glob-parent": "^6.0.2",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -30,6 +35,7 @@
     "@docusaurus/tsconfig": "^3.8.1",
     "@docusaurus/types": "^3.8.1",
     "husky": "^9.1.7",
+    "tsx": "^4.20.5",
     "typescript": "~5.9.2"
   },
   "browserslist": {
