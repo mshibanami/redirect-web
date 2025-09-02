@@ -1,87 +1,87 @@
-# Regeleinstellungen
+# Regel-Einstellungen
 
-Diese Seite enthält detaillierte Informationen zu jeder Einstellung im Bildschirm „Regel bearbeiten“ in der Redirect Web App.
+Diese Seite enthält detaillierte Informationen zu jeder Einstellung im Bildschirm „Regel bearbeiten“ der Redirect Web App.
 
 ## Optionen
 
-### Typ
+### Typ {#type}
 
-Geben Sie die Option **Typ** an, um zu steuern, wie die App die Weiterleitung verarbeitet. Sie können aus den folgenden wählen:
+Geben Sie die Option **Typ** an, um zu steuern, wie die App die Weiterleitung handhabt. Sie können aus den folgenden auswählen:
 
 *   **Original** (Standard)
-    *   Dies verwendet traditionelle Web-APIs zur Steuerung der Weiterleitung. Zusätzlich wird [die Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) als Fallback verwendet.
-        *   In Firefox wird die [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) zur Weiterleitung verwendet.
-    *   Sie können alle Optionen außer [Ressourcentypen](#resource-types) und [Anfragemethoden](#request-methods) verwenden.
-    *   Dies ist langsamer als der Typ *Deklarativ* und kann zusätzliche Netzwerkanfragen verursachen.
+    *   Dies verwendet traditionelle Web-APIs, um die Weiterleitung zu steuern. Zusätzlich wird [die Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) als Fallback verwendet.
+        *   In Firefox wird die [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) verwendet, um die Weiterleitung zu handhaben.
+    *   Sie können alle Optionen außer [Ressourcentypen](#resource-types) und [Anforderungsmethoden](#request-methods) verwenden.
+    *   Dies ist langsamer als der *Deklarative* Typ und kann zusätzliche Netzwerkanfragen verursachen.
 *   **DNR** (Experimentell für Safari):
     *   Dieser Typ arbeitet viel schneller als der Original-Typ, da er keine Netzwerkanfrage für die Quell-URL initiiert.
-    *   Dies ermöglicht Ihnen, [Ressourcentypen](#resource-types) und [Anfragemethoden](#request-methods) anzugeben.
-    *   ⚠️ Einige Optionen, wie [Verarbeitung von Erfassungsgruppen](#capturing-group-processing) und [Ausgeschlossene URL-Muster](#excluded-url-patterns), können Sie nicht verwenden, da sie von der DNR API noch nicht unterstützt werden.
-    *   ⚠️ In Safari können Sie derzeit keine Pipes (`|`) in Ihr reguläres Ausdrucksmuster aufnehmen. [Details](https://github.com/mshibanami/redirect-web/issues/44)
-    *   ⚠️ Da Safaris DNR API noch einige Probleme aufweist, betrachten wir dies noch als experimentelle Funktion für Safari. Eine Liste aller bekannten Probleme finden Sie [hier](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+    *   Dies ermöglicht es Ihnen, [Ressourcentypen](#resource-types) und [Anforderungsmethoden](#request-methods) anzugeben.
+    *   ⚠️ Einige Optionen, wie [Verarbeitung von Erfassungsgruppen](#capturing-group-processing) und [Ausgeschlossene URL-Muster](#excluded-url-patterns), können nicht verwendet werden, da sie noch nicht von der DNR API unterstützt werden.
+    *   ⚠️ In Safari können Sie derzeit keine Pipes (`|`) in Ihrem regulären Ausdrucksmuster verwenden. [Details](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ Da Safaris DNR API noch einige Probleme aufweist, betrachten wir dies immer noch als experimentelle Funktion für Safari. Die Liste aller bekannten Probleme finden Sie [hier](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Weiterleiten von
+### Weiterleiten von {#redirect-from}
 
-Die Option **Weiterleiten von** ermöglicht es Ihnen, ein URL-Muster von Webseiten anzugeben, von denen Sie weiterleiten möchten. Sie können entweder [Wildcard](#wildcard) oder [Regulärer Ausdruck](#regular-expression) wählen.
+Die Option **Weiterleiten von** ermöglicht es Ihnen, ein URL-Muster von Webseiten anzugeben, von denen Sie weiterleiten möchten. Sie können entweder [Wildcard](#url-pattern-wildcard) oder [Regulärer Ausdruck](#url-pattern-regular-expression) wählen.
 
-Wenn Sie beispielsweise `https://example.com/*` mit Wildcard angeben, stimmt dies mit `https://example.com/` oder `https://example.com/hello` überein.
+Wenn Sie beispielsweise `https://example.com/*` mit Wildcard angeben, entspricht dies `https://example.com/` oder `https://example.com/hello`.
 
 > [!NOTE]
-> In der Option "Weiterleiten an" können Sie die gesamte Übereinstimmung mit `$0` oder Teiltreffer mit `$1`, `$2`, ... referenzieren. Überprüfen Sie die Details unter [URL-Muster](#url-pattern) auf dieser Seite.
+> In der Option „Weiterleiten an“ können Sie die gesamte Übereinstimmung mit `$0` oder Teilübereinstimmungen mit `$1`, `$2`, ... referenzieren. Überprüfen Sie die Details unter [URL-Muster](#url-pattern) auf dieser Seite.
 
-#### Ressourcentypen
+#### Ressourcentypen {#resource-types}
 
-![Unterstützte Typen: DNR](https://img.shields.io/badge/Types-DNR-blue)
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-Die Option **Ressourcentypen** ermöglicht es Ihnen, die Kategorien von Webanfragen wie Bilder, JavaScripts und Stylesheets anzugeben, auf die die Regel angewendet wird.
-Wenn Sie beispielsweise `script` einstellen, können Sie die von Webseiten geladenen JavaScript-Dateien umleiten.
+Die Option **Ressourcentypen** ermöglicht es Ihnen, die Kategorien von Webanfragen, wie Bilder, JavaScripts und Stylesheets, anzugeben, auf die die Regel angewendet werden soll.
+Wenn Sie beispielsweise `script` festlegen, können Sie die von Webseiten geladenen JavaScript-Dateien umleiten.
 
 Derzeit sind diese verfügbar:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
-Die Standardeinstellung ist `main_frame`, was die oberste Ebene der in einem Tab geladenen Seite ist.
+Die Standardeinstellung ist `main_frame`, was die auf oberster Ebene in einem Tab geladene Seite ist.
 
 Bitte überprüfen Sie die Details zu jedem Ressourcentyp in den [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Anfragemethoden
+#### Anforderungsmethoden {#request-methods}
 
-![Unterstützte Typen: DNR](https://img.shields.io/badge/Types-DNR-blue)
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-Die Option **Anfragemethoden** ermöglicht es Ihnen, die Ziel-HTTP-Methoden der Quell-URL festzulegen.
+Die Option **Anforderungsmethoden** ermöglicht es Ihnen, die Ziel-HTTP-Methoden der Quell-URL festzulegen.
 
-Standardmäßig sind alle Methoden eingestellt.
+Alle Methoden sind standardmäßig festgelegt.
 
 Bitte überprüfen Sie die Details zu jeder Methode in den [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 > [!WARNING]
-> In Safari ist diese Option möglicherweise nicht verfügbar, da Apples Implementierung für den DNR-Typ sie derzeit anscheinend nicht verarbeitet. Wir haben Apple dazu ein Feedback mit der Nummer FB14502272 gesendet.
+> In Safari ist diese Option möglicherweise nicht verfügbar, da Apples Implementierung für den DNR-Typ sie derzeit anscheinend nicht handhabt. Wir haben Feedback an Apple als FB14502272 gesendet.
 
-#### Zielbrowser
+#### Zielbrowser {#target-browsers}
 
-![Unterstützte Plattformen: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Die Option **Zielbrowser** ermöglicht es Ihnen, anzugeben, auf welche Browser die Regel angewendet werden soll oder nicht.
+Die Option **Zielbrowser** ermöglicht es Ihnen anzugeben, auf welchen Browser die Regel angewendet werden soll oder nicht.
 
-*   Es gibt 2 Arten von Browsern, die Sie wählen können:
-    *   **Standardmäßig wählbare Browser**: Sie können standardmäßig Safari, Chrome, Firefox, Edge, Opera, Arc, Brave und Vivaldi wählen. Dies unterscheidet keine Varianten desselben Browsers, wie Safari und Safari Technology Preview.
-    *   **Vom Benutzer angegebene Browser**: Durch Tippen auf die Schaltfläche "Hinzufügen" im Popover können Sie jeden Browser außer Safari oder Safari Technology Preview auswählen, in dem die Redirect Web Erweiterung installiert ist.
-*   Das Kontrollkästchen **Alle außer ausgewählten** ermöglicht es Ihnen, alle Browser außer den von Ihnen gewählten anzusprechen.
+*   Es gibt 2 Arten von Browsern, die Sie auswählen können:
+    *   **Standardmäßig wählbare Browser**: Sie können standardmäßig Safari, Chrome, Firefox, Edge, Opera, Arc, Brave und Vivaldi auswählen. Dies unterscheidet nicht zwischen Varianten desselben Browsers, wie Safari und Safari Technology Preview.
+    *   **Benutzerdefinierte Browser**: Durch Tippen auf die Schaltfläche „Hinzufügen“ im Popover können Sie jeden Browser außer Safari oder Safari Technology Preview auswählen, der die Redirect Web Erweiterung installiert hat.
+*   Das Kontrollkästchen **Alle außer ausgewählten** ermöglicht es Ihnen, jeden Browser außer den von Ihnen ausgewählten zu berücksichtigen.
 
 > [!WARNING]
-> Redirect Web kann nicht unterscheiden, ob der Browser **Safari** oder **Safari Technology Preview** ist, da die App den übergeordneten Prozess der Erweiterung überprüft, um dies zu erkennen, aber diese beiden Browser teilen sich denselben übergeordneten Prozess (`/sbin/launchd`).
+> Redirect Web kann nicht unterscheiden, ob der Browser **Safari** oder **Safari Technology Preview** ist, da die App den übergeordneten Prozess der Erweiterung überprüft, um dies zu erkennen, diese beiden Browser jedoch denselben übergeordneten Prozess (`/sbin/launchd`) teilen.
 
-### Weiterleiten an
+### Weiterleiten an {#redirect-to}
 
-Die Option **Weiterleiten an** gibt eine Ziel-URL an, zu der Sie von der mit der Option *Weiterleiten von* übereinstimmenden Quell-URL weiterleiten möchten. Sie können auch Erfassungsgruppen mit `$1`, `$2`, ... oder die gesamte Übereinstimmung mit `$0` ersetzen. Dies hilft Ihnen, das Ziel dynamisch anzugeben. Details finden Sie im [URL-Muster](#url-pattern) auf dieser Seite.
+Die Option **Weiterleiten an** gibt eine Ziel-URL an, zu der Sie von der Quell-URL, die mit der Option *Weiterleiten von* übereinstimmt, weiterleiten möchten. Sie können auch Erfassungsgruppen durch `$1`, `$2`, ... oder die gesamte Übereinstimmung durch `$0` ersetzen. Dies hilft Ihnen, das Ziel dynamisch anzugeben. Überprüfen Sie die Details unter [URL-Muster](#url-pattern) auf dieser Seite.
 
 Wenn Sie beispielsweise die folgende Regel festlegen:
 
 *   **Weiterleiten von**: `https://google.com/*` (Wildcard)
 *   **Weiterleiten an**: `https://apple.com/$1`
 
-und dies mit `https://google.com/hello` übereinstimmt, dann ist die Ziel-URL `https://apple.com/hello`.
+und es `https://google.com/hello` entspricht, dann wird die Ziel-URL `https://apple.com/hello` sein.
 
-Zusätzlich können Sie die Texte von `$1`, `$2`, ... vor den Ersetzungen ändern. Details finden Sie im Abschnitt [Verarbeitung von Erfassungsgruppen](#capturing-group-processing).
+Zusätzlich können Sie die Texte von `$1`, `$2`, ... vor dem Ersetzen ändern. Überprüfen Sie den Abschnitt [Verarbeitung von Erfassungsgruppen](#capturing-group-processing) für Details.
 
 > [!TIP]
 > Sie können ein benutzerdefiniertes URL-Schema angeben, um eine App zu öffnen. Dies sind Beispiele für Apps, die Deep Linking unterstützen:
@@ -93,34 +93,34 @@ Zusätzlich können Sie die Texte von `$1`, `$2`, ... vor den Ersetzungen änder
 > *   Notion: `notion://www.notion.so/Your_Note_ID`
 > *   Slack: `slack://open`
 
-#### Anwendung
+#### Anwendung {#application}
 
-![Unterstützte Typen: Original](https://img.shields.io/badge/Types-Original-blue) ![Unterstützte Plattformen: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
 Wenn Sie eine App angeben möchten, mit der Sie die Ziel-URL öffnen möchten, verwenden Sie das Kombinationsfeld **Anwendung**. Dies ist nur unter macOS verfügbar.
 
 > [!WARNING]
 > Sie können nur eine App öffnen, die [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox) unterstützt. Stellen Sie außerdem sicher, dass die App das Öffnen der gewünschten URL unterstützt.
 
-### Verarbeitung von Erfassungsgruppen
+### Verarbeitung von Erfassungsgruppen {#capturing-group-processing}
 
-![Unterstützte Typen: Original](https://img.shields.io/badge/Types-Original-blue)
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
-Die Option **Verarbeitung von Erfassungsgruppen** ermöglicht es Ihnen, anzugeben, wie die erfassten Gruppen verarbeitet werden sollen, die Sie in der Option *Weiterleiten an* mit `$1`, `$2`... ersetzen können.
+Die Option **Verarbeitung von Erfassungsgruppen** ermöglicht es Ihnen anzugeben, wie die erfassten Gruppen verarbeitet werden sollen, die Sie in der Option *Weiterleiten an* durch `$1`, `$2`... ersetzen können.
 
-So werden Erfassungsgruppen erstellt:
+So erstellen Sie Erfassungsgruppen:
 
-*   **Wildcard**: Mit `*` und `?` übereinstimmende Texte werden automatisch erfasst.
+*   **Wildcard**: Texte, die mit `*` und `?` übereinstimmen, werden automatisch erfasst.
 *   **Regulärer Ausdruck**: Texte, die mit einem Teil des Musters innerhalb von `()` übereinstimmen, werden erfasst.
 
 Sie können einen oder mehrere der folgenden Prozesse auswählen:
 
-*   **URL Kodieren/Dekodieren**: Dies wendet die [Prozentkodierung](https://en.wikipedia.org/wiki/Percent-encoding) auf eine Erfassungsgruppe an oder dekodiert sie. Wenn Sie beispielsweise `https://example.com/hello` kodieren, wird es in `https%3A%2F%2Fexample.com%2Fhello` umgewandelt. Dekodieren funktioniert umgekehrt.
-*   **Base64 Kodieren/Dekodieren**: Dies dekodiert/kodiert einen Text in [Base64](https://en.wikipedia.org/wiki/Base64). Sie können beispielsweise `hello` zu `aGVsbG8=` kodieren und wieder zu `hello` dekodieren.
-*   **Vorkommen ersetzen**: Dies ersetzt ein oder mehrere Zeichen in einer Gruppe, die von einem **Ziel** übereinstimmen, durch eine **Ersetzung**. Wenn beispielsweise die *Gruppe* `hello` und das *Ziel* `l` und die *Ersetzung* `y` ist, wird es zu `heyyo` geändert.
+*   **URL Kodieren/Dekodieren**: Dies wendet [Prozentkodierung](https://en.wikipedia.org/wiki/Percent-encoding) oder Dekodierung auf eine Erfassungsgruppe an. Wenn Sie beispielsweise `https://example.com/hello` kodieren, wird es in `https%3A%2F%2Fexample.com%2Fhello` umgewandelt. Die Dekodierung funktioniert umgekehrt.
+*   **Base64 Kodieren/Dekodieren**: Dies dekodiert/kodiert einen Text in [Base64](https://en.wikipedia.org/wiki/Base64). Zum Beispiel können Sie `hello` zu `aGVsbG8=` kodieren und es zurück zu `hello` dekodieren.
+*   **Vorkommen ersetzen**: Dies ersetzt ein oder mehrere Zeichen in einer Gruppe, die mit einem **Ziel** übereinstimmen, durch eine **Ersetzung**. Wenn beispielsweise die *Gruppe* `hello` ist und das *Ziel* `l` und die Ersetzung `y` ist, wird es zu `heyyo` geändert.
 
 > [!NOTE]
-> Dies dient der Verarbeitung jeder Erfassungsgruppe und beeinflusst nicht, welche URLs durch die [Ausgeschlossene URL-Muster](#excluded-url-patterns) ausgeschlossen werden. Nehmen wir zum Beispiel an, Sie haben diese Regel:
+> Dies dient der Verarbeitung jeder Erfassungsgruppe und beeinflusst nicht, welche URLs durch die [Ausgeschlossene URL-Muster](#excluded-url-patterns) ausgeschlossen werden. Angenommen, Sie haben diese Regel:
 >
 > *   **Weiterleiten von**: `https://example.com/(hello.*)`
 > *   **Verarbeitung von Erfassungsgruppen**:
@@ -131,46 +131,46 @@ Sie können einen oder mehrere der folgenden Prozesse auswählen:
 >
 > In diesem Fall wird `https://example.com/hello_world` nicht ausgeschlossen, während `https://example.com/hello` ausgeschlossen wird.
 
-### Ausgeschlossene URL-Muster
+### Ausgeschlossene URL-Muster {#excluded-url-patterns}
 
-![Unterstützte Typen: Original](https://img.shields.io/badge/Types-Original-blue)
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
 Die Option **Ausgeschlossene URL-Muster** ermöglicht es Ihnen, die URLs anzugeben, die nicht weitergeleitet werden. Dies kann nützlich sein, um Weiterleitungsschleifen zu vermeiden oder bestimmte Teile einer Website von der Weiterleitung auszuschließen.
 
-Sie können ausgeschlossene URL-Muster entweder mit dem Typ "Regulärer Ausdruck" oder "Wildcard" angeben.
+Sie können ausgeschlossene URL-Muster entweder mit regulären Ausdrücken oder Wildcard-Mustertypen angeben.
 
-### Beispiele
+### Beispiele {#examples}
 
 Die Option **Beispiele** ermöglicht es Ihnen, Ihre Weiterleitungsregel zu testen, indem Sie Beispiel-URLs bereitstellen. Durch Hinzufügen einer Beispiel-URL können Sie überprüfen, ob die Regel wie erwartet funktioniert, bevor Sie sie tatsächlich anwenden.
 
-### Kommentare
+### Kommentare {#comments}
 
-Die Option **Kommentare** ermöglicht es Ihnen, Notizen oder Kommentare zu Ihrer Weiterleitungsregel hinzuzufügen. Dies kann nützlich sein, um den Überblick zu behalten, warum Sie eine bestimmte Regel erstellt haben, oder um anderen, die Ihre Regeln einsehen könnten, Kontext zu geben.
+Die Option **Kommentare** ermöglicht es Ihnen, Notizen oder Kommentare zu Ihrer Weiterleitungsregel hinzuzufügen. Dies kann nützlich sein, um nachzuvollziehen, warum Sie eine bestimmte Regel erstellt haben, oder um anderen, die Ihre Regeln möglicherweise einsehen, Kontext zu geben.
 
-## URL-Muster
+## URL-Muster {#url-pattern}
 
 Es gibt 3 Optionen, bei denen Sie ein oder mehrere URL-Muster angeben können: *Weiterleiten von*, *Ausgeschlossene URL-Muster* und *Verarbeitung von Erfassungsgruppen*. Um diese anzugeben, können Sie entweder **Wildcard** oder **Regulärer Ausdruck** wählen.
 
-### Wildcard
+### Wildcard {#url-pattern-wildcard}
 
-**Wildcard** ist ein einfacherer Muster-Typ, der es Ihnen ermöglicht, `*` (entspricht beliebigem Text) und `?` (entspricht einem einzelnen Zeichen) als Wildcards zu verwenden. Hier sind einige Beispiele:
+**Wildcard** ist ein einfacherer Mustertyp, der es Ihnen ermöglicht, `*` (entspricht beliebigem) und `?` (entspricht einem beliebigen einzelnen Zeichen) als Wildcards zu verwenden. Hier sind einige Beispiele:
 
-*   Um `https://example.com/hello` zu finden, können Sie `https://example.com/*` verwenden. Dies stimmt mit jeder Zeichenfolge nach `https://example.com/` überein.
-*   Um `https://example.com/search?q=hello` zu finden, können Sie `https://example.com/search?q=*` verwenden. Dies stimmt mit jedem Wert für den Parameter `q` überein.
-*   Um jede URL zu finden, die das Wort `blog` enthält, können Sie `*blog*` verwenden.
+*   Um `https://example.com/hello` abzugleichen, können Sie `https://example.com/*` verwenden. Dies entspricht jeder Zeichenfolge nach `https://example.com/`.
+*   Um `https://example.com/search?q=hello` abzugleichen, können Sie `https://example.com/search?q=*` verwenden. Dies entspricht jedem Wert für den `q`-Parameter.
+*   Um jede URL abzugleichen, die das Wort `blog` enthält, können Sie `*blog*` verwenden.
 
-Sie können auch Ersetzungen in Wildcard verwenden, was bedeutet, dass Sie Teile der übereinstimmenden URL mit `$1`, `$2`, usw. referenzieren können. Wenn Sie beispielsweise `https://example.com/*-world-*` verwenden und die URL `https://example.com/hello-world-goodbye` ist, dann wäre `$1` "hello" und `$2` wäre "goodbye". `$0` ist ebenfalls verfügbar, um die gesamte übereinstimmende URL zu referenzieren.
+Sie können auch Substitutionen in Wildcards verwenden, was bedeutet, dass Sie Teile der übereinstimmenden URL mit `$1`, `$2` usw. referenzieren können. Wenn Sie beispielsweise `https://example.com/*-world-*` verwenden und die URL `https://example.com/hello-world-goodbye` ist, dann wäre `$1` „hello“ und `$2` „goodbye“. `$0` ist auch verfügbar, um die gesamte übereinstimmende URL zu referenzieren.
 
 > [!Note]
-> Obwohl Ersetzung ein Feature von Regulären Ausdrücken ist, können Sie es auch für Wildcards verwenden, da Redirect Web Wildcards intern in Reguläre Ausdrücke umwandelt.
+> Obwohl Substitution eine Funktion des regulären Ausdrucks ist, können Sie sie auch für Wildcard verwenden, da Redirect Web Wildcard intern in reguläre Ausdrücke umwandelt.
 
-### Regulärer Ausdruck
+### Regulärer Ausdruck {#url-pattern-regular-expression}
 
-**Regulärer Ausdruck** (Regex) ist ein mächtiges Werkzeug zum Abgleichen von Mustern in Texten, angetrieben von Apples Engine für reguläre Ausdrücke, die [hier](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) beschrieben ist. Es ermöglicht Ihnen, ein spezifisches Muster zu definieren, das eine Reihe von Zeichenfolgen abgleicht. Hier sind einige Beispiele.
+**Regulärer Ausdruck** (Regex) ist ein leistungsstarkes Werkzeug zum Abgleichen von Mustern in Texten, das von Apples regulärer Ausdrucks-Engine betrieben wird, die [hier](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) beschrieben ist. Es ermöglicht Ihnen, ein spezifisches Muster zu definieren, das mit einer Reihe von Zeichenfolgen übereinstimmt. Hier sind einige Beispiele.
 
--   Um `https://example.com/hello` abzugleichen, können Sie `https://example.com/(.*)` verwenden. Dies gleicht jede Zeichenfolge nach `https://example.com/` ab und speichert sie in einer Erfassungsgruppe.
--   Um `https://example.com/search?q=hello` abzugleichen, können Sie `https://example.com/search\?q=(.*)` verwenden. Dies gleicht den Wert des `q`-Parameters ab und speichert ihn in einer Erfassungsgruppe.
--   Um jede URL abzugleichen, die das Wort `blog` enthält, können Sie `.*blog.*` verwenden.
+*   Um `https://example.com/hello` abzugleichen, können Sie `https://example.com/(.*)` verwenden. Dies entspricht jeder Zeichenfolge nach `https://example.com/` und speichert sie in einer Erfassungsgruppe.
+*   Um `https://example.com/search?q=hello` abzugleichen, können Sie `https://example.com/search\?q=(.*)` verwenden. Dies entspricht dem Wert des `q`-Parameters und speichert ihn in einer Erfassungsgruppe.
+*   Um jede URL abzugleichen, die das Wort `blog` enthält, können Sie `.*blog.*` verwenden.
 
 Sie können die Erfassungsgruppen in *Weiterleiten an* oder *Ersetzung* mit `$1`, `$2`, ... oder `$0` referenzieren, um die gesamte Übereinstimmung zu referenzieren.
 

@@ -1,90 +1,90 @@
 # Configuración de Reglas
 
-Esta página proporciona información detallada de cada configuración en la pantalla Editar Regla de la aplicación web Redirect.
+Esta página proporciona información detallada de cada configuración en la pantalla de Editar Regla de la aplicación web Redirect.
 
 ## Opciones
 
-### Tipo
+### Tipo {#type}
 
-Especifique la opción **Tipo** para controlar cómo la aplicación gestiona la redirección. Puede elegir entre estas:
+Especifique la opción **Tipo** para controlar cómo la aplicación gestiona la redirección. Puede elegir entre las siguientes:
 
 *   **Original** (Predeterminado)
-    *   Esto utiliza las APIs web tradicionales para controlar la redirección. Además, utiliza [la API Tabs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) como método de reserva.
-        *   En Firefox, utiliza la [API WebRequest](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) para gestionar la redirección.
+    *   Utiliza las API web tradicionales para controlar la redirección. Además, emplea [la API Tabs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) como alternativa.
+        *   En Firefox, utiliza la [API WebRequest](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) para manejar la redirección.
     *   Puede usar todas las opciones excepto [Tipos de Recursos](#resource-types) y [Métodos de Solicitud](#request-methods).
-    *   Esto es más lento que el tipo *Declarativo* y puede causar solicitudes de red adicionales.
+    *   Es más lento que el tipo *Declarativo* y puede causar solicitudes de red adicionales.
 *   **DNR** (Experimental para Safari):
     *   Este tipo funciona mucho más rápido que el tipo Original porque no inicia una solicitud de red para la URL de origen.
-    *   Esto le permite especificar [Tipos de Recursos](#resource-types) y [Métodos de Solicitud](#request-methods).
-    *   ⚠️ No puede usar algunas opciones, como [Procesamiento de Grupos de Captura](#capturing-group-processing) y [Patrones de URL Excluidos](#excluded-url-patterns), ya que aún no son compatibles con la API DNR.
+    *   Permite especificar [Tipos de Recursos](#resource-types) y [Métodos de Solicitud](#request-methods).
+    *   ⚠️ No puede usar algunas opciones, como el [Procesamiento de Grupos de Captura](#capturing-group-processing) y los [Patrones de URL Excluidas](#excluded-url-patterns), ya que aún no son compatibles con la API DNR.
     *   ⚠️ En Safari, actualmente no puede incluir barras verticales (`|`) en su patrón de Expresión Regular. [Detalles](https://github.com/mshibanami/redirect-web/issues/44)
     *   ⚠️ Dado que la API DNR de Safari todavía tiene algunos problemas, consideramos que sigue siendo una función experimental para Safari. Puede encontrar la lista de todos los problemas conocidos [aquí](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Redirigir desde
+### Redirigir Desde {#redirect-from}
 
-La opción **Redirigir desde** le permite especificar un patrón de URL de las páginas web desde las que desea redirigir. Puede elegir entre [Comodín](#wildcard) o [Expresión Regular](#regular-expression).
+La opción **Redirigir Desde** le permite especificar un patrón de URL de las páginas web desde las que desea redirigir. Puede elegir entre [Comodín](#wildcard) o [Expresión Regular](#regular-expression).
 
 Por ejemplo, si especifica `https://example.com/*` con Comodín, coincidirá con `https://example.com/` o `https://example.com/hello`.
 
 > [!NOTE]
-> En la opción Redirigir a, puede hacer referencia a la coincidencia completa usando `$0` o a las coincidencias parciales usando `$1`, `$2`, ... Consulte los detalles en [Patrón de URL](#url-pattern) en esta página.
+> En la opción Redirigir A, puede hacer referencia a toda la coincidencia usando `$0` o a coincidencias parciales usando `$1`, `$2`, ... Consulte los detalles en [Patrón de URL](#url-pattern) en esta página.
 
-#### Tipos de Recursos
+#### Tipos de Recursos {#resource-types}
 
-![Tipos compatibles: DNR](https://img.shields.io/badge/Types-DNR-blue)
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
 La opción **Tipos de Recursos** le permite especificar las categorías de solicitudes web, como imágenes, JavaScripts y hojas de estilo, a las que se aplica la regla.
-Por ejemplo, si configura `script`, puede redirigir los archivos JavaScript cargados por las páginas web.
+Por ejemplo, si establece `script`, puede redirigir los archivos JavaScript cargados por las páginas web.
 
-Actualmente, estos están disponibles:
+Actualmente, están disponibles:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
 La configuración predeterminada es `main_frame`, que es la página de nivel superior cargada en una pestaña.
 
-Por favor, consulte los detalles de cada tipo de recurso en [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+Consulte los detalles de cada tipo de recurso en [documentos web de mdn](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Métodos de Solicitud
+#### Métodos de Solicitud {#request-methods}
 
-![Tipos compatibles: DNR](https://img.shields.io/badge/Types-DNR-blue)
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-La opción **Métodos de Solicitud** le permite establecer los métodos HTTP de destino de la URL de origen.
+La opción **Métodos de Solicitud** le permite establecer los métodos HTTP objetivo de la URL de origen.
 
-Todos los métodos están configurados por defecto.
+Todos los métodos están configurados de forma predeterminada.
 
-Por favor, consulte los detalles de cada método en [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+Consulte los detalles de cada método en [documentos web de mdn](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 > [!WARNING]
-> En Safari, esta opción puede no estar disponible porque la implementación de Apple para el tipo DNR no parece manejarla actualmente. Hemos enviado comentarios a Apple como FB14502272.
+> En Safari, esta opción podría no estar disponible porque la implementación de Apple para el tipo DNR no parece manejarla actualmente. Hemos enviado comentarios a Apple como FB14502272.
 
-#### Navegadores de Destino
+#### Navegadores de Destino {#target-browsers}
 
-![Plataformas compatibles: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
 La opción **Navegadores de Destino** le permite especificar a qué navegador se debe o no aplicar la regla.
 
 *   Hay 2 tipos de navegadores que puede elegir:
-    *   **Navegadores que puede elegir por defecto**: Puede elegir Safari, Chrome, Firefox, Edge, Opera, Arc, Brave y Vivaldi por defecto. Esto no diferencia las variantes del mismo navegador, como Safari y Safari Technology Preview.
-    *   **Navegadores especificados por el usuario**: Al tocar el botón Añadir en la ventana emergente, puede seleccionar cualquier navegador que no sea Safari o Safari Technology Preview que tenga la extensión Redirect Web instalada.
-*   La casilla **Todos excepto los seleccionados** le permite seleccionar todos los navegadores excepto los que ha elegido.
+    *   **Navegadores que puede elegir por defecto**: Puede elegir Safari, Chrome, Firefox, Edge, Opera, Arc, Brave y Vivaldi por defecto. Esto no diferencia variantes del mismo navegador, como Safari y Safari Technology Preview.
+    *   **Navegadores especificados por el usuario**: Al tocar el botón Añadir en el popover, puede seleccionar cualquier navegador que no sea Safari o Safari Technology Preview que tenga instalada la extensión Redirect Web.
+*   La casilla de verificación **Todos excepto los seleccionados** le permite apuntar a todos los navegadores excepto los que ha elegido.
 
 > [!WARNING]
 > Redirect Web no puede diferenciar si el navegador es **Safari** o **Safari Technology Preview** porque la aplicación verifica el proceso padre de la extensión para detectarlo, pero estos dos navegadores comparten el mismo proceso padre (`/sbin/launchd`).
 
-### Redirigir a
+### Redirigir A {#redirect-to}
 
-La opción **Redirigir a** especifica una URL de destino a la que desea redirigir, desde la URL de origen que coincide con la opción *Redirigir desde*. También puede sustituir los grupos de captura con `$1`, `$2`, ... o la coincidencia completa con `$0`. Esto le ayuda a especificar el destino de forma dinámica. Consulte los detalles en [Patrón de URL](#url-pattern) en esta página.
+La opción **Redirigir A** especifica una URL de destino a la que desea redirigir, desde la URL de origen que coincide con la opción *Redirigir Desde*. También puede sustituir los grupos de captura con `$1`, `$2`, ... o toda la coincidencia con `$0`. Esto le ayuda a especificar el destino dinámicamente. Consulte los detalles en [Patrón de URL](#url-pattern) en esta página.
 
-Por ejemplo, si configura la siguiente regla:
+Por ejemplo, si establece la siguiente regla:
 
-*   **Redirigir desde**: `https://google.com/*` (Comodín)
-*   **Redirigir a**: `https://apple.com/$1`
+*   **Redirigir Desde**: `https://google.com/*` (Comodín)
+*   **Redirigir A**: `https://apple.com/$1`
 
 y coincide con `https://google.com/hello`, entonces la URL de destino será `https://apple.com/hello`.
 
-Además, puede modificar los textos de `$1`, `$2`, ... antes de realizar las sustituciones. Consulte la sección [Procesamiento de Grupos de Captura](#capturing-group-processing) para obtener los detalles.
+Además, puede modificar los textos de `$1`, `$2`, ... antes de realizar las sustituciones. Consulte la sección [Procesamiento de Grupos de Captura](#capturing-group-processing) para obtener más detalles.
 
 > [!TIP]
-> Puede especificar un esquema de URL personalizado para abrir una aplicación. Estos son ejemplos de aplicaciones que admiten enlaces profundos:
+> Puede especificar un esquema de URL personalizado para abrir una aplicación. Estos son ejemplos de aplicaciones que admiten enlaces profundos (deep linking):
 >
 > *   Figma: `figma://file/Your_Figma_ID`
 > *   Firefox: `firefox://open-url?url=https://example.com/hello`
@@ -93,67 +93,67 @@ Además, puede modificar los textos de `$1`, `$2`, ... antes de realizar las sus
 > *   Notion: `notion://www.notion.so/Your_Note_ID`
 > *   Slack: `slack://open`
 
-#### Aplicación
+#### Aplicación {#application}
 
-![Tipos compatibles: Original](https://img.shields.io/badge/Types-Original-blue) ![Plataformas compatibles: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Si desea especificar una aplicación en la que desea abrir la URL de destino, use el cuadro combinado **Aplicación**. Esto solo está disponible en macOS.
+Si desea especificar una aplicación en la que desea abrir la URL de destino, utilice el cuadro combinado **Aplicación**. Esto solo está disponible en macOS.
 
 > [!WARNING]
-> Solo puede abrir una aplicación que admita [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Además, asegúrese de que la aplicación admita la apertura de la URL que desea abrir.
+> Solo puede abrir una aplicación que admita [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Además, asegúrese de que la aplicación admita abrir la URL que desea abrir.
 
-### Procesamiento de Grupos de Captura
+### Procesamiento de Grupos de Captura {#capturing-group-processing}
 
-![Tipos compatibles: Original](https://img.shields.io/badge/Types-Original-blue)
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
-La opción **Procesamiento de Grupos de Captura** le permite especificar cómo procesar los grupos capturados que puede sustituir en la opción *Redirigir a* con `$1`, `$2`...
+La opción **Procesamiento de Grupos de Captura** le permite especificar cómo procesar los grupos capturados que puede sustituir en la opción *Redirigir A* con `$1`, `$2`...
 
 Así es como se crean los grupos de captura:
 
 *   **Comodín**: Los textos que coinciden con `*` y `?` se capturan automáticamente.
-*   **Expresión Regular**: Los textos que coinciden con una parte del patrón dentro de `()` se capturan.
+*   **Expresión Regular**: Los textos que coinciden con parte del patrón dentro de `()` se capturan.
 
 Puede elegir uno o más de los siguientes procesos:
 
-*   **Codificación/Decodificación de URL**: Esto aplica codificación o decodificación [porcentual](https://en.wikipedia.org/wiki/Percent-encoding) a un grupo de captura. Por ejemplo, si codifica `https://example.com/hello`, se convierte en `https%3A%2F%2Fexample.com%2Fhello`. La decodificación funciona de manera opuesta.
-*   **Codificación/Decodificación Base64**: Esto decodifica/codifica un texto a [Base64](https://en.wikipedia.org/wiki/Base64). Por ejemplo, puede codificar `hello` a `aGVsbG8=`, y decodificarlo de nuevo a `hello`.
-*   **Reemplazar Ocurrencias**: Esto reemplaza uno o más caracteres en un grupo, que coinciden con un **Objetivo**, con un **Reemplazo**. Por ejemplo, si el *Grupo* es `hello` y el *Objetivo* es `l` y el Reemplazo es `y`, se modifica a `heyyo`.
+*   **Codificar/Decodificar URL**: Esto aplica codificación o decodificación [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) a un grupo de captura. Por ejemplo, si codifica `https://example.com/hello`, se convierte en `https%3A%2F%2Fexample.com%2Fhello`. La decodificación funciona a la inversa.
+*   **Codificar/Decodificar Base64**: Esto decodifica/codifica un texto en [Base64](https://en.wikipedia.org/wiki/Base64). Por ejemplo, puede codificar `hello` a `aGVsbG8=`, y decodificarlo de nuevo a `hello`.
+*   **Reemplazar Ocurrencias**: Esto reemplaza uno o más caracteres en un grupo, que coinciden con un **Objetivo**, con un **Reemplazo**. Por ejemplo, si el *Grupo* es `hello` y el *Objetivo* es `l` y el *Reemplazo* es `y`, se modifica a `heyyo`.
 
 > [!NOTE]
-> Esto es para procesar cada grupo de captura y no afecta qué URLs son excluidas por los [Patrones de URL Excluidos](#excluded-url-patterns). Por ejemplo, supongamos que tiene esta regla:
+> Esto es para procesar cada grupo de captura y no afecta a las URL excluidas por los [Patrones de URL Excluidas](#excluded-url-patterns). Por ejemplo, supongamos que tiene esta regla:
 >
-> *   **Redirigir desde**: `https://example.com/(hello.*)`
+> *   **Redirigir Desde**: `https://example.com/(hello.*)`
 > *   **Procesamiento de Grupos de Captura**:
 >     *   Grupo: `$1`
 >     *   Objetivo: `.*` (Expresión Regular)
 >     *   Reemplazo: `hello`
-> *   **Patrón de URL Excluido**: `https://example.com/hello`
+> *   **Patrón de URL Excluida**: `https://example.com/hello`
 >
-> En este caso, `https://example.com/hello_world` no será excluido mientras que `https://example.com/hello` sí lo será.
+> En este caso, `https://example.com/hello_world` no se excluirá, mientras que `https://example.com/hello` sí lo hará.
 
-### Patrones de URL Excluidos
+### Patrones de URL Excluidas {#excluded-url-patterns}
 
-![Tipos compatibles: Original](https://img.shields.io/badge/Types-Original-blue)
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
-La opción **Patrones de URL Excluidos** le permite especificar las URLs que no se redirigen. Esto puede ser útil para evitar bucles de redirección o para excluir ciertas partes de un sitio web de ser redirigidas.
+La opción **Patrones de URL Excluidas** le permite especificar las URL que no se redirigen. Esto puede ser útil para evitar bucles de redirección o para excluir ciertas partes de un sitio web de ser redirigidas.
 
-Puede especificar patrones de URL excluidos utilizando tipos de patrón de Expresión Regular o Comodín.
+Puede especificar patrones de URL excluidas utilizando tipos de patrón de Expresión Regular o Comodín.
 
-### Ejemplos
+### Ejemplos {#examples}
 
-La opción **Ejemplos** le permite probar su regla de redirección proporcionando URLs de muestra. Al añadir una URL de muestra, puede verificar si la regla funciona como se espera antes de aplicarla realmente.
+La opción **Ejemplos** le permite probar su regla de redirección proporcionando URL de muestra. Al añadir una URL de muestra, puede comprobar si la regla funciona como se esperaba antes de aplicarla.
 
-### Comentarios
+### Comentarios {#comments}
 
 La opción **Comentarios** le permite añadir notas o comentarios sobre su regla de redirección. Esto puede ser útil para llevar un registro de por qué creó una regla específica o para proporcionar contexto a otras personas que puedan ver sus reglas.
 
-## Patrón de URL
+## Patrón de URL {#url-pattern}
 
-Hay 3 opciones en las que puede especificar uno o más patrones de URL. *Redirigir desde*, *Patrones de URL Excluidos* y *Procesamiento de Grupos de Captura*. Para especificarlos, puede elegir **Comodín** o **Expresión Regular**.
+Hay 3 opciones en las que puede especificar uno o más patrones de URL. *Redirigir Desde*, *Patrones de URL Excluidas* y *Procesamiento de Grupos de Captura*. Para especificarlos, puede elegir **Comodín** o **Expresión Regular**.
 
-### Comodín
+### Comodín {#url-pattern-wildcard}
 
-**Comodín** es un tipo de patrón más simple que le permite usar `*` (coincide con cualquier cosa) y `?` (coincide con cualquier carácter individual) como comodines. Aquí hay algunos ejemplos:
+**Comodín** es un tipo de patrón más simple que le permite usar `*` (coincide con cualquier cosa) y `?` (coincide con cualquier carácter único) como comodines. Aquí hay algunos ejemplos:
 
 *   Para que coincida con `https://example.com/hello`, puede usar `https://example.com/*`. Esto coincidirá con cualquier cadena después de `https://example.com/`.
 *   Para que coincida con `https://example.com/search?q=hello`, puede usar `https://example.com/search?q=*`. Esto coincidirá con cualquier valor para el parámetro `q`.
@@ -164,14 +164,14 @@ También puede usar la sustitución en Comodín, lo que significa que puede hace
 > [!Note]
 > Aunque la sustitución es una característica de la Expresión Regular, también puede usarla para Comodín porque Redirect Web convierte internamente Comodín a Expresión Regular.
 
-### Expresión Regular
+### Expresión Regular {#url-pattern-regular-expression}
 
-La **Expresión Regular** (Regex) es una herramienta poderosa para hacer coincidir patrones en texto, impulsada por el motor de expresiones regulares de Apple, que se describe [aquí](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Le permite definir un patrón específico que coincide con un conjunto de cadenas. Aquí hay algunos ejemplos.
+La **Expresión Regular** (Regex) es una herramienta potente para hacer coincidir patrones en texto, impulsada por el motor de expresiones regulares de Apple que se describe [aquí](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Le permite definir un patrón específico que coincide con un conjunto de cadenas. Aquí hay algunos ejemplos.
 
 -   Para que coincida con `https://example.com/hello`, puede usar `https://example.com/(.*)`. Esto coincidirá con cualquier cadena después de `https://example.com/` y la almacenará en un grupo de captura.
 -   Para que coincida con `https://example.com/search?q=hello`, puede usar `https://example.com/search\?q=(.*)`. Esto coincidirá con el valor del parámetro `q` y lo almacenará en un grupo de captura.
 -   Para que coincida con cualquier URL que contenga la palabra `blog`, puede usar `.*blog.*`.
 
-Puede hacer referencia a los grupos de captura en *Redirigir a* o *Reemplazo* usando `$1`, `$2`, ... o `$0` para hacer referencia a toda la coincidencia.
+Puede hacer referencia a los grupos de captura en *Redirigir A* o *Reemplazo* usando `$1`, `$2`, ... o `$0` para hacer referencia a toda la coincidencia.
 
 Puede encontrar más información sobre la sintaxis de Regex en recursos como [RegExr](https://regexr.com/).

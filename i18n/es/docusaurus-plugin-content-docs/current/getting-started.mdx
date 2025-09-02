@@ -1,19 +1,18 @@
-# Primeros Pasos
+# Primeros pasos
 
 Esta página describe casos de uso comunes para crear reglas en la aplicación Redirect Web.
 
-(También puedes aprender los detalles de la configuración de reglas en la página [Configuración de Reglas](./rule-settings).)
-
+(También puedes conocer los detalles de la configuración de reglas en la página [Configuración de reglas](./rule-settings).)
 
 ## Caso 1: Abrir otro sitio web
 
-Supón que eres adicto a Twitter y decides meditar en Insight Timer cada vez que abres Twitter accidentalmente. ¡Vamos a crear una regla para eso!
+Supongamos que eres adicto a Twitter y decides meditar en Insight Timer cada vez que abres Twitter accidentalmente. ¡Vamos a crear una regla para eso!
 
 ### Paso 1. Configurar "Redirigir desde"
 
-Primero, debes configurar la sección *Redirigir desde* en la pantalla *Editar Regla* de la aplicación. Los objetivos son URLs que comienzan con `https://twitter.com/`.
+Primero, debes configurar la sección *Redirigir desde* en la pantalla *Editar regla* de la aplicación. Los objetivos son URL que comienzan con `https://twitter.com/`.
 
-En este caso, puedes especificar el siguiente patrón con el modo [Comodín](rule-settings?id=wildcard):
+En este caso, puedes especificar el siguiente patrón con el modo [Comodín](rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -21,25 +20,25 @@ https://twitter.com/*
 
 En el modo Comodín, `*` significa que coincide con cualquier cosa (= cero o más caracteres).
 
-Sin embargo, espera. `twitter.com` fue renombrado a `x.com`. Podrías simplemente reemplazar `twitter.com` con `x.com`, pero nadie sabe cuándo el nuevo propietario cambiará de opinión de nuevo para revertirlo. Por lo tanto, apuntemos tanto a `twitter.com` como a `x.com`.
+Sin embargo, espera. `twitter.com` fue renombrado a `x.com`. Puedes simplemente reemplazar `twitter.com` con `x.com`, pero nadie sabe cuándo el nuevo propietario cambiará de opinión de nuevo para revertirlo. Por lo tanto, vamos a apuntar tanto a `twitter.com` como a `x.com`.
 
-Para hacer eso, cambia de Comodín a [Expresión Regular](rule-settings?id=regular-expression), y establece esto como el patrón:
+Para hacer eso, cambia de Comodín a [Expresión regular](rule-settings#url-pattern-regular-expression) y establece este como el patrón:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: se dirige tanto a `twitter` como a `x`. (`|` se llama *una barra vertical*.)
-* `.*`: Es lo mismo que `*` de Comodín. Más específicamente, `.` significa *cualquier carácter* y `*` significa *cualquier cosa antes de este símbolo repetido cualquier número de veces*, lo que resulta en que coincide con cualquier cosa.
+* `(twitter|x)`: apunta tanto a `twitter` como a `x`. (`|` se llama *una barra vertical*.)
+* `.*`: Es lo mismo que el `*` de Comodín. Más específicamente, `.` significa *cualquier carácter* y `*` significa *cualquier cosa antes de este símbolo repetida cualquier número de veces*, lo que resulta en que coincide con cualquier cosa.
 
-La Expresión Regular es un poco complicada, pero una vez que te acostumbras a ella, será una herramienta poderosa. Recomendamos usar [RegExr](https://regexr.com) como un campo de pruebas para analizar cómo funciona tu patrón de Expresión Regular.
+Las expresiones regulares son un poco complicadas, pero una vez que te acostumbras a ellas, serán una herramienta poderosa. Recomendamos usar [RegExr](https://regexr.com) como un campo de pruebas para analizar cómo funciona tu patrón de Expresión Regular.
 
-> [!NOTE]
-> En las Expresiones Regulares, `.` en `(twitter|x).com` también se trata como *cualquier carácter*. Por lo tanto, `(twitter|x).com/.*` también coincide, por ejemplo, con `twitter1com/` o `x_com/`.
->
+> [!NOTA]
+> En las expresiones regulares, `.` en `(twitter|x).com` también se trata como *cualquier carácter*. Por lo tanto, `(twitter|x).com/.*` también coincide, por ejemplo, con `twitter1com/` o `x_com/`.
+> 
 > Para evitarlo, puedes cambiarlo a `(twitter|x)\.com/.*`. `\` se usa para escapar un carácter especial.
 >
-> Sin embargo, no existen tales URLs en el entorno general de Internet. Por lo tanto, puedes dejar `.` como un carácter especial si lo prefieres. Tu regla es para tu propio uso, así que impleméntala como mejor te parezca.
+> Sin embargo, no existen tales URL en el entorno general de internet. Por lo tanto, puedes dejar `.` como un carácter especial si lo prefieres. Tu regla es para tu propio uso, así que impleméntala como mejor te parezca.
 
 ### Paso 2: Configurar "Redirigir a"
 
@@ -51,24 +50,24 @@ https://insighttimer.com/saraauster/guided-meditations/calm
 
 ¡Ahora, Redirect Web te lleva a la meditación cuando accedes a Twitter!
 
-**[⬇️ Descargar la Regla](/rules/reduce-twitter-addiction.redirectweb)**
+**[⬇️ Descargar la regla](/rules/reduce-twitter-addiction.redirectweb)**
 
-## Caso 2: Eliminar Parámetros de Consulta de la URL
+## Caso 2: Eliminar parámetros de consulta de la URL
 
 Supongamos que hay un parámetro de consulta `source=twitter` en una URL de `example.com`, y decides eliminarlo para anonimizarte.
 
-En este caso, la opción **Procesamiento de Grupo de Captura** es la forma más sencilla:
+En este caso, la opción **Procesamiento de grupo de captura** es la forma más sencilla:
 
 * **Redirigir desde**: `https://example.com/*` (Comodín)
 * **Redirigir a**: `$0`
-* **Procesamiento de Grupo de Captura**:
+* **Procesamiento de grupo de captura**:
     * **Grupo**: `$0`
-    * **Proceso**: Reemplazar Ocurrencias
+    * **Proceso**: Reemplazar ocurrencias
         * **Objetivo**: `&?source=[^&]*`
         * **Reemplazo**: *(ninguno)*
-        * **Patrón de Texto**: Expresión Regular
+        * **Patrón de texto**: Expresión regular
 
-**[⬇️ Descargar la Regla](/rules/remove-parameters.redirectweb)**
+**[⬇️ Descargar la regla](/rules/remove-parameters.redirectweb)**
 
 Esta regla funciona de la siguiente manera:
 
@@ -80,29 +79,29 @@ https://example.com/?hello=world&source=twitter&foo=bar
 ↪ https://example.com/?hello=world&foo=bar
 ```
 
-Si quieres eliminar más parámetros, añade más procesos.
+Si deseas eliminar más parámetros, agrega más procesos.
 
-## Caso 3: Añadir Parámetros de Consulta a la URL
+## Caso 3: Añadir parámetros de consulta a la URL
 
-Supongamos que hay un sitio web llamado `example.com` que muestra un diseño móvil por defecto, pero prefieres su diseño de escritorio. Afortunadamente, el sitio web admite un parámetro de consulta `layout` para especificar qué diseño muestra el sitio web. Vamos a crear una regla que añada `layout=desktop` automáticamente.
+Supongamos que hay un sitio web llamado `example.com` que muestra un diseño móvil por defecto, pero prefieres su diseño de escritorio. Afortunadamente, el sitio web admite un parámetro de consulta `layout` para especificar qué diseño muestra el sitio web. ¡Vamos a crear una regla que añada `layout=desktop` automáticamente!
 
 Quizás pienses que podrías definirlo de la siguiente manera:
 
-* **Redirigir desde**: `https://example.com/.*` (Expresión Regular)
+* **Redirigir desde**: `https://example.com/.*` (Expresión regular)
 * **Redirigir a**: `$0?layout=desktop`
 
 `$0` hace referencia a la URL de destino. Si intentas acceder a `example.com/hello`, eres redirigido a `example.com/hello?layout=desktop`. Esta característica se llama *sustitución*.
 
-> [!TIP]
+> [!CONSEJO]
 > La sustitución también está disponible para el modo Comodín, ya que internamente se convierte a Expresión Regular.
 
-Sin embargo, hay algunos problemas con estas configuraciones.
+Sin embargo, hay algunos problemas con esta configuración.
 
 ### Problema 1: Bucle infinito
 
-La configuración actual crea un bucle de redirección infinito ya que `https://example.com/.*` también apunta a `https://example.com/hello?layout=desktop`.
+La configuración actual crea un bucle de redirección infinito, ya que `https://example.com/.*` también apunta a `https://example.com/hello?layout=desktop`.
 
-En este caso, puedes especificar un patrón de URL excluido que te permita acceder sin redirección, así con Expresión Regular:
+En este caso, puedes especificar un patrón de URL excluido que te permita acceder sin redirección, como este con Expresión regular:
 
 ```
 .*[&?]layout=[^&]*.*
@@ -112,42 +111,42 @@ En este caso, puedes especificar un patrón de URL excluido que te permita acced
 * `[&?]`: Coincide con `&` o `?`
 * `[^&]*`: Coincide con cualquier cosa excepto `&`
 
-### Problema 2: No puede manejar los parámetros existentes correctamente
+### Problema 2: No se pueden manejar los parámetros existentes correctamente
 
-Si la URL de destino ya tiene otros parámetros de consulta como `example.com/hello?theme=dark`, el destino será `example.com/hello?theme=dark?layout=desktop` (Hay dos `?` en la URL) pero solo puedes unir los parámetros con `&`. `?` como carácter especial solo se permite al principio de los parámetros. Por lo tanto, no se trata como un parámetro válido.
+Si la URL de destino ya tiene otros parámetros de consulta como `example.com/hello?theme=dark`, el destino será `example.com/hello?theme=dark?layout=desktop` (Hay dos `?` en la URL) pero solo puedes unir los parámetros con `&`. `?` como carácter especial solo está permitido al principio de los parámetros. Por lo tanto, no se trata como un parámetro válido.
 
-En este caso, cambia las configuraciones así:
+En este caso, cambia la configuración de esta manera:
 
 * **Redirigir desde**: `(https://example.com/[^?]*)(\?(.*))?`
 * **Redirigir a**: `$1?layout=desktop&$3`
 
-Echemos un vistazo paso a paso.
+Veamos paso a paso.
 
-* `(https://example.com/[^?]*)`: Coincide con la parte hasta el carácter anterior de `?`.
+* `(https://example.com/[^?]*)`: Coincide con la parte hasta el carácter anterior a `?`.
     * `[^?]*` coincide con cualquier cosa excepto `?`.
-    * Esto está envuelto con `()` para que puedas referenciarlo con `$1` más tarde.
+    * Esto está envuelto entre `()` para que puedas referenciarlo con `$1` más tarde.
 * `(\?(.*))?`: Coincide con una cadena que comienza con `?`, lo que significa parámetros de consulta.
-    * Esto también coincide con una cadena vacía por el cuantificador `?` al final del patrón, que *coincide cero o una vez*.
-    * Los `()` externos y los `()` internos pueden ser referenciados con `$2` y `$3` más tarde.
+    * Esto también coincide con una cadena vacía mediante el cuantificador `?` al final del patrón, que *coincide cero o una vez*.
+    * Los `()` externos y los `()` internos se pueden referenciar con `$2` y `$3` más tarde.
 
 [RegExr](https://regexr.com) puede ayudarte a entender los detalles.
 
-> [!NOTE]
-> RegExr muestra un error cuando no se escapa `/` con `\`. Aunque puedes escaparlo, no es necesario ya que Redirect Web usa un motor diferente de Apple que no requiere el escape.
+> [!NOTA]
+> RegExr muestra un error cuando no escapas `/` con `\`. Aunque puedes escaparlo, no es necesario ya que Redirect Web utiliza un motor diferente de Apple que no requiere el escape.
 
-Esta no es una solución perfecta, ya que redirige `example.com/hello` a `example.com/hello?layout=desktop&`, lo que incluye un `&` innecesario al final de la URL. No es un gran problema en general, pero si deseas eliminarlo, puedes usar el *Procesamiento de Grupo de Captura*.
+Esta no es una solución perfecta, ya que redirige `example.com/hello` a `example.com/hello?layout=desktop&`, lo que incluye un `&` innecesario al final de la URL. No es un gran problema en general, pero si deseas eliminarlo, puedes usar el *Procesamiento de grupo de captura*.
 
 En conclusión, esta es la salida final:
 
-* **Redirigir desde**: `(https://example.com/[^?]*)((\?(.*))?)` (Expresión Regular)
+* **Redirigir desde**: `(https://example.com/[^?]*)((\?(.*))?)` (Expresión regular)
 * **Redirigir a**: `$1?layout=desktop$3`
-* **Patrón de URL Excluida**: `.*[&?]layout=[^&]*.*` (Expresión Regular)
-* **Procesamiento de Grupo de Captura**:
+* **Patrón de URL excluido**: `.*[&?]layout=[^&]*.*` (Expresión regular)
+* **Procesamiento de grupo de captura**:
     * **Grupo**: `$3`
-    * **Proceso**: Reemplazar Ocurrencias
+    * **Proceso**: Reemplazar ocurrencias
         * **Objetivo**: `\?(.*)`
         * **Reemplazo**: `&$1`
 
-**[⬇️ Descargar la Regla](/rules/add-parameters.redirectweb)**
+**[⬇️ Descargar la regla](/rules/add-parameters.redirectweb)**
 
-Esto es meramente un ejemplo. También puedes crear varias reglas para manejar cada problema. Puede ser mucho más simple.
+Esto es meramente un ejemplo. También puedes crear varias reglas para manejar cada problema. Puede ser mucho más sencillo.

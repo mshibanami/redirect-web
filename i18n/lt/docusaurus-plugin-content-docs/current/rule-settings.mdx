@@ -1,177 +1,177 @@
-# Taisyklės nustatymai
+# Taisyklių nustatymai
 
-Šiame puslapyje pateikiama išsami informacija apie kiekvieną nustatymą „Redaguoti taisyklę“ ekrane „Redirect Web“ programėlėje.
+Šiame puslapyje pateikiama išsami informacija apie kiekvieną „Redirect Web“ programos taisyklių redagavimo ekrano nustatymą.
 
 ## Parinktys
 
-### Tipas
+### Tipas {#type}
 
-Nurodykite **Tipo** parinktį, kad valdytumėte, kaip programėlė apdoroja peradresavimą. Galite pasirinkti iš šių:
+Nurodykite parinktį **Tipas**, kad kontroliuotumėte, kaip programa tvarko nukreipimą. Galite rinktis iš šių:
 
-*   **Originalus** (Numatytasis)
-    *   Tai naudoja tradicines žiniatinklio API peradresavimui valdyti. Be to, kaip atsarginę parinktį, ji naudoja [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs).
-        *   „Firefox“ naršyklėje ji naudoja [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) peradresavimui apdoroti.
-    *   Galite naudoti visas parinktis, išskyrus [Resurso tipus](#resource-types) ir [Užklausos metodus](#request-methods).
-    *   Tai yra lėčiau nei *Deklaratyvusis* tipas ir gali sukelti papildomų tinklo užklausų.
-*   **DNR** (Eksperimentinis „Safari“):
-    *   Šis tipas veikia daug greičiau nei Originalus tipas, nes jis neinicijuoja tinklo užklausos dėl šaltinio URL.
-    *   Tai leidžia nurodyti [Resurso tipus](#resource-types) ir [Užklausos metodus](#request-methods).
+*   **Originalus** (numatytasis)
+    *   Ši parinktis naudoja tradicines žiniatinklio API nukreipimo valdymui. Be to, ji naudoja [„Tabs API“](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) kaip atsarginį variantą.
+        *   Naršyklėje „Firefox“ ji naudoja [„WebRequest API“](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) nukreipimui tvarkyti.
+    *   Galite naudoti visas parinktis, išskyrus [Resursų tipus](#resource-types) ir [Užklausos metodus](#request-methods).
+    *   Tai lėtesnis būdas nei *Deklaratyvus* tipas ir gali sukelti papildomų tinklo užklausų.
+*   **DNR** (Eksperimentinis, skirta „Safari“):
+    *   Šis tipas veikia daug greičiau nei Originalus tipas, nes neinicijuoja tinklo užklausos šaltinio URL.
+    *   Tai leidžia nurodyti [Resursų tipus](#resource-types) ir [Užklausos metodus](#request-methods).
     *   ⚠️ Negalite naudoti kai kurių parinkčių, pvz., [Grupavimo apdorojimo](#capturing-group-processing) ir [Išskirtų URL šablonų](#excluded-url-patterns), nes DNR API jų dar nepalaiko.
-    *   ⚠️ „Safari“ naršyklėje šiuo metu negalite naudoti vertikalių brūkšnių (`|`) savo reguliariosios išraiškos šablone. [Išsamesnė informacija](https://github.com/mshibanami/redirect-web/issues/44)
-    *   ⚠️ Kadangi „Safari“ DNR API vis dar turi kai kurių problemų, mes manome, kad tai vis dar eksperimentinė funkcija, skirta „Safari“. Visų žinomų problemų sąrašą galite rasti [čia](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+    *   ⚠️ Naršyklėje „Safari“ šiuo metu negalima įtraukti vertikalių brūkšnių (`|`) į reguliariųjų išraiškų šabloną. [Išsamesnė informacija](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ Kadangi „Safari“ DNR API vis dar turi problemų, laikome tai eksperimentine „Safari“ funkcija. Visų žinomų problemų sąrašą galite rasti [čia](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Peradresuoti iš
+### Nukreipti iš {#redirect-from}
 
-**Peradresuoti iš** parinktis leidžia nurodyti tinklalapių URL šabloną, iš kurio norite peradresuoti. Galite pasirinkti [Pakaitos simbolį](#wildcard) arba [Reguliariąją išraišką](#regular-expression).
+Parinktis **Nukreipti iš** leidžia nurodyti žiniatinklio puslapių, iš kurių norite nukreipti, URL šabloną. Galite pasirinkti [Pakaitą](#wildcard) arba [Reguliariąją išraišką](#regular-expression).
 
-Pavyzdžiui, jei nurodysite `https://example.com/*` su Pakaitos simboliu, jis atitiks `https://example.com/` arba `https://example.com/hello`.
+Pavyzdžiui, jei su Pakaita nurodysite `https://example.com/*`, tai atitiks `https://example.com/` arba `https://example.com/hello`.
 
-> [!PASTABA]
-> Parinktyje „Peradresuoti į“ galite nurodyti visą atitiktį naudodami `$0` arba dalines atitiktis naudodami `$1`, `$2`, ... Išsamesnę informaciją rasite [URL šablono](#url-pattern) skyriuje šiame puslapyje.
+> [!NOTE]
+> Parinktyje „Nukreipti į“ galite nurodyti visą atitikmenį naudodami `$0` arba dalinius atitikmenis naudodami `$1`, `$2`, ... Išsamesnę informaciją rasite [URL šablonas](#url-pattern) šiame puslapyje.
 
-#### Resurso tipai
+#### Resursų tipai {#resource-types}
 
-![Palaikomi tipai: DNR](https://img.shields.io/badge/Types-DNR-blue)
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-**Resurso tipų** parinktis leidžia nurodyti žiniatinklio užklausų kategorijas, pvz., paveikslėlius, „JavaScript“ ir stilių lapus, kurioms taikoma taisyklė.
-Pavyzdžiui, jei nustatysite `script`, galite peradresuoti „JavaScript“ failus, įkeliamus tinklalapių.
+Parinktis **Resursų tipai** leidžia nurodyti žiniatinklio užklausų kategorijas, pvz., paveikslėlius, „JavaScript“ ir stiliaus lenteles, kurioms taikoma taisyklė.
+Pavyzdžiui, jei nustatote `script`, galite nukreipti „JavaScript“ failus, įkeltus žiniatinklio puslapių.
 
-Šiuo metu yra prieinami šie:
+Šiuo metu galima pasirinkti:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
 Numatytasis nustatymas yra `main_frame`, kuris yra aukščiausio lygio puslapis, įkeltas į skirtuką.
 
-Išsamesnę informaciją apie kiekvieną resurso tipą rasite [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+Išsamesnę informaciją apie kiekvieną resursų tipą rasite [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Užklausų metodai
+#### Užklausos metodai {#request-methods}
 
-![Palaikomi tipai: DNR](https://img.shields.io/badge/Types-DNR-blue)
+![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-**Užklausų metodų** parinktis leidžia nustatyti šaltinio URL tikslinius HTTP metodus.
+Parinktis **Užklausos metodai** leidžia nustatyti tikslinius HTTP metodus šaltinio URL.
 
-Visi metodai nustatyti pagal numatytuosius nustatymus.
+Pagal numatytuosius nustatymus nustatomi visi metodai.
 
 Išsamesnę informaciją apie kiekvieną metodą rasite [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-> [!ĮSPĖJIMAS]
-> „Safari“ naršyklėje ši parinktis gali būti nepasiekiama, nes „Apple“ DNR tipo įgyvendinimas, atrodo, jos šiuo metu nepalaiko. Siuntėme atsiliepimus „Apple“ kaip FB14502272.
+> [!WARNING]
+> „Safari“ naršyklėje ši parinktis gali būti nepasiekiama, nes „Apple“ DNR tipo įgyvendinimas, atrodo, jos šiuo metu netvarko. Siuntėme atsiliepimą „Apple“ kaip FB14502272.
 
-#### Tikslinės naršyklės
+#### Tikslinės naršyklės {#target-browsers}
 
-![Palaikomos platformos: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-**Tikslinių naršyklių** parinktis leidžia nurodyti, kuriai naršyklei taisyklė turėtų būti taikoma arba netaikoma.
+Parinktis **Tikslinės naršyklės** leidžia nurodyti, kuriai naršyklei taisyklė turėtų būti taikoma arba netaikoma.
 
-*   Galite pasirinkti 2 tipų naršykles:
-    *   **Numatytosios naršyklės, kurias galite pasirinkti**: pagal numatytuosius nustatymus galite pasirinkti „Safari“, „Chrome“, „Firefox“, „Edge“, „Opera“, „Arc“, „Brave“ ir „Vivaldi“. Tai neskiria tos pačios naršyklės variantų, pvz., „Safari“ ir „Safari Technology Preview“.
-    *   **Vartotojo nurodytos naršyklės**: bakstelėję mygtuką „Pridėti“ iššokančiame lange, galite pasirinkti bet kurią naršyklę, išskyrus „Safari“ ar „Safari Technology Preview“, kurioje yra įdiegtas „Redirect Web“ plėtinys.
-*   Žymimasis laukelis „**Visos, išskyrus pasirinktas**“ leidžia nustatyti tikslą visoms naršyklėms, išskyrus tas, kurias pasirinkote.
+*   Yra 2 tipų naršyklės, kurias galite pasirinkti:
+    *   **Naršyklės, kurias galite pasirinkti pagal numatytuosius nustatymus**: Pagal numatytuosius nustatymus galite pasirinkti „Safari“, „Chrome“, „Firefox“, „Edge“, „Opera“, „Arc“, „Brave“ ir „Vivaldi“. Tai neskiria tos pačios naršyklės variantų, pvz., „Safari“ ir „Safari Technology Preview“.
+    *   **Vartotojo nurodytos naršyklės**: Palietę mygtuką „Pridėti“ iššokančiame lange, galite pasirinkti bet kurią naršyklę, išskyrus „Safari“ ar „Safari Technology Preview“, kurioje įdiegtas „Redirect Web“ plėtinys.
+*   Žymimasis langelis **Visos, išskyrus pasirinktas** leidžia taikyti taisyklę visoms naršyklėms, išskyrus tas, kurias pasirinkote.
 
-> [!ĮSPĖJIMAS]
-> „Redirect Web“ negali atskirti, ar naršyklė yra **Safari**, ar **Safari Technology Preview**, nes programa patikrina plėtinio pirminį procesą, kad jį aptiktų, tačiau šios dvi naršyklės dalijasi tuo pačiu pirminiu procesu (`/sbin/launchd`).
+> [!WARNING]
+> „Redirect Web“ negali atskirti, ar naršyklė yra **Safari**, ar **Safari Technology Preview**, nes programa patikrina plėtinio tėvinį procesą, kad tai aptiktų, tačiau šios dvi naršyklės dalijasi tuo pačiu tėviniu procesu (`/sbin/launchd`).
 
-### Peradresuoti į
+### Nukreipti į {#redirect-to}
 
-**Peradresuoti į** parinktis nurodo paskirties URL, į kurį norite peradresuoti, iš šaltinio URL, atitinkančio *Peradresuoti iš* parinktį. Taip pat galite pakeisti grupavimo grupes su `$1`, `$2`, ... arba visą atitiktį su `$0`. Tai padeda dinamiškai nurodyti paskirties vietą. Išsamesnę informaciją rasite [URL šablono](#url-pattern) skyriuje šiame puslapyje.
+Parinktis **Nukreipti į** nurodo paskirties URL, į kurį norite nukreipti iš šaltinio URL, atitinkančio parinktį *Nukreipti iš*. Taip pat galite pakeisti grupavimo grupes `$1`, `$2`, ... arba visą atitikmenį `$0`. Tai padeda dinamiškai nurodyti paskirties vietą. Išsamesnę informaciją rasite [URL šablonas](#url-pattern) šiame puslapyje.
 
-Pavyzdžiui, jei nustatysite šią taisyklę:
+Pavyzdžiui, jei nustatote tokią taisyklę:
 
-*   **Peradresuoti iš**: `https://google.com/*` (Pakaitos simbolis)
-*   **Peradresuoti į**: `https://apple.com/$1`
+*   **Nukreipti iš**: `https://google.com/*` (Pakaita)
+*   **Nukreipti į**: `https://apple.com/$1`
 
-ir ji atitinka `https://google.com/hello`, tuomet paskirties URL bus `https://apple.com/hello`.
+ir tai atitinka `https://google.com/hello`, tada paskirties URL bus `https://apple.com/hello`.
 
-Be to, galite modifikuoti tekstus `$1`, `$2`, ... prieš atliekant pakeitimus. Išsamesnę informaciją rasite [Grupavimo apdorojimo](#capturing-group-processing) skyriuje.
+Be to, galite modifikuoti `$1`, `$2`, ... tekstus prieš atliekant pakeitimus. Išsamesnę informaciją rasite skyriuje [Grupavimo apdorojimas](#capturing-group-processing).
 
-> [!PATARIMAS]
-> Galite nurodyti pasirinktinę URL schemą programėlei atidaryti. Tai yra programėlių, palaikančių giliąsias nuorodas, pavyzdžiai:
+> [!TIP]
+> Galite nurodyti pasirinktinę URL schemą, kad atidarytumėte programą. Štai programų, palaikančių giliąsias nuorodas, pavyzdžiai:
 >
-> *   Figma: `figma://file/Jūsų_Figma_ID`
+> *   Figma: `figma://file/Your_Figma_ID`
 > *   Firefox: `firefox://open-url?url=https://example.com/hello`
 > *   Google Chrome: `googlechromes://example.com`
 > *   Microsoft Edge: `microsoft-edge://example.com`
-> *   Notion: `notion://www.notion.so/Jūsų_pastabos_ID`
+> *   Notion: `notion://www.notion.so/Your_Note_ID`
 > *   Slack: `slack://open`
 
-#### Programėlė
+#### Programa {#application}
 
-![Palaikomi tipai: Originalus](https://img.shields.io/badge/Types-Original-blue) ![Palaikomos platformos: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Jei norite nurodyti programėlę, kuria norite atidaryti paskirties URL, naudokite **Programėlės** išskleidžiamąjį sąrašą. Tai pasiekiama tik „macOS“ sistemoje.
+Jei norite nurodyti programą, kuria norite atidaryti paskirties URL, naudokite **Programa** išskleidžiamąjį sąrašą. Tai pasiekiama tik „macOS“ sistemoje.
 
-> [!ĮSPĖJIMAS]
-> Galite atidaryti tik programėlę, kuri palaiko [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Taip pat įsitikinkite, kad programėlė palaiko norimo atidaryti URL atidarymą.
+> [!WARNING]
+> Galite atidaryti tik programą, kuri palaiko [„App Sandbox“](https://developer.apple.com/documentation/security/app_sandbox). Taip pat įsitikinkite, kad programa palaiko norimo atidaryti URL atidarymą.
 
-### Grupavimo apdorojimas
+### Grupavimo apdorojimas {#capturing-group-processing}
 
-![Palaikomi tipai: Originalus](https://img.shields.io/badge/Types-Original-blue)
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
-**Grupavimo apdorojimo** parinktis leidžia nurodyti, kaip apdoroti užfiksuotas grupes, kurias galite pakeisti *Peradresuoti į* parinktyje su `$1`, `$2`...
+Parinktis **Grupavimo apdorojimas** leidžia nurodyti, kaip apdoroti užfiksuotas grupes, kurias galite pakeisti parinktyje *Nukreipti į* naudodami `$1`, `$2`...
 
-Štai kaip sudaromos grupavimo grupės:
+Štai kaip sukurti grupavimo grupes:
 
-*   **Pakaitos simbolis**: Tekstai, atitinkantys `*` ir `?`, yra automatiškai užfiksuojami.
-*   **Reguliarioji išraiška**: Tekstai, atitinkantys dalį šablono `()` viduje, yra užfiksuojami.
+*   **Pakaita**: Tekstai, atitinkantys `*` ir `?`, automatiškai užfiksuojami.
+*   **Reguliarioji išraiška**: Tekstai, atitinkantys šablono dalį tarp `()`, užfiksuojami.
 
-Galite pasirinkti vieną ar daugiau iš šių procesų:
+Galite pasirinkti vieną ar daugiau šių procesų:
 
-*   **URL kodavimas/dekodavimas**: Tai pritaiko [procentinį kodavimą](https://en.wikipedia.org/wiki/Percent-encoding) arba dekodavimą grupavimo grupei. Pavyzdžiui, jei koduojate `https://example.com/hello`, jis konvertuojamas į `https%3A%2F%2Fexample.com%2Fhello`. Dekodavimas veikia priešingai.
-*   **Base64 kodavimas/dekodavimas**: Tai dekoduoja/koduoja tekstą į [Base64](https://en.wikipedia.org/wiki/Base64). Pavyzdžiui, galite užkoduoti `hello` į `aGVsbG8=`, ir iškoduoti atgal į `hello`.
-*   **Pakeisti pasikartojimus**: Tai pakeičia vieną ar daugiau simbolių grupėje, atitinkančioje **Tikslą**, su **Pakeitimu**. Pavyzdžiui, jei *Grupė* yra `hello`, o *Tikslas* yra `l` ir Pakeitimas yra `y`, ji modifikuojama į `heyyo`.
+*   **URL koduoti/dekoduoti**: Tai taiko [procentinį kodavimą](https://en.wikipedia.org/wiki/Percent-encoding) arba dekodavimą grupavimo grupei. Pavyzdžiui, jei koduojate `https://example.com/hello`, tai konvertuojama į `https%3A%2F%2Fexample.com%2Fhello`. Dekodavimas veikia priešinga kryptimi.
+*   **Base64 koduoti/dekoduoti**: Tai dekoduoja/koduoja tekstą į [Base64](https://en.wikipedia.org/wiki/Base64). Pavyzdžiui, galite koduoti `hello` į `aGVsbG8=`, ir dekoduoti atgal į `hello`.
+*   **Pakeisti pasikartojimus**: Tai pakeičia vieną ar daugiau simbolių grupėje, atitinkančioje **Tikslo** nustatymus, **Pakeitimu**. Pavyzdžiui, jei *Grupė* yra `hello`, o *Tikslas* yra `l`, o *Pakeitimas* yra `y`, ji modifikuojama į `heyyo`.
 
-> [!PASTABA]
-> Tai skirta kiekvienos grupavimo grupės apdorojimui ir neturi įtakos, kurie URL yra išskiriami pagal [Išskirtus URL šablonus](#excluded-url-patterns). Pavyzdžiui, tarkime, turite šią taisyklę:
+> [!NOTE]
+> Tai skirta kiekvienos grupavimo grupės apdorojimui ir neturi įtakos, kurie URL yra išskiriami pagal [Išskirtų URL šablonus](#excluded-url-patterns). Pavyzdžiui, tarkime, turite šią taisyklę:
 >
-> *   **Peradresuoti iš**: `https://example.com/(hello.*)`
+> *   **Nukreipti iš**: `https://example.com/(hello.*)`
 > *   **Grupavimo apdorojimas**:
 >     *   Grupė: `$1`
 >     *   Tikslas: `.*` (Reguliarioji išraiška)
 >     *   Pakeitimas: `hello`
 > *   **Išskirtas URL šablonas**: `https://example.com/hello`
 >
-> Tokiu atveju `https://example.com/hello_world` nebus išskirtas, o `https://example.com/hello` bus išskirtas.
+> Šiuo atveju `https://example.com/hello_world` nebus išskirta, o `https://example.com/hello` bus išskirta.
 
-### Išskirti URL šablonai
+### Išskirti URL šablonai {#excluded-url-patterns}
 
-![Palaikomi tipai: Originalus](https://img.shields.io/badge/Types-Original-blue)
+![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
-**Išskirtų URL šablonų** parinktis leidžia nurodyti URL, kurie nėra peradresuojami. Tai gali būti naudinga siekiant išvengti peradresavimo ciklų arba išskirti tam tikras svetainės dalis iš peradresavimo.
+Parinktis **Išskirti URL šablonai** leidžia nurodyti URL, kurie nėra nukreipiami. Tai gali būti naudinga siekiant išvengti nukreipimo ciklų arba išskirti tam tikras svetainės dalis nuo nukreipimo.
 
-Išskirtus URL šablonus galite nurodyti naudodami Reguliariosios išraiškos arba Pakaitos simbolio šablonų tipus.
+Išskirtus URL šablonus galite nurodyti naudodami reguliariąsias išraiškas arba pakaitos šablonų tipus.
 
-### Pavyzdžiai
+### Pavyzdžiai {#examples}
 
-**Pavyzdžių** parinktis leidžia išbandyti peradresavimo taisyklę pateikiant pavyzdinius URL. Pridėję pavyzdinį URL, galite patikrinti, ar taisyklė veikia taip, kaip tikėtasi, prieš ją faktiškai pritaikydami.
+Parinktis **Pavyzdžiai** leidžia išbandyti nukreipimo taisyklę, pateikiant URL pavyzdžius. Pridėję URL pavyzdį, galite patikrinti, ar taisyklė veikia taip, kaip tikėtasi, prieš ją faktiškai pritaikydami.
 
-### Komentarai
+### Komentarai {#comments}
 
-**Komentarų** parinktis leidžia pridėti bet kokius užrašus ar komentarus apie jūsų peradresavimo taisyklę. Tai gali būti naudinga norint sekti, kodėl sukūrėte konkrečią taisyklę, arba pateikti kontekstą kitiems, kurie gali peržiūrėti jūsų taisykles.
+Parinktis **Komentarai** leidžia pridėti bet kokias pastabas ar komentarus apie savo nukreipimo taisyklę. Tai gali būti naudinga siekiant sekti, kodėl sukūrėte konkrečią taisyklę, arba norint suteikti kontekstą kitiems, kurie gali peržiūrėti jūsų taisykles.
 
-## URL šablonas
+## URL šablonas {#url-pattern}
 
-Yra 3 parinktys, kuriose galite nurodyti vieną ar daugiau URL šablonų. Tai *Peradresuoti iš*, *Išskirti URL šablonai* ir *Grupavimo apdorojimas*. Norėdami juos nurodyti, galite pasirinkti **Pakaitos simbolį** arba **Reguliariąją išraišką**.
+Yra 3 parinktys, kuriose galite nurodyti vieną ar daugiau URL šablonų. Tai *Nukreipti iš*, *Išskirti URL šablonai* ir *Grupavimo apdorojimas*. Norėdami juos nurodyti, galite pasirinkti **Pakaitą** arba **Reguliariąją išraišką**.
 
-### Pakaitos simbolis
+### Pakaita {#url-pattern-wildcard}
 
-**Pakaitos simbolis** yra paprastesnis šablono tipas, leidžiantis naudoti `*` (atitinka bet ką) ir `?` (atitinka bet kurį vieną simbolį) kaip pakaitos simbolius. Štai keletas pavyzdžių:
+**Pakaita** yra paprastesnis šablonų tipas, leidžiantis naudoti `*` (atitinka bet ką) ir `?` (atitinka bet kokį vieną simbolį) kaip pakaitos simbolius. Štai keletas pavyzdžių:
 
 *   Norėdami atitikti `https://example.com/hello`, galite naudoti `https://example.com/*`. Tai atitiks bet kokią eilutę po `https://example.com/`.
 *   Norėdami atitikti `https://example.com/search?q=hello`, galite naudoti `https://example.com/search?q=*`. Tai atitiks bet kokią `q` parametro reikšmę.
-*   Norėdami atitikti bet kurį URL, kuriame yra žodis `blog`, galite naudoti `*blog*`.
+*   Norėdami atitikti bet kokį URL, kuriame yra žodis `blog`, galite naudoti `*blog*`.
 
-Pakaitos simboliuose taip pat galite naudoti pakeitimą, o tai reiškia, kad galite nurodyti atitinkamo URL dalis naudodami `$1`, `$2`, ir t.t. Pavyzdžiui, jei naudojate `https://example.com/*-world-*`, o URL yra `https://example.com/hello-world-goodbye`, tada `$1` būtų „hello“, o `$2` – „goodbye“. `$0` taip pat galima naudoti norint nurodyti visą atitiktį URL.
+Taip pat galite naudoti pakeitimą su Pakaita, o tai reiškia, kad galite nurodyti atitinkamo URL dalis naudodami `$1`, `$2` ir t.t. Pavyzdžiui, jei naudojate `https://example.com/*-world-*`, o URL yra `https://example.com/hello-world-goodbye`, tada `$1` būtų „hello“, o `$2` būtų „goodbye“. `$0` taip pat galima naudoti norint nurodyti visą atitinkamą URL.
 
-> [!Pastaba]
-> Nors pakeitimas yra Reguliariosios išraiškos funkcija, ją galite naudoti ir su Pakaitos simboliu, nes „Redirect Web“ viduje konvertuoja Pakaitos simbolį į Reguliariąją išraišką.
+> [!Note]
+> Nors pakeitimas yra reguliariųjų išraiškų funkcija, galite jį naudoti ir su Pakaita, nes „Redirect Web“ viduje konvertuoja Pakaitą į reguliariąsias išraiškas.
 
-### Reguliarioji išraiška
+### Reguliariąja išraiška {#url-pattern-regular-expression}
 
-**Reguliarioji išraiška** (Regex) yra galinga teksto šablonų atitikimo priemonė, veikianti su „Apple“ reguliariosios išraiškos varikliu, aprašytu [čia](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Ji leidžia apibrėžti konkretų šabloną, atitinkantį eilutes. Štai keletas pavyzdžių.
+**Reguliariąja išraiška** (Regex) yra galingas įrankis modeliams tekste rasti, paremtas „Apple“ reguliariųjų išraiškų varikliu, aprašytu [čia](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Ji leidžia apibrėžti konkretų modelį, kuris atitinka simbolių rinkinį. Štai keletas pavyzdžių.
 
-*   Norėdami atitikti `https://example.com/hello`, galite naudoti `https://example.com/(.*)`. Tai atitiks bet kokią eilutę po `https://example.com/` ir išsaugos ją grupavimo grupėje.
-*   Norėdami atitikti `https://example.com/search?q=hello`, galite naudoti `https://example.com/search\?q=(.*)`. Tai atitiks `q` parametro reikšmę ir išsaugos ją grupavimo grupėje.
-*   Norėdami atitikti bet kurį URL, kuriame yra žodis `blog`, galite naudoti `.*blog.*`.
+- Norėdami atitikti `https://example.com/hello`, galite naudoti `https://example.com/(.*)`. Tai atitiks bet kokią eilutę po `https://example.com/` ir išsaugos ją grupavimo grupėje.
+- Norėdami atitikti `https://example.com/search?q=hello`, galite naudoti `https://example.com/search\?q=(.*)`. Tai atitiks `q` parametro reikšmę ir išsaugos ją grupavimo grupėje.
+- Norėdami atitikti bet kokį URL, kuriame yra žodis `blog`, galite naudoti `.*blog.*`.
 
-Grupavimo grupes galite nurodyti *Peradresuoti į* arba *Pakeitimas* naudodami `$1`, `$2`, ... arba `$0` norėdami nurodyti visą atitiktį.
+Galite nurodyti grupavimo grupes parinktyje *Nukreipti į* arba *Pakeitimas* naudodami `$1`, `$2`, ... arba `$0`, kad nurodytumėte visą atitikmenį.
 
-Daugiau informacijos apie Regex sintaksę galite rasti tokiuose šaltiniuose kaip [RegExr](https://regexr.com/).
+Daugiau informacijos apie reguliariųjų išraiškų sintaksę galite rasti tokiuose šaltiniuose kaip [RegExr](https://regexr.com/).

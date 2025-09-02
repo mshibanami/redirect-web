@@ -1,72 +1,71 @@
 # Alustamine
 
-See leht kirjeldab tavalisi kasutusjuhtumeid reeglite loomiseks Redirect Web rakenduses.
+See leht kirjeldab levinud kasutusjuhtumeid reeglite loomiseks rakenduses Redirect Web.
 
-(Reeglisätete üksikasjadega saate tutvuda ka lehel [Reeglisätted](./rule-settings).)
-
+(Reegliseadete üksikasjadega saate tutvuda ka lehel [Reegliseaded](./rule-settings).)
 
 ## Juhtum 1: Ava teine veebisait
 
-Oletame, et olete sõltuvuses Twitterist ja otsustate mediteerida Insight Timeris iga kord, kui Twitteri kogemata avate. Loome selleks reegli!
+Oletame, et olete Twitterist sõltuvuses ja otsustate mediteerida Insight Timeris iga kord, kui kogemata Twitteri avate. Loome selleks reegli!
 
-### Samm 1. Määra "Suuna siit"
+### 1. samm. Seadista "Redirect From"
 
-Esmalt peaksite rakenduse ekraanil *Redigeeri reeglit* seadistama jaotise *Suuna siit*. Sihtmärgiks on URL-id, mis algavad `https://twitter.com/`.
+Kõigepealt peaksite rakenduses *Edit Rule* ekraanil seadistama jaotise *Redirect From*. Sihtkohad on URL-id, mis algavad `https://twitter.com/`.
 
-Sel juhul saate [metamärgi](rule-settings?id=wildcard) režiimis määrata järgmise mustri:
+Sel juhul saate [Wildcard](rule-settings#url-pattern-wildcard) režiimiga määrata järgmise mustri:
 
 ```
 https://twitter.com/*
 ```
 
-Metamärgi režiimis tähendab `*` seda, et see sobitab kõigega (= null või rohkem märki).
+Wildcard režiimis tähendab `*` seda, et see sobitub mis tahes (= null või rohkem märki).
 
-Kuid pidage meeles. `twitter.com` nimetati ümber `x.com`-iks. Saate lihtsalt asendada `twitter.com` `x.com`-iga, kuid keegi ei tea, millal uus omanik oma meelt uuesti muudab ja selle tagasi pöörab. Seepärast suuname mõlemale, `twitter.com`-ile ja `x.com`-ile.
+Kuid oot-oot. `twitter.com` nimetati ümber `x.com`-iks. Saate lihtsalt asendada `twitter.com`-i `x.com`-iga, kuid keegi ei tea, millal uus omanik oma meelt uuesti muudab, et see tagasi pöörata. Seetõttu sihtime nii `twitter.com`-i kui ka `x.com`-i.
 
-Selleks lülitage metamärgilt [regulaaravaldisele](rule-settings?id=regular-expression) ja määrake see mustriks:
+Selleks lülitage Wildcardilt [Regular Expression](rule-settings#url-pattern-regular-expression)-ile ja määrake see mustriks:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: see sihib nii `twitter`-it kui ka `x`-i. (`|`-i nimetatakse *püstratturiks*.)
-* `.*`: See on sama mis metamärgi `*`. Täpsemalt, `.` tähendab *mis tahes märki* ja `*` tähendab *kõike enne seda sümbolit, mis on kordunud mis tahes arv kordi*, mille tulemusena sobitab see kõigega.
+*   `(twitter|x)`: see sihib nii `twitter`-it kui ka `x`-i. (`|` nimetatakse *toruks*.)
+*   `.*`: see on sama mis Wildcardi `*`. Täpsemalt, `.` tähendab *mis tahes märki* ja `*` tähendab *kõike enne seda sümbolit, mis on kordunud mis tahes arv kordi*, mistõttu see sobib kõigele.
 
-Regulaaravaldis on veidi keeruline, kuid kui sellega harjute, on see võimas tööriist. Soovitame kasutada [RegExr](https://regexr.com) mänguväljakuna, et analüüsida, kuidas teie regulaaravaldise muster töötab.
+Regulaaravaldised on pisut keerulised, kuid kui olete nendega harjunud, on see võimas tööriist. Soovitame kasutada [RegExr](https://regexr.com)-i kui mänguväljakut, et analüüsida, kuidas teie regulaaravaldise muster töötab.
 
-> [!MÄRKUS]
-> Regulaaravaldistes käsitletakse `.` `(twitter|x).com` puhul samuti kui *mis tahes märki*. Seetõttu sobib `(twitter|x).com/.*` näiteks ka `twitter1com/` või `x_com/`.
-> 
-> Selle vältimiseks saate seda muuta `(twitter|x)\.com/.*`. `\` kasutatakse erimärgi escapesimiseks.
+> [!NOTE]
+> Regulaaravaldistes käsitletakse `.`-i `(twitter|x).com`-is ka kui *mis tahes märki*. Seega sobib `(twitter|x).com/.*` ka näiteks `twitter1com/` või `x_com/`.
 >
-> Üldises internetikeskkonnas selliseid URL-e aga ei ole. Seega võite soovi korral jätta `.` erimärgiks. Teie reegel on teie enda tarbeks, seega rakendage seda nii, nagu teile sobib.
+> Selle vältimiseks saate selle muuta `(twitter|x)\.com/.*`-iks. `\`-i kasutatakse erimärgi tühistamiseks.
+>
+> Kuid üldises internetikeskkonnas selliseid URL-e ei ole. Seega võite jätta `.` erimärgina, kui eelistate. Teie reegel on teie enda tarbeks, seega rakendage seda nii, nagu teile sobib.
 
-### Samm 2: Määra "Suuna siia"
+### 2. samm: Seadista "Redirect To"
 
-Lihtsalt määrake URL järgmiselt:
+Määrake URL lihtsalt järgmiselt:
 
 ```
 https://insighttimer.com/saraauster/guided-meditations/calm
 ```
 
-Nüüd suunab Redirect Web teid meditatsioonile, kui avate Twitteri!
+Nüüd viib Redirect Web teid Twitterile ligi pääsedes meditatsioonile!
 
 **[⬇️ Laadi reegel alla](/rules/reduce-twitter-addiction.redirectweb)**
 
-## Juhtum 2: Eemalda URL-ist päringuparameetrid
+## Juhtum 2: Kustuta URL-ist päringuparameetrid
 
-Oletame, et `example.com` URL-is on päringuparameeter `source=twitter` ja otsustasite selle eemaldada, et ennast anonüümseks muuta.
+Oletame, et URL-is `example.com` on päringuparameeter `source=twitter` ja otsustate selle eemaldada, et ennast anonüümseks muuta.
 
-Sel juhul on **Püüdmisrühma töötlemine** valik kõige lihtsam viis:
+Sel juhul on **Capturing Group Processing** valik kõige lihtsam viis:
 
-* **Suuna siit**: `https://example.com/*` (Metamärk)
-* **Suuna siia**: `$0`
-* **Püüdmisrühma töötlemine**:
-    * **Rühm**: `$0`
-    * **Protsess**: Asenda esinemised
-        * **Sihtmärk**: `&?source=[^&]*`
-        * **Asendus**: *(puudub)*
-        * **Tekstimuster**: Regulaaravaldis
+*   **Redirect From**: `https://example.com/*` (Wildcard)
+*   **Redirect To**: `$0`
+*   **Capturing Group Processing**:
+    *   **Group**: `$0`
+    *   **Process**: Replace Occurrences
+        *   **Target**: `&?source=[^&]*`
+        *   **Replacement**: *(puudub)*
+        *   **Text Pattern**: Regular Expression
 
 **[⬇️ Laadi reegel alla](/rules/remove-parameters.redirectweb)**
 
@@ -84,70 +83,70 @@ Kui soovite eemaldada rohkem parameetreid, lisage rohkem protsesse.
 
 ## Juhtum 3: Lisa URL-ile päringuparameetrid
 
-Oletame, et on olemas veebisait nimega `example.com`, mis näitab vaikimisi mobiilset paigutust, kuid te eelistate selle töölaua paigutust. Õnneks toetab veebisait `layout` päringuparameetrit, et määrata, millist paigutust veebisait kuvab. Loome reegli, mis lisab `layout=desktop` automaatselt.
+Oletame, et on veebisait nimega `example.com`, mis näitab vaikimisi mobiilset paigutust, kuid te eelistate selle töölaua paigutust. Õnneks toetab veebisait päringuparameetrit `layout`, et määrata, millist paigutust veebisait kuvab. Loome reegli, mis lisab automaatselt `layout=desktop`.
 
-Võib-olla arvate, et saate selle määrata järgmiselt:
+Võib-olla arvate, et saate selle määratleda järgmiselt:
 
-* **Suuna siit**: `https://example.com/.*` (Regulaaravaldis)
-* **Suuna siia**: `$0?layout=desktop`
+*   **Redirect From**: `https://example.com/.*` (Regular Expression)
+*   **Redirect To**: `$0?layout=desktop`
 
-`$0` viitab siht-URL-ile. Kui proovite avada `example.com/hello`, suunatakse teid ümber `example.com/hello?layout=desktop`-ile. Seda funktsiooni nimetatakse *asendamiseks*.
+`$0` viitab siht-URL-ile. Kui proovite avada `example.com/hello`, suunatakse teid ümber aadressile `example.com/hello?layout=desktop`. Seda funktsiooni nimetatakse *asendamiseks*.
 
-> [!NÕUANNE]
-> Asendamine on saadaval ka metamärgi režiimis, kuna see konverteeritakse sisemiselt regulaaravaldiseks.
+> [!TIP]
+> Asendamine on saadaval ka Wildcard režiimis, kuna see teisendatakse sisemiselt regulaaravaldiseks.
 
-Nende sätetega on aga mõned probleemid.
+Kuid nende sätetega on mõned probleemid.
 
-### Probleem 1: Lõpmatu tsükkel
+### Probleem 1: Lõputu tsükkel
 
-Praegune säte loob lõpmatu ümbersuunamistsükli, kuna `https://example.com/.*` sihib ka `https://example.com/hello?layout=desktop`-i.
+Praegune säte loob lõputu ümbersuunamise tsükli, kuna `https://example.com/.*` sihib ka `https://example.com/hello?layout=desktop`.
 
-Sel juhul saate määrata välistatud URL-mustri, mis võimaldab teil juurdepääsu ilma ümbersuunamiseta, näiteks regulaaravaldist kasutades:
+Sel juhul saate määrata välistatud URL-i mustri, mis võimaldab teil ligi pääseda ilma ümbersuunamiseta, näiteks regulaaravaldisega:
 
 ```
 .*[&?]layout=[^&]*.*
 ```
 
-* `.*`: Sobib kõigega
-* `[&?]`: Sobib kas `&`-i või `?`-ga
-* `[^&]*`: Sobib kõigega peale `&`-i
+*   `.*`: Sobib kõigele
+*   `[&?]`: Sobib kas `&`-le või `?`-le
+*   `[^&]*`: Sobib kõigele peale `&`
 
-### Probleem 2: Olemasolevaid parameetreid ei saa korralikult käsitleda
+### Probleem 2: Ei saa olemasolevaid parameetreid õigesti käsitleda
 
-Kui siht-URL-il on juba teisi päringuparameetreid, nagu `example.com/hello?theme=dark`, on sihtkoht `example.com/hello?theme=dark?layout=desktop` (URL-is on kaks `?`-märki), kuid parameetreid saab ühendada ainult `&`-iga. `?` erimärgina on lubatud ainult parameetrite alguses. Seega ei käsitleta seda kehtiva parameetrina.
+Kui siht-URL-il on juba teisi päringuparameetreid nagu `example.com/hello?theme=dark`, on sihtkohaks `example.com/hello?theme=dark?layout=desktop` (URL-is on kaks `?`), kuid parameetreid saate ühendada ainult `&`-iga. `?` kui erimärk on lubatud ainult parameetrite alguses. Seega seda ei käsitleta kehtiva parameetrina.
 
-Sel juhul muutke sätteid järgmiselt:
+Sel juhul muutke sätteid nii:
 
-* **Suuna siit**: `(https://example.com/[^?]*)(\?(.*))?`
-* **Suuna siia**: `$1?layout=desktop&$3`
+*   **Redirect From**: `(https://example.com/[^?]*)(\?(.*))?`
+*   **Redirect To**: `$1?layout=desktop&$3`
 
-Vaatame seda samm-sammult.
+Vaatame samm-sammult.
 
-* `(https://example.com/[^?]*)`: Sobib osaga kuni `?`-märgi eelmise märgini.
-    * `[^?]*` sobib kõigega peale `?`-märgi.
-    * See on mähitud `()`-märkidesse, et saaksite sellele hiljem `$1`-ga viidata.
-* `(\?(.*))?`: Sobib stringiga, mis algab `?`-ga, mis tähendab päringuparameetreid.
-    * See sobitab ka tühja stringiga mustri lõpus oleva `?` kvantifikaatori abil, mis *sobitab null või ühe korra*.
-    * Välimisele `()`-le ja sisemisele `()`-le saab hiljem viidata `$2` ja `$3`-ga.
+*   `(https://example.com/[^?]*)`: Sobib osale kuni `?` eelneva märgini.
+    *   `[^?]*` sobib kõigele peale `?`.
+    *   See on ümbritsetud `()`-ga, nii et saate sellele hiljem viidata `$1`-ga.
+*   `(\?(.*))?`: Sobib stringile, mis algab `?`-ga, mis tähendab päringuparameetreid.
+    *   See sobib ka tühjale stringile mustri lõpus oleva `?` kvantifikaatori abil, mis *sobib null või ühe korra*.
+    *   Välistele `()`-le ja sisemistele `()`-le saab hiljem viidata `$2` ja `$3`-ga.
 
-[RegExr](https://regexr.com) võib aidata teil üksikasjadest aru saada.
+[RegExr](https://regexr.com) võib aidata teil üksikasju mõista.
 
-> [!MÄRKUS]
-> RegExr näitab viga, kui te ei escapes `/`-i `\`-ga. Kuigi te saate seda escapesida, ei ole see nõutav, kuna Redirect Web kasutab Apple'i teistsugust mootorit, mis ei nõua escapesimist.
+> [!NOTE]
+> RegExr näitab viga, kui te `/`-i `\`-ga ei tühista. Kuigi saate seda tühistada, ei ole see nõutav, kuna Redirect Web kasutab teist Apple'i mootorit, mis ei nõua tühistamist.
 
-See ei ole täiuslik lahendus, kuna see suunab `example.com/hello` ümber `example.com/hello?layout=desktop&`-ile, mis sisaldab URL-i lõpus tarbetut `&`-märki. Üldiselt pole see suur probleem, kuid kui soovite seda eemaldada, saate kasutada *Püüdmisrühma töötlemist*.
+See ei ole täiuslik lahendus, kuna see suunab `example.com/hello` ümber `example.com/hello?layout=desktop&`-i, mis sisaldab URL-i lõpus ebavajalikku `&`. See ei ole üldiselt suur probleem, kuid kui soovite seda eemaldada, saate kasutada *Capturing Group Processing*-it.
 
 Kokkuvõttes on see lõplik väljund:
 
-* **Suuna siit**: `(https://example.com/[^?]*)((\?(.*))?)` (Regulaaravaldis)
-* **Suuna siia**: `$1?layout=desktop$3`
-* **Välistatud URL-muster**: `.*[&?]layout=[^&]*.*` (Regulaaravaldis)
-* **Püüdmisrühma töötlemine**:
-    * **Rühm**: `$3`
-    * **Protsess**: Asenda esinemised
-        * **Sihtmärk**: `\?(.*)`
-        * **Asendus**: `&$1`
+*   **Redirect From**: `(https://example.com/[^?]*)((\?(.*))?)` (Regular Expression)
+*   **Redirect To**: `$1?layout=desktop$3`
+*   **Excluded URL Pattern**: `.*[&?]layout=[^&]*.*` (Regular Expression)
+*   **Capturing Group Processing**:
+    *   **Group**: `$3`
+    *   **Process**: Replace Occurrences
+        *   **Target**: `\?(.*)`
+        *   **Replacement**: `&$1`
 
 **[⬇️ Laadi reegel alla](/rules/add-parameters.redirectweb)**
 
-See on pelgalt näide. Võite luua ka mitu reeglit iga probleemi käsitlemiseks. See võib olla palju lihtsam.
+See on kõigest näide. Võite luua ka mitu reeglit iga probleemi käsitlemiseks. See võib olla palju lihtsam.

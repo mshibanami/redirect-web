@@ -1,49 +1,49 @@
 # Noteikumu iestatījumi
 
-Šajā lapā ir sniegta detalizēta informācija par katru iestatījumu novirzīšanas tīmekļa lietotnes (Redirect Web app) ekrānā "Rediģēt noteikumu".
+Šajā lapā sniegta detalizēta informācija par katru iestatījumu lietotnes Redirect Web ekrānā Rediģēt noteikumu.
 
 ## Opcijas
 
-### Tips
+### Tips {#type}
 
-Norādiet opciju **Tips**, lai kontrolētu, kā lietotne apstrādā novirzīšanu. Varat izvēlēties no šīm iespējām:
+Norādiet opciju **Tips**, lai kontrolētu, kā lietotne veic novirzīšanu. Varat izvēlēties no šīm:
 
-*   **Oriģinālais** (noklusējums)
-    *   Tas izmanto tradicionālos tīmekļa API, lai kontrolētu novirzīšanu. Papildus tam tas izmanto [cilnes API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) kā atkāpšanās iespēju.
-        *   Pārlūkprogrammā Firefox tas izmanto [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest), lai apstrādātu novirzīšanu.
-    *   Jūs varat izmantot visas opcijas, izņemot [Resursu tipus](#resource-types) un [Pieprasījumu metodes](#request-methods).
-    *   Tas ir lēnāks nekā *Deklaratīvais* tips un var izraisīt papildu tīkla pieprasījumus.
-*   **DNR** (eksperimentāls Safari pārlūkprogrammai):
-    *   Šis tips darbojas daudz ātrāk nekā oriģinālais tips, jo tas neuzsāk tīkla pieprasījumu avota URL.
-    *   Tas ļauj norādīt [Resursu tipus](#resource-types) un [Pieprasījumu metodes](#request-methods).
-    *   ⚠️ Jūs nevarat izmantot dažas opcijas, piemēram, [Uztveršanas grupas apstrādi](#capturing-group-processing) un [Izslēgtos URL modeļus](#excluded-url-patterns), jo tās vēl neatbalsta DNR API.
-    *   ⚠️ Pārlūkprogrammā Safari pašlaik jūs nevarat iekļaut caurules (`|`) savā regulārās izteiksmes modelī. [Detaļas](https://github.com/mshibanami/redirect-web/issues/44)
-    *   ⚠️ Tā kā Safari DNR API joprojām ir dažas problēmas, mēs uzskatām, ka tā joprojām ir eksperimentāla funkcija pārlūkprogrammai Safari. Visu zināmo problēmu sarakstu varat atrast [šeit](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+* **Oriģināls** (noklusējums)
+    * Tiek izmantoti tradicionālie tīmekļa API, lai kontrolētu novirzīšanu. Papildus tiek izmantots [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) kā rezerves variants.
+        * Firefox pārlūkprogrammā tiek izmantots [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest), lai veiktu novirzīšanu.
+    * Varat izmantot visas opcijas, izņemot [Resursu tipi](#resource-types) un [Pieprasījumu metodes](#request-methods).
+    * Šis tips ir lēnāks nekā *Deklaratīvais* tips un var radīt papildu tīkla pieprasījumus.
+* **DNR** (eksperimentāls Safari pārlūkprogrammai):
+    * Šis tips darbojas daudz ātrāk nekā oriģinālais tips, jo tas neuzsāk tīkla pieprasījumu avota URL.
+    * Tas ļauj norādīt [Resursu tipus](#resource-types) un [Pieprasījumu metodes](#request-methods).
+    * ⚠️ Nevarat izmantot dažas opcijas, piemēram, [Sagūstīšanas grupu apstrāde](#capturing-group-processing) un [Izslēgto URL modeļi](#excluded-url-patterns), jo tās vēl neatbalsta DNR API.
+    * ⚠️ Safari pārlūkprogramā pašlaik nevarat iekļaut caurules (`|`) savā regulārās izteiksmes modelī. [Sīkāka informācija](https://github.com/mshibanami/redirect-web/issues/44)
+    * ⚠️ Tā kā Safari DNR API joprojām ir dažas problēmas, mēs uzskatām, ka tā joprojām ir eksperimentāla funkcija Safari. Visu zināmo problēmu sarakstu varat atrast [šeit](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Novirzīt no
+### Novirzīt no {#redirect-from}
 
-Opcija **Novirzīt no** ļauj norādīt tīmekļa lapu URL modeli, no kurām vēlaties veikt novirzīšanu. Varat izvēlēties vai nu [Aizstājējzīmi (Wildcard)](#wildcard), vai [Regulāro izteiksmi (Regular Expression)](#regular-expression).
+Opcija **Novirzīt no** ļauj norādīt tīmekļa lapu URL modeli, no kurām vēlaties veikt novirzīšanu. Varat izvēlēties [Aizstājējzīmi](#wildcard) vai [Regulāro izteiksmi](#regular-expression).
 
 Piemēram, ja norādāt `https://example.com/*` ar aizstājējzīmi, tas atbilst `https://example.com/` vai `https://example.com/hello`.
 
 > [!NOTE]
-> Opcijā "Novirzīt uz" jūs varat atsaukties uz visu atbilstību, izmantojot `$0`, vai daļējām atbilstībām, izmantojot `$1`, `$2`, ... Skatiet detaļas sadaļā [URL modelis](#url-pattern) šajā lapā.
+> Opcijā Novirzīt uz, varat atsaukties uz visu atbilstību, izmantojot `$0`, vai uz daļējām atbilstībām, izmantojot `$1`, `$2`, ... Sīkāku informāciju skatiet šīs lapas sadaļā [URL modelis](#url-pattern).
 
-#### Resursu tipi
+#### Resursu tipi {#resource-types}
 
 ![Atbalstītie tipi: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-Opcija **Resursu tipi** ļauj norādīt tīmekļa pieprasījumu kategorijas, piemēram, attēlus, JavaScript failus un stila lapas, uz kurām attiecas noteikums.
-Piemēram, ja iestatāt `script`, varat novirzīt JavaScript failus, ko ielādē tīmekļa lapas.
+Opcija **Resursu tipi** ļauj norādīt tīmekļa pieprasījumu kategorijas, piemēram, attēlus, JavaScript un stilu lapas, uz kurām attiecas noteikums.
+Piemēram, ja iestatāt `script`, varat novirzīt JavaScript failus, kurus ielādē tīmekļa lapas.
 
-Pašlaik ir pieejami šādi tipi:
+Pašlaik ir pieejami šādi:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
-Noklusējuma iestatījums ir `main_frame`, kas ir augšējā līmeņa lapa, kas ielādēta cilnē.
+Noklusējuma iestatījums ir `main_frame`, kas ir augstākā līmeņa lapa, kas ielādēta cilnē.
 
-Lūdzu, pārbaudiet katra resursu tipa detaļas [mdn web dokumentācijā](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+Lūdzu, pārbaudiet katra resursa tipa detaļas [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Pieprasījumu metodes
+#### Pieprasījumu metodes {#request-methods}
 
 ![Atbalstītie tipi: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -51,127 +51,127 @@ Opcija **Pieprasījumu metodes** ļauj iestatīt avota URL mērķa HTTP metodes.
 
 Visas metodes ir iestatītas pēc noklusējuma.
 
-Lūdzu, pārbaudiet katras metodes detaļas [mdn web dokumentācijā](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+Lūdzu, pārbaudiet katras metodes detaļas [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 > [!WARNING]
-> Pārlūkprogrammā Safari šī opcija var nebūt pieejama, jo Apple DNR tipa implementācija pašlaik to, šķiet, neatbalsta. Mēs nosūtījām atsauksmes Apple kā FB14502272.
+> Safari pārlūkprogrammā šī opcija var nebūt pieejama, jo Apple DNR tipa ieviešana pašlaik to, šķiet, neatbalsta. Mēs nosūtījām atsauksmes Apple kā FB14502272.
 
-#### Mērķa pārlūkprogrammas
+#### Mērķa pārlūkprogrammas {#target-browsers}
 
 ![Atbalstītās platformas: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Opcija **Mērķa pārlūkprogrammas** ļauj norādīt, uz kuru pārlūkprogrammu noteikums ir jāpiemēro vai nav jāpiemēro.
+Opcija **Mērķa pārlūkprogrammas** ļauj norādīt, uz kuru pārlūkprogrammu noteikums jāattiecina vai nav jāattiecina.
 
-*   Varat izvēlēties 2 veidu pārlūkprogrammas:
-    *   **Pārlūkprogrammas, ko varat izvēlēties pēc noklusējuma**: Pēc noklusējuma varat izvēlēties Safari, Chrome, Firefox, Edge, Opera, Arc, Brave un Vivaldi. Tas neatšķir vienas pārlūkprogrammas variantus, piemēram, Safari un Safari Technology Preview.
-    *   **Lietotāja norādītas pārlūkprogrammas**: Nospiežot pogu "Pievienot" uznirstošajā logā, varat izvēlēties jebkuru citu pārlūkprogrammu, izņemot Safari vai Safari Technology Preview, kurā ir instalēts Redirect Web paplašinājums.
-*   Izvēles rūtiņa **Visi, izņemot atlasītos** ļauj mērķēt uz visām pārlūkprogrammām, izņemot tās, kuras esat izvēlējies.
+* Ir divu veidu pārlūkprogrammas, kuras varat izvēlēties:
+    * **Pārlūkprogrammas, kuras varat izvēlēties pēc noklusējuma**: Pēc noklusējuma varat izvēlēties Safari, Chrome, Firefox, Edge, Opera, Arc, Brave un Vivaldi. Tas neatšķir vienas un tās pašas pārlūkprogrammas variantus, piemēram, Safari un Safari Technology Preview.
+    * **Lietotāja norādītās pārlūkprogrammas**: Pieskaroties pogai Pievienot uznirstošajā logā, varat atlasīt jebkuru pārlūkprogrammu, izņemot Safari vai Safari Technology Preview, kurā ir instalēts Redirect Web paplašinājums.
+* Izvēles rūtiņa **Visas, izņemot atlasītās** ļauj atlasīt visas pārlūkprogrammas, izņemot tās, kuras esat izvēlējies.
 
 > [!WARNING]
-> Redirect Web nevar atšķirt, vai pārlūkprogramma ir **Safari** vai **Safari Technology Preview**, jo lietotne pārbauda paplašinājuma galveno procesu, lai to noteiktu, bet šīs abas pārlūkprogrammas izmanto vienu un to pašu galveno procesu (`/sbin/launchd`).
+> Redirect Web nevar atšķirt, vai pārlūkprogramma ir **Safari** vai **Safari Technology Preview**, jo lietotne pārbauda paplašinājuma primāro procesu, lai to noteiktu, bet šīs divas pārlūkprogrammas izmanto vienu un to pašu primāro procesu (`/sbin/launchd`).
 
-### Novirzīt uz
+### Novirzīt uz {#redirect-to}
 
-Opcija **Novirzīt uz** norāda mērķa URL, uz kuru vēlaties novirzīt no avota URL, kas atbilst opcijai *Novirzīt no*. Varat arī aizstāt uztveršanas grupas ar `$1`, `$2`, ... vai visu atbilstību ar `$0`. Tas palīdz dinamiski norādīt galamērķi. Pārbaudiet detaļas sadaļā [URL modelis](#url-pattern) šajā lapā.
+Opcija **Novirzīt uz** norāda mērķa URL, uz kuru vēlaties novirzīt no avota URL, kas atbilst opcijai *Novirzīt no*. Varat arī aizstāt sagūstīšanas grupas ar `$1`, `$2`, ... vai visu atbilstību ar `$0`. Tie palīdz dinamiski norādīt galamērķi. Sīkāku informāciju skatiet šīs lapas sadaļā [URL modelis](#url-pattern).
 
 Piemēram, ja iestatāt šādu noteikumu:
 
-*   **Novirzīt no**: `https://google.com/*` (Aizstājējzīme)
-*   **Novirzīt uz**: `https://apple.com/$1`
+* **Novirzīt no**: `https://google.com/*` (Aizstājējzīme)
+* **Novirzīt uz**: `https://apple.com/$1`
 
 un tas atbilst `https://google.com/hello`, tad mērķa URL būs `https://apple.com/hello`.
 
-Turklāt varat modificēt `$1`, `$2`, ... tekstus pirms aizstāšanu veikšanas. Detaļas skatiet sadaļā [Uztveršanas grupas apstrāde](#capturing-group-processing).
+Turklāt varat modificēt tekstu `$1`, `$2`, ... pirms aizstāšanas. Sīkāku informāciju skatiet sadaļā [Sagūstīšanas grupu apstrāde](#capturing-group-processing).
 
 > [!TIP]
-> Varat norādīt pielāgotu URL shēmu, lai atvērtu lietotni. Šie ir lietotņu piemēri, kas atbalsta dziļo saiti (deep linking):
+> Varat norādīt pielāgotu URL shēmu, lai atvērtu lietotni. Šie ir piemēri lietotnēm, kas atbalsta dziļās saites:
 >
-> *   Figma: `figma://file/Your_Figma_ID`
-> *   Firefox: `firefox://open-url?url=https://example.com/hello`
-> *   Google Chrome: `googlechromes://example.com`
-> *   Microsoft Edge: `microsoft-edge://example.com`
-> *   Notion: `notion://www.notion.so/Your_Note_ID`
-> *   Slack: `slack://open`
+> * Figma: `figma://file/Your_Figma_ID`
+> * Firefox: `firefox://open-url?url=https://example.com/hello`
+> * Google Chrome: `googlechromes://example.com`
+> * Microsoft Edge: `microsoft-edge://example.com`
+> * Notion: `notion://www.notion.so/Your_Note_ID`
+> * Slack: `slack://open`
 
-#### Lietojumprogramma
+#### Lietojumprogramma {#application}
 
-![Atbalstītie tipi: Oriģinālais](https://img.shields.io/badge/Types-Original-blue) ![Atbalstītās platformas: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+![Atbalstītie tipi: Oriģināls](https://img.shields.io/badge/Types-Original-blue) ![Atbalstītās platformas: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Ja vēlaties norādīt lietotni, ar kuru vēlaties atvērt mērķa URL, izmantojiet kombinēto lodziņu **Lietojumprogramma**. Tas ir pieejams tikai operētājsistēmā macOS.
+Ja vēlaties norādīt lietotni, ar kuru vēlaties atvērt mērķa URL, izmantojiet kombinēto lodziņu **Lietojumprogramma**. Tas ir pieejams tikai macOS.
 
 > [!WARNING]
-> Varat atvērt tikai tādas lietotnes, kas atbalsta [Lietotņu Smilšukasti (App Sandbox)](https://developer.apple.com/documentation/security/app_sandbox). Tāpat pārliecinieties, vai lietotne atbalsta to URL atvēršanu, ko vēlaties atvērt.
+> Varat atvērt tikai lietotni, kas atbalsta [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Tāpat pārliecinieties, vai lietotne atbalsta URL atvēršanu, kuru vēlaties atvērt.
 
-### Uztveršanas grupas apstrāde
+### Sagūstīšanas grupu apstrāde {#capturing-group-processing}
 
-![Atbalstītie tipi: Oriģinālais](https://img.shields.io/badge/Types-Original-blue)
+![Atbalstītie tipi: Oriģināls](https://img.shields.io/badge/Types-Original-blue)
 
-Opcija **Uztveršanas grupas apstrāde** ļauj norādīt, kā apstrādāt uztvertās grupas, kuras varat aizstāt opcijā *Novirzīt uz* ar `$1`, `$2`...
+Opcija **Sagūstīšanas grupu apstrāde** ļauj norādīt, kā apstrādāt sagūstītās grupas, kuras varat aizstāt opcijā *Novirzīt uz* ar `$1`, `$2`...
 
-Lūk, kā veidot uztveršanas grupas:
+Lūk, kā veidot sagūstīšanas grupas:
 
-*   **Aizstājējzīme (Wildcard)**: Teksti, kas atbilst `*` un `?`, tiek automātiski uztverti.
-*   **Regulārā izteiksme (Regular Expression)**: Teksti, kas atbilst modeļa daļai iekš `()`, tiek uztverti.
+* **Aizstājējzīme**: Teksti, kas atbilst `*` un `?`, tiek automātiski sagūstīti.
+* **Regulārā izteiksme**: Teksti, kas atbilst modeļa daļai iekš `()`, tiek sagūstīti.
 
 Varat izvēlēties vienu vai vairākus no šiem procesiem:
 
-*   **URL kodēšana/dekodēšana**: Tas pielieto [procentu kodēšanu](https://en.wikipedia.org/wiki/Percent-encoding) vai dekodēšanu uztveršanas grupai. Piemēram, ja jūs kodējat `https://example.com/hello`, tas tiek pārvērsts par `https%3A%2F%2Fexample.com%2Fhello`. Dekodēšana darbojas pretējā virzienā.
-*   **Base64 kodēšana/dekodēšana**: Tas dekodē/kodē tekstu uz [Base64](https://en.wikipedia.org/wiki/Base64). Piemēram, jūs varat kodēt `hello` uz `aGVsbG8=`, un dekodēt to atpakaļ uz `hello`.
-*   **Aizstāt gadījumus**: Tas aizstāj vienu vai vairākus rakstzīmes grupā, kas atbilst **Mērķim**, ar **Aizstājēju**. Piemēram, ja *Grupa* ir `hello` un *Mērķis* ir `l` un Aizstājējs ir `y`, tas tiek modificēts uz `heyyo`.
+* **URL kodēšana/dekodēšana**: Tas lieto [procentu kodēšanu](https://en.wikipedia.org/wiki/Percent-encoding) vai dekodēšanu sagūstīšanas grupai. Piemēram, ja kodējat `https://example.com/hello`, tas tiek konvertēts uz `https%3A%2F%2Fexample.com%2Fhello`. Dekodēšana darbojas pretēji.
+* **Base64 kodēšana/dekodēšana**: Tas dekodē/kodē tekstu uz [Base64](https://en.wikipedia.org/wiki/Base64). Piemēram, varat kodēt `hello` uz `aGVsbG8=`, un dekodēt to atpakaļ uz `hello`.
+* **Aizstāt atkārtojumus**: Tas aizstāj vienu vai vairākus rakstzīmes grupā, kas atbilst **Mērķim**, ar **Aizstājēju**. Piemēram, ja *Grupa* ir `hello` un *Mērķis* ir `l` un Aizstājējs ir `y`, tas tiek modificēts uz `heyyo`.
 
 > [!NOTE]
-> Tas ir paredzēts katras uztveršanas grupas apstrādei, un tas neietekmē to, kuri URL tiek izslēgti ar [Izslēgtajiem URL modeļiem](#excluded-url-patterns). Piemēram, pieņemsim, ka jums ir šāds noteikums:
+> Tas ir paredzēts katras sagūstīšanas grupas apstrādei, un tas neietekmē, kuri URL tiek izslēgti ar [Izslēgto URL modeļiem](#excluded-url-patterns). Piemēram, pieņemsim, ka jums ir šāds noteikums:
 >
-> *   **Novirzīt no**: `https://example.com/(hello.*)`
-> *   **Uztveršanas grupas apstrāde**:
->     *   Grupa: `$1`
->     *   Mērķis: `.*` (Regulārā izteiksme)
->     *   Aizstājējs: `hello`
-> *   **Izslēgtais URL modelis**: `https://example.com/hello`
+> * **Novirzīt no**: `https://example.com/(hello.*)`
+> * **Sagūstīšanas grupu apstrāde**:
+>     * Grupa: `$1`
+>     * Mērķis: `.*` (Regulārā izteiksme)
+>     * Aizstājējs: `hello`
+> * **Izslēgto URL modelis**: `https://example.com/hello`
 >
 > Šajā gadījumā `https://example.com/hello_world` netiks izslēgts, savukārt `https://example.com/hello` tiks izslēgts.
 
-### Izslēgtie URL modeļi
+### Izslēgto URL modeļi {#excluded-url-patterns}
 
-![Atbalstītie tipi: Oriģinālais](https://img.shields.io/badge/Types-Original-blue)
+![Atbalstītie tipi: Oriģināls](https://img.shields.io/badge/Types-Original-blue)
 
-Opcija **Izslēgtie URL modeļi** ļauj norādīt URL, kas netiek novirzīti. Tas var būt noderīgi, lai izvairītos no novirzīšanas cilpām vai lai izslēgtu noteiktas tīmekļa vietnes daļas no novirzīšanas.
+Opcija **Izslēgto URL modeļi** ļauj norādīt URL, kas netiek novirzīti. Tas var būt noderīgi, lai izvairītos no novirzīšanas cilpām vai lai izslēgtu noteiktas tīmekļa vietnes daļas no novirzīšanas.
 
-Varat norādīt izslēgtos URL modeļus, izmantojot regulāro izteiksmi vai aizstājējzīmju (Wildcard) modeļu tipus.
+Izslēgtos URL modeļus varat norādīt, izmantojot regulāro izteiksmi vai aizstājējzīmju modeļa tipus.
 
-### Piemēri
+### Piemēri {#examples}
 
-Opcija **Piemēri** ļauj pārbaudīt jūsu novirzīšanas noteikumu, nodrošinot piemēru URL. Pievienojot piemēra URL, varat pārbaudīt, vai noteikums darbojas, kā paredzēts, pirms to faktiski piemērojat.
+Opcija **Piemēri** ļauj jums pārbaudīt savu novirzīšanas noteikumu, nodrošinot piemēru URL. Pievienojot piemēra URL, varat pārbaudīt, vai noteikums darbojas, kā paredzēts, pirms to faktiski piemērot.
 
-### Komentāri
+### Komentāri {#comments}
 
-Opcija **Komentāri** ļauj pievienot piezīmes vai komentārus par jūsu novirzīšanas noteikumu. Tas var būt noderīgi, lai sekotu līdzi tam, kāpēc esat izveidojis konkrētu noteikumu, vai lai sniegtu kontekstu citiem, kas varētu aplūkot jūsu noteikumus.
+Opcija **Komentāri** ļauj pievienot jebkādas piezīmes vai komentārus par jūsu novirzīšanas noteikumu. Tas var būt noderīgi, lai sekotu līdzi tam, kāpēc izveidojāt konkrētu noteikumu, vai lai sniegtu kontekstu citiem, kuri varētu aplūkot jūsu noteikumus.
 
-## URL modelis
+## URL modelis {#url-pattern}
 
-Ir 3 opcijas, kurās varat norādīt vienu vai vairākus URL modeļus. *Novirzīt no*, *Izslēgtie URL modeļi* un *Uztveršanas grupas apstrāde*. Lai tos norādītu, varat izvēlēties vai nu **Aizstājējzīmi (Wildcard)**, vai **Regulāro izteiksmi (Regular Expression)**.
+Ir 3 opcijas, kurās varat norādīt vienu vai vairākus URL modeļus. *Novirzīt no*, *Izslēgto URL modeļi* un *Sagūstīšanas grupu apstrāde*. Lai tos norādītu, varat izvēlēties vai nu **Aizstājējzīmi**, vai **Regulāro izteiksmi**.
 
-### Aizstājējzīme (Wildcard)
+### Aizstājējzīme {#url-pattern-wildcard}
 
 **Aizstājējzīme** ir vienkāršāks modeļa tips, kas ļauj izmantot `*` (atbilst jebkam) un `?` (atbilst jebkurai vienai rakstzīmei) kā aizstājējzīmes. Lūk, daži piemēri:
 
-*   Lai atbilstu `https://example.com/hello`, varat izmantot `https://example.com/*`. Tas atbildīs jebkurai virknei pēc `https://example.com/`.
-*   Lai atbilstu `https://example.com/search?q=hello`, varat izmantot `https://example.com/search?q=*`. Tas atbildīs jebkurai vērtībai `q` parametram.
-*   Lai atbilstu jebkuram URL, kas satur vārdu `blog`, varat izmantot `*blog*`.
+* Lai atbilstu `https://example.com/hello`, varat izmantot `https://example.com/*`. Tas atbilsts jebkurai virknei pēc `https://example.com/`.
+* Lai atbilstu `https://example.com/search?q=hello`, varat izmantot `https://example.com/search?q=*`. Tas atbilsts jebkurai vērtībai parametram `q`.
+* Lai atbilstu jebkuram URL, kas satur vārdu `blog`, varat izmantot `*blog*`.
 
-Varat izmantot arī aizstāšanu ar aizstājējzīmi, kas nozīmē, ka varat atsaukties uz atbilstošā URL daļām, izmantojot `$1`, `$2` utt. Piemēram, ja izmantojat `https://example.com/*-world-*` un URL ir `https://example.com/hello-world-goodbye`, tad `$1` būtu "hello" un `$2` būtu "goodbye". Ir pieejams arī `$0`, lai atsauktos uz visu atbilstošo URL.
+Aizstājējzīmē varat izmantot arī aizstāšanu, kas nozīmē, ka varat atsaukties uz atbilstošā URL daļām, izmantojot `$1`, `$2` utt. Piemēram, ja izmantojat `https://example.com/*-world-*` un URL ir `https://example.com/hello-world-goodbye`, tad `$1` būtu "hello" un `$2` būtu "goodbye". `$0` ir pieejams arī, lai atsauktos uz visu atbilstošo URL.
 
 > [!Note]
-> Lai gan aizstāšana ir regulārās izteiksmes funkcija, to varat izmantot arī aizstājējzīmei, jo Redirect Web iekšēji pārvērš aizstājējzīmi par regulāro izteiksmi.
+> Lai gan aizstāšana ir regulāro izteiksmju funkcija, to var izmantot arī aizstājējzīmēm, jo Redirect Web iekšēji pārvērš aizstājējzīmes par regulārām izteiksmēm.
 
-### Regulārā izteiksme (Regular Expression)
+### Regulārā izteiksme {#url-pattern-regular-expression}
 
-**Regulārā izteiksme** (Regex) ir spēcīgs rīks modeļu saskaņošanai tekstā, ko nodrošina Apple regulārās izteiksmes dzinējs, kas aprakstīts [šeit](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Tas ļauj definēt specifisku modeli, kas atbilst virkņu kopai. Lūk, daži piemēri.
+**Regulārā izteiksme** (Regex) ir jaudīgs rīks modeļu saskaņošanai tekstā, ko nodrošina Apple regulāro izteiksmju dzinējs, kas aprakstīts [šeit](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Tas ļauj definēt specifisku modeli, kas atbilst virknei tekstu. Lūk, daži piemēri.
 
--   Lai atbilstu `https://example.com/hello`, varat izmantot `https://example.com/(.*)`. Tas atbildīs jebkurai virknei pēc `https://example.com/` un saglabās to uztveršanas grupā.
--   Lai atbilstu `https://example.com/search?q=hello`, varat izmantot `https://example.com/search\?q=(.*)`. Tas atbildīs `q` parametra vērtībai un saglabās to uztveršanas grupā.
--   Lai atbilstu jebkuram URL, kas satur vārdu `blog`, varat izmantot `.*blog.*`.
+- Lai atbilstu `https://example.com/hello`, varat izmantot `https://example.com/(.*)`. Tas atbilsts jebkurai virknei pēc `https://example.com/` un saglabās to sagūstīšanas grupā.
+- Lai atbilstu `https://example.com/search?q=hello`, varat izmantot `https://example.com/search\?q=(.*)`. Tas atbilsts parametra `q` vērtībai un saglabās to sagūstīšanas grupā.
+- Lai atbilstu jebkuram URL, kas satur vārdu `blog`, varat izmantot `.*blog.*`.
 
-Varat atsaukties uz uztveršanas grupām *Novirzīt uz* vai *Aizstāšana* ar `$1`, `$2`, ... vai `$0`, lai atsauktos uz visu atbilstību.
+Varat atsaukties uz sagūstīšanas grupām *Novirzīt uz* vai *Aizstājējs* ar `$1`, `$2`, ... vai `$0`, lai atsauktos uz visu atbilstību.
 
 Plašāku informāciju par Regex sintaksi var atrast tādos resursos kā [RegExr](https://regexr.com/).

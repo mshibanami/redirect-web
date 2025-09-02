@@ -5,79 +5,79 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # GYIK
 
-## Miért kell engedélyeznem a bővítménynek, hogy olvassa/módosítsa az adataimat?
+## Miért kell engedélyeznem az bővítménynek, hogy olvassa/módosítsa az adataimat? {#why-allow-extension-to-read-change}
 
-A Redirect Web beállításakor egy ehhez hasonló figyelmeztetést láthat:
+A Redirect Web beállításakor a következőhöz hasonló figyelmeztetést láthat:
 
 <IfBrowserStore stores='appStore'>
     <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow={true} />
 
-    > Ez a bővítmény képes lesz olvasni és módosítani a weboldalakat, valamint megtekinteni a böngészési előzményeit ezen a webhelyen. **Ez érzékeny információkat is tartalmazhat, beleértve jelszavakat, telefonszámokat és hitelkártyákat.**
+    > Ez a bővítmény képes lesz weboldalak olvasására és módosítására, valamint böngészési előzményeinek megtekintésére ezen a weboldalon. **Ez érzékeny információkat is tartalmazhat, beleértve jelszavakat, telefonszámokat és hitelkártyákat.**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
 
-    > Képes:
-    > Az **összes adatát** olvasni és módosítani **minden webhelyen**
+    > Képes:  
+    > Olvasni és módosítani **minden adatát** **minden weboldalon**
 </IfBrowserStore>
 
-Ez a bővítmény engedélyt igényel az oldalnavigáció figyeléséhez, hogy átirányíthasson oda, ahová ugrani szeretne, és a böngészője akkor jeleníti meg ezt, amikor a bővítmény a kapcsolódó engedélyeket kéri. Ezért, ha nem engedélyezi, ez a bővítmény nem fog működni.
+Ez a bővítmény engedélyt kér, hogy megfigyelje az oldalnavigációt, hogy oda irányítson át, ahova ugrani szeretne, és a böngészője ezt akkor jeleníti meg, amikor a bővítmény kéri a kapcsolódó engedélyeket. Ezért, ha nem engedélyezi, ez a bővítmény nem fog működni.
 
-A megadott engedélyek kizárólag az alkalmazás funkcióira (pl. átirányítás) lesznek felhasználva, a **[adatvédelmi szabályzatnak](./privacy-policy)** megfelelően.
+A megadott engedélyeket csak az alkalmazás funkcióira (például átirányításra) használjuk fel, a **[adatvédelmi szabályzattal](./privacy-policy)** összhangban.
 
-## Kell-e még letöltenem az alkalmazást a Chrome, Firefox vagy Edge bővítmény telepítése után? \{#app-for-non-safari-browsers}
+## Szükséges-e még letölteni az alkalmazást a Chrome, Firefox vagy Edge bővítmény telepítése után? {#app-for-non-safari-browsers}
 
-Igen. Függetlenül attól, hogy melyik böngészőt használja, le kell töltenie [a Redirect Web alkalmazást az App Store-ból](https://apps.apple.com/app/id1571283503). A bővítményt telepítheti a böngészője bővítménytárából, de az alkalmazás szükséges a szabályok, a vásárlási előzmények és egyéb beállítások kezeléséhez az iCloudon keresztül az eszközök között.
+Igen. Függetlenül attól, hogy melyik böngészőt használja, le kell töltenie [a Redirect Web alkalmazást az App Store-ból](https://apps.apple.com/app/id1571283503). A bővítményt telepítheti a böngészője bővítménytárából, de az alkalmazás szükséges a szabályok, a vásárlási előzmények és egyéb beállítások kezeléséhez az eszközökön keresztül az iCloudon keresztül.
 
-## Működik a Redirect Web Windows, Android, Linux vagy más platformokon? \{#non-apple-platforms}
+## Működik-e a Redirect Web Windows, Android, Linux vagy más platformokon? {#non-apple-platforms}
 
-Jelenleg nem. A Redirect Web szorosan kötődik az Apple ökoszisztémájához, beleértve az iCloudot és az univerzális vásárlást, ami megnehezíti az ezeken a platformokon való kínálását.
+Jelenleg nem. A Redirect Web szorosan kapcsolódik az Apple ökoszisztémájához, beleértve az iCloudot és az Universal Purchase funkciót, ami megnehezíti a kínálatát.
 
-## Miért ne [Redirector](https://github.com/einaregilsson/Redirector)?
+## Miért nem [Redirector](https://github.com/einaregilsson/Redirector)? {#why-not-redirector}
 
-A Redirector továbbra is egy nagyszerű átirányító bővítmény. Teljesen ingyenes, nyílt forráskódú, és Apple-től eltérő platformokon is működik. De a Redirect Web néhány extra funkcióval rendelkezik, amelyek tetszhetnek Önnek:
+A Redirector továbbra is egy nagyszerű átirányító bővítmény. Teljesen ingyenes, nyílt forráskódú, és nem Apple platformokon is működik. De a Redirect Web néhány extra funkciót is kínál, amelyeket esetleg kedvelni fog:
 
-*   **Részletes szabálybeállítások:** Több kizárási minta, több folyamatillesztés és karakterlánc-csere funkciók csak a Redirect Webben érhetők el.
-*   **Megnyitás natív alkalmazásokban:** Macen kiválaszthatja, hogy hova nyissa meg a cél URL-t. (Közvetlenül az `open` parancsot hívja. Nem mélyhivatkozásokat.)
+*   **Részletes szabálybeállítások:** Több kizárási minta, több folyamategyezés és karakterlánc-csere funkciók csak a Redirect Webben érhetők el.
+*   **Megnyitás natív alkalmazásokban:** Mac-en kiválaszthatja, hol nyissa meg a cél URL-t. (Közvetlenül az `open` parancsot hívja. Nem mélylinkeket.)
 *   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) támogatás:** Villámgyors átirányítást biztosít.
-*   **Központosított szabálykezelés:** Az összes böngészőhöz tartozó szabályokat egy helyen kezelheti a natív alkalmazáson keresztül.
+*   **Centralizált szabálykezelés:** Kezelje az összes böngésző szabályait egy helyen a natív alkalmazáson keresztül.
 *   **Manifest V3 & V2 támogatás:** Hasznos, amíg a V2-t kivonják a Chrome-ból.
 
-## Miért igényel ez a bővítmény új engedélyt? \{#permission-alert-on-safari}
+## Miért kér új engedélyt ez a bővítmény? {#permission-alert-on-safari}
 
 Lehet, hogy ezt a figyelmeztetést látja a Safariban a Redirect Web frissítése után:
 
 <img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
 
-> A "Redirect Web" frissült és további engedélyeket kér. A magánélete védelme érdekében ez a bővítmény ki lett kapcsolva.
+> A "Redirect Web" frissült, és további engedélyeket kér. Az Ön adatainak védelme érdekében ez a bővítmény ki lett kapcsolva.
 >
-> Ezt a bővítményt a Safari Beállítások „Bővítmények” szakaszában kapcsolhatja be.
+> Ezt a bővítményt a Safari Beállítások „Bővítmények” részében kapcsolhatja be.
 
 Ez a 7-es verzióban bevezetett [DNR](./rule-settings#type) típushoz szükséges [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) engedély miatt van. Kérjük, engedélyezze újra a bővítményt. Elnézést a kellemetlenségért.
 
-## A könyvtár tartalma fizetőssé válik a jövőben?
+## A könyvtár tartalma a jövőben fizetőssé válik? {#will-library-become-paid}
 
-Nem, mindig ingyenes marad. Az összes tartalom forrását [itt](https://github.com/mshibanami/redirect-web/tree/main/library) is megtalálja.
+Nem, mindig ingyenes marad. Az összes tartalom forrását [itt](https://github.com/mshibanami/redirect-web/tree/main/library) is megtalálhatja.
 
-## Egyszeri vásárlás vagy éves előfizetés: Melyik a jobb?
+## Egyszeri vásárlás vagy éves előfizetés: Melyik a jobb? {#one-time-or-subscription}
 
 Az egyszeri vásárlást javasoljuk, mivel az árkülönbség mindössze 2,00 USD.
-Az előfizetés fő oka az, hogy ingyenes próbaverzióval kipróbálhatja az összes funkciót. Íme a várható használati eset:
+Az előfizetés fő oka az, hogy az ingyenes próbaidőszakon keresztül kipróbálhassa az összes funkciót. Íme a várható használati eset:
 
-1.  Iratkozzon fel az éves előfizetésre.
-2.  Azonnal mondja le az előfizetést a Beállítások alkalmazásban, keresse meg az "Előfizetések" menüpontot, koppintson erre az alkalmazásra, és válassza az "Előfizetés lemondása" lehetőséget. Ez lehetővé teszi, hogy kötelezettség nélkül élvezze az ingyenes próbaverziót.
+1.  Fizessen elő az éves előfizetésre.
+2.  Azonnal mondja le az előfizetést: lépjen a Beállítások alkalmazásba, keressen rá az "Előfizetések" menüpontra, koppintson erre az alkalmazásra, majd válassza az "Előfizetés lemondása" lehetőséget. Ez lehetővé teszi az ingyenes próbaidőszak élvezetét bármilyen kötelezettség nélkül.
 3.  Élvezze a teljes hozzáférést az összes funkcióhoz 7 napig.
 4.  Ha tetszenek a funkciók, válassza az egyszeri vásárlást.
 
-Természetesen semmi baj nincs azzal, ha az éves előfizetés mellett dönt, ha azt preferálja!
+Természetesen semmi rossz nincs abban, ha az éves előfizetéssel folytatja, ha azt preferálja!
 
-## A Redirect Web injektál hirdetéseket vagy más, nem kapcsolódó tartalmat a weboldalakba?
+## Befecskendez-e hirdetéseket vagy más, nem releváns tartalmat a Redirect Web a weboldalakba? {#does-it-inject-ads}
 
-Nem, nem injektál ilyen tartalmat. Csak azokat a kódrészleteket injektálja a weboldalakba a Safariban, amelyek feltétlenül szükségesek a jelen dokumentációban és az App Store alkalmazásoldalán leírt funkciók biztosításához.
+Nem, nem fecskendez be semmilyen ilyen tartalmat. Csak azok a kódok kerülnek befecskendezésre a Safari weboldalaiba, amelyek a dokumentációban és az App Store alkalmazásoldalán leírt funkciók biztosításához szükségesek.
 
-## Van esély arra, hogy a Redirect Webet valaha eladják valaki másnak?
+## Van esély arra, hogy a Redirect Web valaha másnak eladásra kerüljön? {#could-it-be-sold}
 
-100%-ig nem. A böngészőbővítmények mélyen ellenőrzik a böngészést és az adatokat, és a Redirect Web más tulajdonosnak való átadása lehetőséget nyitna a magánélet megsértésére. Láttunk már olyan bővítményeket, amelyek tulajdonost cseréltek, majd figyelmeztetés nélkül gyűjtöttek felhasználói adatokat vagy injektáltak hirdetéseket. Ez itt soha nem fog megtörténni. További információkért ezekről a kockázatokról lásd Matt Frisbie cikkét ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) és Brian Krebs vizsgálatát ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100%-ban nem. A böngészőbővítmények mélyen belelátnak a böngészésbe és az adatokba, és a Redirect Web átadása egy másik tulajdonosnak megnyitná az ajtót az adatvédelmi jogsértések előtt. Láttunk már olyan bővítményeket, amelyek tulajdonost cseréltek, majd figyelmeztetés nélkül felhasználói adatokat gyűjtöttek vagy hirdetéseket fecskendeztek be. Ez itt soha nem fog megtörténni. További információkért ezekről a kockázatokról lásd Matt Frisbie cikkét ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) és Brian Krebs vizsgálatát ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-A Redirect Web a bizalomra és a felelősségre épül. Kötelességünknek tekintjük az Ön adatainak biztonságát, és semmilyen körülmények között nem vagyunk hajlandóak átruházni a tulajdonjogot. A Redirect Web mindig a mi kezünkben marad, így teljes bizalommal böngészhet.
+A Redirect Web a bizalomra és a felelősségre épül. Kötelességünknek tekintjük az Ön adatainak biztonságban tartását, és semmilyen körülmények között nem adjuk át a tulajdonjogot. A Redirect Web mindig a mi kezünkben marad, így teljes bizalommal böngészhet.

@@ -1,78 +1,78 @@
 # Regelindstillinger
 
-Denne side giver detaljeret information om hver indstilling på skærmen Rediger regel i Redirect Web-appen.
+Denne side giver detaljerede oplysninger om hver indstilling i skærmbilledet Rediger regel i Redirect Web-appen.
 
 ## Indstillinger
 
-### Type
+### Type {#type}
 
-Angiv indstillingen **Type** for at styre, hvordan appen håndterer omdirigering. Du kan vælge mellem disse:
+Angiv **Type**-indstillingen for at kontrollere, hvordan appen håndterer omdirigering. Du kan vælge mellem disse:
 
 *   **Original** (Standard)
-    *   Denne bruger traditionelle Web API'er til at styre omdirigering. Derudover bruger den [Tabs API'en](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) som et fallback.
+    *   Denne bruger traditionelle web-API'er til at kontrollere omdirigering. Derudover bruger den [Tabs API'en](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) som en reserve.
         *   I Firefox bruger den [WebRequest API'en](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) til at håndtere omdirigering.
     *   Du kan bruge alle indstillinger undtagen [Ressourcetyper](#resource-types) og [Anmodningsmetoder](#request-methods).
-    *   Denne er langsommere end *Declarative*-typen og kan forårsage ekstra netværksanmodninger.
+    *   Dette er langsommere end den *Declarative* type og kan forårsage ekstra netværksanmodninger.
 *   **DNR** (Eksperimentel for Safari):
     *   Denne type fungerer meget hurtigere end den originale type, fordi den ikke starter en netværksanmodning for kilde-URL'en.
     *   Dette giver dig mulighed for at angive [Ressourcetyper](#resource-types) og [Anmodningsmetoder](#request-methods).
-    *   ⚠️ Du kan ikke bruge visse indstillinger, såsom [Behandling af fange-grupper](#capturing-group-processing) og [Udelukkede URL-mønstre](#excluded-url-patterns), da de endnu ikke er understøttet af DNR API'en.
-    *   ⚠️ I Safari kan du i øjeblikket ikke inkludere pipe-tegn (`|`) i dit regulære udtryksmønster. [Detaljer](https://github.com/mshibanami/redirect-web/issues/44)
-    *   ⚠️ Da Safaris DNR API stadig har nogle problemer, betragter vi det stadig som en eksperimentel funktion for Safari. Du kan finde listen over alle de kendte problemer [her](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+    *   ⚠️ Du kan ikke bruge nogle indstillinger, såsom [Behandling af indfangende grupper](#capturing-group-processing) og [Udelukkede URL-mønstre](#excluded-url-patterns), da de endnu ikke understøttes af DNR API'et.
+    *   ⚠️ I Safari kan du i øjeblikket ikke inkludere pipes (`|`) i dit regulære udtryksmønster. [Detaljer](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ Da Safaris DNR API stadig har nogle problemer, betragter vi det som en eksperimentel funktion for Safari. Du kan finde listen over alle kendte problemer [her](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Omdiriger fra
+### Omdiriger fra {#redirect-from}
 
 Indstillingen **Omdiriger fra** giver dig mulighed for at angive et URL-mønster for websider, du vil omdirigere fra. Du kan vælge enten [Wildcard](#wildcard) eller [Regulært udtryk](#regular-expression).
 
 For eksempel, hvis du angiver `https://example.com/*` med Wildcard, matcher det `https://example.com/` eller `https://example.com/hello`.
 
 > [!NOTE]
-> I indstillingen Omdiriger til kan du referere til hele matchet ved hjælp af `$0` eller delvise matches ved hjælp af `$1`, `$2`, ... Se detaljerne i [URL-mønster](#url-pattern) på denne side.
+> I indstillingen Omdiriger til kan du referere til hele match ved hjælp af `$0` eller delvise match ved hjælp af `$1`, `$2`, ... Se detaljerne i [URL-mønster](#url-pattern) på denne side.
 
-#### Ressourcetyper
+#### Ressourcetyper {#resource-types}
 
 ![Understøttede typer: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-Indstillingen **Ressourcetyper** giver dig mulighed for at angive kategorierne af webanmodninger, såsom billeder, JavaScripts og typografiark, som reglen gælder for.
-Hvis du f.eks. indstiller `script`, kan du omdirigere JavaScript-filer indlæst af websider.
+Indstillingen **Ressourcetyper** giver dig mulighed for at angive kategorierne af webanmodninger, såsom billeder, JavaScripts og typografier, som reglen gælder for.
+For eksempel, hvis du indstiller `script`, kan du omdirigere JavaScript-filerne, der indlæses af websider.
 
-I øjeblikket er disse tilgængelige:
+Disse er i øjeblikket tilgængelige:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
-Standardindstillingen er `main_frame`, som er den øverste side, der indlæses i en fane.
+Standardindstillingen er `main_frame`, som er den topniveau-side, der indlæses i en fane.
 
-Kontroller detaljerne for hver ressourcetype i [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+Se detaljerne om hver ressourcetype i [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Anmodningsmetoder
+#### Anmodningsmetoder {#request-methods}
 
 ![Understøttede typer: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-Indstillingen **Anmodningsmetoder** giver dig mulighed for at indstille de målrettede HTTP-metoder for kilde-URL'en.
+Indstillingen **Anmodningsmetoder** giver dig mulighed for at angive mål-HTTP-metoderne for kilde-URL'en.
 
 Alle metoder er indstillet som standard.
 
-Kontroller detaljerne for hver metode i [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+Se detaljerne om hver metode i [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 > [!WARNING]
-> I Safari er denne indstilling muligvis ikke tilgængelig, fordi Apples implementering for DNR-typen ikke ser ud til at håndtere den i øjeblikket. Vi har sendt feedback til Apple som FB14502272.
+> I Safari er denne indstilling muligvis ikke tilgængelig, fordi Apples implementering for DNR-typen i øjeblikket ikke ser ud til at håndtere den. Vi har sendt feedback til Apple som FB14502272.
 
-#### Mål-browsere
+#### Mål-browsere {#target-browsers}
 
 ![Understøttede platforme: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
 Indstillingen **Mål-browsere** giver dig mulighed for at angive, hvilke browsere reglen skal eller ikke skal anvendes på.
 
 *   Der er 2 typer browsere, du kan vælge:
-    *   **Browsere du kan vælge som standard**: Du kan som standard vælge Safari, Chrome, Firefox, Edge, Opera, Arc, Brave og Vivaldi. Dette skelner ikke varianter af den samme browser, såsom Safari og Safari Technology Preview.
+    *   **Browsere du kan vælge som standard**: Du kan vælge Safari, Chrome, Firefox, Edge, Opera, Arc, Brave og Vivaldi som standard. Dette differentierer ikke varianter af den samme browser, såsom Safari og Safari Technology Preview.
     *   **Brugerdefinerede browsere**: Ved at trykke på knappen Tilføj i popoveren kan du vælge enhver browser udover Safari eller Safari Technology Preview, der har Redirect Web-udvidelsen installeret.
-*   Afkrydsningsfeltet **Alle undtagen valgte** lader dig målrette hver browser undtagen dem, du har valgt.
+*   Afkrydsningsfeltet **Alle undtagen valgte** giver dig mulighed for at målrette alle browsere undtagen dem, du har valgt.
 
 > [!WARNING]
-> Redirect Web kan ikke skelne, om browseren er **Safari** eller **Safari Technology Preview**, fordi appen kontrollerer udvidelsens overordnede proces for at registrere den, men disse to browsere deler den samme overordnede proces (`/sbin/launchd`).
+> Redirect Web kan ikke skelne, om browseren er **Safari** eller **Safari Technology Preview**, fordi appen kontrollerer udvidelsens forældreproces for at detektere den, men disse to browsere deler den samme forældreproces (`/sbin/launchd`).
 
-### Omdiriger til
+### Omdiriger til {#redirect-to}
 
-Indstillingen **Omdiriger til** angiver en destinations-URL, du ønsker at omdirigere til, fra den kilde-URL, der matcher indstillingen *Omdiriger fra*. Du kan også erstatte fange-grupper med `$1`, `$2`, ... eller hele matchet med `$0`. Disse hjælper dig med dynamisk at angive destinationen. Se detaljerne i [URL-mønster](#url-pattern) på denne side.
+Indstillingen **Omdiriger til** angiver en destinations-URL, du ønsker at omdirigere til, fra kilde-URL'en, der matches med indstillingen *Omdiriger fra*. Du kan også erstatte indfangende grupper med `$1`, `$2`, ... eller hele match med `$0`. Disse hjælper dig med dynamisk at angive destinationen. Se detaljerne i [URL-mønster](#url-pattern) på denne side.
 
 For eksempel, hvis du indstiller følgende regel:
 
@@ -81,10 +81,10 @@ For eksempel, hvis du indstiller følgende regel:
 
 og den matcher `https://google.com/hello`, så vil destinations-URL'en være `https://apple.com/hello`.
 
-Derudover kan du ændre teksterne i `$1`, `$2`, ... før du foretager erstatninger. Se afsnittet [Behandling af fange-grupper](#capturing-group-processing) for detaljer.
+Derudover kan du ændre teksterne `$1`, `$2`, ... før du foretager erstatninger. Se afsnittet [Behandling af indfangende grupper](#capturing-group-processing) for detaljer.
 
 > [!TIP]
-> Du kan angive et brugerdefineret URL-skema for at åbne en app. Disse er eksempler på apps, der understøtter dybdelinks:
+> Du kan angive et brugerdefineret URL-skema for at åbne en app. Disse er eksempler på apps, der understøtter deep linking:
 >
 > *   Figma: `figma://file/Your_Figma_ID`
 > *   Firefox: `firefox://open-url?url=https://example.com/hello`
@@ -93,37 +93,37 @@ Derudover kan du ændre teksterne i `$1`, `$2`, ... før du foretager erstatning
 > *   Notion: `notion://www.notion.so/Your_Note_ID`
 > *   Slack: `slack://open`
 
-#### Applikation
+#### Applikation {#application}
 
 ![Understøttede typer: Original](https://img.shields.io/badge/Types-Original-blue) ![Understøttede platforme: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Hvis du ønsker at angive en app, du ønsker at åbne destinations-URL'en med, skal du bruge rullemenuen **Applikation**. Dette er kun tilgængeligt på macOS.
+Hvis du vil angive en app, du ønsker at åbne destinations-URL'en med, skal du bruge kombinationsboksen **Applikation**. Dette er kun tilgængeligt på macOS.
 
 > [!WARNING]
-> Du kan kun åbne en app, der understøtter [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Sørg også for, at appen understøtter åbning af den URL, du vil åbne.
+> Du kan kun åbne en app, der understøtter [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Sørg også for, at appen understøtter åbning af den URL, du ønsker at åbne.
 
-### Behandling af fange-grupper
+### Behandling af indfangende grupper {#capturing-group-processing}
 
 ![Understøttede typer: Original](https://img.shields.io/badge/Types-Original-blue)
 
-Indstillingen **Behandling af fange-grupper** giver dig mulighed for at angive, hvordan de fangede grupper, du kan erstatte i indstillingen *Omdiriger til* med `$1`, `$2`..., skal behandles.
+Indstillingen **Behandling af indfangende grupper** giver dig mulighed for at angive, hvordan de indfangede grupper skal behandles, som du kan erstatte i indstillingen *Omdiriger til* med `$1`, `$2`...
 
-Disse er måder at lave fange-grupper på:
+Sådan oprettes indfangende grupper:
 
-*   **Wildcard**: Tekster matchet med `*` og `?` fanges automatisk.
-*   **Regulært udtryk**: Tekster matchet med en del af mønsteret inde i `()` fanges.
+*   **Wildcard**: Tekster, der matches med `*` og `?`, indfanges automatisk.
+*   **Regulært udtryk**: Tekster, der matches med en del af mønsteret inden for `()`, indfanges.
 
 Du kan vælge en eller flere af følgende processer:
 
-*   **URL Encode/Decode**: Dette anvender [procentkodning](https://en.wikipedia.org/wiki/Percent-encoding) eller afkodning på en fange-gruppe. Hvis du f.eks. koder `https://example.com/hello`, konverteres det til `https%3A%2F%2Fexample.com%2Fhello`. Afkodning fungerer på den modsatte måde.
-*   **Base64 Encode/Decode**: Dette afkoder/enkoder en tekst til [Base64](https://en.wikipedia.org/wiki/Base64). Du kan f.eks. kode `hello` til `aGVsbG8=`, og afkode det tilbage til `hello`.
-*   **Erstat forekomster**: Dette erstatter et eller flere tegn i en gruppe, matchet af et **Mål**, med en **Erstatning**. Hvis f.eks. *Gruppe* er `hello` og *Mål* er `l` og Erstatning er `y`, modificeres det til `heyyo`.
+*   **URL-kodning/-afkodning**: Dette anvender [procent-kodning](https://en.wikipedia.org/wiki/Percent-encoding) eller afkodning på en indfangende gruppe. Hvis du for eksempel koder `https://example.com/hello`, konverteres den til `https%3A%2F%2Fexample.com%2Fhello`. Afkodning fungerer modsat.
+*   **Base64-kodning/-afkodning**: Dette afkoder/koder en tekst til [Base64](https://en.wikipedia.org/wiki/Base64). Du kan for eksempel kode `hello` til `aGVsbG8=` og afkode det tilbage til `hello`.
+*   **Erstat forekomster**: Dette erstatter et eller flere tegn i en gruppe, matchet af et **Mål**, med en **Erstatning**. Hvis *Gruppe* for eksempel er `hello`, og *Mål* er `l`, og Erstatning er `y`, ændres den til `heyyo`.
 
 > [!NOTE]
-> Dette er til behandling af hver fange-gruppe, og det påvirker ikke, hvilke URL'er der udelukkes af [Udelukkede URL-mønstre](#excluded-url-patterns). Lad os f.eks. sige, at du har denne regel:
+> Dette er til behandling af hver indfangende gruppe, og det påvirker ikke, hvilke URL'er der udelukkes af [Udelukkede URL-mønstre](#excluded-url-patterns). Lad os for eksempel sige, at du har denne regel:
 >
 > *   **Omdiriger fra**: `https://example.com/(hello.*)`
-> *   **Behandling af fange-grupper**:
+> *   **Behandling af indfangende grupper**:
 >     *   Gruppe: `$1`
 >     *   Mål: `.*` (Regulært udtryk)
 >     *   Erstatning: `hello`
@@ -131,47 +131,47 @@ Du kan vælge en eller flere af følgende processer:
 >
 > I dette tilfælde vil `https://example.com/hello_world` ikke blive udelukket, mens `https://example.com/hello` vil blive udelukket.
 
-### Udelukkede URL-mønstre
+### Udelukkede URL-mønstre {#excluded-url-patterns}
 
 ![Understøttede typer: Original](https://img.shields.io/badge/Types-Original-blue)
 
-Indstillingen **Udelukkede URL-mønstre** giver dig mulighed for at angive de URL'er, der ikke omdirigeres. Dette kan være nyttigt for at undgå omdirigeringsløkker eller for at udelukke visse dele af en hjemmeside fra at blive omdirigeret.
+Indstillingen **Udelukkede URL-mønstre** giver dig mulighed for at angive de URL'er, der ikke omdirigeres. Dette kan være nyttigt for at undgå omdirigeringsløkker eller for at udelukke visse dele af et websted fra at blive omdirigeret.
 
-Du kan angive udelukkede URL-mønstre ved hjælp af enten Regulært udtryk eller Wildcard-mønstertyper.
+Du kan angive udelukkede URL-mønstre ved hjælp af enten regulære udtryk eller Wildcard-mønstertyper.
 
-### Eksempler
+### Eksempler {#examples}
 
-Indstillingen **Eksempler** giver dig mulighed for at teste din omdirigeringsregel ved at give eksempel-URL'er. Ved at tilføje en eksempel-URL kan du kontrollere, om reglen fungerer som forventet, før du faktisk anvender den.
+Indstillingen **Eksempler** giver dig mulighed for at teste din omdirigeringsregel ved at angive eksempel-URL'er. Ved at tilføje en eksempel-URL kan du kontrollere, om reglen fungerer som forventet, før den faktisk anvendes.
 
-### Kommentarer
+### Kommentarer {#comments}
 
-Indstillingen **Kommentarer** giver dig mulighed for at tilføje noter eller kommentarer om din omdirigeringsregel. Dette kan være nyttigt for at holde styr på, hvorfor du oprettede en specifik regel, eller for at give kontekst til andre, der måtte se dine regler.
+Indstillingen **Kommentarer** giver dig mulighed for at tilføje noter eller kommentarer til din omdirigeringsregel. Dette kan være nyttigt for at holde styr på, hvorfor du oprettede en specifik regel, eller for at give kontekst til andre, der måtte se dine regler.
 
-## URL-mønster
+## URL-mønster {#url-pattern}
 
-Der er 3 indstillinger, du kan angive et eller flere URL-mønstre for. *Omdiriger fra*, *Udelukkede URL-mønstre* og *Behandling af fange-grupper*. For at angive dem kan du vælge enten **Wildcard** eller **Regulært udtryk**.
+Der er 3 indstillinger, hvor du kan angive et eller flere URL-mønstre: *Omdiriger fra*, *Udelukkede URL-mønstre* og *Behandling af indfangende grupper*. For at angive dem kan du vælge enten **Wildcard** eller **Regulært udtryk**.
 
-### Wildcard
+### Wildcard {#url-pattern-wildcard}
 
-**Wildcard** er en simplere mønstertype, der giver dig mulighed for at bruge `*` (matcher alt) og `?` (matcher ethvert enkelt tegn) som wildcards. Her er nogle eksempler:
+**Wildcard** er en enklere mønstertype, der giver dig mulighed for at bruge `*` (matcher alt) og `?` (matcher ethvert enkelt tegn) som wildcards. Her er nogle eksempler:
 
-*   For at matche `https://example.com/hello`, kan du bruge `https://example.com/*`. Dette vil matche enhver streng efter `https://example.com/`.
-*   For at matche `https://example.com/search?q=hello`, kan du bruge `https://example.com/search?q=*`. Dette vil matche enhver værdi for `q`-parameteren.
+*   For at matche `https://example.com/hello` kan du bruge `https://example.com/*`. Dette vil matche enhver streng efter `https://example.com/`.
+*   For at matche `https://example.com/search?q=hello` kan du bruge `https://example.com/search?q=*`. Dette vil matche enhver værdi for `q`-parameteren.
 *   For at matche enhver URL, der indeholder ordet `blog`, kan du bruge `*blog*`.
 
-Du kan også bruge substitution i Wildcard, hvilket betyder, at du kan henvise til dele af den matchede URL ved hjælp af `$1`, `$2`, osv. Hvis du f.eks. bruger `https://example.com/*-world-*`, og URL'en er `https://example.com/hello-world-goodbye`, så vil `$1` være "hello" og `$2` vil være "goodbye". `$0` er også tilgængelig for at henvise til hele den matchede URL.
+Du kan også bruge substitution i Wildcard, hvilket betyder, at du kan referere til dele af den matchede URL ved hjælp af `$1`, `$2` osv. Hvis du for eksempel bruger `https://example.com/*-world-*`, og URL'en er `https://example.com/hello-world-goodbye`, så ville `$1` være "hello", og `$2` ville være "goodbye". `$0` er også tilgængelig til at referere til hele den matchede URL.
 
 > [!Note]
-> Selvom substitution er en funktion af Regulære udtryk, kan du også bruge den til Wildcard, fordi Redirect Web internt konverterer Wildcard til Regulære udtryk.
+> Selvom substitution er en funktion af regulære udtryk, kan du også bruge det til Wildcard, fordi Redirect Web internt konverterer Wildcard til regulære udtryk.
 
-### Regulært udtryk
+### Regulært udtryk {#url-pattern-regular-expression}
 
 **Regulært udtryk** (Regex) er et kraftfuldt værktøj til at matche mønstre i tekst, drevet af Apples regulære udtryksmotor, som er beskrevet [her](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Det giver dig mulighed for at definere et specifikt mønster, der matcher et sæt strenge. Her er nogle eksempler.
 
-- For at matche `https://example.com/hello`, kan du bruge `https://example.com/(.*)`. Dette vil matche enhver streng efter `https://example.com/` og gemme den i en fange-gruppe.
-- For at matche `https://example.com/search?q=hello`, kan du bruge `https://example.com/search\?q=(.*)`. Dette vil matche værdien af `q`-parameteren og gemme den i en fange-gruppe.
-- For at matche enhver URL, der indeholder ordet `blog`, kan du bruge `.*blog.*`.
+-   For at matche `https://example.com/hello` kan du bruge `https://example.com/(.*)`. Dette vil matche enhver streng efter `https://example.com/` og gemme det i en indfangende gruppe.
+-   For at matche `https://example.com/search?q=hello` kan du bruge `https://example.com/search\?q=(.*)`. Dette vil matche værdien af `q`-parameteren og gemme det i en indfangende gruppe.
+-   For at matche enhver URL, der indeholder ordet `blog`, kan du bruge `.*blog.*`.
 
-Du kan referere til fange-grupperne i *Omdiriger til* eller *Erstatning* ved hjælp af `$1`, `$2`, ... eller `$0` for at referere til hele matchet.
+Du kan referere til de indfangende grupper i *Omdiriger til* eller *Erstatning* ved hjælp af `$1`, `$2`, ... eller `$0` for at referere til hele match.
 
 Mere information om Regex-syntaks kan findes i ressourcer som [RegExr](https://regexr.com/).

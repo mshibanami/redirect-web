@@ -5,79 +5,78 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # 常见问题
 
-## 为什么我需要允许扩展程序读取/更改我的信息？
+## 为什么我需要允许扩展读取/更改我的信息？ {#why-allow-extension-to-read-change}
 
-当您设置 Redirect Web 时，您可能会看到如下警告：
+当您设置 Redirect Web 时，可能会看到类似这样的警告：
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow={true} />
+    <Image src={PermissionAlertSafari} alt="一个需要权限的警告" width="200" margin="0 0 16px 0" hasShadow={true} />
 
-    > 此扩展程序将能够读取和更改网页内容，并查看您在此网站上的浏览历史记录。**这可能包括敏感信息，如密码、电话号码和信用卡。**
+    > 此扩展将能够读取和更改网页，并查看您在此网站上的浏览历史记录。**这可能包括敏感信息，例如密码、电话号码和信用卡。**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="一个需要权限的警告" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
 
-    > 它可以：
+    > 它可以：  
     > 读取和更改**所有网站**上的**所有数据**
 </IfBrowserStore>
 
-此扩展程序需要您的权限才能观察页面导航，以便重定向到您想要跳转的位置。当扩展程序请求相关权限时，您的浏览器会显示此信息。因此，如果您不允许，此扩展程序将无法工作。
+此扩展需要您的许可才能观察页面导航，以便重定向到您想要跳转的任何位置；当扩展请求相关权限时，您的浏览器会显示此信息。因此，如果您不允许，此扩展将无法工作。
 
-所授予的权限将仅用于重定向等应用程序功能，并符合**[隐私政策](./privacy-policy)**。
+授予的权限将仅用于重定向等应用程序功能，并符合**[隐私政策](./privacy-policy)**。
 
-## 在为 Chrome、Firefox 或 Edge 安装扩展程序后，我还需要获取应用程序吗？ {#app-for-non-safari-browsers}
+## 为 Chrome、Firefox 或 Edge 安装扩展后，我还需要获取应用程序吗？ {#app-for-non-safari-browsers}
 
-是的。无论您使用哪种浏览器，都必须从 [App Store 下载 Redirect Web 应用程序](https://apps.apple.com/app/id1571283503)。您可以从浏览器扩展商店安装扩展程序，但该应用程序是管理您的规则、购买历史记录和通过 iCloud 在设备之间同步其他设置所必需的。
+是的。无论您使用哪种浏览器，都必须从 [App Store 下载 Redirect Web 应用程序](https://apps.apple.com/app/id1571283503)。您可以从浏览器的扩展商店安装扩展，但该应用程序是管理您的规则、购买历史记录和通过 iCloud 在设备之间同步其他设置所必需的。
 
-## Redirect Web 是否适用于 Windows、Android、Linux 或其他平台？ {#non-apple-platforms}
+## Redirect Web 是否适用于 Windows、Android、Linux 或任何其他平台？ {#non-apple-platforms}
 
-目前不适用。Redirect Web 与 Apple 的生态系统紧密相连，包括 iCloud 和通用购买，这使得在其他平台上提供变得困难。
+目前不适用。Redirect Web 与 Apple 的生态系统紧密相连，包括 iCloud 和通用购买，这使得在其他平台提供变得困难。
 
-## 为什么不选择 [Redirector](https://github.com/einaregilsson/Redirector)？
+## 为什么不选择 [Redirector](https://github.com/einaregilsson/Redirector)？ {#why-not-redirector}
 
-Redirector 仍然是一个很棒的重定向扩展程序。它完全免费、开源，并且也适用于非 Apple 平台。但是 Redirect Web 具有一些您可能会喜欢的额外功能：
+Redirector 仍然是一个很棒的重定向扩展。它完全免费、开源，并且也适用于非 Apple 平台。但 Redirect Web 包含一些您可能会喜欢的额外功能：
 
-*   **详细的规则设置**：Redirect Web 独有的多重排除模式、多重处理匹配和字符串替换功能。
-*   **在原生应用中打开**：在 Mac 上，您可以选择在何处打开目标 URL。（它直接调用 `open` 命令，而非深层链接。）
-*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) 支持**：提供极速重定向。
-*   **集中式规则管理**：通过原生应用程序在一个地方管理所有浏览器的规则。
-*   **Manifest V3 和 V2 支持**：在 V2 逐步淘汰的 Chrome 中很有帮助。
+*   **详细的规则设置：** 只有 Redirect Web 才提供多个排除模式、多个处理匹配和字符串替换功能。
+*   **在原生应用中打开：** 在 Mac 上，您可以选择在何处打开目标 URL。（它直接调用 `open` 命令。不是深层链接。）
+*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) 支持：** 提供极速重定向。
+*   **集中式规则管理：** 通过原生应用程序在一个地方管理所有浏览器的规则。
+*   **Manifest V3 和 V2 支持：** 在 Chrome 中 V2 逐步淘汰时提供帮助。
 
-## 为什么此扩展程序需要新权限？ {#permission-alert-on-safari}
+## 为什么此扩展需要新权限？ {#permission-alert-on-safari}
 
 更新 Redirect Web 后，您可能会在 Safari 中看到此警告：
 
 <img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
 
-> “Redirect Web”已更新并请求额外的权限。为保护您的隐私，此扩展程序已被关闭。
+> “Redirect Web”已更新并正在请求额外权限。为保护您的隐私，此扩展已被关闭。
 >
-> 您可以在 Safari 设置的“扩展程序”部分中打开此扩展程序。
+> 您可以在 Safari 设置的“扩展”部分中打开此扩展。
 
-这是因为版本 7 中引入的 [DNR](./rule-settings#type) 类型所需的 [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) 权限。请重新启用扩展程序。给您带来不便，敬请谅解。
+这是由于版本 7 中引入的 [DNR](./rule-settings#type) 类型需要 [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) 权限。请重新启用此扩展。对此造成的不便深表歉意。
 
-## 库的内容将来会收费吗？
+## 未来，库的内容会收费吗？ {#will-library-become-paid}
 
-不会，它始终是免费的。您还可以在[这里](https://github.com/mshibanami/redirect-web/tree/main/library)找到所有内容的源代码。
+不，它永远免费。您还可以在[此处](https://github.com/mshibanami/redirect-web/tree/main/library)找到所有内容的源代码。
 
-## 一次性购买还是年度订阅：哪个更好？
+## 一次性购买还是年度订阅：哪个更好？ {#one-time-or-subscription}
 
-我们推荐一次性购买，因为价格差异仅为 2.00 美元。
-我们提供订阅的主要原因是为了让您通过免费试用体验所有功能。以下是预期的使用场景：
+我们推荐一次性购买，因为价格差异仅为 2.00 美元。我们提供订阅的主要原因是为了让您通过免费试用来试用所有功能。以下是预期的使用场景：
 
 1.  订阅年度订阅。
-2.  立即通过前往“设置”应用，搜索“订阅”，点击此应用，然后选择“取消订阅”来取消订阅。这让您可以在没有任何承诺的情况下享受免费试用。
-3.  享受所有功能 7 天的完整访问权限。
+2.  立即取消订阅，方法是前往“设置”应用，搜索“订阅”，点击此应用，然后选择“取消订阅”。这让您可以享受免费试用，而无需任何承诺。
+3.  享受 7 天所有功能的完整访问权限。
 4.  如果您喜欢这些功能，请选择一次性购买。
 
-当然，如果您更喜欢年度订阅，继续使用也没有问题！
+当然，如果您更喜欢年度订阅，继续使用也完全没有问题！
 
-## Redirect Web 会在网站中注入广告或其他无关内容吗？
+## Redirect Web 会向网站注入广告或其他不相关内容吗？ {#does-it-inject-ads}
 
-不会，它不会注入任何此类内容。只有为提供本文档和 App Store 中应用页面上描述的功能所必需的代码才会被注入到 Safari 上的网站中。
+不，它不会注入任何此类内容。只有在 Safari 上向网站注入的，提供本文档和 App Store 应用程序页面中描述的功能所必需的代码。
 
-## Redirect Web 有可能被出售给其他人吗？
+## Redirect Web 有可能被出售给其他人吗？ {#could-it-be-sold}
 
-100% 不会。浏览器扩展程序对您的浏览和数据拥有深入的控制权，将 Redirect Web 转交给另一个所有者将为隐私侵犯打开大门。我们曾看到扩展程序易主后未经警告地收集用户数据或注入广告。这种情况绝不会在这里发生。有关这些风险的更多信息，请参阅 Matt Frisbie 的文章[《浏览器货币化的丑陋业务》](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser)和 Brian Krebs 的调查[《您的浏览器扩展程序是僵尸网络后门吗？》](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)。
+100% 不会。浏览器扩展对您的浏览和数据拥有深度控制权，将 Redirect Web 转交给另一个所有者将为隐私侵犯打开大门。我们曾见过扩展易手后，未经警告就收集用户数据或注入广告。这种情况绝不会发生在这里。有关这些风险的更多信息，请参阅 Matt Frisbie 的文章 [“浏览器变现的丑陋业务”](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) 和 Brian Krebs 的调查 [“您的浏览器扩展是僵尸网络后门吗？”](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)。
 
-Redirect Web 建立在信任和责任之上。我们认为保护您的信息是我们的职责，并且我们拒绝在任何情况下转让所有权。Redirect Web 将始终掌握在我们手中，因此您可以完全放心地浏览。
+Redirect Web 建立在信任和责任的基础上。我们认为保护您的信息安全是我们的职责，并且在任何情况下都拒绝转让所有权。Redirect Web 将始终掌握在我们手中，因此您可以完全放心地浏览。

@@ -1,48 +1,48 @@
 # 入门指南
 
-本页面描述了在 Redirect Web 应用中创建规则的常见用例。
+本页面介绍了在 Redirect Web 应用中创建规则的常见用例。
 
 （您也可以在[规则设置](./rule-settings)页面了解规则设置的详细信息。）
 
 ## 案例 1：打开另一个网站
 
-假设您沉迷于 Twitter，并决定在不小心打开 Twitter 时进行 Insight Timer 冥想。让我们为此创建一个规则！
+假设您沉迷于 Twitter，并决定每次不小心打开 Twitter 时，都到 Insight Timer 上冥想。让我们为此创建一个规则！
 
-### 步骤 1. 设置“从此处重定向”
+### 步骤 1. 设置“重定向来源”
 
-首先，您应该在应用中的“编辑规则”屏幕中设置“从此处重定向”部分。目标是 `https://twitter.com/` 开头的 URL。
+首先，您应该在应用中的“编辑规则”屏幕中设置 *重定向来源* 部分。目标是 `https://twitter.com/` 开头的 URL。
 
-在这种情况下，您可以使用[通配符](rule-settings?id=wildcard)模式指定以下模式：
+在这种情况下，您可以使用[通配符](rule-settings#url-pattern-wildcard)模式指定以下模式：
 
 ```
 https://twitter.com/*
 ```
 
-在通配符模式下，`*` 表示它匹配任何内容（= 零个或多个字符）。
+在通配符模式中，`*` 意味着它匹配任何内容（= 零个或多个字符）。
 
-但是，等一下。`twitter.com` 已更名为 `x.com`。您可以简单地将 `twitter.com` 替换为 `x.com`，但没人知道新所有者何时会再次改变主意将其改回。因此，让我们同时针对 `twitter.com` 和 `x.com`。
+但是，等一下。`twitter.com` 已改名为 `x.com`。您可以简单地将 `twitter.com` 替换为 `x.com`，但没有人知道新所有者何时会再次改变主意将其改回。因此，让我们同时针对 `twitter.com` 和 `x.com`。
 
-为此，请将通配符切换到[正则表达式](rule-settings?id=regular-expression)，并将其设置为模式：
+为此，请将模式从通配符切换到[正则表达式](rule-settings#url-pattern-regular-expression)，并将其设置为：
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`：它同时针对 `twitter` 和 `x`。（`|` 称为 *管道符*。）
-* `.*`：它与通配符的 `*` 相同。更具体地说，`.` 表示 *任何字符*，`*` 表示 *此符号之前重复任意次数的任何内容*，结果是它匹配任何内容。
+* `(twitter|x)`：它同时针对 `twitter` 和 `x`。（`|` 称为 *竖线*。）
+* `.*`：它与通配符的 `*` 相同。更具体地说，`.` 表示 *任意字符*，`*` 表示 *此符号之前的内容重复任意次数*，最终结果是它匹配任何内容。
 
-正则表达式有点复杂，但一旦习惯了，它将成为一个强大的工具。我们建议使用 [RegExr](https://regexr.com) 作为演练场来分析您的正则表达式模式如何工作。
+正则表达式有点复杂，但一旦您习惯了，它将是一个强大的工具。我们建议使用 [RegExr](https://regexr.com) 作为试验场来分析您的正则表达式模式如何工作。
 
 > [!NOTE]
-> 在正则表达式中，`(twitter|x).com` 中的 `.` 也被视为 *任何字符*。因此，`(twitter|x).com/.*` 也会匹配，例如 `twitter1com/` 或 `x_com/`。
-> 
-> 为了避免这种情况，您可以将其更改为 `(twitter|x)\.com/.*`。`\` 用于转义特殊字符。
+> 在正则表达式中，`(twitter|x).com` 中的 `.` 也被视为 *任意字符*。因此，`(twitter|x).com/.*` 也会匹配，例如 `twitter1com/` 或 `x_com/`。
+>
+> 为避免这种情况，您可以将其更改为 `(twitter|x)\.com/.*`。`\` 用于转义特殊字符。
 >
 > 然而，在一般的互联网环境中没有这样的 URL。因此，如果您愿意，可以将 `.` 保留为特殊字符。您的规则是供您自己使用的，因此请根据您的需要实施。
 
-### 步骤 2：设置“重定向到”
+### 步骤 2：设置“重定向目标”
 
-只需按如下方式指定 URL：
+只需指定以下 URL：
 
 ```
 https://insighttimer.com/saraauster/guided-meditations/calm
@@ -54,22 +54,22 @@ https://insighttimer.com/saraauster/guided-meditations/calm
 
 ## 案例 2：从 URL 中删除查询参数
 
-假设 `example.com` 的 URL 中有一个查询参数 `source=twitter`，您决定将其删除以匿名化自己。
+假设 `example.com` 的 URL 中有一个查询参数 `source=twitter`，您决定删除它以匿名自己。
 
-在这种情况下，“**捕获组处理**”选项是最简单的方法：
+在这种情况下，**捕获组处理 (Capturing Group Processing)** 选项是最简单的方法：
 
-* **从此处重定向**：`https://example.com/*`（通配符）
-* **重定向到**：`$0`
-* **捕获组处理**：
-    * **分组**：`$0`
-    * **处理**：替换匹配项
-        * **目标**：`&?source=[^&]*`
-        * **替换为**：*（无）*
-        * **文本模式**：正则表达式
+* **重定向来源 (Redirect From)**：`https://example.com/*` (通配符)
+* **重定向目标 (Redirect To)**：`$0`
+* **捕获组处理 (Capturing Group Processing)**：
+    * **组 (Group)**：`$0`
+    * **处理 (Process)**：替换所有匹配项 (Replace Occurrences)
+        * **目标 (Target)**：`&?source=[^&]*`
+        * **替换 (Replacement)**：*(无)*
+        * **文本模式 (Text Pattern)**：正则表达式 (Regular Expression)
 
 **[⬇️ 下载规则](/rules/remove-parameters.redirectweb)**
 
-此规则工作方式如下：
+此规则的工作方式如下：
 
 ```
 https://example.com/?source=twitter
@@ -79,29 +79,29 @@ https://example.com/?hello=world&source=twitter&foo=bar
 ↪ https://example.com/?hello=world&foo=bar
 ```
 
-如果您想删除更多参数，请添加更多处理。
+如果您想删除更多参数，请添加更多处理过程。
 
 ## 案例 3：向 URL 添加查询参数
 
-假设有一个名为 `example.com` 的网站默认显示移动布局，但您更喜欢其桌面布局。幸运的是，该网站支持 `layout` 查询参数来指定网站显示的布局。让我们创建一个自动添加 `layout=desktop` 的规则。
+假设有一个名为 `example.com` 的网站默认显示移动布局，但您更喜欢其桌面布局。幸运的是，该网站支持一个 `layout` 查询参数来指定网站显示的布局。让我们创建一个自动添加 `layout=desktop` 的规则。
 
 也许您认为可以按如下方式定义它：
 
-* **从此处重定向**：`https://example.com/.*`（正则表达式）
-* **重定向到**：`$0?layout=desktop`
+* **重定向来源 (Redirect From)**：`https://example.com/.*` (正则表达式)
+* **重定向目标 (Redirect To)**：`$0?layout=desktop`
 
-`$0` 引用目标 URL。如果您尝试访问 `example.com/hello`，您将被重定向到 `example.com/hello?layout=desktop`。此功能称为*替换*。
+`$0` 引用目标 URL。如果您尝试访问 `example.com/hello`，您将被重定向到 `example.com/hello?layout=desktop`。此功能称为 *替换 (substitution)*。
 
 > [!TIP]
-> 替换也适用于通配符模式，因为它在内部转换为正则表达式。
+> 替换也适用于通配符模式，因为它在内部被转换为正则表达式。
 
 但是，这些设置存在一些问题。
 
 ### 问题 1：无限循环
 
-当前的设置会创建一个无限重定向循环，因为 `https://example.com/.*` 也指向 `https://example.com/hello?layout=desktop`。
+当前的设置会创建一个无限重定向循环，因为 `https://example.com/.*` 也将 `https://example.com/hello?layout=desktop` 作为目标。
 
-在这种情况下，您可以指定一个排除的 URL 模式，允许您在不重定向的情况下访问，例如使用正则表达式：
+在这种情况下，您可以指定一个排除的 URL 模式，允许您在不重定向的情况下访问，如下所示，使用正则表达式：
 
 ```
 .*[&?]layout=[^&]*.*
@@ -109,44 +109,44 @@ https://example.com/?hello=world&source=twitter&foo=bar
 
 * `.*`：匹配任何内容
 * `[&?]`：匹配 `&` 或 `?`
-* `[^&]*`：匹配除 `&` 以外的任何内容
+* `[^&]*`：匹配除 `&` 之外的任何内容
 
 ### 问题 2：无法正确处理现有参数
 
-如果目标 URL 已经有其他查询参数，例如 `example.com/hello?theme=dark`，则目标将是 `example.com/hello?theme=dark?layout=desktop`（URL 中有两个 `?`），但您只能使用 `&` 连接参数。`?` 作为特殊字符只允许在参数的开头。因此它不被视为有效参数。
+如果目标 URL 已经有其他查询参数，例如 `example.com/hello?theme=dark`，则目的地将是 `example.com/hello?theme=dark?layout=desktop`（URL 中有两个 `?`），但您只能用 `&` 连接参数。`?` 作为特殊字符只允许出现在参数的开头。因此，它不被视为有效参数。
 
-在这种情况下，按如下方式更改设置：
+在这种情况下，更改设置如下：
 
-* **从此处重定向**：`(https://example.com/[^?]*)(\?(.*))?`
-* **重定向到**：`$1?layout=desktop&$3`
+* **重定向来源 (Redirect From)**：`(https://example.com/[^?]*)(\?(.*))?`
+* **重定向目标 (Redirect To)**：`$1?layout=desktop&$3`
 
 让我们一步一步地看一下。
 
 * `(https://example.com/[^?]*)`：匹配直到 `?` 前一个字符的部分。
-    * `[^?]*` 匹配除 `?` 以外的任何内容。
-    * 这用 `()` 括起来，以便您以后可以使用 `$1` 引用它。
+    * `[^?]*` 匹配除 `?` 之外的任何内容。
+    * 这被 `()` 包裹，因此您可以在稍后用 `$1` 引用它。
 * `(\?(.*))?`：匹配以 `?` 开头的字符串，即查询参数。
-    * 这也通过模式末尾的 `?` 量词匹配空字符串，该量词*匹配零次或一次*。
-    * 外部的 `()` 和内部的 `()` 可以在以后用 `$2` 和 `$3` 引用。
+    * 通过模式末尾的 `?` 量词，这也匹配空字符串，该量词 *匹配零次或一次*。
+    * 外部的 `()` 和内部的 `()` 可以在稍后用 `$2` 和 `$3` 引用。
 
-[RegExr](https://regexr.com) 可能会帮助您理解详细信息。
+[RegExr](https://regexr.com) 可能会帮助您理解细节。
 
 > [!NOTE]
-> 当您不使用 `\` 转义 `/` 时，RegExr 会显示错误。虽然您可以转义它，但这不是必需的，因为 Redirect Web 使用 Apple 的不同引擎，不需要转义。
+> 当您不使用 `\` 转义 `/` 时，RegExr 会显示错误。虽然您可以转义它，但这不是必需的，因为 Redirect Web 使用的是 Apple 的不同引擎，不需要转义。
 
-这不是一个完美的解决方案，因为它将 `example.com/hello` 重定向到 `example.com/hello?layout=desktop&`，其中 URL 末尾包含不必要的 `&`。通常这不是什么大问题，但如果您希望将其删除，可以使用*捕获组处理*。
+这不是一个完美的解决方案，因为它会将 `example.com/hello` 重定向到 `example.com/hello?layout=desktop&`，其中包含 URL 末尾不必要的 `&`。这通常不是什么大问题，但如果您希望将其删除，可以使用 *捕获组处理 (Capturing Group Processing)*。
 
-总之，这是最终输出：
+综上所述，这是最终的输出：
 
-* **从此处重定向**：`(https://example.com/[^?]*)((\?(.*))?)`（正则表达式）
-* **重定向到**：`$1?layout=desktop$3`
-* **排除的 URL 模式**：`.*[&?]layout=[^&]*.*`（正则表达式）
-* **捕获组处理**：
-    * **分组**：`$3`
-    * **处理**：替换匹配项
-        * **目标**：`\?(.*)`
-        * **替换为**：`&$1`
+* **重定向来源 (Redirect From)**：`(https://example.com/[^?]*)((\?(.*))?)` (正则表达式)
+* **重定向目标 (Redirect To)**：`$1?layout=desktop$3`
+* **排除的 URL 模式 (Excluded URL Pattern)**：`.*[&?]layout=[^&]*.*` (正则表达式)
+* **捕获组处理 (Capturing Group Processing)**：
+    * **组 (Group)**：`$3`
+    * **处理 (Process)**：替换所有匹配项 (Replace Occurrences)
+        * **目标 (Target)**：`\?(.*)`
+        * **替换 (Replacement)**：`&$1`
 
 **[⬇️ 下载规则](/rules/add-parameters.redirectweb)**
 
-这只是一个例子。您还可以创建多个规则来处理每个问题。这可以简单得多。
+这只是一个例子。您还可以创建多条规则来处理每个问题。这可能简单得多。

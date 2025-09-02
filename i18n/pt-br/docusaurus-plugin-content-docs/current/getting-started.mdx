@@ -2,41 +2,41 @@
 
 Esta página descreve casos de uso comuns para a criação de regras no aplicativo Redirect Web.
 
-(Você também pode aprender os detalhes das configurações de regras na página [Configurações de Regra](./rule-settings).)
+(Você também pode aprender os detalhes das configurações de regras na página [Configurações de Regras](./rule-settings).)
 
 ## Caso 1: Abrir outro site
 
-Suponha que você seja viciado em Twitter e decida meditar no Insight Timer sempre que, acidentalmente, abrir o Twitter. Vamos criar uma regra para isso!
+Suponha que você seja viciado em Twitter e decida meditar no Insight Timer sempre que acidentalmente abrir o Twitter. Vamos criar uma regra para isso!
 
 ### Passo 1. Configurar "Redirecionar De"
 
 Primeiro, você deve configurar a seção *Redirecionar De* na tela *Editar Regra* do aplicativo. Os alvos são URLs que começam com `https://twitter.com/`.
 
-Nesse caso, você pode especificar o seguinte padrão com o modo [Curinga (Wildcard)](rule-settings?id=wildcard):
+Nesse caso, você pode especificar o seguinte padrão com o modo [Coringa (Wildcard)](rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
 ```
 
-No modo Curinga, `*` significa que ele corresponde a qualquer coisa (= zero ou mais caracteres).
+No modo Coringa, `*` significa que ele corresponde a qualquer coisa (= zero ou mais caracteres).
 
-No entanto, espere. `twitter.com` foi renomeado para `x.com`. Você pode simplesmente substituir `twitter.com` por `x.com`, mas ninguém sabe quando o novo proprietário mudará de ideia novamente para reverter. Portanto, vamos direcionar tanto `twitter.com` quanto `x.com`.
+No entanto, espere. `twitter.com` foi renomeado para `x.com`. Você pode simplesmente substituir `twitter.com` por `x.com`, mas ninguém sabe quando o novo proprietário mudará de ideia novamente para reverter. Portanto, vamos ter como alvo tanto `twitter.com` quanto `x.com`.
 
-Para fazer isso, mude de Curinga para [Expressão Regular](rule-settings?id=regular-expression) e defina este como o padrão:
+Para fazer isso, mude de Coringa para [Expressão Regular](rule-settings#url-pattern-regular-expression) e defina este como o padrão:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-*   `(twitter|x)`: ele direciona tanto `twitter` quanto `x`. (`|` é chamado de *pipe*.)
-*   `.*`: É o mesmo que o `*` do Curinga. Mais especificamente, `.` significa *qualquer caractere* e `*` significa *qualquer coisa antes deste símbolo repetida qualquer número de vezes*, resultando em corresponder a qualquer coisa.
+* `(twitter|x)`: visa tanto `twitter` quanto `x`. (`|` é chamado de *pipe*.)
+* `.*`: É o mesmo que o `*` do Coringa. Mais especificamente, `.` significa *qualquer caractere* e `*` significa *qualquer coisa antes deste símbolo repetida qualquer número de vezes*, resultando em ele corresponder a qualquer coisa.
 
-Expressões Regulares são um pouco complicadas, mas uma vez que você se acostuma, elas se tornam uma ferramenta poderosa. Recomendamos usar o [RegExr](https://regexr.com) como um playground para analisar como seu padrão de Expressão Regular funciona.
+A Expressão Regular é um pouco complicada, mas uma vez que você se acostuma, torna-se uma ferramenta poderosa. Recomendamos usar o [RegExr](https://regexr.com) como um parque de testes para analisar como seu padrão de Expressão Regular funciona.
 
 > [!NOTA]
 > Em Expressões Regulares, `.` em `(twitter|x).com` também é tratado como *qualquer caractere*. Portanto, `(twitter|x).com/.*` também corresponde, por exemplo, a `twitter1com/` ou `x_com/`.
 >
-> Para evitar isso, você pode alterá-lo para `(twitter|x)\.com/.*`. `\` é usado para escapar um caractere especial.
+> Para evitar isso, você pode alterá-lo para `(twitter|x)\.com/.*`. `\` é usado para escapar de um caractere especial.
 >
 > No entanto, não existem tais URLs no ambiente geral da internet. Portanto, você pode deixar `.` como um caractere especial se preferir. Sua regra é para seu próprio uso, então implemente-a como achar melhor.
 
@@ -48,24 +48,24 @@ Basta especificar a URL da seguinte forma:
 https://insighttimer.com/saraauster/guided-meditations/calm
 ```
 
-Agora, o Redirect Web te levará para a meditação quando você acessar o Twitter!
+Agora, o Redirect Web leva você à meditação quando você acessa o Twitter!
 
 **[⬇️ Baixar a Regra](/rules/reduce-twitter-addiction.redirectweb)**
 
 ## Caso 2: Remover Parâmetros de Consulta da URL
 
-Suponha que exista um parâmetro de consulta `source=twitter` em uma URL de `example.com`, e você decidiu removê-lo para se anonimizar.
+Suponha que haja um parâmetro de consulta `source=twitter` em uma URL de `example.com`, e você decidiu removê-lo para se anonimizar.
 
 Nesse caso, a opção **Processamento de Grupo de Captura** é a maneira mais fácil:
 
-*   **Redirecionar De**: `https://example.com/*` (Curinga)
-*   **Redirecionar Para**: `$0`
-*   **Processamento de Grupo de Captura**:
-    *   **Grupo**: `$0`
-    *   **Processo**: Substituir Ocorrências
-        *   **Alvo**: `&?source=[^&]*`
-        *   **Substituição**: *(nenhum)*
-        *   **Padrão de Texto**: Expressão Regular
+* **Redirecionar De**: `https://example.com/*` (Coringa)
+* **Redirecionar Para**: `$0`
+* **Processamento de Grupo de Captura**:
+    * **Grupo**: `$0`
+    * **Processo**: Substituir Ocorrências
+        * **Alvo**: `&?source=[^&]*`
+        * **Substituição**: *(nenhum)*
+        * **Padrão de Texto**: Expressão Regular
 
 **[⬇️ Baixar a Regra](/rules/remove-parameters.redirectweb)**
 
@@ -83,70 +83,70 @@ Se você quiser remover mais parâmetros, adicione mais processos.
 
 ## Caso 3: Adicionar Parâmetros de Consulta à URL
 
-Digamos que existe um site chamado `example.com` que exibe um layout móvel por padrão, mas você prefere o layout de desktop. Felizmente, o site suporta um parâmetro de consulta `layout` para especificar qual layout o site deve exibir. Vamos criar uma regra que adicione `layout=desktop` automaticamente.
+Digamos que haja um site chamado `example.com` que exibe um layout móvel por padrão, mas você prefere o layout de desktop. Felizmente, o site suporta um parâmetro de consulta `layout` para especificar qual layout o site exibe. Vamos criar uma regra que adiciona `layout=desktop` automaticamente.
 
 Talvez você pense que poderia defini-lo da seguinte forma:
 
-*   **Redirecionar De**: `https://example.com/.*` (Expressão Regular)
-*   **Redirecionar Para**: `$0?layout=desktop`
+* **Redirecionar De**: `https://example.com/.*` (Expressão Regular)
+* **Redirecionar Para**: `$0?layout=desktop`
 
-`$0` faz referência à URL de destino. Se você tentar acessar `example.com/hello`, será redirecionado para `example.com/hello?layout=desktop`. Este recurso é chamado de *substituição*.
+`$0` referencia a URL de destino. Se você tentar acessar `example.com/hello`, você será redirecionado para `example.com/hello?layout=desktop`. Essa funcionalidade é chamada de *substituição*.
 
 > [!DICA]
-> A substituição também está disponível para o modo Curinga, pois ele é convertido internamente em Expressão Regular.
+> A substituição também está disponível para o modo Coringa, pois é convertida internamente para Expressão Regular.
 
-No entanto, existem alguns problemas com essas configurações.
+No entanto, há alguns problemas com essas configurações.
 
 ### Problema 1: Loop infinito
 
-A configuração atual cria um loop de redirecionamento infinito, pois `https://example.com/.*` também tem como alvo `https://example.com/hello?layout=desktop`.
+A configuração atual cria um loop de redirecionamento infinito, já que `https://example.com/.*` também tem como alvo `https://example.com/hello?layout=desktop`.
 
-Nesse caso, você pode especificar um padrão de URL excluído que permite acessar sem redirecionamento, como este com Expressão Regular:
+Nesse caso, você pode especificar um padrão de URL excluído que permite que você acesse sem redirecionamento, como este com Expressão Regular:
 
 ```
 .*[&?]layout=[^&]*.*
 ```
 
-*   `.*`: Corresponde a qualquer coisa
-*   `[&?]`: Corresponde a `&` ou `?`
-*   `[^&]*`: Corresponde a qualquer coisa, exceto `&`
+* `.*`: Corresponde a qualquer coisa
+* `[&?]`: Corresponde a `&` ou `?`
+* `[^&]*`: Corresponde a qualquer coisa, exceto `&`
 
 ### Problema 2: Não consegue lidar com parâmetros existentes corretamente
 
-Se a URL de destino já tiver outros parâmetros de consulta, como `example.com/hello?theme=dark`, o destino será `example.com/hello?theme=dark?layout=desktop` (Há dois `?` na URL), mas você só pode unir os parâmetros com `&`. `?` como caractere especial é permitido apenas no início dos parâmetros. Portanto, não é tratado como um parâmetro válido.
+Se a URL de destino já possui outros parâmetros de consulta como `example.com/hello?theme=dark`, o destino será `example.com/hello?theme=dark?layout=desktop` (Haverá dois `?` na URL), mas você só pode unir os parâmetros com `&`. `?` como caractere especial só é permitido no início dos parâmetros. Portanto, não é tratado como um parâmetro válido.
 
 Nesse caso, altere as configurações assim:
 
-*   **Redirecionar De**: `(https://example.com/[^?]*)(\?(.*))?`
-*   **Redirecionar Para**: `$1?layout=desktop&$3`
+* **Redirecionar De**: `(https://example.com/[^?]*)(\?(.*))?`
+* **Redirecionar Para**: `$1?layout=desktop&$3`
 
-Vamos analisar passo a passo.
+Vamos dar uma olhada passo a passo.
 
-*   `(https://example.com/[^?]*)`: Corresponde à parte até o caractere anterior a `?`.
-    *   `[^?]*` corresponde a qualquer coisa, exceto `?`.
-    *   Isso é envolto em `()` para que você possa referenciá-lo com `$1` mais tarde.
-*   `(\?(.*))?`: Corresponde a uma string que começa com `?`, o que significa parâmetros de consulta.
-    *   Isso também corresponde a uma string vazia pelo quantificador `?` no final do padrão, que *corresponde zero ou uma vez*.
-    *   O `()` externo e o `()` interno podem ser referenciados com `$2` e `$3` mais tarde.
+* `(https://example.com/[^?]*)`: Corresponde à parte anterior ao caractere `?`.
+    * `[^?]*` corresponde a qualquer coisa, exceto `?`.
+    * Isso é envolvido por `()` para que você possa referenciá-lo com `$1` mais tarde.
+* `(\?(.*))?`: Corresponde a uma string que começa com `?`, o que significa parâmetros de consulta.
+    * Isso também corresponde a uma string vazia pelo quantificador `?` no final do padrão, que *corresponde a zero ou uma vez*.
+    * Os `()` externos e os `()` internos podem ser referenciados com `$2` e `$3` mais tarde.
 
-O [RegExr](https://regexr.com) pode te ajudar a entender os detalhes.
+[RegExr](https://regexr.com) pode ajudar você a entender os detalhes.
 
 > [!NOTA]
 > O RegExr mostra um erro quando você não escapa `/` com `\`. Embora você possa escapá-lo, não é necessário, pois o Redirect Web usa um motor diferente da Apple que não exige o escape.
 
-Esta não é uma solução perfeita, pois redireciona `example.com/hello` para `example.com/hello?layout=desktop&`, que inclui um `&` desnecessário no final da URL. Geralmente não é um grande problema, mas se você quiser removê-lo, pode usar o *Processamento de Grupo de Captura*.
+Esta não é uma solução perfeita, pois redireciona `example.com/hello` para `example.com/hello?layout=desktop&`, o que inclui um `&` desnecessário no final da URL. Não é um grande problema em geral, mas se você deseja removê-lo, pode usar o *Processamento de Grupo de Captura*.
 
 Em conclusão, esta é a saída final:
 
-*   **Redirecionar De**: `(https://example.com/[^?]*)((\?(.*))?)` (Expressão Regular)
-*   **Redirecionar Para**: `$1?layout=desktop$3`
-*   **Padrão de URL Excluído**: `.*[&?]layout=[^&]*.*` (Expressão Regular)
-*   **Processamento de Grupo de Captura**:
-    *   **Grupo**: `$3`
-    *   **Processo**: Substituir Ocorrências
-        *   **Alvo**: `\?(.*)`
-        *   **Substituição**: `&$1`
+* **Redirecionar De**: `(https://example.com/[^?]*)((\?(.*))?)` (Expressão Regular)
+* **Redirecionar Para**: `$1?layout=desktop$3`
+* **Padrão de URL Excluído**: `.*[&?]layout=[^&]*.*` (Expressão Regular)
+* **Processamento de Grupo de Captura**:
+    * **Grupo**: `$3`
+    * **Processo**: Substituir Ocorrências
+        * **Alvo**: `\?(.*)`
+        * **Substituição**: `&$1`
 
 **[⬇️ Baixar a Regra](/rules/add-parameters.redirectweb)**
 
-Este é apenas um exemplo. Você também pode criar várias regras para lidar com cada problema. Pode ser muito mais simples.
+Isto é meramente um exemplo. Você também pode criar múltiplas regras para lidar com cada problema. Pode ser muito mais simples.

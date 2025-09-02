@@ -5,79 +5,79 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # SSS
 
-## Uzantının bilgilerimi okumasına/değiştirmesine neden izin vermeliyim?
+## Uzantının bilgilerimi okumasına/değiştirmesine neden izin vermeliyim? {#why-allow-extension-to-read-change}
 
-Redirect Web'i kurarken buna benzer bir uyarı görebilirsiniz:
+Redirect Web'i kurarken şöyle bir uyarı görebilirsiniz:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow={true} />
+    <Image src={PermissionAlertSafari} alt="İzin gerektiren bir uyarı" width="200" margin="0 0 16px 0" hasShadow={true} />
 
-    > Bu uzantı, web sayfalarını okuyabilir ve değiştirebilir, ayrıca bu web sitesindeki göz atma geçmişinizi görebilir. **Bu, şifreler, telefon numaraları ve kredi kartları dahil hassas bilgileri içerebilir.**
+    > Bu uzantı, bu web sitesindeki web sayfalarını okuyabilir ve değiştirebilir, ayrıca göz atma geçmişinizi görebilir. **Bu, parolalar, telefon numaraları ve kredi kartları dahil olmak üzere hassas bilgiler içerebilir.**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="İzin gerektiren bir uyarı" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
 
     > Şunları yapabilir:  
     > **Tüm web sitelerindeki tüm verilerinizi** okuyabilir ve değiştirebilir
 </IfBrowserStore>
 
-Bu uzantının, sayfa navigasyonunu gözlemleyerek gitmek istediğiniz yere yönlendirme yapabilmesi için izninize ihtiyacı vardır ve uzantı ilgili izinleri istediğinde tarayıcınız bunu görüntüler. Bu nedenle, izin vermezseniz bu uzantı çalışamaz.
+Bu uzantı, nereye gitmek istediğinizi yönlendirmek için sayfa gezintisini gözlemlemek için izninize ihtiyaç duyar ve tarayıcınız, uzantı ilgili izinleri talep ettiğinde bunu gösterir. Bu nedenle, izin vermezseniz bu uzantı çalışamaz.
 
 Verilen izinler, yalnızca yönlendirme gibi uygulama işlevleri için, **[gizlilik politikasına](./privacy-policy)** uygun olarak kullanılacaktır.
 
-## Chrome, Firefox veya Edge için uzantıyı yükledikten sonra yine de uygulamayı edinmeli miyim? \{#app-for-non-safari-browsers}
+## Chrome, Firefox veya Edge için uzantıyı yükledikten sonra bile uygulamayı edinmeli miyim? {#app-for-non-safari-browsers}
 
-Evet. Hangi tarayıcıyı kullanırsanız kullanın, [Redirect Web uygulamasını App Store'dan](https://apps.apple.com/app/id1571283503) indirmeniz gerekmektedir. Uzantıyı tarayıcınızın uzantı mağazasından yükleyebilirsiniz, ancak kurallarınızı, satın alma geçmişinizi ve iCloud aracılığıyla cihazlar arası diğer ayarlarınızı yönetmek için uygulama gereklidir.
+Evet. Hangi tarayıcıyı kullanırsanız kullanın, [Redirect Web uygulamasını App Store'dan](https://apps.apple.com/app/id1571283503) indirmeniz gerekir. Uzantıyı tarayıcınızın uzantı mağazasından yükleyebilirsiniz, ancak kurallarınızı, satın alma geçmişinizi ve iCloud aracılığıyla cihazlar arası diğer ayarlarınızı yönetmek için uygulama gereklidir.
 
-## Redirect Web Windows, Android, Linux veya başka platformlarda çalışıyor mu? \{#non-apple-platforms}
+## Redirect Web Windows, Android, Linux veya başka platformlarda çalışıyor mu? {#non-apple-platforms}
 
 Şu anda hayır. Redirect Web, iCloud ve Evrensel Satın Alma dahil olmak üzere Apple ekosistemine yakından bağlıdır, bu da onu sunmayı zorlaştırmaktadır.
 
-## Neden [Redirector](https://github.com/einaregilsson/Redirector) değil?
+## Neden [Redirector](https://github.com/einaregilsson/Redirector) değil? {#why-not-redirector}
 
 Redirector hala harika bir yönlendirme uzantısıdır. Tamamen ücretsiz, açık kaynaklıdır ve Apple dışı platformlarda da çalışır. Ancak Redirect Web'in beğenebileceğiniz bazı ek özellikleri vardır:
 
-*   **Detaylı Kural Ayarları:** Yalnızca Redirect Web'de bulunan çoklu hariç tutma desenleri, çoklu işlem eşleşmeleri ve dize değiştirme özellikleri.
-*   **Yerel uygulamalarda açma:** Mac'te, hedef URL'nin nerede açılacağını seçebilirsiniz. (Doğrudan `open` komutunu çağırır. Derin bağlantılar değil.)
+*   **Ayrıntılı Kural Ayarları:** Yalnızca Redirect Web'de bulunan birden fazla hariç tutma deseni, birden fazla işlem eşleşmesi ve dize değiştirme özellikleri.
+*   **Yerel uygulamalarda açma:** Mac'te, hedef URL'yi nerede açacağınızı seçebilirsiniz. (`open` komutunu doğrudan çağırır. Derin bağlantılar değil.)
 *   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) desteği:** Yıldırım hızında yönlendirme sağlar.
-*   **Merkezi kural yönetimi:** Yerel uygulama aracılığıyla tüm tarayıcılar için kuralları tek bir yerden yönetin.
+*   **Merkezi kural yönetimi:** Tüm tarayıcılar için kuralları yerel uygulama aracılığıyla tek bir yerden yönetin.
 *   **Manifest V3 ve V2 desteği:** V2'nin Chrome'da aşamalı olarak kaldırılması sırasında yardımcı olur.
 
-## Bu uzantı neden yeni bir izin gerektiriyor? \{#permission-alert-on-safari}
+## Bu uzantı neden yeni bir izin gerektiriyor? {#permission-alert-on-safari}
 
-Redirect Web'i güncelledikten sonra Safari'de şu uyarıyı görebilirsiniz:
+Redirect Web'i güncelledikten sonra Safari'de bu uyarıyı görebilirsiniz:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
+<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Uygulamayı devre dışı bırakma uyarısı" width="280" />
 
 > "Redirect Web" güncellendi ve ek izinler istiyor. Gizliliğinizi korumak için bu uzantı kapatıldı.
 >
-> Bu uzantıyı Safari Ayarları'nın Uzantılar bölümünden açabilirsiniz.
+> Bu uzantıyı Safari Ayarları'nın Uzantılar bölümünde açabilirsiniz.
 
 Bu, sürüm 7'de tanıtılan [DNR](./rule-settings#type) türünün gerektirdiği [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) izninden kaynaklanmaktadır. Lütfen uzantıyı yeniden etkinleştirin. Verdiğimiz rahatsızlıktan dolayı özür dileriz.
 
-## Kitaplığın içeriği gelecekte ücretli hale gelecek mi?
+## Kütüphane içeriği gelecekte ücretli mi olacak? {#will-library-become-paid}
 
 Hayır, her zaman ücretsizdir. Tüm içeriklerin kaynağını [burada](https://github.com/mshibanami/redirect-web/tree/main/library) da bulabilirsiniz.
 
-## Tek Seferlik Satın Alma mı Yoksa Yıllık Abonelik mi: Hangisi Daha İyi?
+## Tek Seferlik Satın Alma mı Yoksa Yıllık Abonelik mi: Hangisi En İyisi? {#one-time-or-subscription}
 
 Fiyat farkı yalnızca 2,00 ABD Doları olduğu için tek seferlik satın almayı öneriyoruz.
-Abonelik sunmamızın ana nedeni, ücretsiz deneme süresi aracılığıyla tüm özellikleri denemenize olanak sağlamaktır. Beklenen kullanım senaryosu şudur:
+Aboneliği sunmamızın temel nedeni, tüm özellikleri ücretsiz deneme sürümü aracılığıyla denemenizi sağlamaktır. İşte beklenen kullanım durumu:
 
-1.  Yıllık aboneye abone olun.
-2.  Ayarlar uygulamasını açıp "Abonelikler"i arayarak, bu uygulamaya dokunarak ve "Aboneliği İptal Et"i seçerek aboneliği hemen iptal edin. Bu, herhangi bir taahhütte bulunmadan ücretsiz denemenin keyfini çıkarmanızı sağlar.
-3.  7 gün boyunca tüm özelliklere tam erişimin tadını çıkarın.
+1.  Yıllık aboneliğe abone olun.
+2.  Ayarlar uygulamasına gidip "Abonelikler"i arayarak, bu uygulamaya dokunarak ve "Aboneliği İptal Et"i seçerek aboneliği hemen iptal edin. Bu, ücretsiz denemenin keyfini herhangi bir taahhüt olmadan çıkarmanızı sağlar.
+3.  7 gün boyunca tüm özelliklere tam erişimin keyfini çıkarın.
 4.  Özellikleri beğenirseniz, tek seferlik satın almayı tercih edin.
 
 Elbette, tercih ederseniz yıllık aboneliğe devam etmenizde hiçbir sakınca yoktur!
 
-## Redirect Web web sitelerine reklam veya diğer ilgisiz içerikleri enjekte ediyor mu?
+## Redirect Web web sitelerine reklam veya başka alakasız içerik enjekte ediyor mu? {#does-it-inject-ads}
 
-Hayır, böyle bir içerik enjekte etmez. Yalnızca bu belgede ve App Store'daki uygulama sayfasında açıklanan özellikleri sağlamak için gerekli olan kod Safari'deki web sitelerine enjekte edilir.
+Hayır, böyle bir içerik enjekte etmez. Yalnızca bu belgelerde ve App Store'daki uygulama sayfasında açıklanan özellikleri sağlamak için gerekli olan kod, Safari'deki web sitelerine enjekte edilir.
 
-## Redirect Web'in başka birine satılma ihtimali var mı?
+## Redirect Web'in başkasına satılma ihtimali var mı? {#could-it-be-sold}
 
-%100 hayır. Tarayıcı uzantıları göz atma deneyiminiz ve verileriniz üzerinde derin bir kontrol sağlar ve Redirect Web'i başka bir sahibine devretmek gizlilik ihlallerine kapı açar. Uzantıların el değiştirdiğini ve ardından uyarı vermeden kullanıcı verilerini topladığını veya reklam enjekte ettiğini gördük. Burada bu asla yaşanmayacak. Bu riskler hakkında daha fazla bilgi için Matt Frisbie'nin ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) makalesine ve Brian Krebs'in ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/) araştırmasına bakınız.
+%100 hayır. Tarayıcı uzantıları, göz atmanız ve verileriniz üzerinde derin kontrol sahibidir ve Redirect Web'i başka bir sahibe devretmek, gizlilik ihlallerine kapı aralayabilir. Uzantıların el değiştirdiğini ve ardından kullanıcı verilerini topladığını veya uyarı vermeden reklam enjekte ettiğini gördük. Bu asla burada olmayacak. Bu riskler hakkında daha fazla bilgi için Matt Frisbie'nin ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) makalesine ve Brian Krebs'in ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/) araştırmasına bakınız.
 
-Redirect Web güven ve sorumluluk üzerine kurulmuştur. Bilgilerinizi güvende tutmayı görevimiz olarak görüyoruz ve hiçbir koşulda sahipliği devretmeyi reddediyoruz. Redirect Web her zaman bizim elimizde kalacak, böylece tam bir güvenle gezinebilirsiniz.
+Redirect Web güven ve sorumluluk üzerine kurulmuştur. Bilgilerinizin güvende tutulmasını görevimiz olarak görüyoruz ve hiçbir koşulda sahipliği devretmeyi reddediyoruz. Redirect Web her zaman bizim elimizde kalacak, böylece tam bir güvenle gezinebilirsiniz.
