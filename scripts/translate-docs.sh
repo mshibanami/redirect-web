@@ -33,7 +33,7 @@ readonly targetLangs=(
 )
 
 for lang in "${targetLangs[@]}"; do
-  npx tsx scripts/translator.ts \
+  npx tsx scripts/text-file-translator.ts \
     --input docs \
     --excluded-input "**/privacy-policy.*" \
     --excluded-input "**/terms-of-use.*" \
