@@ -44,7 +44,9 @@ export default function DropdownNavbarItemDesktop({
       className={clsx('navbar__item', 'dropdown', 'dropdown--hoverable', {
         'dropdown--right': position === 'right',
         'dropdown--show': showDropdown,
-      })}>
+      },
+        className
+      )}>
       <NavbarNavLink
         aria-haspopup="true"
         aria-expanded={showDropdown}
@@ -53,7 +55,7 @@ export default function DropdownNavbarItemDesktop({
         // See https://github.com/facebook/docusaurus/pull/6003
         // There's probably a better solution though...
         href={props.to ? undefined : '#'}
-        className={clsx('navbar__link', className)}
+        className='navbar__link'
         {...props}
         onClick={props.to ? undefined : (e) => e.preventDefault()}
         onKeyDown={(e) => {

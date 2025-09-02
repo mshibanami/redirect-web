@@ -83,6 +83,7 @@ const config: Config = {
         {
           type: 'localeDropdown',
           position: 'right',
+          className: "navbar__item_force"
         },
       ],
     },
