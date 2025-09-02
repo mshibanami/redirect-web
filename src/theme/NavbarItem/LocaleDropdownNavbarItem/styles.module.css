@@ -2,3 +2,13 @@
   vertical-align: text-bottom;
   margin-right: 5px;
 }
+
+.dropdownLabel {
+  display: inline-block;
+}
+
+@media (max-width: 996px) {
+  .dropdownLabel {
+    display: none;
+  }
+}
