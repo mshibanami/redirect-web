@@ -26,7 +26,8 @@ const config: Config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
-          sidebarCollapsible: false,
+          sidebarCollapsible: true,
+          sidebarCollapsed: false,
           beforeDefaultRemarkPlugins: [remarkGithubAdmonitionsToDirectives],
         },
         blog: {
@@ -54,7 +55,7 @@ const config: Config = {
   ],
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/social-card.jpg',
     colorMode: {
       disableSwitch: true,
       respectPrefersColorScheme: true,
@@ -62,7 +63,7 @@ const config: Config = {
     navbar: {
       title: 'Redirect Web',
       logo: {
-        alt: 'Site Logo',
+        alt: 'Redirect Web logo',
         src: 'img/logo.svg',
       },
       hideOnScroll: true,
@@ -89,7 +90,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      copyright: `© ${new Date().getFullYear()} Manabu Nakazawa`,
+      copyright: `© Manabu Nakazawa`,
     },
     prism: {
       theme: prismThemes.github,
