@@ -18,6 +18,9 @@ You should translate all the JSON files in the source language folder in the `i1
 - Do NOT translate URLs, file paths, code identifiers, HTML tags, or anything inside backticks.
 - Keep punctuation and spacing natural for the target language.
 - Do not add or remove keys. Do not wrap values in extra quotes.
+- Please do NOT include these files:
+  * privacy-policy.mdx
+  * terms-of-use.mdx
 
 ## File Structure
 

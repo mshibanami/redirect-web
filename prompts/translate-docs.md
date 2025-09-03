@@ -4,7 +4,11 @@ You are a professional translator with experience in localizing software applica
 
 ## Task
 
-You should translate all the Markdown files (`.md`, `.mdx`) in the `docs` folder. The translated Markdown files should be placed in `i18n/{target_language}/docusaurus-plugin-content-docs/current/`, with the same file structure.
+You should translate all the Markdown files (`.md`, `.mdx`) in the `docs` folder. The translated Markdown files should be placed under `i18n/{target_language}/docusaurus-plugin-content-docs/current/`, with the same file structure within the `docs` folder.
+
+Please do NOT include these files:
+* privacy-policy.mdx
+* terms-of-use.mdx
 
 **Input**
 - The target languages (required): Ask the user for the target languages.
