@@ -19,6 +19,7 @@
 // - Only the `message` field is translated. `description` is passed as context.
 // - You can target keys by exact match (--key) and/or regex (--key-regex). If none provided, all keys are translated.
 // - Output directory mirrors original structure under --output-dir.
+// - Existing translation files are preserved. Only keys that need translation are updated/added.
 // - Requires env GOOGLE_GENERATIVE_AI_API_KEY.
 
 import { generateText } from "ai";
@@ -51,7 +52,7 @@ type ChromeI18nFile = Record<string, ChromeI18nEntry>;
 
 const cmd = command({
     name: "chrome-i18n-translator",
-    description: "Translate Chrome i18n JSON files (message fields only) using Google Gemini.",
+    description: "Translate Chrome i18n JSON files (message fields only) using Google Gemini with incremental support.",
     args: {
         inputsRaw: multioption({
             long: "input",
@@ -108,6 +109,10 @@ const cmd = command({
             type: optional(string),
             description: "Max characters per translation batch (default 12000).",
         }),
+        forceRetranslate: flag({
+            long: "force-retranslate",
+            description: "Force retranslation of keys that already exist in target files.",
+        }),
         dryRun: flag({
             long: "dry-run",
             description: "Parse, select keys, and show plan without calling the model or writing files.",
@@ -130,6 +135,7 @@ async function main({
     excludeKeysExact,
     excludeKeysRegex,
     batchCharLimitStr,
+    forceRetranslate,
     dryRun,
 }: {
     inputsRaw: string[];
@@ -143,6 +149,7 @@ async function main({
     excludeKeysExact: string[];
     excludeKeysRegex: string[];
     batchCharLimitStr?: string | undefined;
+    forceRetranslate?: boolean;
     dryRun?: boolean;
 }) {
     if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
@@ -171,6 +178,7 @@ async function main({
     if (sourceLang) console.log(`Source language: ${sourceLang}`);
     console.log(`Output dir: ${outputDir}`);
     console.log(`Files: ${jsonEntries.length}`);
+    console.log(`Force retranslate: ${forceRetranslate ? 'Yes' : 'No'}`);
 
     const includeRegexes = keysRegex.map(parseRegex);
     const excludeRegexes = excludeKeysRegex.map(parseRegex);
@@ -186,44 +194,74 @@ async function main({
 
         try {
             const raw = await fs.readFile(src, "utf8");
-            let data: ChromeI18nFile;
+            let sourceData: ChromeI18nFile;
             try {
-                data = JSON.parse(raw);
+                sourceData = JSON.parse(raw);
             } catch (err) {
                 throw new Error(`Invalid JSON: ${(err as Error).message}`);
             }
 
-            const keys = Object.keys(data);
-            const toTranslateKeys = selectKeys(keys, {
+            // Load existing translation file if it exists
+            let existingData: ChromeI18nFile = {};
+            const existingExists = await fs.pathExists(dest);
+            if (existingExists) {
+                try {
+                    const existingRaw = await fs.readFile(dest, "utf8");
+                    existingData = JSON.parse(existingRaw);
+                    console.log(`📂  Loaded existing translations from ${prettyRel(dest)}`);
+                } catch (err) {
+                    console.warn(`⚠️   Could not parse existing file ${prettyRel(dest)}, will overwrite: ${(err as Error).message}`);
+                    existingData = {};
+                }
+            }
+
+            const sourceKeys = Object.keys(sourceData);
+            const candidateKeys = selectKeys(sourceKeys, {
                 includeExact: new Set(keysExact),
                 includeRegex: includeRegexes,
                 excludeExact: new Set(excludeKeysExact),
                 excludeRegex: excludeRegexes,
-            }).filter((k) => typeof data[k]?.message === "string");
+            }).filter((k) => typeof sourceData[k]?.message === "string");
+
+            // Filter out keys that already exist in target (unless force retranslate)
+            const toTranslateKeys = candidateKeys.filter((k) => {
+                if (forceRetranslate) return true;
+                const existingEntry = existingData[k];
+                return !existingEntry || !existingEntry.message || existingEntry.message.trim() === '';
+            });
+
+            const alreadyTranslatedKeys = candidateKeys.filter((k) => !toTranslateKeys.includes(k));
 
             if (toTranslateKeys.length === 0) {
-                skip++;
-                console.log(`↷  (no matching keys) ${prettyRel(src)}`);
+                if (alreadyTranslatedKeys.length > 0) {
+                    skip++;
+                    console.log(`↷  (${alreadyTranslatedKeys.length} keys already translated) ${prettyRel(src)}`);
+                } else {
+                    skip++;
+                    console.log(`↷  (no matching keys) ${prettyRel(src)}`);
+                }
+
                 if (!dryRun) {
-                    // still mirror the file to dest for completeness
+                    // Merge source structure with existing translations
+                    const mergedData = mergeTranslations(sourceData, existingData);
                     await fs.ensureDir(path.dirname(dest));
-                    await fs.writeFile(dest, JSON.stringify(data, null, 2) + "\n", "utf8");
+                    await fs.writeFile(dest, JSON.stringify(mergedData, null, 2) + "\n", "utf8");
                 }
                 continue;
             }
 
             const items = toTranslateKeys.map((key) => ({
                 key,
-                message: (data[key].message ?? "") as string,
-                description: (data[key].description ?? "") as string,
+                message: (sourceData[key].message ?? "") as string,
+                description: (sourceData[key].description ?? "") as string,
             }));
 
             const batches = chunkByCharLimit(items, batchCharLimit);
 
-            const translations: Record<string, string> = {};
+            const newTranslations: Record<string, string> = {};
 
             if (dryRun) {
-                console.log(`⋯  PLAN ${prettyRel(src)} → keys: ${toTranslateKeys.length} in ${batches.length} batch(es)`);
+                console.log(`⋯  PLAN ${prettyRel(src)} → new keys: ${toTranslateKeys.length}, existing: ${alreadyTranslatedKeys.length}, batches: ${batches.length}`);
             } else {
                 for (let i = 0; i < batches.length; i++) {
                     const batch = batches[i];
@@ -234,25 +272,19 @@ async function main({
                         sourceLang,
                         modelName,
                     });
-                    Object.assign(translations, map);
+                    Object.assign(newTranslations, map);
                     console.log(`✓  translated batch ${i + 1}/${batches.length} (${batch.length} keys) for ${prettyRel(src)}`);
                 }
             }
 
             if (!dryRun) {
-                const out: ChromeI18nFile = {};
-                for (const key of keys) {
-                    const entry = { ...(data[key] as ChromeI18nEntry) };
-                    if (translations[key] !== undefined) {
-                        entry.message = translations[key];
-                    }
-                    out[key] = entry;
-                }
+                // Merge source structure with existing translations and new translations
+                const mergedData = mergeTranslations(sourceData, existingData, newTranslations);
 
                 await fs.ensureDir(path.dirname(dest));
-                await fs.writeFile(dest, JSON.stringify(out, null, 2) + "\n", "utf8");
+                await fs.writeFile(dest, JSON.stringify(mergedData, null, 2) + "\n", "utf8");
                 ok++;
-                console.log(`✅  ${prettyRel(src)} -> ${prettyRel(dest)}`);
+                console.log(`✅  ${prettyRel(src)} -> ${prettyRel(dest)} (${toTranslateKeys.length} new, ${alreadyTranslatedKeys.length} existing)`);
             }
         } catch (err: any) {
             fail++;
@@ -262,6 +294,38 @@ async function main({
 
     console.log(`\nDone. Success: ${ok}, Skipped: ${skip}, Failed: ${fail}`);
     if (fail > 0) process.exitCode = 1;
+}
+
+function mergeTranslations(
+    sourceData: ChromeI18nFile,
+    existingData: ChromeI18nFile,
+    newTranslations?: Record<string, string>
+): ChromeI18nFile {
+    const merged: ChromeI18nFile = {};
+
+    for (const key of Object.keys(sourceData)) {
+        const sourceEntry = sourceData[key];
+        const existingEntry = existingData[key];
+
+        const mergedEntry: ChromeI18nEntry = { ...sourceEntry };
+
+        if (newTranslations?.[key]) {
+            mergedEntry.message = newTranslations[key];
+        }
+        else if (existingEntry?.message) {
+            mergedEntry.message = existingEntry.message;
+        }
+
+        merged[key] = mergedEntry;
+    }
+
+    for (const key of Object.keys(existingData)) {
+        if (!merged[key]) {
+            merged[key] = { ...existingData[key] };
+        }
+    }
+
+    return merged;
 }
 
 function prettyRel(abs: string) {

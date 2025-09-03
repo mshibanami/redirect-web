@@ -34,6 +34,11 @@ readonly targetLangs=(
 )
 
 for lang in "${targetLangs[@]}"; do
+  if [[ "$lang" == "$sourceLang" ]]; then
+    echo "Skipping translation for source language: $lang"
+    continue
+  fi
+
   npx tsx scripts/chrome-i18n-json-translator.ts \
     --input "i18n/$sourceLang/**/*.json" \
     --output-dir "i18n/$lang" \
