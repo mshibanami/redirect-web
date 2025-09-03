@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")/.."
 
-taskFilePath="$(pwd)/prompts/translate-i18n-json.md"
+taskFilePath="$(pwd)/prompts/translate-docs.md"
 
 gemini --prompt "Finish the task described in '$taskFilePath'. Target language: all languages in the i18n folder" \
   --yolo \
