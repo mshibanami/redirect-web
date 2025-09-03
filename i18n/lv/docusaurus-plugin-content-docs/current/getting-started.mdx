@@ -1,46 +1,46 @@
 # Darba sākšana
 
-Šajā lapā ir aprakstīti bieži lietoti gadījumi noteikumu izveidei lietotnē Redirect Web.
+Šajā lapā aprakstīti bieži sastopami lietošanas gadījumi noteikumu izveidei lietotnē Redirect Web.
 
-(Sīkāk par noteikumu iestatījumiem varat uzzināt lapā [Noteikumu iestatījumi](./rule-settings).)
+(Jūs varat arī uzzināt sīkāku informāciju par noteikumu iestatījumiem lapā [Noteikumu iestatījumi](./rule-settings).)
 
-## 1. gadījums: atveriet citu vietni
+## 1. gadījums: Atvērt citu vietni
 
-Pieņemsim, ka esat atkarīgs no Twitter, un jūs nolemjat meditēt Insight Timer, ikreiz, kad nejauši atverat Twitter. Izveidosim noteikumu tam!
+Pieņemsim, ka esat atkarīgs no Twitter, un jūs nolemjat meditēt Insight Timer, kad nejauši atverat Twitter. Izveidosim tam noteikumu!
 
-### 1. solis. Iestatiet "Pārvirzīt no" (Redirect From)
+### 1. solis. Iestatiet "Novirzīt no"
 
-Vispirms lietotnē ir jāiestata sadaļa *Redirect From* ekrānā *Edit Rule*. Mērķi ir URL, kas sākas ar `https://twitter.com/`.
+Vispirms lietotnē *Rediģēt noteikumu* ekrānā jāiestata sadaļa *Novirzīt no*. Mērķi ir URL, kas sākas ar `https://twitter.com/`.
 
-Šajā gadījumā varat norādīt šādu modeli [Wildcard](rule-settings#url-pattern-wildcard) režīmā:
+Šajā gadījumā varat norādīt šādu modeli ar [Aizstājējzīmes](rule-settings#url-pattern-wildcard) režīmu:
 
 ```
 https://twitter.com/*
 ```
 
-Wildcard režīmā `*` nozīmē, ka tas atbilst jebkam (= nullei vai vairākām rakstzīmēm).
+Aizstājējzīmes režīmā `*` nozīmē, ka tas atbilst jebkam (= nullei vai vairākām rakstzīmēm).
 
-Tomēr pagaidiet. `twitter.com` tika pārdēvēts par `x.com`. Jūs varat vienkārši aizstāt `twitter.com` ar `x.com`, taču neviens nezina, kad jaunais īpašnieks atkal pārdomās un to atjaunos. Tāpēc mērķēsim uz abiem – `twitter.com` un `x.com`.
+Tomēr pagaidiet. `twitter.com` tika pārdēvēts par `x.com`. Jūs varat vienkārši aizstāt `twitter.com` ar `x.com`, taču neviens nezina, kad jaunais īpašnieks atkal mainīs savas domas, lai to atgrieztu. Tāpēc mērķēsim gan `twitter.com`, gan `x.com`.
 
-Lai to izdarītu, pārslēdzieties no Wildcard uz [Regular Expression](rule-settings#url-pattern-regular-expression) un iestatiet šo kā modeli:
+Lai to izdarītu, pārslēdzieties no Aizstājējzīmes uz [Regulāro izteiksmi](rule-settings#url-pattern-regular-expression) un iestatiet šo kā modeli:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: tas mērķē gan uz `twitter`, gan uz `x`. (`|` sauc par *cauruli*.)
-* `.*`: tas ir tas pats, kas Wildcard `*`. Precīzāk, `.` nozīmē *jebkuru rakstzīmi*, un `*` nozīmē *jebko pirms šī simbola, kas atkārtots jebkuru reižu skaitu*, kā rezultātā tas atbilst jebkam.
+* `(twitter|x)`: tas mērķē gan `twitter`, gan `x`. (`|` sauc par *cauruli*.)
+* `.*`: Tas ir tas pats, kas Aizstājējzīmes `*`. Precīzāk, `.` nozīmē *jebkuru rakstzīmi* un `*` nozīmē *jebko pirms šī simbola, kas atkārtojas jebkuru reižu skaitu*, kā rezultātā tas atbilst jebkam.
 
-Regulārā izteiksme ir nedaudz sarežģīta, taču, kad pie tās pieradīsiet, tā kļūs par spēcīgu rīku. Mēs iesakām izmantot [RegExr](https://regexr.com) kā rīku, lai analizētu, kā darbojas jūsu regulārās izteiksmes modelis.
+Regulārā izteiksme ir nedaudz sarežģīta, taču, tiklīdz jūs pie tās pieradīsiet, tā kļūs par spēcīgu rīku. Mēs iesakām izmantot [RegExr](https://regexr.com) kā rotaļu laukumu, lai analizētu, kā darbojas jūsu regulārās izteiksmes modelis.
 
 > [!NOTE]
-> Regulārajās izteiksmēs `.` modelī `(twitter|x).com` arī tiek uzskatīts par *jebkuru rakstzīmi*. Tāpēc `(twitter|x).com/.*` atbilst arī, piemēram, `twitter1com/` vai `x_com/`.
+> Regulārajās izteiksmēs `.` `(twitter|x).com` tiek uzskatīts arī par *jebkuru rakstzīmi*. Tāpēc `(twitter|x).com/.*` atbilst arī, piemēram, `twitter1com/` vai `x_com/`.
 > 
-> Lai to izvairītos, varat to mainīt uz `(twitter|x)\.com/.*`. `\` tiek izmantots, lai izvairītos no speciālas rakstzīmes.
+> Lai to izvairītos, varat to mainīt uz `(twitter|x)\.com/.*`. `\` tiek izmantots, lai izvairītos no speciālās rakstzīmes.
 >
-> Tomēr šādu URL vispārējā interneta vidē nav. Tāpēc, ja vēlaties, varat atstāt `.` kā speciālo rakstzīmi. Jūsu noteikums ir paredzēts jūsu pašu lietošanai, tāpēc ieviesiet to, kā uzskatāt par piemērotu.
+> Tomēr vispārējā interneta vidē nav šādu URL. Tāpēc, ja vēlaties, varat atstāt `.` kā speciālo rakstzīmi. Jūsu noteikums ir paredzēts jūsu pašu lietošanai, tāpēc ieviesiet to, kā uzskatāt par piemērotu.
 
-### 2. solis: Iestatiet "Pārvirzīt uz" (Redirect To)
+### 2. solis: Iestatiet "Novirzīt uz"
 
 Vienkārši norādiet URL šādi:
 
@@ -48,24 +48,24 @@ Vienkārši norādiet URL šādi:
 https://insighttimer.com/saraauster/guided-meditations/calm
 ```
 
-Tagad Redirect Web jūs novirzīs uz meditāciju, kad piekļūsiet Twitter!
+Tagad Redirect Web jūs aizvedīs uz meditāciju, kad piekļūstat Twitter!
 
 **[⬇️ Lejupielādēt noteikumu](/rules/reduce-twitter-addiction.redirectweb)**
 
-## 2. gadījums: noņemt vaicājuma parametrus no URL
+## 2. gadījums: Noņemt vaicājuma parametrus no URL
 
-Pieņemsim, ka `example.com` URL ir vaicājuma parametrs `source=twitter`, un jūs nolēmāt to noņemt, lai kļūtu anonīms.
+Pieņemsim, ka `example.com` URL ir vaicājuma parametrs `source=twitter`, un jūs nolēmāt to noņemt, lai anonimizētu sevi.
 
-Šajā gadījumā **Capturing Group Processing** opcija ir vienkāršākais veids:
+Šajā gadījumā **Uztveršanas grupas apstrādes** opcija ir vienkāršākais veids:
 
-* **Pārvirzīt no** (Redirect From): `https://example.com/*` (Wildcard)
-* **Pārvirzīt uz** (Redirect To): `$0`
-* **Apķeršanas grupas apstrāde** (Capturing Group Processing):
-    * **Grupa** (Group): `$0`
-    * **Process** (Process): Aizstāt gadījumus (Replace Occurrences)
-        * **Mērķis** (Target): `&?source=[^&]*`
-        * **Aizvietojums** (Replacement): *(nav)*
-        * **Teksta modelis** (Text Pattern): Regulārā izteiksme (Regular Expression)
+* **Novirzīt no**: `https://example.com/*` (Aizstājējzīme)
+* **Novirzīt uz**: `$0`
+* **Uztveršanas grupas apstrāde**:
+    * **Grupa**: `$0`
+    * **Process**: Aizstāt gadījumus
+        * **Mērķis**: `&?source=[^&]*`
+        * **Aizstāšana**: *(nav)*
+        * **Teksta modelis**: Regulārā izteiksme
 
 **[⬇️ Lejupielādēt noteikumu](/rules/remove-parameters.redirectweb)**
 
@@ -81,72 +81,72 @@ https://example.com/?hello=world&source=twitter&foo=bar
 
 Ja vēlaties noņemt vairāk parametru, pievienojiet vairāk procesu.
 
-## 3. gadījums: pievienojiet vaicājuma parametrus URL
+## 3. gadījums: Pievienot vaicājuma parametrus URL
 
-Pieņemsim, ka ir vietne `example.com`, kas pēc noklusējuma rāda mobilā izkārtojumu, bet jūs dodat priekšroku tās darbvirsmas izkārtojumam. Par laimi, vietne atbalsta `layout` vaicājuma parametru, lai norādītu, kādu izkārtojumu vietne parāda. Izveidosim noteikumu, kas automātiski pievieno `layout=desktop`.
+Pieņemsim, ka ir vietne `example.com`, kas pēc noklusējuma rāda mobilo izkārtojumu, bet jūs dodat priekšroku tās darbvirsmas izkārtojumam. Par laimi, vietne atbalsta `layout` vaicājuma parametru, lai norādītu, kādu izkārtojumu vietne rāda. Izveidosim noteikumu, kas automātiski pievieno `layout=desktop`.
 
-Iespējams, jūs domājat, ka to varētu definēt šādi:
+Varbūt jūs domājat, ka to varētu definēt šādi:
 
-* **Pārvirzīt no** (Redirect From): `https://example.com/.*` (Regular Expression)
-* **Pārvirzīt uz** (Redirect To): `$0?layout=desktop`
+* **Novirzīt no**: `https://example.com/.*` (Regulārā izteiksme)
+* **Novirzīt uz**: `$0?layout=desktop`
 
 `$0` atsaucas uz mērķa URL. Ja mēģināt piekļūt `example.com/hello`, jūs tiekat novirzīts uz `example.com/hello?layout=desktop`. Šī funkcija tiek saukta par *aizstāšanu*.
 
 > [!TIP]
-> Aizstāšana ir pieejama arī Wildcard režīmam, jo tas iekšēji tiek konvertēts uz regulāro izteiksmi.
+> Aizstāšana ir pieejama arī Aizstājējzīmes režīmam, jo tā iekšēji tiek pārveidota par regulāro izteiksmi.
 
 Tomēr ar šiem iestatījumiem ir dažas problēmas.
 
-### 1. problēma: bezgalīga cilpa
+### 1. problēma: Bezgalīga cilpa
 
-Pašreizējais iestatījums rada bezgalīgu pārvirzīšanas cilpu, jo `https://example.com/.*` mērķē arī uz `https://example.com/hello?layout=desktop`.
+Pašreizējais iestatījums rada bezgalīgu novirzīšanas cilpu, jo `https://example.com/.*` mērķē arī `https://example.com/hello?layout=desktop`.
 
-Šajā gadījumā varat norādīt izslēgtu URL modeli, kas ļauj piekļūt bez pārvirzīšanas, piemēram, šādi ar regulāro izteiksmi:
+Šajā gadījumā varat norādīt izslēgto URL modeli, kas ļauj piekļūt bez novirzīšanas, piemēram, šādi ar regulāro izteiksmi:
 
 ```
 .*[&?]layout=[^&]*.*
 ```
 
-* `.*`: atbilst jebkam
-* `[&?]`: atbilst vai nu `&`, vai `?`
-* `[^&]*`: atbilst jebkam, izņemot `&`
+* `.*`: Atbilst jebkam
+* `[&?]`: Atbilst `&` vai `?`
+* `[^&]*`: Atbilst jebkam, izņemot `&`
 
-### 2. problēma: nevar pareizi apstrādāt esošos parametrus
+### 2. problēma: Nevar pareizi apstrādāt esošos parametrus
 
-Ja mērķa URL jau ir citi vaicājuma parametri, piemēram, `example.com/hello?theme=dark`, galamērķis būs `example.com/hello?theme=dark?layout=desktop` (URL ir divi `?`), taču parametrus var savienot tikai ar `&`. `?` kā speciālā rakstzīme ir atļauta tikai parametru sākumā. Tāpēc tā netiek uzskatīta par derīgu parametru.
+Ja mērķa URL jau ir citi vaicājuma parametri, piemēram, `example.com/hello?theme=dark`, galamērķis būs `example.com/hello?theme=dark?layout=desktop` (URL ir divi `?`), bet parametrus var pievienot tikai ar `&`. `?` kā speciālā rakstzīme ir atļauta tikai parametru sākumā. Tāpēc tā netiek uzskatīta par derīgu parametru.
 
 Šajā gadījumā mainiet iestatījumus šādi:
 
-* **Pārvirzīt no** (Redirect From): `(https://example.com/[^?]*)(\?(.*))?`
-* **Pārvirzīt uz** (Redirect To): `$1?layout=desktop&$3`
+* **Novirzīt no**: `(https://example.com/[^?]*)(\(?(.*))?`
+* **Novirzīt uz**: `$1?layout=desktop&$3`
 
-Aplūkosim soli pa solim.
+Apskatīsim soli pa solim.
 
-* `(https://example.com/[^?]*)`: Atbilst daļai līdz iepriekšējai `?` rakstzīmei.
+* `(https://example.com/[^?]*)`: Atbilst daļai līdz iepriekšējai rakstzīmei `?`.
     * `[^?]*` atbilst jebkam, izņemot `?`.
-    * Tas ir ietverts `()`, lai to vēlāk varētu atsaukties ar `$1`.
-* `(\?(.*))?`: Atbilst virknei, kas sākas ar `?`, kas nozīmē vaicājuma parametrus.
-    * Tas atbilst arī tukšai virknei, izmantojot `?` kvantifikatoru modeļa beigās, kas *atbilst nullei vai vienai reizei*.
-    * Ārējo `()` un iekšējo `()` var vēlāk atsaukties ar `$2` un `$3`.
+    * Tas ir ietverts `()`, lai vēlāk varētu uz to atsaukties ar `$1`.
+* `(\(?(.*))?`: Atbilst virknei, kas sākas ar `?`, kas nozīmē vaicājuma parametrus.
+    * Tas atbilst arī tukšai virknei ar `?` kvantifikatoru modeļa beigās, kas *atbilst nullei vai vienai reizei*.
+    * Ārējais `()` un iekšējais `()` var tikt atsaukti ar `$2` un `$3` vēlāk.
 
-[RegExr](https://regexr.com) var palīdzēt saprast detaļas.
+[RegExr](https://regexr.com) var palīdzēt jums saprast sīkāku informāciju.
 
 > [!NOTE]
-> RegExr parāda kļūdu, ja neatkāpjat `/` ar `\`. Lai gan to var atkāpt, tas nav nepieciešams, jo Redirect Web izmanto citu Apple dzinēju, kas neprasa atkāpšanu.
+> RegExr rāda kļūdu, ja jūs neizvairāties no `/` ar `\`. Lai gan jūs varat no tā izvairīties, tas nav nepieciešams, jo Redirect Web izmanto citu Apple dzinēju, kas neprasa izvairīšanos.
 
-Tas nav ideāls risinājums, jo tas novirza `example.com/hello` uz `example.com/hello?layout=desktop&`, kas ietver nevajadzīgu `&` URL beigās. Parasti tas nav liels darījums, bet, ja vēlaties to noņemt, varat izmantot *Capturing Group Processing*.
+Šis nav ideāls risinājums, jo tas novirza `example.com/hello` uz `example.com/hello?layout=desktop&`, kas ietver nevajadzīgu `&` URL beigās. Tas parasti nav liels darījums, bet, ja vēlaties to noņemt, varat izmantot *Uztveršanas grupas apstrādi*.
 
-Noslēgumā, tas ir gala rezultāts:
+Noslēgumā, šis ir galīgais rezultāts:
 
-* **Pārvirzīt no** (Redirect From): `(https://example.com/[^?]*)((\?(.*))?)` (Regular Expression)
-* **Pārvirzīt uz** (Redirect To): `$1?layout=desktop$3`
-* **Izslēgts URL modelis** (Excluded URL Pattern): `.*[&?]layout=[^&]*.*` (Regular Expression)
-* **Apķeršanas grupas apstrāde** (Capturing Group Processing):
-    * **Grupa** (Group): `$3`
-    * **Process** (Process): Aizstāt gadījumus (Replace Occurrences)
-        * **Mērķis** (Target): `\?(.*)`
-        * **Aizvietojums** (Replacement): `&$1`
+* **Novirzīt no**: `(https://example.com/[^?]*)((\(?(.*))?))` (Regulārā izteiksme)
+* **Novirzīt uz**: `$1?layout=desktop$3`
+* **Izslēgtais URL modelis**: `.*[&?]layout=[^&]*.*` (Regulārā izteiksme)
+* **Uztveršanas grupas apstrāde**:
+    * **Grupa**: `$3`
+    * **Process**: Aizstāt gadījumus
+        * **Mērķis**: `\?(.*)`
+        * **Aizstāšana**: `&$1`
 
 **[⬇️ Lejupielādēt noteikumu](/rules/add-parameters.redirectweb)**
 
-Šis ir tikai piemērs. Varat arī izveidot vairākus noteikumus, lai risinātu katru problēmu. Tas var būt daudz vienkāršāk.
+Šis ir tikai piemērs. Jūs varat arī izveidot vairākus noteikumus, lai risinātu katru problēmu. Tas var būt daudz vienkāršāk.

@@ -6,42 +6,42 @@ Cette page fournit des informations détaillées sur chaque paramètre de l'écr
 
 ### Type {#type}
 
-Spécifiez l'option **Type** pour contrôler la manière dont l'application gère la redirection. Vous avez le choix entre :
+Spécifiez l'option **Type** pour contrôler la façon dont l'application gère la redirection. Vous pouvez choisir parmi les options suivantes :
 
 *   **Original** (Par défaut)
-    *   Cela utilise les API Web traditionnelles pour contrôler la redirection. De plus, cela utilise [l'API Tabs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) comme solution de secours.
-        *   Dans Firefox, cela utilise l'[API WebRequest](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) pour gérer la redirection.
-    *   Vous pouvez utiliser toutes les options à l'exception des [Types de ressources](#resource-types) et des [Méthodes de requête](#request-methods).
-    *   C'est plus lent que le type *Déclaratif* et cela peut entraîner des requêtes réseau supplémentaires.
+    *   Ceci utilise les API Web traditionnelles pour contrôler la redirection. De plus, il utilise [l'API Tabs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) comme solution de repli.
+        *   Dans Firefox, il utilise l'[API WebRequest](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) pour gérer la redirection.
+    *   Vous pouvez utiliser toutes les options autres que [Types de ressources](#resource-types) et [Méthodes de requête](#request-methods).
+    *   Ceci est plus lent que le type *Déclaratif* et peut entraîner des requêtes réseau supplémentaires.
 *   **DNR** (Expérimental pour Safari) :
     *   Ce type fonctionne beaucoup plus rapidement que le type Original car il n'initie pas de requête réseau pour l'URL source.
     *   Cela vous permet de spécifier les [Types de ressources](#resource-types) et les [Méthodes de requête](#request-methods).
-    *   ⚠️ Vous ne pouvez pas utiliser certaines options, telles que le [Traitement des groupes de capture](#capturing-group-processing) et les [Modèles d'URL exclus](#excluded-url-patterns), car elles ne sont pas encore prises en charge par l'API DNR.
-    *   ⚠️ Dans Safari, vous ne pouvez pas actuellement inclure de barres verticales (`|`) dans votre motif d'expression régulière. [Détails](https://github.com/mshibanami/redirect-web/issues/44)
-    *   ⚠️ Comme l'API DNR de Safari présente encore quelques problèmes, nous considérons qu'il s'agit toujours d'une fonctionnalité expérimentale pour Safari. Vous pouvez trouver la liste de tous les problèmes connus [ici](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+    *   ⚠️ Vous ne pouvez pas utiliser certaines options, telles que [Traitement des groupes de capture](#capturing-group-processing) et [Modèles d'URL exclus](#excluded-url-patterns) car elles ne sont pas encore prises en charge par l'API DNR.
+    *   ⚠️ Dans Safari, vous ne pouvez actuellement pas inclure de barres verticales (`|`) dans votre modèle d'expression régulière. [Détails](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ Étant donné que l'API DNR de Safari présente encore quelques problèmes, nous considérons qu'il s'agit toujours d'une fonctionnalité expérimentale pour Safari. Vous pouvez trouver la liste de tous les problèmes connus [ici](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
 ### Rediriger depuis {#redirect-from}
 
-L'option **Rediriger depuis** vous permet de spécifier un motif d'URL des pages web depuis lesquelles vous souhaitez rediriger. Vous pouvez choisir entre [Joker](#url-pattern-wildcard) ou [Expression régulière](#url-pattern-regular-expression).
+L'option **Rediriger depuis** vous permet de spécifier un modèle d'URL des pages web à partir desquelles vous souhaitez rediriger. Vous pouvez choisir entre [Joker](#wildcard) ou [Expression régulière](#regular-expression).
 
-Par exemple, si vous spécifiez `https://example.com/*` avec un Joker, cela correspondra à `https://example.com/` ou `https://example.com/hello`.
+Par exemple, si vous spécifiez `https://example.com/*` avec Joker, cela correspond à `https://example.com/` ou `https://example.com/hello`.
 
 > [!NOTE]
-> Dans l'option Rediriger vers, vous pouvez référencer la correspondance entière en utilisant `$0` ou des correspondances partielles en utilisant `$1`, `$2`, ... Consultez les détails dans [Motif d'URL](#url-pattern) sur cette page.
+> Dans l'option Rediriger vers, vous pouvez référencer la correspondance entière en utilisant `$0` ou les correspondances partielles en utilisant `$1`, `$2`, ... Vérifiez les détails dans [Modèle d'URL](#url-pattern) sur cette page.
 
 #### Types de ressources {#resource-types}
 
 ![Types pris en charge : DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-L'option **Types de ressources** vous permet de spécifier les catégories de requêtes web, telles que les images, les fichiers JavaScript et les feuilles de style, auxquelles la règle s'applique.
+L'option **Types de ressources** vous permet de spécifier les catégories de requêtes web, telles que les images, les JavaScripts et les feuilles de style, auxquelles la règle s'applique.
 Par exemple, si vous définissez `script`, vous pouvez rediriger les fichiers JavaScript chargés par les pages web.
 
-Actuellement, les suivants sont disponibles :
+Actuellement, ceux-ci sont disponibles :
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
 Le paramètre par défaut est `main_frame`, qui est la page de niveau supérieur chargée dans un onglet.
 
-Veuillez consulter les détails de chaque type de ressource dans les [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+Veuillez vérifier les détails de chaque type de ressource dans [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
 #### Méthodes de requête {#request-methods}
 
@@ -51,10 +51,10 @@ L'option **Méthodes de requête** vous permet de définir les méthodes HTTP ci
 
 Toutes les méthodes sont définies par défaut.
 
-Veuillez consulter les détails de chaque méthode dans les [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+Veuillez vérifier les détails de chaque méthode dans [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 > [!WARNING]
-> Dans Safari, cette option pourrait ne pas être disponible car l'implémentation d'Apple pour le type DNR ne semble pas la gérer actuellement. Nous avons envoyé un retour à Apple sous le numéro FB14502272.
+> Dans Safari, cette option peut ne pas être disponible car l'implémentation d'Apple pour le type DNR ne semble pas la gérer actuellement. Nous avons envoyé des commentaires à Apple sous le numéro FB14502272.
 
 #### Navigateurs cibles {#target-browsers}
 
@@ -62,17 +62,17 @@ Veuillez consulter les détails de chaque méthode dans les [mdn web docs](https
 
 L'option **Navigateurs cibles** vous permet de spécifier à quel navigateur la règle doit ou ne doit pas être appliquée.
 
-*   Il y a 2 types de navigateurs que vous pouvez choisir :
-    *   **Navigateurs que vous pouvez choisir par défaut** : Vous pouvez choisir Safari, Chrome, Firefox, Edge, Opera, Arc, Brave et Vivaldi par défaut. Cela ne différencie pas les variantes du même navigateur, comme Safari et Safari Technology Preview.
-    *   **Navigateurs spécifiés par l'utilisateur** : En appuyant sur le bouton Ajouter de la fenêtre contextuelle, vous pouvez sélectionner n'importe quel navigateur autre que Safari ou Safari Technology Preview qui a l'extension Redirect Web installée.
-*   La case à cocher **Tous sauf ceux sélectionnés** vous permet de cibler tous les navigateurs à l'exception de ceux que vous avez choisis.
+*   Il existe 2 types de navigateurs que vous pouvez choisir :
+    *   **Navigateurs que vous pouvez choisir par défaut** : Vous pouvez choisir Safari, Chrome, Firefox, Edge, Opera, Arc, Brave et Vivaldi par défaut. Cela ne différencie pas les variantes du même navigateur, telles que Safari et Safari Technology Preview.
+    *   **Navigateurs spécifiés par l'utilisateur** : En appuyant sur le bouton Ajouter dans la fenêtre contextuelle, vous pouvez sélectionner n'importe quel navigateur autre que Safari ou Safari Technology Preview qui a l'extension Redirect Web installée.
+*   La case à cocher **Tout sauf la sélection** vous permet de cibler tous les navigateurs sauf ceux que vous avez choisis.
 
 > [!WARNING]
 > Redirect Web ne peut pas différencier si le navigateur est **Safari** ou **Safari Technology Preview** car l'application vérifie le processus parent de l'extension pour le détecter, mais ces deux navigateurs partagent le même processus parent (`/sbin/launchd`).
 
 ### Rediriger vers {#redirect-to}
 
-L'option **Rediriger vers** spécifie une URL de destination vers laquelle vous souhaitez rediriger, depuis l'URL source correspondant à l'option *Rediriger depuis*. Vous pouvez également substituer les groupes de capture par `$1`, `$2`, ... ou la correspondance entière par `$0`. Ces éléments vous aident à spécifier dynamiquement la destination. Consultez les détails dans [Motif d'URL](#url-pattern) sur cette page.
+L'option **Rediriger vers** spécifie une URL de destination vers laquelle vous souhaitez rediriger, à partir de l'URL source correspondant à l'option *Rediriger depuis*. Vous pouvez également substituer des groupes de capture avec `$1`, `$2`, ... ou la correspondance entière avec `$0`. Ceux-ci vous aident à spécifier dynamiquement la destination. Vérifiez les détails dans [Modèle d'URL](#url-pattern) sur cette page.
 
 Par exemple, si vous définissez la règle suivante :
 
@@ -81,10 +81,10 @@ Par exemple, si vous définissez la règle suivante :
 
 et qu'elle correspond à `https://google.com/hello`, alors l'URL de destination sera `https://apple.com/hello`.
 
-De plus, vous pouvez modifier les textes de `$1`, `$2`, ... avant d'effectuer les substitutions. Consultez la section [Traitement des groupes de capture](#capturing-group-processing) pour les détails.
+De plus, vous pouvez modifier les textes de `$1`, `$2`, ... avant d'effectuer des substitutions. Vérifiez la section [Traitement des groupes de capture](#capturing-group-processing) pour les détails.
 
 > [!TIP]
-> Vous pouvez spécifier un schéma d'URL personnalisé pour ouvrir une application. Voici des exemples d'applications qui prennent en charge le deep linking :
+> Vous pouvez spécifier un schéma d'URL personnalisé pour ouvrir une application. Voici des exemples d'applications qui prennent en charge le lien profond :
 >
 > *   Figma : `figma://file/Your_Figma_ID`
 > *   Firefox : `firefox://open-url?url=https://example.com/hello`
@@ -97,7 +97,7 @@ De plus, vous pouvez modifier les textes de `$1`, `$2`, ... avant d'effectuer le
 
 ![Types pris en charge : Original](https://img.shields.io/badge/Types-Original-blue) ![Plateformes prises en charge : macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Si vous souhaitez spécifier une application pour ouvrir l'URL de destination, utilisez la zone de liste déroulante **Application**. Ceci n'est disponible que sur macOS.
+Si vous souhaitez spécifier une application dans laquelle vous souhaitez ouvrir l'URL de destination, utilisez la zone de liste déroulante **Application**. Ceci n'est disponible que sur macOS.
 
 > [!WARNING]
 > Vous ne pouvez ouvrir qu'une application qui prend en charge [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Assurez-vous également que l'application prend en charge l'ouverture de l'URL que vous souhaitez ouvrir.
@@ -111,13 +111,13 @@ L'option **Traitement des groupes de capture** vous permet de spécifier comment
 Voici comment créer des groupes de capture :
 
 *   **Joker** : Les textes correspondant à `*` et `?` sont automatiquement capturés.
-*   **Expression régulière** : Les textes correspondant à une partie du motif à l'intérieur de `()` sont capturés.
+*   **Expression régulière** : Les textes correspondant à une partie du modèle à l'intérieur de `()` sont capturés.
 
 Vous pouvez choisir un ou plusieurs des processus suivants :
 
-*   **Encodage/Décodage d'URL** : Cela applique un [encodage en pourcentage](https://en.wikipedia.org/wiki/Percent-encoding) ou un décodage à un groupe de capture. Par exemple, si vous encodez `https://example.com/hello`, il est converti en `https%3A%2F%2Fexample.com%2Fhello`. Le décodage fonctionne de manière inverse.
-*   **Encodage/Décodage Base64** : Cela décode/encode un texte en [Base64](https://en.wikipedia.org/wiki/Base64). Par exemple, vous pouvez encoder `hello` en `aGVsbG8=` et le décoder pour retrouver `hello`.
-*   **Remplacer les occurrences** : Cela remplace un ou plusieurs caractères dans un groupe, correspondant à une **Cible**, par un **Remplacement**. Par exemple, si le *Groupe* est `hello`, la *Cible* est `l` et le Remplacement est `y`, il est modifié en `heyyo`.
+*   **Encodage/Décodage d'URL** : Ceci applique l'[encodage en pourcentage](https://en.wikipedia.org/wiki/Percent-encoding) ou le décodage à un groupe de capture. Par exemple, si vous encodez `https://example.com/hello`, il est converti en `https%3A%2F%2Fexample.com%2Fhello`. Le décodage fonctionne dans le sens inverse.
+*   **Encodage/Décodage Base64** : Ceci décode/encode un texte en [Base64](https://en.wikipedia.org/wiki/Base64). Par exemple, vous pouvez encoder `hello` en `aGVsbG8=`, et le décoder en `hello`.
+*   **Remplacer les occurrences** : Ceci remplace un ou plusieurs caractères dans un groupe, correspondant à une **Cible**, par un **Remplacement**. Par exemple, si le *Groupe* est `hello` et la *Cible* est `l` et le Remplacement est `y`, il est modifié en `heyyo`.
 
 > [!NOTE]
 > Ceci est destiné au traitement de chaque groupe de capture et n'affecte pas les URL exclues par les [Modèles d'URL exclus](#excluded-url-patterns). Par exemple, supposons que vous ayez cette règle :
@@ -127,50 +127,50 @@ Vous pouvez choisir un ou plusieurs des processus suivants :
 >     *   Groupe : `$1`
 >     *   Cible : `.*` (Expression régulière)
 >     *   Remplacement : `hello`
-> *   **Modèle d'URL exclus** : `https://example.com/hello`
+> *   **Modèle d'URL exclu** : `https://example.com/hello`
 >
-> Dans ce cas, `https://example.com/hello_world` ne sera pas exclue alors que `https://example.com/hello` le sera.
+> Dans ce cas, `https://example.com/hello_world` ne sera pas exclu tandis que `https://example.com/hello` sera exclu.
 
 ### Modèles d'URL exclus {#excluded-url-patterns}
 
 ![Types pris en charge : Original](https://img.shields.io/badge/Types-Original-blue)
 
-L'option **Modèles d'URL exclus** vous permet de spécifier les URL qui ne sont pas redirigées. Cela peut être utile pour éviter les boucles de redirection ou pour exclure certaines parties d'un site web de la redirection.
+L'option **Modèles d'URL exclus** vous permet de spécifier les URL qui ne sont pas redirigées. Cela peut être utile pour éviter les boucles de redirection ou pour exclure certaines parties d'un site web d'être redirigées.
 
-Vous pouvez spécifier des modèles d'URL exclus en utilisant des expressions régulières ou des jokers.
+Vous pouvez spécifier des modèles d'URL exclus en utilisant des types de modèles d'expression régulière ou de joker.
 
 ### Exemples {#examples}
 
-L'option **Exemples** vous permet de tester votre règle de redirection en fournissant des URL d'exemple. En ajoutant une URL d'exemple, vous pouvez vérifier si la règle fonctionne comme prévu avant de l'appliquer réellement.
+L'option **Exemples** vous permet de tester votre règle de redirection en fournissant des exemples d'URL. En ajoutant une URL d'exemple, vous pouvez vérifier si la règle fonctionne comme prévu avant de l'appliquer réellement.
 
 ### Commentaires {#comments}
 
-L'option **Commentaires** vous permet d'ajouter des notes ou des commentaires sur votre règle de redirection. Cela peut être utile pour garder une trace des raisons pour lesquelles vous avez créé une règle spécifique ou pour fournir un contexte à d'autres personnes qui pourraient consulter vos règles.
+L'option **Commentaires** vous permet d'ajouter des notes ou des commentaires sur votre règle de redirection. Cela peut être utile pour savoir pourquoi vous avez créé une règle spécifique ou pour fournir un contexte à d'autres personnes qui pourraient consulter vos règles.
 
-## Motif d'URL {#url-pattern}
+## Modèle d'URL {#url-pattern}
 
-Il y a 3 options où vous pouvez spécifier un ou plusieurs motifs d'URL : *Rediriger depuis*, *Modèles d'URL exclus* et *Traitement des groupes de capture*. Pour les spécifier, vous pouvez choisir entre **Joker** ou **Expression régulière**.
+Il existe 3 options pour spécifier un ou plusieurs modèles d'URL. *Rediriger depuis*, *Modèles d'URL exclus* et *Traitement des groupes de capture*. Pour les spécifier, vous pouvez choisir **Joker** ou **Expression régulière**.
 
 ### Joker {#url-pattern-wildcard}
 
-Le **Joker** est un type de motif plus simple qui vous permet d'utiliser `*` (correspond à n'importe quoi) et `?` (correspond à n'importe quel caractère unique) comme jokers. Voici quelques exemples :
+**Joker** est un type de modèle plus simple qui vous permet d'utiliser `*` (correspond à n'importe quoi) et `?` (correspond à n'importe quel caractère unique) comme jokers. Voici quelques exemples :
 
 *   Pour correspondre à `https://example.com/hello`, vous pouvez utiliser `https://example.com/*`. Cela correspondra à n'importe quelle chaîne après `https://example.com/`.
 *   Pour correspondre à `https://example.com/search?q=hello`, vous pouvez utiliser `https://example.com/search?q=*`. Cela correspondra à n'importe quelle valeur pour le paramètre `q`.
-*   Pour correspondre à n'importe quelle URL qui contient le mot `blog`, vous pouvez utiliser `*blog*`.
+*   Pour correspondre à n'importe quelle URL contenant le mot `blog`, vous pouvez utiliser `*blog*`.
 
-Vous pouvez également utiliser la substitution avec les Jokers, ce qui signifie que vous pouvez référencer des portions de l'URL correspondante en utilisant `$1`, `$2`, etc. Par exemple, si vous utilisez `https://example.com/*-world-*`, et que l'URL est `https://example.com/hello-world-goodbye`, alors `$1` serait "hello" et `$2` serait "goodbye". `$0` est également disponible pour référencer l'URL entière correspondante.
+Vous pouvez également utiliser la substitution dans Joker, ce qui signifie que vous pouvez référencer des parties de l'URL correspondante en utilisant `$1`, `$2`, etc. Par exemple, si vous utilisez `https://example.com/*-world-*`, et que l'URL est `https://example.com/hello-world-goodbye`, alors `$1` serait "hello" et `$2` serait "goodbye". `$0` est également disponible pour référencer l'URL entière correspondante.
 
 > [!Note]
-> Bien que la substitution soit une fonctionnalité des Expressions régulières, vous pouvez également l'utiliser pour les Jokers car Redirect Web convertit en interne les Jokers en Expressions régulières.
+> Bien que la substitution soit une fonctionnalité de l'expression régulière, vous pouvez également l'utiliser pour Joker car Redirect Web convertit en interne Joker en expression régulière.
 
 ### Expression régulière {#url-pattern-regular-expression}
 
-L'**Expression régulière** (Regex) est un outil puissant pour faire correspondre des motifs dans le texte, alimenté par le moteur d'expression régulière d'Apple décrit [ici](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Il vous permet de définir un motif spécifique qui correspond à un ensemble de chaînes de caractères. Voici quelques exemples.
+L'**expression régulière** (Regex) est un outil puissant pour faire correspondre des modèles dans le texte, alimenté par le moteur d'expression régulière d'Apple qui est décrit [ici](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). Il vous permet de définir un modèle spécifique qui correspond à un ensemble de chaînes. Voici quelques exemples.
 
-*   Pour correspondre à `https://example.com/hello`, vous pouvez utiliser `https://example.com/(.*)`. Cela correspondra à n'importe quelle chaîne après `https://example.com/` et la stockera dans un groupe de capture.
-*   Pour correspondre à `https://example.com/search?q=hello`, vous pouvez utiliser `https://example.com/search\?q=(.*)`. Cela correspondra à la valeur du paramètre `q` et la stockera dans un groupe de capture.
-*   Pour correspondre à n'importe quelle URL qui contient le mot `blog`, vous pouvez utiliser `.*blog.*`.
+-   Pour correspondre à `https://example.com/hello`, vous pouvez utiliser `https://example.com/(.*)`. Cela correspondra à n'importe quelle chaîne après `https://example.com/` et la stockera dans un groupe de capture.
+-   Pour correspondre à `https://example.com/search?q=hello`, vous pouvez utiliser `https://example.com/search\?q=(.*)`. Cela correspondra à la valeur du paramètre `q` et la stockera dans un groupe de capture.
+-   Pour correspondre à n'importe quelle URL contenant le mot `blog`, vous pouvez utiliser `.*blog.*`.
 
 Vous pouvez référencer les groupes de capture dans *Rediriger vers* ou *Remplacement* en utilisant `$1`, `$2`, ... ou `$0` pour référencer la correspondance entière.
 

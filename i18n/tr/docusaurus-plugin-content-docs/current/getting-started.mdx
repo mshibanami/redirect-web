@@ -1,73 +1,73 @@
 # Başlarken
 
-Bu sayfa, Redirect Web uygulamasında kurallar oluşturmaya yönelik yaygın kullanım durumlarını açıklar.
+Bu sayfa, Redirect Web uygulamasında kural oluşturmak için yaygın kullanım durumlarını açıklar.
 
 (Kural ayarlarının ayrıntılarını [Kural Ayarları](./rule-settings) sayfasında da öğrenebilirsiniz.)
 
-## Durum 1: Başka bir web sitesi açma
+## Durum 1: Başka bir web sitesini açın
 
-Diyelim ki Twitter'a bağımlısınız ve Twitter'ı yanlışlıkla açtığınızda Insight Timer'da meditasyon yapmaya karar verdiniz. Bunun için bir kural oluşturalım!
+Twitter bağımlısı olduğunuzu ve Twitter'ı yanlışlıkla açtığınızda Insight Timer'da meditasyon yapmaya karar verdiğinizi varsayalım. Bunun için bir kural oluşturalım!
 
 ### Adım 1. "Şuradan Yönlendir"i ayarlayın
 
-Öncelikle, uygulamadaki *Kuralı Düzenle* ekranında *Şuradan Yönlendir* bölümünü ayarlamalısınız. Hedefler, `https://twitter.com/` ile başlayan URL'lerdir.
+İlk olarak, uygulamadaki *Kuralı Düzenle* ekranında *Şuradan Yönlendir* bölümünü ayarlamalısınız. Hedefler `https://twitter.com/` ile başlayan URL'lerdir.
 
-Bu durumda, [Wildcard](rule-settings#url-pattern-wildcard) moduyla aşağıdaki deseni belirtebilirsiniz:
+Bu durumda, [Joker Karakter](rule-settings#url-pattern-wildcard) moduyla aşağıdaki deseni belirtebilirsiniz:
 
 ```
 https://twitter.com/*
 ```
 
-Wildcard modunda, `*` herhangi bir şeyi (= sıfır veya daha fazla karakteri) eşleştirir anlamına gelir.
+Joker Karakter modunda, `*` herhangi bir şeyi (= sıfır veya daha fazla karakter) eşleştirdiği anlamına gelir.
 
-Ancak, durun. `twitter.com`'un adı `x.com` olarak değiştirildi. `twitter.com`'u doğrudan `x.com` ile değiştirebilirsiniz, ancak yeni sahibin ne zaman fikrini değiştirip geri alacağını kimse bilmiyor. Bu nedenle, hem `twitter.com` hem de `x.com`'u hedefleyelim.
+Ancak, durun. `twitter.com` adı `x.com` olarak değiştirildi. `twitter.com`'u `x.com` ile kolayca değiştirebilirsiniz, ancak yeni sahibinin ne zaman fikrini değiştirip geri alacağını kimse bilmiyor. Bu nedenle, hem `twitter.com` hem de `x.com`'u hedefleyelim.
 
-Bunu yapmak için, Wildcard'dan [Normal İfade (Regular Expression)](rule-settings#url-pattern-regular-expression) moduna geçin ve bu deseni ayarlayın:
+Bunu yapmak için, Joker Karakter'den [Normal İfade](rule-settings#url-pattern-regular-expression)'ye geçin ve deseni şu şekilde ayarlayın:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-*   `(twitter|x)`: hem `twitter` hem de `x`'i hedefler. (`|` *bir boru* (pipe) olarak adlandırılır.)
-*   `.*`: Wildcard'ın `*`'ı ile aynıdır. Daha spesifik olarak, `.` *herhangi bir karakter* anlamına gelir ve `*` *bu sembolden önceki her şeyin herhangi bir sayıda tekrarlandığı* anlamına gelir, bu da herhangi bir şeyi eşleştirmesiyle sonuçlanır.
+* `(twitter|x)`: hem `twitter` hem de `x`'i hedefler. (`|` *bir boru* olarak adlandırılır.)
+* `.*`: Joker Karakter'in `*`'ı ile aynıdır. Daha spesifik olarak, `.` *herhangi bir karakter* anlamına gelir ve `*` *bu sembolden önceki herhangi bir şeyin herhangi bir sayıda tekrarlandığı* anlamına gelir, bu da herhangi bir şeyi eşleştirmesiyle sonuçlanır.
 
-Normal İfade biraz karmaşıktır, ancak alıştığınızda güçlü bir araç olacaktır. Normal İfade deseninizin nasıl çalıştığını analiz etmek için [RegExr](https://regexr.com)'ı bir oyun alanı olarak kullanmanızı öneririz.
+Normal İfade biraz karmaşıktır, ancak bir kez alıştığınızda güçlü bir araç olacaktır. Normal İfade deseninizin nasıl çalıştığını analiz etmek için bir oyun alanı olarak [RegExr](https://regexr.com)'ı kullanmanızı öneririz.
 
-> [!NOT]
-> Normal İfadelerde, `(twitter|x).com` içindeki `.` da *herhangi bir karakter* olarak kabul edilir. Bu nedenle, `(twitter|x).com/.*` örneğin `twitter1com/` veya `x_com/` ile de eşleşir.
+> [!NOTE]
+> Normal İfadelerde, `(twitter|x).com` içindeki `.` da *herhangi bir karakter* olarak kabul edilir. Bu nedenle, `(twitter|x).com/.*` ayrıca, örneğin `twitter1com/` veya `x_com/` ile de eşleşir.
 > 
-> Bunu önlemek için, bunu `(twitter|x)\.com/.*` olarak değiştirebilirsiniz. `\` özel bir karakterden kaçmak için kullanılır.
->
-> Ancak, genel internet ortamında böyle URL'ler yoktur. Bu nedenle, isterseniz `.`'yı özel bir karakter olarak bırakabilirsiniz. Kuralınız kendi kullanımınız içindir, bu yüzden uygun gördüğünüz şekilde uygulayın.
+> Bunu önlemek için, `(twitter|x)\.com/.*` olarak değiştirebilirsiniz. `\` özel bir karakteri kaçırmak için kullanılır.
+> 
+> Ancak, genel internet ortamında böyle URL'ler yoktur. Bu nedenle, isterseniz `.`'ı özel bir karakter olarak bırakabilirsiniz. Kuralınız kendi kullanımınız içindir, bu yüzden uygun gördüğünüz şekilde uygulayın.
 
 ### Adım 2: "Şuraya Yönlendir"i ayarlayın
 
-URL'yi aşağıdaki gibi belirtin:
+URL'yi aşağıdaki gibi belirtmeniz yeterlidir:
 
 ```
 https://insighttimer.com/saraauster/guided-meditations/calm
 ```
 
-Artık Redirect Web, Twitter'a eriştiğinizde sizi meditasyona yönlendirecek!
+Artık, Twitter'a eriştiğinizde Redirect Web sizi meditasyona götürüyor!
 
-**[⬇️ Kuralı İndirin](/rules/reduce-twitter-addiction.redirectweb)**
+**[⬇️ Kuralı İndir](/rules/reduce-twitter-addiction.redirectweb)**
 
-## Durum 2: URL'den Sorgu Parametrelerini Kaldırma
+## Durum 2: URL'den Sorgu Parametrelerini Kaldırın
 
-Diyelim ki `example.com` adresinin bir URL'sinde `source=twitter` sorgu parametresi var ve kendinizi anonimleştirmek için bunu kaldırmaya karar verdiniz.
+`example.com` URL'sinde `source=twitter` sorgu parametresi olduğunu ve kendinizi anonimleştirmek için onu kaldırmaya karar verdiğinizi varsayalım.
 
-Bu durumda, **Yakalama Grubu İşleme (Capturing Group Processing)** seçeneği en kolay yoldur:
+Bu durumda, **Yakalama Grubu İşleme** seçeneği en kolay yoldur:
 
-*   **Şuradan Yönlendir**: `https://example.com/*` (Wildcard)
-*   **Şuraya Yönlendir**: `$0`
-*   **Yakalama Grubu İşleme**:
-    *   **Grup**: `$0`
-    *   **İşlem**: Geçişleri Değiştir
-        *   **Hedef**: `&?source=[^&]*`
-        *   **Değiştirme**: *(yok)*
-        *   **Metin Deseni**: Normal İfade
+* **Şuradan Yönlendir**: `https://example.com/*` (Joker Karakter)
+* **Şuraya Yönlendir**: `$0`
+* **Yakalama Grubu İşleme**:
+    * **Grup**: `$0`
+    * **İşlem**: Oluşumları Değiştir
+        * **Hedef**: `&?source=[^&]*`
+        * **Değiştirme**: *(yok)*
+        * **Metin Deseni**: Normal İfade
 
-**[⬇️ Kuralı İndirin](/rules/remove-parameters.redirectweb)**
+**[⬇️ Kuralı İndir](/rules/remove-parameters.redirectweb)**
 
 Bu kural şu şekilde çalışır:
 
@@ -81,72 +81,72 @@ https://example.com/?hello=world&source=twitter&foo=bar
 
 Daha fazla parametre kaldırmak isterseniz, daha fazla işlem ekleyin.
 
-## Durum 3: URL'ye Sorgu Parametreleri Ekleme
+## Durum 3: URL'ye Sorgu Parametreleri Ekleyin
 
-Diyelim ki `example.com` adlı bir web sitesi varsayılan olarak mobil düzeni gösteriyor, ancak siz masaüstü düzenini tercih ediyorsunuz. Neyse ki, web sitesi hangi düzenin görüntüleneceğini belirtmek için bir `layout` sorgu parametresini destekliyor. Otomatik olarak `layout=desktop` ekleyen bir kural oluşturalım.
+Varsayılan olarak mobil düzen gösteren `example.com` adlı bir web sitesi olduğunu varsayalım, ancak masaüstü düzenini tercih ediyorsunuz. Neyse ki, web sitesi hangi düzeni görüntülediğini belirtmek için bir `layout` sorgu parametresini destekliyor. Otomatik olarak `layout=desktop` ekleyen bir kural oluşturalım.
 
-Belki bunu aşağıdaki gibi tanımlayabileceğinizi düşünüyorsunuzdur:
+Belki de bunu aşağıdaki gibi tanımlayabileceğinizi düşünüyorsunuz:
 
-*   **Şuradan Yönlendir**: `https://example.com/.*` (Normal İfade)
-*   **Şuraya Yönlendir**: `$0?layout=desktop`
+* **Şuradan Yönlendir**: `https://example.com/.*` (Normal İfade)
+* **Şuraya Yönlendir**: `$0?layout=desktop`
 
-`$0` hedef URL'yi referans alır. `example.com/hello` adresine erişmeye çalıştığınızda, `example.com/hello?layout=desktop` adresine yönlendirilirsiniz. Bu özellik *yerine koyma (substitution)* olarak adlandırılır.
+`$0` hedef URL'ye başvurur. `example.com/hello` adresine erişmeye çalışırsanız, `example.com/hello?layout=desktop` adresine yönlendirilirsiniz. Bu özelliğe *yerine koyma* denir.
 
-> [!İPUCU]
-> Yerine koyma, dahili olarak Normal İfade'ye dönüştürüldüğü için Wildcard modu için de kullanılabilir.
+> [!TIP]
+> Yerine koyma, dahili olarak Normal İfadeye dönüştürüldüğü için Joker Karakter modu için de mevcuttur.
 
-Ancak, bu ayarlarla ilgili birkaç sorun vardır.
+Ancak, bu ayarlarla ilgili birkaç sorun var.
 
-### Problem 1: Sonsuz döngü
+### Sorun 1: Sonsuz döngü
 
-Mevcut ayar, `https://example.com/.*` aynı zamanda `https://example.com/hello?layout=desktop` adresini de hedeflediği için sonsuz bir yönlendirme döngüsü oluşturur.
+Mevcut ayar, `https://example.com/.*` aynı zamanda `https://example.com/hello?layout=desktop`'u da hedeflediği için sonsuz bir yönlendirme döngüsü oluşturur.
 
-Bu durumda, Normal İfade ile aşağıdaki gibi, yönlendirme olmadan erişmenizi sağlayan bir hariç tutulan URL deseni belirtebilirsiniz:
+Bu durumda, Normal İfade ile şöyle bir yönlendirme olmadan erişmenizi sağlayan bir hariç tutulan URL deseni belirtebilirsiniz:
 
 ```
 .*[&?]layout=[^&]*.*
 ```
 
-*   `.*`: Her şeyi eşleştirir
-*   `[&?]`: `&` veya `?`'yi eşleştirir
-*   `[^&]*`: `&` dışındaki her şeyi eşleştirir
+* `.*`: Herhangi bir şeyi eşleştirir
+* `[&?]`: `&` veya `?`'yi eşleştirir
+* `[^&]*`: `&` dışındaki herhangi bir şeyi eşleştirir
 
-### Problem 2: Mevcut parametreleri düzgün şekilde işleyememe
+### Sorun 2: Mevcut parametreleri düzgün bir şekilde işleyemiyor
 
-Hedef URL zaten `example.com/hello?theme=dark` gibi başka sorgu parametrelerine sahipse, hedef `example.com/hello?theme=dark?layout=desktop` olacaktır (URL'de iki adet `?` vardır) ancak parametreleri yalnızca `&` ile birleştirebilirsiniz. `?` özel bir karakter olarak yalnızca parametrelerin başında izin verilir. Bu nedenle geçerli bir parametre olarak kabul edilmez.
+Hedef URL zaten `example.com/hello?theme=dark` gibi başka sorgu parametrelerine sahipse, hedef `example.com/hello?theme=dark?layout=desktop` olacaktır (URL'de iki `?` var) ancak parametreleri yalnızca `&` ile birleştirebilirsiniz. `?` özel bir karakter olarak yalnızca parametrelerin başında izin verilir. Bu nedenle geçerli bir parametre olarak kabul edilmez.
 
 Bu durumda, ayarları şöyle değiştirin:
 
-*   **Şuradan Yönlendir**: `(https://example.com/[^?]*)(\?(.*))?`
-*   **Şuraya Yönlendir**: `$1?layout=desktop&$3`
+* **Şuradan Yönlendir**: `(https://example.com/[^?]*)(\(?(.*))?`
+* **Şuraya Yönlendir**: `$1?layout=desktop&$3`
 
 Adım adım inceleyelim.
 
-*   `(https://example.com/[^?]*)`: `?`'nin bir önceki karakterine kadar olan kısmı eşleştirir.
-    *   `[^?]*` `?` dışındaki her şeyi eşleştirir.
-    *   Bu, `()` ile sarılmıştır, böylece daha sonra `$1` ile referans verebilirsiniz.
-*   `(\?(.*))?`: Sorgu parametreleri anlamına gelen `?` ile başlayan bir dizeyi eşleştirir.
-    *   Bu, desenin sonundaki `?` niceleyicisi tarafından boş dizeyi de eşleştirir, bu da *sıfır veya bir kez eşleşir* anlamına gelir.
-    *   Dıştaki `()` ve içteki `()` daha sonra `$2` ve `$3` ile referans alınabilir.
+* `(https://example.com/[^?]*)`: `?`'nin önceki karakterine kadar olan kısmı eşleştirir.
+    * `[^?]*` `?` dışındaki herhangi bir şeyi eşleştirir.
+    * Bu `()` ile sarılmıştır, böylece daha sonra `$1` ile başvurabilirsiniz.
+* `(\(?(.*))?)`: `?` ile başlayan bir dizeyi eşleştirir, bu da sorgu parametreleri anlamına gelir.
+    * Bu aynı zamanda desenin sonundaki `?` niceleyicisi ile boş dizeyi de eşleştirir, bu da *sıfır veya bir kez eşleşir* anlamına gelir.
+    * Dış `()` ve iç `()` daha sonra `$2` ve `$3` ile başvurulabilir.
 
 [RegExr](https://regexr.com) ayrıntıları anlamanıza yardımcı olabilir.
 
-> [!NOT]
-> RegExr, `/` karakterini `\` ile kaçırmadığınızda bir hata gösterir. Kaçırabilirsiniz, ancak Redirect Web, kaçırmayı gerektirmeyen Apple tarafından geliştirilen farklı bir motor kullandığı için bu gerekli değildir.
+> [!NOTE]
+> RegExr, `/`'yi `\` ile kaçırmadığınızda bir hata gösterir. Kaçırabilseniz de, Redirect Web'in kaçırma gerektirmeyen Apple tarafından farklı bir motor kullandığı için gerekli değildir.
 
-Bu mükemmel bir çözüm değildir, çünkü `example.com/hello` adresini `example.com/hello?layout=desktop&` adresine yönlendirir, bu da URL'nin sonunda gereksiz bir `&` içerir. Genelde büyük bir sorun olmasa da, bunu kaldırmak isterseniz *Yakalama Grubu İşleme (Capturing Group Processing)* kullanabilirsiniz.
+Bu mükemmel bir çözüm değildir, çünkü `example.com/hello` adresini `example.com/hello?layout=desktop&` adresine yönlendirir, bu da URL'nin sonunda gereksiz bir `&` içerir. Genelde büyük bir sorun değildir, ancak kaldırmak isterseniz, *Yakalama Grubu İşleme* kullanabilirsiniz.
 
-Sonuç olarak, nihai çıktı şöyledir:
+Sonuç olarak, nihai çıktı şudur:
 
-*   **Şuradan Yönlendir**: `(https://example.com/[^?]*)((\?(.*))?)` (Normal İfade)
-*   **Şuraya Yönlendir**: `$1?layout=desktop$3`
-*   **Hariç Tutulan URL Deseni**: `.*[&?]layout=[^&]*.*` (Normal İfade)
-*   **Yakalama Grubu İşleme**:
-    *   **Grup**: `$3`
-    *   **İşlem**: Geçişleri Değiştir
-        *   **Hedef**: `\?(.*)`
-        *   **Değiştirme**: `&$1`
+* **Şuradan Yönlendir**: `(https://example.com/[^?]*)((\(?(.*))?))` (Normal İfade)
+* **Şuraya Yönlendir**: `$1?layout=desktop$3`
+* **Hariç Tutulan URL Deseni**: `.*[&?]layout=[^&]*.*` (Normal İfade)
+* **Yakalama Grubu İşleme**:
+    * **Grup**: `$3`
+    * **İşlem**: Oluşumları Değiştir
+        * **Hedef**: `\?(.*)`
+        * **Değiştirme**: `&$1`
 
-**[⬇️ Kuralı İndirin](/rules/add-parameters.redirectweb)**
+**[⬇️ Kuralı İndir](/rules/add-parameters.redirectweb)**
 
-Bu sadece bir örnektir. Her bir sorunu çözmek için birden fazla kural da oluşturabilirsiniz. Bu çok daha basit olabilir.
+Bu sadece bir örnektir. Her sorunu çözmek için birden fazla kural da oluşturabilirsiniz. Çok daha basit olabilir.

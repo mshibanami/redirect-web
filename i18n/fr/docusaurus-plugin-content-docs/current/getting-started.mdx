@@ -1,46 +1,46 @@
-# Démarrage rapide
+# Premiers pas
 
-Cette page décrit les cas d'utilisation courants pour la création de règles dans l'application web Redirect.
+Cette page décrit les cas d'utilisation courants pour la création de règles dans l'application Redirect Web.
 
-(Vous pouvez également consulter les détails des paramètres de règle sur la page [Paramètres de règle](./rule-settings).)
+(Vous pouvez également en savoir plus sur les détails des paramètres de règle sur la page [Paramètres de règle](./rule-settings).)
 
 ## Cas 1 : Ouvrir un autre site web
 
-Supposons que vous soyez accro à Twitter, et que vous décidez de méditer avec Insight Timer chaque fois que vous ouvrez Twitter par accident. Créons une règle pour cela !
+Supposons que vous soyez accro à Twitter et que vous décidiez de méditer dans Insight Timer chaque fois que vous ouvrez accidentellement Twitter. Créons une règle pour cela !
 
-### Étape 1. Configurer "Redirect From"
+### Étape 1. Configurer "Rediriger depuis"
 
-Tout d'abord, vous devez configurer la section *Redirect From* dans l'écran *Modifier la règle* de l'application. Les cibles sont les URL commençant par `https://twitter.com/`.
+Tout d'abord, vous devez configurer la section *Rediriger depuis* dans l'écran *Modifier la règle* de l'application. Les cibles sont des URL commençant par `https://twitter.com/`.
 
-Dans ce cas, vous pouvez spécifier le modèle suivant avec le mode [Wildcard](rule-settings#url-pattern-wildcard) :
+Dans ce cas, vous pouvez spécifier le modèle suivant avec le mode [Joker](rule-settings#url-pattern-wildcard) :
 
 ```
 https://twitter.com/*
 ```
 
-En mode Wildcard, `*` signifie qu'il correspond à n'importe quoi (= zéro ou plusieurs caractères).
+En mode Joker, `*` signifie qu'il correspond à n'importe quoi (= zéro ou plusieurs caractères).
 
-Cependant, attention. `twitter.com` a été renommé `x.com`. Vous pouvez simplement remplacer `twitter.com` par `x.com`, mais personne ne sait quand le nouveau propriétaire changera d'avis pour revenir en arrière. Par conséquent, ciblons à la fois `twitter.com` et `x.com`.
+Cependant, attendez. `twitter.com` a été renommé `x.com`. Vous pouvez simplement remplacer `twitter.com` par `x.com`, mais personne ne sait quand le nouveau propriétaire changera d'avis pour revenir en arrière. Par conséquent, ciblons à la fois `twitter.com` et `x.com`.
 
-Pour ce faire, passez de Wildcard à [Regular Expression](rule-settings#url-pattern-regular-expression) et définissez ceci comme modèle :
+Pour ce faire, passez du mode Joker à [Expression régulière](rule-settings#url-pattern-regular-expression), et définissez ceci comme modèle :
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)` : il cible à la fois `twitter` et `x`. (`|` est appelé *une barre verticale*.)
-* `.*` : C'est la même chose que le `*` de Wildcard. Plus précisément, `.` signifie *n'importe quel caractère* et `*` signifie *n'importe quoi avant ce symbole répété n'importe quel nombre de fois*, ce qui fait qu'il correspond à n'importe quoi.
+* `(twitter|x)` : il cible à la fois `twitter` et `x`. (`|` est appelé *un pipe*.)
+* `.*` : C'est la même chose que `*` du mode Joker. Plus précisément, `.` signifie *n'importe quel caractère* et `*` signifie *n'importe quoi avant ce symbole répété un nombre quelconque de fois*, ce qui fait qu'il correspond à n'importe quoi.
 
-Les expressions régulières sont un peu compliquées, mais une fois que vous vous y êtes habitué, elles deviendront un outil puissant. Nous vous recommandons d'utiliser [RegExr](https://regexr.com) comme terrain de jeu pour analyser le fonctionnement de votre modèle d'expression régulière.
+L'expression régulière est un peu compliquée, mais une fois que vous vous y serez habitué, ce sera un outil puissant. Nous vous recommandons d'utiliser [RegExr](https://regexr.com) comme terrain de jeu pour analyser le fonctionnement de votre modèle d'expression régulière.
 
 > [!NOTE]
 > Dans les expressions régulières, `.` dans `(twitter|x).com` est également traité comme *n'importe quel caractère*. Par conséquent, `(twitter|x).com/.*` correspond également, par exemple, à `twitter1com/` ou `x_com/`.
->
-> Pour éviter cela, vous pouvez le changer en `(twitter|x)\.com/.*`. `\` est utilisé pour échapper un caractère spécial.
->
-> Cependant, il n'existe pas de telles URL dans l'environnement Internet général. Par conséquent, vous pouvez laisser `.` comme un caractère spécial si vous préférez. Votre règle est pour votre usage personnel, alors implémentez-la comme bon vous semble.
+> 
+> Pour l'éviter, vous pouvez le changer en `(twitter|x)\.com/.*`. `\` est utilisé pour échapper un caractère spécial.
+> 
+> Cependant, il n'existe pas de telles URL dans l'environnement Internet général. Par conséquent, vous pouvez laisser `.` comme caractère spécial si vous préférez. Votre règle est pour votre propre usage, alors implémentez-la comme bon vous semble.
 
-### Étape 2 : Configurer "Redirect To"
+### Étape 2 : Configurer "Rediriger vers"
 
 Spécifiez simplement l'URL comme suit :
 
@@ -56,11 +56,11 @@ Maintenant, Redirect Web vous amène à la méditation lorsque vous accédez à 
 
 Supposons qu'il y ait un paramètre de requête `source=twitter` dans une URL de `example.com`, et que vous ayez décidé de le supprimer pour vous anonymiser.
 
-Dans ce cas, l'option **Traitement de groupe de capture** est la plus simple :
+Dans ce cas, l'option **Traitement des groupes de capture** est le moyen le plus simple. :
 
-* **Redirect From** : `https://example.com/*` (Wildcard)
-* **Redirect To** : `$0`
-* **Traitement de groupe de capture** :
+* **Rediriger depuis** : `https://example.com/*` (Joker)
+* **Rediriger vers** : `$0`
+* **Traitement des groupes de capture** :
     * **Groupe** : `$0`
     * **Processus** : Remplacer les occurrences
         * **Cible** : `&?source=[^&]*`
@@ -83,17 +83,17 @@ Si vous souhaitez supprimer plus de paramètres, ajoutez plus de processus.
 
 ## Cas 3 : Ajouter des paramètres de requête à l'URL
 
-Disons qu'il existe un site web appelé `example.com` qui affiche une mise en page mobile par défaut, mais vous préférez sa mise en page de bureau. Heureusement, le site web prend en charge un paramètre de requête `layout` pour spécifier la mise en page affichée. Créons une règle qui ajoute `layout=desktop` automatiquement.
+Disons qu'il existe un site web appelé `example.com` qui affiche une mise en page mobile par défaut, mais vous préférez leur mise en page de bureau. Heureusement, le site web prend en charge un paramètre de requête `layout` pour spécifier la mise en page que le site web affiche. Créons une règle qui ajoute `layout=desktop` automatiquement.
 
-Vous pensez peut-être que vous pourriez le définir comme suit :
+Peut-être pensez-vous que vous pourriez le définir comme suit :
 
-* **Redirect From** : `https://example.com/.*` (Expression régulière)
-* **Redirect To** : `$0?layout=desktop`
+* **Rediriger depuis** : `https://example.com/.*` (Expression régulière)
+* **Rediriger vers** : `$0?layout=desktop`
 
 `$0` fait référence à l'URL cible. Si vous essayez d'accéder à `example.com/hello`, vous êtes redirigé vers `example.com/hello?layout=desktop`. Cette fonctionnalité est appelée *substitution*.
 
 > [!TIP]
-> La substitution est également disponible pour le mode Wildcard car il est converti en interne en expression régulière.
+> La substitution est également disponible pour le mode Joker car elle est convertie en interne en expression régulière.
 
 Cependant, il y a quelques problèmes avec ces paramètres.
 
@@ -101,7 +101,7 @@ Cependant, il y a quelques problèmes avec ces paramètres.
 
 Le paramètre actuel crée une boucle de redirection infinie car `https://example.com/.*` cible également `https://example.com/hello?layout=desktop`.
 
-Dans ce cas, vous pouvez spécifier un modèle d'URL exclu qui vous permet d'accéder sans redirection, comme ceci avec l'expression régulière :
+Dans ce cas, vous pouvez spécifier un modèle d'URL exclu qui vous permet d'accéder sans redirection, comme ceci avec une expression régulière :
 
 ```
 .*[&?]layout=[^&]*.*
@@ -111,40 +111,40 @@ Dans ce cas, vous pouvez spécifier un modèle d'URL exclu qui vous permet d'acc
 * `[&?]` : Correspond à `&` ou `?`
 * `[^&]*` : Correspond à n'importe quoi sauf `&`
 
-### Problème 2 : Ne peut pas gérer correctement les paramètres existants
+### Problème 2 : Impossible de gérer correctement les paramètres existants
 
 Si l'URL cible a déjà d'autres paramètres de requête comme `example.com/hello?theme=dark`, la destination sera `example.com/hello?theme=dark?layout=desktop` (il y a deux `?` dans l'URL) mais vous ne pouvez joindre les paramètres qu'avec `&`. `?` en tant que caractère spécial n'est autorisé qu'au début des paramètres. Il n'est donc pas traité comme un paramètre valide.
 
-Dans ce cas, modifiez les paramètres comme suit :
+Dans ce cas, modifiez les paramètres comme ceci :
 
-* **Redirect From** : `(https://example.com/[^?]*)(\?(.*))?`
-* **Redirect To** : `$1?layout=desktop&$3`
+* **Rediriger depuis** : `(https://example.com/[^?]*)(\(.*))?`
+* **Rediriger vers** : `$1?layout=desktop&$3`
 
-Examinons cela étape par étape.
+Examinons étape par étape.
 
 * `(https://example.com/[^?]*)` : Correspond à la partie jusqu'au caractère précédent de `?`.
     * `[^?]*` correspond à n'importe quoi sauf `?`.
     * Ceci est enveloppé de `()` afin que vous puissiez y faire référence avec `$1` plus tard.
-* `(\?(.*))?` : Correspond à une chaîne commençant par `?`, ce qui signifie des paramètres de requête.
+* `(\(.*))?` : Correspond à une chaîne commençant par `?`, ce qui signifie des paramètres de requête.
     * Cela correspond également à une chaîne vide par le quantificateur `?` à la fin du modèle, qui *correspond zéro ou une fois*.
     * Le `()` extérieur et le `()` intérieur peuvent être référencés avec `$2` et `$3` plus tard.
 
 [RegExr](https://regexr.com) peut vous aider à comprendre les détails.
 
 > [!NOTE]
-> RegExr affiche une erreur si vous n'échappez pas `/` avec `\`. Bien que vous puissiez l'échapper, ce n'est pas obligatoire car Redirect Web utilise un moteur différent d'Apple qui ne l'exige pas.
+> RegExr affiche une erreur lorsque vous n'échappez pas `/` avec `\`. Bien que vous puissiez l'échapper, ce n'est pas obligatoire car Redirect Web utilise un moteur différent d'Apple qui ne nécessite pas d'échappement.
 
-Ce n'est pas une solution parfaite, car elle redirige `example.com/hello` vers `example.com/hello?layout=desktop&`, qui inclut un `&` inutile à la fin de l'URL. Ce n'est généralement pas un problème majeur, mais si vous souhaitez le supprimer, vous pouvez utiliser le *Traitement de groupe de capture*.
+Ce n'est pas une solution parfaite, car elle redirige `example.com/hello` vers `example.com/hello?layout=desktop&`, ce qui inclut un `&` inutile à la fin de l'URL. Ce n'est pas un gros problème en général, mais si vous souhaitez le supprimer, vous pouvez utiliser le *Traitement des groupes de capture*.
 
 En conclusion, voici le résultat final :
 
-* **Redirect From** : `(https://example.com/[^?]*)((\?(.*))?)` (Expression régulière)
-* **Redirect To** : `$1?layout=desktop$3`
+* **Rediriger depuis** : `(https://example.com/[^?]*)((\(.*))?)` (Expression régulière)
+* **Rediriger vers** : `$1?layout=desktop$3`
 * **Modèle d'URL exclu** : `.*[&?]layout=[^&]*.*` (Expression régulière)
-* **Traitement de groupe de capture** :
+* **Traitement des groupes de capture** :
     * **Groupe** : `$3`
     * **Processus** : Remplacer les occurrences
-        * **Cible** : `\?(.*)`
+        * **Cible** : `\\?(.*)`
         * **Remplacement** : `&$1`
 
 **[⬇️ Télécharger la règle](/rules/add-parameters.redirectweb)**

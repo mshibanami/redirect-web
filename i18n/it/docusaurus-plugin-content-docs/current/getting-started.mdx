@@ -6,41 +6,41 @@ Questa pagina descrive i casi d'uso comuni per la creazione di regole nell'app R
 
 ## Caso 1: Aprire un altro sito web
 
-Supponiamo che tu sia dipendente da Twitter e decida di meditare su Insight Timer ogni volta che apri accidentalmente Twitter. Creiamo una regola per questo!
+Supponiamo che tu sia dipendente da Twitter e decida di meditare in Insight Timer ogni volta che apri accidentalmente Twitter. Creiamo una regola per questo!
 
-### Passaggio 1. Impostare "Reindirizza da"
+### Passaggio 1. Configura "Reindirizza da"
 
-Per prima cosa, dovresti impostare la sezione *Reindirizza da* nella schermata *Modifica regola* nell'app. I target sono URL che iniziano con `https://twitter.com/`.
+Innanzitutto, devi configurare la sezione *Reindirizza da* nella schermata *Modifica regola* nell'app. Gli obiettivi sono URL che iniziano con `https://twitter.com/`.
 
-In questo caso, puoi specificare il seguente pattern con la modalità [Wildcard](rule-settings#url-pattern-wildcard):
+In questo caso, puoi specificare il seguente pattern con la modalità [Carattere jolly](rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
 ```
 
-Nella modalità Wildcard, `*` significa che corrisponde a qualsiasi cosa (= zero o più caratteri).
+Nella modalità Carattere jolly, `*` significa che corrisponde a qualsiasi cosa (= zero o più caratteri).
 
-Tuttavia, aspetta. `twitter.com` è stato rinominato in `x.com`. Puoi semplicemente sostituire `twitter.com` con `x.com` ma nessuno sa quando il nuovo proprietario cambierà di nuovo idea per ripristinarlo. Pertanto, miriamo sia a `twitter.com` che a `x.com`.
+Tuttavia, aspetta. `twitter.com` è stato rinominato in `x.com`. Puoi semplicemente sostituire `twitter.com` con `x.com`, ma nessuno sa quando il nuovo proprietario cambierà di nuovo idea per ripristinarlo. Pertanto, miriamo sia a `twitter.com` che a `x.com`.
 
-Per fare ciò, passa da Wildcard a [Espressione Regolare](rule-settings#url-pattern-regular-expression) e imposta questo come pattern:
+Per fare ciò, passa da Carattere jolly a [Espressione regolare](rule-settings#url-pattern-regular-expression) e imposta questo come pattern:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-*   `(twitter|x)`: mira sia a `twitter` che a `x`. (`|` è chiamato *pipe*.)
-*   `.*`: È lo stesso di `*` di Wildcard. Più specificamente, `.` significa *qualsiasi carattere* e `*` significa *qualsiasi cosa prima di questo simbolo ripetuta un numero qualsiasi di volte*, risultando nella corrispondenza di qualsiasi cosa.
+* `(twitter|x)`: mira sia a `twitter` che a `x`. (`|` è chiamato *una pipe*.)
+* `.*`: È lo stesso di `*` del carattere jolly. Più specificamente, `.` significa *qualsiasi carattere* e `*` significa *qualsiasi cosa prima di questo simbolo ripetuta un numero qualsiasi di volte*, risultando in una corrispondenza con qualsiasi cosa.
 
-L'Espressione Regolare è un po' complicata, ma una volta che ti ci abitui, sarà uno strumento potente. Ti consigliamo di usare [RegExr](https://regexr.com) come ambiente di prova per analizzare come funziona il tuo pattern di Espressione Regolare.
+L'espressione regolare è un po' complicata, ma una volta che ci si abitua, sarà uno strumento potente. Ti consigliamo di utilizzare [RegExr](https://regexr.com) come playground per analizzare come funziona il tuo pattern di espressione regolare.
 
 > [!NOTE]
-> Nelle Espressioni Regolari, `.` in `(twitter|x).com` è anche trattato come *qualsiasi carattere*. Pertanto, `(twitter|x).com/.*` corrisponde anche, ad esempio, a `twitter1com/` o `x_com/`.
->
-> Per evitarlo, puoi cambiarlo in `(twitter|x)\.com/.*`. `\` viene usato per "escapare" un carattere speciale.
->
-> Tuttavia, non esistono tali URL nell'ambiente internet generale. Pertanto, puoi lasciare `.` come carattere speciale se preferisci. La tua regola è per il tuo uso personale, quindi implementala come ritieni opportuno.
+> Nelle espressioni regolari, `.` in `(twitter|x).com` è anche trattato come *qualsiasi carattere*. Pertanto, `(twitter|x).com/.*` corrisponde anche, ad esempio, a `twitter1com/` o `x_com/`.
+> 
+> Per evitarlo, puoi cambiarlo in `(twitter|x)\.com/.*`. `\` viene utilizzato per eseguire l'escape di un carattere speciale.
+> 
+> Tuttavia, non esistono tali URL nell'ambiente Internet generale. Pertanto, puoi lasciare `.` come carattere speciale se preferisci. La tua regola è per il tuo uso personale, quindi implementala come ritieni opportuno.
 
-### Passaggio 2: Impostare "Reindirizza a"
+### Passaggio 2: Configura "Reindirizza a"
 
 Specifica semplicemente l'URL come segue:
 
@@ -50,24 +50,24 @@ https://insighttimer.com/saraauster/guided-meditations/calm
 
 Ora, Redirect Web ti porta alla meditazione quando accedi a Twitter!
 
-**[⬇️ Scarica la Regola](/rules/reduce-twitter-addiction.redirectweb)**
+**[⬇️ Scarica la regola](/rules/reduce-twitter-addiction.redirectweb)**
 
 ## Caso 2: Rimuovere i parametri di query dall'URL
 
-Supponiamo che ci sia un parametro di query `source=twitter` in un URL di `example.com` e tu abbia deciso di rimuoverlo per anonimizzarti.
+Supponiamo che ci sia un parametro di query `source=twitter` in un URL di `example.com`, e tu abbia deciso di rimuoverlo per anonimizzarti.
 
-In questo caso, l'opzione **Elaborazione Gruppi di Cattura** è il modo più semplice:
+In questo caso, l'opzione **Elaborazione gruppo di acquisizione** è il modo più semplice.:
 
-*   **Reindirizza da**: `https://example.com/*` (Wildcard)
-*   **Reindirizza a**: `$0`
-*   **Elaborazione Gruppi di Cattura**:
-    *   **Gruppo**: `$0`
-    *   **Processo**: Sostituisci Occorrenze
-        *   **Target**: `&?source=[^&]*`
-        *   **Sostituzione**: *(nessuna)*
-        *   **Pattern Testo**: Espressione Regolare
+* **Reindirizza da**: `https://example.com/*` (Carattere jolly)
+* **Reindirizza a**: `$0`
+* **Elaborazione gruppo di acquisizione**:
+    * **Gruppo**: `$0`
+    * **Processo**: Sostituisci occorrenze
+        * **Target**: `&?source=[^&]*`
+        * **Sostituzione**: *(nessuno)*
+        * **Pattern di testo**: Espressione regolare
 
-**[⬇️ Scarica la Regola](/rules/remove-parameters.redirectweb)**
+**[⬇️ Scarica la regola](/rules/remove-parameters.redirectweb)**
 
 Questa regola funziona come segue:
 
@@ -79,37 +79,37 @@ https://example.com/?hello=world&source=twitter&foo=bar
 ↪ https://example.com/?hello=world&foo=bar
 ```
 
-Se vuoi rimuovere più parametri, aggiungi altri processi.
+Se desideri rimuovere più parametri, aggiungi più processi.
 
 ## Caso 3: Aggiungere parametri di query all'URL
 
-Supponiamo che ci sia un sito web chiamato `example.com` che mostra un layout mobile per impostazione predefinita, ma tu preferisci il layout desktop. Fortunatamente, il sito web supporta un parametro di query `layout` per specificare quale layout visualizzare. Creiamo una regola che aggiunga automaticamente `layout=desktop`.
+Let's say there is a website called `example.com` that shows a mobile layout by default, but you prefer their desktop layout. Fortunately, the website supports a `layout` query parameter to specify which layout the website displays. Let's create a rule that adds `layout=desktop` automatically.
 
-Forse pensi di poterlo definire come segue:
+Perhaps you think you could define it as follows:
 
-*   **Reindirizza da**: `https://example.com/.*` (Espressione Regolare)
-*   **Reindirizza a**: `$0?layout=desktop`
+* **Reindirizza da**: `https://example.com/.*` (Espressione regolare)
+* **Reindirizza a**: `$0?layout=desktop`
 
-`$0` fa riferimento all'URL di destinazione. Se provi ad accedere a `example.com/hello`, sarai reindirizzato a `example.com/hello?layout=desktop`. Questa funzionalità è chiamata *sostituzione*.
+`$0` fa riferimento all'URL di destinazione. Se provi ad accedere a `example.com/hello`, verrai reindirizzato a `example.com/hello?layout=desktop`. Questa funzionalità si chiama *sostituzione*.
 
 > [!TIP]
-> La sostituzione è disponibile anche per la modalità Wildcard poiché viene convertita internamente in Espressione Regolare.
+> La sostituzione è disponibile anche per la modalità Carattere jolly poiché viene convertita internamente in espressione regolare.
 
 Tuttavia, ci sono alcuni problemi con queste impostazioni.
 
-### Problema 1: Ciclo infinito
+### Problema 1: Loop infinito
 
-L'impostazione attuale crea un ciclo di reindirizzamento infinito poiché `https://example.com/.*` mira anche a `https://example.com/hello?layout=desktop`.
+L'impostazione attuale crea un loop di reindirizzamento infinito poiché `https://example.com/.*` mira anche a `https://example.com/hello?layout=desktop`.
 
-In questo caso, puoi specificare un pattern URL escluso che ti consente di accedere senza reindirizzamento, così con Espressione Regolare:
+In questo caso, puoi specificare un pattern URL escluso che ti consente di accedere senza reindirizzamento, come questo con l'espressione regolare:
 
 ```
 .*[&?]layout=[^&]*.*
 ```
 
-*   `.*`: Corrisponde a qualsiasi cosa
-*   `[&?]`: Corrisponde a `&` o `?`
-*   `[^&]*`: Corrisponde a qualsiasi cosa tranne `&`
+* `.*`: Corrisponde a qualsiasi cosa
+* `[&?]`: Corrisponde a `&` o `?`
+* `[^&]*`: Corrisponde a qualsiasi cosa tranne `&`
 
 ### Problema 2: Impossibile gestire correttamente i parametri esistenti
 
@@ -117,36 +117,36 @@ Se l'URL di destinazione ha già altri parametri di query come `example.com/hell
 
 In questo caso, modifica le impostazioni in questo modo:
 
-*   **Reindirizza da**: `(https://example.com/[^?]*)(\?(.*))?`
-*   **Reindirizza a**: `$1?layout=desktop&$3`
+* **Reindirizza da**: `(https://example.com/[^?]*)(\(.*))?`
+* **Reindirizza a**: `$1?layout=desktop&$3`
 
 Diamo un'occhiata passo dopo passo.
 
-*   `(https://example.com/[^?]*)`: Corrisponde alla parte fino al carattere precedente a `?`.
-    *   `[^?]*` corrisponde a qualsiasi cosa tranne `?`.
-    *   Questo è racchiuso tra `()` in modo da poterlo riferire con `$1` in seguito.
-*   `(\?(.*))?`: Corrisponde a una stringa che inizia con `?`, il che significa parametri di query.
-    *   Questo corrisponde anche a una stringa vuota dal quantificatore `?` alla fine del pattern, che *corrisponde a zero o una volta*.
-    *   Le `()` esterne e le `()` interne possono essere riferite con `$2` e `$3` in seguito.
+* `(https://example.com/[^?]*)`: Corrisponde alla parte fino al carattere precedente di `?`.
+    * `[^?]*` corrisponde a qualsiasi cosa tranne `?`.
+    * Questo è racchiuso tra `()` in modo da poterlo fare riferimento con `$1` in seguito.
+* `(\(.*))?`: Corrisponde a una stringa che inizia con `?`, il che significa parametri di query.
+    * Questo corrisponde anche a una stringa vuota tramite il quantificatore `?` alla fine del pattern, che *corrisponde zero o una volta*.
+    * Le `()` esterne e le `()` interne possono essere referenziate con `$2` e `$3` in seguito.
 
 [RegExr](https://regexr.com) potrebbe aiutarti a capire i dettagli.
 
 > [!NOTE]
-> RegExr mostra un errore quando non "escapa" `/` con `\`. Sebbene tu possa "escaparlo", non è richiesto poiché Redirect Web utilizza un motore diverso di Apple che non richiede l'"escape".
+> RegExr mostra un errore quando non si esegue l'escape di `/` con `\`. Sebbene sia possibile eseguirne l'escape, non è richiesto poiché Redirect Web utilizza un motore diverso di Apple che non richiede l'escape.
 
-Questa non è una soluzione perfetta, poiché reindirizza `example.com/hello` a `example.com/hello?layout=desktop&`, che include un `&` non necessario alla fine dell'URL. Non è un grosso problema in generale, ma se desideri rimuoverlo, puoi usare l' *Elaborazione Gruppi di Cattura*.
+Questa non è una soluzione perfetta, poiché reindirizza `example.com/hello` a `example.com/hello?layout=desktop&`, che include un `&` non necessario alla fine dell'URL. Non è un grosso problema in generale, ma se desideri rimuoverlo, puoi utilizzare l'*Elaborazione gruppo di acquisizione*.
 
 In conclusione, questo è l'output finale:
 
-*   **Reindirizza da**: `(https://example.com/[^?]*)((\?(.*))?)` (Espressione Regolare)
-*   **Reindirizza a**: `$1?layout=desktop$3`
-*   **Pattern URL escluso**: `.*[&?]layout=[^&]*.*` (Espressione Regolare)
-*   **Elaborazione Gruppi di Cattura**:
-    *   **Gruppo**: `$3`
-    *   **Processo**: Sostituisci Occorrenze
-        *   **Target**: `\?(.*)`
-        *   **Sostituzione**: `&$1`
+* **Reindirizza da**: `(https://example.com/[^?]*)((\(.*))?)` (Espressione regolare)
+* **Reindirizza a**: `$1?layout=desktop$3`
+* **Pattern URL escluso**: `.*[&?]layout=[^&]*.*` (Espressione regolare)
+* **Elaborazione gruppo di acquisizione**:
+    * **Gruppo**: `$3`
+    * **Processo**: Sostituisci occorrenze
+        * **Target**: `\?(.*)`
+        * **Sostituzione**: `&$1`
 
-**[⬇️ Scarica la Regola](/rules/add-parameters.redirectweb)**
+**[⬇️ Scarica la regola](/rules/add-parameters.redirectweb)**
 
 Questo è solo un esempio. Puoi anche creare più regole per gestire ogni problema. Può essere molto più semplice.

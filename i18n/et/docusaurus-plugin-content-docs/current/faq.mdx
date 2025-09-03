@@ -5,79 +5,79 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # KKK
 
-## Miks peaksin lubama laiendusel mu teavet lugeda/muuta? {#why-allow-extension-to-read-change}
+## Miks peaksin lubama laiendusel minu teavet lugeda/muuta? {#why-allow-extension-to-read-change}
 
-Redirect Web'i seadistamisel võite näha järgmist hoiatust:
+Redirect Webi seadistamisel võite näha sellist hoiatust:
 
 <IfBrowserStore stores='appStore'>
     <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow={true} />
 
-    > See laiendus saab lugeda ja muuta veebilehti ning näha teie sirvimisajalugu sellel veebisaidil. **See võib hõlmata tundlikku teavet, sealhulgas paroole, telefoninumbreid ja krediitkaarte.**
+    > See laiendus saab lugeda ja muuta veebilehti ning näha teie sirvimisajalugu sellel veebisaidil. **See võib sisaldada tundlikku teavet, sealhulgas paroole, telefoninumbreid ja krediitkaarte.**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
 
-    > See saab:
-    > Lugeda ja muuta **kõiki teie andmeid** **kõikidel veebisaitidel**
+    > See saab:  
+    > Lugeda ja muuta **kõiki teie andmeid** **kõigil veebisaitidel**
 </IfBrowserStore>
 
-See laiendus vajab teie luba lehe navigeerimise jälgimiseks, et suunata teid sinna, kuhu soovite hüpata, ja teie brauser kuvab selle, kui laiendus nõuab seotud õigusi. Seega, kui te seda ei luba, ei saa see laiendus töötada.
+See laiendus vajab teie luba lehe navigeerimise jälgimiseks, et suunata teid sinna, kuhu soovite hüpata, ja teie brauser kuvab seda, kui laiendus nõuab seotud õigusi. Seetõttu, kui te seda ei luba, ei saa see laiendus töötada.
 
-Antud õigusi kasutatakse ainult rakenduse funktsioonide, näiteks ümbersuunamise jaoks, kooskõlas **[privaatsuspoliitikaga](./privacy-policy)**.
+Antud õigusi kasutatakse ainult rakenduse funktsioonide jaoks, nagu ümbersuunamine, vastavalt **[privaatsuspoliitikale](./privacy-policy)**.
 
-## Kas peaksin rakenduse ikkagi hankima pärast laienduse installimist Chrome'i, Firefoxi või Edge'i jaoks? {#app-for-non-safari-browsers}
+## Kas peaksin ikkagi rakenduse hankima pärast Chrome'i, Firefoxi või Edge'i laienduse installimist? {#app-for-non-safari-browsers}
 
-Jah. Peate alla laadima [Redirect Web'i rakenduse App Store'ist](https://apps.apple.com/app/id1571283503), olenemata sellest, millist brauserit te kasutate. Laienduse saate installida oma brauseri laienduste poest, kuid rakendus on vajalik reeglite, ostuajaloo ja muude seadete haldamiseks seadmete vahel iCloudi kaudu.
+Jah. Peate alla laadima [Redirect Webi rakenduse App Store'ist](https://apps.apple.com/app/id1571283503) olenemata sellest, millist brauserit te kasutate. Saate laienduse installida oma brauseri laienduste poest, kuid rakendus on vajalik teie reeglite, ostuajaloo ja muude seadete haldamiseks seadmete vahel iCloudi kaudu.
 
-## Kas Redirect Web töötab Windowsis, Androidis, Linuxis või teistel platvormidel? {#non-apple-platforms}
+## Kas Redirect Web töötab Windowsis, Androidis, Linuxis või muudel platvormidel? {#non-apple-platforms}
 
 Praegu mitte. Redirect Web on tihedalt seotud Apple'i ökosüsteemiga, sealhulgas iCloudi ja universaalse ostuga, mis muudab selle pakkumise keeruliseks.
 
 ## Miks mitte [Redirector](https://github.com/einaregilsson/Redirector)? {#why-not-redirector}
 
-Redirector on endiselt suurepärane ümbersuunamise laiendus. See on täiesti tasuta, avatud lähtekoodiga ja töötab ka mitte-Apple'i platvormidel. Kuid Redirect Web'il on mõned lisafunktsioonid, mis teile meeldida võivad:
+Redirector on endiselt suurepärane ümbersuunamise laiendus. See on täiesti tasuta, avatud lähtekoodiga ja töötab ka mitte-Apple'i platvormidel. Kuid Redirect Webil on mõned lisafunktsioonid, mis teile meeldida võivad:
 
-*   **Üksikasjalikud reegliseaded:** Mitmed välistamismustrid, mitmed vastavusprotsessid ja stringi asendamise funktsioonid, mis on saadaval ainult Redirect Web'is.
-*   **Ava natiivrakendustes:** Macis saate valida, kus siht-URL avada. (See kutsub `open` käsu otse. Mitte sügavlinke.)
-*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) tugi:** Pakub välkkiiret ümbersuunamist.
-*   **Tsentraliseeritud reeglihaldus:** Hallake kõigi brauserite reegleid ühes kohas natiivrakenduse kaudu.
-*   **Manifest V3 & V2 tugi:** Kasulik, kuni V2 Chrome'is järk-järgult kasutuselt kõrvaldatakse.
+*   **Üksikasjalikud reegliseaded:** Mitmed välistamismustrid, mitmed protsessivastavused ja stringide asendamise funktsioonid on saadaval ainult Redirect Webis.
+*   **Ava natiivsetes rakendustes:** Macis saate valida, kuhu siht-URL avada. (See kutsub otse käsu `open`. Mitte sügavaid linke.)
+*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) tugi:** Pakub ülikiiret ümbersuunamist.
+*   **Tsentraliseeritud reeglite haldamine:** Hallake reegleid kõigi brauserite jaoks ühes kohas natiivse rakenduse kaudu.
+*   **Manifest V3 ja V2 tugi:** Abiks, kui V2 Chrome'is järk-järgult kaotatakse.
 
-## Miks see laiendus vajab uut luba? {#permission-alert-on-safari}
+## Miks see laiendus nõuab uut luba? {#permission-alert-on-safari}
 
-Võite näha seda hoiatust Safaris pärast Redirect Web'i värskendamist:
+Pärast Redirect Webi värskendamist võite Safaris näha seda hoiatust:
 
 <img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
 
-> "Redirect Web" on värskendatud ja taotleb lisalubasid. Teie privaatsuse kaitsmiseks on see laiendus välja lülitatud.
+> "Redirect Web" on värskendatud ja nõuab lisalubasid. Teie privaatsuse kaitsmiseks on see laiendus välja lülitatud.
 >
-> Saate selle laienduse sisse lülitada Safari sätete jaotises Laiendused.
+> Saate selle laienduse sisse lülitada Safari seadete jaotises Laiendused.
 
-See on tingitud [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) loast, mida nõuab versioonis 7 kasutusele võetud [DNR](./rule-settings#type) tüüp. Palun lülitage laiendus uuesti sisse. Vabandame ebamugavuste pärast.
+See on tingitud versioonis 7 kasutusele võetud [DNR](./rule-settings#type) tüübi nõutavast [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) loast. Palun lubage laiendus uuesti. Vabandame ebamugavuste pärast.
 
 ## Kas teegi sisu muutub tulevikus tasuliseks? {#will-library-become-paid}
 
 Ei, see on alati tasuta. Kogu sisu allika leiate ka [siit](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Ühekordne ost või aastatellimus: Kumb on parem? {#one-time-or-subscription}
+## Ühekordne ost või aastatellimus: kumb on parem? {#one-time-or-subscription}
 
-Soovitame ühekordset ostu, kuna hinnaerinevus on vaid 2,00 USA dollarit.
-Peamine põhjus, miks me tellimust pakume, on võimaldada teil kõiki funktsioone tasuta prooviversiooni kaudu proovida. Siin on eeldatav kasutusjuhtum:
+Soovitame ühekordset ostu, kuna hinnavahe on vaid 2,00 USA dollarit.
+Peamine põhjus, miks me tellimust pakume, on see, et saaksite kõiki funktsioone tasuta prooviperioodi kaudu proovida. Siin on oodatav kasutusjuhtum:
 
 1.  Tellige aastatellimus.
-2.  Tühistage tellimus kohe, minnes rakendusse Seaded, otsides "Tellimused", puudutades seda rakendust ja valides "Tühista tellimus". See võimaldab teil tasuta prooviversiooni nautida ilma igasuguse kohustuseta.
+2.  Tühistage tellimus kohe, minnes rakendusse Seaded, otsides "Tellimused", puudutades seda rakendust ja valides "Tühista tellimus". See võimaldab teil nautida tasuta prooviperioodi ilma kohustusteta.
 3.  Nautige täielikku juurdepääsu kõigile funktsioonidele 7 päeva jooksul.
 4.  Kui funktsioonid meeldivad, valige ühekordne ost.
 
-Muidugi pole midagi valesti ka aastatellimusega jätkamises, kui eelistate seda!
+Muidugi pole midagi valesti, kui eelistate jätkata aastatellimusega!
 
 ## Kas Redirect Web süstib veebisaitidele reklaame või muud mitteseotud sisu? {#does-it-inject-ads}
 
-Ei, see ei süsti sellist sisu. Safari veebisaitidele süstitakse ainult koodi, mis on vajalik käesolevas dokumentatsioonis ja App Store'i rakenduse lehel kirjeldatud funktsioonide pakkumiseks.
+Ei, see ei süsti sellist sisu. Ainult kood, mis on vajalik selles dokumentatsioonis ja App Store'i rakenduse lehel kirjeldatud funktsioonide pakkumiseks, süstitakse Safari veebisaitidele.
 
 ## Kas on mingit võimalust, et Redirect Web võidakse kunagi kellelegi teisele müüa? {#could-it-be-sold}
 
-100% ei. Brauserilaiendused omavad sügavat kontrolli teie sirvimise ja andmete üle ning Redirect Web'i üleandmine teisele omanikule avaks ukse privaatsusrikkumistele. Oleme näinud, kuidas laiendused vahetavad omanikke ja seejärel koguvad kasutajaandmeid või süstivad hoiatuseta reklaame. See siin kunagi ei juhtu. Nende riskide kohta saate lisateavet Matt Frisbie artiklist ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) ja Brian Krebsi uurimisest ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100% ei. Brauserilaiendused omavad sügavat kontrolli teie sirvimise ja andmete üle ning Redirect Webi üleandmine teisele omanikule avaks ukse privaatsusrikkumistele. Oleme näinud, kuidas laiendused on omanikku vahetanud ja seejärel kasutajaandmeid kogunud või reklaame süstinud ilma hoiatuseta. Seda ei juhtu siin kunagi. Nende riskide kohta leiate lisateavet Matt Frisbie artiklist ["Brauseri monetiseerimise inetu äri"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) ja Brian Krebsi uurimisest ["Kas teie brauserilaiendus on botneti tagauks?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-Redirect Web tugineb usaldusele ja vastutusele. Peame oma kohustuseks hoida teie teavet turvaliselt ja keeldume igasugustes tingimustes omandiõigust üle andmast. Redirect Web jääb alati meie kätte, et saaksite täieliku kindlusega sirvida.
+Redirect Web on rajatud usaldusele ja vastutusele. Peame oma kohuseks hoida teie teavet turvaliselt ja keeldume omandiõigust mis tahes tingimustel üle andmast. Redirect Web jääb alati meie kätte, nii et saate sirvida täieliku kindlusega.

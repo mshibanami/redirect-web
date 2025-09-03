@@ -12,72 +12,72 @@ Nustatydami „Redirect Web“ galite matyti tokį įspėjimą:
 <IfBrowserStore stores='appStore'>
     <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow={true} />
 
-    > Šis plėtinys galės skaityti ir keisti tinklalapius bei matyti jūsų naršymo istoriją šioje svetainėje. **Tai gali apimti slaptą informaciją, įskaitant slaptažodžius, telefono numerius ir kreditines korteles.**
+    > Šis plėtinys galės skaityti ir keisti tinklalapius bei matyti jūsų naršymo istoriją šioje svetainėje. **Tai gali apimti jautrią informaciją, įskaitant slaptažodžius, telefono numerius ir kredito korteles.**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
 
-    > Jis gali:  
+    > Jis gali:
     > Skaityti ir keisti **visus jūsų duomenis** **visose svetainėse**
 </IfBrowserStore>
 
-Šiam plėtiniui reikalingas jūsų leidimas stebėti puslapio naršymą, kad būtų galima nukreipti ten, kur norite pereiti, o jūsų naršyklė tai rodo, kai plėtinys prašo susijusių leidimų. Todėl, jei to neleidžiate, šis plėtinys negalės veikti.
+Šiam plėtiniui reikalingas jūsų leidimas stebėti puslapio naršymą, kad būtų galima nukreipti ten, kur norite pereiti, o jūsų naršyklė tai rodo, kai plėtinys prašo susijusių leidimų. Todėl, jei neleisite, šis plėtinys negalės veikti.
 
 Suteikti leidimai bus naudojami tik programos funkcijoms, tokioms kaip nukreipimas, laikantis **[privatumo politikos](./privacy-policy)**.
 
-## Ar turėčiau vis tiek įsigyti programą, įdiegęs plėtinį „Chrome“, „Firefox“ ar „Edge“ naršyklei? {#app-for-non-safari-browsers}
+## Ar turėčiau vis tiek gauti programėlę, įdiegęs plėtinį „Chrome“, „Firefox“ ar „Edge“? {#app-for-non-safari-browsers}
 
-Taip. Privalote atsisiųsti [„Redirect Web“ programą iš „App Store“](https://apps.apple.com/app/id1571283503) nepriklausomai nuo to, kurią naršyklę naudojate. Plėtinį galite įdiegti iš savo naršyklės plėtinių parduotuvės, tačiau programa yra būtina norint tvarkyti taisykles, pirkimų istoriją ir kitus nustatymus visuose įrenginiuose per „iCloud“.
+Taip. Turite atsisiųsti [„Redirect Web“ programėlę iš „App Store“](https://apps.apple.com/app/id1571283503), nepriklausomai nuo to, kokią naršyklę naudojate. Plėtinį galite įdiegti iš savo naršyklės plėtinių parduotuvės, tačiau programėlė reikalinga jūsų taisyklėms, pirkimų istorijai ir kitiems nustatymams valdyti įrenginiuose per „iCloud“.
 
 ## Ar „Redirect Web“ veikia „Windows“, „Android“, „Linux“ ar kitose platformose? {#non-apple-platforms}
 
-Šiuo metu ne. „Redirect Web“ yra glaudžiai susijęs su „Apple“ ekosistema, įskaitant „iCloud“ ir Universalų Pirkimą, todėl sunku jį pasiūlyti kitur.
+Šiuo metu ne. „Redirect Web“ yra glaudžiai susijęs su „Apple“ ekosistema, įskaitant „iCloud“ ir „Universal Purchase“, todėl jį sunku pasiūlyti.
 
 ## Kodėl ne [Redirector](https://github.com/einaregilsson/Redirector)? {#why-not-redirector}
 
 „Redirector“ vis dar yra puikus nukreipimo plėtinys. Jis yra visiškai nemokamas, atvirojo kodo ir veikia ne „Apple“ platformose. Tačiau „Redirect Web“ turi keletą papildomų funkcijų, kurios jums gali patikti:
 
-*   **Išsamūs taisyklių nustatymai:** Kelių išskyrimo šablonų, kelių procesų atitikmenų ir teksto pakeitimo funkcijos pasiekiamos tik „Redirect Web“.
-*   **Atidaryti vietinėse programose:** „Mac“ kompiuteryje galite pasirinkti, kur atidaryti tikslinį URL. (Ji tiesiogiai iškviečia `open` komandą. Ne giliosios nuorodos.)
-*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) palaikymas:** Užtikrina itin greitą nukreipimą.
-*   **Centralizuotas taisyklių valdymas:** Tvarkykite taisykles visoms naršyklėms vienoje vietoje per vietinę programą.
-*   **Manifest V3 ir V2 palaikymas:** Naudinga, kol V2 palaipsniui atsisakoma „Chrome“ naršyklėje.
+*   **Išsamūs taisyklių nustatymai:** Kelios išskyrimo taisyklės, keli procesų atitikmenys ir eilučių pakeitimo funkcijos, prieinamos tik „Redirect Web“.
+*   **Atidaryti vietinėse programėlėse:** „Mac“ kompiuteryje galite pasirinkti, kur atidaryti tikslinį URL. (Jis tiesiogiai iškviečia `open` komandą. Ne giliosios nuorodos.)
+*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) palaikymas:** Užtikrina žaibišką nukreipimą.
+*   **Centralizuotas taisyklių valdymas:** Valdykite taisykles visoms naršyklėms vienoje vietoje per vietinę programėlę.
+*   **„Manifest V3“ ir „V2“ palaikymas:** Naudinga, kol „V2“ palaipsniui atsisakoma „Chrome“.
 
-## Kodėl šis plėtinys reikalauja naujo leidimo? {#permission-alert-on-safari}
+## Kodėl šiam plėtiniui reikalingas naujas leidimas? {#permission-alert-on-safari}
 
-Atnaujinę „Redirect Web“ „Safari“ naršyklėje galite matyti tokį įspėjimą:
+Atnaujinę „Redirect Web“ galite matyti šį įspėjimą „Safari“ naršyklėje:
 
 <img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
 
-> „Redirect Web“ buvo atnaujinta ir prašo papildomų leidimų. Siekiant apsaugoti jūsų privatumą, šis plėtinys buvo išjungtas.
+> „Redirect Web“ buvo atnaujintas ir prašo papildomų leidimų. Siekiant apsaugoti jūsų privatumą, šis plėtinys buvo išjungtas.
 >
-> Galite įjungti šį plėtinį „Safari“ nustatymų skyriuje „Plėtiniai“.
+> Šį plėtinį galite įjungti „Safari“ nustatymų skiltyje „Plėtiniai“.
 
-Taip yra dėl `declarativeNetRequestWithHostAccess` [leidimo](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension), reikalingo [DNR](./rule-settings#type) tipui, įdiegtam 7 versijoje. Prašome vėl įjungti plėtinį. Atsiprašome už nepatogumus.
+Taip yra dėl [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) leidimo, reikalingo [DNR](./rule-settings#type) tipui, įdiegtam 7 versijoje. Prašome iš naujo įjungti plėtinį. Atsiprašome už nepatogumus.
 
-## Ar ateityje bibliotekos turinys taps mokamu? {#will-library-become-paid}
+## Ar bibliotekos turinys ateityje taps mokamas? {#will-library-become-paid}
 
-Ne, jis visada nemokamas. Visą turinio šaltinį taip pat galite rasti [čia](https://github.com/mshibanami/redirect-web/tree/main/library).
+Ne, jis visada nemokamas. Viso turinio šaltinį taip pat galite rasti [čia](https://github.com/mshibanami/redirect-web/tree/main/library).
 
 ## Vienkartinis pirkimas ar metinė prenumerata: kas geriau? {#one-time-or-subscription}
 
 Rekomenduojame vienkartinį pirkimą, nes kainų skirtumas yra tik 2,00 JAV doleriai.
-Pagrindinė priežastis, kodėl siūlome prenumeratą, yra suteikti jums galimybę išbandyti visas funkcijas per nemokamą bandomąjį laikotarpį. Štai numatomas naudojimo atvejis:
+Pagrindinė priežastis, kodėl siūlome prenumeratą, yra galimybė išbandyti visas funkcijas per nemokamą bandomąjį laikotarpį. Štai numatomas naudojimo atvejis:
 
 1.  Prenumeruokite metinę prenumeratą.
-2.  Nedelsiant atšaukite prenumeratą, eidami į „Nustatymų“ programą, ieškodami „Prenumeratos“, bakstelėdami šią programą ir pasirinkdami „Atšaukti prenumeratą“. Tai leidžia jums mėgautis nemokamu bandomuoju laikotarpiu be jokių įsipareigojimų.
-3.  Mėgaukitės visa prieiga prie visų funkcijų 7 dienas.
+2.  Nedelsdami atšaukite prenumeratą, eidami į „Settings“ programėlę, ieškodami „Subscriptions“, bakstelėdami šią programėlę ir pasirinkdami „Cancel Subscription“. Tai leidžia mėgautis nemokamu bandomuoju laikotarpiu be jokių įsipareigojimų.
+3.  Mėgaukitės visiška prieiga prie visų funkcijų 7 dienas.
 4.  Jei jums patinka funkcijos, pasirinkite vienkartinį pirkimą.
 
-Žinoma, nieko blogo tęsti metinę prenumeratą, jei jums taip patogiau!
+Žinoma, nėra nieko blogo, jei norite tęsti metinę prenumeratą!
 
-## Ar „Redirect Web“ įterpia reklamą ar kitą nesusijusį turinį į svetaines? {#does-it-inject-ads}
+## Ar „Redirect Web“ įterpia skelbimus ar kitą nesusijusį turinį į svetaines? {#does-it-inject-ads}
 
-Ne, jokia tokia informacija neįterpiama. Į tinklalapius „Safari“ yra įterpiamas tik kodas, būtinas dokumentacijoje ir programos puslapyje „App Store“ aprašytoms funkcijoms teikti.
+Ne, jis neįterpia jokio tokio turinio. Tik kodas, reikalingas funkcijoms, aprašytoms šioje dokumentacijoje ir programėlės puslapyje „App Store“, yra įterpiamas į „Safari“ svetaines.
 
-## Ar yra kokia nors tikimybė, kad „Redirect Web“ galėtų būti parduotas kam nors kitam? {#could-it-be-sold}
+## Ar yra tikimybė, kad „Redirect Web“ kada nors galėtų būti parduotas kam nors kitam? {#could-it-be-sold}
 
-100 % ne. Naršyklės plėtiniai giliai kontroliuoja jūsų naršymą ir duomenis, o „Redirect Web“ perdavimas kitam savininkui atvertų duris privatumo pažeidimams. Esame matę, kaip plėtiniai keitė savininkus, o po to be perspėjimo rinko vartotojų duomenis arba įterpdavo reklamą. Tai niekada neįvyks čia. Daugiau apie šią riziką skaitykite Matto Frisbie straipsnyje [„Negražus naršyklės monetizavimo verslas“](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) ir Briano Krebso tyrime [„Ar jūsų naršyklės plėtinys yra botneto galinės durys?“](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100% ne. Naršyklės plėtiniai giliai kontroliuoja jūsų naršymą ir duomenis, o „Redirect Web“ perdavimas kitam savininkui atvertų duris privatumo pažeidimams. Matėme, kaip plėtiniai keitė savininkus ir tada be įspėjimo rinko vartotojų duomenis arba įterpė skelbimus. Tai niekada neįvyks čia. Daugiau apie šias rizikas skaitykite Matto Frisbie straipsnyje „The Ugly Business of Monetizing Browser“ ir Briano Krebso tyrime „Is Your Browser Extension a Botnet Backdoor?“.
 
-„Redirect Web“ grindžiamas pasitikėjimu ir atsakomybe. Mes laikome savo pareiga užtikrinti jūsų informacijos saugumą ir atsisakome perleisti nuosavybės teises jokiomis aplinkybėmis. „Redirect Web“ visada liks mūsų rankose, todėl galite naršyti visiškai užtikrintai.
+„Redirect Web“ yra pagrįstas pasitikėjimu ir atsakomybe. Mes laikome savo pareiga saugoti jūsų informaciją ir atsisakome perduoti nuosavybę bet kokiomis aplinkybėmis. „Redirect Web“ visada liks mūsų rankose, todėl galite naršyti visiškai pasitikėdami.

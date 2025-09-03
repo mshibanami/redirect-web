@@ -2,15 +2,15 @@
 
 Ez az oldal a Redirect Web alkalmazásban a szabályok létrehozásának gyakori felhasználási eseteit írja le.
 
-(A szabálybeállítások részleteiről a [Szabálybeállítások](./rule-settings) oldalon is tájékozódhat.)
+(A szabálybeállítások részleteit a [Szabálybeállítások](./rule-settings) oldalon is megismerheti.)
 
 ## 1. eset: Másik webhely megnyitása
 
-Tegyük fel, hogy Twitter-függő vagy, és úgy döntesz, hogy minden alkalommal meditálsz az Insight Timerben, amikor véletlenül megnyitod a Twittert. Készítsünk ehhez egy szabályt!
+Tegyük fel, hogy Twitter-függő, és úgy dönt, hogy az Insight Timerben meditál, valahányszor véletlenül megnyitja a Twittert. Hozzunk létre erre egy szabályt!
 
-### 1. lépés: A „Honnan átirányítás” beállítása
+### 1. lépés: A "Redirect From" beállítása
 
-Először is be kell állítania a *Honnan átirányítás* szakaszt az alkalmazás *Szabály szerkesztése* képernyőjén. A célpontok az `https://twitter.com/` kezdetű URL-ek.
+Először is be kell állítania a *Redirect From* szakaszt az alkalmazás *Szabály szerkesztése* képernyőjén. A célok a `https://twitter.com/` kezdetű URL-ek.
 
 Ebben az esetben a következő mintát adhatja meg a [Wildcard](rule-settings#url-pattern-wildcard) móddal:
 
@@ -18,29 +18,29 @@ Ebben az esetben a következő mintát adhatja meg a [Wildcard](rule-settings#ur
 https://twitter.com/*
 ```
 
-A Wildcard módban a `*` azt jelenti, hogy bármit (azaz nulla vagy több karaktert) illeszt.
+Wildcard módban a `*` azt jelenti, hogy bármit illeszt (= nulla vagy több karaktert).
 
-De várjunk csak. A `twitter.com` át lett nevezve `x.com`-ra. Egyszerűen lecserélhetné a `twitter.com`-ot `x.com`-ra, de senki sem tudja, mikor gondolja meg magát az új tulajdonos, és állítja vissza. Ezért célozzuk meg mind a `twitter.com`, mind az `x.com`-ot.
+Azonban várjon. A `twitter.com` átnevezésre került `x.com`-ra. Egyszerűen lecserélheti a `twitter.com`-ot `x.com`-ra, de senki sem tudja, mikor gondolja meg magát az új tulajdonos, és állítja vissza. Ezért célozzuk meg mind a `twitter.com`-ot, mind az `x.com`-ot.
 
-Ehhez váltson át a Wildcard-ról a [Reguláris kifejezésre](rule-settings#url-pattern-regular-expression), és adja meg ezt a mintát:
+Ehhez váltson Wildcardról [Reguláris kifejezésre](rule-settings#url-pattern-regular-expression), és állítsa be ezt mintaként:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-*   `(twitter|x)`: mind a `twitter`, mind az `x`-et célozza. (A `|` jelet *pipe*-nak nevezzük.)
-*   `.*`: Ugyanaz, mint a Wildcard `*` jele. Pontosabban, a `.` jelentése *bármely karakter*, a `*` jelentése pedig *bármi, ami e szimbólum előtt van, tetszőleges számú alkalommal ismételve*, ami azt eredményezi, hogy bármit illeszt.
+* `(twitter|x)`: mind a `twittert`, mind az `x`-et célozza. (`|` *pipe*-nak nevezik.)
+* `.*`: Ugyanaz, mint a Wildcard `*`-a. Pontosabban, a `.` *bármely karaktert* jelent, a `*` pedig *bármit e szimbólum előtt, tetszőleges számú ismétléssel*, ami azt eredményezi, hogy bármit illeszt.
 
-A reguláris kifejezés kissé bonyolult, de ha megszokja, hatékony eszközzé válik. Javasoljuk, hogy használja a [RegExr](https://regexr.com) oldalt játszótérként, hogy elemezze, hogyan működik a reguláris kifejezés mintája.
+A reguláris kifejezés kissé bonyolult, de ha megszokja, hatékony eszköz lesz. Javasoljuk, hogy használja a [RegExr](https://regexr.com) oldalt játszótérként, hogy elemezze, hogyan működik a reguláris kifejezés mintája.
 
 > [!NOTE]
-> A reguláris kifejezésekben a `.` az `(twitter|x).com`-ban is *bármely karakternek* számít. Ezért a `(twitter|x).com/.*` illeszkedik például a `twitter1com/` vagy az `x_com/` mintákra is.
->
-> Ennek elkerülése érdekében módosíthatja `(twitter|x)\.com/.*` alakra. A `\` egy speciális karakter "átmeneti hatástalanítására" szolgál.
->
-> Azonban nincsenek ilyen URL-ek az általános internetes környezetben. Ezért meghagyhatja a `.`-et speciális karakterként, ha úgy tetszik. Az Ön szabálya az Ön saját használatára szolgál, ezért úgy valósítsa meg, ahogy Ön jónak látja.
+> A reguláris kifejezésekben a `.` a `(twitter|x).com` kifejezésben is *bármely karakterként* kezelendő. Ezért a `(twitter|x).com/.*` illeszkedik például a `twitter1com/` vagy az `x_com/` kifejezésekre is.
+> 
+> Ennek elkerülése érdekében módosíthatja `(twitter|x)\.com/.*` formára. A `\` speciális karakterek elkerülésére szolgál.
+> 
+> Azonban nincsenek ilyen URL-ek az általános internetes környezetben. Ezért a `.`-t speciális karakterként hagyhatja, ha úgy tetszik. A szabálya saját használatra készült, ezért úgy valósítsa meg, ahogy jónak látja.
 
-### 2. lépés: Az „Átirányítás ide” beállítása
+### 2. lépés: A "Redirect To" beállítása
 
 Egyszerűen adja meg az URL-t a következőképpen:
 
@@ -48,24 +48,24 @@ Egyszerűen adja meg az URL-t a következőképpen:
 https://insighttimer.com/saraauster/guided-meditations/calm
 ```
 
-Mostantól a Redirect Web elvisz a meditációhoz, amikor megnyitja a Twittert!
+Mostantól a Redirect Web a meditációhoz viszi, amikor hozzáfér a Twitterhez!
 
 **[⬇️ Szabály letöltése](/rules/reduce-twitter-addiction.redirectweb)**
 
 ## 2. eset: Lekérdezési paraméterek eltávolítása az URL-ből
 
-Tegyük fel, hogy van egy `source=twitter` lekérdezési paraméter az `example.com` egyik URL-jében, és Ön úgy döntött, hogy eltávolítja azt az anonimitás megőrzése érdekében.
+Tegyük fel, hogy az `example.com` URL-jében van egy `source=twitter` lekérdezési paraméter, és úgy döntött, hogy eltávolítja azt, hogy anonimizálja magát.
 
-Ebben az esetben a **Rögzítőcsoport-feldolgozás** opció a legegyszerűbb módja:
+Ebben az esetben a **Capturing Group Processing** opció a legegyszerűbb mód:
 
-*   **Honnan átirányítás**: `https://example.com/*` (Wildcard)
-*   **Átirányítás ide**: `$0`
-*   **Rögzítőcsoport-feldolgozás**:
-    *   **Csoport**: `$0`
-    *   **Folyamat**: Előfordulások cseréje
-        *   **Cél**: `&?source=[^&]*`
-        *   **Csere**: *(nincs)*
-        *   **Szövegminta**: Reguláris kifejezés
+* **Redirect From**: `https://example.com/*` (Wildcard)
+* **Redirect To**: `$0`
+* **Capturing Group Processing**:
+    * **Group**: `$0`
+    * **Process**: Replace Occurrences
+        * **Target**: `&?source=[^&]*`
+        * **Replacement**: *(none)*
+        * **Text Pattern**: Regular Expression
 
 **[⬇️ Szabály letöltése](/rules/remove-parameters.redirectweb)**
 
@@ -83,17 +83,17 @@ Ha több paramétert szeretne eltávolítani, adjon hozzá több folyamatot.
 
 ## 3. eset: Lekérdezési paraméterek hozzáadása az URL-hez
 
-Tegyük fel, hogy van egy `example.com` nevű weboldal, amely alapértelmezés szerint mobil elrendezést jelenít meg, de Ön a asztali elrendezést preferálja. Szerencsére a webhely támogatja a `layout` lekérdezési paramétert, amellyel megadható, hogy a webhely milyen elrendezést jelenítsen meg. Készítsünk egy szabályt, amely automatikusan hozzáadja a `layout=desktop` paramétert.
+Tegyük fel, hogy van egy `example.com` nevű webhely, amely alapértelmezés szerint mobil elrendezést mutat, de Ön a desktop elrendezést részesíti előnyben. Szerencsére a webhely támogatja a `layout` lekérdezési paramétert, amellyel megadhatja, hogy a webhely melyik elrendezést jelenítse meg. Hozzunk létre egy szabályt, amely automatikusan hozzáadja a `layout=desktop` paramétert.
 
-Talán úgy gondolja, hogy a következőképpen határozhatja meg:
+Talán úgy gondolja, hogy a következőképpen definiálhatja:
 
-*   **Honnan átirányítás**: `https://example.com/.*` (Reguláris kifejezés)
-*   **Átirányítás ide**: `$0?layout=desktop`
+* **Redirect From**: `https://example.com/.*` (Reguláris kifejezés)
+* **Redirect To**: `$0?layout=desktop`
 
-A `$0` a cél URL-re hivatkozik. Ha megpróbálja elérni az `example.com/hello` címet, átirányítódik az `example.com/hello?layout=desktop` címre. Ezt a funkciót *helyettesítésnek* nevezzük.
+A `$0` a cél URL-re hivatkozik. Ha megpróbálja elérni az `example.com/hello` címet, akkor átirányításra kerül az `example.com/hello?layout=desktop` címre. Ezt a funkciót *helyettesítésnek* nevezik.
 
 > [!TIP]
-> A helyettesítés a Wildcard módban is elérhető, mivel belsőleg reguláris kifejezéssé alakul.
+> A helyettesítés a Wildcard módban is elérhető, mivel belsőleg reguláris kifejezéssé konvertálódik.
 
 Azonban van néhány probléma ezekkel a beállításokkal.
 
@@ -101,52 +101,52 @@ Azonban van néhány probléma ezekkel a beállításokkal.
 
 A jelenlegi beállítás végtelen átirányítási ciklust hoz létre, mivel a `https://example.com/.*` a `https://example.com/hello?layout=desktop` címet is célozza.
 
-Ebben az esetben megadhat egy kizárt URL-mintát, amely lehetővé teszi a hozzáférést átirányítás nélkül, például így, reguláris kifejezéssel:
+Ebben az esetben megadhat egy kizárt URL-mintát, amely lehetővé teszi az átirányítás nélküli hozzáférést, például így reguláris kifejezéssel:
 
 ```
 .*[&?]layout=[^&]*.*
 ```
 
-*   `.*`: Bármit illeszt
-*   `[&?]`: Illeszkedik `&` vagy `?` karakterre
-*   `[^&]*`: Bármit illeszt, kivéve `&`
+* `.*`: Bármit illeszt
+* `[&?]`: Illeszt `&`-et vagy `?`-et
+* `[^&]*`: Bármit illeszt, kivéve `&`-et
 
-### 2. probléma: A meglévő paraméterek nem kezelhetők megfelelően
+### 2. probléma: Nem tudja megfelelően kezelni a meglévő paramétereket
 
-Ha a cél URL már tartalmaz más lekérdezési paramétereket, például `example.com/hello?theme=dark`, a cél `example.com/hello?theme=dark?layout=desktop` lesz (két `?` van az URL-ben), de a paramétereket csak `&`-val lehet összekapcsolni. A `?` speciális karakter csak a paraméterek elején engedélyezett. Így nem érvényes paraméterként kezelődik.
+Ha a cél URL már tartalmaz más lekérdezési paramétereket, például `example.com/hello?theme=dark`, akkor a cél `example.com/hello?theme=dark?layout=desktop` lesz (két `?` van az URL-ben), de a paramétereket csak `&`-vel lehet összekapcsolni. A `?` speciális karakterként csak a paraméterek elején engedélyezett. Tehát nem érvényes paraméterként kezelik.
 
-Ebben az esetben változtassa meg a beállításokat a következőképpen:
+Ebben az esetben módosítsa a beállításokat a következőképpen:
 
-*   **Honnan átirányítás**: `(https://example.com/[^?]*)(\?(.*))?`
-*   **Átirányítás ide**: `$1?layout=desktop&$3`
+* **Redirect From**: `(https://example.com/[^?]*)(\(.*))?`
+* **Redirect To**: `$1?layout=desktop&$3`
 
 Nézzük meg lépésről lépésre.
 
-*   `(https://example.com/[^?]*)`: Illeszkedik a `?` előtti karakterig tartó részre.
-    *   `[^?]*` illeszkedik bármire, kivéve a `?` jelet.
-    *   Ez `()`-val van körbevéve, így később `$1`-gyel hivatkozhat rá.
-*   `(\?(.*))?`: Illeszkedik egy `?`-vel kezdődő karakterláncra, ami lekérdezési paramétereket jelent.
-    *   Ez illeszkedik az üres karakterláncra is a minta végén lévő `?` kvantifikátor miatt, ami *nulla vagy egy alkalommal* illeszkedik.
-    *   A külső `()` és a belső `()` később `$2`-vel és `$3`-mal hivatkozható.
+* `(https://example.com/[^?]*)`: Illeszt a `?` előtti karakterig.
+    * `[^?]*` bármit illeszt, kivéve `?`-et.
+    * Ez `()`-vel van körülvéve, így később `$1`-gyel hivatkozhat rá.
+* `(\(.*))?`: Illeszt egy `?`-vel kezdődő karakterláncot, ami lekérdezési paramétereket jelent.
+    * Ez a minta végén lévő `?` kvantifikátorral üres karakterláncot is illeszt, ami *nulla vagy egy alkalommal* illeszt.
+    * A külső `()` és a belső `()` később `$2`-vel és `$3`-mal hivatkozható.
 
 A [RegExr](https://regexr.com) segíthet a részletek megértésében.
 
 > [!NOTE]
-> A RegExr hibát jelez, ha nem vonja ki a `/` jelet `\`-vel. Bár ki lehet vonni, nem szükséges, mivel a Redirect Web egy másik, Apple által fejlesztett motort használ, amely nem igényli a kivonást.
+> A RegExr hibát jelez, ha nem menekíti a `/` jelet `\`-vel. Bár menekítheti, nem kötelező, mivel a Redirect Web egy másik, Apple által használt motort használ, amely nem igényel menekítést.
 
-Ez nem tökéletes megoldás, mivel az `example.com/hello` átirányítása az `example.com/hello?layout=desktop&` címre történik, ami egy felesleges `&`-t tartalmaz az URL végén. Ez általában nem nagy ügy, de ha el szeretné távolítani, használhatja a *Rögzítőcsoport-feldolgozást*.
+Ez nem tökéletes megoldás, mivel az `example.com/hello` címet `example.com/hello?layout=desktop&` címre irányítja át, amely szükségtelen `&`-t tartalmaz az URL végén. Általában nem nagy ügy, de ha el szeretné távolítani, használhatja a *Capturing Group Processing*-et.
 
-Összefoglalva, ez a végeredmény:
+Összefoglalva, ez a végső kimenet:
 
-*   **Honnan átirányítás**: `(https://example.com/[^?]*)((\?(.*))?)` (Reguláris kifejezés)
-*   **Átirányítás ide**: `$1?layout=desktop$3`
-*   **Kizárt URL-minta**: `.*[&?]layout=[^&]*.*` (Reguláris kifejezés)
-*   **Rögzítőcsoport-feldolgozás**:
-    *   **Csoport**: `$3`
-    *   **Folyamat**: Előfordulások cseréje
-        *   **Cél**: `\?(.*)`
-        *   **Csere**: `&$1`
+* **Redirect From**: `(https://example.com/[^?]*)((\(.*))?)` (Reguláris kifejezés)
+* **Redirect To**: `$1?layout=desktop$3`
+* **Excluded URL Pattern**: `.*[&?]layout=[^&]*.*` (Reguláris kifejezés)
+* **Capturing Group Processing**:
+    * **Group**: `$3`
+    * **Process**: Replace Occurrences
+        * **Target**: `\?(.*)`
+        * **Replacement**: `&$1`
 
 **[⬇️ Szabály letöltése](/rules/add-parameters.redirectweb)**
 
-Ez csupán egy példa. Több szabályt is létrehozhat az egyes problémák kezelésére. Ez sokkal egyszerűbb is lehet.
+Ez csupán egy példa. Több szabályt is létrehozhat az egyes problémák kezelésére. Sokkal egyszerűbb lehet.

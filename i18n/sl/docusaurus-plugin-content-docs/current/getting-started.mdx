@@ -1,46 +1,51 @@
-# Uvod
+import IfBrowserStore from "@site/src/components/IfBrowserStore";
+import Image from "@site/src/components/Image";
+import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
+import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
 
-Ta stran opisuje pogoste primere uporabe za ustvarjanje pravil v spletni aplikaciji Redirect Web.
+# Začetek
 
-(Podrobnosti o nastavitvah pravil lahko najdete tudi na strani [Nastavitve pravil](./rule-settings).)
+Ta stran opisuje pogoste primere uporabe za ustvarjanje pravil v aplikaciji Redirect Web.
 
-## Primer 1: Odprtje drugega spletnega mesta
+(Podrobnosti o nastavitvah pravil lahko izveste tudi na strani [Nastavitve pravil](./rule-settings).)
+
+## Primer 1: Odprite drugo spletno stran
 
 Recimo, da ste zasvojeni s Twitterjem in se odločite meditirati v Insight Timerju, kadar koli pomotoma odprete Twitter. Ustvarimo pravilo za to!
 
-### 1. korak: Nastavite »Preusmeri iz«
+### Korak 1. Nastavite "Preusmeri iz"
 
 Najprej morate nastaviti razdelek *Preusmeri iz* na zaslonu *Uredi pravilo* v aplikaciji. Cilji so URL-ji, ki se začnejo z `https://twitter.com/`.
 
-V tem primeru lahko določite naslednji vzorec z načinom [Džoker](rule-settings#url-pattern-wildcard):
+V tem primeru lahko določite naslednji vzorec z načinom [Wildcard](rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
 ```
 
-V načinu džoker (Wildcard) `*` pomeni, da se ujema s čimer koli (= nič ali več znakov).
+V načinu Wildcard `*` pomeni, da se ujema s čimer koli (= nič ali več znakov).
 
-Vendar počakajte. `twitter.com` se je preimenoval v `x.com`. `twitter.com` lahko preprosto zamenjate z `x.com`, vendar nihče ne ve, kdaj si bo novi lastnik spet premislil in ga vrnil nazaj. Zato ciljajmo tako na `twitter.com` kot na `x.com`.
+Vendar počakajte. `twitter.com` je bil preimenovan v `x.com`. Preprosto lahko zamenjate `twitter.com` z `x.com`, vendar nihče ne ve, kdaj si bo novi lastnik spet premislil in ga vrnil nazaj. Zato ciljajmo na `twitter.com` in `x.com`.
 
-Če želite to storiti, preklopite iz džokerja na [Regularni izraz](rule-settings#url-pattern-regular-expression) in nastavite to kot vzorec:
+Če želite to storiti, preklopite iz Wildcard na [Regular Expression](rule-settings#url-pattern-regular-expression) in nastavite to kot vzorec:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: Cilja tako na `twitter` kot na `x`. (`|` se imenuje *cev*.)
-* `.*`: Je isto kot džokerjev `*`. Natančneje, `.` pomeni *kateri koli znak*, `*` pa *karkoli pred tem simbolom, ponovljeno poljubno število krat*, kar pomeni, da se ujema s čimer koli.
+* `(twitter|x)`: cilja na `twitter` in `x`. (`|` se imenuje *cev*.)
+* `.*`: Je enako kot Wildcardov `*`. Natančneje, `.` pomeni *kateri koli znak* in `*` pomeni *karkoli pred tem simbolom, ponovljeno poljubno število krat*, kar pomeni, da se ujema s čimer koli.
 
-Regularni izraz je malo zapleten, a ko se ga navadite, bo močno orodje. Priporočamo uporabo [RegExr](https://regexr.com) kot igrišča za analizo delovanja vašega vzorca regularnega izraza.
+Regularni izrazi so nekoliko zapleteni, a ko se jih navadite, bodo močno orodje. Priporočamo uporabo [RegExr](https://regexr.com) kot igrišča za analizo, kako deluje vaš vzorec regularnega izraza.
 
 > [!NOTE]
-> V regularnih izrazih se `.` v `(twitter|x).com` obravnava tudi kot *kateri koli znak*. Zato se `(twitter|x).com/.*` ujema tudi, na primer, s `twitter1com/` ali `x_com/`.
->
-> Da bi se temu izognili, lahko to spremenite v `(twitter|x)\.com/.*`. `\` se uporablja za pobeg posebnega znaka.
->
-> Vendar v splošnem internetnem okolju ni takšnih URL-jev. Zato lahko pustite `.` kot poseben znak, če vam je tako ljubše. Vaše pravilo je za vašo lastno uporabo, zato ga implementirajte, kot se vam zdi primerno.
+> V regularnih izrazih se `.` v `(twitter|x).com` obravnava tudi kot *kateri koli znak*. Zato se `(twitter|x).com/.*` ujema tudi, na primer, z `twitter1com/` ali `x_com/`.
+> 
+> Da bi se temu izognili, ga lahko spremenite v `(twitter|x)\.com/.*`. `\` se uporablja za pobeg posebnega znaka.
+> 
+> Vendar takšnih URL-jev v splošnem internetnem okolju ni. Zato lahko `.` pustite kot poseben znak, če vam je ljubše. Vaše pravilo je za vašo lastno uporabo, zato ga implementirajte, kot se vam zdi primerno.
 
-### 2. korak: Nastavite »Preusmeri na«
+### Korak 2: Nastavite "Preusmeri na"
 
 Preprosto določite URL, kot sledi:
 
@@ -52,20 +57,20 @@ Zdaj vas Redirect Web pripelje do meditacije, ko dostopate do Twitterja!
 
 **[⬇️ Prenesite pravilo](/rules/reduce-twitter-addiction.redirectweb)**
 
-## Primer 2: Odstranitev parametrov poizvedbe iz URL-ja
+## Primer 2: Odstranite parametre poizvedbe iz URL-ja
 
 Recimo, da je v URL-ju `example.com` parameter poizvedbe `source=twitter` in ste se odločili, da ga odstranite, da se anonimizirate.
 
-V tem primeru je najlažji način možnost **Obdelava skupin zajemanja**:
+V tem primeru je možnost **Obdelava zajemalnih skupin** najlažji način.:
 
-*   **Preusmeri iz**: `https://example.com/*` (Džoker)
-*   **Preusmeri na**: `$0`
-*   **Obdelava skupin zajemanja**:
-    *   **Skupina**: `$0`
-    *   **Postopek**: Zamenjaj pojavitve
-        *   **Cilj**: `&?source=[^&]*`
-        *   **Zamenjava**: *(brez)*
-        *   **Besedilni vzorec**: Regularni izraz
+* **Preusmeri iz**: `https://example.com/*` (Wildcard)
+* **Preusmeri na**: `$0`
+* **Obdelava zajemalnih skupin**:
+    * **Skupina**: `$0`
+    * **Postopek**: Zamenjaj pojavitve
+        * **Cilj**: `&?source=[^&]*`
+        * **Zamenjava**: *(brez)*
+        * **Vzorec besedila**: Regularni izraz
 
 **[⬇️ Prenesite pravilo](/rules/remove-parameters.redirectweb)**
 
@@ -79,74 +84,74 @@ https://example.com/?hello=world&source=twitter&foo=bar
 ↪ https://example.com/?hello=world&foo=bar
 ```
 
-Če želite odstraniti več parametrov, dodajte več postopkov.
+Če želite odstraniti več parametrov, dodajte več procesov.
 
-## Primer 3: Dodajanje parametrov poizvedbe v URL
+## Primer 3: Dodajte parametre poizvedbe v URL
 
-Recimo, da obstaja spletno mesto `example.com`, ki privzeto prikazuje mobilno postavitev, vi pa raje uporabljate namizno postavitev. Na srečo spletno mesto podpira parameter poizvedbe `layout` za določanje, katero postavitev naj spletno mesto prikaže. Ustvarimo pravilo, ki samodejno doda `layout=desktop`.
+Recimo, da obstaja spletna stran `example.com`, ki privzeto prikazuje mobilno postavitev, vendar vam je ljubša namizna postavitev. Na srečo spletna stran podpira parameter poizvedbe `layout` za določitev, katero postavitev spletna stran prikazuje. Ustvarimo pravilo, ki samodejno doda `layout=desktop`.
 
-Morda mislite, da bi to lahko definirali takole:
+Morda mislite, da bi ga lahko definirali takole:
 
-*   **Preusmeri iz**: `https://example.com/.*` (Regularni izraz)
-*   **Preusmeri na**: `$0?layout=desktop`
+* **Preusmeri iz**: `https://example.com/.*` (Regularni izraz)
+* **Preusmeri na**: `$0?layout=desktop`
 
 `$0` se nanaša na ciljni URL. Če poskusite dostopati do `example.com/hello`, ste preusmerjeni na `example.com/hello?layout=desktop`. Ta funkcija se imenuje *substitucija*.
 
 > [!TIP]
-> Substitucija je na voljo tudi za način džokerja, saj se interno pretvori v regularni izraz.
+> Substitucija je na voljo tudi za način Wildcard, saj se interno pretvori v regularni izraz.
 
 Vendar pa obstaja nekaj težav s temi nastavitvami.
 
-### Težava 1: Neskončna zanka preusmerjanja
+### Problem 1: Neskončna zanka
 
-Trenutna nastavitev ustvari neskončno zanko preusmerjanja, saj `https://example.com/.*` cilja tudi na `https://example.com/hello?layout=desktop`.
+Trenutna nastavitev ustvarja neskončno zanko preusmeritev, saj `https://example.com/.*` cilja tudi na `https://example.com/hello?layout=desktop`.
 
-V tem primeru lahko določite izključen vzorec URL-ja, ki vam omogoča dostop brez preusmeritve, in sicer s regularnim izrazom:
+V tem primeru lahko določite izključen vzorec URL-ja, ki vam omogoča dostop brez preusmeritve, kot je ta z regularnim izrazom:
 
 ```
 .*[&?]layout=[^&]*.*
 ```
 
-*   `.*`: Ujema se s čimer koli
-*   `[&?]`: Ujema se z `&` ali `?`
-*   `[^&]*`: Ujema se s čimer koli razen z `&`
+* `.*`: Ujema se s čimer koli
+* `[&?]`: Ujema se z `&` ali `?`
+* `[^&]*`: Ujema se s čimer koli razen z `&`
 
-### Težava 2: Ne more pravilno obravnavati obstoječih parametrov
+### Problem 2: Ne more pravilno obravnavati obstoječih parametrov
 
-Če ima ciljni URL že druge parametre poizvedbe, kot je `example.com/hello?theme=dark`, bo destinacija `example.com/hello?theme=dark?layout=desktop` (V URL-ju sta dva `?`), vendar lahko parametre združite samo z `&`. `?` kot poseben znak je dovoljen samo na začetku parametrov. Zato se ne obravnava kot veljaven parameter.
+Če ima ciljni URL že druge parametre poizvedbe, kot je `example.com/hello?theme=dark`, bo destinacija `example.com/hello?theme=dark?layout=desktop` (v URL-ju sta dva `?`), vendar lahko parametre združite le z `&`. `?` kot poseben znak je dovoljen le na začetku parametrov. Zato se ne obravnava kot veljaven parameter.
 
 V tem primeru spremenite nastavitve takole:
 
-*   **Preusmeri iz**: `(https://example.com/[^?]*)(\?(.*))?`
-*   **Preusmeri na**: `$1?layout=desktop&$3`
+* **Preusmeri iz**: `(https://example.com/[^?]*)(\(.*))?`
+* **Preusmeri na**: `$1?layout=desktop&$3`
 
-Poglejmo si korak za korakom.
+Poglejmo korak za korakom.
 
-*   `(https://example.com/[^?]*)`: Ujema se z delom do prejšnjega znaka `?`.
-    *   `[^?]*` se ujema s čimer koli razen s `?`.
-    *   To je zavito z `()`, tako da se lahko nanj kasneje sklicujete z `$1`.
-*   `(\?(.*))?`: Ujema se z nizom, ki se začne z `?`, kar pomeni parametre poizvedbe.
-    *   To se ujema tudi s praznim nizom zaradi kvantifikatorja `?` na koncu vzorca, ki se *ujema ničkrat ali enkrat*.
-    *   Na zunanjo `()` in notranjo `()` se lahko kasneje sklicujete z `$2` in `$3`.
+* `(https://example.com/[^?]*)`: Ujema se z delom do prejšnjega znaka `?`.
+    * `[^?]*` se ujema s čimer koli razen z `?`.
+    * To je ovito z `()`, tako da se lahko nanj sklicujete z `$1` kasneje.
+* `(\(.*))?`: Ujema se z nizom, ki se začne z `?`, kar pomeni parametre poizvedbe.
+    * To se ujema tudi s praznim nizom z `?` kvantifikatorjem na koncu vzorca, ki *se ujema nič ali enkrat*.
+    * Zunanji `()` in notranji `()` se lahko sklicujeta z `$2` in `$3` kasneje.
 
 [RegExr](https://regexr.com) vam lahko pomaga razumeti podrobnosti.
 
 > [!NOTE]
-> RegExr prikaže napako, če ne pobegnete `/` z `\`. Čeprav ga lahko pobegnete, ni obvezno, saj Redirect Web uporablja drugačen mehanizem podjetja Apple, ki ne zahteva pobega.
+> RegExr prikaže napako, ko ne pobegnete `/` z `\`. Čeprav ga lahko pobegnete, to ni obvezno, saj Redirect Web uporablja drug motor podjetja Apple, ki ne zahteva pobega.
 
-To ni popolna rešitev, saj preusmeri `example.com/hello` na `example.com/hello?layout=desktop&`, kar vključuje nepotreben `&` na koncu URL-ja. Na splošno to ni velik problem, če pa ga želite odstraniti, lahko uporabite *Obdelavo skupin zajemanja*.
+To ni popolna rešitev, saj preusmeri `example.com/hello` na `example.com/hello?layout=desktop&`, kar vključuje nepotreben `&` na koncu URL-ja. Na splošno to ni velika težava, vendar če ga želite odstraniti, lahko uporabite *Obdelavo zajemalnih skupin*.
 
-Skratka, to je končni rezultat:
+Skratka, to je končni izhod:
 
-*   **Preusmeri iz**: `(https://example.com/[^?]*)((\?(.*))?)` (Regularni izraz)
-*   **Preusmeri na**: `$1?layout=desktop$3`
-*   **Izključen vzorec URL-ja**: `.*[&?]layout=[^&]*.*` (Regularni izraz)
-*   **Obdelava skupin zajemanja**:
-    *   **Skupina**: `$3`
-    *   **Postopek**: Zamenjaj pojavitve
-        *   **Cilj**: `\?(.*)`
-        *   **Zamenjava**: `&$1`
+* **Preusmeri iz**: `(https://example.com/[^?]*)((\(.*))?)` (Regularni izraz)
+* **Preusmeri na**: `$1?layout=desktop$3`
+* **Izključen vzorec URL-ja**: `.*[&?]layout=[^&]*.*` (Regularni izraz)
+* **Obdelava zajemalnih skupin**:
+    * **Skupina**: `$3`
+    * **Postopek**: Zamenjaj pojavitve
+        * **Cilj**: `\?(.*)`
+        * **Zamenjava**: `&$1`
 
 **[⬇️ Prenesite pravilo](/rules/add-parameters.redirectweb)**
 
-To je le primer. Ustvarite lahko tudi več pravil za reševanje posameznih težav. Lahko je veliko enostavneje.
+To je zgolj primer. Prav tako lahko ustvarite več pravil za obravnavanje vsakega problema. Lahko je veliko enostavneje.

@@ -7,42 +7,43 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 ## Miksi minun pitäisi sallia laajennuksen lukea/muuttaa tietojani? {#why-allow-extension-to-read-change}
 
-Saatat nähdä tällaisen ilmoituksen, kun otat Redirect Webin käyttöön:
+Saatat nähdä tällaisen ilmoituksen, kun asennat Redirect Webin:
 
 <IfBrowserStore stores='appStore'>
     <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow={true} />
 
-    > Tämä laajennus pystyy lukemaan ja muokkaamaan verkkosivuja sekä näkemään selaushistoriasi tällä verkkosivustolla. **Tämä voi sisältää arkaluontoisia tietoja, kuten salasanoja, puhelinnumeroita ja luottokortteja.**
+    > Tämä laajennus pystyy lukemaan ja muokkaamaan verkkosivuja sekä näkemään selaushistoriasi tällä verkkosivustolla. **Tämä voi sisältää arkaluonteisia tietoja, kuten salasanoja, puhelinnumeroita ja luottokortteja.**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
 
     > Se voi:  
-    > Lukee ja muuttaa **kaikkia tietojasi** **kaikilla verkkosivustoilla**
+    > Lukea ja muuttaa **kaikkia tietojasi** **kaikilla verkkosivustoilla**
 </IfBrowserStore>
 
-Tämä laajennus tarvitsee luvan tarkkailla sivun navigointia ohjatakseen sinut haluamaasi kohteeseen, ja selaimesi näyttää tämän, kun laajennus pyytää siihen liittyviä oikeuksia. Siksi, jos et anna lupaa, tämä laajennus ei voi toimia.
+Tämä laajennus tarvitsee luvan tarkkailla sivun navigointia ohjatakseen sinut haluamaasi paikkaan, ja selaimesi näyttää tämän, kun laajennus pyytää siihen liittyviä oikeuksia. Siksi, jos et salli sitä, tämä laajennus ei voi toimia.
 
-Myönnettyjä käyttöoikeuksia käytetään vain sovellustoimintoihin, kuten uudelleenohjauksiin, **[tietosuojakäytännön](./privacy-policy)** mukaisesti.
+Myönnettyjä oikeuksia käytetään vain sovelluksen toimintoihin, kuten uudelleenohjaukseen, **[tietosuojakäytännön](./privacy-policy)** mukaisesti.
 
-## Pitäisikö minun silti hankkia sovellus Chromeen, Firefoxiin tai Edgeen asennetun laajennuksen jälkeen? {#app-for-non-safari-browsers}
+## Pitäisikö minun silti hankkia sovellus asennettuani laajennuksen Chromeen, Firefoxiin tai Edgeen? {#app-for-non-safari-browsers}
 
-Kyllä. Sinun on ladattava [Redirect Web -sovellus App Storesta](https://apps.apple.com/app/id1571283503) riippumatta siitä, mitä selainta käytät. Voit asentaa laajennuksen selaimesi laajennuskaupasta, mutta sovellusta tarvitaan sääntöjen, ostohistorian ja muiden asetusten hallintaan eri laitteilla iCloudin kautta.
+Kyllä. Sinun on ladattava [Redirect Web -sovellus App Storesta](https://apps.apple.com/app/id1571283503) riippumatta siitä, mitä selainta käytät. Voit asentaa laajennuksen selaimesi laajennuskaupasta, mutta sovellus tarvitaan sääntöjen, ostohistorian ja muiden asetusten hallintaan laitteiden välillä iCloudin kautta.
 
-## Toimiiko Redirect Web Windowsilla, Androidilla, Linuxilla tai muilla alustoilla? {#non-apple-platforms}
+## Toimiiko Redirect Web Windowsissa, Androidissa, Linuxissa tai muilla alustoilla? {#non-apple-platforms}
 
-Ei tällä hetkellä. Redirect Web on tiiviisti sidoksissa Applen ekosysteemiin, mukaan lukien iCloud ja Universal Purchase, mikä vaikeuttaa sen tarjoamista.
+Ei tällä hetkellä. Redirect Web on tiiviisti sidoksissa Applen ekosysteemiin, mukaan lukien iCloud ja Universal Purchase, mikä tekee sen tarjoamisesta vaikeaa.
 
 ## Miksi ei [Redirector](https://github.com/einaregilsson/Redirector)? {#why-not-redirector}
 
-Redirector on edelleen erinomainen uudelleenohjauslaajennus. Se on täysin ilmainen, avoimen lähdekoodin ja toimii myös muilla kuin Applen alustoilla. Mutta Redirect Webissä on joitain lisäominaisuuksia, joista saatat pitää:
+Redirector on edelleen loistava uudelleenohjauslaajennus. Se on täysin ilmainen, avoimen lähdekoodin ja toimii myös muilla kuin Applen alustoilla. Mutta Redirect Webissä on joitain lisäominaisuuksia, joista saatat pitää:
 
-*   **Tarkat sääntöasetukset:** Vain Redirect Webissä saatavilla olevat useat poissulkemismallit, useat prosessivastaavuudet ja merkkijonojen korvaustoiminnot.
-*   **Avaa natiivisovelluksissa:** Macilla voit valita, minne kohde-URL avataan. (Se kutsuu suoraan `open`-komennon. Ei deep linkkejä.)
-*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/)-tuki:** Tarjoaa salamannopean uudelleenohjauksen.
-*   **Keskitetty sääntöjen hallinta:** Hallitse sääntöjä kaikille selaimille yhdessä paikassa natiivisovelluksen kautta.
-*   **Manifest V3 & V2 -tuki:** Hyödyllinen, kun V2 poistetaan asteittain Chromesta.
+* **Yksityiskohtaiset sääntöasetukset:** Useita poissulkemismalleja, useita prosessivastaavuuksia ja merkkijonon korvausominaisuuksia, jotka ovat saatavilla vain Redirect Webissä.
+* **Avaa natiivisovelluksissa:** Macilla voit valita, mihin kohde-URL avataan. (Se kutsuu `open`-komentoa suoraan. Ei syvälinkkejä.)
+* **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) tuki:** Tarjoaa erittäin nopean uudelleenohjauksen.
+
+* **Keskitetty sääntöjen hallinta:** Hallitse sääntöjä kaikille selaimille yhdessä paikassa natiivisovelluksen kautta.
+* **Manifest V3 & V2 tuki:** Hyödyllinen, kun V2:ta poistetaan käytöstä Chromessa.
 
 ## Miksi tämä laajennus vaatii uuden luvan? {#permission-alert-on-safari}
 
@@ -50,34 +51,34 @@ Saatat nähdä tämän ilmoituksen Safarissa Redirect Webin päivittämisen jäl
 
 <img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
 
-> "Redirect Web" on päivitetty ja pyytää lisäoikeuksia. Yksityisyytesi suojelemiseksi tämä laajennus on poistettu käytöstä.
+> "Redirect Web" on päivitetty ja pyytää lisäoikeuksia. Yksityisyytesi suojaamiseksi tämä laajennus on poistettu käytöstä.
 >
 > Voit ottaa tämän laajennuksen käyttöön Safarin asetusten Laajennukset-osiossa.
 
-Tämä johtuu [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) -luvasta, jota tarvitaan versiossa 7 esitellylle [DNR](./rule-settings#type)-tyypille. Ota laajennus uudelleen käyttöön. Pahoittelemme vaivaa.
+Tämä johtuu [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) -luvasta, jota version 7 mukana tullut [DNR](./rule-settings#type) -tyyppi vaatii. Ota laajennus uudelleen käyttöön. Pahoittelut aiheutuneesta vaivasta.
 
-## Muuttuuko kirjaston sisältö maksulliseksi tulevaisuudessa? {#will-library-become-paid}
+## Tuleeko kirjaston sisällöstä maksullista tulevaisuudessa? {#will-library-become-paid}
 
-Ei, se on aina ilmainen. Kaiken sisällön lähdekoodi löytyy myös [täältä](https://github.com/mshibanami/redirect-web/tree/main/library).
+Ei, se on aina ilmainen. Löydät kaiken sisällön lähdekoodin myös [täältä](https://github.com/mshibanami/redirect-web/tree/main/library).
 
 ## Kertaluonteinen osto vai vuositilaus: Kumpi on parempi? {#one-time-or-subscription}
 
-Suosittelemme kertaluonteista ostoa, sillä hintaero on vain 2,00 Yhdysvaltain dollaria.
-Pääsyy siihen, miksi tarjoamme tilauksen, on antaa sinun kokeilla kaikkia ominaisuuksia ilmaisen kokeilujakson kautta. Tässä on odotettu käyttötapaus:
+Suosittelemme kertaluonteista ostoa, sillä hintaero on vain US$2.00.
+Pääsyy siihen, miksi tarjoamme tilauksen, on antaa sinun kokeilla kaikkia ominaisuuksia sen ilmaisen kokeilujakson kautta. Tässä on odotettu käyttötapaus:
 
-1.  Tilaa vuositilaus.
-2.  Peruuta tilaus välittömästi menemällä Asetukset-sovellukseen, etsimällä "Tilaukset", napauttamalla tätä sovellusta ja valitsemalla "Peruuta tilaus". Tämä antaa sinun nauttia ilmaisesta kokeilujaksosta ilman sitoumuksia.
-3.  Nauti täydestä pääsystä kaikkiin ominaisuuksiin 7 päivän ajan.
-4.  Jos pidät ominaisuuksista, valitse kertaluonteinen osto.
+1. Tilaa vuositilaus.
+2. Peruuta tilaus välittömästi menemällä Asetukset-sovellukseen, etsimällä "Tilaukset", napauttamalla tätä sovellusta ja valitsemalla "Peruuta tilaus". Tämä antaa sinun nauttia ilmaisesta kokeilujaksosta ilman sitoumuksia.
+3. Nauti täydestä pääsystä kaikkiin ominaisuuksiin 7 päivän ajan.
+4. Jos pidät ominaisuuksista, valitse kertaluonteinen osto.
 
-Totta kai, vuositilauksen jatkamisessa ei ole mitään vikaa, jos niin haluat!
+Toki, ei ole mitään väärää jatkaa vuositilauksella, jos niin haluat!
 
-## Lisääkö Redirect Web mainoksia tai muuta epäasiaankuuluvaa sisältöä verkkosivustoille? {#does-it-inject-ads}
+## Syöttääkö Redirect Web mainoksia tai muuta asiaankuulumatonta sisältöä verkkosivustoille? {#does-it-inject-ads}
 
-Ei, se ei lisää tällaista sisältöä. Vain sellainen koodi, joka on tarpeen tässä dokumentaatiossa ja App Storen sovellussivulla kuvattujen ominaisuuksien tarjoamiseksi, lisätään verkkosivustoille Safarissa.
+Ei, se ei syötä tällaista sisältöä. Vain koodi, joka on tarpeen tässä dokumentaatiossa ja App Storen sovellussivulla kuvattujen ominaisuuksien tarjoamiseksi, syötetään verkkosivustoille Safarissa.
 
-## Onko Redirect Webillä mahdollisuutta tulla koskaan myydyksi jollekin muulle? {#could-it-be-sold}
+## Onko mahdollista, että Redirect Web myytäisiin joskus jollekin toiselle? {#could-it-be-sold}
 
-100 % ei. Selainlaajennuksilla on syvä kontrolli selaamisesi ja tietojesi yli, ja Redirect Webin luovuttaminen toiselle omistajalle avaisi oven yksityisyyden loukkauksille. Olemme nähneet laajennusten vaihtavan omistajaa ja sitten keräävän käyttäjätietoja tai lisäävän mainoksia ilman varoitusta. Sellaista ei koskaan tapahdu täällä. Lisätietoja näistä riskeistä löydät Matt Frisbien artikkelista ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) ja Brian Krebsin tutkimuksesta ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100 % ei. Selainlaajennukset hallitsevat syvällisesti selaustasi ja tietojasi, ja Redirect Webin luovuttaminen toiselle omistajalle avaisi oven yksityisyyden loukkauksille. Olemme nähneet laajennusten vaihtavan omistajaa ja sitten keräävän käyttäjätietoja tai syöttävän mainoksia ilman varoitusta. Sitä ei koskaan tapahdu täällä. Lisätietoja näistä riskeistä löydät Matt Frisbien artikkelista ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) ja Brian Krebsin tutkimuksesta ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-Redirect Web perustuu luottamukseen ja vastuullisuuteen. Pidämme velvollisuutenamme pitää tietosi turvassa, emmekä kieltäydy siirtämästä omistusoikeutta missään olosuhteissa. Redirect Web pysyy aina meidän hallussamme, joten voit selata täysin luottavaisin mielin.
+Redirect Web perustuu luottamukseen ja vastuullisuuteen. Pidämme velvollisuutenamme pitää tietosi turvassa, ja kieltäydymme siirtämästä omistajuutta missään olosuhteissa. Redirect Web pysyy aina käsissämme, joten voit selata täysin luottavaisin mielin.

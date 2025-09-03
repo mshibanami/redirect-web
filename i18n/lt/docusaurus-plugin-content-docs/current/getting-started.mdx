@@ -1,46 +1,46 @@
-# Darbo pradžia
+# Pradžia
 
-Šiame puslapyje aprašomi dažni naudojimo atvejai kuriant taisykles „Redirect Web“ programėlėje.
+Šiame puslapyje aprašomi dažni naudojimo atvejai, skirti taisyklių kūrimui „Redirect Web“ programoje.
 
-(Išsamią informaciją apie taisyklių nustatymus taip pat galite sužinoti [Taisyklių nustatymų](./rule-settings) puslapyje.)
+(Išsamią informaciją apie taisyklių nustatymus taip pat galite sužinoti puslapyje [Taisyklių nustatymai](./rule-settings).)
 
-## 1 atvejis: atidaryti kitą svetainę
+## 1 atvejis: Atidarykite kitą svetainę
 
-Tarkime, esate priklausomas nuo „Twitter“ ir nusprendžiate medituoti „Insight Timer“ programėlėje kiekvieną kartą, kai netyčia atidarote „Twitter“. Sukurkime tam taisyklę!
+Tarkime, esate priklausomas nuo „Twitter“ ir nusprendžiate medituoti „Insight Timer“ kaskart, kai netyčia atidarote „Twitter“. Sukurkime tam taisyklę!
 
-### 1 žingsnis. Nustatykite „Nukreipti iš“ (Redirect From)
+### 1 žingsnis. Nustatykite „Nukreipti iš“
 
-Pirmiausia, programėlėje, ekrane „Redaguoti taisyklę“ (Edit Rule), turėtumėte nustatyti *Nukreipti iš* (Redirect From) skyrių. Tikslai yra URL, prasidedantys `https://twitter.com/`.
+Pirmiausia, programoje, ekrane *Redaguoti taisyklę*, turėtumėte nustatyti skyrių *Nukreipti iš*. Tikslai yra URL, prasidedantys `https://twitter.com/`.
 
-Šiuo atveju galite nurodyti šį šabloną, naudodami [Pakaitos simbolio](rule-settings#url-pattern-wildcard) (Wildcard) režimą:
+Šiuo atveju galite nurodyti šį šabloną su [Pakaitos simbolio](rule-settings#url-pattern-wildcard) režimu:
 
 ```
 https://twitter.com/*
 ```
 
-Pakaitos simbolio režime `*` reiškia, kad jis atitinka bet ką (= nulį ar daugiau simbolių).
+Pakaitos simbolio režimu `*` reiškia, kad jis atitinka bet ką (= nulį ar daugiau simbolių).
 
-Tačiau palaukite. `twitter.com` buvo pervadintas į `x.com`. Galite tiesiog pakeisti `twitter.com` į `x.com`, bet niekas nežino, kada naujasis savininkas vėl persigalvos ir grąžins seną pavadinimą. Todėl taikykime abu: `twitter.com` ir `x.com`.
+Tačiau palaukite. `twitter.com` buvo pervadintas į `x.com`. Galite tiesiog pakeisti `twitter.com` į `x.com`, bet niekas nežino, kada naujasis savininkas vėl persigalvos ir grąžins atgal. Todėl nukreipkime ir į `twitter.com`, ir į `x.com`.
 
-Norėdami tai padaryti, perjunkite iš Pakaitos simbolio režimo į [Reguliariąją išraišką](rule-settings#url-pattern-regular-expression) ir nustatykite tokį šabloną:
+Norėdami tai padaryti, perjunkite iš Pakaitos simbolio į [Reguliariąją išraišką](rule-settings#url-pattern-regular-expression) ir nustatykite šį šabloną:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: jis taiko tiek `twitter`, tiek `x`. (`|` vadinamas *vertikaliuoju brūkšniu*.)
-* `.*`: Tai tas pats, kas Pakaitos simbolio `*`. Tiksliau, `.` reiškia *bet kurį simbolį*, o `*` reiškia *bet ką prieš šį simbolį, pakartotą bet kiek kartų*, dėl ko jis atitinka bet ką.
+*   `(twitter|x)`: jis nukreipia ir į `twitter`, ir į `x`. (`|` vadinamas *vertikaliu brūkšniu*.)
+*   `.*`: Tai tas pats, kas Pakaitos simbolio `*`. Tiksliau, `.` reiškia *bet kokį simbolį*, o `*` reiškia *bet ką prieš šį simbolį, pakartotą bet kiek kartų*, todėl jis atitinka bet ką.
 
-Reguliarioji išraiška yra šiek tiek sudėtinga, bet kai prie jos priprasite, ji taps galingu įrankiu. Rekomenduojame naudoti [RegExr](https://regexr.com) kaip „žaidimų aikštelę“ analizuoti, kaip veikia jūsų Reguliariosios išraiškos šablonas.
+Reguliarioji išraiška yra šiek tiek sudėtinga, bet kai prie jos priprasite, ji taps galingu įrankiu. Rekomenduojame naudoti [RegExr](https://regexr.com) kaip žaidimų aikštelę, kad išanalizuotumėte, kaip veikia jūsų reguliariosios išraiškos šablonas.
 
 > [!NOTE]
-> Reguliariosiose išraiškose `.` `(twitter|x).com` taip pat traktuojamas kaip *bet kuris simbolis*. Todėl `(twitter|x).com/.*` taip pat atitinka, pavyzdžiui, `twitter1com/` arba `x_com/`.
+> Reguliariosiose išraiškose `.` `(twitter|x).com` taip pat traktuojamas kaip *bet koks simbolis*. Todėl `(twitter|x).com/.*` taip pat atitinka, pavyzdžiui, `twitter1com/` arba `x_com/`.
 > 
-> Kad to išvengtumėte, galite pakeisti jį į `(twitter|x)\.com/.*`. `\` naudojamas specialiajam simboliui išvengti.
->
-> Tačiau bendroje interneto aplinkoje tokių URL nėra. Todėl, jei pageidaujate, galite palikti `.` kaip specialų simbolį. Jūsų taisyklė skirta jūsų pačių naudojimui, todėl įdiekite ją taip, kaip jums atrodo tinkama.
+> Kad to išvengtumėte, galite pakeisti į `(twitter|x)\.com/.*`. `\` naudojamas specialiajam simboliui išvengti.
+> 
+> Tačiau tokių URL bendroje interneto aplinkoje nėra. Todėl, jei pageidaujate, galite palikti `.` kaip specialųjį simbolį. Jūsų taisyklė skirta jūsų pačių naudojimui, todėl įgyvendinkite ją taip, kaip jums atrodo tinkama.
 
-### 2 žingsnis: Nustatykite „Nukreipti į“ (Redirect To)
+### 2 žingsnis: Nustatykite „Nukreipti į“
 
 Tiesiog nurodykite URL taip:
 
@@ -48,24 +48,24 @@ Tiesiog nurodykite URL taip:
 https://insighttimer.com/saraauster/guided-meditations/calm
 ```
 
-Dabar, kai pasiekiate „Twitter“, „Redirect Web“ nukreipia jus į meditaciją!
+Dabar „Redirect Web“ nukreips jus į meditaciją, kai pasieksite „Twitter“!
 
 **[⬇️ Atsisiųsti taisyklę](/rules/reduce-twitter-addiction.redirectweb)**
 
-## 2 atvejis: pašalinti užklausos parametrus iš URL
+## 2 atvejis: Pašalinkite užklausos parametrus iš URL
 
-Tarkime, kad `example.com` URL yra užklausos parametras `source=twitter` ir jūs nusprendėte jį pašalinti, kad taptumėte anonimiškas.
+Tarkime, kad `example.com` URL yra užklausos parametras `source=twitter`, ir jūs nusprendėte jį pašalinti, kad anonimizuotumėte save.
 
-Šiuo atveju lengviausias būdas yra **Grupės fiksavimo apdorojimo** (Capturing Group Processing) parinktis:
+Šiuo atveju lengviausias būdas yra **Grupės fiksavimo apdorojimo** parinktis:
 
-* **Nukreipti iš**: `https://example.com/*` (Pakaitos simbolis)
-* **Nukreipti į**: `$0`
-* **Grupės fiksavimo apdorojimas**:
-    * **Grupė**: `$0`
-    * **Procesas**: Pakeisti atsiradimus
-        * **Tikslas**: `&?source=[^&]*`
-        * **Pakeitimas**: *(niekas)*
-        * **Teksto šablonas**: Reguliarioji išraiška
+*   **Nukreipti iš**: `https://example.com/*` (Pakaitos simbolis)
+*   **Nukreipti į**: `$0`
+*   **Grupės fiksavimo apdorojimas**:
+    *   **Grupė**: `$0`
+    *   **Procesas**: Pakeisti pasikartojimus
+        *   **Tikslas**: `&?source=[^&]*`
+        *   **Pakeitimas**: *(nėra)*
+        *   **Teksto šablonas**: Reguliarioji išraiška
 
 **[⬇️ Atsisiųsti taisyklę](/rules/remove-parameters.redirectweb)**
 
@@ -81,72 +81,72 @@ https://example.com/?hello=world&source=twitter&foo=bar
 
 Jei norite pašalinti daugiau parametrų, pridėkite daugiau procesų.
 
-## 3 atvejis: pridėti užklausos parametrus prie URL
+## 3 atvejis: Pridėkite užklausos parametrus prie URL
 
-Tarkime, kad yra svetainė `example.com`, kuri pagal nutylėjimą rodo mobilųjį išdėstymą, bet jūs pageidaujate jos darbalaukio išdėstymo. Laimei, svetainė palaiko `layout` užklausos parametrą, kad nurodytų, kokį išdėstymą svetainė rodo. Sukurkime taisyklę, kuri automatiškai pridėtų `layout=desktop`.
+Tarkime, yra svetainė `example.com`, kuri pagal numatytuosius nustatymus rodo mobilųjį išdėstymą, bet jūs pageidaujate darbalaukio išdėstymo. Laimei, svetainė palaiko `layout` užklausos parametrą, kad nurodytų, kokį išdėstymą svetainė rodo. Sukurkime taisyklę, kuri automatiškai prideda `layout=desktop`.
 
 Galbūt manote, kad galėtumėte apibrėžti taip:
 
-* **Nukreipti iš**: `https://example.com/.*` (Reguliarioji išraiška)
-* **Nukreipti į**: `$0?layout=desktop`
+*   **Nukreipti iš**: `https://example.com/.*` (Reguliarioji išraiška)
+*   **Nukreipti į**: `$0?layout=desktop`
 
 `$0` nurodo tikslinį URL. Jei bandysite pasiekti `example.com/hello`, būsite nukreipti į `example.com/hello?layout=desktop`. Ši funkcija vadinama *pakeitimu*.
 
 > [!TIP]
-> Pakeitimas taip pat galimas Pakaitos simbolio (Wildcard) režimu, nes jis viduje konvertuojamas į Reguliariąją išraišką.
+> Pakeitimas taip pat galimas Pakaitos simbolio režimu, nes jis viduje konvertuojamas į Reguliariąją išraišką.
 
 Tačiau yra keletas problemų su šiais nustatymais.
 
-### 1 problema: begalinis ciklas
+### 1 problema: Begalinis ciklas
 
-Dabartinis nustatymas sukuria begalinį nukreipimo ciklą, nes `https://example.com/.*` taip pat taikomas `https://example.com/hello?layout=desktop`.
+Dabartinis nustatymas sukuria begalinį nukreipimo ciklą, nes `https://example.com/.*` taip pat nukreipia į `https://example.com/hello?layout=desktop`.
 
-Šiuo atveju galite nurodyti išskirtą URL šabloną, kuris leidžia pasiekti be nukreipimo, pavyzdžiui, taip, naudojant Reguliariąją išraišką:
+Šiuo atveju galite nurodyti išskirtą URL šabloną, kuris leidžia pasiekti be nukreipimo, pavyzdžiui, su Reguliariąja išraiška:
 
 ```
 .*[&?]layout=[^&]*.*
 ```
 
-* `.*`: Atitinka bet ką
-* `[&?]`: Atitinka `&` arba `?`
-* `[^&]*`: Atitinka bet ką, išskyrus `&`
+*   `.*`: Atitinka bet ką
+*   `[&?]`: Atitinka `&` arba `?`
+*   `[^&]*`: Atitinka bet ką, išskyrus `&`
 
-### 2 problema: negali tinkamai tvarkyti esamų parametrų
+### 2 problema: Negali tinkamai tvarkyti esamų parametrų
 
-Jei tikslinis URL jau turi kitų užklausos parametrų, pvz., `example.com/hello?theme=dark`, paskirties vieta bus `example.com/hello?theme=dark?layout=desktop` (URL yra du `?`), bet parametrus galima sujungti tik su `&`. `?` kaip specialus simbolis leidžiamas tik parametrų pradžioje. Taigi jis nėra traktuojamas kaip galiojantis parametras.
+Jei tikslinis URL jau turi kitų užklausos parametrų, pvz., `example.com/hello?theme=dark`, paskirties vieta bus `example.com/hello?theme=dark?layout=desktop` (URL yra du `?`), bet parametrus galite sujungti tik su `&`. `?` kaip specialusis simbolis leidžiamas tik parametrų pradžioje. Taigi jis nėra traktuojamas kaip galiojantis parametras.
 
 Šiuo atveju pakeiskite nustatymus taip:
 
-* **Nukreipti iš**: `(https://example.com/[^?]*)(\?(.*))?`
-* **Nukreipti į**: `$1?layout=desktop&$3`
+*   **Nukreipti iš**: `(https://example.com/[^?]*)(\(?(.*))?`
+*   **Nukreipti į**: `$1?layout=desktop&$3`
 
 Pažvelkime žingsnis po žingsnio.
 
-* `(https://example.com/[^?]*)`: Atitinka dalį iki ankstesnio `?` simbolio.
-    * `[^?]*` atitinka bet ką, išskyrus `?`.
-    * Tai apgaubta `()` simboliais, kad vėliau galėtumėte nurodyti su `$1`.
-* `(\?(.*))?`: Atitinka eilutę, prasidedančią `?`, o tai reiškia užklausos parametrus.
-    * Tai taip pat atitinka tuščią eilutę dėl `?` kiekybinio nustatymo šablono pabaigoje, kuris *atitinka nulį arba vieną kartą*.
-    * Išorinė `()` ir vidinė `()` vėliau gali būti nurodomos su `$2` ir `$3`.
+*   `(https://example.com/[^?]*)`: Atitinka dalį iki ankstesnio `?` simbolio.
+    *   `[^?]*` atitinka bet ką, išskyrus `?`.
+    *   Tai apgaubta `()` , kad vėliau galėtumėte nurodyti su `$1`.
+*   `(\(?(.*))?`: Atitinka eilutę, prasidedančią `?`, o tai reiškia užklausos parametrus.
+    *   Tai taip pat atitinka tuščią eilutę pagal `?` kvantifikatorių šablono pabaigoje, kuris *atitinka nulį arba vieną kartą*.
+    *   Išoriniai `()` ir vidiniai `()` gali būti nurodyti su `$2` ir `$3` vėliau.
 
 [RegExr](https://regexr.com) gali padėti suprasti detales.
 
 > [!NOTE]
-> RegExr rodo klaidą, kai nepašalinate `/` su `\`. Nors galite jį pašalinti, tai nėra būtina, nes „Redirect Web“ naudoja kitokią „Apple“ variklį, kuriam nereikia pašalinimo.
+> RegExr rodo klaidą, kai nepašalinate `/` su `\`. Nors galite jį pašalinti, tai nėra būtina, nes „Redirect Web“ naudoja kitą „Apple“ variklį, kuriam nereikia pašalinimo.
 
 Tai nėra tobulas sprendimas, nes jis nukreipia `example.com/hello` į `example.com/hello?layout=desktop&`, kuriame yra nereikalingas `&` URL pabaigoje. Apskritai tai nėra didelė problema, bet jei norite jį pašalinti, galite naudoti *Grupės fiksavimo apdorojimą*.
 
 Apibendrinant, tai yra galutinis rezultatas:
 
-* **Nukreipti iš**: `(https://example.com/[^?]*)((\?(.*))?)` (Reguliarioji išraiška)
-* **Nukreipti į**: `$1?layout=desktop$3`
-* **Išskirtas URL šablonas**: `.*[&?]layout=[^&]*.*` (Reguliarioji išraiška)
-* **Grupės fiksavimo apdorojimas**:
-    * **Grupė**: `$3`
-    * **Procesas**: Pakeisti atsiradimus
-        * **Tikslas**: `\?(.*)`
-        * **Pakeitimas**: `&$1`
+*   **Nukreipti iš**: `(https://example.com/[^?]*)((\(?(.*))?)` (Reguliarioji išraiška)
+*   **Nukreipti į**: `$1?layout=desktop$3`
+*   **Išskirtas URL šablonas**: `.*[&?]layout=[^&]*.*` (Reguliarioji išraiška)
+*   **Grupės fiksavimo apdorojimas**:
+    *   **Grupė**: `$3`
+    *   **Procesas**: Pakeisti pasikartojimus
+        *   **Tikslas**: `\?(.*)`
+        *   **Pakeitimas**: `&$1`
 
 **[⬇️ Atsisiųsti taisyklę](/rules/add-parameters.redirectweb)**
 
-Tai tik pavyzdys. Taip pat galite sukurti kelias taisykles kiekvienai problemai spręsti. Tai gali būti daug paprasčiau.
+Tai tik pavyzdys. Taip pat galite sukurti kelias taisykles, kad išspręstumėte kiekvieną problemą. Tai gali būti daug paprasčiau.

@@ -2,45 +2,45 @@
 
 Deze pagina beschrijft veelvoorkomende gebruiksscenario's voor het maken van regels in de Redirect Web-app.
 
-(U kunt ook de details van de regelinstellingen leren op de pagina [Regelinstellingen](./rule-settings).)
+(Je kunt ook de details van regelinstellingen leren op de pagina [Regelinstellingen](./rule-settings).)
 
-## Case 1: Een andere website openen
+## Geval 1: Een andere website openen
 
-Stel dat u verslaafd bent aan Twitter en besluit te mediteren in Insight Timer telkens wanneer u per ongeluk Twitter opent. Laten we daar een regel voor maken!
+Stel dat je verslaafd bent aan Twitter, en je besluit te mediteren in Insight Timer wanneer je per ongeluk Twitter opent. Laten we daar een regel voor maken!
 
-### Stap 1. Stel "Omleiden vanaf" in
+### Stap 1. "Omleiden van" instellen
 
-Eerst moet u de sectie *Omleiden vanaf* instellen in het scherm *Regel bewerken* in de app. De doelwitten zijn URL's die beginnen met `https://twitter.com/`.
+Eerst moet je de sectie *Omleiden van* instellen in het scherm *Regel bewerken* in de app. De doelen zijn URL's die beginnen met `https://twitter.com/`.
 
-In dit geval kunt u het volgende patroon specificeren met de [Wildcard](rule-settings#url-pattern-wildcard)-modus:
+In dit geval kun je het volgende patroon specificeren met de [Wildcard](rule-settings#url-pattern-wildcard) modus:
 
 ```
 https://twitter.com/*
 ```
 
-In de Wildcard-modus betekent `*` dat het alles matcht (= nul of meer tekens).
+In de Wildcard-modus betekent `*` dat het alles overeenkomt (= nul of meer tekens).
 
-Maar wacht. `twitter.com` is hernoemd naar `x.com`. U kunt `twitter.com` eenvoudig vervangen door `x.com`, maar niemand weet wanneer de nieuwe eigenaar van gedachten zal veranderen om het terug te draaien. Laten we daarom zowel `twitter.com` als `x.com` targeten.
+Maar wacht even. `twitter.com` is hernoemd naar `x.com`. Je kunt `twitter.com` eenvoudig vervangen door `x.com`, maar niemand weet wanneer de nieuwe eigenaar van gedachten zal veranderen om het terug te draaien. Laten we daarom zowel `twitter.com` als `x.com` targeten.
 
-Om dit te doen, schakelt u van Wildcard over naar [Reguliere expressie](rule-settings#url-pattern-regular-expression) en stelt u dit in als patroon:
+Om dat te doen, schakel je over van Wildcard naar [Reguliere expressie](rule-settings#url-pattern-regular-expression) en stel je dit in als patroon:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: het target zowel `twitter` als `x`. (`|` wordt *een pipe* genoemd.)
-* `.*`: Het is hetzelfde als Wildcard's `*`. Meer specifiek betekent `.` *elk teken* en `*` betekent *alles vóór dit symbool herhaald een willekeurig aantal keren*, wat resulteert in het matchen van alles.
+* `(twitter|x)`: het richt zich op zowel `twitter` als `x`. (`|` wordt *een pipe* genoemd.)
+* `.*`: Het is hetzelfde als de `*` van Wildcard. Meer specifiek betekent `.` *elk teken* en `*` betekent *alles vóór dit symbool herhaaldelijk*, wat resulteert in het overeenkomen met alles.
 
-Reguliere expressies zijn een beetje ingewikkeld, maar zodra u eraan gewend bent, is het een krachtig hulpmiddel. We raden aan [RegExr](https://regexr.com) te gebruiken als een speeltuin om te analyseren hoe uw reguliere expressiepatroon werkt.
+Reguliere expressie is een beetje ingewikkeld, maar als je er eenmaal aan gewend bent, zal het een krachtig hulpmiddel zijn. We raden aan [RegExr](https://regexr.com) te gebruiken als een speeltuin om te analyseren hoe je reguliere expressiepatroon werkt.
 
 > [!NOTE]
-> In reguliere expressies wordt `.` in `(twitter|x).com` ook behandeld als *elk teken*. Daarom matcht `(twitter|x).com/.*` ook, bijvoorbeeld, `twitter1com/` of `x_com/`.
->
-> Om dit te voorkomen, kunt u het wijzigen in `(twitter|x)\.com/.*`. `\` wordt gebruikt om een speciaal teken te escapen.
->
-> Er zijn echter geen dergelijke URL's in de algemene internetomgeving. Daarom kunt u `.` als een speciaal teken laten als u dat wilt. Uw regel is voor eigen gebruik, dus implementeer het zoals u het passend vindt.
+> In reguliere expressies wordt `.` in `(twitter|x).com` ook behandeld als *elk teken*. Daarom komt `(twitter|x).com/.*` ook overeen met bijvoorbeeld `twitter1com/` of `x_com/`.
+> 
+> Om dit te voorkomen, kun je het wijzigen in `(twitter|x)\.com/.*`. `\` wordt gebruikt om een speciaal teken te escapen.
+> 
+> Er zijn echter geen dergelijke URL's in de algemene internetomgeving. Daarom kun je `.` als een speciaal teken laten als je dat wilt. Je regel is voor eigen gebruik, dus implementeer het zoals jij het passend vindt.
 
-### Stap 2: Stel "Omleiden naar" in
+### Stap 2: "Omleiden naar" instellen
 
 Specificeer eenvoudig de URL als volgt:
 
@@ -48,26 +48,26 @@ Specificeer eenvoudig de URL als volgt:
 https://insighttimer.com/saraauster/guided-meditations/calm
 ```
 
-Nu brengt Redirect Web u naar de meditatie wanneer u Twitter bezoekt!
+Nu brengt Redirect Web je naar de meditatie wanneer je Twitter bezoekt!
 
-**[⬇️ Download de Regel](/rules/reduce-twitter-addiction.redirectweb)**
+**[⬇️ Download de regel](/rules/reduce-twitter-addiction.redirectweb)**
 
-## Case 2: Queryparameters uit URL verwijderen
+## Geval 2: Queryparameters uit URL verwijderen
 
-Stel dat er een queryparameter `source=twitter` is in een URL van `example.com`, en u hebt besloten deze te verwijderen om uzelf te anonimiseren.
+Stel dat er een queryparameter `source=twitter` in een URL van `example.com` staat, en je besluit deze te verwijderen om jezelf te anonimiseren.
 
-In dit geval is de optie **Verwerking van vastleggroep** de eenvoudigste manier:
+In dit geval is de optie **Verwerking van opnamegroepen** de eenvoudigste manier.:
 
-* **Omleiden vanaf**: `https://example.com/*` (Wildcard)
+* **Omleiden van**: `https://example.com/*` (Wildcard)
 * **Omleiden naar**: `$0`
-* **Verwerking van vastleggroep**:
+* **Verwerking van opnamegroepen**:
     * **Groep**: `$0`
-    * **Verwerken**: Vervang voorkomens
+    * **Proces**: Voorkomens vervangen
         * **Doel**: `&?source=[^&]*`
         * **Vervanging**: *(geen)*
         * **Tekstpatroon**: Reguliere expressie
 
-**[⬇️ Download de Regel](/rules/remove-parameters.redirectweb)**
+**[⬇️ Download de regel](/rules/remove-parameters.redirectweb)**
 
 Deze regel werkt als volgt:
 
@@ -79,74 +79,74 @@ https://example.com/?hello=world&source=twitter&foo=bar
 ↪ https://example.com/?hello=world&foo=bar
 ```
 
-Als u meer parameters wilt verwijderen, voegt u meer processen toe.
+If you want to remove more parameters, add more processes.
 
-## Case 3: Queryparameters aan URL toevoegen
+## Geval 3: Queryparameters aan URL toevoegen
 
-Laten we zeggen dat er een website `example.com` is die standaard een mobiele lay-out toont, maar u geeft de voorkeur aan de desktoplay-out. Gelukkig ondersteunt de website een `layout` queryparameter om te specificeren welke lay-out de website weergeeft. Laten we een regel maken die `layout=desktop` automatisch toevoegt.
+Let's say there is a website called `example.com` that shows a mobile layout by default, but you prefer their desktop layout. Fortunately, the website supports a `layout` query parameter to specify which layout the website displays. Let's create a rule that adds `layout=desktop` automatically.
 
-Misschien denkt u dat u het als volgt zou kunnen definiëren:
+Perhaps you think you could define it as follows:
 
-* **Omleiden vanaf**: `https://example.com/.*` (Reguliere expressie)
+* **Omleiden van**: `https://example.com/.*` (Reguliere expressie)
 * **Omleiden naar**: `$0?layout=desktop`
 
-`$0` verwijst naar de doel-URL. Als u probeert `example.com/hello` te openen, wordt u omgeleid naar `example.com/hello?layout=desktop`. Deze functie wordt *substitutie* genoemd.
+`$0` references the target URL. If you try to access `example.com/hello`, you're redirected to `example.com/hello?layout=desktop`. This feature is called *substitution*.
 
 > [!TIP]
-> Substitutie is ook beschikbaar voor de Wildcard-modus, aangezien deze intern wordt omgezet naar een reguliere expressie.
+> Substitution is also available for the Wildcard mode since it's internally converted to Regular Expression.
 
-Er zijn echter een paar problemen met deze instellingen.
+However, there are a few problems with these settings.
 
 ### Probleem 1: Oneindige lus
 
-De huidige instelling creëert een oneindige omleidingslus, aangezien `https://example.com/.*` ook `https://example.com/hello?layout=desktop` target.
+The current setting creates an infinite redirect loop since `https://example.com/.*` also targets `https://example.com/hello?layout=desktop`.
 
-In dit geval kunt u een uitgesloten URL-patroon specificeren dat u toegang geeft zonder omleiding, zoals dit met Reguliere expressie:
+In this case, you can specify an excluded URL pattern that allows you to access without redirection, like this with Regular Expression:
 
 ```
 .*[&?]layout=[^&]*.*
 ```
 
-* `.*`: Matcht alles
-* `[&?]`: Matcht of `&` of `?`
-* `[^&]*`: Matcht alles behalve `&`
+* `.*`: Komt overeen met alles
+* `[&?]`: Komt overeen met `&` of `?`
+* `[^&]*`: Komt overeen met alles behalve `&`
 
-### Probleem 2: Kan bestaande parameters niet correct afhandelen
+### Probleem 2: Kan bestaande parameters niet correct verwerken
 
-Als de doel-URL al andere queryparameters heeft, zoals `example.com/hello?theme=dark`, wordt de bestemming `example.com/hello?theme=dark?layout=desktop` (er zijn twee `?` in de URL), maar u kunt de parameters alleen samenvoegen met `&`. `?` als speciaal teken is alleen toegestaan aan het begin van de parameters. Het wordt dus niet behandeld als een geldige parameter.
+If the target URL already has other query parameters like `example.com/hello?theme=dark`, the destination will be `example.com/hello?theme=dark?layout=desktop` (there are two `?` in the URL) but you can only join the parameters with `&`. `?` as a special character is only allowed at the beginning of the parameters. So it's not treated as a valid parameter.
 
-Wijzig in dit geval de instellingen als volgt:
+In this case, change the settings like this:
 
-* **Omleiden vanaf**: `(https://example.com/[^?]*)(\?(.*))?`
+* **Omleiden van**: `(https://example.com/[^?]*)(\(.*))?`
 * **Omleiden naar**: `$1?layout=desktop&$3`
 
 Laten we stap voor stap kijken.
 
-* `(https://example.com/[^?]*)`: Matcht het deel tot het vorige teken van `?`.
-    * `[^?]*` matcht alles behalve `?`.
-    * Dit is omwikkeld met `()` zodat u ernaar kunt verwijzen met `$1`.
-* `(\?(.*))?`: Matcht een string die begint met `?`, wat queryparameters betekent.
-    * Dit matcht ook een lege string door de `?` kwantificator aan het einde van het patroon, wat *nul of één keer matcht*.
-    * De buitenste `()` en de binnenste `()` kunnen later worden verwezen met `$2` en `$3`.
+* `(https://example.com/[^?]*)`: Komt overeen met het deel tot het vorige teken van `?`.
+    * `[^?]*` komt overeen met alles behalve `?`.
+    * This is wrapped with `()` so you can reference it with `$1` later.
+* `(\(.*))?`: Komt overeen met een string die begint met `?`, wat queryparameters betekent.
+    * This also matches empty string by the `?` quantifier at the end of the pattern, which *matches zero or one time*.
+    * The outer `()` and the inner `()` can be referenced with `$2` and `$3` later.
 
-[RegExr](https://regexr.com) kan u helpen de details te begrijpen.
+[RegExr](https://regexr.com) may help you understand the details.
 
 > [!NOTE]
-> RegExr toont een fout wanneer u `/` niet escaped met `\`. Hoewel u het kunt escapen, is het niet vereist aangezien Redirect Web een andere engine van Apple gebruikt die geen escaping vereist.
+> RegExr shows an error when you don't escape `/` with `\`. Although you can escape it, it's not required since Redirect Web uses a different engine by Apple that doesn't require escaping.
 
-Dit is geen perfecte oplossing, aangezien het `example.com/hello` omleidt naar `example.com/hello?layout=desktop&`, wat een onnodige `&` aan het einde van de URL bevat. Over het algemeen is dit geen groot probleem, maar als u het wilt verwijderen, kunt u *Verwerking van vastleggroep* gebruiken.
+This is not a perfect solution, as it redirects `example.com/hello` to `example.com/hello?layout=desktop&`, which includes an unnecessary `&` at the end of the URL. It's not a big deal in general, but if you wish to remove it, you can use *Capturing Group Processing*.
 
-Concluderend is dit de uiteindelijke uitvoer:
+In conclusion, this is the final output:
 
-* **Omleiden vanaf**: `(https://example.com/[^?]*)((\?(.*))?)` (Reguliere expressie)
+* **Omleiden van**: `(https://example.com/[^?]*)((\(.*))?)` (Reguliere expressie)
 * **Omleiden naar**: `$1?layout=desktop$3`
 * **Uitgesloten URL-patroon**: `.*[&?]layout=[^&]*.*` (Reguliere expressie)
-* **Verwerking van vastleggroep**:
+* **Verwerking van opnamegroepen**: 
     * **Groep**: `$3`
-    * **Verwerken**: Vervang voorkomens
+    * **Proces**: Voorkomens vervangen
         * **Doel**: `\?(.*)`
         * **Vervanging**: `&$1`
 
-**[⬇️ Download de Regel](/rules/add-parameters.redirectweb)**
+**[⬇️ Download de regel](/rules/add-parameters.redirectweb)**
 
-Dit is slechts een voorbeeld. U kunt ook meerdere regels maken om elk probleem af te handelen. Dit kan veel eenvoudiger zijn.
+This is merely an example. You can also create multiple rules to handle each problem. It can be much simpler.

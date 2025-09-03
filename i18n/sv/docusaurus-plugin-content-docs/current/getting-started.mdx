@@ -1,16 +1,16 @@
-# Komma igång
+# Kom igång
 
-Den här sidan beskriver vanliga användningsfall för att skapa regler i appen Redirect Web.
+Den här sidan beskriver vanliga användningsfall för att skapa regler i Redirect Web-appen.
 
 (Du kan också lära dig detaljerna om regelinställningar på sidan [Regelinställningar](./rule-settings).)
 
 ## Fall 1: Öppna en annan webbplats
 
-Anta att du är beroende av Twitter och bestämmer dig för att meditera i Insight Timer varje gång du av misstag öppnar Twitter. Låt oss skapa en regel för det!
+Anta att du är beroende av Twitter, och du bestämmer dig för att meditera i Insight Timer när du av misstag öppnar Twitter. Låt oss skapa en regel för det!
 
-### Steg 1. Konfigurera "Omdirigera från"
+### Steg 1. Ställ in "Omdirigera från"
 
-Först bör du konfigurera avsnittet *Omdirigera från* på skärmen *Redigera regel* i appen. Målen är URL:er som börjar med `https://twitter.com/`.
+Först bör du ställa in avsnittet *Omdirigera från* på skärmen *Redigera regel* i appen. Målen är URL:er som börjar med `https://twitter.com/`.
 
 I det här fallet kan du ange följande mönster med läget [Wildcard](rule-settings#url-pattern-wildcard):
 
@@ -18,29 +18,29 @@ I det här fallet kan du ange följande mönster med läget [Wildcard](rule-sett
 https://twitter.com/*
 ```
 
-I Wildcard-läget betyder `*` att den matchar vad som helst (= noll eller fler tecken).
+I Wildcard-läget betyder `*` att det matchar vad som helst (= noll eller fler tecken).
 
-Men vänta. `twitter.com` bytte namn till `x.com`. Du kan helt enkelt ersätta `twitter.com` med `x.com`, men ingen vet när den nya ägaren ändrar sig igen och återställer det. Låt oss därför rikta in oss på både `twitter.com` och `x.com`.
+Men vänta. `twitter.com` bytte namn till `x.com`. Du kan helt enkelt ersätta `twitter.com` med `x.com` men ingen vet när den nya ägaren kommer att ändra sig igen för att rulla tillbaka det. Låt oss därför rikta in oss på både `twitter.com` och `x.com`.
 
-För att göra det, växla från Wildcard till [Regular Expression](rule-settings#url-pattern-regular-expression) och ange detta som mönster:
+För att göra det, byt från Wildcard till [Reguljärt uttryck](rule-settings#url-pattern-regular-expression), och ställ in detta som mönstret:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: den riktar sig till både `twitter` och `x`. (`|` kallas *en pipe*.)
-* `.*`: Det är samma som Wildcard's `*`. Mer specifikt betyder `.` *ett valfritt tecken* och `*` betyder *vad som helst före denna symbol upprepat ett valfritt antal gånger*, vilket resulterar i att den matchar vad som helst.
+*   `(twitter|x)`: det riktar in sig på både `twitter` och `x`. (`|` kallas *ett rör*.)
+*   `.*`: Det är samma som Wildcards `*`. Mer specifikt betyder `.` *valfritt tecken* och `*` betyder *vad som helst före denna symbol upprepat valfritt antal gånger*, vilket resulterar i att det matchar vad som helst.
 
-Regular Expression är lite komplicerat, men när du väl vant dig vid det blir det ett kraftfullt verktyg. Vi rekommenderar att du använder [RegExr](https://regexr.com) som en lekplats för att analysera hur ditt Regular Expression-mönster fungerar.
+Reguljära uttryck är lite komplicerade, men när du väl vänjer dig vid dem kommer de att vara ett kraftfullt verktyg. Vi rekommenderar att du använder [RegExr](https://regexr.com) som en lekplats för att analysera hur ditt reguljära uttrycksmönster fungerar.
 
 > [!NOTE]
-> I Regular Expressions behandlas `.` i `(twitter|x).com` också som *ett valfritt tecken*. Därför matchar `(twitter|x).com/.*` också, till exempel, `twitter1com/` eller `x_com/`.
+> I reguljära uttryck behandlas `.` i `(twitter|x).com` också som *valfritt tecken*. Därför matchar `(twitter|x).com/.*` också, till exempel, `twitter1com/` eller `x_com/`.
 > 
-> För att undvika det kan du ändra det till `(twitter|x)\.com/.*`. `\` används för att escape:a ett specialtecken.
->
-> Det finns dock inga sådana URL:er i den allmänna internetmiljön. Därför kan du lämna `.` som ett specialtecken om du föredrar det. Din regel är för eget bruk, så implementera den som du tycker passar.
+> För att undvika det kan du ändra det till `(twitter|x)\.com/.*`. `\` används för att undvika ett specialtecken.
+> 
+> Det finns dock inga sådana URL:er i den allmänna internetmiljön. Därför kan du lämna `.` som ett specialtecken om du föredrar det. Din regel är för ditt eget bruk, så implementera den som du tycker passar.
 
-### Steg 2: Konfigurera "Omdirigera till"
+### Steg 2: Ställ in "Omdirigera till"
 
 Ange helt enkelt URL:en enligt följande:
 
@@ -48,24 +48,24 @@ Ange helt enkelt URL:en enligt följande:
 https://insighttimer.com/saraauster/guided-meditations/calm
 ```
 
-Nu tar Redirect Web dig till meditationen när du går in på Twitter!
+Nu tar Redirect Web dig till meditationen när du besöker Twitter!
 
 **[⬇️ Ladda ner regeln](/rules/reduce-twitter-addiction.redirectweb)**
 
 ## Fall 2: Ta bort frågeparametrar från URL
 
-Anta att det finns en frågeparameter `source=twitter` i en URL för `example.com`, och du bestämmer dig för att ta bort den för att anonymisera dig själv.
+Anta att det finns en frågeparameter `source=twitter` i en URL för `example.com`, och du bestämde dig för att ta bort den för att anonymisera dig själv.
 
-I det här fallet är alternativet **Capturing Group Processing** det enklaste sättet.:
+I det här fallet är alternativet **Bearbetning av fångstgrupp** det enklaste sättet:
 
-* **Omdirigera från**: `https://example.com/*` (Wildcard)
-* **Omdirigera till**: `$0`
-* **Capturing Group Processing**:
-    * **Grupp**: `$0`
-    * **Process**: Ersätt förekomster
-        * **Mål**: `&?source=[^&]*`
-        * **Ersättning**: *(ingen)*
-        * **Textmönster**: Regular Expression
+*   **Omdirigera från**: `https://example.com/*` (Wildcard)
+*   **Omdirigera till**: `$0`
+*   **Bearbetning av fångstgrupp**:
+    *   **Grupp**: `$0`
+    *   **Process**: Ersätt förekomster
+        *   **Mål**: `&?source=[^&]*`
+        *   **Ersättning**: *(ingen)*
+        *   **Textmönster**: Reguljärt uttryck
 
 **[⬇️ Ladda ner regeln](/rules/remove-parameters.redirectweb)**
 
@@ -81,72 +81,72 @@ https://example.com/?hello=world&source=twitter&foo=bar
 
 Om du vill ta bort fler parametrar, lägg till fler processer.
 
-## Fall 3: Lägg till frågeparametrar i URL
+## Fall 3: Lägg till frågeparametrar till URL
 
-Låt oss säga att det finns en webbplats som heter `example.com` som visar en mobil layout som standard, men du föredrar deras skrivbordslayout. Lyckligtvis stöder webbplatsen en `layout`-frågeparameter för att ange vilken layout webbplatsen ska visa. Låt oss skapa en regel som automatiskt lägger till `layout=desktop`.
+Låt oss säga att det finns en webbplats som heter `example.com` som visar en mobil layout som standard, men du föredrar deras skrivbordslayout. Lyckligtvis stöder webbplatsen en `layout`-frågeparameter för att ange vilken layout webbplatsen visar. Låt oss skapa en regel som automatiskt lägger till `layout=desktop`.
 
-Kanske tänker du att du skulle kunna definiera det enligt följande:
+Kanske tror du att du kan definiera det enligt följande:
 
-* **Omdirigera från**: `https://example.com/.*` (Regular Expression)
-* **Omdirigera till**: `$0?layout=desktop`
+*   **Omdirigera från**: `https://example.com/.*` (Reguljärt uttryck)
+*   **Omdirigera till**: `$0?layout=desktop`
 
-`$0` refererar till mål-URL:en. Om du försöker komma åt `example.com/hello` omdirigeras du till `example.com/hello?layout=desktop`. Denna funktion kallas *substitution*.
+`$0` refererar till mål-URL:en. Om du försöker komma åt `example.com/hello`, omdirigeras du till `example.com/hello?layout=desktop`. Denna funktion kallas *substitution*.
 
 > [!TIP]
-> Substitution är också tillgänglig för Wildcard-läget eftersom det internt konverteras till Regular Expression.
+> Substitution är också tillgänglig för Wildcard-läget eftersom det internt konverteras till reguljära uttryck.
 
 Det finns dock några problem med dessa inställningar.
 
 ### Problem 1: Oändlig loop
 
-Den nuvarande inställningen skapar en oändlig omdirigeringsloop eftersom `https://example.com/.*` också riktar sig mot `https://example.com/hello?layout=desktop`.
+Den nuvarande inställningen skapar en oändlig omdirigeringsloop eftersom `https://example.com/.*` också riktar in sig på `https://example.com/hello?layout=desktop`.
 
-I det här fallet kan du ange ett exkluderat URL-mönster som låter dig komma åt utan omdirigering, så här med Regular Expression:
+I det här fallet kan du ange ett exkluderat URL-mönster som gör att du kan komma åt utan omdirigering, så här med reguljära uttryck:
 
 ```
 .*[&?]layout=[^&]*.*
 ```
 
-* `.*`: Matchar vad som helst
-* `[&?]`: Matchar antingen `&` eller `?`
-* `[^&]*`: Matchar vad som helst utom `&`
+*   `.*`: Matchar vad som helst
+*   `[&?]`: Matchar antingen `&` eller `?`
+*   `[^&]*`: Matchar vad som helst utom `&`
 
 ### Problem 2: Kan inte hantera befintliga parametrar korrekt
 
-Om mål-URL:en redan har andra frågeparametrar som `example.com/hello?theme=dark`, kommer destinationen att vara `example.com/hello?theme=dark?layout=desktop` (det finns två `?` i URL:en) men du kan bara sammanfoga parametrarna med `&`. `?` som ett specialtecken är endast tillåtet i början av parametrarna. Så det behandlas inte som en giltig parameter.
+Om mål-URL:en redan har andra frågeparametrar som `example.com/hello?theme=dark`, kommer destinationen att vara `example.com/hello?theme=dark?layout=desktop` (Det finns två `?` i URL:en) men du kan bara sammanfoga parametrarna med `&`. `?` som ett specialtecken är endast tillåtet i början av parametrarna. Så det behandlas inte som en giltig parameter.
 
-I det här fallet ändrar du inställningarna så här:
+I det här fallet, ändra inställningarna så här:
 
-* **Omdirigera från**: `(https://example.com/[^?]*)(\?(.*))?`
-* **Omdirigera till**: `$1?layout=desktop&$3`
+*   **Omdirigera från**: `(https://example.com/[^?]*)(\(.*))?`
+*   **Omdirigera till**: `$1?layout=desktop&$3`
 
-Låt oss ta en titt steg för steg.
+Låt oss titta steg för steg.
 
-* `(https://example.com/[^?]*)`: Matchar delen fram till det föregående tecknet för `?`.
-    * `[^?]*` matchar vad som helst utom `?`.
-    * Detta är inslaget i `()` så att du kan referera till det med `$1` senare.
-* `(\?(.*))?`: Matchar en sträng som börjar med `?`, vilket innebär frågeparametrar.
-    * Detta matchar också en tom sträng genom `?`-kvantifikatorn i slutet av mönstret, som *matchar noll eller en gång*.
-    * Den yttre `()` och den inre `()` kan refereras till med `$2` och `$3` senare.
+*   `(https://example.com/[^?]*)`: Matchar delen fram till föregående tecken för `?`.
+    *   `[^?]*` matchar vad som helst utom `?`.
+    *   Detta är insvept med `()` så att du kan referera till det med `$1` senare.
+*   `(\(.*))?`: Matchar en sträng som börjar med `?`, vilket betyder frågeparametrar.
+    *   Detta matchar också tom sträng med `?`-kvantifieraren i slutet av mönstret, vilket *matchar noll eller en gång*.
+    *   Den yttre `()` och den inre `()` kan refereras med `$2` och `$3` senare.
 
 [RegExr](https://regexr.com) kan hjälpa dig att förstå detaljerna.
 
 > [!NOTE]
-> RegExr visar ett fel när du inte escape:ar `/` med `\`. Även om du kan escape:a det, är det inte nödvändigt eftersom Redirect Web använder en annan motor från Apple som inte kräver escape:ing.
+> RegExr visar ett fel när du inte undviker `/` med `\`. Även om du kan undvika det, krävs det inte eftersom Redirect Web använder en annan motor från Apple som inte kräver undvikande.
 
-Detta är inte en perfekt lösning, eftersom den omdirigerar `example.com/hello` till `example.com/hello?layout=desktop&`, vilket inkluderar ett onödigt `&` i slutet av URL:en. Det är ingen stor sak i allmänhet, men om du vill ta bort det kan du använda *Capturing Group Processing*.
+Detta är inte en perfekt lösning, eftersom den omdirigerar `example.com/hello` till `example.com/hello?layout=desktop&`, vilket inkluderar ett onödigt `&` i slutet av URL:en. Det är ingen stor sak i allmänhet, men om du vill ta bort det kan du använda *Bearbetning av fångstgrupp*.
 
-Sammanfattningsvis är detta det slutgiltiga resultatet:
+Sammanfattningsvis är detta den slutliga utgången:
 
-* **Omdirigera från**: `(https://example.com/[^?]*)((\?(.*))?)` (Regular Expression)
-* **Omdirigera till**: `$1?layout=desktop$3`
-* **Exkluderat URL-mönster**: `.*[&?]layout=[^&]*.*` (Regular Expression)
-* **Capturing Group Processing**:
-    * **Grupp**: `$3`
-    * **Process**: Ersätt förekomster
-        * **Mål**: `\?(.*)`
-        * **Ersättning**: `&$1`
+*   **Omdirigera från**: `(https://example.com/[^?]*)((\(.*))?)` (Reguljärt uttryck)
+*   **Omdirigera till**: `$1?layout=desktop$3`
+*   **Exkluderat URL-mönster**: `.*[&?]layout=[^&]*.*` (Reguljärt uttryck)
+*   **Bearbetning av fångstgrupp**:
+    *   **Grupp**: `$3`
+    *   **Process**: Ersätt förekomster
+        *   **Mål**: `\\?(.*)`
+        *   **Ersättning**: `&$1`
 
 **[⬇️ Ladda ner regeln](/rules/add-parameters.redirectweb)**
 
-Detta är endast ett exempel. Du kan också skapa flera regler för att hantera varje problem. Det kan vara mycket enklare.
+Detta är bara ett exempel. Du kan också skapa flera regler för att hantera varje problem. Det kan vara mycket enklare.

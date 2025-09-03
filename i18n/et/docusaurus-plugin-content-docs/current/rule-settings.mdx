@@ -1,90 +1,90 @@
-# Reegli sätted
+# Reegliseaded
 
-See leht annab üksikasjalikku teavet iga sätte kohta Redirect Web veebirakenduse reegli muutmise ekraanil.
+See leht annab üksikasjalikku teavet iga seade kohta Redirect Webi rakenduse reegli redigeerimise ekraanil.
 
 ## Valikud
 
 ### Tüüp {#type}
 
-Määrake **Tüübi** valik, et kontrollida, kuidas rakendus ümbersuunamist haldab. Saate valida järgmiste vahel:
+Määrake **Tüübi** valik, et kontrollida, kuidas rakendus ümbersuunamist käsitleb. Saate valida järgmiste hulgast:
 
-*   **Algne** (Vaikimisi)
-    *   See kasutab ümbersuunamise juhtimiseks traditsioonilisi veebi-API-sid. Lisaks kasutab see varuvariandina [Tabs API-t](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs).
-        *   Firefoxis kasutab see ümbersuunamise haldamiseks [WebRequest API-t](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest).
-    *   Saate kasutada kõiki valikuid, välja arvatud [Ressursitüübid](#resource-types) ja [Päringu meetodid](#request-methods).
-    *   See on aeglasem kui *Deklaratiivne* tüüp ja võib põhjustada täiendavaid võrgupäringuid.
-*   **DNR** (Eksperimentaalne Safari jaoks):
-    *   See tüüp töötab oluliselt kiiremini kui algne tüüp, kuna see ei algata lähteaadressi jaoks võrgupäringut.
-    *   See võimaldab teil määrata [Ressursitüübid](#resource-types) ja [Päringu meetodid](#request-methods).
-    *   ⚠️ Te ei saa kasutada teatud valikuid, nagu [Püüderühma töötlemine](#capturing-group-processing) ja [Välistatud URL-i mustrid](#excluded-url-patterns), kuna neid ei ole DNR API veel toetanud.
-    *   ⚠️ Safaris ei saa praegu oma regulaaravaldise mustrisse lisada püstkriipse (`|`). [Üksikasjad](https://github.com/mshibanami/redirect-web/issues/44)
+*   **Algne** (vaikimisi)
+    *   See kasutab ümbersuunamise kontrollimiseks traditsioonilisi veebi-API-sid. Lisaks kasutab see varuvariandina [Tabs API-t](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs).
+        *   Firefoxis kasutab see ümbersuunamise käsitlemiseks [WebRequest API-t](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest).
+    *   Saate kasutada kõiki valikuid peale [ressursitüüpide](#resource-types) ja [päringumeetodite](#request-methods).
+    *   See on aeglasem kui *Deklaratiivne* tüüp ja võib põhjustada lisavõrgupäringuid.
+*   **DNR** (eksperimentaalne Safari jaoks):
+    *   See tüüp töötab palju kiiremini kui algne tüüp, sest see ei algata võrgupäringut lähtekoodi URL-i jaoks.
+    *   See võimaldab teil määrata [ressursitüüpe](#resource-types) ja [päringumeetodeid](#request-methods).
+    *   ⚠️ Te ei saa kasutada mõningaid valikuid, nagu [püüdurrühma töötlemine](#capturing-group-processing) ja [välistatud URL-i mustrid](#excluded-url-patterns), kuna neid pole DNR API veel toetanud.
+    *   ⚠️ Safaris ei saa praegu oma regulaaravaldise mustrisse torusid (`|`) lisada. [Üksikasjad](https://github.com/mshibanami/redirect-web/issues/44)
     *   ⚠️ Kuna Safari DNR API-l on endiselt probleeme, peame seda Safari jaoks endiselt eksperimentaalseks funktsiooniks. Kõigi teadaolevate probleemide loendi leiate [siit](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Ümbersuunamine alates {#redirect-from}
+### Suuna alates {#redirect-from}
 
-Valik **Ümbersuunamine alates** võimaldab määrata veebilehtede URL-i mustri, millelt soovite ümbersuunata. Saate valida kas [Metamärgi](#wildcard) või [Regulaaravaldise](#regular-expression).
+**Suuna alates** valik võimaldab teil määrata veebilehtede URL-i mustri, kust soovite ümber suunata. Saate valida kas [metamärgi](#wildcard) või [regulaaravaldise](#regular-expression).
 
-Näiteks kui määrate metamärgi abil `https://example.com/*`, siis sobitub see `https://example.com/` või `https://example.com/hello`-ga.
+Näiteks kui määrate metamärgiga `https://example.com/*`, vastab see `https://example.com/` või `https://example.com/hello`.
 
 > [!NOTE]
-> Valikus Ümbersuunamine sihtkohta saate viidata kogu vastele `$0` abil või osalistele vastetele `$1`, `$2`, ... Kasutades. Üksikasju vaadake selle lehe jaotisest [URL-i muster](#url-pattern).
+> Valikus Suuna asukohta saate viidata kogu vastavusele `$0`-ga või osalistele vastavustele `$1`, `$2`, ... Kontrollige üksikasju selle lehe [URL-i mustris](#url-pattern).
 
 #### Ressursitüübid {#resource-types}
 
-![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
+![Toetatud tüübid: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-Valik **Ressursitüübid** võimaldab määrata veebipäringute kategooriad, nagu pildid, JavaScriptid ja stiililehed, millele reegel kehtib.
+**Ressursitüüpide** valik võimaldab teil määrata veebipäringute kategooriad, nagu pildid, JavaScriptid ja stiililehed, millele reegel kehtib.
 Näiteks kui määrate `script`, saate ümber suunata veebilehtede laaditud JavaScripti faile.
 
-Praegu on saadaval järgmised:
+Praegu on saadaval järgmised: 
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
-Vaikimisi säte on `main_frame`, mis on vahelehele laaditud kõrgeima taseme leht.
+Vaikesäte on `main_frame`, mis on vahelehele laaditud ülemise taseme leht.
 
-Palun vaadake iga ressursitüübi üksikasju [mdn veebidokumentatsioonist](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+Palun kontrollige iga ressursitüübi üksikasju [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Päringu meetodid {#request-methods}
+#### Päringumeetodid {#request-methods}
 
-![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
+![Toetatud tüübid: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-Valik **Päringu meetodid** võimaldab määrata lähteaadressi siht-HTTP-meetodid.
+**Päringumeetodite** valik võimaldab teil määrata lähtekoodi URL-i siht-HTTP-meetodid.
 
 Kõik meetodid on vaikimisi määratud.
 
-Palun vaadake iga meetodi üksikasju [mdn veebidokumentatsioonist](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+Palun kontrollige iga meetodi üksikasju [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 > [!WARNING]
-> Safaris ei pruugi see valik saadaval olla, kuna Apple'i DNR-tüüpi juurutus ei tundu seda praegu toetavat. Saatsime Apple'ile tagasisidet FB14502272.
+> Safaris, this option may not be available because Apple's implementation for the DNR type doesn't seem to handle it currently. We sent feedback to Apple as FB14502272.
 
 #### Sihtbrauserid {#target-browsers}
 
-![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+![Toetatud platvormid: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Valik **Sihtbrauserid** võimaldab teil määrata, millisele brauserile reegel peaks kehtima või mitte.
+**Sihtbrauserite** valik võimaldab teil määrata, millisele brauserile reegel peaks või ei peaks kehtima.
 
-*   On 2 tüüpi brausereid, mida saate valida:
-    *   **Vaikimisi valitavad brauserid**: Saate vaikimisi valida Safari, Chrome'i, Firefoxi, Edge'i, Opera, Arc'i, Brave'i ja Vivaldi. See ei erista sama brauseri variante, nagu Safari ja Safari Technology Preview.
-    *   **Kasutaja määratud brauserid**: Puudutades hüpikaknas nuppu Lisa, saate valida mis tahes brauseri peale Safari või Safari Technology Preview, millel on installitud Redirect Web laiendus.
-*   Märkeruut **Kõik, välja arvatud valitud** võimaldab teil sihtida kõiki brausereid, välja arvatud need, mille olete valinud.
+*   Saate valida 2 tüüpi brauserit:
+    *   **Vaikimisi valitavad brauserid**: Saate vaikimisi valida Safari, Chrome'i, Firefoxi, Edge'i, Opera, Arci, Brave'i ja Vivaldi. See ei erista sama brauseri variante, nagu Safari ja Safari Technology Preview.
+    *   **Kasutaja määratud brauserid**: Puudutades hüpikaknas nuppu Lisa, saate valida mis tahes brauseri peale Safari või Safari Technology Preview, millel on Redirect Webi laiendus installitud.
+*   Märkeruut **Kõik peale valitud** võimaldab teil sihtida kõiki brausereid, välja arvatud need, mille olete valinud.
 
 > [!WARNING]
-> Redirect Web ei suuda eristada, kas brauser on **Safari** või **Safari Technology Preview**, sest rakendus kontrollib laienduse peaprotsessi selle tuvastamiseks, kuid need kaks brauserit jagavad sama peaprotsessi (`/sbin/launchd`).
+> Redirect Web ei suuda eristada, kas brauser on **Safari** või **Safari Technology Preview**, sest rakendus kontrollib laienduse vanemprotsessi, et seda tuvastada, kuid need kaks brauserit jagavad sama vanemprotsessi (`/sbin/launchd`).
 
-### Ümbersuunamine sihtkohta {#redirect-to}
+### Suuna asukohta {#redirect-to}
 
-Valik **Ümbersuunamine sihtkohta** määrab siht-URL-i, kuhu soovite ümbersuunata *Ümbersuunamine alates* valikuga sobitatud lähteaadressilt. Samuti saate asendada püüderühmi `$1`, `$2`, ... või kogu vaste `$0`-ga. Need aitavad teil sihtkohta dünaamiliselt määrata. Üksikasju vaadake selle lehe jaotisest [URL-i muster](#url-pattern).
+**Suuna asukohta** valik määrab siht-URL-i, kuhu soovite ümber suunata, lähtekoodi URL-ist, mis vastab valikule *Suuna alates*. Saate asendada ka püüdurrühmi `$1`, `$2`, ... või kogu vastavuse `$0`-ga. Need aitavad teil dünaamiliselt sihtkohta määrata. Kontrollige üksikasju selle lehe [URL-i mustris](#url-pattern).
 
 Näiteks kui määrate järgmise reegli:
 
-*   **Ümbersuunamine alates**: `https://google.com/*` (Metamärk)
-*   **Ümbersuunamine sihtkohta**: `https://apple.com/$1`
+*   **Suuna alates**: `https://google.com/*` (metamärk)
+*   **Suuna asukohta**: `https://apple.com/$1`
 
-ja see sobib `https://google.com/hello`-ga, siis siht-URL on `https://apple.com/hello`.
+ja see vastab `https://google.com/hello`-le, siis siht-URL on `https://apple.com/hello`.
 
-Lisaks saate muuta tekstide `$1`, `$2`, ... enne asendamiste tegemist. Üksikasju vaadake jaotisest [Püüderühma töötlemine](#capturing-group-processing).
+Lisaks saate muuta `$1`, `$2`, ... tekste enne asenduste tegemist. Kontrollige üksikasju jaotises [Püüdurrühma töötlemine](#capturing-group-processing).
 
 > [!TIP]
-> Rakenduse avamiseks saate määrata kohandatud URL-skeemi. Need on näited rakendustest, mis toetavad süvalinke:
+> Saate rakenduse avamiseks määrata kohandatud URL-skeemi. Need on näited rakendustest, mis toetavad sügavlinkimist:
 >
 > *   Figma: `figma://file/Your_Figma_ID`
 > *   Firefox: `firefox://open-url?url=https://example.com/hello`
@@ -95,83 +95,83 @@ Lisaks saate muuta tekstide `$1`, `$2`, ... enne asendamiste tegemist. Üksikasj
 
 #### Rakendus {#application}
 
-![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+![Toetatud tüübid: Algne](https://img.shields.io/badge/Types-Original-blue) ![Toetatud platvormid: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Kui soovite määrata rakenduse, millega soovite siht-URL-i avada, kasutage kombineeritud kasti **Rakendus**. See on saadaval ainult macOS-is.
+Kui soovite määrata rakenduse, millega soovite siht-URL-i avada, kasutage **Rakenduse** rippmenüüd. See on saadaval ainult macOS-is.
 
 > [!WARNING]
-> Saate avada ainult rakenduse, mis toetab [rakenduse liivakasti](https://developer.apple.com/documentation/security/app_sandbox). Samuti veenduge, et rakendus toetaks URL-i avamist, mida soovite avada.
+> Saate avada ainult rakenduse, mis toetab [rakenduse liivakasti](https://developer.apple.com/documentation/security/app_sandbox). Samuti veenduge, et rakendus toetab URL-i avamist, mida soovite avada.
 
-### Püüderühma töötlemine {#capturing-group-processing}
+### Püüdurrühma töötlemine {#capturing-group-processing}
 
-![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
+![Toetatud tüübid: Algne](https://img.shields.io/badge/Types-Original-blue)
 
-Valik **Püüderühma töötlemine** võimaldab teil määrata, kuidas töödelda püüderühmi, mida saate asendada *Ümbersuunamine sihtkohta* valikus `$1`, `$2`... abil.
+**Püüdurrühma töötlemise** valik võimaldab teil määrata, kuidas töödelda püüdurrühmi, mida saate asendada valikus *Suuna asukohta* `$1`, `$2`...
 
-Püüderühmi saab luua järgmiselt:
+Nii tehakse püüdurrühmi:
 
-*   **Metamärk**: Tekstid, mis sobivad `*` ja `?` abil, jäädvustatakse automaatselt.
-*   **Regulaaravaldis**: Tekstid, mis sobivad mustri osaga `()` sees, jäädvustatakse.
+*   **Metamärk**: `*` ja `?`-ga vastavad tekstid jäädvustatakse automaatselt.
+*   **Regulaaravaldis**: `()` sees oleva mustri osaga vastavad tekstid jäädvustatakse.
 
 Saate valida ühe või mitu järgmistest protsessidest:
 
-*   **URL-i kodeerimine/dekodeerimine**: See rakendab püüderühmale [protsentkodeeringu](https://en.wikipedia.org/wiki/Percent-encoding) või dekodeerimise. Näiteks kui kodeerite `https://example.com/hello`, teisendatakse see `https%3A%2F%2Fexample.com%2Fhello`-ks. Dekodeerimine töötab vastupidi.
-*   **Base64 kodeerimine/dekodeerimine**: See dekodeerib/kodeerib teksti [Base64-ks](https://en.wikipedia.org/wiki/Base64). Näiteks saate kodeerida `hello` kujule `aGVsbG8=` ja dekodeerida selle tagasi `hello`-ks.
-*   **Asendused**: See asendab ühes või mitmes rühmas märgi või märgid, mis on sobitatud **Sihtobjekti** abil, **Asendusega**. Näiteks kui *Rühm* on `hello` ja *Sihtobjekt* on `l` ning Asendus on `y`, siis see muudetakse `heyyo`-ks.
+*   **URL-i kodeerimine/dekodeerimine**: See rakendab püüdurrühmale [protsentkodeerimist](https://en.wikipedia.org/wiki/Percent-encoding) või dekodeerimist. Näiteks kui kodeerite `https://example.com/hello`, teisendatakse see `https%3A%2F%2Fexample.com%2Fhello`-ks. Dekodeerimine töötab vastupidi.
+*   **Base64 kodeerimine/dekodeerimine**: See dekodeerib/kodeerib teksti [Base64](https://en.wikipedia.org/wiki/Base64)-ks. Näiteks saate kodeerida `hello` `aGVsbG8=`-ks ja dekodeerida selle tagasi `hello`-ks.
+*   **Asenda esinemised**: See asendab rühmas ühe või mitu märki, mis vastavad **sihtmärgile**, **asendusega**. Näiteks kui *rühm* on `hello` ja *sihtmärk* on `l` ja asendus on `y`, siis see muudetakse `heyyo`-ks.
 
 > [!NOTE]
-> See on mõeldud iga püüderühma töötlemiseks ja see ei mõjuta, millised URL-id on välistatud jaotisega [Välistatud URL-i mustrid](#excluded-url-patterns). Näiteks oletame, et teil on selline reegel:
+> See on iga püüdurrühma töötlemiseks ja see ei mõjuta, millised URL-id on [välistatud URL-i mustritega](#excluded-url-patterns) välistatud. For instance, let's say you have this rule:
 >
-> *   **Ümbersuunamine alates**: `https://example.com/(hello.*)`
-> *   **Püüderühma töötlemine**:
+> *   **Suuna alates**: `https://example.com/(hello.*)`
+> *   **Püüdurrühma töötlemine**:
 >     *   Rühm: `$1`
->     *   Sihtobjekt: `.*` (Regulaaravaldis)
+>     *   Sihtmärk: `.*` (regulaaravaldis)
 >     *   Asendus: `hello`
 > *   **Välistatud URL-i muster**: `https://example.com/hello`
 >
-> Sel juhul `https://example.com/hello_world` ei välistata, samas kui `https://example.com/hello` välistatakse.
+> Sel juhul ei välistata `https://example.com/hello_world`, samas kui `https://example.com/hello` välistatakse.
 
 ### Välistatud URL-i mustrid {#excluded-url-patterns}
 
-![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
+![Toetatud tüübid: Algne](https://img.shields.io/badge/Types-Original-blue)
 
-Valik **Välistatud URL-i mustrid** võimaldab teil määrata URL-id, mida ei ümbersuunata. See võib olla kasulik ümbersuunamiste ahelate vältimiseks või veebisaidi teatud osade ümbersuunamisest välistamiseks.
+**Välistatud URL-i mustrite** valik võimaldab teil määrata URL-id, mida ei suunata ümber. See võib olla kasulik ümbersuunamise tsüklite vältimiseks või veebisaidi teatud osade välistamiseks ümbersuunamisest.
 
-Välistatud URL-i mustreid saate määrata, kasutades kas regulaaravaldist või metamärgi mustritüüpi.
+Saate määrata välistatud URL-i mustrid, kasutades kas regulaaravaldise või metamärgi mustritüüpe.
 
 ### Näited {#examples}
 
-Valik **Näited** võimaldab teil testida oma ümbersuunamisreeglit, pakkudes näidis-URL-e. Näidis-URL-i lisamisega saate enne selle tegelikku rakendamist kontrollida, kas reegel töötab ootuspäraselt.
+**Näidete** valik võimaldab teil testida oma ümbersuunamisreeglit, pakkudes näidis-URL-e. Näidis-URL-i lisades saate kontrollida, kas reegel töötab ootuspäraselt, enne kui seda tegelikult rakendate.
 
-### Märkused {#comments}
+### Kommentaarid {#comments}
 
-Valik **Märkused** võimaldab teil lisada oma ümbersuunamisreegli kohta märkusi või kommentaare. See võib olla kasulik selleks, et pidada meeles, miks te teatud reegli lõite, või anda konteksti teistele, kes teie reegleid vaadata võivad.
+**Kommentaaride** valik võimaldab teil lisada oma ümbersuunamisreegli kohta märkmeid või kommentaare. See võib olla kasulik selleks, et jälgida, miks te konkreetse reegli lõite, või anda konteksti teistele, kes teie reegleid vaadata võivad.
 
 ## URL-i muster {#url-pattern}
 
-On 3 valikut, kus saate määrata ühe või mitu URL-i mustrit. *Ümbersuunamine alates*, *Välistatud URL-i mustrid* ja *Püüderühma töötlemine*. Nende määramiseks saate valida kas **Metamärgi** või **Regulaaravaldise**.
+URL-i mustreid saate määrata 3 valikus. *Suuna alates*, *Välistatud URL-i mustrid* ja *Püüdurrühma töötlemine*. Nende määramiseks saate valida kas **metamärgi** või **regulaaravaldise**.
 
 ### Metamärk {#url-pattern-wildcard}
 
-**Metamärk** on lihtsam mustritüüp, mis võimaldab teil kasutada `*` (sobib kõigele) ja `?` (sobib mis tahes üksikule märgile) metamärkidena. Siin on mõned näited:
+**Metamärk** on lihtsam mustritüüp, mis võimaldab teil kasutada `*` (vastab kõigele) ja `?` (vastab mis tahes üksikule märgile) metamärkidena. Siin on mõned näited:
 
-*   `https://example.com/hello` sobitamiseks saate kasutada `https://example.com/*`. See sobitub iga stringiga pärast `https://example.com/`.
-*   `https://example.com/search?q=hello` sobitamiseks saate kasutada `https://example.com/search?q=*`. See sobitub parameetri `q` mis tahes väärtusega.
-*   Mis tahes URL-i sobitamiseks, mis sisaldab sõna `blog`, saate kasutada `*blog*`.
+*   `https://example.com/hello` vastamiseks saate kasutada `https://example.com/*`. See vastab mis tahes stringile pärast `https://example.com/`.
+*   `https://example.com/search?q=hello` vastamiseks saate kasutada `https://example.com/search?q=*`. See vastab `q` parameetri mis tahes väärtusele.
+*   Mis tahes URL-i vastamiseks, mis sisaldab sõna `blog`, saate kasutada `*blog*`.
 
-Samuti saate kasutada asendust metamärgis, mis tähendab, et saate viidata sobitatud URL-i osadele, kasutades `$1`, `$2` jne. Näiteks kui kasutate `https://example.com/*-world-*` ja URL on `https://example.com/hello-world-goodbye`, siis `$1` oleks "hello" ja `$2` oleks "goodbye". `$0` on samuti saadaval kogu sobitatud URL-ile viitamiseks.
+Saate kasutada ka asendust metamärgis, mis tähendab, et saate viidata vastava URL-i osadele `$1`, `$2` jne. Näiteks kui kasutate `https://example.com/*-world-*` ja URL on `https://example.com/hello-world-goodbye`, siis `$1` oleks "hello" ja `$2` oleks "goodbye". `$0` on saadaval ka kogu vastava URL-i viitamiseks.
 
 > [!Note]
-> Kuigi asendus on regulaaravaldise funktsioon, saate seda kasutada ka metamärgiga, sest Redirect Web teisendab metamärgid sisemiselt regulaaravaldisteks.
+> Kuigi asendus on regulaaravaldise funktsioon, saate seda kasutada ka metamärgi jaoks, sest Redirect Web teisendab metamärgi sisemiselt regulaaravaldisesse.
 
 ### Regulaaravaldis {#url-pattern-regular-expression}
 
-**Regulaaravaldis** (Regex) on võimas tööriist tekstimustrite sobitamiseks, mida toetab Apple'i regulaaravaldiste mootor, mida kirjeldatakse [siin](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). See võimaldab teil määrata konkreetse mustri, mis sobitub stringide kogumiga. Siin on mõned näited.
+**Regulaaravaldis** (Regex) on võimas tööriist tekstis mustrite sobitamiseks, mida toetab Apple'i regulaaravaldise mootor, mida kirjeldatakse [siin](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). See võimaldab teil määratleda konkreetse mustri, mis vastab stringide kogumile. Siin on mõned näited.
 
-*   `https://example.com/hello` sobitamiseks saate kasutada `https://example.com/(.*)`. See sobitub iga stringiga pärast `https://example.com/` ja salvestab selle püüderühma.
-*   `https://example.com/search?q=hello` sobitamiseks saate kasutada `https://example.com/search\?q=(.*)`. See sobitub parameetri `q` väärtusega ja salvestab selle püüderühma.
-*   Mis tahes URL-i sobitamiseks, mis sisaldab sõna `blog`, saate kasutada `.*blog.*`.
+- `https://example.com/hello` vastamiseks saate kasutada `https://example.com/(.*)`. See vastab mis tahes stringile pärast `https://example.com/` ja salvestab selle püüdurrühma.
+- `https://example.com/search?q=hello` vastamiseks saate kasutada `https://example.com/search\?q=(.*)`. See vastab `q` parameetri väärtusele ja salvestab selle püüdurrühma.
+- Mis tahes URL-i vastamiseks, mis sisaldab sõna `blog`, saate kasutada `.*blog.*`.
 
-Saate viidata püüderühmadele *Ümbersuunamine sihtkohta* või *Asenduse* valikutes, kasutades `$1`, `$2`, ... või `$0` kogu vastele viitamiseks.
+Saate viidata püüdurrühmadele *Suuna asukohta* või *Asenduses* `$1`, `$2`, ... või `$0`-ga, et viidata kogu vastavusele.
 
-Lisateavet Regex-i süntaksi kohta leiate ressurssidest, nagu [RegExr](https://regexr.com/).
+Lisateavet Regex-süntaksi kohta leiate ressurssidest nagu [RegExr](https://regexr.com/).

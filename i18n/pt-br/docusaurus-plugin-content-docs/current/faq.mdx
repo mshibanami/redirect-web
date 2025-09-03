@@ -3,52 +3,52 @@ import Image from "@site/src/components/Image";
 import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
 import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
 
-# FAQ
+# Perguntas Frequentes
 
 ## Por que devo permitir que a extensão leia/altere minhas informações? {#why-allow-extension-to-read-change}
 
 Você pode ver um alerta como este ao configurar o Redirect Web:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow={true} />
+    <Image src={PermissionAlertSafari} alt="Um alerta de permissão" width="200" margin="0 0 16px 0" hasShadow={true} />
 
-    > Esta extensão poderá ler e alterar páginas da web e ver seu histórico de navegação neste site. **Isso pode incluir informações confidenciais, como senhas, números de telefone e cartões de crédito.**
+    > Esta extensão poderá ler e alterar páginas da web e ver seu histórico de navegação neste site. **Isso pode incluir informações confidenciais, incluindo senhas, números de telefone e cartões de crédito.**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="Um alerta de permissão" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
 
     > Pode:  
     > Ler e alterar **todos os seus dados** em **todos os sites**
 </IfBrowserStore>
 
-Esta extensão precisa da sua permissão para observar a navegação da página e redirecionar para onde você deseja ir, e seu navegador exibe isso quando a extensão solicita as permissões relacionadas. Portanto, se você não permitir, esta extensão não poderá funcionar.
+Esta extensão precisa da sua permissão para observar a navegação da página para redirecionar para onde você deseja ir, e seu navegador exibe isso quando a extensão solicita as permissões relacionadas. Portanto, se você não permitir, esta extensão não funcionará.
 
 As permissões concedidas serão usadas apenas para funções do aplicativo, como redirecionamento, em conformidade com a **[política de privacidade](./privacy-policy)**.
 
-## Ainda devo adquirir o aplicativo depois de instalar a extensão para Chrome, Firefox ou Edge? {#app-for-non-safari-browsers}
+## Ainda devo obter o aplicativo depois de instalar a extensão para Chrome, Firefox ou Edge? {#app-for-non-safari-browsers}
 
-Sim. Você deve baixar [o aplicativo Redirect Web na App Store](https://apps.apple.com/app/id1571283503), independentemente do navegador que você usa. Você pode instalar a extensão da loja de extensões do seu navegador, mas o aplicativo é necessário para gerenciar suas regras, histórico de compras e outras configurações entre dispositivos via iCloud.
+Sim. Você deve baixar [o aplicativo Redirect Web na App Store](https://apps.apple.com/app/id1571283503) independentemente do navegador que você usa. Você pode instalar a extensão na loja de extensões do seu navegador, mas o aplicativo é necessário para gerenciar suas regras, histórico de compras e outras configurações em todos os dispositivos via iCloud.
 
-## O Redirect Web funciona em Windows, Android, Linux ou outras plataformas? {#non-apple-platforms}
+## O Redirect Web funciona no Windows, Android, Linux ou em outras plataformas? {#non-apple-platforms}
 
 Não no momento. O Redirect Web está intimamente ligado ao ecossistema da Apple, incluindo iCloud e Compra Universal, o que dificulta a oferta.
 
 ## Por que não [Redirector](https://github.com/einaregilsson/Redirector)? {#why-not-redirector}
 
-Redirector ainda é uma ótima extensão de redirecionamento. É completamente gratuito, de código aberto e funciona também em plataformas que não são da Apple. Mas o Redirect Web tem alguns recursos extras que você pode gostar:
+O Redirector ainda é uma ótima extensão de redirecionamento. É totalmente gratuito, de código aberto e funciona também em plataformas não-Apple. Mas o Redirect Web tem alguns recursos extras que você pode gostar:
 
-*   **Configurações de Regra Detalhadas:** Múltiplos padrões de exclusão, múltiplos correspondências de processo e recursos de substituição de strings disponíveis apenas no Redirect Web.
-*   **Abrir em aplicativos nativos:** No Mac, você pode escolher onde abrir a URL de destino. (Ele chama o comando `open` diretamente. Não são deep links.)
-*   **Suporte a [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Proporciona um redirecionamento extremamente rápido.
-*   **Gerenciamento centralizado de regras:** Gerencie regras para todos os navegadores em um só lugar através do aplicativo nativo.
-*   **Suporte a Manifest V3 & V2:** Útil enquanto o V2 está sendo desativado no Chrome.
+* **Configurações Detalhadas de Regras:** Múltiplos padrões de exclusão, múltiplos processos de correspondência e recursos de substituição de strings disponíveis apenas no Redirect Web.
+* **Abrir em aplicativos nativos:** No Mac, você pode escolher onde abrir a URL de destino. (Ele chama o comando `open` diretamente. Não são deep links.)
+* **Suporte a [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Oferece redirecionamento extremamente rápido.
+* **Gerenciamento centralizado de regras:** Gerencie regras para todos os navegadores em um só lugar através do aplicativo nativo.
+* **Suporte a Manifest V3 e V2:** Útil enquanto o V2 está sendo descontinuado no Chrome.
 
 ## Por que esta extensão requer uma nova permissão? {#permission-alert-on-safari}
 
 Você pode ver este alerta no Safari após atualizar o Redirect Web:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
+<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Um alerta de desativação do aplicativo" width="280" />
 
 > "Redirect Web" foi atualizado e está solicitando permissões adicionais. Para proteger sua privacidade, esta extensão foi desativada.
 >
@@ -60,24 +60,24 @@ Isso se deve à permissão [declarativeNetRequestWithHostAccess](https://develop
 
 Não, é sempre gratuito. Você também pode encontrar a fonte de todo o conteúdo [aqui](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Compra Única ou Assinatura Anual: Qual é a melhor opção? {#one-time-or-subscription}
+## Compra Única ou Assinatura Anual: Qual é a Melhor Opção? {#one-time-or-subscription}
 
-Recomendamos a compra única, pois a diferença de preço é de apenas US$2,00.
-O principal motivo pelo qual oferecemos a assinatura é para permitir que você experimente todos os recursos através de seu teste gratuito. Aqui está o caso de uso esperado:
+Recomendamos a compra única, pois a diferença de preço é de apenas US$ 2,00.
+A principal razão pela qual oferecemos a assinatura é para permitir que você experimente todos os recursos através de sua avaliação gratuita. Aqui está o caso de uso esperado:
 
-1.  Assine a assinatura anual.
-2.  Cancele imediatamente a assinatura acessando o aplicativo Ajustes, procurando por "Assinaturas", tocando neste aplicativo e selecionando "Cancelar Assinatura". Isso permite que você desfrute do teste gratuito sem nenhum compromisso.
-3.  Desfrute de acesso total a todos os recursos por 7 dias.
-4.  Se você gostar dos recursos, opte pela compra única.
+1. Assine a assinatura anual.
+2. Cancele imediatamente a assinatura indo para o aplicativo Ajustes, procurando por "Assinaturas", tocando neste aplicativo e selecionando "Cancelar Assinatura". Isso permite que você aproveite a avaliação gratuita sem nenhum compromisso.
+3. Desfrute de acesso total a todos os recursos por 7 dias.
+4. Se você gostar dos recursos, opte pela compra única.
 
-Claro, não há problema em continuar com a assinatura anual se você preferir!
+Claro, não há problema em continuar com a assinatura anual se preferir!
 
 ## O Redirect Web injeta anúncios ou outro conteúdo não relacionado em sites? {#does-it-inject-ads}
 
-Não, ele não injeta nenhum conteúdo desse tipo. Apenas o código necessário para fornecer os recursos descritos nesta documentação e na página do aplicativo na App Store é injetado nos sites no Safari.
+Não, ele não injeta nenhum conteúdo desse tipo. Apenas o código necessário para fornecer os recursos descritos nesta documentação e na página do aplicativo na App Store é injetado em sites no Safari.
 
-## Existe alguma chance de o Redirect Web ser vendido a outra pessoa? {#could-it-be-sold}
+## Há alguma chance de o Redirect Web ser vendido para outra pessoa? {#could-it-be-sold}
 
-100% não. Extensões de navegador exercem controle profundo sobre sua navegação e dados, e entregar o Redirect Web a outro proprietário abriria a porta para violações de privacidade. Vimos extensões mudarem de mãos e, em seguida, coletarem dados de usuários ou injetarem anúncios sem aviso. Isso nunca acontecerá aqui. Para saber mais sobre esses riscos, veja o artigo de Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) e a investigação de Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100% não. As extensões de navegador exercem controle profundo sobre sua navegação e dados, e entregar o Redirect Web a outro proprietário abriria a porta para violações de privacidade. Vimos extensões mudarem de mãos e depois coletarem dados de usuários ou injetarem anúncios sem aviso. Isso nunca acontecerá aqui. Para mais informações sobre esses riscos, consulte o artigo de Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) e a investigação de Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
 O Redirect Web é fundado na confiança e responsabilidade. Consideramos nosso dever manter suas informações seguras, e nos recusamos a transferir a propriedade sob quaisquer circunstâncias. O Redirect Web sempre permanecerá em nossas mãos, para que você possa navegar com total confiança.

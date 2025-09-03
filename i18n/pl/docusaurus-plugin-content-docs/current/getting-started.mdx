@@ -35,9 +35,9 @@ Wyrażenia regularne są nieco skomplikowane, ale gdy się do nich przyzwyczaisz
 
 > [!NOTE]
 > W wyrażeniach regularnych `.` w `(twitter|x).com` jest również traktowane jako *dowolny znak*. Dlatego `(twitter|x).com/.*` pasuje również na przykład do `twitter1com/` lub `x_com/`.
->
+> 
 > Aby tego uniknąć, możesz zmienić to na `(twitter|x)\.com/.*`. `\` służy do ominięcia znaczenia specjalnego znaku.
->
+> 
 > Jednak w ogólnym środowisku internetowym nie ma takich adresów URL. Dlatego możesz pozostawić `.` jako znak specjalny, jeśli wolisz. Twoja reguła jest przeznaczona do Twojego własnego użytku, więc zaimplementuj ją tak, jak uznasz to za stosowne.
 
 ### Krok 2: Ustawienie „Redirect To”
@@ -117,7 +117,7 @@ Jeśli docelowy adres URL ma już inne parametry zapytania, takie jak `example.c
 
 W tym przypadku zmień ustawienia w ten sposób:
 
-*   **Redirect From**: `(https://example.com/[^?]*)(\?(.*))?`
+*   **Redirect From**: `(https://example.com/[^?]*)(\(.*))?`
 *   **Redirect To**: `$1?layout=desktop&$3`
 
 Przyjrzyjmy się krok po kroku.
@@ -125,20 +125,20 @@ Przyjrzyjmy się krok po kroku.
 *   `(https://example.com/[^?]*)`: Pasuje do części aż do poprzedniego znaku `?`.
     *   `[^?]*` pasuje do wszystkiego oprócz `?`.
     *   Jest to owinięte w `()`, więc możesz się do tego odwołać później za pomocą `$1`.
-*   `(\?(.*))?`: Pasuje do ciągu znaków zaczynającego się od `?`, co oznacza parametry zapytania.
+*   `(\(.*))?`: Pasuje do ciągu znaków zaczynającego się od `?`, co oznacza parametry zapytania.
     *   Pasuje to również do pustego ciągu dzięki kwantyfikatorowi `?` na końcu wzorca, który *pasuje zero lub jeden raz*.
     *   Zewnętrzne `()` i wewnętrzne `()` mogą być później odwoływane za pomocą `$2` i `$3`.
 
 [RegExr](https://regexr.com) może pomóc Ci zrozumieć szczegóły.
 
 > [!NOTE]
-> RegExr pokazuje błąd, gdy nie ominięto znaczenia `/` za pomocą `\`. Chociaż można to omieniąć, nie jest to wymagane, ponieważ Redirect Web używa innego silnika firmy Apple, który nie wymaga omijania znaczenia.
+> RegExr pokazuje błąd, gdy nie ominięto znaczenia `/` za pomocą `\`. Chociaż można to omijać, nie jest to wymagane, ponieważ Redirect Web używa innego silnika firmy Apple, który nie wymaga omijania znaczenia.
 
 Nie jest to idealne rozwiązanie, ponieważ przekierowuje `example.com/hello` do `example.com/hello?layout=desktop&`, co zawiera niepotrzebne `&` na końcu adresu URL. Generalnie nie jest to duży problem, ale jeśli chcesz to usunąć, możesz użyć *Capturing Group Processing*.
 
 Podsumowując, oto ostateczny wynik:
 
-*   **Redirect From**: `(https://example.com/[^?]*)((\?(.*))?)` (Regular Expression)
+*   **Redirect From**: `(https://example.com/[^?]*)(\(.*))?` (Regular Expression)
 *   **Redirect To**: `$1?layout=desktop$3`
 *   **Excluded URL Pattern**: `.*[&?]layout=[^&]*.*` (Regular Expression)
 *   **Capturing Group Processing**:
