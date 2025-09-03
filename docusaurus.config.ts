@@ -2,6 +2,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
+import remarkCjkFriendly from 'remark-cjk-friendly';
 
 const projectName = 'redirect-web';
 const baseUrl = `/${projectName}/`;
@@ -28,6 +29,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           sidebarCollapsible: true,
           sidebarCollapsed: false,
+          remarkPlugins: [remarkCjkFriendly],
           beforeDefaultRemarkPlugins: [remarkGithubAdmonitionsToDirectives],
         },
         blog: {
@@ -45,7 +47,8 @@ const config: Config = {
             description: 'An RSS feed of changelogs for Redirect Web',
             language: 'en',
           },
-          onUntruncatedBlogPosts: 'ignore'
+          onUntruncatedBlogPosts: 'ignore',
+          remarkPlugins: [remarkCjkFriendly],
         },
         theme: {
           customCss: './src/css/custom.css',
