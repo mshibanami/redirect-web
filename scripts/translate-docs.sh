@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd "$(dirname "$0")/.."
+
 readonly model="gemini-2.5-flash"
 readonly targetLangs=(
   "bg"
