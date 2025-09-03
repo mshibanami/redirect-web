@@ -161,7 +161,7 @@
 
 您也可以在通配符中使用替换，这意味着您可以使用 `$1`、`$2` 等引用匹配 URL 的部分，或使用 `$0` 引用整个匹配项。例如，如果您使用 `https://example.com/*-world-*`，并且 URL 是 `https://example.com/hello-world-goodbye`，则 `$1` 将是“hello”，`$2` 将是“goodbye”。`$0` 也可用于引用整个匹配的 URL。
 
-> [!Note]
+> [!NOTE]
 > 尽管替换是正则表达式的一个功能，但您也可以将其用于通配符，因为 Redirect Web 会在内部将通配符转换为正则表达式。
 
 ### 正则表达式 {#url-pattern-regular-expression}

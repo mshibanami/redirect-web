@@ -161,7 +161,7 @@
 
 와일드카드에서도 대체를 사용할 수 있습니다. 즉, `$1`, `$2` 등을 사용하여 일치하는 URL의 일부를 참조할 수 있습니다. 예를 들어, `https://example.com/*-world-*`를 사용하고 URL이 `https://example.com/hello-world-goodbye`이면 `$1`은 "hello"이고 `$2`는 "goodbye"입니다. `$0`도 전체 일치 URL을 참조하는 데 사용할 수 있습니다.
 
-> [!Note]
+> [!NOTE]
 > 대체는 정규 표현식의 기능이지만, Redirect Web이 내부적으로 와일드카드를 정규 표현식으로 변환하므로 와일드카드에서도 사용할 수 있습니다.
 
 ### 정규 표현식 {#url-pattern-regular-expression}

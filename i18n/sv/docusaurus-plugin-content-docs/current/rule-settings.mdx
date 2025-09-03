@@ -161,7 +161,7 @@ Det finns 3 alternativ där du kan ange ett eller flera URL-mönster. *Omdiriger
 
 Du kan också använda substitution i Wildcard, vilket innebär att du kan referera till delar av den matchade URL:en med `$1`, `$2`, etc. Om du till exempel använder `https://example.com/*-world-*`, och URL:en är `https://example.com/hello-world-goodbye`, då skulle `$1` vara "hello" och `$2` skulle vara "goodbye". `$0` är också tillgängligt för att referera till hela den matchade URL:en.
 
-> [!Note]
+> [!NOTE]
 > Även om substitution är en funktion i reguljära uttryck, kan du också använda den för Wildcard eftersom Redirect Web internt konverterar Wildcard till reguljära uttryck.
 
 ### Reguljärt uttryck {#url-pattern-regular-expression}

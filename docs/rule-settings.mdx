@@ -161,7 +161,7 @@ There are 3 options you can specify one or more URL patterns. *Redirect From*, *
 
 You can also use substitution in Wildcard as well, which means you can reference portions of the matched URL using `$1`, `$2`, etc. For example, if you use `https://example.com/*-world-*`, and the URL is `https://example.com/hello-world-goodbye`, then `$1` would be "hello" and `$2` would be "goodbye". `$0` is also available to reference the entire URL matched.
 
-> [!Note]
+> [!NOTE]
 > Although substitution is a feature of Regular Expression, you can also use it for Wildcard because Redirect Web internally converts Wildcard to Regular Expression.
 
 ### Regular Expression {#url-pattern-regular-expression}
