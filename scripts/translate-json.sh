@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 readonly model="gemini-2.5-flash"
-readonly sourceLang="ja"
+readonly sourceLang="en"
 readonly targetLangs=(
   "bg"
   "cs"
