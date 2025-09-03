@@ -462,7 +462,7 @@ async function translateBatch({
     const system = `You are a professional software localization translator. Translate$${""}$
 ${sourceLang ? ` from ${sourceLang}` : ""} into ${targetLang}.
 CRITICAL RULES:
-- Only translate the \"message\" values provided. Use \"description\" only as context.
+- Only translate the \"message\" values provided. Use \"description\" and the key only as context.
 - Preserve placeholders and variables exactly: $NAME$, $1, $2, {name}, {count}, {count, plural, ...}, %s, %d, {{mustache}}, <tags>, \n, \t.
 - Do NOT translate URLs, file paths, code identifiers, HTML tags, or anything inside backticks.
 - Keep punctuation and spacing natural for the target language.
