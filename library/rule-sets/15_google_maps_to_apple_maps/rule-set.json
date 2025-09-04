@@ -1,5 +1,6 @@
 {
   "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "3",
   "kind": "RedirectList",
   "redirects": [
     {
@@ -37,40 +38,93 @@
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https?://(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/maps\\?(.*)"
+        "value": "https?://(?:(?:www|maps)\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/maps\\?(.*)"
       },
-      "title": "(1/3) Open Google Maps Links in Apple Maps"
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "(1/4) Open Google Maps Links in Apple Maps",
+      "type": "originalRedirect"
     },
     {
       "captureGroupProcesses": [],
       "comments": "This redirects from Google Maps links that start with /maps/place/ or /maps/search/ to Apple Maps.",
-      "destinationURLPattern": "https://maps.apple.com/?q=$1&near=$2&z=$3",
+      "destinationURLPattern": "https://maps.apple.com/?q=$1&near=$2",
       "exampleURLs": [
         "https://www.google.com/maps/place/Austin+Gilchrist+Park/@-28.0008805,153.4239061,20.84z/data=!4m6!3m5!1s0x6b9105125a600bc9:0x1260b5faa506feda!8m2!3d-28.00088!4d153.42402!16s%2Fg%2F11j1f8tt3n?authuser=1&entry=ttu",
-        "https://www.google.com/maps/search/Cavill/@-28.0018349,153.4258324,17z/data=!3m1!4b1?authuser=1&entry=ttu"
+        "https://www.google.com/maps/search/Cavill/@-28.0018349,153.4258324,17z/data=!3m1!4b1?authuser=1&entry=ttu",
+        "https://www.google.com/maps/place/Chikubu+Island/@35.4232348,136.143704,3776m/data=!3m2!?entry=ttu&g_ep=AbcDefghi"
       ],
       "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https?://(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/maps/(?:place|search)/([^/]*)/@([-0-9.]*,[-0-9.]+)(?:,([-0-9.]+)z)?[/?].*"
+        "value": "https?://(?:(?:www|maps)\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/maps/(?:place|search)/([^/]*)/@([-0-9.]*,[-0-9.]+).*"
       },
-      "title": "(2/3) Open Google Maps Links in Apple Maps"
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "(2/4) Open Google Maps Links in Apple Maps",
+      "type": "originalRedirect"
     },
     {
       "captureGroupProcesses": [],
       "comments": "This redirects from Google Maps links that start with /maps/@ to Apple Maps.",
       "destinationURLPattern": "https://maps.apple.com/?ll=$1&z=$2",
       "exampleURLs": [
-        "https://www.google.com/maps/@35.4220246,136.1436907,17.24z?authuser=1&entry=ttu"
+        "https://www.google.com/maps/@35.4220246,136.1436907,17.24z?authuser=1&entry=ttu",
+        "https://www.google.com/maps/@35.4220246,136.1436907,3600m?authuser=1&entry=ttu",
+        "https://www.google.com/maps/@35.4220246,136.1436907?authuser=1&entry=ttu"
       ],
       "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https?://(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/maps/@([-0-9.]*,[-0-9.]+)(?:,([-0-9.]+)z)?[/?].*"
+        "value": "https?://(?:(?:www|maps)\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/maps/@([-0-9.]*,[-0-9.]+)(?:,(?:(?:([-0-9.]+)z)|[^?]*))?[/?].*"
       },
-      "title": "(3/3) Open Google Maps Links in Apple Maps"
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "(3/4) Open Google Maps Links in Apple Maps",
+      "type": "originalRedirect"
+    },
+    {
+      "captureGroupProcesses": [
+        {
+          "groupIndex": 2,
+          "process": {
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": "/"
+            },
+            "replacement": "+to:"
+          }
+        }
+      ],
+      "comments": "This redirects from Google Maps links for directions, which starts with /maps/dir/, to Apple Maps.",
+      "destinationURLPattern": "https://maps.apple.com/?saddr=$1&daddr=$2",
+      "exampleURLs": [
+        "https://www.google.com/maps/dir/Central+Station,+Eddy+Avenue,+Haymarket+NSW/Centennial+Park+NSW/@-33.8844984,151.2093947,15z/data=!3m1!ABC!?entry=ttu&g_ep=AbcDefghi",
+        "https://www.google.com/maps/dir/Central+Station,+Eddy+Avenue,+Haymarket+NSW/Strathfield+NSW/Centennial+Park+NSW/@-33.8844984,151.2093947,15z/data=!3m1!ABC!?entry=ttu&g_ep=AbcDefghi",
+        "https://www.google.com/maps/dir/Central+Station,+Eddy+Avenue,+Haymarket+NSW/Strathfield+NSW/Alexandria+NSW/Centennial+Park+NSW/@-33.8844984,151.2093947,15z/data=!3m1!ABC!?entry=ttu&g_ep=AbcDefghi",
+        "https://www.google.com/maps/dir/Central+Station,+Eddy+Avenue,+Haymarket+NSW/Centennial+Park+NSW/data=!3m1!ABC!?entry=ttu&g_ep=AbcDefghi"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https?://(?:(?:www|maps)\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/maps/dir/([^/]+)/([^@]+)/(@[^/]*/)?data.*"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "(4/4) Open Google Maps Links in Apple Maps",
+      "type": "originalRedirect"
     }
   ]
 }
