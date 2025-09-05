@@ -111,13 +111,14 @@
         "https://www.google.com/maps/dir/Central+Station,+Eddy+Avenue,+Haymarket+NSW/Centennial+Park+NSW/@-33.8844984,151.2093947,15z/data=!3m1!ABC!?entry=ttu&g_ep=AbcDefghi",
         "https://www.google.com/maps/dir/Central+Station,+Eddy+Avenue,+Haymarket+NSW/Strathfield+NSW/Centennial+Park+NSW/@-33.8844984,151.2093947,15z/data=!3m1!ABC!?entry=ttu&g_ep=AbcDefghi",
         "https://www.google.com/maps/dir/Central+Station,+Eddy+Avenue,+Haymarket+NSW/Strathfield+NSW/Alexandria+NSW/Centennial+Park+NSW/@-33.8844984,151.2093947,15z/data=!3m1!ABC!?entry=ttu&g_ep=AbcDefghi",
-        "https://www.google.com/maps/dir/Central+Station,+Eddy+Avenue,+Haymarket+NSW/Centennial+Park+NSW/data=!3m1!ABC!?entry=ttu&g_ep=AbcDefghi"
+        "https://www.google.com/maps/dir/Central+Station,+Eddy+Avenue,+Haymarket+NSW/Centennial+Park+NSW/data=!3m1!ABC!?entry=ttu&g_ep=AbcDefghi",
+        "https://www.google.com/maps/dir//Centennial+Park+NSW/data=!3m1!ABC!?entry=ttu&g_ep=AbcDefghi"
       ],
       "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https?://(?:(?:www|maps)\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/maps/dir/([^/]+)/([^@]+)/(@[^/]*/)?data.*"
+        "value": "https?://(?:(?:www|maps)\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/maps/dir/([^/]+)?/([^@]+)/(@[^/]*/)?data.*"
       },
       "targetBrowserOptions": {
         "browsers": [],
