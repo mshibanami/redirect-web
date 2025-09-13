@@ -1,0 +1,21 @@
+---
+title: Version 8.3.2
+date: 2025-09-12
+---
+
+![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
+
+* [iOS Safari] Fixed an issue where the extension sometimes failed to detect a page load for rules with the `Original` type. For example, a rule redirecting Reddit to its old domain occasionally didn't work when the user entered the URL in the address bar.
+  * To address this, we added another page load event handling in case the extension misses a page load.
+  * This issue had occurred since 8.0.0. So far, we have confirmed it only in Safari on iOS, but since it could potentially affect other browsers and the added error handling only applies when a page load is clearly missed, we applied the same change across all browsers.
+
+(The recent major update is [here](/8.0.0.mdx) in case you missed it!)
+
+## ⬇️ Download links
+
+- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
+- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox Add-ons)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge Add-ons)
+- Safari: Bundled in [the native app](https://apps.apple.com/app/id1571283503).
+
+Thank you for your continued support! If you enjoy using Redirect Web, please consider leaving a review on the stores. It really helps!
