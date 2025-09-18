@@ -1,11 +1,14 @@
 {
   "bundleID": "io.github.mshibanami.RedirectWebForSafari",
-  "formatVersion": "2",
+  "formatVersion": "4",
   "kind": "RedirectList",
   "redirects": [
     {
       "captureGroupProcesses": [],
-      "comments": "This rule redirects Google Search to ChatGPT by default, allowing you to use ChatGPT as your default search engine.\n\nYou can add these options:\n\n- `q={your text}`: your ChatGPT prompt\n- `hints=search`: turns on ChatGPT’s search mode\n- `temporary-chat=true`: opens a one-time chat\n- `model={model name}`: picks which model to use (e.g. \"gpt-4o\", \"o3\")",
+      "comments": "This rule redirects Google Search to ChatGPT by default, allowing you to use ChatGPT as your default search engine.\n\nYou can add these options:\n\n- `q={your text}`: your ChatGPT prompt\n- `hints=search`: turns on ChatGPT’s search mode\n- `temporary-chat=true`: opens a one-time chat\n- `model={model name}`: picks which model to use (e.g. `gpt-5`, `gpt-4o`)",
+      "commentsOptions": {
+        "format": "markdown"
+      },
       "destinationURLPattern": "https://chatgpt.com/?q=$1&hints=search&temporary-chat=true",
       "exampleURLs": [
         "https://www.google.com/search?client=safari&rls=en&q=hello+world",
@@ -16,6 +19,10 @@
       "sourceURLPattern": {
         "type": "regularExpression",
         "value": "https?://(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/search\\?(?:.*&)?q=([^&]*).*"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
       },
       "title": "Google Search → ChatGPT",
       "type": "originalRedirect"
