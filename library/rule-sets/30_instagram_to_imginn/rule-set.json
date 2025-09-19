@@ -1,24 +1,48 @@
 {
   "bundleID": "io.github.mshibanami.RedirectWebForSafari",
-  "formatVersion": "2",
+  "formatVersion": "4",
   "kind": "RedirectList",
   "redirects": [
     {
-      "captureGroupProcesses": [],
-      "comments": "Using this rule, when you open Instagram posts and reels, you are redirected to Imginn.\n\nImginn is an online instagram backup tool that helps users save instagram photos through the instagram public API.",
-      "destinationURLPattern": "https://imginn.com/p/$1/",
+      "captureGroupProcesses": [
+        {
+          "groupIndex": 1,
+          "process": {
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": ".+"
+            },
+            "replacement": "p/$0"
+          }
+        }
+      ],
+      "comments": "Using this rule, when you open Instagram posts and reels, you are redirected to imginn.com.\n\nImginn is an online instagram backup tool that helps users save instagram photos through the Instagram public API.",
+      "commentsOptions": {
+        "format": "markdown"
+      },
+      "destinationURLPattern": "https://imginn.com/$1$2",
       "exampleURLs": [
         "https://www.instagram.com/p/DFxjb8PJcI5/?igsh=YWJjZGVmZ2hpamtsbW4=",
         "https://www.instagram.com/p/DFxjb8PJcI5/",
-        "https://www.instagram.com/reel/DNfhyK4smoo/?igsh=ABCDEFG"
+        "https://www.instagram.com/reel/DNfhyK4smoo/?igsh=ABCDEFG",
+        "https://www.instagram.com/ngnchiikawa",
+        "https://www.instagram.com/ngnchiikawa?hl=en",
+        "https://www.instagram.com/language/preferences/",
+        "https://www.instagram.com/archive/stories/",
+        "https://www.instagram.com/reels/DNfhyK4smoo/"
       ],
       "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https://www\\.instagram\\.com/(?:p|reel)/([^/]+).*"
+        "value": "https://www\\.instagram\\.com/(?:(?:p|reels?)/([^?/]+).*|([^?/]+)(?:\\?.*|/?))"
       },
-      "title": "Instagram posts → Imginn",
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "Instagram → Imginn",
       "type": "originalRedirect"
     }
   ]
