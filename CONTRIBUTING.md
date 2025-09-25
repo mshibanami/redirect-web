@@ -10,12 +10,12 @@ Contents of the library available on the app are in [library](library). If you w
 
 ## Livereload
 
-Firstly, run npm install to install the dependencies.
+Firstly, run pnpm install to install the dependencies.
 
 Then, to start the development server with livereload, you can use:
 
 ```sh
-npm run start
+pnpm run start
 ```
 
 You can now edit the files in the `docs` folder. The changes will be reflected immediately in your browser without needing to refresh the page.

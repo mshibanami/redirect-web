@@ -6,7 +6,7 @@ cd "$(dirname "${BASH_SOURCE:-$0}")"
 
 rm -rf build
 
-npm install
-npm run build
+pnpm install
+pnpm run build
 
 cp -R library build/
