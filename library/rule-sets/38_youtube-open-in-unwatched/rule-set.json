@@ -1,0 +1,47 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "4",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "captureGroupProcesses": [
+        {
+          "groupIndex": 1,
+          "process": {
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": "(.+)"
+            },
+            "replacement": "https://www.youtube.com/watch?$0"
+          }
+        },
+        {
+          "process": {
+            "id": "urlEncode"
+          }
+        }
+      ],
+      "comments": "This rule opens YouTube videos in Unwatched. \n\n**Unwatched** is an ad-free YouTube player that organizes your subscriptions into an inbox and queue, so you only watch what you choose.\n\n**⬇️ Download Unwatched from the App Store:**\nhttps://apps.apple.com/app/id6477287463",
+      "commentsOptions": {
+        "format": "markdown"
+      },
+      "destinationURLPattern": "unwatched://play?url=$1",
+      "exampleURLs": [
+        "https://www.youtube.com/watch?v=lXKDu6cdXLI"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "(?:https?://)?(?:[\\w.-]+)?(?:youtube\\.com|piped\\.video|youtube-nocookie\\.com|youtube\\.de)/watch\\?(.*)"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "Open YouTube videos in Unwatched",
+      "type": "originalRedirect"
+    }
+  ]
+}
