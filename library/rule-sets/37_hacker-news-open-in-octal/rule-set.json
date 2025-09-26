@@ -1,0 +1,30 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "4",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "captureGroupProcesses": [],
+      "comments": "This opens Hacker News links directly in Octal, a modern, ad-free, tracking-free, full-featured Hacker News reader built with a focus on design, speed, and usability.\n\n**⬇️ Download Octal from the App Store:**\nhttps://apps.apple.com/app/id1308885491",
+      "commentsOptions": {
+        "format": "markdown"
+      },
+      "destinationURLPattern": "octal://$1",
+      "exampleURLs": [
+        "https://news.ycombinator.com/item?id=315142"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https://news\\.ycombinator\\.com/(item\\?id=.*)"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "Open Hacker News in Octal",
+      "type": "originalRedirect"
+    }
+  ]
+}
