@@ -147,9 +147,15 @@ The **Examples** option allows you to test your redirect rule by providing sampl
 
 The **Comments** option allows you to add any notes or comments about your redirect rule. This can be useful for keeping track of why you created a specific rule or for providing context for others who might view your rules.
 
+You can write comments in the following formats:
+
+* **Plain Text** (Default): Simple text without any formatting.
+* **Markdown**: You can use [GitHub's Markdown syntaxes](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), including some extensions GFM doesn't support. For example, you can create headings, lists, links, and more.
+* **AsciiDoc**: You can use [AsciiDoc syntaxes](https://asciidoc.org/) to format your comments.
+
 ## URL Pattern {#url-pattern}
 
-There are 3 options you can specify one or more URL patterns. *Redirect From*, *Excluded URL Patterns* and *Capturing Group Processing*. To specify them, you can choose either **Wildcard** or **Regular Expression**.
+**URL patterns** are used to match URLs in the *Redirect From*, *Excluded URL Patterns*, and *Capturing Group Processing* options. To specify them, you can choose either **Wildcard** or **Regular Expression**.
 
 ### Wildcard {#url-pattern-wildcard}
 
@@ -166,12 +172,14 @@ You can also use substitution in Wildcard as well, which means you can reference
 
 ### Regular Expression {#url-pattern-regular-expression}
 
-**Regular Expression** (Regex) is a powerful tool for matching patterns in text, powered by Apple's regular expression engine which is described [here](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042). It allows you to define a specific pattern that matches a set of strings. Here are some examples.
+**Regular Expression** (Regex) is a powerful tool for matching patterns in text and is also widely used in programming. It allows you to define a specific pattern that matches a set of strings. Here are some examples.
 
-- To match `https://example.com/hello`, you can use `https://example.com/(.*)`. This will match any string after `https://example.com/` and store it in a capturing group.
-- To match `https://example.com/search?q=hello`, you can use `https://example.com/search\?q=(.*)`. This will match the value of the `q` parameter and store it in a capturing group.
+- To match `https://example.com/hello`, you can use `https://example.com/.*`. This will match any string after `https://example.com/`.
+- To match `https://example.com/search?q=hello`, you can use `https://example.com/search\?q=(.*)`. This will match the value of the `q` parameter and store it in a capturing group. You can then reference it using `$1` in the *Redirect To* option.
 - To match any URL that contains the word `blog`, you can use `.*blog.*`.
 
 You can reference the capturing groups in *Redirect To* or *Replacement* using `$1`, `$2`, ... or `$0` to reference the entire match.
+
+Redirect Web is powered by [Apple's Regex engine](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 More information about Regex syntax can be found in resources like [RegExr](https://regexr.com/).
