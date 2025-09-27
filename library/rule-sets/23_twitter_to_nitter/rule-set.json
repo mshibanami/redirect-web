@@ -1,11 +1,14 @@
 {
   "bundleID": "io.github.mshibanami.RedirectWebForSafari",
-  "formatVersion": "2",
+  "formatVersion": "4",
   "kind": "RedirectList",
   "redirects": [
     {
       "captureGroupProcesses": [],
-      "comments": "This allows you to redirect from X (Twitter) to xcancel.com, which is powered by Nitter.\n\nNitter is a free and open-source alternative Twitter front-end focused on privacy and performance.\n\nxcancel.com is one of the most popular Nitter instances, but it's just one of many instances. You can find others here:\nhttps://status.d420.de\n",
+      "comments": "This allows you to redirect from X (Twitter) to xcancel.com, which is powered by Nitter.\n\n**Nitter** is a free and open-source alternative Twitter front-end focused on privacy and performance.\n\nxcancel.com is one of the most popular Nitter instances, but it's just one of many instances. You can find other instances here:\nhttps://status.d420.de\n",
+      "commentsOptions": {
+        "format": "markdown"
+      },
       "destinationURLPattern": "https://xcancel.com/$1",
       "exampleURLs": [
         "https://x.com/UN/status/1841123718212284495",
@@ -16,6 +19,10 @@
       "sourceURLPattern": {
         "type": "regularExpression",
         "value": "https://(?:x|twitter).com/(.*)"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
       },
       "title": "X (Twitter) → Nitter (xcancel.com)",
       "type": "originalRedirect"
