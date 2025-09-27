@@ -1,9 +1,14 @@
 {
   "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "4",
   "kind": "RedirectList",
   "redirects": [
     {
-      "comments": "With this rule, when you open https://example.com/hello in Safari, you will see the search results for the word \"hello\".\n\nThis is a sample rule for illustrative purposes.\nChange or remove this rule to enjoy your own redirect rule! 🚀\n",
+      "captureGroupProcesses": [],
+      "comments": "With this rule, when you open https://example.com/hello in your browser, you will see the search results for the word \"hello\".\n\nThis is a sample rule for illustrative purposes.\nChange or remove this rule to enjoy your own redirect rule! 🚀\n",
+      "commentsOptions": {
+        "format": "markdown"
+      },
       "destinationURLPattern": "https://duckduckgo.com/?q=$1",
       "exampleURLs": [
         "https://example.com/hello"
@@ -19,7 +24,12 @@
         "type": "wildcard",
         "value": "https://example.com/*"
       },
-      "title": "Example Redirect Rule"
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "Example redirection rule",
+      "type": "originalRedirect"
     }
   ]
 }
