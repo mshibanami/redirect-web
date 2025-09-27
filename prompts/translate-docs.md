@@ -12,7 +12,7 @@ Please do NOT include these files:
 
 **Input**
 - The target languages (required): Ask the user for the target languages.
-- Target Markdown files (required): Ask the user for the target markdown files.
+- The source files: Ask the user for the source files to be translated. If not specified, translate all the files in the `docs` folder.
 
 ## Critical Rules
 
