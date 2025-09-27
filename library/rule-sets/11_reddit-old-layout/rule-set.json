@@ -5,7 +5,7 @@
     "redirects": [
         {
             "captureGroupProcesses": [],
-            "comments": "This rule changes Reddit URLs from the newest layout (www.reddit.com) to the old layout (old.reddit.com).\n\nThis is useful if you prefer the old layout over other layouts.\n\n> [!NOTE]\n> Media and gallery URLs are excluded from this redirect, as they are not supported on this layout.\n\n> [!WARNING]\n> Please enable this rule AFTER logging into your Reddit account. Otherwise, Reddit may redirect you to www.reddit.com, resulting in an infinite loop.",
+            "comments": "This rule changes Reddit URLs from the newest layout (www.reddit.com) to the old layout (old.reddit.com).\n\nThis is useful if you prefer the old layout over other layouts.\n\n> [!NOTE]\n> Media and gallery URLs are excluded from this redirect, as they are not supported on this layout.\n\n> [!IMPORTANT]\n> Please enable this rule AFTER logging into your Reddit account. Otherwise, Reddit may redirect you to www.reddit.com, resulting in an infinite loop.",
             "commentsOptions": {
                 "format": "markdown"
             },
