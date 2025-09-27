@@ -1,11 +1,14 @@
 {
   "bundleID": "io.github.mshibanami.RedirectWebForSafari",
-  "formatVersion": "2",
+  "formatVersion": "4",
   "kind": "RedirectList",
   "redirects": [
     {
       "captureGroupProcesses": [],
-      "comments": "This redirects from DuckDuckGo Search to Startpage automatically while keeping bangs functional.",
+      "comments": "This automatically redirects DuckDuckGo searches to Startpage while keeping **bangs** functional.\n\n**Bangs** are a DuckDuckGo feature that lets you quickly search specific websites using shortcuts (e.g., `!w` for Wikipedia, `!yt` for YouTube). This rule preserves that functionality.\n\nLearn more: https://duckduckgo.com/bangs",
+      "commentsOptions": {
+        "format": "markdown"
+      },
       "destinationURLPattern": "https://www.startpage.com/sp/search?query=$1",
       "exampleURLs": [
         "https://duckduckgo.com/?q=search&kp=-1&kl=us-en",
@@ -18,13 +21,16 @@
           "value": "https?://(?:www\\.)?duckduckgo\\.com/\\?(?:.*&)?q=\\!\\w+.*"
         }
       ],
-      "isEnabled": true,
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
         "value": "https?://(?:www\\.)?duckduckgo\\.com/\\?(?:.*&)?q=([^&]*).*"
       },
-      "title": "DuckDuckGo -> Startpage while keeping bangs working",
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "DuckDuckGo → Startpage while keeping bangs working",
       "type": "originalRedirect"
     }
   ]
