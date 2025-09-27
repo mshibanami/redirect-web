@@ -1,12 +1,15 @@
 {
   "bundleID": "io.github.mshibanami.RedirectWebForSafari",
-  "formatVersion": "2",
+  "formatVersion": "4",
   "kind": "RedirectList",
   "redirects": [
     {
       "appURL": "file:///Applications/DuckDuckGo.app",
       "captureGroupProcesses": [],
-      "comments": "This rule is for playing YouTube videos in Duck Player.\n\nDuck Player is a YouTube player built in to the DuckDuckGo app, which lets you watch YouTube without targeted ads and keeps what you watch from influencing your YouTube recommendations.‌‌\n\nThe DuckDuckGo app is available on the App Store: https://apps.apple.com/app/id663592361\n\n⚠️ This rule is only supported on Mac since it uses the native app-opening feature. For iOS, disable this rule on your iOS device while leaving it enabled on Mac, then get the equivalent rule in the iOS app. (It appears exclusively in the iOS app’s library.)",
+      "comments": "This rule is for playing YouTube videos in Duck Player, a YouTube player built in to the DuckDuckGo app, which lets you watch YouTube without targeted ads and keeps what you watch from influencing your YouTube recommendations.‌‌\n\n**⬇️ Download the DuckDuckGo app from the App Store:**\nhttps://apps.apple.com/app/id663592361\n\n> [!WARNING]\n> This rule is only supported on Mac since it uses the native app-opening feature. For iOS, disable this rule on your iOS device while leaving it enabled on Mac, then get the equivalent rule in the iOS app. (It appears exclusively in the iOS app’s library.)",
+      "commentsOptions": {
+        "format": "markdown"
+      },
       "destinationURLPattern": "$0",
       "exampleURLs": [
         "https://youtube.com/watch?v=asqxzaNGRWo",
@@ -21,7 +24,11 @@
         "type": "regularExpression",
         "value": "(?:https?://)?(?:[\\w.-]+)?(?:youtube\\.com|youtube\\.de)/watch\\?(.*)"
       },
-      "title": "YouTube: Open in DuckDuckGo (for Duck Player)",
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "YouTube: Open in DuckDuckGo (Duck Player)",
       "type": "originalRedirect"
     }
   ]
