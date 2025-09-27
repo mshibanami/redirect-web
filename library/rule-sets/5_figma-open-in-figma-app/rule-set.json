@@ -1,20 +1,31 @@
 {
   "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "4",
   "kind": "RedirectList",
   "redirects": [
     {
       "appURL": "file:///Applications/Figma.app",
-      "comments": "This is a rule to open Figma links in the Figma app automatically.",
+      "captureGroupProcesses": [],
+      "comments": "This rule opens Figma links in the Figma app automatically.\n\n**Figma** is a collaborative design platform that allows teams to create, share, and iterate on user interfaces and prototypes in real time.\n\n⬇️ **Download the app from Figma's official page:**  \nhttps://www.figma.com/downloads/",
+      "commentsOptions": {
+        "format": "markdown"
+      },
       "destinationURLPattern": "figma://$1",
       "exampleURLs": [
         "https://www.figma.com/design/K60Pg8LY1YPTdfNGAf77EU/Peacock?node-id=0-1"
       ],
+      "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
         "value": "https://www.figma.com/((file|design|make|proto|board|slides|buzz|deck)/.*)"
       },
-      "title": "Figma: Open in Figma App"
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "Figma: Open in Figma App",
+      "type": "originalRedirect"
     }
   ]
 }
