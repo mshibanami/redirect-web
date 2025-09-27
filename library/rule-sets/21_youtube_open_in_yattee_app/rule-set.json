@@ -1,14 +1,16 @@
 {
-  "bundleID" : "io.github.mshibanami.RedirectWebForSafari",
-  "kind" : "RedirectList",
-  "redirects" : [
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "4",
+  "kind": "RedirectList",
+  "redirects": [
     {
-      "captureGroupProcesses" : [
-
-      ],
-      "comments" : "This rule intercepts YouTube and related privacy frontends video URLs and redirects them to open in the Yattee app via a custom URL scheme (yattee://watch?).",
-      "destinationURLPattern" : "yattee://watch?$1",
-      "exampleURLs" : [
+      "captureGroupProcesses": [],
+      "comments": "This rule intercepts YouTube and related privacy-frontend video URLs, redirecting them to open in the Yattee app via a custom URL scheme (`yattee://watch?`).\n\n**Yattee** is an open-source YouTube client focused on privacy, customization, and an ad-free viewing experience.\n\n⬇️ **Download Yattee from the App Store:**  \nhttps://apps.apple.com/app/id1595136629\n",
+      "commentsOptions": {
+        "format": "markdown"
+      },
+      "destinationURLPattern": "yattee://watch?$1",
+      "exampleURLs": [
         "https://piped.video/watch?v=asqxzaNGRWo",
         "https://youtube.com/watch?v=asqxzaNGRWo",
         "https://m.youtube.com/watch?v=asqxzaNGRWo",
@@ -17,22 +19,27 @@
         "https://youtube-nocookie.com/watch?v=asqxzaNGRWo",
         "https://m.youtube.com/watch?v=ZxYZkz20lYA&pp=ygUIdGVzdGluZyA%3D"
       ],
-      "excludeURLPatterns" : [
+      "excludeURLPatterns": [
         {
-          "type" : "wildcard",
-          "value" : "https://youtube.com"
+          "type": "wildcard",
+          "value": "https://youtube.com"
         },
         {
-          "type" : "wildcard",
-          "value" : "https://www.youtube.com"
+          "type": "wildcard",
+          "value": "https://www.youtube.com"
         }
       ],
-      "kind" : "Redirect",
-      "sourceURLPattern" : {
-        "type" : "regularExpression",
-        "value" : "(?:https?://)?(?:[\\w.-]+)?(?:youtube\\.com|piped\\.video|youtube-nocookie\\.com|youtube\\.de)/watch\\?(.*)"
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "(?:https?://)?(?:[\\w.-]+)?(?:youtube\\.com|piped\\.video|youtube-nocookie\\.com|youtube\\.de)/watch\\?(.*)"
       },
-      "title" : "Youtube: Open in Yattee"
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "Youtube: Open in Yattee",
+      "type": "originalRedirect"
     }
   ]
 }
