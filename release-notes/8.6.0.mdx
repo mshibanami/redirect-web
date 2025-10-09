@@ -1,0 +1,22 @@
+---
+title: Version 8.6.0
+date: 2025-10-10
+---
+
+![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
+
+* Fixed an issue where the DNR rule didn't work when opening the browser with a URL (e.g., when clicking a link in another app to open it in the browser).
+    * To address this, we changed the DNR rules from Session Rules, which reset every time the browser launches, to Dynamic Rules, which persist across browser launches. [Learn more](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rulesets)
+    * Previously, we intentionally used Session Rules as a workaround for an issue where unnecessary rules sometimes remained enabled. However, since version 8.0.0, this issue has been resolved, so we can now use Dynamic Rules.
+* Fixed a minor UI issue related to popovers.
+
+<!--truncate-->
+
+## ⬇️ Download links
+
+- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
+- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox Add-ons)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge Add-ons)
+- Safari: Bundled in [the native app](https://apps.apple.com/app/id1571283503).
+
+Thank you for your continued support! If you enjoy using Redirect Web, please consider leaving a review on the stores. It really helps!
