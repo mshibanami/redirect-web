@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Case 2: Remove query parameters from URL
+
+Suppose there is a query parameter `source=twitter` in a URL of `example.com`, and you decided to remove it to anonymize yourself.
+
+In this case, the **Capturing Group Processing** option is the easiest way.:
+
+* **Redirect From**: `https://example.com/*` (Wildcard)
+* **Redirect To**: `$0`
+* **Capturing Group Processing**:
+    * **Group**: `$0`
+    * **Process**: Replace Occurrences
+        * **Target**: `&?source=[^&]*`
+        * **Replacement**: *(none)*
+        * **Text Pattern**: Regular Expression
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Download the Rule</a>**
+
+This rule works as follows:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+If you want to remove more parameters, add more processes.

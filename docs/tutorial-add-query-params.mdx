@@ -1,0 +1,72 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Case 3: Add query parameters to URL
+
+Let's say there is a website called `example.com` that shows a mobile layout by default, but you prefer their desktop layout. Fortunately, the website supports a `layout` query parameter to specify which layout the website displays. Let's create a rule that adds `layout=desktop` automatically.
+
+Perhaps you think you could define it as follows:
+
+* **Redirect From**: `https://example.com/.*` (Regular Expression)
+* **Redirect To**: `$0?layout=desktop`
+
+`$0` references the target URL. If you try to access `example.com/hello`, you're redirected to `example.com/hello?layout=desktop`. This feature is called *substitution*.
+
+> [!TIP]
+> Substitution is also available for the Wildcard mode since it's internally converted to Regular Expression.
+
+However, there are a few problems with these settings.
+
+### Problem 1: Infinite loop
+
+The current setting creates an infinite redirect loop since `https://example.com/.*` also targets `https://example.com/hello?layout=desktop`.
+
+In this case, you can specify an excluded URL pattern that allows you to access without redirection, like this with Regular Expression:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Matches anything
+* `[&?]`: Matches either `&` or `?`
+* `[^&]*`: Matches anything except `&`
+
+### Problem 2: Can't handle existing parameters properly
+
+If the target URL already has other query parameters like `example.com/hello?theme=dark`, the destination will be `example.com/hello?theme=dark?layout=desktop` (There are two `?` in the URL) but you can only join the parameters with `&`. `?` as a special character is only allowed at the beginning of the parameters. So it's not treated as a valid parameter.
+
+In this case, change the settings like this:
+
+* **Redirect From**: `(https://example.com/[^?]*)(\?(.*))?`
+* **Redirect To**: `$1?layout=desktop&$3`
+
+Let's take a look step by step.
+
+* `(https://example.com/[^?]*)`: Matches the part until the previous character of `?`.
+    * `[^?]*` matches anything except `?`.
+    * This is wrapped with `()` so you can reference it with `$1` later.
+* `(\?(.*))?`: Matches a string start with `?`, which means query parameters.
+    * This also matches empty string by the `?` quantifier at the end of the pattern, which *matches zero or one time*.
+    * The outer `()` and the inner `()` can be referenced with `$2` and `$3` later.
+
+[RegExr](https://regexr.com) may help you understand the details.
+
+> [!NOTE]
+> RegExr shows an error when you don't escape `/` with `\`. Although you can escape it, it's not required since Redirect Web uses a different engine by Apple that doesn't require escaping.
+
+This is not a perfect solution, as it redirects `example.com/hello` to `example.com/hello?layout=desktop&`, which includes an unnecessary `&` at the end of the URL. It's not a big deal in general, but if you wish to remove it, you can use *Capturing Group Processing*.
+
+In conclusion, this is the final output:
+
+* **Redirect From**: `(https://example.com/[^?]*)((\?(.*))?)` (Regular Expression)
+* **Redirect To**: `$1?layout=desktop$3`
+* **Excluded URL Pattern**: `.*[&?]layout=[^&]*.*` (Regular Expression)
+* **Capturing Group Processing**:
+    * **Group**: `$3`
+    * **Process**: Replace Occurrences
+        * **Target**: `\?(.*)`
+        * **Replacement**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Download the Rule</a>**
+
+
+This is merely an example. You can also create multiple rules to handle each problem. It can be much simpler.

@@ -6,30 +6,43 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-h1-font-size: 4rem;
+  --ifm-h2-font-size: 3rem;
+  --ifm-color-primary: #007AFF;
+  --ifm-color-primary-dark: #006ee6;
+  --ifm-color-primary-darker: #0068d9;
+  --ifm-color-primary-darkest: #0056b3;
+  --ifm-color-primary-light: #1a8cff;
+  --ifm-color-primary-lighter: #3399ff;
+  --ifm-color-primary-lightest: #4da6ff;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-background-color: #fafafa !important;
+  --ifm-card-background-color: #ffffff !important;
+  --ifm-hero-background-color: #fafafa !important;
+  --ifm-code-background: #818b981f !important;
+  --ifm-background-surface-color: var(--ifm-background-color) !important;
+  --ifm-code-padding-horizontal: 0.4em;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+[data-theme="dark"] {
+  --ifm-color-primary: #5cadff;
+  --ifm-color-primary-dark: #4da6ff;
+  --ifm-color-primary-darker: #3399ff;
+  --ifm-color-primary-darkest: #1a8cff;
+  --ifm-color-primary-light: #75b8ff;
+  --ifm-color-primary-lighter: #8dc4ff;
+  --ifm-color-primary-lightest: #a6d1ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-color: #212830 !important;
+  --ifm-hero-background-color: #212830 !important;
+  --ifm-card-background-color: #2d3748 !important;
+  --ifm-code-background: #656c7633 !important;
+  --ifm-color-secondary-contrast-background: #2d3748 !important;
 }
 
-.navbar__item_force {
+:not(.index-page) .navbar__item_force {
   display: block !important;
 }
 
@@ -45,6 +58,31 @@
   opacity: 0.8;
 }
 
+.index-page .navbar {
+  background-color: transparent !important;
+  box-shadow: unset !important;
+}
+
+.index-page .navbar--fixed-top {
+  position: absolute !important;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.index-page .navbar__appstore_button {
+  display: none !important;
+}
+
 a:hover {
   text-decoration: underline;
+}
+
+code {
+  border: none !important;
+}
+
+.button.button--primary {
+  color: white !important;
 }

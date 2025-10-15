@@ -1,0 +1,47 @@
+.awardContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  margin: 0;
+}
+.awardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: normal;
+  text-align: center;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.awardHeader {
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.awardMain {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.awardFooter {
+  font-size: 0.9rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.ivyLeafLeading {
+  height: 80px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.ivyLeafTrailing {
+  height: 80px;
+  width: auto;
+  flex-shrink: 0;
+  transform: scaleX(-1);
+}

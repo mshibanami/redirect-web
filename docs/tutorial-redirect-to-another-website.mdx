@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# Case 1: Redirect to another website
+
+Suppose you're addicted to Twitter, and you decide to meditate using Insight Timer whenever you accidentally open Twitter. Let's create a rule for that!
+
+### Step 1. Open the "Edit Rule" screen
+
+Let's open the *Edit Rule* screen to start creating your own rule in the app. You can do this by clicking the plus (+) button in the *My Rules* tab.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobile"
+  desktopLabel="Desktop"
+  mobile={
+    <>
+      This is for mobile
+    </>
+  }
+  desktop={
+    <>
+      This is for desktop
+    </>
+  }
+/>
+
+### Step 2. Set up "Redirect From"
+
+First, you should set up the *Redirect From* section in the *Edit Rule* screen in the app. The targets are URLs starting with `https://twitter.com/`.
+
+In this case, you can specify the following pattern with the [Wildcard](rule-settings#url-pattern-wildcard) mode:
+
+```
+https://twitter.com/*
+```
+
+In the Wildcard mode, `*` means it matches anything (= zero or more characters).
+
+However, hold on. `twitter.com` was renamed to `x.com`. You can simply replace `twitter.com` with `x.com` but no one knows when the new owner will change his mind again to roll it back. Therefore, let's target both `twitter.com` and `x.com`.
+
+To do that, switch from Wildcard to [Regular Expression](rule-settings#url-pattern-regular-expression), and set this as the pattern:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: it targets both `twitter` and `x`. (`|` is called *a pipe*.)
+* `.*`: It's the same as Wildcard's `*`. More specifically, `.` means *any character* and `*` means *anything before this symbol repeated any number of times*, resulting in it matches anything.
+
+Regular Expression is a bit complicated, but once you get used to it, it will be a powerful tool. We recommend using [RegExr](https://regexr.com) as a playground to analyze how your Regular Expression pattern works.
+
+> [!TIP]
+> In Regular Expressions, `.` in `(twitter|x).com` is also treated as *any character*. Therefore, `(twitter|x).com/.*` also matches, for example, `twitter1com/` or `x_com/`.
+>
+> To be more precise, you can change it to `(twitter|x)\.com/.*`. `\` is used to treat `.` as a literal period character rather than a special character.
+>
+> However, there are no such URLs in the general internet environment. Therefore, you can leave `.` as a special character if you prefer.
+
+### Step 3: Set up "Redirect To"
+
+Simply specify the URL as follows:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (Optional) Step 4: Check the rule
+
+You can check how the rule works by adding a example URL in the *Examples* section in the *Edit Rule* screen. For instance, if you enter `https://x.com/UN`, it shows `https://insighttimer.com/saraauster/guided-meditations/calm` as the result.
+
+Here's what your rule should look like now:
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="An example rule to open another website" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Download the Rule</a>**
+
+Now, Redirect Web brings you to the meditation when you access Twitter!

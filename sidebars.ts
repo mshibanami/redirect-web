@@ -13,13 +13,26 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
     "introduction",
-    "getting-started",
+    {
+      type: "category",
+      label: "How to Create Rules",
+      link: {
+        type: 'generated-index',
+        description: `Common use cases for creating rules in the Redirect Web app. (You can also learn the details of rule settings on the [Rule Settings](./rule-settings) page.)`,
+        slug: '/category/how-to-create-rules',
+      },
+      items: [
+        "tutorial-redirect-to-another-website",
+        "tutorial-remove-query-params",
+        "tutorial-add-query-params",
+      ],
+    },
     "rule-settings",
     "library",
     "export-or-import-rules",
     {
       type: 'category',
-      label: 'Q&A',
+      label: 'Help',
       items: [
         "faq",
         "contact-us",
@@ -32,7 +45,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'link',
           label: 'Release Notes',
-          href: 'release-notes',
+          href: '/release-notes',
         },
         "privacy-policy",
         "terms-of-use",
