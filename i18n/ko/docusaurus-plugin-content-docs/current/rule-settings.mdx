@@ -1,47 +1,47 @@
 # 규칙 설정
 
-이 페이지에서는 Redirect Web 앱의 규칙 편집 화면에 있는 각 설정에 대한 자세한 정보를 제공합니다.
+이 페이지는 Redirect Web 앱의 *규칙 편집* 화면에 있는 각 설정에 대한 자세한 정보를 제공합니다.
 
 ## 옵션
 
 ### 유형 {#type}
 
-앱이 리디렉션을 처리하는 방식을 제어하려면 **유형** 옵션을 지정하세요. 다음 중에서 선택할 수 있습니다.
+앱이 리디렉션을 처리하는 방법을 제어하려면 **유형** 옵션을 지정하십시오. 다음 중에서 선택할 수 있습니다:
 
 *   **원본** (기본값)
-    *   이 유형은 전통적인 웹 API를 사용하여 리디렉션을 제어합니다. 또한, 대체 수단으로 [탭 API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs)를 사용합니다.
+    *   이것은 전통적인 웹 API를 사용하여 리디렉션을 제어합니다. 또한, 대체 수단으로 [탭 API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs)를 사용합니다.
         *   Firefox에서는 [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest)를 사용하여 리디렉션을 처리합니다.
     *   [리소스 유형](#resource-types) 및 [요청 메서드](#request-methods)를 제외한 모든 옵션을 사용할 수 있습니다.
-    *   이 유형은 *선언적(Declarative)* 유형보다 느리며 추가 네트워크 요청을 유발할 수 있습니다.
-*   **DNR** (Safari용 실험 기능):
+    *   이것은 *선언적* 유형보다 느리며 추가 네트워크 요청을 유발할 수 있습니다.
+*   **DNR** (Safari용 실험적 기능):
     *   이 유형은 소스 URL에 대한 네트워크 요청을 시작하지 않으므로 원본 유형보다 훨씬 빠르게 작동합니다.
-    *   [리소스 유형](#resource-types) 및 [요청 메서드](#request-methods)를 지정할 수 있습니다.
+    *   이를 통해 [리소스 유형](#resource-types) 및 [요청 메서드](#request-methods)를 지정할 수 있습니다.
     *   ⚠️ [캡처 그룹 처리](#capturing-group-processing) 및 [제외된 URL 패턴](#excluded-url-patterns)과 같은 일부 옵션은 DNR API에서 아직 지원되지 않으므로 사용할 수 없습니다.
-    *   ⚠️ Safari에서는 현재 정규 표현식 패턴에 파이프(`|`)를 포함할 수 없습니다. [자세히 보기](https://github.com/mshibanami/redirect-web/issues/44)
-    *   ⚠️ Safari의 DNR API에는 아직 몇 가지 문제가 있으므로, Safari용 실험 기능으로 간주하고 있습니다. 알려진 모든 문제 목록은 [여기](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari)에서 확인할 수 있습니다.
+    *   ⚠️ Safari에서는 현재 정규 표현식 패턴에 파이프(`|`)를 포함할 수 없습니다. [세부 정보](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ Safari의 DNR API에는 아직 몇 가지 문제가 있으므로 Safari용 실험적 기능으로 간주합니다. 알려진 모든 문제 목록은 [여기](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari)에서 찾을 수 있습니다.
 
 ### 리디렉션 시작 {#redirect-from}
 
-**리디렉션 시작** 옵션을 사용하면 리디렉션할 웹 페이지의 URL 패턴을 지정할 수 있습니다. [와일드카드](#wildcard) 또는 [정규 표현식](#regular-expression) 중 하나를 선택할 수 있습니다.
+**리디렉션 시작** 옵션을 사용하면 리디렉션하려는 웹 페이지의 URL 패턴을 지정할 수 있습니다. [와일드카드](#wildcard) 또는 [정규 표현식](#regular-expression) 중에서 선택할 수 있습니다.
 
-예를 들어, 와일드카드로 `https://example.com/*`을 지정하면 `https://example.com/` 또는 `https://example.com/hello`와 일치합니다.
+예를 들어, 와일드카드로 `https://example.com/*`를 지정하면 `https://example.com/` 또는 `https://example.com/hello`와 일치합니다.
 
 > [!NOTE]
-> "리디렉션 대상" 옵션에서 `$0`을 사용하여 전체 일치를 참조하거나 `$1`, `$2`, ...를 사용하여 부분 일치를 참조할 수 있습니다. 이 페이지의 [URL 패턴](#url-pattern)에서 자세한 내용을 확인하세요.
+> 리디렉션 대상으로 옵션에서 `$0`를 사용하여 전체 일치를 참조하거나 `$1`, `$2`, ...를 사용하여 부분 일치를 참조할 수 있습니다. 이 페이지의 [URL 패턴](#url-pattern)에서 자세한 내용을 확인하십시오.
 
 #### 리소스 유형 {#resource-types}
 
 ![지원되는 유형: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-**리소스 유형** 옵션을 사용하면 규칙이 적용될 웹 요청의 카테고리(예: 이미지, JavaScript, 스타일 시트)를 지정할 수 있습니다.
-예를 들어, `script`로 설정하면 웹 페이지에서 로드되는 JavaScript 파일을 리디렉션할 수 있습니다.
+**리소스 유형** 옵션을 사용하면 규칙이 적용되는 이미지, JavaScript, 스타일시트와 같은 웹 요청의 범주를 지정할 수 있습니다.
+예를 들어, `script`를 설정하면 웹 페이지에서 로드되는 JavaScript 파일을 리디렉션할 수 있습니다.
 
 현재 다음을 사용할 수 있습니다:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
-기본 설정은 탭에 로드되는 최상위 페이지인 `main_frame`입니다.
+기본 설정은 `main_frame`이며, 이는 탭에 로드되는 최상위 페이지입니다.
 
-각 리소스 유형에 대한 자세한 내용은 [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType)에서 확인하세요.
+각 리소스 유형에 대한 자세한 내용은 [mdn 웹 문서](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType)에서 확인하십시오.
 
 #### 요청 메서드 {#request-methods}
 
@@ -49,12 +49,12 @@
 
 **요청 메서드** 옵션을 사용하면 소스 URL의 대상 HTTP 메서드를 설정할 수 있습니다.
 
-모든 메서드가 기본적으로 설정되어 있습니다.
+모든 메서드는 기본적으로 설정됩니다.
 
-각 메서드에 대한 자세한 내용은 [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)에서 확인하세요.
+각 메서드에 대한 자세한 내용은 [mdn 웹 문서](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)에서 확인하십시오.
 
 > [!WARNING]
-> Safari에서는 Apple의 DNR 유형 구현이 현재 이를 처리하지 않는 것으로 보여 이 옵션을 사용하지 못할 수 있습니다. Apple에 FB14502272로 피드백을 보냈습니다.
+> Safari에서는 Apple의 DNR 유형 구현이 현재 이를 처리하지 않는 것으로 보이므로 이 옵션을 사용할 수 없을 수 있습니다. Apple에 FB14502272로 피드백을 보냈습니다.
 
 #### 대상 브라우저 {#target-browsers}
 
@@ -62,29 +62,29 @@
 
 **대상 브라우저** 옵션을 사용하면 규칙을 적용할 브라우저 또는 적용하지 않을 브라우저를 지정할 수 있습니다.
 
-*   선택할 수 있는 브라우저는 2가지 유형이 있습니다:
+*   선택할 수 있는 브라우저 유형은 2가지입니다:
     *   **기본적으로 선택할 수 있는 브라우저**: Safari, Chrome, Firefox, Edge, Opera, Arc, Brave, Vivaldi를 기본적으로 선택할 수 있습니다. 이는 Safari와 Safari Technology Preview와 같이 동일한 브라우저의 변형을 구분하지 않습니다.
-    *   **사용자 지정 브라우저**: 팝오버에서 "추가" 버튼을 탭하여 Redirect Web 확장 프로그램이 설치된 Safari 또는 Safari Technology Preview 이외의 모든 브라우저를 선택할 수 있습니다.
+    *   **사용자 지정 브라우저**: 팝오버에서 추가 버튼을 탭하여 Redirect Web 확장 프로그램이 설치된 Safari 또는 Safari Technology Preview를 제외한 모든 브라우저를 선택할 수 있습니다.
 *   **선택된 항목 제외** 확인란을 사용하면 선택한 브라우저를 제외한 모든 브라우저를 대상으로 지정할 수 있습니다.
 
 > [!WARNING]
-> Redirect Web은 확장 프로그램의 부모 프로세스를 확인하여 브라우저를 감지하지만, Safari와 Safari Technology Preview는 동일한 부모 프로세스(`/sbin/launchd`)를 공유하므로 이 두 브라우저를 구분할 수 없습니다.
+> Redirect Web은 브라우저가 **Safari**인지 **Safari Technology Preview**인지 구분할 수 없습니다. 앱이 확장 프로그램의 상위 프로세스를 확인하여 이를 감지하지만 이 두 브라우저는 동일한 상위 프로세스(`/sbin/launchd`)를 공유하기 때문입니다.
 
 ### 리디렉션 대상 {#redirect-to}
 
-**리디렉션 대상** 옵션은 *리디렉션 소스* 옵션과 일치하는 소스 URL에서 리디렉션하려는 대상 URL을 지정합니다. 캡처 그룹을 `$1`, `$2`, ... 또는 전체 일치 항목을 `$0`으로 대체할 수도 있습니다. 이는 대상을 동적으로 지정하는 데 도움이 됩니다. 자세한 내용은 이 페이지의 [URL 패턴](#url-pattern)을 확인하세요.
+**리디렉션 대상** 옵션은 *리디렉션 시작* 옵션과 일치하는 소스 URL에서 리디렉션하려는 대상 URL을 지정합니다. `$1`, `$2`, ...를 사용하여 캡처 그룹을 대체하거나 `$0`를 사용하여 전체 일치를 대체할 수도 있습니다. 이는 대상을 동적으로 지정하는 데 도움이 됩니다. 이 페이지의 [URL 패턴](#url-pattern)에서 자세한 내용을 확인하십시오.
 
-예를 들어, 다음 규칙을 설정하는 경우:
+예를 들어, 다음과 같은 규칙을 설정하면:
 
-*   **리디렉션 소스**: `https://google.com/*` (와일드카드)
+*   **리디렉션 시작**: `https://google.com/*` (와일드카드)
 *   **리디렉션 대상**: `https://apple.com/$1`
 
 `https://google.com/hello`와 일치하면 대상 URL은 `https://apple.com/hello`가 됩니다.
 
-또한, 대체하기 전에 `$1`, `$2`, ... 텍스트를 수정할 수 있습니다. 자세한 내용은 [캡처 그룹 처리](#capturing-group-processing) 섹션을 확인하세요.
+또한, 대체하기 전에 `$1`, `$2`, ...의 텍스트를 수정할 수 있습니다. 자세한 내용은 [캡처 그룹 처리](#capturing-group-processing) 섹션을 확인하십시오.
 
 > [!TIP]
-> 앱을 열기 위해 사용자 지정 URL 스킴을 지정할 수 있습니다. 다음은 딥 링크를 지원하는 앱의 예시입니다:
+> 앱을 열기 위해 사용자 지정 URL 스키마를 지정할 수 있습니다. 다음은 딥 링크를 지원하는 앱의 예입니다:
 >
 > *   Figma: `figma://file/Your_Figma_ID`
 > *   Firefox: `firefox://open-url?url=https://example.com/hello`
@@ -97,10 +97,10 @@
 
 ![지원되는 유형: 원본](https://img.shields.io/badge/Types-Original-blue) ![지원되는 플랫폼: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-대상 URL을 열려는 앱을 지정하려면 **애플리케이션** 콤보 상자를 사용하세요. 이 기능은 macOS에서만 사용할 수 있습니다.
+대상 URL을 열려는 앱을 지정하려면 **애플리케이션** 콤보 상자를 사용하십시오. 이 기능은 macOS에서만 사용할 수 있습니다.
 
 > [!WARNING]
-> [앱 샌드박스](https://developer.apple.com/documentation/security/app_sandbox)를 지원하는 앱만 열 수 있습니다. 또한, 앱이 열려는 URL을 지원하는지 확인하세요.
+> [앱 샌드박스](https://developer.apple.com/documentation/security/app_sandbox)를 지원하는 앱만 열 수 있습니다. 또한 앱이 열려는 URL을 지원하는지 확인하십시오.
 
 ### 캡처 그룹 처리 {#capturing-group-processing}
 
@@ -113,73 +113,73 @@
 *   **와일드카드**: `*` 및 `?`와 일치하는 텍스트는 자동으로 캡처됩니다.
 *   **정규 표현식**: `()` 안의 패턴 부분과 일치하는 텍스트는 캡처됩니다.
 
-다음 처리 방법 중 하나 이상을 선택할 수 있습니다:
+다음 프로세스 중 하나 이상을 선택할 수 있습니다:
 
-*   **URL 인코딩/디코딩**: 캡처 그룹에 [퍼센트 인코딩](https://en.wikipedia.org/wiki/Percent-encoding) 또는 디코딩을 적용합니다. 예를 들어, `https://example.com/hello`를 인코딩하면 `https%3A%2F%2Fexample.com%2Fhello`로 변환됩니다. 디코딩은 반대로 작동합니다.
-*   **Base64 인코딩/디코딩**: 텍스트를 [Base64](https://en.wikipedia.org/wiki/Base64)로 인코딩/디코딩합니다. 예를 들어, `hello`를 `aGVsbG8=`로 인코딩하고 다시 `hello`로 디코딩할 수 있습니다.
-*   **문자열 교체**: **대상**과 일치하는 그룹 내의 하나 이상의 문자를 **교체 문자열**로 바꿉니다. 예를 들어, *그룹*이 `hello`이고 *대상*이 `l`이며 *교체 문자열*이 `y`인 경우, `heyyo`로 수정됩니다.
+*   **URL 인코딩/디코딩**: 이는 캡처 그룹에 [퍼센트 인코딩](https://en.wikipedia.org/wiki/Percent-encoding) 또는 디코딩을 적용합니다. 예를 들어, `https://example.com/hello`를 인코딩하면 `https%3A%2F%2Fexample.com%2Fhello`로 변환됩니다. 디코딩은 반대 방식으로 작동합니다.
+*   **Base64 인코딩/디코딩**: 이는 텍스트를 [Base64](https://en.wikipedia.org/wiki/Base64)로 디코딩/인코딩합니다. 예를 들어, `hello`를 `aGVsbG8=`로 인코딩하고 다시 `hello`로 디코딩할 수 있습니다.
+*   **발생 항목 바꾸기**: 이는 **대상**과 일치하는 그룹의 하나 이상의 문자를 **대체**로 바꿉니다. 예를 들어, *그룹*이 `hello`이고 *대상*이 `l`이고 *대체*가 `y`이면 `heyyo`로 수정됩니다.
 
 > [!NOTE]
-> 이 기능은 각 캡처 그룹을 처리하기 위한 것이며, [제외된 URL 패턴](#excluded-url-patterns)에 의해 제외되는 URL에는 영향을 미치지 않습니다. 예를 들어, 다음과 같은 규칙이 있다고 가정해 봅시다:
+> 이는 각 캡처 그룹을 처리하기 위한 것이며 [제외된 URL 패턴](#excluded-url-patterns)에 의해 제외되는 URL에는 영향을 미치지 않습니다. 예를 들어, 다음과 같은 규칙이 있다고 가정해 봅시다:
 >
-> *   **리디렉션 소스**: `https://example.com/(hello.*)`
-> *   **캡처 그룹 처리**: 
+> *   **리디렉션 시작**: `https://example.com/(hello.*)`
+> *   **캡처 그룹 처리**:
 >     *   그룹: `$1`
 >     *   대상: `.*` (정규 표현식)
->     *   교체 문자열: `hello`
+>     *   대체: `hello`
 > *   **제외된 URL 패턴**: `https://example.com/hello`
 >
-> 이 경우, `https://example.com/hello_world`는 제외되지 않지만 `https://example.com/hello`는 제외됩니다.
+> 이 경우 `https://example.com/hello_world`는 제외되지 않지만 `https://example.com/hello`는 제외됩니다.
 
 ### 제외된 URL 패턴 {#excluded-url-patterns}
 
 ![지원되는 유형: 원본](https://img.shields.io/badge/Types-Original-blue)
 
-**제외된 URL 패턴** 옵션을 사용하면 리디렉션되지 않을 URL을 지정할 수 있습니다. 이는 리디렉션 루프를 방지하거나 웹사이트의 특정 부분이 리디렉션되지 않도록 제외하는 데 유용할 수 있습니다.
+**제외된 URL 패턴** 옵션을 사용하면 리디렉션되지 않는 URL을 지정할 수 있습니다. 이는 리디렉션 루프를 방지하거나 웹사이트의 특정 부분을 리디렉션에서 제외하는 데 유용할 수 있습니다.
 
-제외된 URL 패턴은 정규 표현식 또는 와일드카드 패턴 유형을 사용하여 지정할 수 있습니다.
+정규 표현식 또는 와일드카드 패턴 유형을 사용하여 제외된 URL 패턴을 지정할 수 있습니다.
 
 ### 예시 {#examples}
 
 **예시** 옵션을 사용하면 샘플 URL을 제공하여 리디렉션 규칙을 테스트할 수 있습니다. 샘플 URL을 추가하면 실제로 적용하기 전에 규칙이 예상대로 작동하는지 확인할 수 있습니다.
 
-### 댓글 {#comments}
+### 주석 {#comments}
 
-**댓글** 옵션을 사용하면 리디렉션 규칙에 대한 메모나 설명을 추가할 수 있습니다. 이는 특정 규칙을 만든 이유를 추적하거나 규칙을 볼 다른 사람들에게 컨텍스트를 제공하는 데 유용할 수 있습니다.
+**주석** 옵션을 사용하면 리디렉션 규칙에 대한 메모나 주석을 추가할 수 있습니다. 이는 특정 규칙을 만든 이유를 추적하거나 규칙을 볼 다른 사람에게 컨텍스트를 제공하는 데 유용할 수 있습니다.
 
-다음 형식으로 댓글을 작성할 수 있습니다.
+다음 형식으로 주석을 작성할 수 있습니다:
 
 *   **일반 텍스트** (기본값): 서식이 없는 간단한 텍스트.
-*   **마크다운**: [GitHub의 마크다운 구문](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)을 사용할 수 있으며, GFM이 지원하지 않는 일부 확장 기능도 포함됩니다. 예를 들어 제목, 목록, 링크 등을 만들 수 있습니다.
-*   **AsciiDoc**: [AsciiDoc 구문](https://asciidoc.org/)을 사용하여 댓글 서식을 지정할 수 있습니다.
+*   **마크다운**: [GitHub의 마크다운 구문](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)을 사용할 수 있으며, GFM이 지원하지 않는 일부 확장도 포함됩니다. 예를 들어, 제목, 목록, 링크 등을 만들 수 있습니다.
+*   **AsciiDoc**: [AsciiDoc 구문](https://asciidoc.org/)을 사용하여 주석 서식을 지정할 수 있습니다.
 
 ## URL 패턴 {#url-pattern}
 
-**URL 패턴**은 *리디렉션 시작*, *제외된 URL 패턴* 및 *캡처 그룹 처리* 옵션에서 URL을 일치시키는 데 사용됩니다. 이를 지정하려면 **와일드카드** 또는 **정규 표현식**을 선택할 수 있습니다.
+**URL 패턴**은 *리디렉션 시작*, *제외된 URL 패턴* 및 *캡처 그룹 처리* 옵션에서 URL을 일치시키는 데 사용됩니다. 이를 지정하려면 **와일드카드** 또는 **정규 표현식** 중에서 선택할 수 있습니다.
 
 ### 와일드카드 {#url-pattern-wildcard}
 
-**와일드카드**는 `*`(모든 항목 일치) 및 `?`(단일 문자 일치)를 와일드카드로 사용할 수 있는 더 간단한 패턴 유형입니다. 다음은 몇 가지 예시입니다.
+**와일드카드**는 `*` (모든 것과 일치) 및 `?` (단일 문자와 일치)를 와일드카드로 사용할 수 있는 더 간단한 패턴 유형입니다. 다음은 몇 가지 예입니다:
 
-*   `https://example.com/hello`를 일치시키려면 `https://example.com/*`를 사용할 수 있습니다. 이는 `https://example.com/` 뒤의 모든 문자열과 일치합니다.
-*   `https://example.com/search?q=hello`를 일치시키려면 `https://example.com/search?q=*`를 사용할 수 있습니다. 이는 `q` 매개변수의 모든 값과 일치합니다.
-*   `blog`라는 단어가 포함된 모든 URL을 일치시키려면 `*blog*`를 사용할 수 있습니다.
+*   `https://example.com/hello`와 일치시키려면 `https://example.com/*`를 사용할 수 있습니다. 이는 `https://example.com/` 뒤의 모든 문자열과 일치합니다.
+*   `https://example.com/search?q=hello`와 일치시키려면 `https://example.com/search?q=*`를 사용할 수 있습니다. 이는 `q` 매개변수의 모든 값과 일치합니다.
+*   `blog`라는 단어가 포함된 모든 URL과 일치시키려면 `*blog*`를 사용할 수 있습니다.
 
-와일드카드에서도 대체 기능을 사용할 수 있습니다. 즉, `$1`, `$2` 등을 사용하여 일치하는 URL의 일부를 참조할 수 있습니다. 예를 들어, `https://example.com/*-world-*`를 사용하고 URL이 `https://example.com/hello-world-goodbye`인 경우, `$1`은 "hello"가 되고 `$2`는 "goodbye"가 됩니다. `$0`은 전체 일치 URL을 참조하는 데 사용할 수 있습니다.
+와일드카드에서도 대체 기능을 사용할 수 있습니다. 즉, `$1`, `$2` 등을 사용하여 일치하는 URL의 일부를 참조할 수 있습니다. 예를 들어, `https://example.com/*-world-*`를 사용하고 URL이 `https://example.com/hello-world-goodbye`인 경우 `$1`은 "hello"이고 `$2`는 "goodbye"가 됩니다. `$0`도 일치하는 전체 URL을 참조하는 데 사용할 수 있습니다.
 
 > [!NOTE]
-> 대체는 정규 표현식의 기능이지만, Redirect Web이 내부적으로 와일드카드를 정규 표현식으로 변환하기 때문에 와일드카드에서도 사용할 수 있습니다.
+> 대체는 정규 표현식의 기능이지만, Redirect Web이 내부적으로 와일드카드를 정규 표현식으로 변환하기 때문에 와일드카드에도 사용할 수 있습니다.
 
 ### 정규 표현식 {#url-pattern-regular-expression}
 
-**정규 표현식**(Regex)은 텍스트에서 패턴을 일치시키는 강력한 도구이며 프로그래밍에서도 널리 사용됩니다. 이는 일련의 문자열과 일치하는 특정 패턴을 정의할 수 있도록 합니다. 다음은 몇 가지 예시입니다.
+**정규 표현식** (Regex)은 텍스트에서 패턴을 일치시키는 강력한 도구이며 프로그래밍에서도 널리 사용됩니다. 이는 문자열 집합과 일치하는 특정 패턴을 정의할 수 있도록 합니다. 다음은 몇 가지 예입니다.
 
-*   `https://example.com/hello`를 일치시키려면 `https://example.com/.*`를 사용할 수 있습니다. 이는 `https://example.com/` 뒤의 모든 문자열과 일치합니다.
-*   `https://example.com/search?q=hello`를 일치시키려면 `https://example.com/search\?q=(.*)`를 사용할 수 있습니다. 이는 `q` 매개변수의 값을 일치시키고 캡처 그룹에 저장합니다. 그런 다음 *리디렉션 대상* 옵션에서 `$1`을 사용하여 참조할 수 있습니다.
-*   `blog`라는 단어가 포함된 모든 URL을 일치시키려면 `.*blog.*`를 사용할 수 있습니다.
+-   `https://example.com/hello`와 일치시키려면 `https://example.com/.*`를 사용할 수 있습니다. 이는 `https://example.com/` 뒤의 모든 문자열과 일치합니다.
+-   `https://example.com/search?q=hello`와 일치시키려면 `https://example.com/search\?q=(.*)`를 사용할 수 있습니다. 이는 `q` 매개변수의 값과 일치하고 이를 캡처 그룹에 저장합니다. 그런 다음 *리디렉션 대상* 옵션에서 `$1`을 사용하여 이를 참조할 수 있습니다.
+-   `blog`라는 단어가 포함된 모든 URL과 일치시키려면 `.*blog.*`를 사용할 수 있습니다.
 
-`$1`, `$2` 등을 사용하거나 `$0`을 사용하여 전체 일치를 참조하여 *리디렉션 대상* 또는 *대체*에서 캡처 그룹을 참조할 수 있습니다.
+`$1`, `$2`, ...를 사용하여 *리디렉션 대상* 또는 *대체*에서 캡처 그룹을 참조하거나 `$0`를 사용하여 전체 일치를 참조할 수 있습니다.
 
 Redirect Web은 [Apple의 정규 표현식 엔진](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042)으로 구동됩니다.
 
-정규 표현식 구문에 대한 자세한 정보는 [RegExr](https://regexr.com/)과 같은 자료에서 찾을 수 있습니다.
+정규 표현식 구문에 대한 자세한 정보는 [RegExr](https://regexr.com/)와 같은 자료에서 찾을 수 있습니다.

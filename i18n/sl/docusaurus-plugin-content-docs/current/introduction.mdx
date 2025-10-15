@@ -2,24 +2,25 @@
 slug: /
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ExtensionStoreLinks from "@site/src/components/ExtensionStoreLinks";
 
 # Uvod
 
 <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", marginBottom: "25px"}}>
-  <img src="./img/redirect-a-to-b.png" style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Preusmeri A v B" />
+  <img src={useBaseUrl("img/redirect-a-to-b.png")} style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Preusmeri A v B" />
   <ExtensionStoreLinks />
 </div>
 
-Dobrodošli na spletni strani za podporo Redirect Web, razširitve brskalnika, ki preusmerja vse nalaganje strani v vašem brskalniku in zagotavlja, da vedno pristanete tam, kjer želite. 
+Dobrodošli na spletni strani za podporo Redirect Web, razširitve brskalnika, ki preusmeri vse nalaganje strani v vašem brskalniku, zagotavlja, da vedno pristanete tam, kjer želite. 
 
 (Prej znano kot Redirect Web za Safari.)
 
 ## ⬇️ Povezave za prenos {#download-links}
 
-- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
-- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox Add-ons)
-- [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge Add-ons)
+- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Trgovina Chrome Web Store)
+- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Dodatki za Firefox)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Dodatki za Microsoft Edge)
 - [Safari](https://apps.apple.com/app/id1571283503) (Razširitev je že vključena v izvorno aplikacijo.)
 
 Redirect Web je na voljo na:
@@ -29,16 +30,16 @@ Redirect Web je na voljo na:
 
 :::note
 
-- Namestiti morate [aplikacijo Redirect Web iz Mac App Store](https://apps.apple.com/app/id1571283503), da uporabljate razširitev, ne glede na to, kateri brskalnik uporabljate, ker se razširitve zanašajo na aplikacijo za dostop do vaših pravil, nastavitev itd.
-- Podpora za več brskalnikov je na voljo samo na Macu.
+- Za uporabo razširitve morate namestiti [aplikacijo Redirect Web iz trgovine Mac App Store](https://apps.apple.com/app/id1571283503), ne glede na to, kateri brskalnik uporabljate, saj se razširitve zanašajo na aplikacijo za dostop do vaših pravil, nastavitev itd.
+- Podpora za več brskalnikov je na voljo samo v sistemu Mac.
 
 :::
 
 To so osnovne uporabe:
 
-<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="iOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="Predstavitveni video za iOS (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="macOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="Predstavitveni video za macOS (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Priljubljeni primeri uporabe {#popular-use-cases}
 
@@ -46,10 +47,10 @@ Na primer, lahko ustvarite ta pravila:
 
 - Oglejte si **Reddit** v njegovi klasični zasnovi (old.reddit.com).
 - Odprite **Apple Maps**, kadar koli se prikaže povezava **Google Maps**.
-- Skrijte Googlove preglede AI iz **Googlovih rezultatov iskanja** z dodajanjem **?udm=14** vsakemu iskanju.
+- Skrijte Googlove preglede AI iz **Googlovih rezultatov iskanja** tako, da vsakemu iskanju dodate **?udm=14**.
 - Skočite s strani Fandom na uradne wikije **Terraria** ali **Minecraft**.
 - Uporabite **Kagi**, **Startpage**, **ChatGPT** in kateri koli drug iskalnik kot svoj **privzeti iskalnik**.
-- Odprite povezave **Google Meet** v Google Chrome. (Mac)
+- Odprite povezave **Google Meet** v brskalniku Google Chrome. (Mac)
 - Odprite povezave **Figma** neposredno v aplikaciji Figma. (Mac)
 - Odprite povezave **Notion** neposredno v aplikaciji Notion. (Mac)
 
@@ -59,8 +60,8 @@ Vse to lahko dobite kot vnaprej določena pravila brezplačno v razdelku Knjižn
 
 Redirect Web vključuje naslednje funkcije:
 
-- Ustvarite pravila z uporabo tipov vzorcev **Regularni izraz** ali **Wildcard**
-- Uporabite **povratno sklicevanje** za določanje dinamičnih ciljnih URL-jev
+- Ustvarite pravila z uporabo vrst vzorcev **Regularni izraz** ali **Nadomestni znak**
+- Uporabite **povratno sklicevanje** za določitev dinamičnih ciljnih URL-jev
 - **Izključite** URL-je iz preusmeritve
 - **Obdelajte zajete besedila** z uporabo kodiranja/dekodiranja URL-jev, kodiranja/dekodiranja base64 ali zamenjave pojavitev
 
@@ -69,9 +70,9 @@ Poleg tega lahko odklenete naslednje funkcije z naročnino ali enkratnim nakupom
 - Omogočanje **neomejenega** števila pravil
 - **Sinhronizacija pravil** z drugimi napravami Mac, iPhone in iPad **prek iClouda**
 
-(Nakup aplikacije nas tudi podpira pri vzdrževanju Redirect Web. 🙏)
+(Nakup aplikacije nas podpira tudi pri vzdrževanju Redirect Web. 🙏)
 
-Vaš nakup ali naročnina se deli med vašimi napravami Mac, iPhone, iPad in Apple Vision Pro prek Universal Purchase. Vaša podpora pomaga pri nadaljnjem razvoju.
+Vaš nakup ali naročnina se deli med vašimi napravami Mac, iPhone, iPad in Apple Vision Pro prek univerzalnega nakupa. Vaša podpora pomaga pri nadaljnjem razvoju.
 
 
 ## Bili smo predstavljeni v številnih medijih! {#media-coverage}
@@ -89,6 +90,6 @@ Vaš nakup ali naročnina se deli med vašimi napravami Mac, iPhone, iPad in App
 
 ---
 
-Če imate kakršnakoli vprašanja, povratne informacije ali težave, nas prosimo, ne oklevajte [kontaktirati](contact-us).
+Če imate kakršna koli vprašanja, povratne informacije ali težave, se obrnite na nas.
 
-Brez oglasov. Brez sledenja. Uživajte v hitrejšem, čistejšem spletu, prilagojenem vam.
+Brez oglasov. Brez sledenja. Uživajte v hitrejši, čistejši spletu, prilagojenem vam.

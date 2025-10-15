@@ -1,0 +1,74 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Przypadek 3: Dodawanie parametrów zapytania do adresu URL
+
+Załóżmy, że istnieje strona internetowa `example.com`, która domyślnie wyświetla układ mobilny, ale wolisz jej układ pulpitu. Na szczęście strona obsługuje parametr zapytania `layout`, aby określić, jaki układ wyświetla strona. Stwórzmy regułę, która automatycznie dodaje `layout=desktop`.
+
+Być może myślisz, że możesz to zdefiniować w następujący sposób:
+
+* **Przekieruj z**: `https://example.com/.*` (Wyrażenie regularne)
+* **Przekieruj do**: `$0?layout=desktop`
+
+`$0` odwołuje się do docelowego adresu URL. Jeśli spróbujesz uzyskać dostęp do `example.com/hello`, zostaniesz przekierowany do `example.com/hello?layout=desktop`. Ta funkcja nazywa się *podstawieniem*.
+
+> [!TIP]
+> Podstawienie jest również dostępne dla trybu Wildcard, ponieważ jest wewnętrznie konwertowane na wyrażenie regularne.
+
+Jednak te ustawienia mają kilka problemów.
+
+### Problem 1: Nieskończona pętla
+
+Obecne ustawienie tworzy nieskończoną pętlę przekierowań, ponieważ `https://example.com/.*` również celuje w `https://example.com/hello?layout=desktop`.
+
+W tym przypadku możesz określić wykluczony wzorzec adresu URL, który pozwala na dostęp bez przekierowania, w ten sposób za pomocą wyrażenia regularnego:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Pasuje do wszystkiego
+* `[&?]`: Pasuje do `&` lub `?`
+* `[^&]*`: Pasuje do wszystkiego oprócz `&`
+
+
+### Problem 2: Nie można prawidłowo obsłużyć istniejących parametrów
+
+Jeśli docelowy adres URL ma już inne parametry zapytania, takie jak `example.com/hello?theme=dark`, docelowy adres będzie `example.com/hello?theme=dark?layout=desktop` (w adresie URL są dwa `?`), ale parametry można łączyć tylko za pomocą `&`. `?` jako znak specjalny jest dozwolony tylko na początku parametrów. Więc nie jest traktowany jako prawidłowy parametr.
+
+W tym przypadku zmień ustawienia w ten sposób:
+
+* **Przekieruj z**: `(https://example.com/[^?]*)(\(.*))?`
+* **Przekieruj do**: `$1?layout=desktop&$3`
+
+Przyjrzyjmy się krok po kroku.
+
+* `(https://example.com/[^?]*)`: Dopasowuje część do poprzedniego znaku `?`.
+    * `[^?]*` dopasowuje wszystko oprócz `?`.
+    * Jest to opakowane w `()`, więc możesz odwołać się do tego później za pomocą `$1`.
+* `(\(.*))?`: Dopasowuje ciąg znaków zaczynający się od `?`, co oznacza parametry zapytania.
+    * Dopasowuje również pusty ciąg znaków za pomocą kwantyfikatora `?` na końcu wzorca, który *dopasowuje zero lub jeden raz*.
+    * Zewnętrzne `()` i wewnętrzne `()` mogą być później odwołane za pomocą `$2` i `$3`.
+
+[RegExr](https://regexr.com) może pomóc Ci zrozumieć szczegóły.
+
+> [!NOTE]
+> RegExr pokazuje błąd, gdy nie uciekniesz `/` za pomocą `\`. Chociaż możesz to uciec, nie jest to wymagane, ponieważ Redirect Web używa innego silnika firmy Apple, który nie wymaga uciekania.
+
+To nie jest idealne rozwiązanie, ponieważ przekierowuje `example.com/hello` do `example.com/hello?layout=desktop&`, co zawiera niepotrzebny `&` na końcu adresu URL. Ogólnie nie jest to duży problem, ale jeśli chcesz go usunąć, możesz użyć *Przetwarzania grup przechwytujących*.
+
+Podsumowując, oto ostateczny wynik:
+
+* **Przekieruj z**: `(https://example.com/[^?]*)((\(.*))?)` (Wyrażenie regularne)
+* **Przekieruj do**: `$1?layout=desktop$3`
+* **Wykluczony wzorzec adresu URL**: `.*[&?]layout=[^&]*.*` (Wyrażenie regularne)
+* **Przetwarzanie grup przechwytujących**:
+    * **Grupa**: `$3`
+    * **Proces**: Zastąp wystąpienia
+        * **Cel**: `\?(.*)`
+        * **Zastąpienie**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️Pobierz regułę</a>**
+
+
+To tylko przykład. Możesz również stworzyć wiele reguł, aby rozwiązać każdy problem. Może to być znacznie prostsze.
+

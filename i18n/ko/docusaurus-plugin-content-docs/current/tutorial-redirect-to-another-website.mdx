@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# 사례 1: 다른 웹사이트로 리디렉션
+
+트위터에 중독되어 실수로 트위터를 열 때마다 Insight Timer를 사용하여 명상하기로 결정했다고 가정해 봅시다. 이를 위한 규칙을 만들어 봅시다!
+
+### 1단계. "규칙 편집" 화면 열기
+
+앱에서 자신만의 규칙을 만들기 시작하려면 *규칙 편집* 화면을 엽니다. *내 규칙* 탭에서 더하기(+) 버튼을 클릭하여 이 작업을 수행할 수 있습니다.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="모바일"
+  desktopLabel="데스크톱"
+  mobile={
+    <>
+      This is for mobile
+    </>
+  }
+  desktop={
+    <>
+      This is for desktop
+    </>
+  }
+/>
+
+### 2단계. "리디렉션 시작" 설정
+
+먼저 앱의 *규칙 편집* 화면에서 *리디렉션 시작* 섹션을 설정해야 합니다. 대상은 `https://twitter.com/`으로 시작하는 URL입니다.
+
+이 경우 [와일드카드](rule-settings#url-pattern-wildcard) 모드를 사용하여 다음 패턴을 지정할 수 있습니다.
+
+```
+https://twitter.com/*
+```
+
+와일드카드 모드에서 `*`는 모든 것(= 0개 이상의 문자)과 일치함을 의미합니다.
+
+하지만 잠깐만요. `twitter.com`이 `x.com`으로 이름이 변경되었습니다. `twitter.com`을 `x.com`으로 간단히 바꿀 수 있지만, 새 소유자가 언제 다시 마음을 바꿔 되돌릴지 아무도 모릅니다. 따라서 `twitter.com`과 `x.com`을 모두 대상으로 지정해 봅시다.
+
+그렇게 하려면 와일드카드에서 [정규 표현식](rule-settings#url-pattern-regular-expression)으로 전환하고, 이를 패턴으로 설정합니다.
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: `twitter`와 `x`를 모두 대상으로 합니다. (`|`는 *파이프*라고 합니다.)
+* `.*`: 와일드카드의 `*`와 동일합니다. 더 구체적으로, `.`은 *모든 문자*를 의미하고 `*`는 *이 기호 앞에 있는 모든 것이 여러 번 반복됨*을 의미하여 모든 것과 일치합니다.
+
+정규 표현식은 다소 복잡하지만, 일단 익숙해지면 강력한 도구가 될 것입니다. [RegExr](https://regexr.com)을 사용하여 정규 표현식 패턴이 어떻게 작동하는지 분석하는 연습장으로 사용하는 것을 권장합니다.
+
+> [!TIP]
+> 정규 표현식에서 `(twitter|x).com`의 `.`도 *모든 문자*로 처리됩니다. 따라서 `(twitter|x).com/.*`는 예를 들어 `twitter1com/` 또는 `x_com/`과도 일치합니다.
+>
+> 더 정확하게 하려면 `(twitter|x)\.com/.*`로 변경할 수 있습니다. `\`는 `.`을 특수 문자 대신 리터럴 마침표 문자로 처리하는 데 사용됩니다.
+>
+> 그러나 일반적인 인터넷 환경에는 그러한 URL이 없습니다. 따라서 원한다면 `.`을 특수 문자로 남겨둘 수 있습니다.
+
+### 3단계: "리디렉션 대상" 설정
+
+다음과 같이 URL을 지정하기만 하면 됩니다.
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (선택 사항) 4단계: 규칙 확인
+
+*규칙 편집* 화면의 *예시* 섹션에 예시 URL을 추가하여 규칙이 어떻게 작동하는지 확인할 수 있습니다. 예를 들어, `https://x.com/UN`을 입력하면 결과로 `https://insighttimer.com/saraauster/guided-meditations/calm`이 표시됩니다.
+
+이제 규칙은 다음과 같아야 합니다.
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="다른 웹사이트를 여는 예시 규칙" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ 규칙 다운로드</a>**
+
+이제 Redirect Web은 트위터에 접속할 때 명상으로 안내합니다!

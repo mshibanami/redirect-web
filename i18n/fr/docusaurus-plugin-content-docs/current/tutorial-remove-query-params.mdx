@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Cas 2 : Supprimer les paramètres de requête de l'URL
+
+Supposons qu'il y ait un paramètre de requête `source=twitter` dans une URL de `example.com`, et que vous ayez décidé de le supprimer pour vous anonymiser.
+
+Dans ce cas, l'option **Traitement des groupes de capture** est le moyen le plus simple :
+
+* **Rediriger depuis** : `https://example.com/*` (Joker)
+* **Rediriger vers** : `$0`
+* **Traitement des groupes de capture** :
+    * **Groupe** : `$0`
+    * **Processus** : Remplacer les occurrences
+        * **Cible** : `&?source=[^&]*`
+        * **Remplacement** : *(aucun)*
+        * **Modèle de texte** : Expression régulière
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Télécharger la règle</a>**
+
+Cette règle fonctionne comme suit :
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Si vous souhaitez supprimer plus de paramètres, ajoutez plus de processus.

@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Geval 2: Queryparameters verwijderen uit URL
+
+Stel dat er een queryparameter `source=twitter` is in een URL van `example.com`, en u besluit deze te verwijderen om uzelf te anonimiseren.
+
+In dit geval is de optie **Vastleggen van groepsverwerking** de eenvoudigste manier:
+
+* **Omleiden van**: `https://example.com/*` (Wildcard)
+* **Omleiden naar**: `$0`
+* **Vastleggen van groepsverwerking**:
+    * **Groep**: `$0`
+    * **Proces**: Voorkomens vervangen
+        * **Doel**: `&?source=[^&]*`
+        * **Vervanging**: *(geen)*
+        * **Tekstpatroon**: Reguliere expressie
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Download de regel</a>**
+
+Deze regel werkt als volgt:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Als u meer parameters wilt verwijderen, voeg dan meer processen toe.

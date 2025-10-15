@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# 案例 1：重定向到另一个网站
+
+假设您沉迷于 Twitter，并且决定每当您不小心打开 Twitter 时，就使用 Insight Timer 进行冥想。让我们为此创建一个规则！
+
+### 步骤 1. 打开“编辑规则”屏幕
+
+让我们打开“编辑规则”屏幕，开始在应用程序中创建您自己的规则。您可以通过单击“我的规则”选项卡中的加号 (+) 按钮来完成此操作。
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="移动设备"
+  desktopLabel="桌面设备"
+  mobile={
+    <>
+      This is for mobile
+    </>
+  }
+  desktop={
+    <>
+      This is for desktop
+    </>
+  }
+/>
+
+### 步骤 2. 设置“重定向自”
+
+首先，您应该在应用程序的“编辑规则”屏幕中设置“重定向自”部分。目标是 `https://twitter.com/` 开头的 URL。
+
+在这种情况下，您可以使用[通配符](rule-settings#url-pattern-wildcard)模式指定以下模式：
+
+```
+https://twitter.com/*
+```
+
+在通配符模式中，`*` 表示匹配任何内容（= 零个或多个字符）。
+
+但是，请稍等。`twitter.com` 已更名为 `x.com`。您可以简单地将 `twitter.com` 替换为 `x.com`，但没人知道新所有者何时会再次改变主意将其改回。因此，让我们同时定位 `twitter.com` 和 `x.com`。
+
+为此，请从通配符切换到[正则表达式](rule-settings#url-pattern-regular-expression)，并将此设置为模式：
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`：它同时定位 `twitter` 和 `x`。（`|` 称为*管道*。）
+* `.*`：它与通配符的 `*` 相同。更具体地说，`.` 表示*任何字符*，`*` 表示*此符号之前重复任意次数的任何内容*，因此它匹配任何内容。
+
+正则表达式有点复杂，但一旦您习惯了它，它将成为一个强大的工具。我们建议使用 [RegExr](https://regexr.com) 作为分析您的正则表达式模式如何工作的游乐场。
+
+> [!TIP]
+> 在正则表达式中，`(twitter|x).com` 中的 `.` 也被视为*任何字符*。因此，`(twitter|x).com/.*` 也匹配，例如，`twitter1com/` 或 `x_com/`。
+> 
+> 为了更精确，您可以将其更改为 `(twitter|x)\.com/.*`。`\` 用于将 `.` 视为文字句点字符而不是特殊字符。
+> 
+> 但是，在一般的互联网环境中没有这样的 URL。因此，如果您愿意，可以将 `.` 保留为特殊字符。
+
+### 步骤 3：设置“重定向到”
+
+只需将 URL 指定为：
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### （可选）步骤 4：检查规则
+
+您可以通过在“编辑规则”屏幕的“示例”部分添加示例 URL 来检查规则的工作方式。例如，如果您输入 `https://x.com/UN`，它会显示 `https://insighttimer.com/saraauster/guided-meditations/calm` 作为结果。
+
+您的规则现在应该如下所示：
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="An example rule to open another website" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ 下载规则</a>**
+
+现在，当您访问 Twitter 时，Redirect Web 会将您带到冥想！

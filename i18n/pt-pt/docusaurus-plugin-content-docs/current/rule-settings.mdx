@@ -1,6 +1,6 @@
-# Definições da Regra
+# Configurações da Regra
 
-Esta página fornece informações detalhadas sobre cada definição no ecrã Editar Regra na aplicação Redirect Web.
+Esta página fornece informações detalhadas de cada configuração no ecrã *Editar Regra* na aplicação Redirect Web.
 
 ## Opções
 
@@ -8,26 +8,26 @@ Esta página fornece informações detalhadas sobre cada definição no ecrã Ed
 
 Especifique a opção **Tipo** para controlar como a aplicação lida com o redirecionamento. Pode escolher entre estas:
 
-*   **Original** (Predefinição)
-    *   Isto usa APIs Web tradicionais para controlar o redirecionamento. Adicionalmente, usa [a API Tabs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) como alternativa.
-        *   No Firefox, usa a [API WebRequest](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) para lidar com o redirecionamento.
-    *   Pode usar todas as opções, exceto [Tipos de Recurso](#resource-types) e [Métodos de Pedido](#request-methods).
-    *   Isto é mais lento do que o tipo *Declarativo* e pode causar pedidos de rede adicionais.
-*   **DNR** (Experimental para Safari):
-    *   Este tipo funciona muito mais rápido do que o tipo Original porque não inicia um pedido de rede para o URL de origem.
-    *   Isto permite-lhe especificar [Tipos de Recurso](#resource-types) e [Métodos de Pedido](#request-methods).
-    *   ⚠️ Não pode usar algumas opções, como [Processamento de Grupos de Captura](#capturing-group-processing) e [Padrões de URL Excluídos](#excluded-url-patterns), uma vez que ainda não são suportadas pela API DNR.
-    *   ⚠️ No Safari, atualmente não pode incluir pipes (`|`) no seu padrão de Expressão Regular. [Detalhes](https://github.com/mshibanami/redirect-web/issues/44)
-    *   ⚠️ Uma vez que a API DNR do Safari ainda tem alguns problemas, consideramos que ainda é uma funcionalidade experimental para o Safari. Pode encontrar a lista de todos os problemas conhecidos [aqui](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+* **Original** (Padrão)
+    * Isto usa APIs Web tradicionais para controlar o redirecionamento. Além disso, usa [a API Tabs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) como alternativa.
+        * No Firefox, usa a [API WebRequest](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) para lidar com o redirecionamento.
+    * Pode usar todas as opções, exceto [Tipos de Recurso](#resource-types) e [Métodos de Pedido](#request-methods).
+    * Isto é mais lento do que o tipo *Declarativo* e pode causar pedidos de rede extras.
+* **DNR** (Experimental para Safari):
+    * Este tipo funciona muito mais rápido do que o tipo Original porque não inicia um pedido de rede para o URL de origem.
+    * Isto permite-lhe especificar [Tipos de Recurso](#resource-types) e [Métodos de Pedido](#request-methods).
+    * ⚠️ Não pode usar algumas opções, como [Processamento de Grupo de Captura](#capturing-group-processing) e [Padrões de URL Excluídos](#excluded-url-patterns), uma vez que ainda não são suportadas pela API DNR.
+    * ⚠️ No Safari, atualmente não pode incluir pipes (`|`) no seu padrão de Expressão Regular. [Detalhes](https://github.com/mshibanami/redirect-web/issues/44)
+    * ⚠️ Uma vez que a API DNR do Safari ainda tem alguns problemas, consideramos que ainda é uma funcionalidade experimental para o Safari. Pode encontrar a lista de todos os problemas conhecidos [aqui](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
 ### Redirecionar De {#redirect-from}
 
-A opção **Redirecionar De** permite-lhe especificar um padrão de URL de páginas web das quais pretende redirecionar. Pode escolher [Curinga](#wildcard) ou [Expressão Regular](#regular-expression).
+A opção **Redirecionar De** permite-lhe especificar um padrão de URL de páginas web das quais pretende redirecionar. Pode escolher entre [Curinga](#wildcard) ou [Expressão Regular](#regular-expression).
 
 Por exemplo, se especificar `https://example.com/*` com Curinga, ele corresponde a `https://example.com/` ou `https://example.com/hello`.
 
 > [!NOTE]
-> Na opção Redirecionar Para, pode referenciar a correspondência completa usando `$0` ou correspondências parciais usando `$1`, `$2`, ... Verifique os detalhes em [Padrão de URL](#url-pattern) nesta página.
+> Na opção Redirecionar Para, pode referenciar a correspondência inteira usando `$0` ou correspondências parciais usando `$1`, `$2`, ... Verifique os detalhes em [Padrão de URL](#url-pattern) nesta página.
 
 #### Tipos de Recurso {#resource-types}
 
@@ -36,12 +36,12 @@ Por exemplo, se especificar `https://example.com/*` com Curinga, ele corresponde
 A opção **Tipos de Recurso** permite-lhe especificar as categorias de pedidos web, como imagens, JavaScripts e folhas de estilo, às quais a regra se aplica.
 Por exemplo, se definir `script`, pode redirecionar os ficheiros JavaScript carregados pelas páginas web.
 
-Atualmente, estão disponíveis:
+Atualmente, estão disponíveis: 
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
-A definição predefinida é `main_frame`, que é a página de nível superior carregada num separador.
+A configuração padrão é `main_frame`, que é a página de nível superior carregada num separador.
 
-Por favor, verifique os detalhes de cada tipo de recurso nos [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+Por favor, verifique os detalhes de cada tipo de recurso em [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
 #### Métodos de Pedido {#request-methods}
 
@@ -49,85 +49,85 @@ Por favor, verifique os detalhes de cada tipo de recurso nos [mdn web docs](http
 
 A opção **Métodos de Pedido** permite-lhe definir os métodos HTTP de destino do URL de origem.
 
-Todos os métodos são definidos por predefinição.
+Todos os métodos são definidos por padrão.
 
-Por favor, verifique os detalhes de cada método nos [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+Por favor, verifique os detalhes de cada método em [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 > [!WARNING]
 > No Safari, esta opção pode não estar disponível porque a implementação da Apple para o tipo DNR não parece lidar com ela atualmente. Enviámos feedback à Apple como FB14502272.
 
-#### Navegadores de Destino {#target-browsers}
+#### Navegadores Alvo {#target-browsers}
 
 ![Plataformas Suportadas: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-A opção **Navegadores de Destino** permite-lhe especificar a que navegador a regra deve ou não ser aplicada.
+A opção **Navegadores Alvo** permite-lhe especificar a qual navegador a regra deve ou não ser aplicada.
 
-*   Existem 2 tipos de navegadores que pode escolher:
-    *   **Navegadores que pode escolher por predefinição**: Pode escolher Safari, Chrome, Firefox, Edge, Opera, Arc, Brave e Vivaldi por predefinição. Isto não diferencia variantes do mesmo navegador, como Safari e Safari Technology Preview.
-    *   **Navegadores especificados pelo utilizador**: Ao tocar no botão Adicionar no popover, pode selecionar qualquer navegador que não seja Safari ou Safari Technology Preview que tenha a extensão Redirect Web instalada.
-*   A caixa de seleção **Todos, exceto os selecionados** permite-lhe direcionar todos os navegadores, exceto os que escolheu.
+* Existem 2 tipos de navegadores que pode escolher:
+    * **Navegadores que pode escolher por padrão**: Pode escolher Safari, Chrome, Firefox, Edge, Opera, Arc, Brave e Vivaldi por padrão. Isto não diferencia variantes do mesmo navegador, como Safari e Safari Technology Preview.
+    * **Navegadores especificados pelo utilizador**: Ao tocar no botão Adicionar no popover, pode selecionar qualquer navegador que não seja Safari ou Safari Technology Preview que tenha a extensão Redirect Web instalada.
+* A caixa de seleção **Todos, exceto os selecionados** permite-lhe direcionar todos os navegadores, exceto os que escolheu.
 
 > [!WARNING]
-> O Redirect Web não consegue diferenciar se o navegador é **Safari** ou **Safari Technology Preview** porque a aplicação verifica o processo pai da extensão para o detetar, mas estes dois navegadores partilham o mesmo processo pai (`/sbin/launchd`).
+> O Redirect Web não consegue diferenciar se o navegador é **Safari** ou **Safari Technology Preview** porque a aplicação verifica o processo pai da extensão para detetá-lo, mas estes dois navegadores partilham o mesmo processo pai (`/sbin/launchd`).
 
 ### Redirecionar Para {#redirect-to}
 
-A opção **Redirecionar Para** especifica um URL de destino para o qual deseja redirecionar, a partir do URL de origem correspondido com a opção *Redirecionar De*. Também pode substituir grupos de captura por `$1`, `$2`, ... ou a correspondência completa por `$0`. Estes ajudam-no a especificar dinamicamente o destino. Verifique os detalhes em [Padrão de URL](#url-pattern) nesta página.
+A opção **Redirecionar Para** especifica um URL de destino para o qual pretende redirecionar, a partir do URL de origem correspondido com a opção *Redirecionar De*. Também pode substituir grupos de captura com `$1`, `$2`, ... ou a correspondência inteira com `$0`. Estes ajudam-no a especificar dinamicamente o destino. Verifique os detalhes em [Padrão de URL](#url-pattern) nesta página.
 
 Por exemplo, se definir a seguinte regra:
 
-*   **Redirecionar De**: `https://google.com/*` (Curinga)
-*   **Redirecionar Para**: `https://apple.com/$1`
+* **Redirecionar De**: `https://google.com/*` (Curinga)
+* **Redirecionar Para**: `https://apple.com/$1`
 
-e corresponder a `https://google.com/hello`, então o URL de destino será `https://apple.com/hello`.
+E corresponder a `https://google.com/hello`, então o URL de destino será `https://apple.com/hello`.
 
-Adicionalmente, pode modificar os textos de `$1`, `$2`, ... antes de fazer as substituições. Verifique a secção [Processamento de Grupos de Captura](#capturing-group-processing) para os detalhes.
+Além disso, pode modificar os textos de `$1`, `$2`, ... antes de fazer as substituições. Verifique a secção [Processamento de Grupo de Captura](#capturing-group-processing) para os detalhes.
 
 > [!TIP]
 > Pode especificar um esquema de URL personalizado para abrir uma aplicação. Estes são exemplos de aplicações que suportam deep linking:
 >
-> *   Figma: `figma://file/Your_Figma_ID`
-> *   Firefox: `firefox://open-url?url=https://example.com/hello`
-> *   Google Chrome: `googlechromes://example.com`
-> *   Microsoft Edge: `microsoft-edge://example.com`
-> *   Notion: `notion://www.notion.so/Your_Note_ID`
-> *   Slack: `slack://open`
+> * Figma: `figma://file/Your_Figma_ID`
+> * Firefox: `firefox://open-url?url=https://example.com/hello`
+> * Google Chrome: `googlechromes://example.com`
+> * Microsoft Edge: `microsoft-edge://example.com`
+> * Notion: `notion://www.notion.so/Your_Note_ID`
+> * Slack: `slack://open`
 
 #### Aplicação {#application}
 
 ![Tipos Suportados: Original](https://img.shields.io/badge/Types-Original-blue) ![Plataformas Suportadas: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Se quiser especificar uma aplicação para abrir o URL de destino, use a caixa de combinação **Aplicação**. Isto só está disponível no macOS.
+Se quiser especificar uma aplicação na qual deseja abrir o URL de destino, use a caixa de combinação **Aplicação**. Isto só está disponível no macOS.
 
 > [!WARNING]
 > Só pode abrir uma aplicação que suporte [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Além disso, certifique-se de que a aplicação suporta a abertura do URL que pretende abrir.
 
-### Processamento de Grupos de Captura {#capturing-group-processing}
+### Processamento de Grupo de Captura {#capturing-group-processing}
 
 ![Tipos Suportados: Original](https://img.shields.io/badge/Types-Original-blue)
 
-A opção **Processamento de Grupos de Captura** permite-lhe especificar como processar os grupos capturados que pode substituir na opção *Redirecionar Para* com `$1`, `$2`...
+A opção **Processamento de Grupo de Captura** permite-lhe especificar como processar os grupos de captura que pode substituir na opção *Redirecionar Para* com `$1`, `$2`...
 
 Estas são as formas de criar grupos de captura:
 
-*   **Curinga**: Textos correspondidos com `*` e `?` são automaticamente capturados.
-*   **Expressão Regular**: Textos correspondidos com parte do padrão dentro de `()` são capturados.
+* **Curinga**: Textos correspondidos com `*` e `?` são automaticamente capturados.
+* **Expressão Regular**: Textos correspondidos com parte do padrão dentro de `()` são capturados.
 
 Pode escolher um ou mais dos seguintes processos:
 
-*   **Codificar/Descodificar URL**: Isto aplica [codificação percentual](https://en.wikipedia.org/wiki/Percent-encoding) ou descodificação a um grupo de captura. Por exemplo, se codificar `https://example.com/hello`, é convertido para `https%3A%2F%2Fexample.com%2Fhello`. A descodificação funciona de forma oposta.
-*   **Codificar/Descodificar Base64**: Isto descodifica/codifica um texto em [Base64](https://en.wikipedia.org/wiki/Base64). Por exemplo, pode codificar `hello` para `aGVsbG8=`, e descodificá-lo de volta para `hello`.
-*   **Substituir Ocorrências**: Isto substitui um ou mais caracteres num grupo, correspondidos por um **Alvo**, por uma **Substituição**. Por exemplo, se o *Grupo* for `hello` e o *Alvo* for `l` e a Substituição for `y`, é modificado para `heyyo`.
+* **Codificar/Descodificar URL**: Isto aplica [codificação percentual](https://en.wikipedia.org/wiki/Percent-encoding) ou descodificação a um grupo de captura. Por exemplo, se codificar `https://example.com/hello`, é convertido para `https%3A%2F%2Fexample.com%2Fhello`. A descodificação funciona de forma oposta.
+* **Codificar/Descodificar Base64**: Isto descodifica/codifica um texto em [Base64](https://en.wikipedia.org/wiki/Base64). Por exemplo, pode codificar `hello` para `aGVsbG8=`, e descodificá-lo de volta para `hello`.
+* **Substituir Ocorrências**: Isto substitui um ou mais caracteres num grupo, correspondidos por um **Alvo**, por uma **Substituição**. Por exemplo, se o *Grupo* for `hello` e o *Alvo* for `l` e a Substituição for `y`, é modificado para `heyyo`.
 
 > [!NOTE]
-> Isto destina-se a processar cada grupo de captura e não afeta quais URLs são excluídos pelos [Padrões de URL Excluídos](#excluded-url-patterns). Por exemplo, digamos que tem esta regra:
+> Isto é para processar cada grupo de captura e não afeta quais URLs são excluídos pelos [Padrões de URL Excluídos](#excluded-url-patterns). Por exemplo, digamos que tem esta regra:
 >
-> *   **Redirecionar De**: `https://example.com/(hello.*)`
-> *   **Processamento de Grupos de Captura**:
->     *   Grupo: `$1`
->     *   Alvo: `.*` (Expressão Regular)
->     *   Substituição: `hello`
-> *   **Padrão de URL Excluído**: `https://example.com/hello`
+> * **Redirecionar De**: `https://example.com/(hello.*)`
+> * **Processamento de Grupo de Captura**: 
+>     * Grupo: `$1`
+>     * Alvo: `.*` (Expressão Regular)
+>     * Substituição: `hello`
+> * **Padrão de URL Excluído**: `https://example.com/hello`
 >
 > Neste caso, `https://example.com/hello_world` não será excluído, enquanto `https://example.com/hello` será excluído.
 
@@ -149,23 +149,23 @@ A opção **Comentários** permite-lhe adicionar quaisquer notas ou comentários
 
 Pode escrever comentários nos seguintes formatos:
 
-*   **Texto Simples** (Predefinição): Texto simples sem qualquer formatação.
-*   **Markdown**: Pode usar as [sintaxes Markdown do GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), incluindo algumas extensões que o GFM não suporta. Por exemplo, pode criar títulos, listas, links e muito mais.
-*   **AsciiDoc**: Pode usar as [sintaxes AsciiDoc](https://asciidoc.org/) para formatar os seus comentários.
+* **Texto Simples** (Padrão): Texto simples sem qualquer formatação.
+* **Markdown**: Pode usar [sintaxes Markdown do GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), incluindo algumas extensões que o GFM não suporta. Por exemplo, pode criar títulos, listas, links e muito mais.
+* **AsciiDoc**: Pode usar [sintaxes AsciiDoc](https://asciidoc.org/) para formatar os seus comentários.
 
 ## Padrão de URL {#url-pattern}
 
-**Padrões de URL** são usados para corresponder URLs nas opções *Redirecionar De*, *Padrões de URL Excluídos* e *Processamento de Grupos de Captura*. Para os especificar, pode escolher **Curinga** ou **Expressão Regular**.
+**Padrões de URL** são usados para corresponder URLs nas opções *Redirecionar De*, *Padrões de URL Excluídos* e *Processamento de Grupo de Captura*. Para especificá-los, pode escolher entre **Curinga** ou **Expressão Regular**.
 
 ### Curinga {#url-pattern-wildcard}
 
-**Curinga** é um tipo de padrão mais simples que lhe permite usar `*` (corresponde a qualquer coisa) e `?` (corresponde a qualquer caractere único) como curingas. Aqui estão alguns exemplos:
+**Curinga** é um tipo de padrão mais simples que permite usar `*` (corresponde a qualquer coisa) e `?` (corresponde a qualquer caractere único) como curingas. Aqui estão alguns exemplos:
 
-*   Para corresponder `https://example.com/hello`, pode usar `https://example.com/*`. Isto corresponderá a qualquer string após `https://example.com/`.
-*   Para corresponder `https://example.com/search?q=hello`, pode usar `https://example.com/search?q=*`. Isto corresponderá a qualquer valor para o parâmetro `q`.
-*   Para corresponder a qualquer URL que contenha a palavra `blog`, pode usar `*blog*`.
+* Para corresponder `https://example.com/hello`, pode usar `https://example.com/*`. Isto corresponderá a qualquer string após `https://example.com/`.
+* Para corresponder `https://example.com/search?q=hello`, pode usar `https://example.com/search?q=*`. Isto corresponderá a qualquer valor para o parâmetro `q`.
+* Para corresponder a qualquer URL que contenha a palavra `blog`, pode usar `*blog*`.
 
-Também pode usar substituição em Curinga, o que significa que pode referenciar partes do URL correspondido usando `$1`, `$2`, etc. Por exemplo, se usar `https://example.com/*-world-*`, e o URL for `https://example.com/hello-world-goodbye`, então `$1` seria "hello" e `$2` seria "goodbye". `$0` também está disponível para referenciar o URL completo correspondido.
+Também pode usar substituição em Curinga, o que significa que pode referenciar partes do URL correspondido usando `$1`, `$2`, etc. Por exemplo, se usar `https://example.com/*-world-*`, e o URL for `https://example.com/hello-world-goodbye`, então `$1` seria "hello" e `$2` seria "goodbye". `$0` também está disponível para referenciar a correspondência inteira do URL.
 
 > [!NOTE]
 > Embora a substituição seja uma funcionalidade da Expressão Regular, também pode usá-la para Curinga porque o Redirect Web converte internamente Curinga para Expressão Regular.
@@ -174,11 +174,11 @@ Também pode usar substituição em Curinga, o que significa que pode referencia
 
 **Expressão Regular** (Regex) é uma ferramenta poderosa para corresponder padrões em texto e também é amplamente usada em programação. Permite-lhe definir um padrão específico que corresponde a um conjunto de strings. Aqui estão alguns exemplos.
 
-*   Para corresponder `https://example.com/hello`, pode usar `https://example.com/.*`. Isto corresponderá a qualquer string após `https://example.com/`.
-*   Para corresponder `https://example.com/search?q=hello`, pode usar `https://example.com/search\?q=(.*)`. Isto corresponderá ao valor do parâmetro `q` e armazená-lo-á num grupo de captura. Pode então referenciá-lo usando `$1` na opção *Redirecionar Para*.
-*   Para corresponder a qualquer URL que contenha a palavra `blog`, pode usar `.*blog.*`.
+- Para corresponder `https://example.com/hello`, pode usar `https://example.com/.*`. Isto corresponderá a qualquer string após `https://example.com/`.
+- Para corresponder `https://example.com/search?q=hello`, pode usar `https://example.com/search\?q=(.*)`. Isto corresponderá ao valor do parâmetro `q` e armazená-lo-á num grupo de captura. Pode então referenciá-lo usando `$1` na opção *Redirecionar Para*.
+- Para corresponder a qualquer URL que contenha a palavra `blog`, pode usar `.*blog.*`.
 
-Pode referenciar os grupos de captura em *Redirecionar Para* ou *Substituição* usando `$1`, `$2`, ... ou `$0` para referenciar a correspondência completa.
+Pode referenciar os grupos de captura em *Redirecionar Para* ou *Substituição* usando `$1`, `$2`, ... ou `$0` para referenciar a correspondência inteira.
 
 O Redirect Web é alimentado pelo [motor Regex da Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 

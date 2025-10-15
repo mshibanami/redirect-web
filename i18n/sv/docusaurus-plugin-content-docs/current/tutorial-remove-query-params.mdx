@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Fall 2: Ta bort frågeparametrar från URL
+
+Anta att det finns en frågeparameter `source=twitter` i en URL på `example.com`, och du bestämde dig för att ta bort den för att anonymisera dig själv.
+
+I det här fallet är alternativet **Bearbetning av fångstgrupper** det enklaste sättet:
+
+*   **Omdirigera från**: `https://example.com/*` (Wildcard)
+*   **Omdirigera till**: `$0`
+*   **Bearbetning av fångstgrupper**:
+    *   **Grupp**: `$0`
+    *   **Process**: Ersätt förekomster
+        *   **Mål**: `&?source=[^&]*`
+        *   **Ersättning**: *(ingen)*
+        *   **Textmönster**: Reguljärt uttryck
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Ladda ner regeln</a>**
+
+Denna regel fungerar enligt följande:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Om du vill ta bort fler parametrar, lägg till fler processer.

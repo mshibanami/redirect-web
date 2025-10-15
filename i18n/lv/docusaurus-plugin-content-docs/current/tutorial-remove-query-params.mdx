@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# 2. gadījums: Noņemiet vaicājuma parametrus no URL
+
+Pieņemsim, ka `example.com` URL ir vaicājuma parametrs `source=twitter`, un jūs nolēmāt to noņemt, lai anonimizētu sevi.
+
+Šajā gadījumā **Tveršanas grupas apstrādes** opcija ir vienkāršākais veids:
+
+* **Pārvirzīt no**: `https://example.com/*` (Aizstājējzīme)
+* **Pārvirzīt uz**: `$0`
+* **Tveršanas grupas apstrāde**:
+    * **Grupa**: `$0`
+    * **Process**: Aizstāt gadījumus
+        * **Mērķis**: `&?source=[^&]*`
+        * **Aizstājējs**: *(nav)*
+        * **Teksta modelis**: Regulārā izteiksme
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Lejupielādēt noteikumu</a>**
+
+Šis noteikums darbojas šādi:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Ja vēlaties noņemt vairāk parametru, pievienojiet vairāk procesu.

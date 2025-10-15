@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# Durum 1: Başka bir web sitesine yönlendirme
+
+Diyelim ki Twitter bağımlısısınız ve yanlışlıkla Twitter'ı açtığınızda Insight Timer kullanarak meditasyon yapmaya karar verdiniz. Bunun için bir kural oluşturalım!
+
+### Adım 1. "Kuralı Düzenle" ekranını açın
+
+Uygulamada kendi kuralınızı oluşturmaya başlamak için *Kuralı Düzenle* ekranını açalım. Bunu *Kurallarım* sekmesindeki artı (+) düğmesine tıklayarak yapabilirsiniz.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobil"
+  desktopLabel="Masaüstü"
+  mobile={
+    <>
+      Bu mobil içindir
+    </>
+  }
+  desktop={
+    <>
+      Bu masaüstü içindir
+    </>
+  }
+/>
+
+### Adım 2. "Şuradan Yönlendir"i ayarlayın
+
+İlk olarak, uygulamadaki *Kuralı Düzenle* ekranında *Şuradan Yönlendir* bölümünü ayarlamalısınız. Hedefler `https://twitter.com/` ile başlayan URL'lerdir.
+
+Bu durumda, [Joker Karakter](rule-settings#url-pattern-wildcard) moduyla aşağıdaki deseni belirtebilirsiniz:
+
+```
+https://twitter.com/*
+```
+
+Joker Karakter modunda, `*` herhangi bir şey anlamına gelir (= sıfır veya daha fazla karakter).
+
+Ancak, durun. `twitter.com` adı `x.com` olarak değiştirildi. `twitter.com`'u `x.com` ile değiştirebilirsiniz, ancak yeni sahibinin ne zaman fikrini değiştirip geri alacağını kimse bilemez. Bu nedenle, hem `twitter.com` hem de `x.com`'u hedefleyelim.
+
+Bunu yapmak için, Joker Karakter'den [Normal İfade](rule-settings#url-pattern-regular-expression)'ye geçin ve deseni şu şekilde ayarlayın:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: hem `twitter` hem de `x`'i hedefler. (`|` *boru* olarak adlandırılır.)
+* `.*`: Joker Karakter'deki `*` ile aynıdır. Daha spesifik olarak, `.` *herhangi bir karakter* anlamına gelir ve `*` *bu sembolden önce herhangi bir sayıda tekrarlanan herhangi bir şey* anlamına gelir, bu da herhangi bir şeyi eşleştirmesiyle sonuçlanır.
+
+Normal İfade biraz karmaşıktır, ancak bir kez alıştığınızda güçlü bir araç olacaktır. Normal İfade deseninizin nasıl çalıştığını analiz etmek için [RegExr](https://regexr.com)'ı bir oyun alanı olarak kullanmanızı öneririz.
+
+> [!TIP]
+> Normal İfadelere, `(twitter|x).com` içindeki `.` da *herhangi bir karakter* olarak kabul edilir. Bu nedenle, `(twitter|x).com/.*` örneğin `twitter1com/` veya `x_com/` ile de eşleşir.
+> 
+> Daha kesin olmak için, bunu `(twitter|x)\.com/.*` olarak değiştirebilirsiniz. `\` özel bir karakter yerine `.`'ı gerçek bir nokta karakteri olarak ele almak için kullanılır.
+> 
+> Ancak, genel internet ortamında bu tür URL'ler yoktur. Bu nedenle, isterseniz `.`'ı özel bir karakter olarak bırakabilirsiniz.
+
+### Adım 3: "Şuraya Yönlendir"i ayarlayın
+
+URL'yi basitçe şu şekilde belirtin:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (İsteğe Bağlı) Adım 4: Kuralı kontrol edin
+
+Uygulamadaki *Kuralı Düzenle* ekranındaki *Örnekler* bölümüne bir örnek URL ekleyerek kuralın nasıl çalıştığını kontrol edebilirsiniz. Örneğin, `https://x.com/UN` girerseniz, sonuç olarak `https://insighttimer.com/saraauster/guided-meditations/calm` gösterilir.
+
+Kuralınız şimdi şöyle görünmelidir:
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Başka bir web sitesini açmak için örnek bir kural" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Kuralı İndir</a>**
+
+Artık Redirect Web, Twitter'a eriştiğinizde sizi meditasyona götürüyor!

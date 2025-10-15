@@ -1,0 +1,72 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Prípad 3: Pridanie parametrov dotazu do URL
+
+Povedzme, že existuje webová stránka `example.com`, ktorá predvolene zobrazuje mobilné rozloženie, ale vy preferujete ich desktopové rozloženie. Našťastie, webová stránka podporuje parameter dotazu `layout` na určenie, aké rozloženie webová stránka zobrazuje. Vytvorme pravidlo, ktoré automaticky pridá `layout=desktop`.
+
+Možno si myslíte, že by ste to mohli definovať takto:
+
+* **Presmerovať z**: `https://example.com/.*` (Regulárny výraz)
+* **Presmerovať na**: `$0?layout=desktop`
+
+`$0` odkazuje na cieľovú URL. Ak sa pokúsite pristupovať k `example.com/hello`, budete presmerovaní na `example.com/hello?layout=desktop`. Táto funkcia sa nazýva *substitúcia*.
+
+> [!TIP]
+> Substitúcia je k dispozícii aj pre režim zástupného znaku, pretože sa interne konvertuje na regulárny výraz.
+
+Avšak, s týmito nastaveniami je niekoľko problémov.
+
+### Problém 1: Nekonečná slučka
+
+Aktuálne nastavenie vytvára nekonečnú slučku presmerovania, pretože `https://example.com/.*` tiež cieli na `https://example.com/hello?layout=desktop`.
+
+V tomto prípade môžete špecifikovať vylúčený vzor URL, ktorý vám umožní prístup bez presmerovania, napríklad takto s regulárnym výrazom:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Zhoduje sa s čímkoľvek
+* `[&?]`: Zhoduje sa buď s `&` alebo `?
+* `[^&]*`: Zhoduje sa s čímkoľvek okrem `&`
+
+### Problém 2: Nedokáže správne spracovať existujúce parametre
+
+Ak cieľová URL už má iné parametre dotazu ako `example.com/hello?theme=dark`, cieľ bude `example.com/hello?theme=dark?layout=desktop` (v URL sú dve `?`), ale parametre môžete spojiť iba pomocou `&`. `?` ako špeciálny znak je povolený iba na začiatku parametrov. Takže sa nepovažuje za platný parameter.
+
+V tomto prípade zmeňte nastavenia takto:
+
+* **Presmerovať z**: `(https://example.com/[^?]*)(\(.*))?`
+* **Presmerovať na**: `$1?layout=desktop&$3`
+
+Pozrime sa na to krok za krokom.
+
+* `(https://example.com/[^?]*)`: Zhoduje sa s časťou až po predchádzajúci znak `?`.
+    * `[^?]*` zhoduje sa s čímkoľvek okrem `?`.
+    * Toto je zabalené do `()`, takže na to môžete odkazovať pomocou `$1` neskôr.
+* `(\(.*))?`: Zhoduje sa s reťazcom začínajúcim `?`, čo znamená parametre dotazu.
+    * Toto sa tiež zhoduje s prázdnym reťazcom pomocou kvantifikátora `?` na konci vzoru, ktorý *zhoduje nula alebo jedenkrát*.
+    * Vonkajšie `()` a vnútorné `()` môžu byť odkazované pomocou `$2` a `$3` neskôr.
+
+[RegExr](https://regexr.com) vám môže pomôcť pochopiť podrobnosti.
+
+> [!NOTE]
+> RegExr zobrazí chybu, ak neuniknete `/` pomocou `\`. Hoci ho môžete uniknúť, nie je to potrebné, pretože Redirect Web používa iný engine od spoločnosti Apple, ktorý nevyžaduje unikanie.
+
+Toto nie je dokonalé riešenie, pretože presmeruje `example.com/hello` na `example.com/hello?layout=desktop&`, čo obsahuje zbytočné `&` na konci URL. Vo všeobecnosti to nie je veľký problém, ale ak ho chcete odstrániť, môžete použiť *Spracovanie zachytávacej skupiny*.
+
+Na záver, toto je konečný výstup:
+
+* **Presmerovať z**: `(https://example.com/[^?]*)((\(.*))?)` (Regulárny výraz)
+* **Presmerovať na**: `$1?layout=desktop$3`
+* **Vylúčený vzor URL**: `.*[&?]layout=[^&]*.*` (Regulárny výraz)
+* **Spracovanie zachytávacej skupiny**: 
+    * **Skupina**: `$3`
+    * **Proces**: Nahradiť výskyty
+        * **Cieľ**: `\?(.*)`
+        * **Náhrada**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Stiahnuť pravidlo</a>**
+
+
+Toto je len príklad. Môžete tiež vytvoriť viacero pravidiel na riešenie každého problému. Môže to byť oveľa jednoduchšie.

@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Caso 2: Eliminar parámetros de consulta de la URL
+
+Supongamos que hay un parámetro de consulta `source=twitter` en una URL de `example.com`, y decides eliminarlo para anonimizarte.
+
+En este caso, la opción **Procesamiento de grupos de captura** es la forma más sencilla:
+
+* **Redirigir desde**: `https://example.com/*` (Comodín)
+* **Redirigir a**: `$0`
+* **Procesamiento de grupos de captura**:
+    * **Grupo**: `$0`
+    * **Proceso**: Reemplazar ocurrencias
+        * **Objetivo**: `&?source=[^&]*`
+        * **Reemplazo**: *(ninguno)*
+        * **Patrón de texto**: Expresión Regular
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Descargar la regla</a>**
+
+Esta regla funciona de la siguiente manera:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Si quieres eliminar más parámetros, añade más procesos.

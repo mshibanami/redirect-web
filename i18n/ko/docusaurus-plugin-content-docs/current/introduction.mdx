@@ -2,24 +2,25 @@
 slug: /
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ExtensionStoreLinks from "@site/src/components/ExtensionStoreLinks";
 
 # 소개
 
 <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", marginBottom: "25px"}}>
-  <img src="./img/redirect-a-to-b.png" style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="A에서 B로 리디렉션" />
+  <img src={useBaseUrl("img/redirect-a-to-b.png")} style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Redirect A to B" />
   <ExtensionStoreLinks />
 </div>
 
-Redirect Web 지원 웹사이트에 오신 것을 환영합니다. Redirect Web은 브라우저의 모든 페이지 로드를 리디렉션하여 항상 원하는 곳으로 이동할 수 있도록 하는 브라우저 확장 프로그램입니다.
+브라우저의 모든 페이지 로드를 리디렉션하여 항상 원하는 곳에 착륙할 수 있도록 하는 브라우저 확장 프로그램인 Redirect Web의 지원 웹사이트에 오신 것을 환영합니다.
 
-(이전에는 Safari용 Redirect Web으로 알려졌습니다.)
+(이전 명칭: Redirect Web for Safari.)
 
 ## ⬇️ 다운로드 링크 {#download-links}
 
-- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome 웹 스토어)
-- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox 부가 기능)
-- [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge 부가 기능)
+- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
+- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox Add-ons)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge Add-ons)
 - [Safari](https://apps.apple.com/app/id1571283503) (확장 프로그램은 이미 네이티브 앱에 번들되어 있습니다.)
 
 Redirect Web은 다음에서 사용할 수 있습니다:
@@ -29,16 +30,16 @@ Redirect Web은 다음에서 사용할 수 있습니다:
 
 :::note
 
-- 어떤 브라우저를 사용하든 확장 프로그램을 사용하려면 [Mac App Store에서 Redirect Web 앱](https://apps.apple.com/app/id1571283503)을 설치해야 합니다. 확장 프로그램은 규칙, 설정 등에 액세스하기 위해 앱에 의존하기 때문입니다.
-- 다중 브라우저 지원은 Mac에서만 사용할 수 있습니다.
+- 어떤 브라우저를 사용하든 확장 프로그램을 사용하려면 [Mac App Store에서 Redirect Web 앱](https://apps.apple.com/app/id1571283503)을 설치해야 합니다. 확장 프로그램은 규칙, 설정 등에 접근하기 위해 앱에 의존하기 때문입니다.
+- 다중 브라우저 지원은 Mac에서만 가능합니다.
 
 :::
 
 다음은 기본적인 사용법입니다:
 
-<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="iOS 데모 비디오 (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="iOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="macOS 데모 비디오 (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="macOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## 인기 사용 사례 {#popular-use-cases}
 
@@ -48,7 +49,7 @@ Redirect Web은 다음에서 사용할 수 있습니다:
 - **Google 지도** 링크가 나타날 때마다 **Apple 지도**를 엽니다.
 - 모든 검색에 **?udm=14**를 추가하여 **Google 검색 결과**에서 Google의 AI 개요를 숨깁니다.
 - Fandom 페이지에서 공식 **Terraria** 또는 **Minecraft** 위키로 이동합니다.
-- **Kagi**, **Startpage**, **ChatGPT** 및 기타 검색 엔진을 **기본 검색 엔진**으로 사용합니다.
+- **Kagi**, **Startpage**, **ChatGPT** 및 기타 모든 검색 엔진을 **기본 검색 엔진**으로 사용합니다.
 - Google Chrome에서 **Google Meet** 링크를 엽니다. (Mac)
 - Figma 앱에서 **Figma** 링크를 직접 엽니다. (Mac)
 - Notion 앱에서 **Notion** 링크를 직접 엽니다. (Mac)
@@ -62,26 +63,25 @@ Redirect Web은 다음 기능을 제공합니다:
 - **정규 표현식** 또는 **와일드카드** 패턴 유형을 사용하여 규칙 생성
 - 동적 대상 URL을 지정하기 위해 **역참조** 사용
 - 리디렉션에서 URL **제외**
-- URL 인코딩/디코딩, base64 인코딩/디코딩 또는 발생 횟수 바꾸기를 사용하여 **캡처된 텍스트 처리**
+- URL 인코딩/디코딩, base64 인코딩/디코딩 또는 발생 항목 교체를 사용하여 **캡처된 텍스트 처리**
 
 또한 구독 또는 일회성 구매를 통해 다음 기능을 잠금 해제할 수 있습니다:
 
 - **무제한** 규칙 활성화
-- **iCloud를 통해** 다른 Mac, iPhone 및 iPad와 **규칙 동기화**
+- iCloud를 통해 다른 Mac, iPhone 및 iPad와 **규칙 동기화**
 
-(앱을 구매하면 Redirect Web 유지 관리에도 도움이 됩니다. 🙏)
+(앱을 구매하는 것은 Redirect Web을 유지 관리하는 데도 도움이 됩니다. 🙏)
 
-구매 또는 구독은 Universal Purchase를 통해 Mac, iPhone, iPad 및 Apple Vision Pro에서 공유됩니다. 귀하의 지원은 지속적인 개발에 도움이 됩니다.
+귀하의 구매 또는 구독은 유니버설 구매를 통해 Mac, iPhone, iPad 및 Apple Vision Pro에서 공유됩니다. 귀하의 지원은 지속적인 개발에 도움이 됩니다.
 
-
-## 많은 미디어에 소개되었습니다! {#media-coverage}
+## 우리는 많은 미디어에 소개되었습니다! {#media-coverage}
 
 * 🏅 수상
     * **Apple**: [최고의 Safari 확장 프로그램](https://apps.apple.com/us/story/id1377753262)
 * 📰 기사
     * **Six Colors**: [Safari용 Redirect Web이 나를 올바른 곳으로 안내합니다](https://sixcolors.com/post/2022/11/redirect-web-for-safari-takes-me-to-the-right-places/)
-    * **Lifehacker**: [이 자동 리디렉션으로 Safari 브라우징 경험 향상](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
-    * **MacStories**: [ChatGPT 확장 프로그램 그 이상: Safari 검색을 모든 LLM으로 리디렉션하는 방법](https://www.macstories.net/tutorials/beyond-chatgpts-extension-how-to-redirect-safari-searches-to-any-llm/)
+    * **Lifehacker**: [이 자동 리디렉션으로 Safari 브라우징 경험을 개선하세요](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
+    * **MacStories**: [ChatGPT 확장 프로그램을 넘어: Safari 검색을 모든 LLM으로 리디렉션하는 방법](https://www.macstories.net/tutorials/beyond-chatgpts-extension-how-to-redirect-safari-searches-to-any-llm/)
     * **AppAddict**: [Safari용 Redirect Web](https://appaddict.app/post/redirect-web-for-safari)
 * 🎙️ 팟캐스트
     * [**MacBreak Weekly**](https://youtu.be/I251K3L2s88?t=7427)
@@ -89,6 +89,6 @@ Redirect Web은 다음 기능을 제공합니다:
 
 ---
 
-질문, 피드백 또는 문제가 있는 경우 [문의하기](contact-us)를 주저하지 마십시오.
+질문, 피드백 또는 문제가 있는 경우 주저하지 말고 [문의](contact-us)하십시오.
 
-광고 없음. 추적 없음. 당신에게 맞춰진 더 빠르고 깨끗한 웹을 즐기십시오.
+광고 없음. 추적 없음. 당신에게 맞춰진 더 빠르고 깨끗한 웹을 즐기세요.

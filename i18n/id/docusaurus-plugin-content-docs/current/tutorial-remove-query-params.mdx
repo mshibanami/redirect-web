@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Kasus 2: Hapus parameter kueri dari URL
+
+Misalkan ada parameter kueri `source=twitter` di URL `example.com`, dan Anda memutuskan untuk menghapusnya untuk menganonimkan diri Anda.
+
+Dalam kasus ini, opsi **Pemrosesan Grup Penangkapan** adalah cara termudah.:
+
+* **Alihkan Dari**: `https://example.com/*` (Wildcard)
+* **Alihkan Ke**: `$0`
+* **Pemrosesan Grup Penangkapan**:
+    * **Grup**: `$0`
+    * **Proses**: Ganti Kejadian
+        * **Target**: `&?source=[^&]*`
+        * **Pengganti**: *(tidak ada)*
+        * **Pola Teks**: Ekspresi Reguler
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Unduh Aturan</a>**
+
+Aturan ini bekerja sebagai berikut:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Jika Anda ingin menghapus lebih banyak parameter, tambahkan lebih banyak proses.

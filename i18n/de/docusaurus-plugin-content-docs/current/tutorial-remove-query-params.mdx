@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Fall 2: Abfrageparameter aus der URL entfernen
+
+Angenommen, es gibt einen Abfrageparameter `source=twitter` in einer URL von `example.com`, und Sie haben beschlossen, ihn zu entfernen, um sich selbst zu anonymisieren.
+
+In diesem Fall ist die Option **Verarbeitung von Erfassungsgruppen** der einfachste Weg:
+
+* **Umleiten von**: `https://example.com/*` (Wildcard)
+* **Umleiten zu**: `$0`
+* **Verarbeitung von Erfassungsgruppen**:
+    * **Gruppe**: `$0`
+    * **Prozess**: Vorkommen ersetzen
+        * **Ziel**: `&?source=[^&]*`
+        * **Ersetzung**: *(keine)*
+        * **Textmuster**: Regulärer Ausdruck
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Regel herunterladen</a>**
+
+Diese Regel funktioniert wie folgt:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Wenn Sie weitere Parameter entfernen möchten, fügen Sie weitere Prozesse hinzu.

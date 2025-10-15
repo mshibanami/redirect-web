@@ -1,0 +1,78 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# 1. gadījums: Pārvirzīšana uz citu vietni
+
+Pieņemsim, ka esat atkarīgs no Twitter un nolemjat meditēt, izmantojot Insight Timer, ikreiz, kad nejauši atverat Twitter. Izveidosim tam noteikumu!
+
+### 1. solis. Atveriet ekrānu "Rediģēt noteikumu"
+
+Atvērsim *Rediģēt noteikumu* ekrānu, lai sāktu veidot savu noteikumu lietotnē. To var izdarīt, noklikšķinot uz plusa (+) pogas cilnē *Mani noteikumi*.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobilais"
+  desktopLabel="Dators"
+  mobile={
+    <>
+      Šis ir mobilajām ierīcēm
+    </>
+  }
+  desktop={
+    <>
+      Šis ir datoriem
+    </>
+  }
+/>
+
+### 2. solis. Iestatiet "Pārvirzīt no"
+
+Vispirms jums jāiestata sadaļa *Pārvirzīt no* lietotnes ekrānā *Rediģēt noteikumu*. Mērķi ir URL, kas sākas ar `https://twitter.com/`.
+
+Šajā gadījumā varat norādīt šādu modeli ar [Aizstājējzīmes](rule-settings#url-pattern-wildcard) režīmu:
+
+```
+https://twitter.com/*
+```
+
+Tomēr pagaidiet. `twitter.com` tika pārdēvēts par `x.com`. Jūs varat vienkārši aizstāt `twitter.com` ar `x.com`, taču neviens nezina, kad jaunais īpašnieks atkal mainīs savas domas, lai to atjaunotu. Tāpēc mērķēsim gan `twitter.com`, gan `x.com`.
+
+Lai to izdarītu, pārslēdzieties no Aizstājējzīmes uz [Regulāro izteiksmi](rule-settings#url-pattern-regular-expression) un iestatiet šo kā modeli:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: tas mērķē gan `twitter`, gan `x`. (`|` tiek saukts par *cauruli*.)
+* `.*`: Tas ir tas pats, kas Aizstājējzīmes `*`. Precīzāk, `.` nozīmē *jebkuru rakstzīmi* un `*` nozīmē *jebko pirms šī simbola, kas atkārtojas jebkuru reižu skaitu*, kā rezultātā tas atbilst jebkam.
+
+Regulārā izteiksme ir nedaudz sarežģīta, taču, tiklīdz jūs pie tās pieradīsit, tā kļūs par spēcīgu rīku. Mēs iesakām izmantot [RegExr](https://regexr.com) kā rotaļu laukumu, lai analizētu, kā darbojas jūsu regulārās izteiksmes modelis.
+
+> [!TIP]
+> Regulārajās izteiksmēs `.` `(twitter|x).com` tiek uzskatīts arī par *jebkuru rakstzīmi*. Tāpēc `(twitter|x).com/.*` atbilst arī, piemēram, `twitter1com/` vai `x_com/`.
+> 
+> Lai būtu precīzāk, varat to mainīt uz `(twitter|x)\.com/.*`. `\` tiek izmantots, lai `.` uzskatītu par burtisku punktu, nevis speciālu rakstzīmi.
+> 
+> Tomēr vispārējā interneta vidē šādu URL nav. Tāpēc, ja vēlaties, varat atstāt `.` kā speciālu rakstzīmi.
+
+### 3. solis: Iestatiet "Pārvirzīt uz"
+
+Vienkārši norādiet URL šādi:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (Pēc izvēles) 4. solis: Pārbaudiet noteikumu
+
+Varat pārbaudīt, kā noteikums darbojas, pievienojot piemēra URL sadaļā *Piemēri* ekrānā *Rediģēt noteikumu*. Piemēram, ja ievadāt `https://x.com/UN`, tas parāda `https://insighttimer.com/saraauster/guided-meditations/calm` kā rezultātu.
+
+Lūk, kādam vajadzētu izskatīties jūsu noteikumam tagad:
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Piemēra noteikums, lai atvērtu citu vietni" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Lejupielādēt noteikumu</a>**
+
+Tagad Redirect Web aizvedīs jūs uz meditāciju, kad piekļūstat Twitter!

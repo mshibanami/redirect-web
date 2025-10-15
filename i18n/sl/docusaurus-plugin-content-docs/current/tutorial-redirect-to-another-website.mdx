@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# Primer 1: Preusmeritev na drugo spletno stran
+
+Recimo, da ste zasvojeni s Twitterjem in se odločite meditirati z Insight Timerjem, kadar koli pomotoma odprete Twitter. Ustvarimo pravilo za to!
+
+### Korak 1. Odprite zaslon "Uredi pravilo"
+
+Odprimo zaslon *Uredi pravilo*, da začnete ustvarjati svoje pravilo v aplikaciji. To lahko storite tako, da kliknete gumb plus (+) na zavihku *Moja pravila*.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobilno"
+  desktopLabel="Namizno"
+  mobile={
+    <>
+      To je za mobilne naprave
+    </>
+  }
+  desktop={
+    <>
+      To je za namizne naprave
+    </>
+  }
+/>
+
+### Korak 2. Nastavite "Preusmeri iz"
+
+Najprej morate nastaviti razdelek *Preusmeri iz* na zaslonu *Uredi pravilo* v aplikaciji. Cilji so URL-ji, ki se začnejo z `https://twitter.com/`.
+
+V tem primeru lahko določite naslednji vzorec z načinom [Nadomestni znak](rule-settings#url-pattern-wildcard):
+
+```
+https://twitter.com/*
+```
+
+V načinu Nadomestni znak `*` pomeni, da se ujema s čimer koli (= nič ali več znakov).
+
+Vendar počakajte. `twitter.com` je bil preimenovan v `x.com`. Preprosto lahko zamenjate `twitter.com` z `x.com`, vendar nihče ne ve, kdaj si bo novi lastnik spet premislil in ga vrnil nazaj. Zato ciljajmo na `twitter.com` in `x.com`.
+
+Če želite to storiti, preklopite z Nadomestnega znaka na [Regularni izraz](rule-settings#url-pattern-regular-expression) in nastavite to kot vzorec:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: cilja na `twitter` in `x`. (`|` se imenuje *cev*.)
+* `.*`: Enako je kot `*` pri Nadomestnem znaku. Natančneje, `.` pomeni *kateri koli znak* in `*` pomeni *karkoli pred tem simbolom, ponovljeno poljubno število krat*, kar pomeni, da se ujema s čimer koli.
+
+Regularni izraz je nekoliko zapleten, a ko se ga navadite, bo močno orodje. Priporočamo uporabo [RegExr](https://regexr.com) kot igrišča za analizo delovanja vašega vzorca regularnega izraza.
+
+> [!TIP]
+> V regularnih izrazih, `.` v `(twitter|x).com` se obravnava tudi kot *kateri koli znak*. Zato se `(twitter|x).com/.*` ujema tudi, na primer, z `twitter1com/` ali `x_com/`.
+> 
+> Za večjo natančnost ga lahko spremenite v `(twitter|x)\.com/.*`. `\` se uporablja za obravnavanje `.` kot dobesednega znaka pike in ne kot posebnega znaka.
+> 
+> Vendar takšnih URL-jev v splošnem internetnem okolju ni. Zato lahko `.` pustite kot poseben znak, če želite.
+
+### Korak 3: Nastavite "Preusmeri na"
+
+Preprosto določite URL, kot sledi:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (Neobvezno) Korak 4: Preverite pravilo
+
+Delovanje pravila lahko preverite tako, da dodate primer URL-ja v razdelek *Primeri* na zaslonu *Uredi pravilo*. Na primer, če vnesete `https://x.com/UN`, se prikaže `https://insighttimer.com/saraauster/guided-meditations/calm` kot rezultat.
+
+Tako bi moralo izgledati vaše pravilo zdaj:
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Primer pravila za odpiranje druge spletne strani" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Prenesite pravilo</a>**
+
+Zdaj vas Redirect Web pripelje do meditacije, ko dostopate do Twitterja!

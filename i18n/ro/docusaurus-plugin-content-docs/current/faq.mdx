@@ -10,13 +10,13 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 Este posibil să vedeți o alertă ca aceasta atunci când configurați Redirect Web:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="O alertă care necesită permisiune" width="200" margin="0 0 16px 0" hasShadow={true} />
+    <Image src={PermissionAlertSafari} alt="O alertă care necesită permisiune" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Această extensie va putea citi și modifica paginile web și va vedea istoricul dvs. de navigare pe acest site web. **Acest lucru ar putea include informații sensibile, inclusiv parole, numere de telefon și carduri de credit.**
+    > Această extensie va putea citi și modifica paginile web și va putea vedea istoricul dvs. de navigare pe acest site web. **Aceasta ar putea include informații sensibile, inclusiv parole, numere de telefon și carduri de credit.**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="O alertă care necesită permisiune" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="O alertă care necesită permisiune" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
     > Poate:
     > Citi și modifica **toate datele dvs.** pe **toate site-urile web**
@@ -26,22 +26,22 @@ Această extensie are nevoie de permisiunea dvs. pentru a observa navigarea pagi
 
 Permisiunile acordate vor fi utilizate numai pentru funcțiile aplicației, cum ar fi redirecționarea, în conformitate cu **[politica de confidențialitate](./privacy-policy)**.
 
-## Ar trebui să obțin aplicația și după instalarea extensiei pentru Chrome, Firefox sau Edge? {#app-for-non-safari-browsers}
+## Ar trebui să obțin aplicația chiar și după instalarea extensiei pentru Chrome, Firefox sau Edge? {#app-for-non-safari-browsers}
 
 Da. Trebuie să descărcați [aplicația Redirect Web din App Store](https://apps.apple.com/app/id1571283503) indiferent de browserul pe care îl utilizați. Puteți instala extensia din magazinul de extensii al browserului dvs., dar aplicația este necesară pentru a vă gestiona regulile, istoricul achizițiilor și alte setări pe toate dispozitivele prin iCloud.
 
-## Funcționează Redirect Web pe Windows, Android, Linux sau pe alte platforme? {#non-apple-platforms}
+## Funcționează Redirect Web pe Windows, Android, Linux sau alte platforme? {#non-apple-platforms}
 
-Nu în acest moment. Redirect Web este strâns legat de ecosistemul Apple, inclusiv iCloud și Universal Purchase, ceea ce face dificilă oferirea.
+Nu în acest moment. Redirect Web este strâns legat de ecosistemul Apple, inclusiv iCloud și Universal Purchase. Ne pare rău pentru inconvenient.
 
 ## De ce nu [Redirector](https://github.com/einaregilsson/Redirector)? {#why-not-redirector}
 
-Redirector este încă o extensie excelentă de redirecționare. Este complet gratuită, open-source și funcționează și pe platforme non-Apple. Dar Redirect Web are câteva funcții suplimentare care v-ar putea plăcea:
+Redirector este încă o extensie excelentă de redirecționare. Este complet gratuită, open-source și funcționează și pe platforme non-Apple. Dar Redirect Web are câteva funcționalități suplimentare care v-ar putea plăcea:
 
-* **Setări detaliate ale regulilor:** Mai multe modele de excludere, mai multe procese de potrivire și funcții de înlocuire a șirurilor de caractere disponibile numai în Redirect Web.
-* **Deschideți în aplicații native:** Pe Mac, puteți alege unde să deschideți URL-ul țintă. (Apelează direct comanda `open`. Nu linkuri profunde.)
-* **Suport [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Oferă o redirecționare extrem de rapidă.
-* **Gestionare centralizată a regulilor:** Gestionați regulile pentru toate browserele într-un singur loc prin intermediul aplicației native.
+* **Setări detaliate ale regulilor:** Mai multe modele de excludere, mai multe potriviri de proces și funcționalități de înlocuire a șirurilor de caractere disponibile numai în Redirect Web.
+* **Deschidere în aplicații native:** Pe Mac, puteți alege unde să deschideți URL-ul țintă. (Apelează direct comanda `open`. Nu link-uri profunde.)
+* **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) suport:** Oferă o redirecționare extrem de rapidă.
+* **Gestionare centralizată a regulilor:** Gestionați regulile pentru toate browserele într-un singur loc prin aplicația nativă.
 * **Suport Manifest V3 & V2:** Util în timp ce V2 este eliminat treptat în Chrome.
 
 ## De ce această extensie necesită o nouă permisiune? {#permission-alert-on-safari}
@@ -54,30 +54,30 @@ Este posibil să vedeți această alertă în Safari după actualizarea Redirect
 >
 > Puteți activa această extensie în secțiunea Extensii din Setările Safari.
 
-Acest lucru se datorează permisiunii [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) necesare pentru tipul [DNR](./rule-settings#type) introdus în versiunea 7. Vă rugăm să reactivați extensia. Ne cerem scuze pentru neplăceri.
+Acest lucru se datorează permisiunii [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) necesare de tipul [DNR](./rule-settings#type) introdus în versiunea 7. Vă rugăm să reactivați extensia. Ne pare rău pentru inconvenient.
 
 ## Conținutul bibliotecii va deveni plătit în viitor? {#will-library-become-paid}
 
-Nu, este întotdeauna gratuit. Puteți găsi și sursa tuturor conținuturilor [aici](https://github.com/mshibanami/redirect-web/tree/main/library).
+Nu, este întotdeauna gratuit. Puteți găsi și sursa întregului conținut [aici](https://github.com/mshibanami/redirect-web/tree/main/library).
 
 ## Achiziție unică sau abonament anual: Care este cel mai bun? {#one-time-or-subscription}
 
 Recomandăm achiziția unică, deoarece diferența de preț este de doar 2,00 USD.
-Principalul motiv pentru care oferim abonamentul este să vă permitem să încercați toate funcțiile prin intermediul perioadei de încercare gratuite. Iată cazul de utilizare așteptat:
+Principalul motiv pentru care oferim abonamentul este să vă permitem să încercați toate funcționalitățile prin perioada de încercare gratuită. Iată cazul de utilizare așteptat:
 
 1. Abonați-vă la abonamentul anual.
-2. Anulați imediat abonamentul accesând aplicația Setări, căutând „Abonamente”, atingând această aplicație și selectând „Anulează abonamentul”. Acest lucru vă permite să vă bucurați de perioada de încercare gratuită fără niciun angajament.
-3. Bucurați-vă de acces complet la toate funcțiile timp de 7 zile.
-4. Dacă vă plac funcțiile, optați pentru achiziția unică.
+2. Anulați imediat abonamentul accesând aplicația Setări, căutând „Abonamente”, atingând această aplicație și selectând „Anulați abonamentul”. Acest lucru vă permite să vă bucurați de perioada de încercare gratuită fără niciun angajament.
+3. Bucurați-vă de acces complet la toate funcționalitățile timp de 7 zile.
+4. Dacă vă plac funcționalitățile, optați pentru achiziția unică.
 
 Desigur, nu este nimic în neregulă cu continuarea abonamentului anual dacă preferați!
 
 ## Injectează Redirect Web reclame sau alt conținut irelevant în site-uri web? {#does-it-inject-ads}
 
-Nu, nu injectează niciun astfel de conținut. Doar codul necesar pentru a oferi funcțiile descrise în această documentație și pe pagina aplicației din App Store este injectat în site-urile web pe Safari.
+Nu, nu injectează un astfel de conținut. Doar codul necesar pentru a oferi funcționalitățile descrise în această documentație și pe pagina aplicației din App Store este injectat în site-urile web pe Safari.
 
-## Există vreo șansă ca Redirect Web să fie vândut vreodată altcuiva? {#could-it-be-sold}
+## Există vreo șansă ca Redirect Web să fie vândut altcuiva? {#could-it-be-sold}
 
-100% nu. Extensiile de browser dețin un control profund asupra navigării și datelor dvs., iar predarea Redirect Web unui alt proprietar ar deschide ușa către încălcări ale confidențialității. Am văzut extensii schimbând proprietarii și apoi colectând datele utilizatorilor sau injectând reclame fără avertisment. Acest lucru nu se va întâmpla niciodată aici. Pentru mai multe despre aceste riscuri, consultați articolul lui Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) și investigația lui Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100% nu. Extensiile de browser dețin un control profund asupra navigării și datelor dvs., iar predarea Redirect Web unui alt proprietar ar deschide ușa către încălcări ale confidențialității. Am văzut extensii schimbând proprietarii și apoi colectând datele utilizatorilor sau injectând reclame fără avertisment. Acest lucru nu se va întâmpla niciodată aici. Pentru mai multe despre aceste riscuri, consultați articolul lui Matt Frisbie „[Afacerea urâtă a monetizării browserului](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser)” și investigația lui Brian Krebs „[Extensia dvs. de browser este o ușă din spate a unui botnet?](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)”.
 
-Redirect Web este fondat pe încredere și responsabilitate. Considerăm că este datoria noastră să vă păstrăm informațiile în siguranță și refuzăm să transferăm proprietatea în orice circumstanțe. Redirect Web va rămâne întotdeauna în mâinile noastre, astfel încât să puteți naviga cu încredere deplină).
+Redirect Web este fondat pe încredere și responsabilitate. Considerăm că este datoria noastră să vă păstrăm informațiile în siguranță și refuzăm să transferăm proprietatea în orice circumstanțe. Redirect Web va rămâne întotdeauna în mâinile noastre, astfel încât să puteți naviga cu încredere deplină.

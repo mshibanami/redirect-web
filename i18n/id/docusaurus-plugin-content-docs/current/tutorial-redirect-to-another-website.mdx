@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# Kasus 1: Mengalihkan ke situs web lain
+
+Misalkan Anda kecanduan Twitter, dan Anda memutuskan untuk bermeditasi menggunakan Insight Timer setiap kali Anda tidak sengaja membuka Twitter. Mari kita buat aturan untuk itu!
+
+### Langkah 1. Buka layar "Edit Aturan"
+
+Mari kita buka layar *Edit Aturan* untuk mulai membuat aturan Anda sendiri di aplikasi. Anda dapat melakukannya dengan mengklik tombol plus (+) di tab *Aturan Saya*.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Seluler"
+  desktopLabel="Desktop"
+  mobile={
+    <>
+      Ini untuk seluler
+    </>
+  }
+  desktop={
+    <>
+      Ini untuk desktop
+    </>
+  }
+/>
+
+### Langkah 2. Siapkan "Alihkan Dari"
+
+Pertama, Anda harus mengatur bagian *Alihkan Dari* di layar *Edit Aturan* di aplikasi. Targetnya adalah URL yang dimulai dengan `https://twitter.com/`.
+
+Dalam kasus ini, Anda dapat menentukan pola berikut dengan mode [Wildcard](rule-settings#url-pattern-wildcard):
+
+```
+https://twitter.com/*
+```
+
+Dalam mode Wildcard, `*` berarti cocok dengan apa saja (= nol atau lebih karakter).
+
+Namun, tunggu dulu. `twitter.com` diganti namanya menjadi `x.com`. Anda cukup mengganti `twitter.com` dengan `x.com` tetapi tidak ada yang tahu kapan pemilik baru akan berubah pikiran lagi untuk mengembalikannya. Oleh karena itu, mari kita targetkan `twitter.com` dan `x.com`.
+
+Untuk melakukannya, beralihlah dari Wildcard ke [Ekspresi Reguler](rule-settings#url-pattern-regular-expression), dan atur ini sebagai pola:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: ini menargetkan `twitter` dan `x`. (`|` disebut *pipa*.)
+* `.*`: Ini sama dengan `*` Wildcard. Lebih spesifik, `.` berarti *karakter apa pun* dan `*` berarti *apa pun sebelum simbol ini diulang berapa kali pun*, menghasilkan kecocokan dengan apa saja.
+
+Ekspresi Reguler sedikit rumit, tetapi setelah Anda terbiasa, itu akan menjadi alat yang ampuh. Kami merekomendasikan menggunakan [RegExr](https://regexr.com) sebagai tempat bermain untuk menganalisis cara kerja pola Ekspresi Reguler Anda.
+
+> [!TIP]
+> Dalam Ekspresi Reguler, `.` di `(twitter|x).com` juga diperlakukan sebagai *karakter apa pun*. Oleh karena itu, `(twitter|x).com/.*` juga cocok, misalnya, `twitter1com/` atau `x_com/`.
+> 
+> Agar lebih tepat, Anda dapat mengubahnya menjadi `(twitter|x)\.com/.*`. `\` digunakan untuk memperlakukan `.` sebagai karakter titik literal daripada karakter khusus.
+> 
+> Namun, tidak ada URL seperti itu di lingkungan internet umum. Oleh karena itu, Anda dapat membiarkan `.` sebagai karakter khusus jika Anda mau.
+
+### Langkah 3: Siapkan "Alihkan Ke"
+
+Cukup tentukan URL sebagai berikut:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (Opsional) Langkah 4: Periksa aturan
+
+Anda dapat memeriksa cara kerja aturan dengan menambahkan contoh URL di bagian *Contoh* di layar *Edit Aturan*. Misalnya, jika Anda memasukkan `https://x.com/UN`, itu menunjukkan `https://insighttimer.com/saraauster/guided-meditations/calm` sebagai hasilnya.
+
+Berikut adalah tampilan aturan Anda sekarang:
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Contoh aturan untuk membuka situs web lain" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Unduh Aturan</a>**
+
+Sekarang, Redirect Web membawa Anda ke meditasi saat Anda mengakses Twitter!

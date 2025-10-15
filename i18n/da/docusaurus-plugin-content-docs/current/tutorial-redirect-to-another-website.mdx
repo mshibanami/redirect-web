@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# Case 1: Omdiriger til et andet websted
+
+Antag, at du er afhængig af Twitter, og du beslutter dig for at meditere ved hjælp af Insight Timer, når du ved et uheld åbner Twitter. Lad os oprette en regel for det!
+
+### Trin 1. Åbn skærmen "Rediger regel"
+
+Lad os åbne *Rediger regel*-skærmen for at begynde at oprette din egen regel i appen. Du kan gøre dette ved at klikke på plus (+) knappen under fanen *Mine regler*.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobil"
+  desktopLabel="Desktop"
+  mobile={
+    <>
+      Dette er til mobil
+    </>
+  }
+  desktop={
+    <>
+      Dette er til desktop
+    </>
+  }
+/>
+
+### Trin 2. Opsæt "Omdiriger fra"
+
+Først skal du opsætte sektionen *Omdiriger fra* på skærmen *Rediger regel* i appen. Målene er URL'er, der starter med `https://twitter.com/`.
+
+I dette tilfælde kan du angive følgende mønster med [Jokertegn](rule-settings#url-pattern-wildcard)-tilstanden:
+
+```
+https://twitter.com/*
+```
+
+I Jokertegn-tilstanden betyder `*`, at den matcher alt (= nul eller flere tegn).
+
+Men vent. `twitter.com` blev omdøbt til `x.com`. Du kan blot erstatte `twitter.com` med `x.com`, men ingen ved, hvornår den nye ejer igen vil ændre mening og rulle det tilbage. Derfor vil vi målrette både `twitter.com` og `x.com`.
+
+For at gøre dette skal du skifte fra Jokertegn til [Regulært udtryk](rule-settings#url-pattern-regular-expression) og indstille dette som mønsteret:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: den målretter både `twitter` og `x`. (`|` kaldes *en pipe*.)
+* `.*`: Det er det samme som Jokertegnets `*`. Mere specifikt betyder `.` *ethvert tegn*, og `*` betyder *alt før dette symbol gentaget et vilkårligt antal gange*, hvilket resulterer i, at det matcher alt.
+
+Regulære udtryk er lidt komplicerede, men når du først vænner dig til dem, vil de være et kraftfuldt værktøj. Vi anbefaler at bruge [RegExr](https://regexr.com) som en legeplads til at analysere, hvordan dit regulære udtryksmønster fungerer.
+
+> [!TIP]
+> I regulære udtryk behandles `.` i `(twitter|x).com` også som *ethvert tegn*. Derfor matcher `(twitter|x).com/.*` også f.eks. `twitter1com/` eller `x_com/`.
+> 
+> For at være mere præcis kan du ændre det til `(twitter|x)\.com/.*`. `\` bruges til at behandle `.` som et bogstaveligt punkttegn snarere end et specialtegn.
+> 
+> Der er dog ingen sådanne URL'er i det generelle internetmiljø. Derfor kan du lade `.` være et specialtegn, hvis du foretrækker det.
+
+### Trin 3: Opsæt "Omdiriger til"
+
+Angiv blot URL'en som følger:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (Valgfrit) Trin 4: Kontroller reglen
+
+Du kan kontrollere, hvordan reglen fungerer, ved at tilføje en eksempel-URL i sektionen *Eksempler* på skærmen *Rediger regel*. Hvis du f.eks. indtaster `https://x.com/UN`, viser den `https://insighttimer.com/saraauster/guided-meditations/calm` som resultat.
+
+Sådan skal din regel se ud nu:
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="En eksempelregel til at åbne et andet websted" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Download reglen</a>**
+
+Nu bringer Redirect Web dig til meditationen, når du tilgår Twitter!

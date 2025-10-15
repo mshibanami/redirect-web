@@ -2,25 +2,26 @@
 slug: /
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ExtensionStoreLinks from "@site/src/components/ExtensionStoreLinks";
 
 # Pendahuluan
 
 <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", marginBottom: "25px"}}>
-  <img src="./img/redirect-a-to-b.png" style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Redirect A to B" />
+  <img src={useBaseUrl("img/redirect-a-to-b.png")} style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Redirect A to B" />
   <ExtensionStoreLinks />
 </div>
 
-Selamat datang di situs web dukungan untuk Redirect Web, ekstensi browser yang mengalihkan semua pemuatan halaman di browser Anda, memastikan Anda selalu mendarat di tempat yang Anda inginkan.
+Selamat datang di situs web dukungan untuk Redirect Web, ekstensi browser yang mengalihkan semua pemuatan halaman di browser Anda, memastikan Anda selalu mendarat di tempat yang Anda inginkan. 
 
 (Sebelumnya dikenal sebagai Redirect Web untuk Safari.)
 
 ## ⬇️ Tautan unduhan {#download-links}
 
-- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Toko Web Chrome)
+- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
 - [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Pengaya Firefox)
 - [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Pengaya Microsoft Edge)
-- [Safari](https://apps.apple.com/app/id1571283503) (Ekstensi ini sudah dibundel dalam aplikasi bawaan.)
+- [Safari](https://apps.apple.com/app/id1571283503) (Ekstensi sudah dibundel dalam aplikasi asli.)
 
 Redirect Web tersedia di:
 
@@ -29,57 +30,58 @@ Redirect Web tersedia di:
 
 :::note
 
-- Anda harus menginstal [aplikasi Redirect Web dari Mac App Store](https://apps.apple.com/app/id1571283503) untuk menggunakan ekstensi ini, apa pun browser yang Anda gunakan, karena ekstensi ini mengandalkan aplikasi untuk mengakses aturan, pengaturan, dll. Anda.
+- Anda harus menginstal [aplikasi Redirect Web dari Mac App Store](https://apps.apple.com/app/id1571283503) untuk menggunakan ekstensi, tidak peduli browser apa yang Anda gunakan, karena ekstensi mengandalkan aplikasi untuk mengakses aturan, pengaturan, dll.
 - Dukungan multi-browser hanya tersedia di Mac.
 
 :::
 
-Berikut adalah penggunaan dasarnya:
+Berikut adalah penggunaan dasar:
 
-<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="iOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="Video Demo iOS (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="macOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="Video Demo macOS (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Kasus Penggunaan Populer {#popular-use-cases}
 
-Misalnya, Anda dapat membuat aturan-aturan ini:
+Misalnya, Anda dapat membuat aturan ini:
 
 - Lihat **Reddit** dalam desain klasiknya (old.reddit.com).
 - Buka **Apple Maps** setiap kali tautan **Google Maps** muncul.
-- Sembunyikan AI Overviews Google dari **hasil pencarian Google** dengan menambahkan **?udm=14** ke setiap pencarian.
+- Sembunyikan Ikhtisar AI Google dari **hasil pencarian Google** dengan menambahkan **?udm=14** ke setiap pencarian.
 - Lompat dari halaman Fandom ke wiki resmi **Terraria** atau **Minecraft**.
-- Gunakan **Kagi**, **Startpage**, **ChatGPT**, dan mesin pencari lainnya sebagai **mesin pencari bawaan** Anda.
+- Gunakan **Kagi**, **Startpage**, **ChatGPT**, dan mesin pencari lainnya sebagai **mesin pencari default** Anda.
 - Buka tautan **Google Meet** di Google Chrome. (Mac)
 - Buka tautan **Figma** langsung di aplikasi Figma. (Mac)
 - Buka tautan **Notion** langsung di aplikasi Notion. (Mac)
 
-Anda bisa mendapatkan semua ini sebagai aturan yang sudah ditentukan sebelumnya secara gratis dari bagian Perpustakaan di aplikasi!
+Anda bisa mendapatkan semua ini sebagai aturan yang telah ditentukan sebelumnya secara gratis dari bagian Perpustakaan di aplikasi!
 
 ## Fitur {#features}
 
 Redirect Web hadir dengan fitur-fitur berikut:
 
-- Buat aturan menggunakan tipe pola **Ekspresi Regular** atau **Wildcard**
+- Buat aturan menggunakan jenis pola **Ekspresi Reguler** atau **Wildcard**
 - Gunakan **referensi balik** untuk menentukan URL target dinamis
 - **Kecualikan** URL dari pengalihan
-- **Proses teks yang ditangkap** menggunakan penyandian/pendekodean URL, penyandian/pendekodean base64, atau mengganti kemunculan
+- **Proses teks yang ditangkap** menggunakan pengkodean/dekode URL, pengkodean/dekode base64, atau mengganti kejadian
 
 Selain itu, Anda dapat membuka fitur-fitur berikut melalui langganan atau pembelian satu kali:
 
-- Mengaktifkan jumlah aturan yang **tidak terbatas**
+- Mengaktifkan jumlah aturan **tidak terbatas**
 - **Menyinkronkan aturan** dengan Mac, iPhone, dan iPad Anda yang lain **melalui iCloud**
 
 (Membeli aplikasi juga mendukung kami dalam memelihara Redirect Web. 🙏)
 
 Pembelian atau langganan Anda dibagikan di Mac, iPhone, iPad, dan Apple Vision Pro Anda melalui Pembelian Universal. Dukungan Anda membantu pengembangan berkelanjutan.
 
-## Kami telah diliput di banyak media! {#media-coverage}
+
+## Kami telah ditampilkan di banyak media! {#media-coverage}
 
 * 🏅 Penghargaan
     * **Apple**: [Ekstensi Safari terbaik](https://apps.apple.com/us/story/id1377753262)
 * 📰 Artikel
     * **Six Colors**: [Redirect Web untuk Safari membawa saya ke tempat yang tepat](https://sixcolors.com/post/2022/11/redirect-web-for-safari-takes-me-to-the-right-places/)
-    * **Lifehacker**: [Tingkatkan Pengalaman Penjelajahan Safari Anda Dengan Pengalihan Otomatis Ini](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
+    * **Lifehacker**: [Tingkatkan Pengalaman Penjelajahan Safari Anda dengan Pengalihan Otomatis Ini](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
     * **MacStories**: [Di Luar Ekstensi ChatGPT: Cara Mengalihkan Pencarian Safari ke LLM Apa Pun](https://www.macstories.net/tutorials/beyond-chatgpts-extension-how-to-redirect-safari-searches-to-any-llm/)
     * **AppAddict**: [Redirect Web untuk Safari](https://appaddict.app/post/redirect-web-for-safari)
 * 🎙️ Podcast
@@ -88,6 +90,6 @@ Pembelian atau langganan Anda dibagikan di Mac, iPhone, iPad, dan Apple Vision P
 
 ---
 
-Jika Anda memiliki pertanyaan, masukan, atau masalah, jangan ragu untuk [menghubungi kami](contact-us).
+Jika Anda memiliki pertanyaan, umpan balik, atau masalah, jangan ragu untuk [menghubungi kami](contact-us).
 
-Tanpa iklan. Tanpa pelacakan. Nikmati web yang lebih cepat, lebih bersih, disesuaikan untuk Anda.
+Tanpa iklan. Tanpa pelacakan. Nikmati web yang lebih cepat, lebih bersih, yang disesuaikan untuk Anda.

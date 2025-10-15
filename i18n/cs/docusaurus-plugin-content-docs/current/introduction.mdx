@@ -2,22 +2,23 @@
 slug: /
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ExtensionStoreLinks from "@site/src/components/ExtensionStoreLinks";
 
 # Úvod
 
 <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", marginBottom: "25px"}}>
-  <img src="./img/redirect-a-to-b.png" style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Přesměrovat A na B" />
+  <img src={useBaseUrl("img/redirect-a-to-b.png")} style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Přesměrování A na B" />
   <ExtensionStoreLinks />
 </div>
 
-Vítejte na webových stránkách podpory pro Redirect Web, rozšíření prohlížeče, které přesměrovává všechna načítání stránek ve vašem prohlížeči a zajišťuje, že vždy přistanete tam, kam chcete. 
+Vítejte na webových stránkách podpory pro Redirect Web, rozšíření prohlížeče, které přesměrovává všechna načítání stránek ve vašem prohlížeči a zajišťuje, že vždy přistanete tam, kam chcete.
 
 (Dříve známé jako Redirect Web pro Safari.)
 
 ## ⬇️ Odkazy ke stažení {#download-links}
 
-- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
+- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Obchod Chrome Web Store)
 - [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Doplňky Firefoxu)
 - [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Doplňky Microsoft Edge)
 - [Safari](https://apps.apple.com/app/id1571283503) (Rozšíření je již součástí nativní aplikace.)
@@ -36,51 +37,51 @@ Redirect Web je k dispozici na:
 
 Toto jsou základní způsoby použití:
 
-<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="Demo video pro iOS (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="iOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="Demo video pro macOS (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="macOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Oblíbené případy použití {#popular-use-cases}
+## Populární případy použití {#popular-use-cases}
 
-Například můžete vytvořit tato pravidla:
+Můžete například vytvořit tato pravidla:
 
 - Zobrazit **Reddit** v jeho klasickém designu (old.reddit.com).
-- Otevřít **Apple Maps** kdykoli se objeví odkaz na **Google Maps**.
-- Skrýt přehledy Google AI z **výsledků vyhledávání Google** přidáním **?udm=14** ke každému vyhledávání.
+- Otevřít **Apple Mapy**, kdykoli se objeví odkaz na **Google Mapy**.
+- Skrýt přehledy AI od Googlu z **výsledků vyhledávání Google** přidáním **?udm=14** ke každému vyhledávání.
 - Přejít ze stránek Fandom na oficiální wiki **Terraria** nebo **Minecraft**.
-- Použít **Kagi**, **Startpage**, **ChatGPT** a jakýkoli jiný vyhledávač jako svůj **výchozí vyhledávač**.
+- Používat **Kagi**, **Startpage**, **ChatGPT** a jakýkoli jiný vyhledávač jako svůj **výchozí vyhledávač**.
 - Otevřít odkazy **Google Meet** v prohlížeči Google Chrome. (Mac)
 - Otevřít odkazy **Figma** přímo v aplikaci Figma. (Mac)
 - Otevřít odkazy **Notion** přímo v aplikaci Notion. (Mac)
 
-Všechny tyto předdefinované pravidla můžete získat zdarma ze sekce Knihovna v aplikaci!
+Všechna tato předdefinovaná pravidla můžete získat zdarma v sekci Knihovna v aplikaci!
 
 ## Funkce {#features}
 
 Redirect Web přichází s následujícími funkcemi:
 
 - Vytvářejte pravidla pomocí typů vzorů **Regulární výraz** nebo **Zástupný znak**
-- Použijte **zpětné odkazování** k určení dynamických cílových URL
+- Použijte **zpětné reference** k určení dynamických cílových URL
 - **Vylučte** URL z přesměrování
 - **Zpracujte zachycené texty** pomocí kódování/dekódování URL, kódování/dekódování base64 nebo nahrazování výskytů
 
-Kromě toho můžete odemknout následující funkce buď prostřednictvím předplatného, nebo jednorázového nákupu:
+Kromě toho můžete odemknout následující funkce prostřednictvím předplatného nebo jednorázového nákupu:
 
 - Povolení **neomezeného** počtu pravidel
-- **Synchronizace pravidel** s vaším dalším Macem, iPhonem a iPadem **prostřednictvím iCloudu**
+- **Synchronizace pravidel** s vašimi dalšími zařízeními Mac, iPhone a iPad **prostřednictvím iCloudu**
 
 (Zakoupením aplikace nás také podpoříte v udržování Redirect Web. 🙏)
 
-Váš nákup nebo předplatné je sdíleno napříč vaším Macem, iPhonem, iPadem a Apple Vision Pro prostřednictvím Universal Purchase. Vaše podpora pomáhá s probíhajícím vývojem.
+Váš nákup nebo předplatné je sdíleno napříč vašimi zařízeními Mac, iPhone, iPad a Apple Vision Pro prostřednictvím Universal Purchase. Vaše podpora pomáhá s neustálým vývojem.
 
 
-## Byli jsme představeni v mnoha médiích! {#media-coverage}
+## Byli jsme uvedeni v mnoha médiích! {#media-coverage}
 
 * 🏅 Ocenění
     * **Apple**: [Nejlepší rozšíření pro Safari](https://apps.apple.com/us/story/id1377753262)
 * 📰 Články
     * **Six Colors**: [Redirect Web pro Safari mě zavede na správná místa](https://sixcolors.com/post/2022/11/redirect-web-for-safari-takes-me-to-the-right-places/)
-    * **Lifehacker**: [Zlepšete si zážitek z prohlížení Safari s těmito automatickými přesměrováními](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
+    * **Lifehacker**: [Zlepšete si prohlížení Safari pomocí těchto automatických přesměrování](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
     * **MacStories**: [Za rozšířením ChatGPT: Jak přesměrovat vyhledávání v Safari na jakýkoli LLM](https://www.macstories.net/tutorials/beyond-chatgpts-extension-how-to-redirect-safari-searches-to-any-llm/)
     * **AppAddict**: [Redirect Web pro Safari](https://appaddict.app/post/redirect-web-for-safari)
 * 🎙️ Podcasty
@@ -89,6 +90,6 @@ Váš nákup nebo předplatné je sdíleno napříč vaším Macem, iPhonem, iPa
 
 ---
 
-Pokud máte jakékoli dotazy, zpětnou vazbu nebo problémy, neváhejte nás [kontaktovat](contact-us).
+Pokud máte jakékoli dotazy, zpětnou vazbu nebo problémy, neváhejte [nás kontaktovat](contact-us).
 
 Žádné reklamy. Žádné sledování. Užijte si rychlejší, čistší web přizpůsobený vám.

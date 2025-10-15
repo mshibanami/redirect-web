@@ -1,0 +1,72 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Kasus 3: Tambahkan parameter kueri ke URL
+
+Misalkan ada situs web bernama `example.com` yang menampilkan tata letak seluler secara default, tetapi Anda lebih suka tata letak desktop mereka. Untungnya, situs web tersebut mendukung parameter kueri `layout` untuk menentukan tata letak mana yang ditampilkan situs web. Mari kita buat aturan yang secara otomatis menambahkan `layout=desktop`.
+
+Mungkin Anda berpikir Anda bisa mendefinisikannya sebagai berikut:
+
+* **Alihkan Dari**: `https://example.com/.*` (Ekspresi Reguler)
+* **Alihkan Ke**: `$0?layout=desktop`
+
+`$0` mereferensikan URL target. Jika Anda mencoba mengakses `example.com/hello`, Anda dialihkan ke `example.com/hello?layout=desktop`. Fitur ini disebut *substitusi*.
+
+> [!TIP]
+> Substitusi juga tersedia untuk mode Wildcard karena secara internal diubah menjadi Ekspresi Reguler.
+
+Namun, ada beberapa masalah dengan pengaturan ini.
+
+### Masalah 1: Loop tak terbatas
+
+Pengaturan saat ini menciptakan loop pengalihan tak terbatas karena `https://example.com/.*` juga menargetkan `https://example.com/hello?layout=desktop`.
+
+Dalam kasus ini, Anda dapat menentukan pola URL yang dikecualikan yang memungkinkan Anda mengakses tanpa pengalihan, seperti ini dengan Ekspresi Reguler:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Cocok dengan apa saja
+* `[&?]`: Cocok dengan `&` atau `?`
+* `[^&]*`: Cocok dengan apa saja kecuali `&`
+
+### Masalah 2: Tidak dapat menangani parameter yang ada dengan benar
+
+Jika URL target sudah memiliki parameter kueri lain seperti `example.com/hello?theme=dark`, tujuannya akan menjadi `example.com/hello?theme=dark?layout=desktop` (Ada dua `?` di URL) tetapi Anda hanya dapat menggabungkan parameter dengan `&`. `?` sebagai karakter khusus hanya diizinkan di awal parameter. Jadi itu tidak diperlakukan sebagai parameter yang valid.
+
+Dalam kasus ini, ubah pengaturan seperti ini:
+
+* **Alihkan Dari**: `(https://example.com/[^?]*)(\?(.*))?`
+* **Alihkan Ke**: `$1?layout=desktop&$3`
+
+Mari kita lihat langkah demi langkah.
+
+* `(https://example.com/[^?]*)`: Cocok dengan bagian hingga karakter sebelumnya dari `?`.
+    * `[^?]*` cocok dengan apa saja kecuali `?`.
+    * Ini dibungkus dengan `()` sehingga Anda dapat mereferensikannya dengan `$1` nanti.
+* `(\?(.*))?`: Cocok dengan string yang dimulai dengan `?`, yang berarti parameter kueri.
+    * Ini juga cocok dengan string kosong dengan kuantifier `?` di akhir pola, yang *cocok nol atau satu kali*.
+    * `()` luar dan `()` dalam dapat direferensikan dengan `$2` dan `$3` nanti.
+
+[RegExr](https://regexr.com) dapat membantu Anda memahami detailnya.
+
+> [!CATATAN]
+> RegExr menunjukkan kesalahan ketika Anda tidak melarikan diri `/` dengan `\`. Meskipun Anda dapat melarikan diri, itu tidak diperlukan karena Redirect Web menggunakan mesin yang berbeda oleh Apple yang tidak memerlukan pelarian.
+
+Ini bukan solusi yang sempurna, karena mengalihkan `example.com/hello` ke `example.com/hello?layout=desktop&`, yang menyertakan `&` yang tidak perlu di akhir URL. Ini bukan masalah besar secara umum, tetapi jika Anda ingin menghapusnya, Anda dapat menggunakan *Pemrosesan Grup Penangkapan*.
+
+Kesimpulannya, ini adalah output akhir:
+
+* **Alihkan Dari**: `(https://example.com/[^?]*)((\?(.*))?)` (Ekspresi Reguler)
+* **Alihkan Ke**: `$1?layout=desktop$3`
+* **Pola URL yang Dikecualikan**: `.*[&?]layout=[^&]*.*` (Ekspresi Reguler)
+* **Pemrosesan Grup Penangkapan**:
+    * **Grup**: `$3`
+    * **Proses**: Ganti Kejadian
+        * **Target**: `\?(.*)`
+        * **Pengganti**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Unduh Aturan</a>**
+
+
+Ini hanyalah contoh. Anda juga dapat membuat beberapa aturan untuk menangani setiap masalah. Ini bisa jauh lebih sederhana.

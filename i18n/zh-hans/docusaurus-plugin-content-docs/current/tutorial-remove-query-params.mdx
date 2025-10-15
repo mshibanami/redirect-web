@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# 案例 2：从 URL 中删除查询参数
+
+假设 `example.com` 的 URL 中有一个查询参数 `source=twitter`，您决定将其删除以匿名化自己。
+
+在这种情况下，**捕获组处理**选项是最简单的方法：
+
+* **重定向自**：`https://example.com/*`（通配符）
+* **重定向到**：`$0`
+* **捕获组处理**：
+    * **组**：`$0`
+    * **过程**：替换出现次数
+        * **目标**：`&?source=[^&]*`
+        * **替换**：*（无）*
+        * **文本模式**：正则表达式
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ 下载规则</a>**
+
+此规则的工作方式如下：
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+如果您想删除更多参数，请添加更多处理过程。

@@ -1,0 +1,72 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Primer 3: Dodajanje parametrov poizvedbe v URL
+
+Recimo, da obstaja spletno mesto `example.com`, ki privzeto prikazuje mobilno postavitev, vendar raje uporabljate namizno postavitev. Na srečo spletno mesto podpira parameter poizvedbe `layout` za določitev, katero postavitev spletno mesto prikazuje. Ustvarimo pravilo, ki samodejno doda `layout=desktop`.
+
+Morda mislite, da bi ga lahko definirali takole:
+
+*   **Preusmeri iz**: `https://example.com/.*` (Regularni izraz)
+*   **Preusmeri na**: `$0?layout=desktop`
+
+`$0` se nanaša na ciljni URL. Če poskusite dostopiti do `example.com/hello`, boste preusmerjeni na `example.com/hello?layout=desktop`. Ta funkcija se imenuje *nadomestitev*.
+
+> [!TIP]
+> Nadomestitev je na voljo tudi za način nadomestnih znakov, saj se interno pretvori v regularni izraz.
+
+Vendar pa obstaja nekaj težav s temi nastavitvami.
+
+### Problem 1: Neskončna zanka
+
+Trenutna nastavitev ustvarja neskončno zanko preusmeritve, saj `https://example.com/.*` cilja tudi na `https://example.com/hello?layout=desktop`.
+
+V tem primeru lahko določite izključen vzorec URL-ja, ki vam omogoča dostop brez preusmeritve, kot je ta z regularnim izrazom:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+*   `.*`: Ujema se s čimer koli
+*   `[&?]`: Ujema se z `&` ali `?`
+*   `[^&]*`: Ujema se s čimer koli razen z `&`
+
+### Problem 2: Ne more pravilno obravnavati obstoječih parametrov
+
+Če ima ciljni URL že druge parametre poizvedbe, kot je `example.com/hello?theme=dark`, bo cilj `example.com/hello?theme=dark?layout=desktop` (v URL-ju sta dva `?`), vendar lahko parametre združite samo z `&`. `?` kot poseben znak je dovoljen samo na začetku parametrov. Zato se ne obravnava kot veljaven parameter.
+
+V tem primeru spremenite nastavitve takole:
+
+*   **Preusmeri iz**: `(https://example.com/[^?]*)(\(.*))?`
+*   **Preusmeri na**: `$1?layout=desktop&$3`
+
+Poglejmo korak za korakom.
+
+*   `(https://example.com/[^?]*)`: Ujema se z delom do prejšnjega znaka `?`.
+    *   `[^?]*` se ujema s čimer koli razen z `?`.
+    *   To je ovito z `()` tako, da ga lahko kasneje referencirate z `$1`.
+*   `(\(.*))?`: Ujema se z nizom, ki se začne z `?`, kar pomeni parametre poizvedbe.
+    *   To se ujema tudi s praznim nizom z `?` kvantifikatorjem na koncu vzorca, ki *se ujema ničkrat ali enkrat*.
+    *   Zunanji `()` in notranji `()` se lahko kasneje referencirata z `$2` in `$3`.
+
+[RegExr](https://regexr.com) vam lahko pomaga razumeti podrobnosti.
+
+> [!NOTE]
+> RegExr prikaže napako, ko ne pobegnete `/` z `\`. Čeprav ga lahko pobegnete, to ni potrebno, saj Redirect Web uporablja drug motor podjetja Apple, ki ne zahteva pobega.
+
+To ni popolna rešitev, saj preusmeri `example.com/hello` na `example.com/hello?layout=desktop&`, kar vključuje nepotreben `&` na koncu URL-ja. To ni velika težava na splošno, če pa ga želite odstraniti, lahko uporabite *Obdelavo zajetih skupin*.
+
+Skratka, to je končni rezultat:
+
+*   **Preusmeri iz**: `(https://example.com/[^?]*)((\(.*))?)` (Regularni izraz)
+*   **Preusmeri na**: `$1?layout=desktop$3`
+*   **Izključen vzorec URL-ja**: `.*[&?]layout=[^&]*.*` (Regularni izraz)
+*   **Obdelava zajetih skupin**:
+    *   **Skupina**: `$3`
+    *   **Postopek**: Zamenjaj pojavitve
+        *   **Cilj**: `\?(.*)`
+        *   **Zamenjava**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Prenesite pravilo</a>**
+
+
+To je zgolj primer. Lahko ustvarite tudi več pravil za reševanje vsakega problema. Lahko je veliko enostavneje.

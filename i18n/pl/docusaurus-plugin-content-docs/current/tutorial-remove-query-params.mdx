@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Przypadek 2: Usuwanie parametrów zapytania z adresu URL
+
+Załóżmy, że w adresie URL `example.com` znajduje się parametr zapytania `source=twitter`, a Ty zdecydowałeś się go usunąć, aby zachować anonimowość.
+
+W tym przypadku opcja **Przetwarzanie grup przechwytujących** jest najłatwiejszym sposobem:
+
+* **Przekieruj z**: `https://example.com/*` (Wildcard)
+* **Przekieruj do**: `$0`
+* **Przetwarzanie grup przechwytujących**:
+    * **Grupa**: `$0`
+    * **Proces**: Zastąp wystąpienia
+        * **Cel**: `&?source=[^&]*`
+        * **Zastąpienie**: *(brak)*
+        * **Wzorzec tekstu**: Wyrażenie regularne
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Pobierz regułę</a>**
+
+Ta reguła działa w następujący sposób:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Jeśli chcesz usunąć więcej parametrów, dodaj więcej procesów.

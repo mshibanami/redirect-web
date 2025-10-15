@@ -2,23 +2,24 @@
 slug: /
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ExtensionStoreLinks from "@site/src/components/ExtensionStoreLinks";
 
 # Úvod
 
 <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", marginBottom: "25px"}}>
-  <img src="./img/redirect-a-to-b.png" style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Redirect A to B" />
+  <img src={useBaseUrl("img/redirect-a-to-b.png")} style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Presmerovanie A na B" />
   <ExtensionStoreLinks />
 </div>
 
-Vitajte na webovej stránke podpory pre Redirect Web, rozšírenie prehliadača, ktoré presmeruje všetky načítania stránok vo vašom prehliadači, čím zaisťuje, že vždy pristanete tam, kam chcete. 
+Vitajte na webovej stránke podpory pre Redirect Web, rozšírenie prehliadača, ktoré presmeruje všetky načítania stránok vo vašom prehliadači, čím zaisťuje, že vždy pristanete tam, kde chcete. 
 
 (Predtým známe ako Redirect Web pre Safari.)
 
 ## ⬇️ Odkazy na stiahnutie {#download-links}
 
-- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
-- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Doplnky Firefoxu)
+- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Obchod Chrome Web Store)
+- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Doplnky Firefox)
 - [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Doplnky Microsoft Edge)
 - [Safari](https://apps.apple.com/app/id1571283503) (Rozšírenie je už súčasťou natívnej aplikácie.)
 
@@ -29,27 +30,27 @@ Redirect Web je k dispozícii na:
 
 :::note
 
-- Musíte nainštalovať [aplikáciu Redirect Web z Mac App Store](https://apps.apple.com/app/id1571283503), aby ste mohli používať rozšírenie, bez ohľadu na to, ktorý prehliadač používate, pretože rozšírenia sa spoliehajú na aplikáciu pre prístup k vašim pravidlám, nastaveniam atď.
+- Ak chcete používať rozšírenie, musíte si nainštalovať [aplikáciu Redirect Web z Mac App Store](https://apps.apple.com/app/id1571283503), bez ohľadu na to, aký prehliadač používate, pretože rozšírenia sa spoliehajú na aplikáciu pri prístupe k vašim pravidlám, nastaveniam atď.
 - Podpora viacerých prehliadačov je k dispozícii iba na Macu.
 
 :::
 
 Toto sú základné spôsoby použitia:
 
-<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="iOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="Demo video pre iOS (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="macOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="Demo video pre macOS (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Populárne prípady použitia {#popular-use-cases}
 
-Napríklad, môžete vytvoriť tieto pravidlá:
+Napríklad môžete vytvoriť tieto pravidlá:
 
 - Zobraziť **Reddit** v jeho klasickom dizajne (old.reddit.com).
 - Otvoriť **Apple Maps** vždy, keď sa objaví odkaz na **Google Maps**.
-- Skryť Google AI Overviews z **výsledkov vyhľadávania Google** pridaním **?udm=14** ku každému vyhľadávaniu.
+- Skryť prehľady AI od Google z **výsledkov vyhľadávania Google** pridaním **?udm=14** ku každému vyhľadávaniu.
 - Prejsť z Fandom stránok na oficiálne wiki **Terraria** alebo **Minecraft**.
-- Použiť **Kagi**, **Startpage**, **ChatGPT** a akýkoľvek iný vyhľadávač ako váš **predvolený vyhľadávač**.
-- Otvoriť odkazy **Google Meet** v Google Chrome. (Mac)
+- Používať **Kagi**, **Startpage**, **ChatGPT** a akýkoľvek iný vyhľadávač ako váš **predvolený vyhľadávač**.
+- Otvoriť odkazy **Google Meet** v prehliadači Google Chrome. (Mac)
 - Otvoriť odkazy **Figma** priamo v aplikácii Figma. (Mac)
 - Otvoriť odkazy **Notion** priamo v aplikácii Notion. (Mac)
 
@@ -60,18 +61,18 @@ Všetky tieto preddefinované pravidlá môžete získať zadarmo v sekcii Kniž
 Redirect Web prichádza s nasledujúcimi funkciami:
 
 - Vytváranie pravidiel pomocou typov vzorov **Regulárny výraz** alebo **Zástupný znak**
-- Použitie **spätnej referencie** na určenie dynamických cieľových URL adries
+- Používanie **spätných odkazov** na určenie dynamických cieľových URL
 - **Vylúčenie** URL adries z presmerovania
 - **Spracovanie zachytených textov** pomocou kódovania/dekódovania URL, kódovania/dekódovania base64 alebo nahradenia výskytov
 
 Okrem toho môžete odomknúť nasledujúce funkcie prostredníctvom predplatného alebo jednorazového nákupu:
 
 - Povolenie **neobmedzeného** počtu pravidiel
-- **Synchronizácia pravidiel** s vaším ďalším Macom, iPhonom a iPadom **prostredníctvom iCloudu**
+- **Synchronizácia pravidiel** s vašimi ostatnými zariadeniami Mac, iPhone a iPad **cez iCloud**
 
-(Zakúpením aplikácie nás tiež podporujete pri udržiavaní Redirect Web. 🙏)
+(Zakúpením aplikácie nás tiež podporíte pri udržiavaní Redirect Web. 🙏)
 
-Váš nákup alebo predplatné sa zdieľa naprieč vaším Macom, iPhonom, iPadom a Apple Vision Pro prostredníctvom Universal Purchase. Vaša podpora pomáha neustálemu vývoju.
+Váš nákup alebo predplatné sa zdieľa medzi vašimi zariadeniami Mac, iPhone, iPad a Apple Vision Pro prostredníctvom univerzálneho nákupu. Vaša podpora pomáha pri neustálom vývoji.
 
 
 ## Boli sme uvedení v mnohých médiách! {#media-coverage}
@@ -80,7 +81,7 @@ Váš nákup alebo predplatné sa zdieľa naprieč vaším Macom, iPhonom, iPado
     * **Apple**: [Najlepšie rozšírenia pre Safari](https://apps.apple.com/us/story/id1377753262)
 * 📰 Články
     * **Six Colors**: [Redirect Web pre Safari ma zavedie na správne miesta](https://sixcolors.com/post/2022/11/redirect-web-for-safari-takes-me-to-the-right-places/)
-    * **Lifehacker**: [Zlepšite si zážitok z prehliadania Safari s týmito automatickými presmerovaniami](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
+    * **Lifehacker**: [Zlepšite si zážitok z prehliadania v Safari pomocou týchto automatických presmerovaní](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
     * **MacStories**: [Za rozšírením ChatGPT: Ako presmerovať vyhľadávania v Safari na akýkoľvek LLM](https://www.macstories.net/tutorials/beyond-chatgpts-extension-how-to-redirect-safari-searches-to-any-llm/)
     * **AppAddict**: [Redirect Web pre Safari](https://appaddict.app/post/redirect-web-for-safari)
 * 🎙️ Podcasty

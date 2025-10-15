@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Tapaus 2: Poista kyselyparametrit URL-osoitteesta
+
+Oletetaan, että URL-osoitteessa `example.com` on kyselyparametri `source=twitter`, ja päätit poistaa sen anonymisoidaksesi itsesi.
+
+Tässä tapauksessa **Sieppausryhmän käsittely** -vaihtoehto on helpoin tapa:
+
+* **Uudelleenohjaa kohteesta**: `https://example.com/*` (Wildcard)
+* **Uudelleenohjaa kohteeseen**: `$0`
+* **Sieppausryhmän käsittely**:
+    * **Ryhmä**: `$0`
+    * **Prosessi**: Korvaa esiintymät
+        * **Kohde**: `&?source=[^&]*`
+        * **Korvaava**: *(ei mitään)*
+        * **Tekstikuvio**: Säännöllinen lauseke
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Lataa sääntö</a>**
+
+Tämä sääntö toimii seuraavasti:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Jos haluat poistaa lisää parametreja, lisää prosesseja.

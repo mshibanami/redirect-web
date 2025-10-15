@@ -3,50 +3,50 @@ import Image from "@site/src/components/Image";
 import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
 import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
 
-# Bieži uzdotie jautājumi
+# BUJ
 
 ## Kāpēc man vajadzētu atļaut paplašinājumam lasīt/mainīt manu informāciju? {#why-allow-extension-to-read-change}
 
-Jūs varat redzēt šādu brīdinājumu, iestatot Redirect Web:
+Iespējams, redzēsiet šādu brīdinājumu, iestatot Redirect Web:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="Brīdinājums, kas prasa atļauju" width="200" margin="0 0 16px 0" hasShadow={true} />
+    <Image src={PermissionAlertSafari} alt="Brīdinājums par atļaujas pieprasīšanu" width="200" margin="0 0 16px 0" hasShadow />
 
     > Šis paplašinājums varēs lasīt un mainīt tīmekļa lapas un redzēt jūsu pārlūkošanas vēsturi šajā vietnē. **Tas var ietvert sensitīvu informāciju, tostarp paroles, tālruņa numurus un kredītkartes.**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="Brīdinājums, kas prasa atļauju" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="Brīdinājums par atļaujas pieprasīšanu" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
     > Tas var:
     > Lasīt un mainīt **visus jūsu datus** **visās vietnēs**
 </IfBrowserStore>
 
-Šim paplašinājumam ir nepieciešama jūsu atļauja, lai novērotu lapas navigāciju, lai novirzītu uz jebkuru vietu, kur vēlaties pāriet, un jūsu pārlūkprogramma to parāda, kad paplašinājums pieprasa saistītās atļaujas. Tāpēc, ja jūs to neatļausiet, šis paplašinājums nevarēs darboties.
+Šim paplašinājumam ir nepieciešama jūsu atļauja, lai novērotu lapas navigāciju, lai pārvirzītu uz jebkuru vietu, kur vēlaties pāriet, un jūsu pārlūkprogramma to parāda, kad paplašinājums pieprasa saistītās atļaujas. Tāpēc, ja jūs to neatļaujat, šis paplašinājums nevar darboties.
 
-Piešķirtās atļaujas tiks izmantotas tikai lietotnes funkcijām, piemēram, novirzīšanai, saskaņā ar **[privātuma politiku](./privacy-policy)**.
+Piešķirtās atļaujas tiks izmantotas tikai lietotnes funkcijām, piemēram, pārvirzīšanai, saskaņā ar **[privātuma politiku](./privacy-policy)**.
 
-## Vai man joprojām ir jāiegādājas lietotne pēc paplašinājuma instalēšanas pārlūkprogrammām Chrome, Firefox vai Edge? {#app-for-non-safari-browsers}
+## Vai man joprojām ir jāiegūst lietotne pēc paplašinājuma instalēšanas pārlūkprogrammām Chrome, Firefox vai Edge? {#app-for-non-safari-browsers}
 
-Jā. Jums ir jālejupielādē [Redirect Web lietotne no App Store](https://apps.apple.com/app/id1571283503) neatkarīgi no tā, kuru pārlūkprogrammu izmantojat. Jūs varat instalēt paplašinājumu no savas pārlūkprogrammas paplašinājumu veikala, taču lietotne ir nepieciešama, lai pārvaldītu jūsu noteikumus, pirkumu vēsturi un citus iestatījumus starp ierīcēm, izmantojot iCloud.
+Jā. Jums ir jālejupielādē [Redirect Web lietotne no App Store](https://apps.apple.com/app/id1571283503) neatkarīgi no tā, kuru pārlūkprogrammu izmantojat. Jūs varat instalēt paplašinājumu no savas pārlūkprogrammas paplašinājumu veikala, taču lietotne ir nepieciešama, lai pārvaldītu jūsu noteikumus, pirkumu vēsturi un citus iestatījumus visās ierīcēs, izmantojot iCloud.
 
 ## Vai Redirect Web darbojas operētājsistēmās Windows, Android, Linux vai citās platformās? {#non-apple-platforms}
 
-Pašlaik nē. Redirect Web ir cieši saistīts ar Apple ekosistēmu, tostarp iCloud un Universal Purchase, kas apgrūtina tā piedāvāšanu.
+Pašlaik nē. Redirect Web ir cieši saistīts ar Apple ekosistēmu, tostarp iCloud un Universal Purchase. Atvainojamies par sagādātajām neērtībām.
 
 ## Kāpēc ne [Redirector](https://github.com/einaregilsson/Redirector)? {#why-not-redirector}
 
-Redirector joprojām ir lielisks novirzīšanas paplašinājums. Tas ir pilnīgi bezmaksas, atvērtā koda un darbojas arī ne-Apple platformās. Bet Redirect Web ir dažas papildu funkcijas, kas jums varētu patikt:
+Redirector joprojām ir lielisks pārvirzīšanas paplašinājums. Tas ir pilnīgi bezmaksas, atvērtā koda un darbojas arī ne-Apple platformās. Bet Redirect Web ir dažas papildu funkcijas, kas jums varētu patikt:
 
-* **Detalizēti noteikumu iestatījumi:** Vairāki izslēgšanas modeļi, vairākas apstrādes atbilstības un virkņu aizstāšanas funkcijas ir pieejamas tikai Redirect Web.
+* **Detalizēti noteikumu iestatījumi:** Vairāki izslēgšanas modeļi, vairākas atbilstības apstrādes un virkņu aizstāšanas funkcijas ir pieejamas tikai Redirect Web.
 * **Atvērt vietējās lietotnēs:** Mac datorā varat izvēlēties, kur atvērt mērķa URL. (Tas tieši izsauc komandu `open`. Nav dziļo saišu.)
-* **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) atbalsts:** Nodrošina zibenīgi ātru novirzīšanu.
+* **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) atbalsts:** Nodrošina zibenīgi ātru pārvirzīšanu.
 * **Centralizēta noteikumu pārvaldība:** Pārvaldiet noteikumus visām pārlūkprogrammām vienuviet, izmantojot vietējo lietotni.
 * **Manifest V3 un V2 atbalsts:** Noderīgi, kamēr V2 tiek pakāpeniski izņemts no Chrome.
 
 ## Kāpēc šim paplašinājumam ir nepieciešama jauna atļauja? {#permission-alert-on-safari}
 
-Pēc Redirect Web atjaunināšanas Safari pārlūkprogrammā varat redzēt šo brīdinājumu:
+Pēc Redirect Web atjaunināšanas Safari varat redzēt šo brīdinājumu:
 
 <img src={require("/img/safari-additional-permission-alert.webp").default} alt="Brīdinājums par lietotnes atspējošanu" width="280" />
 
@@ -54,27 +54,27 @@ Pēc Redirect Web atjaunināšanas Safari pārlūkprogrammā varat redzēt šo b
 >
 > Jūs varat ieslēgt šo paplašinājumu Safari iestatījumu sadaļā Paplašinājumi.
 
-Tas ir saistīts ar [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) atļauju, kas nepieciešama [DNR](./rule-settings#type) tipam, kas ieviests 7. versijā. Lūdzu, atkārtoti iespējojiet paplašinājumu. Atvainojiet par sagādātajām neērtībām.
+Tas ir saistīts ar [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) atļauju, kas nepieciešama [DNR](./rule-settings#type) tipam, kas ieviests versijā 7. Lūdzu, atkārtoti iespējojiet paplašinājumu. Atvainojamies par sagādātajām neērtībām.
 
 ## Vai bibliotēkas saturs nākotnē kļūs maksas? {#will-library-become-paid}
 
-Nē, tas vienmēr ir bezmaksas. Jūs varat arī atrast visu satura avotu [šeit](https://github.com/mshibanami/redirect-web/tree/main/library).
+Nē, tas vienmēr ir bez maksas. Visu satura avotu varat atrast arī [šeit](https://github.com/mshibanami/redirect-web/tree/main/library).
 
 ## Vienreizējs pirkums vai gada abonements: kurš ir labākais? {#one-time-or-subscription}
 
 Mēs iesakām vienreizēju pirkumu, jo cenu atšķirība ir tikai 2,00 ASV dolāri.
-Galvenais iemesls, kāpēc mēs piedāvājam abonementu, ir iespēja izmēģināt visas funkcijas, izmantojot tā bezmaksas izmēģinājuma versiju. Šeit ir paredzamais lietošanas gadījums:
+Galvenais iemesls, kāpēc mēs piedāvājam abonementu, ir dot jums iespēju izmēģināt visas funkcijas, izmantojot tā bezmaksas izmēģinājuma versiju. Šeit ir paredzamais lietošanas gadījums:
 
 1. Abonējiet gada abonementu.
-2. Nekavējoties atceliet abonementu, dodoties uz lietotni Iestatījumi, meklējot "Abonementi", pieskaroties šai lietotnei un atlasot "Atcelt abonementu". Tas ļauj jums izbaudīt bezmaksas izmēģinājuma versiju bez jebkādām saistībām.
+2. Nekavējoties atceliet abonementu, dodoties uz lietotnes Iestatījumi, meklējot "Abonementi", pieskaroties šai lietotnei un atlasot "Atcelt abonementu". Tas ļauj jums baudīt bezmaksas izmēģinājuma versiju bez jebkādām saistībām.
 3. Izbaudiet pilnu piekļuvi visām funkcijām 7 dienas.
 4. Ja jums patīk funkcijas, izvēlieties vienreizēju pirkumu.
 
-Protams, nav nekas nepareizs, ja vēlaties turpināt ar gada abonementu!
+Protams, nav nekā slikta, ja vēlaties turpināt ar gada abonementu!
 
-## Vai Redirect Web ievieto reklāmas vai citu nesaistītu saturu tīmekļa vietnēs? {#does-it-inject-ads}
+## Vai Redirect Web ievieto reklāmas vai citu nesaistītu saturu vietnēs? {#does-it-inject-ads}
 
-Nē, tas neievieto nekādu šādu saturu. Tikai kods, kas nepieciešams, lai nodrošinātu šajā dokumentācijā un lietotnes lapā App Store aprakstītās funkcijas, tiek ievietots tīmekļa vietnēs Safari pārlūkprogrammā.
+Nē, tas neievieto nekādu šādu saturu. Tikai kods, kas ir nepieciešams, lai nodrošinātu šajā dokumentācijā un lietotnes lapā App Store aprakstītās funkcijas, tiek ievietots vietnēs pārlūkprogrammā Safari.
 
 ## Vai pastāv iespēja, ka Redirect Web varētu tikt pārdots kādam citam? {#could-it-be-sold}
 

@@ -2,12 +2,13 @@
 slug: /
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ExtensionStoreLinks from "@site/src/components/ExtensionStoreLinks";
 
 # はじめに
 
 <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", marginBottom: "25px"}}>
-  <img src="./img/redirect-a-to-b.png" style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Redirect A to B" />
+  <img src={useBaseUrl("img/redirect-a-to-b.png")} style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Redirect A to B" />
   <ExtensionStoreLinks />
 </div>
 
@@ -17,71 +18,70 @@ Redirect Webのサポートウェブサイトへようこそ。Redirect Webは�
 
 ## ⬇️ ダウンロードリンク {#download-links}
 
-- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
+- [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome ウェブストア)
 - [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox Add-ons)
 - [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge Add-ons)
 - [Safari](https://apps.apple.com/app/id1571283503) (拡張機能はすでにネイティブアプリにバンドルされています。)
 
-Redirect Webは以下で利用可能です。
+Redirect Webは以下で利用可能です：
 
 - **Mac** (Safari, Chrome, Firefox, Edgeなど)
 - **iPhone**, **iPad**, および **Apple Vision Pro** (Safari)
 
 :::note
 
-- どのブラウザを使用しているかに関わらず、拡張機能を使用するには[Mac App StoreからRedirect Webアプリをインストール](https://apps.apple.com/app/id1571283503)する必要があります。これは、拡張機能がルールや設定などにアクセスするためにアプリに依存しているためです。
+- どのブラウザを使用する場合でも、拡張機能を使用するには[Mac App StoreからRedirect Webアプリをインストール](https://apps.apple.com/app/id1571283503)する必要があります。これは、拡張機能がルールや設定などにアクセスするためにアプリに依存しているためです。
 - マルチブラウザサポートはMacでのみ利用可能です。
 
 :::
 
-これらは基本的な使用方法です。
+これらは基本的な使用方法です：
 
 <iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="iOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="macOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## 人気のある使用例 {#popular-use-cases}
+## 人気のユースケース {#popular-use-cases}
 
-たとえば、次のようなルールを作成できます。
+例えば、以下のルールを作成できます：
 
 - **Reddit**をクラシックデザイン（old.reddit.com）で表示する。
-- **Googleマップ**のリンクが表示されたら、常に**Appleマップ**を開く。
-- すべての検索に**?udm=14**を追加して、**Google検索結果**からGoogleのAI概要を非表示にする。
-- Fandomページから公式の**Terraria**または**Minecraft**のWikiにジャンプする。
+- **Google マップ**のリンクが表示されたら、常に**Apple マップ**を開く。
+- すべての検索に**?udm=14**を追加することで、**Google検索結果**からGoogleのAI概要を非表示にする。
+- Fandomページから公式の**Terraria**または**Minecraft** Wikiにジャンプする。
 - **Kagi**、**Startpage**、**ChatGPT**、およびその他の検索エンジンを**デフォルトの検索エンジン**として使用する。
-- **Google Meet**のリンクをGoogle Chromeで開く。（Mac）
-- **Figma**のリンクをFigmaアプリで直接開く。（Mac）
-- **Notion**のリンクをNotionアプリで直接開く。（Mac）
+- **Google Meet**のリンクをGoogle Chromeで開く。(Mac)
+- **Figma**のリンクをFigmaアプリで直接開く。(Mac)
+- **Notion**のリンクをNotionアプリで直接開く。(Mac)
 
 これらはすべて、アプリのライブラリセクションから無料で事前定義されたルールとして入手できます！
 
 ## 機能 {#features}
 
-Redirect Webには以下の機能が付属しています。
+Redirect Webには以下の機能が付属しています：
 
-- **正規表現**または**ワイルドカード**パターンタイプを使用してルールを作成する
-- 動的なターゲットURLを指定するために**後方参照**を使用する
-- リダイレクトからURLを**除外**する
-- URLエンコード/デコード、base64エンコード/デコード、または出現箇所の置換を使用して**キャプチャされたテキストを処理**する
+- **正規表現**または**ワイルドカード**パターンタイプを使用してルールを作成
+- **後方参照**を使用して動的なターゲットURLを指定
+- リダイレクトからURLを**除外**
+- URLエンコード/デコード、base64エンコード/デコード、または出現箇所の置換を使用して**キャプチャされたテキストを処理**
 
-さらに、サブスクリプションまたは一括購入を通じて、以下の機能のロックを解除できます。
+さらに、サブスクリプションまたは1回限りの購入を通じて、以下の機能のロックを解除できます：
 
-- **無制限**の数のルールを有効にする
-- **iCloudを介して**他のMac、iPhone、iPadと**ルールを同期**する
+- **無制限**のルールを有効にする
+- 他のMac、iPhone、iPadと**iCloud経由でルールを同期**
 
-（アプリを購入することは、Redirect Webの維持にも役立ちます。🙏）
+（アプリを購入することで、Redirect Webの維持にもご協力いただけます。🙏）
 
-購入またはサブスクリプションは、ユニバーサル購入を介してMac、iPhone、iPad、Apple Vision Pro間で共有されます。皆様のサポートは継続的な開発に役立ちます。
-
+購入またはサブスクリプションは、ユニバーサル購入を通じてMac、iPhone、iPad、Apple Vision Proで共有されます。皆様のサポートが継続的な開発に役立ちます。
 
 ## 多くのメディアで紹介されました！ {#media-coverage}
 
 * 🏅 受賞
     * **Apple**: [最高のSafari拡張機能](https://apps.apple.com/us/story/id1377753262)
 * 📰 記事
-    * **Six Colors**: [Safari用Redirect Webは私を正しい場所に導いてくれる](https://sixcolors.com/post/2022/11/redirect-web-for-safari-takes-me-to-the-right-places/)
+    * **Six Colors**: [Safari用Redirect Webが私を正しい場所に導いてくれる](https://sixcolors.com/post/2022/11/redirect-web-for-safari-takes-me-to-the-right-places/)
     * **Lifehacker**: [これらの自動リダイレクトでSafariのブラウジング体験を向上させる](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
-    * **MacStories**: [ChatGPTの拡張機能を超えて：Safariの検索を任意のLLMにリダイレクトする方法](https://www.macstories.net/tutorials/beyond-chatgpts-extension-how-to-redirect-safari-searches-to-any-llm/)
+    * **MacStories**: [ChatGPTの拡張機能を超えて：Safari検索を任意のLLMにリダイレクトする方法](https://www.macstories.net/tutorials/beyond-chatgpts-extension-how-to-redirect-safari-searches-to-any-llm/)
     * **AppAddict**: [Safari用Redirect Web](https://appaddict.app/post/redirect-web-for-safari)
 * 🎙️ ポッドキャスト
     * [**MacBreak Weekly**](https://youtu.be/I251K3L2s88?t=7427)
@@ -89,6 +89,6 @@ Redirect Webには以下の機能が付属しています。
 
 ---
 
-ご質問、フィードバック、または問題がある場合は、お気軽にお問い合わせください[お問い合わせ](contact-us)。
+ご質問、フィードバック、または問題がございましたら、お気軽に[お問い合わせください](contact-us)。
 
 広告なし。トラッキングなし。あなたに合わせた、より速く、よりクリーンなウェブをお楽しみください。

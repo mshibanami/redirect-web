@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Primer 2: Odstranjevanje parametrov poizvedbe iz URL-ja
+
+Recimo, da je v URL-ju `example.com` parameter poizvedbe `source=twitter` in ste se odločili, da ga odstranite, da se anonimizirate.
+
+V tem primeru je možnost **Obdelava zajetih skupin** najlažji način:
+
+*   **Preusmeri iz**: `https://example.com/*` (Nadomestni znak)
+*   **Preusmeri na**: `$0`
+*   **Obdelava zajetih skupin**:
+    *   **Skupina**: `$0`
+    *   **Postopek**: Zamenjaj pojavitve
+        *   **Cilj**: `&?source=[^&]*`
+        *   **Zamenjava**: *(nič)*
+        *   **Vzorec besedila**: Regularni izraz
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Prenesite pravilo</a>**
+
+To pravilo deluje takole:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Če želite odstraniti več parametrov, dodajte več postopkov.

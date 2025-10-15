@@ -10,21 +10,21 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 Du kan se en varning som denna när du ställer in Redirect Web:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="En behörighetskrävande varning" width="200" margin="0 0 16px 0" hasShadow={true} />
+    <Image src={PermissionAlertSafari} alt="En behörighetskrävande varning" width="200" margin="0 0 16px 0" hasShadow />
 
     > Detta tillägg kommer att kunna läsa och ändra webbsidor och se din webbhistorik på denna webbplats. **Detta kan inkludera känslig information, inklusive lösenord, telefonnummer och kreditkort.**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="En behörighetskrävande varning" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="En behörighetskrävande varning" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
     > Det kan:  
     > Läsa och ändra **all din data** på **alla webbplatser**
 </IfBrowserStore>
 
-Detta tillägg behöver din tillåtelse för att observera sidnavigeringen för att omdirigera dit du vill hoppa, och din webbläsare visar detta när tillägget begär de relaterade behörigheterna. Därför, om du inte tillåter det, kan detta tillägg inte fungera.
+Detta tillägg behöver din behörighet för att observera sidnavigeringen för att omdirigera till vart du vill hoppa, och din webbläsare visar detta när tillägget begär de relaterade behörigheterna. Därför, om du inte tillåter det, kan detta tillägg inte fungera.
 
-Beviljade behörigheter kommer endast att användas för appfunktioner som omdirigering, i enlighet med **[sekretesspolicyn](./privacy-policy)**.
+Beviljade behörigheter kommer endast att användas för appfunktioner som omdirigering, i enlighet med **[integritetspolicyn](./privacy-policy)**.
 
 ## Ska jag fortfarande skaffa appen efter att ha installerat tillägget för Chrome, Firefox eller Edge? {#app-for-non-safari-browsers}
 
@@ -32,17 +32,17 @@ Ja. Du måste ladda ner [Redirect Web-appen från App Store](https://apps.apple.
 
 ## Fungerar Redirect Web på Windows, Android, Linux eller andra plattformar? {#non-apple-platforms}
 
-Inte för närvarande. Redirect Web är nära knutet till Apples ekosystem, inklusive iCloud och Universal Purchase, vilket gör det svårt att erbjuda.
+Inte för närvarande. Redirect Web är nära knutet till Apples ekosystem, inklusive iCloud och Universal Purchase. Ursäkta besväret.
 
 ## Varför inte [Redirector](https://github.com/einaregilsson/Redirector)? {#why-not-redirector}
 
 Redirector är fortfarande ett utmärkt omdirigeringstillägg. Det är helt gratis, öppen källkod och fungerar även på icke-Apple-plattformar. Men Redirect Web har några extra funktioner som du kanske gillar:
 
-*   **Detaljerade regelinställningar:** Flera exkluderingsmönster, flera processmatchningar och strängersättningsfunktioner som endast finns i Redirect Web.
-*   **Öppna i inbyggda appar:** På Mac kan du välja var mål-URL:en ska öppnas. (Den anropar `open`-kommandot direkt. Inte djuplänkar.)
-*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) stöd:** Ger blixtsnabb omdirigering.
-*   **Centraliserad regelhantering:** Hantera regler för alla webbläsare på ett ställe via den inbyggda appen.
-*   **Manifest V3 & V2 stöd:** Hjälpsamt medan V2 fasas ut i Chrome.
+* **Detaljerade regelinställningar:** Flera exkluderingsmönster, flera processmatchningar och strängersättningsfunktioner finns endast i Redirect Web.
+* **Öppna i inbyggda appar:** På Mac kan du välja var du vill öppna mål-URL:en. (Den anropar `open`-kommandot direkt. Inte djuplänkar.)
+* **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) stöd:** Ger blixtsnabb omdirigering.
+* **Centraliserad regelhantering:** Hantera regler för alla webbläsare på ett ställe via den inbyggda appen.
+* **Manifest V3 & V2 stöd:** Hjälpsamt medan V2 fasas ut i Chrome.
 
 ## Varför kräver detta tillägg en ny behörighet? {#permission-alert-on-safari}
 
@@ -54,23 +54,23 @@ Du kan se denna varning i Safari efter att ha uppdaterat Redirect Web:
 >
 > Du kan aktivera detta tillägg i avsnittet Tillägg i Safari-inställningarna.
 
-Detta beror på behörigheten [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) som krävs av [DNR](./rule-settings#type)-typen som introducerades i version 7. Vänligen återaktivera tillägget. Ursäkta besväret.
+Detta beror på behörigheten [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) som krävs av [DNR](./rule-settings#type)-typen som introducerades i version 7. Aktivera tillägget igen. Ursäkta besväret.
 
 ## Kommer bibliotekets innehåll att bli betalt i framtiden? {#will-library-become-paid}
 
 Nej, det är alltid gratis. Du kan också hitta källan till allt innehåll [här](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Engångsköp eller Årlig Prenumeration: Vilket är bäst? {#one-time-or-subscription}
+## Engångsköp eller årsabonnemang: Vilket är bäst? {#one-time-or-subscription}
 
 Vi rekommenderar engångsköpet, eftersom prisskillnaden bara är 2,00 US$.
 Huvudanledningen till att vi erbjuder prenumerationen är att du ska kunna prova alla funktioner genom dess gratis provperiod. Här är det förväntade användningsfallet:
 
-1.  Prenumerera på den årliga prenumerationen.
-2.  Avbryt omedelbart prenumerationen genom att gå till appen Inställningar, söka efter "Prenumerationer", trycka på denna app och välja "Avbryt prenumeration". Detta låter dig njuta av den kostnadsfria provperioden utan några åtaganden.
-3.  Njut av full tillgång till alla funktioner i 7 dagar.
-4.  Om du gillar funktionerna, välj engångsköpet.
+1. Prenumerera på årsabonnemanget.
+2. Avbryt omedelbart prenumerationen genom att gå till appen Inställningar, söka efter "Prenumerationer", trycka på denna app och välja "Avbryt prenumeration". Detta låter dig njuta av den kostnadsfria provperioden utan några åtaganden.
+3. Njut av full tillgång till alla funktioner i 7 dagar.
+4. Om du gillar funktionerna, välj engångsköpet.
 
-Naturligtvis är det inget fel med att fortsätta med den årliga prenumerationen om du föredrar det!
+Naturligtvis är det inget fel med att fortsätta med årsabonnemanget om du föredrar det!
 
 ## Injicerar Redirect Web annonser eller annat orelaterat innehåll på webbplatser? {#does-it-inject-ads}
 

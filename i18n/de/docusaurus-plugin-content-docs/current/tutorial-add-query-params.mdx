@@ -1,0 +1,71 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Fall 3: Abfrageparameter zur URL hinzufügen
+
+Nehmen wir an, es gibt eine Website namens `example.com`, die standardmäßig ein mobiles Layout anzeigt, Sie aber das Desktop-Layout bevorzugen. Glücklicherweise unterstützt die Website einen Abfrageparameter `layout`, um anzugeben, welches Layout die Website anzeigt. Erstellen wir eine Regel, die `layout=desktop` automatisch hinzufügt.
+
+Vielleicht denken Sie, Sie könnten es wie folgt definieren:
+
+* **Umleiten von**: `https://example.com/.*` (Regulärer Ausdruck)
+* **Umleiten zu**: `$0?layout=desktop`
+
+`$0` verweist auf die Ziel-URL. Wenn Sie versuchen, auf `example.com/hello` zuzugreifen, werden Sie zu `example.com/hello?layout=desktop` weitergeleitet. Diese Funktion wird als *Substitution* bezeichnet.
+
+> [!TIP]
+> Substitution ist auch für den Wildcard-Modus verfügbar, da er intern in einen regulären Ausdruck umgewandelt wird.
+
+Es gibt jedoch einige Probleme mit diesen Einstellungen.
+
+### Problem 1: Endlosschleife
+
+Die aktuelle Einstellung erzeugt eine Endlosschleife, da `https://example.com/.*` auch auf `https://example.com/hello?layout=desktop` abzielt.
+
+In diesem Fall können Sie ein ausgeschlossenes URL-Muster angeben, das den Zugriff ohne Umleitung ermöglicht, wie hier mit regulärem Ausdruck:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Passt zu allem
+* `[&?]`: Passt zu `&` oder `?`
+* `[^&]*`: Passt zu allem außer `&`
+
+### Problem 2: Kann vorhandene Parameter nicht richtig verarbeiten
+
+Wenn die Ziel-URL bereits andere Abfrageparameter wie `example.com/hello?theme=dark` enthält, wird das Ziel `example.com/hello?theme=dark?layout=desktop` sein (es gibt zwei `?` in der URL), aber Sie können die Parameter nur mit `&` verbinden. `?` als Sonderzeichen ist nur am Anfang der Parameter erlaubt. Es wird also nicht als gültiger Parameter behandelt.
+
+Ändern Sie in diesem Fall die Einstellungen wie folgt:
+
+* **Umleiten von**: `(https://example.com/[^?]*)(\(.*))?`
+* **Umleiten zu**: `$1?layout=desktop&$3`
+
+Schauen wir es uns Schritt für Schritt an.
+
+* `(https://example.com/[^?]*)`: Passt zu dem Teil bis zum vorherigen Zeichen von `?`.
+    * `[^?]*` passt zu allem außer `?`.
+    * Dies ist mit `()` umwickelt, so dass Sie es später mit `$1` referenzieren können.
+* `(\(.*))?`: Passt zu einer Zeichenfolge, die mit `?` beginnt, was Abfrageparameter bedeutet.
+    * Dies passt auch zu einer leeren Zeichenfolge durch den `?`-Quantifizierer am Ende des Musters, der *null oder einmal* passt.
+    * Die äußeren `()` und die inneren `()` können später mit `$2` und `$3` referenziert werden.
+
+[RegExr](https://regexr.com) kann Ihnen helfen, die Details zu verstehen.
+
+> [!NOTE]
+> RegExr zeigt einen Fehler an, wenn Sie `/` nicht mit `\` escapen. Obwohl Sie es escapen können, ist es nicht erforderlich, da Redirect Web eine andere Engine von Apple verwendet, die kein Escaping erfordert.
+
+Dies ist keine perfekte Lösung, da sie `example.com/hello` zu `example.com/hello?layout=desktop&` umleitet, was ein unnötiges `&` am Ende der URL enthält. Das ist im Allgemeinen kein großes Problem, aber wenn Sie es entfernen möchten, können Sie die *Verarbeitung von Erfassungsgruppen* verwenden.
+
+Zusammenfassend ist dies die endgültige Ausgabe:
+
+* **Umleiten von**: `(https://example.com/[^?]*)((\(.*))?)` (Regulärer Ausdruck)
+* **Umleiten zu**: `$1?layout=desktop$3`
+* **Ausgeschlossenes URL-Muster**: `.*[&?]layout=[^&]*.*` (Regulärer Ausdruck)
+* **Verarbeitung von Erfassungsgruppen**:
+    * **Gruppe**: `$3`
+    * **Prozess**: Vorkommen ersetzen
+        * **Ziel**: `\?(.*)`
+        * **Ersetzung**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Regel herunterladen</a>**
+
+Dies ist lediglich ein Beispiel. Sie können auch mehrere Regeln erstellen, um jedes Problem zu lösen. Es kann viel einfacher sein.
