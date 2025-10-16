@@ -35,6 +35,7 @@ function HomepageHeader() {
                 <div className="margin-vert--lg">
                     <ExtensionStoreLinks />
                 </div>
+                <Heading as='h4'>👇️ Click Video to Play Demo</Heading>
                 <div className={styles.heroVideoContainer}>
                     <video
                         className={styles.heroVideo}
@@ -42,7 +43,7 @@ function HomepageHeader() {
                         controls
                         playsInline
                         preload="metadata"
-                        aria-label="Landing demo video"
+                        aria-label="Demo video"
                     >
                         Your browser does not support the video tag. You can
                         <a href={useBaseUrl('/videos/landing-demo.mov')} target="_blank" rel="noreferrer">download the video</a>
