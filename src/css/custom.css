@@ -6,40 +6,52 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-h1-font-size: 4rem;
-  --ifm-h2-font-size: 3rem;
-  --ifm-color-primary: #007AFF;
+  --ifm-h1-font-size: 3rem !important;
+  --ifm-h2-font-size: 2.4rem !important;
+  --ifm-code-font-size: 95% !important;
+  --ifm-code-padding-horizontal: 0.4em !important;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-background-color: #fafafa !important;
+  --ifm-background-surface-color: var(--ifm-background-color) !important;
+  --ifm-card-background-color: #ffffff !important;
+  --ifm-code-background: #818b981f !important;
   --ifm-color-primary-dark: #006ee6;
   --ifm-color-primary-darker: #0068d9;
   --ifm-color-primary-darkest: #0056b3;
   --ifm-color-primary-light: #1a8cff;
   --ifm-color-primary-lighter: #3399ff;
   --ifm-color-primary-lightest: #4da6ff;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-background-color: #fafafa !important;
-  --ifm-card-background-color: #ffffff !important;
+  --ifm-color-primary: #007aff;
   --ifm-hero-background-color: #fafafa !important;
-  --ifm-code-background: #818b981f !important;
-  --ifm-background-surface-color: var(--ifm-background-color) !important;
-  --ifm-code-padding-horizontal: 0.4em;
+}
+
+@media screen and (max-width: 996px) {
+  :root {
+    --ifm-h1-font-size: 2.3rem !important;
+    --ifm-h2-font-size: 1.8rem !important;
+  }
+}
+
+.hero__title {
+  font-size: var(--ifm-h1-font-size);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
-  --ifm-color-primary: #3399ff;
+  --docusaurus-highlighted-code-line-bg: #0000004D;
+  --ifm-background-color: #212830 !important;
+  --ifm-card-background-color: #2d3748 !important;
+  --ifm-code-background: #656c7633 !important;
   --ifm-color-primary-dark: #1a8cff;
   --ifm-color-primary-darker: #007aff;
   --ifm-color-primary-darkest: #0066cc;
   --ifm-color-primary-light: #4da6ff;
   --ifm-color-primary-lighter: #66b3ff;
   --ifm-color-primary-lightest: #80bfff;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --ifm-background-color: #212830 !important;
-  --ifm-hero-background-color: #212830 !important;
-  --ifm-card-background-color: #2d3748 !important;
-  --ifm-code-background: #656c7633 !important;
+  --ifm-color-primary: #3399ff;
   --ifm-color-secondary-contrast-background: #2d3748 !important;
+  --ifm-hero-background-color: #212830 !important;
   --ifm-link-color: var(--ifm-color-primary-lighter);
 }
 

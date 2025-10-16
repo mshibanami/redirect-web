@@ -30,12 +30,11 @@ function HomepageHeader() {
                 </Heading>
                 <p className="hero__subtitle">
                     <b>Redirect Web</b> is a powerful browser extension to redirect URLs based on your custom rules.
-                    <p>Available for Apple devices.</p>
                 </p>
                 <div className="margin-vert--lg">
                     <ExtensionStoreLinks />
                 </div>
-                <Heading as='h4'>👇️ Click Video to Play Demo</Heading>
+                <Heading as='h4'>👇️ Click Video to Watch Demo</Heading>
                 <div className={styles.heroVideoContainer}>
                     <video
                         className={styles.heroVideo}

@@ -13,22 +13,10 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Native UI',
-    icon: '✨',
-    thumbnail: '/img/landing-feature-native-ui.png',
-    description: "Redirect Web offers a native app to provide a seamless experience on each platform.",
-  },
-  {
     title: 'Powerful Redirection Engine',
     icon: '🎯',
     thumbnail: '/img/landing-feature-redirection-engine.png',
-    description: "Create precise rules using wildcards, regular expressions, excluded URL patterns, and more.",
-  },
-  {
-    title: 'Cross-Browser & Cross-Platform',
-    icon: '🖥️📱🥽',
-    thumbnail: '/img/landing-feature-multi-platform.png',
-    description: "Available on Chrome, Edge, Firefox, and Safari on iOS, iPadOS, and macOS.",
+    description: "Create precise rules using wildcards, regular expressions, excluded URL patterns, capture group processing, DNR, and more.",
   },
   {
     title: 'Useful Rules in Library',
@@ -37,9 +25,21 @@ const FeatureList: FeatureItem[] = [
     description: "Quick start with useful pre-made rules from the Library section in the app.",
   },
   {
+    title: 'Native UI',
+    icon: '✨',
+    thumbnail: '/img/landing-feature-native-ui.png',
+    description: "Redirect Web offers a native app to provide a seamless experience on each platform.",
+  },
+  {
+    title: 'Cross-Browser & Cross-Platform',
+    icon: '🖥️📱🥽',
+    thumbnail: '/img/landing-feature-multi-platform.png',
+    description: "Available in Any browser on Mac; Safari on iPhone, iPad, and Apple Vision Pro.",
+  },
+  {
     title: 'Unlock All for $4',
     icon: '💎',
-    description: "iCloud Sync, unlimited rules, and future premium features for the price of a coffee.",
+    description: "Unlock iCloud Sync, unlimited rules, and future premium features with a one-time payment for the price of a coffee.",
   },
 ];
 
