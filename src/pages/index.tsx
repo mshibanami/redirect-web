@@ -32,12 +32,9 @@ function HomepageHeader() {
                     <b>Redirect Web</b> is a powerful browser extension to redirect URLs based on your custom rules.
                     <p>Available for Apple devices.</p>
                 </p>
-                <div className="margin--md">
+                <div className="margin-vert--lg">
                     <ExtensionStoreLinks />
                 </div>
-                {/* <div className={styles.heroImageContainer}>
-                    <img className={styles.heroImage} src={useBaseUrl('/img/library-screenshot.webp')} alt="Redirect Web Library Screenshot" />
-                </div> */}
                 <div className={styles.heroVideoContainer}>
                     <video
                         className={styles.heroVideo}
