@@ -14,7 +14,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Native UI',
-    icon: '⚡️',
+    icon: '✨',
     thumbnail: '/img/landing-feature-native-ui.png',
     description: "Redirect Web offers a native app to provide a seamless experience on each platform.",
   },
@@ -48,9 +48,9 @@ function Feature({ title, icon, thumbnail, description }: FeatureItem) {
     <div className={clsx('col col--6', styles.feature)}>
       <div className={clsx('card', styles.featureCard)}>
         <div className="card__header">
-          {thumbnail ? (
+          {thumbnail && (
             <img className={styles.featureThumbnail} src={useBaseUrl(thumbnail)} alt={title} />
-          ) : null}
+          )}
           <Heading as="h3"><span className={styles.featureIcon}>{icon}</span> {title}</Heading>
         </div>
         <div className="card__body">
