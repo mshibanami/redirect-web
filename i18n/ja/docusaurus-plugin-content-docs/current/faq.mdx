@@ -5,26 +5,26 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # よくある質問
 
-## 拡張機能が私の情報を読み取ったり変更したりすることを許可する必要があるのはなぜですか？ {#why-allow-extension-to-read-change}
+## 拡張機能が私の情報を読み取り/変更することを許可する必要があるのはなぜですか？ {#why-allow-extension-to-read-change}
 
-Redirect Webを設定する際に、次のようなアラートが表示されることがあります。
+Redirect Webを設定する際に、次のような警告が表示されることがあります。
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow={true} />
+    <Image src={PermissionAlertSafari} alt="権限を要求する警告" width="200" margin="0 0 16px 0" hasShadow />
 
-    > この拡張機能は、このウェブサイト上のウェブページを読み取ったり変更したり、閲覧履歴を表示したりできます。**これには、パスワード、電話番号、クレジットカードなどの機密情報が含まれる可能性があります。**
+    > この拡張機能は、このウェブサイトでウェブページを読み取り、変更し、閲覧履歴を表示できます。**これには、パスワード、電話番号、クレジットカードなどの機密情報が含まれる可能性があります。**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="権限を要求する警告" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > 次のことが可能です：
-    > **すべてのウェブサイト**上の**すべてのデータ**を読み取って変更する
+    > 次のことができます。
+    > **すべてのウェブサイト**で**すべてのデータ**を読み取り、変更する
 </IfBrowserStore>
 
-この拡張機能は、あなたがジャンプしたい場所にリダイレクトするためにページナビゲーションを監視する許可を必要とし、拡張機能が関連する許可を要求するとブラウザにこれが表示されます。したがって、許可しない場合、この拡張機能は機能しません。
+この拡張機能は、ページナビゲーションを監視して、目的の場所にリダイレクトするためにあなたの許可を必要とします。ブラウザは、拡張機能が関連する権限を要求するとこれを表示します。したがって、許可しない場合、この拡張機能は機能しません。
 
-付与された許可は、**[プライバシーポリシー](./privacy-policy)**に従い、リダイレクトなどのアプリ機能にのみ使用されます。
+付与された権限は、**[プライバシーポリシー](./privacy-policy)**に従い、リダイレクトなどのアプリ機能にのみ使用されます。
 
 ## Chrome、Firefox、またはEdgeの拡張機能をインストールした後でもアプリを入手する必要がありますか？ {#app-for-non-safari-browsers}
 
@@ -32,42 +32,42 @@ Redirect Webを設定する際に、次のようなアラートが表示され�
 
 ## Redirect WebはWindows、Android、Linux、またはその他のプラットフォームで動作しますか？ {#non-apple-platforms}
 
-現時点では動作しません。Redirect Webは、iCloudやユニバーサル購入など、Appleのエコシステムと密接に連携しているため、提供が困難です。
+現時点では動作しません。Redirect Webは、iCloudやユニバーサル購入を含むAppleのエコシステムと密接に連携しています。ご不便をおかけして申し訳ありません。
 
 ## なぜ[Redirector](https://github.com/einaregilsson/Redirector)ではないのですか？ {#why-not-redirector}
 
-Redirectorは依然として優れたリダイレクト拡張機能です。完全に無料でオープンソースであり、Apple以外のプラットフォームでも動作します。しかし、Redirect Webには、あなたが気に入るかもしれないいくつかの追加機能があります。
+Redirectorは依然として優れたリダイレクト拡張機能です。完全に無料でオープンソースであり、Apple以外のプラットフォームでも動作します。しかし、Redirect Webには、気に入るかもしれないいくつかの追加機能があります。
 
-* **詳細なルール設定:** 複数の除外パターン、複数のプロセス一致、文字列置換機能はRedirect Webでのみ利用可能です。
+* **詳細なルール設定:** 複数の除外パターン、複数のプロセス一致、および文字列置換機能はRedirect Webでのみ利用可能です。
 * **ネイティブアプリで開く:** Macでは、ターゲットURLを開く場所を選択できます。（ディープリンクではなく、`open`コマンドを直接呼び出します。）
 * **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/)サポート:** 超高速のリダイレクトを提供します。
 * **一元化されたルール管理:** ネイティブアプリを介して、すべてのブラウザのルールを一元的に管理します。
-* **Manifest V3 & V2サポート:** V2がChromeで段階的に廃止される際に役立ちます。
+* **Manifest V3＆V2サポート:** ChromeでV2が段階的に廃止される際に役立ちます。
 
-## この拡張機能が新しい許可を要求するのはなぜですか？ {#permission-alert-on-safari}
+## この拡張機能が新しい権限を要求するのはなぜですか？ {#permission-alert-on-safari}
 
-Redirect Webを更新した後、Safariでこのアラートが表示されることがあります。
+Redirect Webをアップデートした後、Safariでこの警告が表示されることがあります。
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
+<img src={require("/img/safari-additional-permission-alert.webp").default} alt="アプリを無効にする警告" width="280" />
 
-> 「Redirect Web」が更新され、追加の許可を要求しています。プライバシーを保護するため、この拡張機能はオフになっています。
+> 「Redirect Web」が更新され、追加の権限を要求しています。プライバシーを保護するため、この拡張機能はオフになっています。
 >
 > この拡張機能は、Safari設定の拡張機能セクションでオンにできます。
 
-これは、バージョン7で導入された[DNR](./rule-settings#type)タイプに必要な[declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension)許可によるものです。拡張機能を再度有効にしてください。ご不便をおかけして申し訳ありません。
+これは、バージョン7で導入された[DNR](./rule-settings#type)タイプに必要な[declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension)権限によるものです。拡張機能を再度有効にしてください。ご不便をおかけして申し訳ありません。
 
 ## ライブラリのコンテンツは将来的に有料になりますか？ {#will-library-become-paid}
 
-いいえ、常に無料です。すべてのコンテンツのソースは[こちら](https://github.com/mshibanami/redirect-web/tree/main/library)でも見つけることができます。
+いいえ、常に無料です。すべてのコンテンツのソースは[こちら](https://github.com/mshibanami/redirect-web/tree/main/library)でも確認できます。
 
-## 一括購入と年間サブスクリプション：どちらが最適ですか？ {#one-time-or-subscription}
+## 一括購入と年間サブスクリプション：どちらが良いですか？ {#one-time-or-subscription}
 
-価格差はわずか2.00米ドルなので、一括購入をお勧めします。
-サブスクリプションを提供する主な理由は、無料トライアルを通じてすべての機能を試せるようにするためです。予想される使用例は次のとおりです。
+価格差はわずか2.00米ドルですので、一括購入をお勧めします。
+サブスクリプションを提供する主な理由は、無料トライアルを通じてすべての機能を試せるようにするためです。以下に想定される使用例を示します。
 
 1. 年間サブスクリプションに登録します。
 2. 設定アプリに移動し、「サブスクリプション」を検索し、このアプリをタップして「サブスクリプションをキャンセル」を選択することで、すぐにサブスクリプションをキャンセルします。これにより、コミットメントなしで無料トライアルを楽しむことができます。
-3. 7日間、すべての機能に完全にアクセスできます。
+3. 7日間、すべての機能をフルアクセスで楽しみます。
 4. 機能が気に入ったら、一括購入を選択します。
 
 もちろん、年間サブスクリプションを継続しても問題ありません！
@@ -78,6 +78,6 @@ Redirect Webを更新した後、Safariでこのアラートが表示される�
 
 ## Redirect Webが他の誰かに売却される可能性はありますか？ {#could-it-be-sold}
 
-100%ありません。ブラウザ拡張機能は、あなたのブラウジングとデータに対して深い制御を行使するため、Redirect Webを他の所有者に引き渡すことは、プライバシー侵害への扉を開くことになります。拡張機能が所有者を変え、警告なしにユーザーデータを収集したり広告を挿入したりするのを見てきました。そのようなことはここでは決して起こりません。これらのリスクの詳細については、Matt Frisbieの記事[「The Ugly Business of Monetizing Browser」](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser)とBrian Krebsの調査[「Is Your Browser Extension a Botnet Backdoor？」](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)をご覧ください。
+100％ありません。ブラウザ拡張機能は、あなたの閲覧とデータに対して深い制御を行使するため、Redirect Webを別の所有者に引き渡すことは、プライバシー侵害への扉を開くことになります。私たちは、拡張機能が所有者の手を離れ、警告なしにユーザーデータを収集したり広告を挿入したりするのを見てきました。そのようなことはここでは決して起こりません。これらのリスクの詳細については、Matt Frisbieの記事[「The Ugly Business of Monetizing Browser」](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser)とBrian Krebsの調査[「Is Your Browser Extension a Botnet Backdoor？」](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)を参照してください。
 
-Redirect Webは信頼と責任に基づいて設立されています。私たちはあなたの情報を安全に保つことを私たちの義務と考えており、いかなる状況下でも所有権を譲渡することを拒否します。Redirect Webは常に私たちの手元にあり、安心してブラウジングできます。
+Redirect Webは信頼と責任に基づいて設立されています。私たちはあなたの情報を安全に保つことを義務と考えており、いかなる状況下でも所有権を譲渡することを拒否します。Redirect Webは常に私たちの手元にあり、安心して閲覧できます。

@@ -1,9 +1,9 @@
-export default function Image({ src, alt, width, hasRoundedCorners, hasShadow, height, margin, className }: {
+export default function Image({ src, alt, width, hasRoundedCorners, hasShadow, height, margin = "0 0 20px 0", className }: {
     src: string;
     alt: string;
-    width?: number;
     hasRoundedCorners?: boolean;
     hasShadow?: boolean;
+    width?: number;
     height?: number;
     margin?: string;
     className?: string;
@@ -18,7 +18,7 @@ export default function Image({ src, alt, width, hasRoundedCorners, hasShadow, h
             style={{
                 borderRadius: hasRoundedCorners ? '16px' : '0',
                 margin: margin,
-                filter: hasShadow ? 'drop-shadow(0 0 10px rgba(0, 0, 0, 0.2))' : 'none',
+                filter: hasShadow ? 'drop-shadow(0 3px 6px rgba(0, 0, 0, 0.1))' : 'none',
             }}
         />
     );

@@ -1,6 +1,6 @@
 # Kural Ayarları
 
-Bu sayfa, Redirect Web uygulamasındaki Kural Düzenleme ekranındaki her bir ayarın ayrıntılı bilgilerini sunar.
+Bu sayfa, Redirect Web uygulamasındaki *Kuralı Düzenle* ekranındaki her ayarın ayrıntılı bilgilerini sağlar.
 
 ## Seçenekler
 
@@ -16,75 +16,75 @@ Uygulamanın yönlendirmeyi nasıl ele alacağını kontrol etmek için **Tür**
 *   **DNR** (Safari için Deneysel):
     *   Bu tür, kaynak URL için bir ağ isteği başlatmadığı için Orijinal türden çok daha hızlı çalışır.
     *   Bu, [Kaynak Türleri](#resource-types) ve [İstek Yöntemleri](#request-methods) belirtmenize olanak tanır.
-    *   ⚠️ [Yakalanan Grup İşleme](#capturing-group-processing) ve [Hariç Tutulan URL Desenleri](#excluded-url-patterns) gibi bazı seçenekleri kullanamazsınız, çünkü bunlar henüz DNR API tarafından desteklenmemektedir.
-    *   ⚠️ Safari'de, şu anda Normal İfade deseninize boru işaretleri (`|`) ekleyemezsiniz. [Ayrıntılar](https://github.com/mshibanami/redirect-web/issues/44)
-    *   ⚠️ Safari'nin DNR API'sinde hala bazı sorunlar olduğundan, bunu Safari için hala deneysel bir özellik olarak görüyoruz. Bilinen tüm sorunların listesini [burada](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari) bulabilirsiniz.
+    *   ⚠️ [Yakalama Grubu İşleme](#capturing-group-processing) ve [Hariç Tutulan URL Desenleri](#excluded-url-patterns) gibi bazı seçenekleri kullanamazsınız, çünkü bunlar henüz DNR API tarafından desteklenmemektedir.
+    *   ⚠️ Safari'de, şu anda Normal İfade deseninize boru (|) ekleyemezsiniz. [Ayrıntılar](https://github.com/mshibanami/redirect-web/issues/44)
+    *   ⚠️ Safari'nin DNR API'sinde hala bazı sorunlar olduğu için, bunun Safari için hala deneysel bir özellik olduğunu düşünüyoruz. Bilinen tüm sorunların listesini [burada](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari) bulabilirsiniz.
 
 ### Şuradan Yönlendir {#redirect-from}
 
-**Şuradan Yönlendir** seçeneği, yönlendirmek istediğiniz web sayfalarının URL desenini belirtmenizi sağlar. [Joker Karakter](#wildcard) veya [Normal İfade](#regular-expression) seçebilirsiniz.
+**Şuradan Yönlendir** seçeneği, yönlendirmek istediğiniz web sayfalarının URL desenini belirtmenize olanak tanır. [Joker Karakter](#wildcard) veya [Normal İfade](#regular-expression) seçebilirsiniz.
 
-Örneğin, Joker Karakter ile `https://example.com/*` belirtirseniz, bu `https://example.com/` veya `https://example.com/hello` ile eşleşir.
+Örneğin, Joker Karakter ile `https://example.com/*` belirtirseniz, `https://example.com/` veya `https://example.com/hello` ile eşleşir.
 
 > [!NOTE]
-> Şuraya Yönlendir seçeneğinde, `$0` kullanarak tüm eşleşmeyi veya `$1`, `$2`, ... kullanarak kısmi eşleşmeleri referans alabilirsiniz. Bu sayfadaki [URL Deseni](#url-pattern) bölümünde ayrıntıları kontrol edin.
+> Yönlendirilecek seçeneğinde, $0 kullanarak tüm eşleşmeyi veya $1, $2, ... kullanarak kısmi eşleşmeleri referans alabilirsiniz. Ayrıntıları bu sayfadaki [URL Deseni](#url-pattern) bölümünde kontrol edin.
 
 #### Kaynak Türleri {#resource-types}
 
 ![Desteklenen Türler: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-**Kaynak Türleri** seçeneği, kuralın uygulanacağı resimler, JavaScript'ler ve stil sayfaları gibi web isteklerinin kategorilerini belirtmenizi sağlar.
+**Kaynak Türleri** seçeneği, kuralın uygulandığı resimler, JavaScript'ler ve stil sayfaları gibi web isteklerinin kategorilerini belirtmenizi sağlar.
 Örneğin, `script` ayarlarsanız, web sayfaları tarafından yüklenen JavaScript dosyalarını yönlendirebilirsiniz.
 
-Şu anda şunlar mevcuttur:
+Şu anda şunlar mevcuttur: 
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
 Varsayılan ayar, bir sekmeye yüklenen üst düzey sayfa olan `main_frame`'dir.
 
-Please check the details of each resource type in [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+Please check the details of each resource type in [mdn web belgelerinde](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType) kontrol edin.
 
 #### İstek Yöntemleri {#request-methods}
 
 ![Desteklenen Türler: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-**İstek Yöntemleri** seçeneği, kaynak URL'nin hedef HTTP yöntemlerini ayarlamanızı sağlar.
+**İstek Yöntemleri** seçeneği, kaynak URL'nin hedef HTTP yöntemlerini ayarlamanıza olanak tanır.
 
 Tüm yöntemler varsayılan olarak ayarlanmıştır.
 
-Please check the details of each method in [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+Please check the details of each method in [mdn web belgelerinde](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) kontrol edin.
 
 > [!WARNING]
-> Safari'de bu seçenek kullanılamayabilir çünkü Apple'ın DNR türü için uygulaması şu anda bunu ele almıyor gibi görünüyor. Apple'a FB14502272 olarak geri bildirim gönderdik.
+> Safari'de, Apple'ın DNR türü için uygulaması şu anda bunu ele almadığı için bu seçenek kullanılamayabilir. Apple'a FB14502272 olarak geri bildirim gönderdik.
 
 #### Hedef Tarayıcılar {#target-browsers}
 
 ![Desteklenen Platformlar: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-**Hedef Tarayıcılar** seçeneği, kuralın hangi tarayıcıya uygulanması gerektiğini veya uygulanmaması gerektiğini belirtmenizi sağlar.
+**Hedef Tarayıcılar** seçeneği, kuralın hangi tarayıcıya uygulanması gerektiğini veya uygulanmaması gerektiğini belirtmenize olanak tanır.
 
 *   Seçebileceğiniz 2 tür tarayıcı vardır:
     *   **Varsayılan olarak seçebileceğiniz tarayıcılar**: Varsayılan olarak Safari, Chrome, Firefox, Edge, Opera, Arc, Brave ve Vivaldi'yi seçebilirsiniz. Bu, Safari ve Safari Technology Preview gibi aynı tarayıcının varyantlarını ayırt etmez.
-    *   **Kullanıcı tarafından belirtilen tarayıcılar**: Açılır penceredeki Ekle düğmesine dokunarak, Redirect Web uzantısının yüklü olduğu Safari veya Safari Technology Preview dışındaki herhangi bir tarayıcıyı seçebilirsiniz.
+    *   **Kullanıcı tarafından belirtilen tarayıcılar**: Açılır penceredeki Ekle düğmesine dokunarak, Redirect Web uzantısı yüklü olan Safari veya Safari Technology Preview dışındaki herhangi bir tarayıcıyı seçebilirsiniz.
 *   **Seçilenler dışındaki tümü** onay kutusu, seçtiğiniz tarayıcılar dışındaki her tarayıcıyı hedeflemenizi sağlar.
 
 > [!WARNING]
-> Redirect Web, tarayıcının **Safari** mi yoksa **Safari Technology Preview** mu olduğunu ayırt edemez çünkü uygulama, uzantının üst sürecini kontrol ederek bunu algılar, ancak bu iki tarayıcı aynı üst süreci (`/sbin/launchd`) paylaşır.
+> Redirect Web, tarayıcının **Safari** mi yoksa **Safari Technology Preview** mu olduğunu ayırt edemez, çünkü uygulama bunu algılamak için uzantının üst sürecini kontrol eder, ancak bu iki tarayıcı aynı üst süreci (/sbin/launchd) paylaşır.
 
 ### Şuraya Yönlendir {#redirect-to}
 
-**Şuraya Yönlendir** seçeneği, *Şuradan Yönlendir* seçeneğiyle eşleşen kaynak URL'den yönlendirmek istediğiniz hedef URL'yi belirtir. Ayrıca, `$1`, `$2`, ... ile yakalanan grupları veya `$0` ile tüm eşleşmeyi değiştirebilirsiniz. Bunlar, hedefi dinamik olarak belirtmenize yardımcı olur. Bu sayfadaki [URL Deseni](#url-pattern) bölümünde ayrıntıları kontrol edin.
+**Şuraya Yönlendir** seçeneği, *Şuradan Yönlendir* seçeneğiyle eşleşen kaynak URL'den yönlendirmek istediğiniz hedef URL'yi belirtir. Ayrıca $1, $2, ... ile yakalama gruplarını veya $0 ile tüm eşleşmeyi değiştirebilirsiniz. Bunlar, hedefi dinamik olarak belirtmenize yardımcı olur. Ayrıntıları bu sayfadaki [URL Deseni](#url-pattern) bölümünde kontrol edin.
 
 Örneğin, aşağıdaki kuralı ayarlarsanız:
 
 *   **Şuradan Yönlendir**: `https://google.com/*` (Joker Karakter)
 *   **Şuraya Yönlendir**: `https://apple.com/$1`
 
-ve bu `https://google.com/hello` ile eşleşirse, hedef URL `https://apple.com/hello` olacaktır.
+ve `https://google.com/hello` ile eşleşirse, hedef URL `https://apple.com/hello` olacaktır.
 
-Ek olarak, `$1`, `$2`, ... metinlerini değiştirmeden önce değiştirebilirsiniz. Ayrıntılar için [Yakalanan Grup İşleme](#capturing-group-processing) bölümünü kontrol edin.
+Ek olarak, ikameler yapmadan önce $1, $2, ... metinlerini değiştirebilirsiniz. Ayrıntılar için [Yakalama Grubu İşleme](#capturing-group-processing) bölümünü kontrol edin.
 
 > [!TIP]
-> Bir uygulamayı açmak için özel bir URL şeması belirtebilirsiniz. Bunlar, derin bağlantıyı destekleyen uygulamalara örneklerdir:
+> Bir uygulamayı açmak için özel bir URL şeması belirtebilirsiniz. Bunlar derin bağlantıları destekleyen uygulamalara örneklerdir:
 >
 > *   Figma: `figma://file/Your_Figma_ID`
 > *   Firefox: `firefox://open-url?url=https://example.com/hello`
@@ -100,30 +100,30 @@ Ek olarak, `$1`, `$2`, ... metinlerini değiştirmeden önce değiştirebilirsin
 Hedef URL'yi açmak istediğiniz bir uygulamayı belirtmek isterseniz, **Uygulama** açılır kutusunu kullanın. Bu yalnızca macOS'ta kullanılabilir.
 
 > [!WARNING]
-> Yalnızca [Uygulama Korumalı Alanını](https://developer.apple.com/documentation/security/app_sandbox) destekleyen bir uygulamayı açabilirsiniz. Ayrıca, uygulamanın açmak istediğiniz URL'yi açmayı desteklediğinden emin olun.
+> Yalnızca [Uygulama Korumalı Alanı'nı](https://developer.apple.com/documentation/security/app_sandbox) destekleyen bir uygulamayı açabilirsiniz. Ayrıca, uygulamanın açmak istediğiniz URL'yi açmayı desteklediğinden emin olun.
 
-### Yakalanan Grup İşleme {#capturing-group-processing}
+### Yakalama Grubu İşleme {#capturing-group-processing}
 
 ![Desteklenen Türler: Orijinal](https://img.shields.io/badge/Types-Original-blue)
 
-**Yakalanan Grup İşleme** seçeneği, *Şuraya Yönlendir* seçeneğinde `$1`, `$2`... ile değiştirebileceğiniz yakalanan grupları nasıl işleyeceğinizi belirtmenizi sağlar.
+**Yakalama Grubu İşleme** seçeneği, *Şuraya Yönlendir* seçeneğinde $1, $2... ile değiştirebileceğiniz yakalama gruplarını nasıl işleyeceğinizi belirtmenize olanak tanır.
 
-Yakalanan grupları oluşturma yolları şunlardır:
+Yakalama grupları şu şekilde yapılır:
 
 *   **Joker Karakter**: `*` ve `?` ile eşleşen metinler otomatik olarak yakalanır.
-*   **Normal İfade**: Desen içindeki `()` kısmıyla eşleşen metinler yakalanır.
+*   **Normal İfade**: Desen içindeki `()` içindeki bölümle eşleşen metinler yakalanır.
 
-Aşağıdaki işlemlerden bir veya daha fazlasını seçebilirsiniz:
+Aşağıdaki işlemlerden birini veya daha fazlasını seçebilirsiniz:
 
-*   **URL Kodla/Çöz**: Bu, bir yakalama grubuna [yüzde kodlama](https://en.wikipedia.org/wiki/Percent-encoding) veya çözme uygular. Örneğin, `https://example.com/hello` kodlarsanız, `https%3A%2F%2Fexample.com%2Fhello` olarak dönüştürülür. Çözme işlemi ters yönde çalışır.
-*   **Base64 Kodla/Çöz**: Bu, bir metni [Base64](https://en.wikipedia.org/wiki/Base64) olarak kodlar/çözer. Örneğin, `hello` kelimesini `aGVsbG8=` olarak kodlayabilir ve tekrar `hello` olarak çözebilirsiniz.
-*   **Oluşumları Değiştir**: Bu, bir gruptaki bir veya daha fazla karakteri, bir **Hedef** ile eşleşenleri, bir **Değiştirme** ile değiştirir. Örneğin, *Grup* `hello`, *Hedef* `l` ve *Değiştirme* `y` ise, `heyyo` olarak değiştirilir.
+*   **URL Kodla/Çöz**: Bu, bir yakalama grubuna [yüzde kodlama](https://en.wikipedia.org/wiki/Percent-encoding) veya kod çözme uygular. Örneğin, `https://example.com/hello` kodlarsanız, `https%3A%2F%2Fexample.com%2Fhello` olarak dönüştürülür. Kod çözme ters yönde çalışır.
+*   **Base64 Kodla/Çöz**: Bu, bir metni [Base64](https://en.wikipedia.org/wiki/Base64)'e kodlar/çözer. Örneğin, `hello`'yu `aGVsbG8=` olarak kodlayabilir ve tekrar `hello`'ya çözebilirsiniz.
+*   **Oluşumları Değiştir**: Bu, bir gruptaki bir veya daha fazla karakteri, bir **Hedef** tarafından eşleşenleri, bir **Değiştirme** ile değiştirir. Örneğin, *Grup* `hello` ise ve *Hedef* `l` ise ve Değiştirme `y` ise, `heyyo` olarak değiştirilir.
 
 > [!NOTE]
-> Bu, her yakalama grubunu işlemek içindir ve [Hariç Tutulan URL Desenleri](#excluded-url-patterns) tarafından hangi URL'lerin hariç tutulduğunu etkilemez. Örneğin, şu kurala sahip olduğunuzu varsayalım:
+> Bu, her yakalama grubunu işlemek içindir ve [Hariç Tutulan URL Desenleri](#excluded-url-patterns) tarafından hariç tutulan URL'leri etkilemez. Örneğin, şu kuralınız olduğunu varsayalım:
 >
 > *   **Şuradan Yönlendir**: `https://example.com/(hello.*)`
-> *   **Yakalanan Grup İşleme**:
+> *   **Yakalama Grubu İşleme**: 
 >     *   Grup: `$1`
 >     *   Hedef: `.*` (Normal İfade)
 >     *   Değiştirme: `hello`
@@ -135,37 +135,37 @@ Aşağıdaki işlemlerden bir veya daha fazlasını seçebilirsiniz:
 
 ![Desteklenen Türler: Orijinal](https://img.shields.io/badge/Types-Original-blue)
 
-**Hariç Tutulan URL Desenleri** seçeneği, yönlendirilmeyen URL'leri belirtmenizi sağlar. Bu, yönlendirme döngülerini önlemek veya bir web sitesinin belirli kısımlarını yönlendirmeden hariç tutmak için yararlı olabilir.
+**Hariç Tutulan URL Desenleri** seçeneği, yönlendirilmeyen URL'leri belirtmenize olanak tanır. Bu, yönlendirme döngülerini önlemek veya bir web sitesinin belirli bölümlerini yönlendirmeden hariç tutmak için yararlı olabilir.
 
 Hariç tutulan URL desenlerini Normal İfade veya Joker Karakter desen türlerini kullanarak belirtebilirsiniz.
 
 ### Örnekler {#examples}
 
-**Örnekler** seçeneği, örnek URL'ler sağlayarak yönlendirme kuralınızı test etmenizi sağlar. Bir örnek URL ekleyerek, kuralı gerçekten uygulamadan önce beklendiği gibi çalışıp çalışmadığını kontrol edebilirsiniz.
+**Örnekler** seçeneği, örnek URL'ler sağlayarak yönlendirme kuralınızı test etmenize olanak tanır. Bir örnek URL ekleyerek, kuralı gerçekten uygulamadan önce beklendiği gibi çalışıp çalışmadığını kontrol edebilirsiniz.
 
 ### Yorumlar {#comments}
 
-**Yorumlar** seçeneği, yönlendirme kuralınız hakkında herhangi bir not veya yorum eklemenizi sağlar. Bu, belirli bir kuralı neden oluşturduğunuzu takip etmek veya kurallarınızı görüntüleyebilecek diğer kişiler için bağlam sağlamak için yararlı olabilir.
+**Yorumlar** seçeneği, yönlendirme kuralınız hakkında herhangi bir not veya yorum eklemenize olanak tanır. Bu, belirli bir kuralı neden oluşturduğunuzu takip etmek veya kurallarınızı görüntüleyebilecek diğer kişiler için bağlam sağlamak için yararlı olabilir.
 
 Yorumları aşağıdaki formatlarda yazabilirsiniz:
 
-*   **Düz Metin** (Varsayılan): Herhangi bir biçimlendirme içermeyen basit metin.
+*   **Düz Metin** (Varsayılan): Biçimlendirme olmadan basit metin.
 *   **Markdown**: [GitHub'ın Markdown sözdizimlerini](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), GFM'nin desteklemediği bazı uzantılar dahil olmak üzere kullanabilirsiniz. Örneğin, başlıklar, listeler, bağlantılar ve daha fazlasını oluşturabilirsiniz.
 *   **AsciiDoc**: Yorumlarınızı biçimlendirmek için [AsciiDoc sözdizimlerini](https://asciidoc.org/) kullanabilirsiniz.
 
 ## URL Deseni {#url-pattern}
 
-**URL desenleri**, *Şuradan Yönlendir*, *Hariç Tutulan URL Desenleri* ve *Yakalanan Grup İşleme* seçeneklerinde URL'leri eşleştirmek için kullanılır. Bunları belirtmek için **Joker Karakter** veya **Normal İfade** seçebilirsiniz.
+**URL desenleri**, *Şuradan Yönlendir*, *Hariç Tutulan URL Desenleri* ve *Yakalama Grubu İşleme* seçeneklerinde URL'leri eşleştirmek için kullanılır. Bunları belirtmek için **Joker Karakter** veya **Normal İfade** seçebilirsiniz.
 
 ### Joker Karakter {#url-pattern-wildcard}
 
-**Joker Karakter**, `*` (herhangi bir şeyi eşleştirir) ve `?` (herhangi bir tek karakteri eşleştirir) joker karakter olarak kullanmanıza izin veren daha basit bir desen türüdür. İşte bazı örnekler:
+**Joker Karakter**, `*` (herhangi bir şeyle eşleşir) ve `?` (herhangi bir tek karakterle eşleşir) joker karakter olarak kullanmanıza olanak tanıyan daha basit bir desen türüdür. İşte bazı örnekler:
 
-*   `https://example.com/hello` ile eşleşmek için `https://example.com/*` kullanabilirsiniz. Bu, `https://example.com/` sonrasındaki herhangi bir dizeyle eşleşecektir.
+*   `https://example.com/hello` ile eşleşmek için `https://example.com/*` kullanabilirsiniz. Bu, `https://example.com/`'dan sonraki herhangi bir dizeyle eşleşecektir.
 *   `https://example.com/search?q=hello` ile eşleşmek için `https://example.com/search?q=*` kullanabilirsiniz. Bu, `q` parametresi için herhangi bir değerle eşleşecektir.
 *   `blog` kelimesini içeren herhangi bir URL ile eşleşmek için `*blog*` kullanabilirsiniz.
 
-Joker Karakter'de de ikame kullanabilirsiniz, bu da eşleşen URL'nin bölümlerini `$1`, `$2`, vb. kullanarak referans alabileceğiniz anlamına gelir. Örneğin, `https://example.com/*-world-*` kullanırsanız ve URL `https://example.com/hello-world-goodbye` ise, `$1` "hello" ve `$2` "goodbye" olacaktır. Eşleşen tüm URL'yi referans almak için `$0` da mevcuttur.
+Joker Karakter'de de ikame kullanabilirsiniz, bu da eşleşen URL'nin bölümlerini `$1`, `$2` vb. kullanarak referans alabileceğiniz anlamına gelir. Örneğin, `https://example.com/*-world-*` kullanırsanız ve URL `https://example.com/hello-world-goodbye` ise, `$1` "hello" ve `$2` "goodbye" olacaktır. Tüm eşleşmeyi referans almak için `$0` da mevcuttur.
 
 > [!NOTE]
 > İkame, Normal İfade'nin bir özelliği olmasına rağmen, Redirect Web dahili olarak Joker Karakter'i Normal İfade'ye dönüştürdüğü için Joker Karakter için de kullanabilirsiniz.
@@ -174,11 +174,11 @@ Joker Karakter'de de ikame kullanabilirsiniz, bu da eşleşen URL'nin bölümler
 
 **Normal İfade** (Regex), metindeki desenleri eşleştirmek için güçlü bir araçtır ve programlamada da yaygın olarak kullanılır. Bir dizi dizeyle eşleşen belirli bir desen tanımlamanıza olanak tanır. İşte bazı örnekler.
 
--   `https://example.com/hello` ile eşleşmek için `https://example.com/.*` kullanabilirsiniz. Bu, `https://example.com/` sonrasındaki herhangi bir dizeyle eşleşecektir.
+-   `https://example.com/hello` ile eşleşmek için `https://example.com/.*` kullanabilirsiniz. Bu, `https://example.com/`'dan sonraki herhangi bir dizeyle eşleşecektir.
 -   `https://example.com/search?q=hello` ile eşleşmek için `https://example.com/search\?q=(.*)` kullanabilirsiniz. Bu, `q` parametresinin değerini eşleştirecek ve bir yakalama grubunda saklayacaktır. Daha sonra *Şuraya Yönlendir* seçeneğinde `$1` kullanarak bunu referans alabilirsiniz.
 -   `blog` kelimesini içeren herhangi bir URL ile eşleşmek için `.*blog.*` kullanabilirsiniz.
 
-*Şuraya Yönlendir* veya *Değiştirme* seçeneklerinde yakalama gruplarını `$1`, `$2`, ... veya tüm eşleşmeyi referans almak için `$0` kullanabilirsiniz.
+*Şuraya Yönlendir* veya *Değiştirme* seçeneklerinde `$1`, `$2`, ... kullanarak yakalama gruplarını veya tüm eşleşmeyi referans almak için `$0` kullanabilirsiniz.
 
 Redirect Web, [Apple'ın Regex motoru](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) tarafından desteklenmektedir.
 

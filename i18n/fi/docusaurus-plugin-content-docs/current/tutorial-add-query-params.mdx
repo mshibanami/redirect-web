@@ -1,0 +1,72 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Tapaus 3: Lisää kyselyparametreja URL-osoitteeseen
+
+Oletetaan, että on olemassa verkkosivusto nimeltä `example.com`, joka näyttää oletuksena mobiilinäkymän, mutta pidät enemmän työpöytänäkymästä. Onneksi verkkosivusto tukee `layout`-kyselyparametria, jolla voi määrittää, minkä näkymän verkkosivusto näyttää. Luodaan sääntö, joka lisää `layout=desktop` automaattisesti.
+
+Ehkä ajattelet, että voisit määrittää sen seuraavasti:
+
+* **Uudelleenohjaa kohteesta**: `https://example.com/.*` (Säännöllinen lauseke)
+* **Uudelleenohjaa kohteeseen**: `$0?layout=desktop`
+
+`$0` viittaa kohde-URL-osoitteeseen. Jos yrität avata `example.com/hello`, sinut ohjataan uudelleen osoitteeseen `example.com/hello?layout=desktop`. Tätä ominaisuutta kutsutaan *sijoitukseksi*.
+
+> [!TIP]
+> Sijoitus on käytettävissä myös Wildcard-tilassa, koska se muunnetaan sisäisesti säännölliseksi lausekkeeksi.
+
+Näissä asetuksissa on kuitenkin muutama ongelma.
+
+### Ongelma 1: Ikuinen silmukka
+
+Nykyinen asetus luo ikuisen uudelleenohjaussilmukan, koska `https://example.com/.*` kohdistuu myös osoitteeseen `https://example.com/hello?layout=desktop`.
+
+Tässä tapauksessa voit määrittää poissuljetun URL-kuvion, joka sallii pääsyn ilman uudelleenohjausta, kuten tämä säännöllisellä lausekkeella:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Vastaa mitä tahansa
+* `[&?]`: Vastaa joko `&` tai `?`
+* `[^&]*`: Vastaa mitä tahansa paitsi `&`
+
+### Ongelma 2: Ei pysty käsittelemään olemassa olevia parametreja oikein
+
+Jos kohde-URL-osoitteessa on jo muita kyselyparametreja, kuten `example.com/hello?theme=dark`, kohde on `example.com/hello?theme=dark?layout=desktop` (URL-osoitteessa on kaksi `?`), mutta parametrit voi yhdistää vain `&`:llä. `?` erikoismerkkinä on sallittu vain parametrien alussa. Siksi sitä ei käsitellä kelvollisena parametrina.
+
+Tässä tapauksessa muuta asetuksia näin:
+
+* **Uudelleenohjaa kohteesta**: `(https://example.com/[^?]*)(\(.*))?`
+* **Uudelleenohjaa kohteeseen**: `$1?layout=desktop&$3`
+
+Katsotaanpa askel askeleelta.
+
+* `(https://example.com/[^?]*)`: Vastaa osaa `?`:n edelliseen merkkiin asti.
+    * `[^?]*` vastaa mitä tahansa paitsi `?`.
+    * Tämä on kääritty `()`-merkkien sisään, joten voit viitata siihen `$1`:llä myöhemmin.
+* `(\(.*))?`: Vastaa merkkijonoa, joka alkaa `?`:llä, mikä tarkoittaa kyselyparametreja.
+    * Tämä vastaa myös tyhjää merkkijonoa kuvion lopussa olevan `?`-kvantifikaattorin avulla, joka *vastaa nolla tai yksi kertaa*.
+    * Ulompaan `()`-merkkiin ja sisempään `()`-merkkiin voidaan viitata `$2`:lla ja `$3`:lla myöhemmin.
+
+[RegExr](https://regexr.com) voi auttaa sinua ymmärtämään yksityiskohdat.
+
+> [!NOTE]
+> RegExr näyttää virheen, kun et pakene `/`-merkkiä `\`:llä. Vaikka voit paeta sen, sitä ei vaadita, koska Redirect Web käyttää Applen eri moottoria, joka ei vaadi pakenemista.
+
+Tämä ei ole täydellinen ratkaisu, koska se ohjaa `example.com/hello` uudelleen osoitteeseen `example.com/hello?layout=desktop&`, joka sisältää tarpeettoman `&`-merkin URL-osoitteen lopussa. Se ei ole yleensä iso juttu, mutta jos haluat poistaa sen, voit käyttää *Sieppausryhmän käsittelyä*.
+
+Yhteenvetona, tämä on lopullinen tulos:
+
+* **Uudelleenohjaa kohteesta**: `(https://example.com/[^?]*)((\(.*))?)` (Säännöllinen lauseke)
+* **Uudelleenohjaa kohteeseen**: `$1?layout=desktop$3`
+* **Poissuljettu URL-kuvio**: `.*[&?]layout=[^&]*.*` (Säännöllinen lauseke)
+* **Sieppausryhmän käsittely**:
+    * **Ryhmä**: `$3`
+    * **Prosessi**: Korvaa esiintymät
+        * **Kohde**: `\?(.*)`
+        * **Korvaava**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Lataa sääntö</a>**
+
+
+Tämä on vain esimerkki. Voit myös luoda useita sääntöjä kunkin ongelman käsittelemiseksi. Se voi olla paljon yksinkertaisempaa.

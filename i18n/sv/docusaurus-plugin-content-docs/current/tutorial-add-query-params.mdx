@@ -1,0 +1,71 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Fall 3: Lägg till frågeparametrar till URL
+
+Låt oss säga att det finns en webbplats som heter `example.com` som visar en mobil layout som standard, men du föredrar deras skrivbordslayout. Lyckligtvis stöder webbplatsen en `layout`-frågeparameter för att ange vilken layout webbplatsen ska visa. Låt oss skapa en regel som automatiskt lägger till `layout=desktop`.
+
+Du kanske tror att du kan definiera det på följande sätt:
+
+*   **Omdirigera från**: `https://example.com/.*` (Reguljärt uttryck)
+*   **Omdirigera till**: `$0?layout=desktop`
+
+`$0` refererar till mål-URL:en. Om du försöker komma åt `example.com/hello`, omdirigeras du till `example.com/hello?layout=desktop`. Denna funktion kallas *substitution*.
+
+> [!TIP]
+> Substitution är också tillgängligt för Wildcard-läget eftersom det internt konverteras till reguljära uttryck.
+
+Det finns dock några problem med dessa inställningar.
+
+### Problem 1: Oändlig loop
+
+Den nuvarande inställningen skapar en oändlig omdirigeringsloop eftersom `https://example.com/.*` också riktar sig mot `https://example.com/hello?layout=desktop`.
+
+I det här fallet kan du ange ett exkluderat URL-mönster som gör att du kan komma åt utan omdirigering, så här med reguljära uttryck:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+*   `.*`: Matchar vad som helst
+*   `[&?]`: Matchar antingen `&` eller `?`
+*   `[^&]*`: Matchar vad som helst utom `&`
+
+### Problem 2: Kan inte hantera befintliga parametrar korrekt
+
+Om mål-URL:en redan har andra frågeparametrar som `example.com/hello?theme=dark`, kommer destinationen att vara `example.com/hello?theme=dark?layout=desktop` (det finns två `?` i URL:en) men du kan bara sammanfoga parametrarna med `&`. `?` som ett specialtecken är endast tillåtet i början av parametrarna. Så det behandlas inte som en giltig parameter.
+
+I det här fallet ändrar du inställningarna så här:
+
+*   **Omdirigera från**: `(https://example.com/[^?]*)(\(.*))?`
+*   **Omdirigera till**: `$1?layout=desktop&$3`
+
+Låt oss titta steg för steg.
+
+*   `(https://example.com/[^?]*)`: Matchar delen fram till föregående tecken för `?`.
+    *   `[^?]*` matchar vad som helst utom `?`.
+    *   Detta är insvept med `()` så att du kan referera till det med `$1` senare.
+*   `(\(.*))?`: Matchar en sträng som börjar med `?`, vilket betyder frågeparametrar.
+    *   Detta matchar också tom sträng med `?`-kvantifieraren i slutet av mönstret, vilket *matchar noll eller en gång*.
+    *   Den yttre `()` och den inre `()` kan refereras till med `$2` och `$3` senare.
+
+[RegExr](https://regexr.com) kan hjälpa dig att förstå detaljerna.
+
+> [!NOTE]
+> RegExr visar ett fel när du inte undviker `/` med `\`. Även om du kan undvika det, krävs det inte eftersom Redirect Web använder en annan motor från Apple som inte kräver undvikande.
+
+Detta är ingen perfekt lösning, eftersom den omdirigerar `example.com/hello` till `example.com/hello?layout=desktop&`, vilket inkluderar ett onödigt `&` i slutet av URL:en. Det är ingen stor sak i allmänhet, men om du vill ta bort det kan du använda *Bearbetning av fångstgrupper*.
+
+Sammanfattningsvis är detta det slutliga resultatet:
+
+*   **Omdirigera från**: `(https://example.com/[^?]*)((\(.*))?)` (Reguljärt uttryck)
+*   **Omdirigera till**: `$1?layout=desktop$3`
+*   **Exkluderat URL-mönster**: `.*[&?]layout=[^&]*.*` (Reguljärt uttryck)
+*   **Bearbetning av fångstgrupper**:
+    *   **Grupp**: `$3`
+    *   **Process**: Ersätt förekomster
+        *   **Mål**: `\?(.*)`
+        *   **Ersättning**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Ladda ner regeln</a>**
+
+Detta är bara ett exempel. Du kan också skapa flera regler för att hantera varje problem. Det kan vara mycket enklare.

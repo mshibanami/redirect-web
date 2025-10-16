@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# ケース2：URLからクエリパラメータを削除する
+
+`example.com`のURLに`source=twitter`というクエリパラメータがあり、匿名化のためにそれを削除することにしたとします。
+
+この場合、**キャプチャグループ処理**オプションが最も簡単な方法です。
+
+* **リダイレクト元**: `https://example.com/*` (ワイルドカード)
+* **リダイレクト先**: `$0`
+* **キャプチャグループ処理**:
+    * **グループ**: `$0`
+    * **処理**: 出現箇所の置換
+        * **ターゲット**: `&?source=[^&]*`
+        * **置換**: *(なし)*
+        * **テキストパターン**: 正規表現
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ ルールをダウンロード</a>**
+
+このルールは次のように機能します。
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+さらに多くのパラメータを削除したい場合は、さらに処理を追加してください。

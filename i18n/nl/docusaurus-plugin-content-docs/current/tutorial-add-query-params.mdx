@@ -1,0 +1,73 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Geval 3: Queryparameters toevoegen aan URL
+
+Stel dat er een website genaamd `example.com` is die standaard een mobiele lay-out toont, maar u geeft de voorkeur aan de desktoplay-out. Gelukkig ondersteunt de website een `layout`-queryparameter om aan te geven welke lay-out de website weergeeft. Laten we een regel maken die automatisch `layout=desktop` toevoegt.
+
+Misschien denkt u dat u het als volgt kunt definiëren:
+
+* **Omleiden van**: `https://example.com/.*` (Reguliere expressie)
+* **Omleiden naar**: `$0?layout=desktop`
+
+`$0` verwijst naar de doel-URL. Als u `example.com/hello` probeert te openen, wordt u omgeleid naar `example.com/hello?layout=desktop`. Deze functie wordt *substitutie* genoemd.
+
+> [!TIP]
+> Substitutie is ook beschikbaar voor de Wildcard-modus, aangezien deze intern wordt omgezet naar reguliere expressie.
+
+Er zijn echter een paar problemen met deze instellingen.
+
+### Probleem 1: Oneindige lus
+
+De huidige instelling creëert een oneindige omleidingslus, aangezien `https://example.com/.*` ook gericht is op `https://example.com/hello?layout=desktop`.
+
+In dit geval kunt u een uitgesloten URL-patroon opgeven dat toegang zonder omleiding mogelijk maakt, zoals dit met reguliere expressie:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Komt overeen met alles
+* `[&?]`: Komt overeen met `&` of `?`
+* `[^&]*`: Komt overeen met alles behalve `&`
+
+
+### Probleem 2: Kan bestaande parameters niet correct verwerken
+
+Als de doel-URL al andere queryparameters heeft, zoals `example.com/hello?theme=dark`, zal de bestemming `example.com/hello?theme=dark?layout=desktop` zijn (er zijn twee `?` in de URL), maar u kunt de parameters alleen samenvoegen met `&`. `?` als speciaal teken is alleen toegestaan aan het begin van de parameters. Het wordt dus niet behandeld als een geldige parameter.
+
+In dit geval wijzigt u de instellingen als volgt:
+
+* **Omleiden van**: `(https://example.com/[^?]*)(\(.*))?`
+* **Omleiden naar**: `$1?layout=desktop&$3`
+
+Laten we het stap voor stap bekijken.
+
+* `(https://example.com/[^?]*)`: Komt overeen met het deel tot het vorige teken van `?`.
+    * `[^?]*` komt overeen met alles behalve `?`.
+    * Dit is omwikkeld met `()` zodat u er later naar kunt verwijzen met `$1`.
+* `(\(.*))?`: Komt overeen met een tekenreeks die begint met `?`, wat queryparameters betekent.
+    * Dit komt ook overeen met een lege tekenreeks door de `?`-kwantificator aan het einde van het patroon, wat *nul of één keer overeenkomt*.
+    * De buitenste `()` en de binnenste `()` kunnen later worden verwezen met `$2` en `$3`.
+
+[RegExr](https://regexr.com) kan u helpen de details te begrijpen.
+
+> [!NOTE]
+> RegExr toont een fout wanneer u `/` niet escapet met `\`. Hoewel u het kunt escapen, is het niet vereist, aangezien Redirect Web een andere engine van Apple gebruikt die geen escaping vereist.
+
+Dit is geen perfecte oplossing, aangezien het `example.com/hello` omleidt naar `example.com/hello?layout=desktop&`, wat een onnodige `&` aan het einde van de URL bevat. Dit is over het algemeen geen groot probleem, maar als u het wilt verwijderen, kunt u *Vastleggen van groepsverwerking* gebruiken.
+
+In concluderend is dit de uiteindelijke uitvoer:
+
+* **Omleiden van**: `(https://example.com/[^?]*)((\(.*))?)` (Reguliere expressie)
+* **Omleiden naar**: `$1?layout=desktop$3`
+* **Uitgesloten URL-patroon**: `.*[&?]layout=[^&]*.*` (Reguliere expressie)
+* **Vastleggen van groepsverwerking**:
+    * **Groep**: `$3`
+    * **Proces**: Voorkomens vervangen
+        * **Doel**: `\?(.*)`
+        * **Vervanging**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Download de regel</a>**
+
+
+Dit is slechts een voorbeeld. U kunt ook meerdere regels maken om elk probleem afzonderlijk af te handelen. Dit kan veel eenvoudiger zijn.

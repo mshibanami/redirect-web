@@ -7,77 +7,77 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 ## Mengapa saya harus mengizinkan ekstensi untuk membaca/mengubah informasi saya? {#why-allow-extension-to-read-change}
 
-Anda mungkin melihat peringatan seperti ini saat menyiapkan Redirect Web:
+Anda mungkin melihat peringatan seperti ini saat Anda mengatur Redirect Web:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow={true} />
+    <Image src={PermissionAlertSafari} alt="Peringatan yang membutuhkan izin" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Ekstensi ini akan dapat membaca dan mengubah halaman web serta melihat riwayat penelusuran Anda di situs web ini. **Ini dapat mencakup informasi sensitif, termasuk kata sandi, nomor telepon, dan kartu kredit.**
+    > Ekstensi ini akan dapat membaca dan mengubah halaman web serta melihat riwayat penjelajahan Anda di situs web ini. **Ini bisa termasuk informasi sensitif, termasuk kata sandi, nomor telepon, dan kartu kredit.**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners={true} hasShadow={true} margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="Peringatan yang membutuhkan izin" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
     > Ini dapat:  
     > Membaca dan mengubah **semua data Anda** di **semua situs web**
 </IfBrowserStore>
 
-Ekstensi ini membutuhkan izin Anda untuk mengamati navigasi halaman agar dapat mengalihkan ke mana pun Anda ingin melompat, dan browser Anda menampilkan ini ketika ekstensi meminta izin terkait. Oleh karena itu, jika Anda tidak mengizinkannya, ekstensi ini tidak dapat berfungsi.
+Ekstensi ini membutuhkan izin Anda untuk mengamati navigasi halaman untuk mengarahkan ke mana pun Anda ingin melompat, dan browser Anda menampilkan ini ketika ekstensi meminta izin terkait. Oleh karena itu, jika Anda tidak mengizinkannya, ekstensi ini tidak dapat berfungsi.
 
 Izin yang diberikan hanya akan digunakan untuk fungsi aplikasi seperti pengalihan, sesuai dengan **[kebijakan privasi](./privacy-policy)**.
 
 ## Haruskah saya tetap mendapatkan aplikasi setelah menginstal ekstensi untuk Chrome, Firefox, atau Edge? {#app-for-non-safari-browsers}
 
-Ya. Anda harus mengunduh [aplikasi Redirect Web dari App Store](https://apps.apple.com/app/id1571283503) terlepas dari browser mana yang Anda gunakan. Anda dapat menginstal ekstensi dari toko ekstensi browser Anda, tetapi aplikasi diperlukan untuk mengelola aturan, riwayat pembelian, dan pengaturan lainnya di seluruh perangkat melalui iCloud.
+Ya. Anda harus mengunduh [aplikasi Redirect Web dari App Store](https://apps.apple.com/app/id1571283503) terlepas dari browser apa yang Anda gunakan. Anda dapat menginstal ekstensi dari toko ekstensi browser Anda, tetapi aplikasi diperlukan untuk mengelola aturan Anda, riwayat pembelian, dan pengaturan lainnya di seluruh perangkat melalui iCloud.
 
 ## Apakah Redirect Web berfungsi di Windows, Android, Linux, atau platform lain? {#non-apple-platforms}
 
-Tidak untuk saat ini. Redirect Web sangat terkait dengan ekosistem Apple, termasuk iCloud dan Pembelian Universal, yang membuatnya sulit untuk ditawarkan.
+Saat ini tidak. Redirect Web sangat terkait dengan ekosistem Apple, termasuk iCloud dan Pembelian Universal. Maaf atas ketidaknyamanannya.
 
 ## Mengapa bukan [Redirector](https://github.com/einaregilsson/Redirector)? {#why-not-redirector}
 
-Redirector masih merupakan ekstensi pengalihan yang bagus. Ini sepenuhnya gratis, open-source, dan juga berfungsi di platform non-Apple. Tapi Redirect Web memiliki beberapa fitur tambahan yang mungkin Anda sukai:
+Redirector masih merupakan ekstensi pengalihan yang hebat. Ini sepenuhnya gratis, open-source, dan berfungsi di platform non-Apple juga. Tetapi Redirect Web memiliki beberapa fitur tambahan yang mungkin Anda sukai:
 
-*   **Pengaturan Aturan Terperinci:** Beberapa pola pengecualian, beberapa kecocokan proses, dan fitur penggantian string hanya tersedia di Redirect Web.
-*   **Buka di aplikasi native:** Di Mac, Anda dapat memilih di mana URL target akan dibuka. (Ini langsung memanggil perintah `open`. Bukan deep link.)
-*   **Dukungan [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Menyediakan pengalihan yang sangat cepat.
-*   **Manajemen aturan terpusat:** Kelola aturan untuk semua browser di satu tempat melalui aplikasi native.
-*   **Dukungan Manifest V3 & V2:** Membantu saat V2 sedang dihapus di Chrome.
+* **Pengaturan Aturan Terperinci:** Beberapa pola pengecualian, beberapa proses pencocokan, dan fitur penggantian string hanya tersedia di Redirect Web.
+* **Buka di aplikasi asli:** Di Mac, Anda dapat memilih di mana akan membuka URL target. (Ini memanggil perintah `open` secara langsung. Bukan deep link.)
+* **Dukungan [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Menyediakan pengalihan yang sangat cepat.
+* **Manajemen aturan terpusat:** Kelola aturan untuk semua browser di satu tempat melalui aplikasi asli.
+* **Dukungan Manifest V3 & V2:** Berguna saat V2 sedang dihapus di Chrome.
 
-## Mengapa ekstensi ini memerlukan izin baru? {#permission-alert-on-safari}
+## Mengapa ekstensi ini membutuhkan izin baru? {#permission-alert-on-safari}
 
 Anda mungkin melihat peringatan ini di Safari setelah memperbarui Redirect Web:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
+<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Peringatan penonaktifan aplikasi" width="280" />
 
-> "Redirect Web" telah diperbarui dan meminta izin tambahan. Untuk melindungi privasi Anda, ekstensi ini telah dinonaktifkan.
+> "Redirect Web" telah diperbarui dan meminta izin tambahan. Untuk melindungi privasi Anda, ekstensi ini telah dimatikan.
 >
-> Anda dapat mengaktifkan ekstensi ini di bagian Ekstensi pada Pengaturan Safari.
+> Anda dapat mengaktifkan ekstensi ini di bagian Ekstensi di Pengaturan Safari.
 
-Ini karena izin [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) yang diperlukan oleh tipe [DNR](./rule-settings#type) yang diperkenalkan pada versi 7. Harap aktifkan kembali ekstensi. Maaf atas ketidaknyamanannya.
+Ini karena izin [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) yang diperlukan oleh jenis [DNR](./rule-settings#type) yang diperkenalkan di versi 7. Harap aktifkan kembali ekstensi. Maaf atas ketidaknyamanannya.
 
-## Apakah konten perpustakaan akan menjadi berbayar di masa mendatang? {#will-library-become-paid}
+## Akankah konten perpustakaan menjadi berbayar di masa mendatang? {#will-library-become-paid}
 
-Tidak, ini akan selalu gratis. Anda juga dapat menemukan sumber dari semua konten [di sini](https://github.com/mshibanami/redirect-web/tree/main/library).
+Tidak, itu selalu gratis. Anda juga dapat menemukan sumber semua konten [di sini](https://github.com/mshibanami/redirect-web/tree/main/library).
 
 ## Pembelian Sekali Bayar atau Langganan Tahunan: Mana yang Terbaik? {#one-time-or-subscription}
 
-Kami merekomendasikan pembelian sekali bayar, karena selisih harganya hanya US$2.00.
+Kami merekomendasikan pembelian sekali bayar, karena perbedaan harga hanya US$2.00.
 Alasan utama kami menawarkan langganan adalah untuk memungkinkan Anda mencoba semua fitur melalui uji coba gratisnya. Berikut adalah kasus penggunaan yang diharapkan:
 
-1.  Berlangganan langganan tahunan.
-2.  Segera batalkan langganan dengan masuk ke aplikasi Pengaturan, mencari "Langganan", mengetuk aplikasi ini, dan memilih "Batalkan Langganan". Ini memungkinkan Anda menikmati uji coba gratis tanpa komitmen apa pun.
-3.  Nikmati akses penuh ke semua fitur selama 7 hari.
-4.  Jika Anda menyukai fitur-fiturnya, pilih pembelian sekali bayar.
+1. Berlangganan langganan tahunan.
+2. Segera batalkan langganan dengan membuka aplikasi Pengaturan, mencari "Langganan", mengetuk aplikasi ini, dan memilih "Batalkan Langganan". Ini memungkinkan Anda menikmati uji coba gratis tanpa komitmen apa pun.
+3. Nikmati akses penuh ke semua fitur selama 7 hari.
+4. Jika Anda menyukai fitur-fiturnya, pilih pembelian sekali bayar.
 
-Tentu saja, tidak ada yang salah dengan melanjutkan langganan tahunan jika Anda mau!
+Tentu saja, tidak ada salahnya untuk melanjutkan dengan langganan tahunan jika Anda mau!
 
-## Apakah Redirect Web menyuntikkan iklan atau konten lain yang tidak relevan ke situs web? {#does-it-inject-ads}
+## Apakah Redirect Web menyuntikkan iklan atau konten lain yang tidak terkait ke situs web? {#does-it-inject-ads}
 
-Tidak, ini tidak menyuntikkan konten semacam itu. Hanya kode yang diperlukan untuk menyediakan fitur-fitur yang dijelaskan dalam dokumentasi ini dan di halaman aplikasi di App Store yang disuntikkan ke situs web di Safari.
+Tidak, itu tidak menyuntikkan konten semacam itu. Hanya kode yang diperlukan untuk menyediakan fitur-fitur yang dijelaskan dalam dokumentasi ini dan di halaman aplikasi di App Store yang disuntikkan ke situs web di Safari.
 
-## Adakah kemungkinan Redirect Web akan dijual kepada orang lain? {#could-it-be-sold}
+## Apakah ada kemungkinan Redirect Web akan dijual kepada orang lain? {#could-it-be-sold}
 
-100% tidak. Ekstensi browser memiliki kendali yang dalam atas penjelajahan dan data Anda, dan menyerahkan Redirect Web kepada pemilik lain akan membuka pintu bagi pelanggaran privasi. Kami telah melihat ekstensi berpindah tangan dan kemudian mengumpulkan data pengguna atau menyuntikkan iklan tanpa peringatan. Itu tidak akan pernah terjadi di sini. Untuk informasi lebih lanjut tentang risiko ini, lihat artikel Matt Frisbie "The Ugly Business of Monetizing Browser" dan investigasi Brian Krebs "Is Your Browser Extension a Botnet Backdoor?".
+100% tidak. Ekstensi browser memiliki kontrol mendalam atas penjelajahan dan data Anda, dan menyerahkan Redirect Web kepada pemilik lain akan membuka pintu bagi pelanggaran privasi. Kami telah melihat ekstensi berpindah tangan dan kemudian mengumpulkan data pengguna atau menyuntikkan iklan tanpa peringatan. Itu tidak akan pernah terjadi di sini. Untuk lebih lanjut tentang risiko ini, lihat artikel Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) dan investigasi Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-Redirect Web didirikan atas dasar kepercayaan dan tanggung jawab. Kami menganggapnya sebagai tugas kami untuk menjaga informasi Anda tetap aman, dan kami menolak untuk mentransfer kepemilikan dalam keadaan apa pun. Redirect Web akan selalu tetap di tangan kami, sehingga Anda dapat menjelajah dengan keyakinan penuh.
+Redirect Web didirikan atas dasar kepercayaan dan tanggung jawab. Kami menganggapnya sebagai tugas kami untuk menjaga keamanan informasi Anda, dan kami menolak untuk mengalihkan kepemilikan dalam keadaan apa pun. Redirect Web akan selalu tetap di tangan kami, sehingga Anda dapat menjelajah dengan keyakinan penuh.

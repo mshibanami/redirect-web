@@ -1,0 +1,72 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# 3 atvejis: pridėti užklausos parametrus prie URL
+
+Tarkime, yra svetainė pavadinimu `example.com`, kuri pagal numatytuosius nustatymus rodo mobilųjį išdėstymą, tačiau jūs pageidaujate darbalaukio išdėstymo. Laimei, svetainė palaiko `layout` užklausos parametrą, kad nurodytų, kokį išdėstymą svetainė rodo. Sukurkime taisyklę, kuri automatiškai prideda `layout=desktop`.
+
+Galbūt manote, kad galėtumėte tai apibrėžti taip:
+
+* **Nukreipti iš**: `https://example.com/.*` (Reguliarioji išraiška)
+* **Nukreipti į**: `$0?layout=desktop`
+
+`$0` nurodo tikslinį URL. Jei bandysite pasiekti `example.com/hello`, būsite nukreipti į `example.com/hello?layout=desktop`. Ši funkcija vadinama *pakeitimu* (angl. *substitution*).
+
+> [!PATARIMAS]
+> Pakeitimas taip pat galimas „Wildcard“ režimui, nes jis viduje konvertuojamas į reguliariąją išraišką.
+
+Tačiau yra keletas problemų su šiais nustatymais.
+
+### 1 problema: begalinis ciklas
+
+Dabartinis nustatymas sukuria begalinį nukreipimo ciklą, nes `https://example.com/.*` taip pat nukreipia į `https://example.com/hello?layout=desktop`.
+
+Šiuo atveju galite nurodyti išskirtą URL šabloną, kuris leidžia pasiekti be nukreipimo, pavyzdžiui, taip su reguliariąja išraiška:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Atitinka bet ką
+* `[&?]`: Atitinka `&` arba `?`
+* `[^&]*`: Atitinka bet ką, išskyrus `&`
+
+
+### 2 problema: negalima tinkamai apdoroti esamų parametrų
+
+Jei tikslinis URL jau turi kitų užklausos parametrų, pvz., `example.com/hello?theme=dark`, paskirties vieta bus `example.com/hello?theme=dark?layout=desktop` (URL yra du `?`), tačiau parametrus galite sujungti tik su `&`. `?`, kaip specialusis simbolis, leidžiamas tik parametrų pradžioje. Taigi jis nėra traktuojamas kaip galiojantis parametras.
+
+Šiuo atveju pakeiskite nustatymus taip:
+
+* **Nukreipti iš**: `(https://example.com/[^?]*)(eflected?.*)?`
+* **Nukreipti į**: `$1?layout=desktop&$3`
+
+Pažvelkime žingsnis po žingsnio.
+
+* `(https://example.com/[^?]*)`: Atitinka dalį iki ankstesnio `?` simbolio.
+    * `[^?]*` atitinka bet ką, išskyrus `?`.
+    * Tai apgaubta `()` simboliais, kad vėliau galėtumėte į tai kreiptis su `$1`.
+* `(eflected?.*)?`: Atitinka eilutę, prasidedančią `?`, o tai reiškia užklausos parametrus.
+    * Tai taip pat atitinka tuščią eilutę dėl `?` kvantifikatoriaus šablono pabaigoje, kuris *atitinka nulį arba vieną kartą*.
+    * Išoriniai `()` ir vidiniai `()` gali būti nurodomi su `$2` ir `$3` vėliau.
+
+[RegExr](https://regexr.com) gali padėti suprasti detales.
+
+> [!PASTABA]
+> RegExr rodo klaidą, kai neapsaugote `/` su `\`. Nors galite jį apsaugoti, tai nėra būtina, nes „Redirect Web“ naudoja kitą „Apple“ variklį, kuriam nereikia apsaugos.
+
+Tai nėra tobulas sprendimas, nes jis nukreipia `example.com/hello` į `example.com/hello?layout=desktop&`, kuriame yra nereikalingas `&` URL pabaigoje. Apskritai tai nėra didelė problema, bet jei norite jį pašalinti, galite naudoti *grupės fiksavimo apdorojimą* (angl. *Capturing Group Processing*).
+
+Apibendrinant, tai yra galutinis rezultatas:
+
+* **Nukreipti iš**: `(https://example.com/[^?]*)((eflected?.*)?)` (Reguliarioji išraiška)
+* **Nukreipti į**: `$1?layout=desktop$3`
+* **Išskirtas URL šablonas**: `.*[&?]layout=[^&]*.*` (Reguliarioji išraiška)
+* **Grupės fiksavimo apdorojimas**:
+    * **Grupė**: `$3`
+    * **Procesas**: Pakeisti pasikartojimus
+        * **Tikslas**: `\?(.*)`
+        * **Pakeitimas**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Atsisiųsti taisyklę</a>**
+
+Tai tik pavyzdys. Taip pat galite sukurti kelias taisykles, kad išspręstumėte kiekvieną problemą. Tai gali būti daug paprasčiau.

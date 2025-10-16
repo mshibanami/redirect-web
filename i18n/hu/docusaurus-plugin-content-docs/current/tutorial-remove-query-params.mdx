@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# 2. eset: Lekérdezési paraméterek eltávolítása az URL-ből
+
+Tegyük fel, hogy van egy `source=twitter` lekérdezési paraméter az `example.com` URL-jében, és úgy döntött, hogy eltávolítja azt, hogy anonimizálja magát.
+
+Ebben az esetben a **Rögzítőcsoport-feldolgozás** opció a legegyszerűbb módja:
+
+* **Átirányítás innen**: `https://example.com/*` (Helyettesítő karakter)
+* **Átirányítás ide**: `$0`
+* **Rögzítőcsoport-feldolgozás**:
+    * **Csoport**: `$0`
+    * **Folyamat**: Előfordulások cseréje
+        * **Cél**: `&?source=[^&]*`
+        * **Csere**: *(nincs)*
+        * **Szövegminta**: Reguláris kifejezés
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Töltse le a szabályt</a>**
+
+Ez a szabály a következőképpen működik:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Ha több paramétert szeretne eltávolítani, adjon hozzá több folyamatot.

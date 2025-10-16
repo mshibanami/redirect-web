@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# 사례 2: URL에서 쿼리 매개변수 제거
+
+예를 들어, `example.com`의 URL에 `source=twitter`라는 쿼리 매개변수가 있고, 이를 익명화하기 위해 제거하기로 결정했다고 가정해 봅시다.
+
+이 경우, **캡처 그룹 처리** 옵션이 가장 쉬운 방법입니다.:
+
+*   **리디렉션 시작**: `https://example.com/*` (와일드카드)
+*   **리디렉션 대상**: `$0`
+*   **캡처 그룹 처리**:
+    *   **그룹**: `$0`
+    *   **프로세스**: 일치하는 항목 바꾸기
+        *   **대상**: `&?source=[^&]*`
+        *   **대체**: *(없음)*
+        *   **텍스트 패턴**: 정규 표현식
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ 규칙 다운로드</a>**
+
+이 규칙은 다음과 같이 작동합니다:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+더 많은 매개변수를 제거하려면, 더 많은 프로세스를 추가하세요.

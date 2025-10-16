@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Cazul 2: Eliminați parametrii de interogare din URL
+
+Să presupunem că există un parametru de interogare `source=twitter` într-un URL de `example.com`, și ați decis să-l eliminați pentru a vă anonimiza.
+
+În acest caz, opțiunea **Procesarea grupurilor de captură** este cea mai ușoară modalitate:
+
+*   **Redirecționare de la**: `https://example.com/*` (Joker)
+*   **Redirecționare către**: `$0`
+*   **Procesarea grupurilor de captură**:
+    *   **Grup**: `$0`
+    *   **Proces**: Înlocuire apariții
+        *   **Țintă**: `&?source=[^&]*`
+        *   **Înlocuire**: *(niciunul)*
+        *   **Model text**: Expresie regulată
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Descărcați regula</a>**
+
+Această regulă funcționează astfel:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Dacă doriți să eliminați mai mulți parametri, adăugați mai multe procese.

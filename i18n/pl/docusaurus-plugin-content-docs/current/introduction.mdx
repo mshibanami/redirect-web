@@ -2,16 +2,17 @@
 slug: /
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ExtensionStoreLinks from "@site/src/components/ExtensionStoreLinks";
 
 # Wprowadzenie
 
 <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", marginBottom: "25px"}}>
-  <img src="./img/redirect-a-to-b.png" style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Przekieruj A do B" />
+  <img src={useBaseUrl("img/redirect-a-to-b.png")} style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Przekieruj A do B" />
   <ExtensionStoreLinks />
 </div>
 
-Witaj na stronie wsparcia dla Redirect Web, rozszerzenia przeglądarki, które przekierowuje wszystkie ładowane strony w Twojej przeglądarce, zapewniając, że zawsze trafisz tam, gdzie chcesz. 
+Witamy na stronie wsparcia dla Redirect Web, rozszerzenia przeglądarki, które przekierowuje wszystkie ładowane strony w Twojej przeglądarce, zapewniając, że zawsze trafisz tam, gdzie chcesz. 
 
 (Wcześniej znane jako Redirect Web dla Safari.)
 
@@ -22,65 +23,65 @@ Witaj na stronie wsparcia dla Redirect Web, rozszerzenia przeglądarki, które p
 - [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Dodatki Microsoft Edge)
 - [Safari](https://apps.apple.com/app/id1571283503) (Rozszerzenie jest już dołączone do natywnej aplikacji.)
 
-Redirect Web jest dostępny na:
+Redirect Web jest dostępne na:
 
 - **Mac** (Safari, Chrome, Firefox, Edge i inne)
 - **iPhone**, **iPad** i **Apple Vision Pro** (Safari)
 
 :::note
 
-- Musisz zainstalować [aplikację Redirect Web z Mac App Store](https://apps.apple.com/app/id1571283503), aby korzystać z rozszerzenia, niezależnie od tego, której przeglądarki używasz, ponieważ rozszerzenia polegają na aplikacji, aby uzyskać dostęp do Twoich reguł, ustawień itp.
+- Musisz zainstalować [aplikację Redirect Web z Mac App Store](https://apps.apple.com/app/id1571283503), aby korzystać z rozszerzenia, niezależnie od używanej przeglądarki, ponieważ rozszerzenia polegają na aplikacji w celu uzyskania dostępu do Twoich reguł, ustawień itp.
 - Obsługa wielu przeglądarek jest dostępna tylko na Macu.
 
 :::
 
 Oto podstawowe zastosowania:
 
-<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="Film demonstracyjny iOS (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="iOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="Film demonstracyjny macOS (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style={{width:"100%", aspectRatio:"17/9", height:"auto", maxHeight:"100vh"}} src="https://www.youtube.com/embed/5eU89Gu73SQ" title="macOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Popularne przypadki użycia {#popular-use-cases}
 
-Na przykład możesz utworzyć następujące reguły:
+Na przykład, możesz stworzyć takie reguły:
 
-- Wyświetl **Reddit** w jego klasycznym wyglądzie (old.reddit.com).
-- Otwórz **Apple Maps** za każdym razem, gdy pojawi się link do **Google Maps**.
+- Przeglądaj **Reddit** w jego klasycznym wyglądzie (old.reddit.com).
+- Otwieraj **Apple Maps** za każdym razem, gdy pojawi się link do **Google Maps**.
 - Ukryj przeglądy AI Google z **wyników wyszukiwania Google**, dodając **?udm=14** do każdego wyszukiwania.
 - Przejdź ze stron Fandom do oficjalnych wiki **Terraria** lub **Minecraft**.
-- Użyj **Kagi**, **Startpage**, **ChatGPT** i dowolnej innej wyszukiwarki jako **domyślnej wyszukiwarki**.
-- Otwórz linki **Google Meet** w Google Chrome. (Mac)
-- Otwórz linki **Figma** bezpośrednio w aplikacji Figma. (Mac)
-- Otwórz linki **Notion** bezpośrednio w aplikacji Notion. (Mac)
+- Używaj **Kagi**, **Startpage**, **ChatGPT** i dowolnej innej wyszukiwarki jako **domyślnej wyszukiwarki**.
+- Otwieraj linki **Google Meet** w Google Chrome. (Mac)
+- Otwieraj linki **Figma** bezpośrednio w aplikacji Figma. (Mac)
+- Otwieraj linki **Notion** bezpośrednio w aplikacji Notion. (Mac)
 
-Wszystkie te predefiniowane reguły możesz pobrać za darmo z sekcji Biblioteka w aplikacji!
+Wszystkie te reguły możesz pobrać za darmo jako predefiniowane reguły z sekcji Biblioteka w aplikacji!
 
 ## Funkcje {#features}
 
 Redirect Web oferuje następujące funkcje:
 
-- Twórz reguły, używając typów wzorców **Wyrażenie regularne** lub **Wildcard**
+- Twórz reguły, używając typów wzorców **Wyrażeń regularnych** lub **Symboli wieloznacznych**
 - Używaj **odwołań wstecznych** do określania dynamicznych docelowych adresów URL
 - **Wykluczaj** adresy URL z przekierowania
 - **Przetwarzaj przechwycone teksty** za pomocą kodowania/dekodowania URL, kodowania/dekodowania base64 lub zastępowania wystąpień
 
-Dodatkowo możesz odblokować następujące funkcje poprzez subskrypcję lub jednorazowy zakup:
+Dodatkowo, możesz odblokować następujące funkcje poprzez subskrypcję lub jednorazowy zakup:
 
 - Włączenie **nieograniczonej** liczby reguł
 - **Synchronizacja reguł** z innymi urządzeniami Mac, iPhone i iPad **za pośrednictwem iCloud**
 
 (Zakup aplikacji wspiera nas również w utrzymaniu Redirect Web. 🙏)
 
-Twój zakup lub subskrypcja jest współdzielona na Twoim Macu, iPhonie, iPadzie i Apple Vision Pro za pośrednictwem Universal Purchase. Twoje wsparcie pomaga w bieżącym rozwoju.
+Twój zakup lub subskrypcja jest współdzielona na urządzeniach Mac, iPhone, iPad i Apple Vision Pro za pośrednictwem Universal Purchase. Twoje wsparcie pomaga w bieżącym rozwoju.
 
 
-## Byliśmy prezentowani w wielu mediach! {#media-coverage}
+## Byliśmy opisywani w wielu mediach! {#media-coverage}
 
 * 🏅 Nagrody
     * **Apple**: [Najlepsze rozszerzenia Safari](https://apps.apple.com/us/story/id1377753262)
 * 📰 Artykuły
-    * **Six Colors**: [Redirect Web dla Safari zabiera mnie we właściwe miejsca](https://sixcolors.com/post/2022/11/redirect-web-for-safari-takes-me-to-the-right-places/)
-    * **Lifehacker**: [Popraw swoje doświadczenie przeglądania w Safari dzięki tym automatycznym przekierowaniom](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
+    * **Six Colors**: [Redirect Web dla Safari prowadzi mnie we właściwe miejsca](https://sixcolors.com/post/2022/11/redirect-web-for-safari-takes-me-to-the-right-places/)
+    * **Lifehacker**: [Popraw swoje doświadczenie przeglądania Safari dzięki tym automatycznym przekierowaniom](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
     * **MacStories**: [Poza rozszerzeniem ChatGPT: Jak przekierować wyszukiwania Safari do dowolnego LLM](https://www.macstories.net/tutorials/beyond-chatgpts-extension-how-to-redirect-safari-searches-to-any-llm/)
     * **AppAddict**: [Redirect Web dla Safari](https://appaddict.app/post/redirect-web-for-safari)
 * 🎙️ Podcasty

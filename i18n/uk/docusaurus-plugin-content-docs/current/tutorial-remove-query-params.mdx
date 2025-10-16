@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Випадок 2: Видалення параметрів запиту з URL
+
+Припустимо, в URL `example.com` є параметр запиту `source=twitter`, і ви вирішили видалити його, щоб анонімізувати себе.
+
+У цьому випадку опція **Обробка груп захоплення** є найпростішим способом:
+
+*   **Перенаправляти з**: `https://example.com/*` (Wildcard)
+*   **Перенаправляти на**: `$0`
+*   **Обробка груп захоплення**:
+    *   **Група**: `$0`
+    *   **Процес**: Замінити входження
+        *   **Ціль**: `&?source=[^&]*`
+        *   **Заміна**: *(немає)*
+        *   **Шаблон тексту**: Регулярний вираз
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Завантажити правило</a>**
+
+Це правило працює так:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Якщо ви хочете видалити більше параметрів, додайте більше процесів.

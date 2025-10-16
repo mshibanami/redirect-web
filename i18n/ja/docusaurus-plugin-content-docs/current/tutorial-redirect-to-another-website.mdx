@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# ケース1：別のウェブサイトへリダイレクトする
+
+Twitter中毒で、誤ってTwitterを開いてしまったときにInsight Timerを使って瞑想することにしたとします。そのためのルールを作成しましょう！
+
+### ステップ1. 「ルール編集」画面を開く
+
+アプリで独自のルールを作成するために、「ルール編集」画面を開きましょう。「マイ・ルール」タブのプラス（+）ボタンをクリックすることで開けます。
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobile"
+  desktopLabel="Desktop"
+  mobile={
+    <>
+      This is for mobile
+    </>
+  }
+  desktop={
+    <>
+      This is for desktop
+    </>
+  }
+/>
+
+### ステップ2. 「リダイレクト元」を設定する
+
+まず、アプリの「ルール編集」画面で「リダイレクト元」セクションを設定する必要があります。ターゲットは`https://twitter.com/`で始まるURLです。
+
+この場合、[ワイルドカード](rule-settings#url-pattern-wildcard)モードで以下のパターンを指定できます。
+
+```
+https://twitter.com/*
+```
+
+ワイルドカードモードでは、`*`は「何でも一致する」（0文字以上の任意の文字）を意味します。
+
+しかし、ちょっと待ってください。`twitter.com`は`x.com`に改名されました。`twitter.com`を`x.com`に置き換えることもできますが、新しいオーナーがいつ気が変わって元に戻すかは誰にもわかりません。したがって、`twitter.com`と`x.com`の両方をターゲットにしましょう。
+
+そのためには、ワイルドカードから[正規表現](rule-settings#url-pattern-regular-expression)に切り替えて、これをパターンとして設定します。
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: `twitter`と`x`の両方をターゲットにします。（`|`は*パイプ*と呼ばれます。）
+* `.*`: ワイルドカードの`*`と同じです。より具体的には、`.`は*任意の文字*を意味し、`*`はこの記号の前のものが*任意の回数繰り返される*ことを意味し、結果として何でも一致します。
+
+正規表現は少し複雑ですが、慣れてしまえば強力なツールになります。正規表現パターンがどのように機能するかを分析するためのプレイグラウンドとして、[RegExr](https://regexr.com)を使用することをお勧めします。
+
+> [!TIP]
+> 正規表現では、`(twitter|x).com`の`.`も*任意の文字*として扱われます。したがって、`(twitter|x).com/.*`は、例えば`twitter1com/`や`x_com/`にも一致します。
+> 
+> より正確にするには、`(twitter|x)\.com/.*`に変更できます。`\`は、`.`を特殊文字ではなくリテラルのピリオド文字として扱うために使用されます。
+> 
+> しかし、一般的なインターネット環境ではそのようなURLは存在しません。したがって、`.`を特殊文字のままにしておくこともできます。
+
+### ステップ3：「リダイレクト先」を設定する
+
+単純に以下のURLを指定します。
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (オプション) ステップ4：ルールを確認する
+
+「ルール編集」画面の「例」セクションにサンプルURLを追加することで、ルールがどのように機能するかを確認できます。例えば、`https://x.com/UN`と入力すると、結果として`https://insighttimer.com/saraauster/guided-meditations/calm`が表示されます。
+
+現在のルールは次のようになります。
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="別のウェブサイトを開くためのルール例" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ ルールをダウンロード</a>**
+
+これで、TwitterにアクセスするとRedirect Webが瞑想に連れて行ってくれます！

@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# Przypadek 1: Przekierowanie do innej witryny
+
+Załóżmy, że jesteś uzależniony od Twittera i postanawiasz medytować za pomocą Insight Timer, gdy przypadkowo otworzysz Twittera. Stwórzmy regułę dla tego!
+
+### Krok 1. Otwórz ekran "Edytuj regułę"
+
+Otwórzmy ekran *Edytuj regułę*, aby rozpocząć tworzenie własnej reguły w aplikacji. Możesz to zrobić, klikając przycisk plus (+) w zakładce *Moje reguły*.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobilny"
+  desktopLabel="Komputer stacjonarny"
+  mobile={
+    <>
+      To jest dla urządzeń mobilnych
+    </>
+  }
+  desktop={
+    <>
+      To jest dla komputerów stacjonarnych
+    </>
+  }
+/>
+
+### Krok 2. Skonfiguruj "Przekieruj z"
+
+Najpierw należy skonfigurować sekcję *Przekieruj z* na ekranie *Edytuj regułę* w aplikacji. Celami są adresy URL zaczynające się od `https://twitter.com/`.
+
+W tym przypadku możesz określić następujący wzorzec w trybie [Wildcard](rule-settings#url-pattern-wildcard):
+
+```
+https://twitter.com/*
+```
+
+W trybie Wildcard, `*` oznacza, że pasuje do wszystkiego (= zero lub więcej znaków).
+
+Jednak poczekaj. `twitter.com` został zmieniony na `x.com`. Możesz po prostu zastąpić `twitter.com` przez `x.com`, ale nikt nie wie, kiedy nowy właściciel ponownie zmieni zdanie, aby to cofnąć. Dlatego celujmy zarówno w `twitter.com`, jak i `x.com`.
+
+Aby to zrobić, przełącz się z Wildcard na [Wyrażenie regularne](rule-settings#url-pattern-regular-expression) i ustaw to jako wzorzec:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: celuje zarówno w `twitter`, jak i `x`. (`|` nazywa się *pionową kreską*.)
+* `.*`: Jest to to samo, co `*` w Wildcard. Dokładniej, `.` oznacza *dowolny znak*, a `*` oznacza *cokolwiek przed tym symbolem powtórzone dowolną liczbę razy*, co w rezultacie oznacza, że pasuje do wszystkiego.
+
+Wyrażenia regularne są nieco skomplikowane, ale gdy się do nich przyzwyczaisz, staną się potężnym narzędziem. Zalecamy używanie [RegExr](https://regexr.com) jako placu zabaw do analizowania, jak działa Twój wzorzec wyrażeń regularnych.
+
+> [!TIP]
+> W wyrażeniach regularnych `.` w `(twitter|x).com` jest również traktowane jako *dowolny znak*. Dlatego `(twitter|x).com/.*` pasuje również na przykład do `twitter1com/` lub `x_com/`.
+> 
+> Aby być bardziej precyzyjnym, możesz zmienić to na `(twitter|x)\.com/.*`. `\` służy do traktowania `.` jako dosłownego znaku kropki, a nie znaku specjalnego.
+> 
+> Jednak w ogólnym środowisku internetowym nie ma takich adresów URL. Dlatego możesz pozostawić `.` jako znak specjalny, jeśli wolisz.
+
+### Krok 3: Skonfiguruj "Przekieruj do"
+
+Po prostu określ adres URL w następujący sposób:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (Opcjonalnie) Krok 4: Sprawdź regułę
+
+Możesz sprawdzić, jak działa reguła, dodając przykładowy adres URL w sekcji *Przykłady* na ekranie *Edytuj regułę*. Na przykład, jeśli wpiszesz `https://x.com/UN`, pokaże `https://insighttimer.com/saraauster/guided-meditations/calm` jako wynik.
+
+Oto jak powinna wyglądać Twoja reguła:
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Przykładowa reguła otwierania innej witryny" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Pobierz regułę</a>**
+
+Teraz Redirect Web przeniesie Cię do medytacji, gdy uzyskasz dostęp do Twittera!

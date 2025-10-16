@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# Cas 1 : Rediriger vers un autre site web
+
+Supposons que vous soyez accro à Twitter, et que vous décidiez de méditer en utilisant Insight Timer chaque fois que vous ouvrez accidentellement Twitter. Créons une règle pour cela !
+
+### Étape 1. Ouvrez l'écran "Modifier la règle"
+
+Ouvrons l'écran *Modifier la règle* pour commencer à créer votre propre règle dans l'application. Vous pouvez le faire en cliquant sur le bouton plus (+) dans l'onglet *Mes règles*.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobile"
+  desktopLabel="Bureau"
+  mobile={
+    <>
+      Ceci est pour mobile
+    </>
+  }
+  desktop={
+    <>
+      Ceci est pour bureau
+    </>
+  }
+/>
+
+### Étape 2. Configurez "Rediriger depuis"
+
+Tout d'abord, vous devez configurer la section *Rediriger depuis* dans l'écran *Modifier la règle* de l'application. Les cibles sont les URL commençant par `https://twitter.com/`.
+
+Dans ce cas, vous pouvez spécifier le modèle suivant avec le mode [Joker](rule-settings#url-pattern-wildcard) :
+
+```
+https://twitter.com/*
+```
+
+En mode Joker, `*` signifie qu'il correspond à n'importe quoi (= zéro ou plusieurs caractères).
+
+Cependant, attendez. `twitter.com` a été renommé `x.com`. Vous pouvez simplement remplacer `twitter.com` par `x.com`, mais personne ne sait quand le nouveau propriétaire changera d'avis pour revenir en arrière. Par conséquent, ciblons à la fois `twitter.com` et `x.com`.
+
+Pour ce faire, passez du mode Joker à [Expression régulière](rule-settings#url-pattern-regular-expression), et définissez ceci comme modèle :
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)` : il cible à la fois `twitter` et `x`. (`|` est appelé *un pipe*.)
+* `.*` : C'est la même chose que `*` du mode Joker. Plus précisément, `.` signifie *n'importe quel caractère* et `*` signifie *n'importe quoi avant ce symbole répété un nombre quelconque de fois*, ce qui fait qu'il correspond à n'importe quoi.
+
+L'expression régulière est un peu compliquée, mais une fois que vous vous y serez habitué, ce sera un outil puissant. Nous vous recommandons d'utiliser [RegExr](https://regexr.com) comme terrain de jeu pour analyser le fonctionnement de votre modèle d'expression régulière.
+
+> [!TIP]
+> Dans les expressions régulières, `.` dans `(twitter|x).com` est également traité comme *n'importe quel caractère*. Par conséquent, `(twitter|x).com/.*` correspond également, par exemple, à `twitter1com/` ou `x_com/`.
+> 
+> Pour être plus précis, vous pouvez le changer en `(twitter|x)\.com/.*`. `\` est utilisé pour traiter `.` comme un caractère de point littéral plutôt que comme un caractère spécial.
+> 
+> Cependant, il n'existe pas de telles URL dans l'environnement Internet général. Par conséquent, vous pouvez laisser `.` comme un caractère spécial si vous préférez.
+
+### Étape 3 : Configurez "Rediriger vers"
+
+Spécifiez simplement l'URL comme suit :
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (Facultatif) Étape 4 : Vérifiez la règle
+
+Vous pouvez vérifier le fonctionnement de la règle en ajoutant une URL d'exemple dans la section *Exemples* de l'écran *Modifier la règle*. Par exemple, si vous entrez `https://x.com/UN`, il affiche `https://insighttimer.com/saraauster/guided-meditations/calm` comme résultat.
+
+Voici à quoi devrait ressembler votre règle maintenant :
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Un exemple de règle pour ouvrir un autre site web" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Télécharger la règle</a>**
+
+Maintenant, Redirect Web vous amène à la méditation lorsque vous accédez à Twitter !

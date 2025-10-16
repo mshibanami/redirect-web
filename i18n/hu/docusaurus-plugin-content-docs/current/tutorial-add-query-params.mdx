@@ -1,0 +1,72 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# 3. eset: Lekérdezési paraméterek hozzáadása az URL-hez
+
+Tegyük fel, hogy van egy `example.com` nevű webhely, amely alapértelmezés szerint mobil elrendezést mutat, de Ön a desktop elrendezést részesíti előnyben. Szerencsére a webhely támogatja a `layout` lekérdezési paramétert, amellyel megadhatja, hogy a webhely milyen elrendezést jelenítsen meg. Hozzunk létre egy szabályt, amely automatikusan hozzáadja a `layout=desktop` paramétert.
+
+Talán úgy gondolja, hogy a következőképpen definiálhatja:
+
+* **Átirányítás innen**: `https://example.com/.*` (Reguláris kifejezés)
+* **Átirányítás ide**: `$0?layout=desktop`
+
+A `$0` a cél URL-re hivatkozik. Ha megpróbálja elérni az `example.com/hello` címet, akkor átirányításra kerül az `example.com/hello?layout=desktop` címre. Ezt a funkciót *helyettesítésnek* nevezzük.
+
+> [!TIP]
+> A helyettesítés a Helyettesítő karakter módban is elérhető, mivel belsőleg reguláris kifejezéssé alakul.
+
+Azonban van néhány probléma ezekkel a beállításokkal.
+
+### 1. probléma: Végtelen ciklus
+
+A jelenlegi beállítás végtelen átirányítási ciklust hoz létre, mivel a `https://example.com/.*` a `https://example.com/hello?layout=desktop` címet is megcélozza.
+
+Ebben az esetben megadhat egy kizárt URL-mintát, amely lehetővé teszi az átirányítás nélküli hozzáférést, például így, reguláris kifejezéssel:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Bármit illeszt
+* `[&?]`: `&` vagy `?` illesztése
+* `[^&]*`: Bármit illeszt, kivéve `&`
+
+### 2. probléma: Nem tudja megfelelően kezelni a meglévő paramétereket
+
+Ha a cél URL már tartalmaz más lekérdezési paramétereket, például `example.com/hello?theme=dark`, akkor a cél `example.com/hello?theme=dark?layout=desktop` lesz (két `?` van az URL-ben), de a paramétereket csak `&`-vel lehet összekapcsolni. A `?` mint speciális karakter csak a paraméterek elején engedélyezett. Tehát nem érvényes paraméterként kezelődik.
+
+Ebben az esetben módosítsa a beállításokat a következőképpen:
+
+* **Átirányítás innen**: `(https://example.com/[^?]*)(\(.*))?`
+* **Átirányítás ide**: `$1?layout=desktop&$3`
+
+Nézzük meg lépésről lépésre.
+
+* `(https://example.com/[^?]*)`: Illeszkedik a `?` előtti részre.
+    * `[^?]*` bármit illeszt, kivéve `?`.
+    * Ez `()`-vel van körülvéve, így később `$1`-gyel hivatkozhat rá.
+* `(\(.*))?`: Illeszkedik egy `?`-vel kezdődő karakterláncra, ami lekérdezési paramétereket jelent.
+    * Ez üres karakterláncot is illeszt a minta végén lévő `?` kvantifikátorral, ami *nulla vagy egy alkalommal illeszt*.
+    * A külső `()` és a belső `()` később `$2`-vel és `$3`-mal hivatkozható.
+
+A [RegExr](https://regexr.com) segíthet a részletek megértésében.
+
+> [!NOTE]
+> A RegExr hibát jelez, ha nem menekíti a `/` karaktert `\`-vel. Bár menekítheti, nem kötelező, mivel a Redirect Web egy másik, Apple által fejlesztett motort használ, amely nem igényli a menekítést.
+
+Ez nem tökéletes megoldás, mivel az `example.com/hello` címet `example.com/hello?layout=desktop&` címre irányítja át, amely egy felesleges `&` karaktert tartalmaz az URL végén. Ez általában nem nagy ügy, de ha el szeretné távolítani, használhatja a *Rögzítőcsoport-feldolgozást*.
+
+Összefoglalva, ez a végeredmény:
+
+* **Átirányítás innen**: `(https://example.com/[^?]*)((\(.*))?)` (Reguláris kifejezés)
+* **Átirányítás ide**: `$1?layout=desktop$3`
+* **Kizárt URL minta**: `.*[&?]layout=[^&]*.*` (Reguláris kifejezés)
+* **Rögzítőcsoport-feldolgozás**:
+    * **Csoport**: `$3`
+    * **Folyamat**: Előfordulások cseréje
+        * **Cél**: `\?(.*)`
+        * **Csere**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Töltse le a szabályt</a>**
+
+
+Ez csupán egy példa. Több szabályt is létrehozhat az egyes problémák kezelésére. Ez sokkal egyszerűbb lehet.

@@ -1,0 +1,72 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Juhtum 3: Lisage URL-ile päringuparameetrid
+
+Oletame, et on veebisait nimega `example.com`, mis kuvab vaikimisi mobiilset paigutust, kuid te eelistate selle töölaua paigutust. Õnneks toetab veebisait `layout` päringuparameetrit, et määrata, millist paigutust veebisait kuvab. Loome reegli, mis lisab automaatselt `layout=desktop`.
+
+Võib-olla arvate, et saate selle määratleda järgmiselt:
+
+* **Suuna ümber alates**: `https://example.com/.*` (regulaaravaldis)
+* **Suuna ümber**: `$0?layout=desktop`
+
+`$0` viitab siht-URL-ile. Kui proovite avada `example.com/hello`, suunatakse teid ümber `example.com/hello?layout=desktop`-le. Seda funktsiooni nimetatakse *asenduseks*.
+
+> [!TIP]
+> Asendus on saadaval ka metamärgi režiimis, kuna see teisendatakse sisemiselt regulaaravaldiseks.
+
+Kuid nende seadetega on paar probleemi.
+
+### Probleem 1: Lõputu tsükkel
+
+Praegune seade loob lõputu ümbersuunamise tsükli, kuna `https://example.com/.*` sihib ka `https://example.com/hello?layout=desktop`.
+
+Sel juhul saate määrata välistatud URL-i mustri, mis võimaldab teil juurdepääsu ilma ümbersuunamiseta, näiteks regulaaravaldise abil:
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*`: Vastab kõigele
+* `[&?]`: Vastab kas `&` või `?`
+* `[^&]*`: Vastab kõigele peale `&`
+
+### Probleem 2: Ei suuda olemasolevaid parameetreid õigesti käsitleda
+
+Kui siht-URL-il on juba teisi päringuparameetreid, nagu `example.com/hello?theme=dark`, siis sihtkoht on `example.com/hello?theme=dark?layout=desktop` (URL-is on kaks `?`), kuid parameetreid saab ühendada ainult `&`-ga. `?` erimärgina on lubatud ainult parameetrite alguses. Seega ei käsitleta seda kehtiva parameetrina.
+
+Sel juhul muutke seadeid järgmiselt:
+
+* **Suuna ümber alates**: `(https://example.com/[^?]*)("(.*))?`
+* **Suuna ümber**: `$1?layout=desktop&$3`
+
+Vaatame samm-sammult.
+
+* `(https://example.com/[^?]*)`: Vastab osale kuni `?` eelmise märgini.
+    * `[^?]*` vastab kõigele peale `?`.
+    * See on ümbritsetud `()`-ga, nii et saate sellele hiljem viidata `$1`-ga.
+* `("(.*))?`: Vastab stringile, mis algab `?`, mis tähendab päringuparameetreid.
+    * See vastab ka tühjale stringile mustri lõpus oleva `?` kvantifikaatori abil, mis *vastab null või üks kord*.
+    * Välimisele `()`-le ja sisemisele `()`-le saab hiljem viidata `$2`-ga ja `$3`-ga.
+
+[RegExr](https://regexr.com) võib aidata teil üksikasju mõista.
+
+> [!NOTE]
+> RegExr näitab viga, kui te ei escape'i `/` `\`-ga. Kuigi saate seda escape'ida, ei ole see nõutav, kuna Redirect Web kasutab Apple'i teistsugust mootorit, mis ei nõua escape'imist.
+
+See ei ole täiuslik lahendus, kuna see suunab `example.com/hello` ümber `example.com/hello?layout=desktop&`-le, mis sisaldab URL-i lõpus ebavajalikku `&`. See ei ole üldiselt suur probleem, kuid kui soovite seda eemaldada, saate kasutada *püüdmisrühma töötlemist*.
+
+Kokkuvõttes on lõplik väljund järgmine:
+
+* **Suuna ümber alates**: `(https://example.com/[^?]*)(("(.*))?)` (regulaaravaldis)
+* **Suuna ümber**: `$1?layout=desktop$3`
+* **Välistatud URL-i muster**: `.*[&?]layout=[^&]*.*` (regulaaravaldis)
+* **Püüdmisrühma töötlemine**:
+    * **Rühm**: `$3`
+    * **Protsess**: Asendada esinemised
+        * **Sihtmärk**: `\?(.*)`
+        * **Asendus**: `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Laadi reegel alla</a>**
+
+
+See on vaid näide. Saate luua ka mitu reeglit iga probleemi lahendamiseks. See võib olla palju lihtsam.

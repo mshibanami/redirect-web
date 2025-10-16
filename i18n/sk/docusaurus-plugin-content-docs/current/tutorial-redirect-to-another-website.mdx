@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# Prípad 1: Presmerovanie na inú webovú stránku
+
+Predpokladajme, že ste závislí na Twitteri a rozhodnete sa meditovať pomocou Insight Timer vždy, keď náhodou otvoríte Twitter. Vytvorme si pre to pravidlo!
+
+### Krok 1. Otvorte obrazovku "Upraviť pravidlo"
+
+Otvorme obrazovku *Upraviť pravidlo*, aby ste mohli začať vytvárať vlastné pravidlo v aplikácii. Môžete to urobiť kliknutím na tlačidlo plus (+) na karte *Moje pravidlá*.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobil"
+  desktopLabel="Desktop"
+  mobile={
+    <>
+      Toto je pre mobil
+    </>
+  }
+  desktop={
+    <>
+      Toto je pre desktop
+    </>
+  }
+/>
+
+### Krok 2. Nastavte "Presmerovať z"
+
+Najprv by ste mali nastaviť sekciu *Presmerovať z* na obrazovke *Upraviť pravidlo* v aplikácii. Cieľové adresy URL začínajú `https://twitter.com/`.
+
+V tomto prípade môžete zadať nasledujúci vzor s režimom [Zástupný znak](rule-settings#url-pattern-wildcard):
+
+```
+https://twitter.com/*
+```
+
+V režime Zástupný znak `*` znamená, že sa zhoduje s čímkoľvek (= nula alebo viac znakov).
+
+Avšak, počkajte. `twitter.com` bol premenovaný na `x.com`. Môžete jednoducho nahradiť `twitter.com` za `x.com`, ale nikto nevie, kedy si nový majiteľ opäť rozmyslí a vráti to späť. Preto sa zamerajme na `twitter.com` aj `x.com`.
+
+Ak to chcete urobiť, prepnite zo Zástupného znaku na [Regulárny výraz](rule-settings#url-pattern-regular-expression) a nastavte tento vzor:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: zameriava sa na `twitter` aj `x`. (`|` sa nazýva *rúrka*.)
+* `.*`: Je to rovnaké ako `*` v Zástupnom znaku. Konkrétnejšie, `.` znamená *akýkoľvek znak* a `*` znamená *čokoľvek pred týmto symbolom opakované ľubovoľný počet krát*, čo vedie k tomu, že sa zhoduje s čímkoľvek.
+
+Regulárny výraz je trochu komplikovaný, ale akonáhle si naň zvyknete, bude to silný nástroj. Odporúčame použiť [RegExr](https://regexr.com) ako ihrisko na analýzu toho, ako funguje váš vzor regulárneho výrazu.
+
+> [!TIP]
+> V regulárnych výrazoch sa `.` v `(twitter|x).com` tiež považuje za *akýkoľvek znak*. Preto `(twitter|x).com/.*` sa zhoduje aj napríklad s `twitter1com/` alebo `x_com/`.
+> 
+> Aby ste boli presnejší, môžete to zmeniť na `(twitter|x)\.com/.*`. `\` sa používa na to, aby sa `.` považovalo za doslovný bodový znak namiesto špeciálneho znaku.
+> 
+> Avšak, v bežnom internetovom prostredí neexistujú takéto URL adresy. Preto môžete `.` ponechať ako špeciálny znak, ak to preferujete.
+
+### Krok 3: Nastavte "Presmerovať na"
+
+Jednoducho zadajte URL adresu nasledovne:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (Voliteľné) Krok 4: Skontrolujte pravidlo
+
+Môžete skontrolovať, ako pravidlo funguje, pridaním príkladovej URL adresy do sekcie *Príklady* na obrazovke *Upraviť pravidlo*. Napríklad, ak zadáte `https://x.com/UN`, zobrazí sa `https://insighttimer.com/saraauster/guided-meditations/calm` ako výsledok.
+
+Takto by malo vyzerať vaše pravidlo teraz:
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Príklad pravidla na otvorenie inej webovej stránky" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Stiahnuť pravidlo</a>**
+
+Teraz vás Redirect Web presmeruje na meditáciu, keď pristupujete k Twitteru!

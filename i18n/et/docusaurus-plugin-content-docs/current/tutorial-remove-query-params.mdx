@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Juhtum 2: Eemalda URL-ist päringuparameetrid
+
+Oletame, et URL-is `example.com` on päringuparameeter `source=twitter` ja otsustasite selle eemaldada, et ennast anonüümseks muuta.
+
+Sel juhul on **püüdmisrühma töötlemise** valik kõige lihtsam viis:
+
+* **Suuna ümber alates**: `https://example.com/*` (metamärk)
+* **Suuna ümber**: `$0`
+* **Püüdmisrühma töötlemine**:
+    * **Rühm**: `$0`
+    * **Protsess**: Asendada esinemised
+        * **Sihtmärk**: `&?source=[^&]*`
+        * **Asendus**: *(puudub)*
+        * **Tekstimuster**: regulaaravaldis
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Laadi reegel alla</a>**
+
+See reegel töötab järgmiselt:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Kui soovite eemaldada rohkem parameetreid, lisage rohkem protsesse.

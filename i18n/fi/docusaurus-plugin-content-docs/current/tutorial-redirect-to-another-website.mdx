@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# Tapaus 1: Uudelleenohjaus toiselle verkkosivustolle
+
+Oletetaan, että olet riippuvainen Twitteristä ja päätät meditoida Insight Timerin avulla aina, kun avaat vahingossa Twitterin. Luodaan sääntö tätä varten!
+
+### Vaihe 1. Avaa "Muokkaa sääntöä" -näyttö
+
+Avataan *Muokkaa sääntöä* -näyttö aloittaaksesi oman säännön luomisen sovelluksessa. Voit tehdä tämän napsauttamalla plus (+)-painiketta *Omat säännöt* -välilehdellä.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobiili"
+  desktopLabel="Työpöytä"
+  mobile={
+    <>
+      Tämä on mobiililaitteille
+    </>
+  }
+  desktop={
+    <>
+      Tämä on työpöytälaitteille
+    </>
+  }
+/>
+
+### Vaihe 2. Määritä "Uudelleenohjaa kohteesta"
+
+Ensin sinun tulee määrittää *Uudelleenohjaa kohteesta* -osio *Muokkaa sääntöä* -näytössä sovelluksessa. Kohteet ovat URL-osoitteita, jotka alkavat `https://twitter.com/`.
+
+Tässä tapauksessa voit määrittää seuraavan kuvion [Wildcard](rule-settings#url-pattern-wildcard) -tilassa:
+
+```
+https://twitter.com/*
+```
+
+Wildcard-tilassa `*` tarkoittaa, että se vastaa mitä tahansa (= nolla tai useampi merkki).
+
+Mutta odota. `twitter.com` nimettiin uudelleen `x.com`:ksi. Voit yksinkertaisesti korvata `twitter.com`:n `x.com`:lla, mutta kukaan ei tiedä, milloin uusi omistaja muuttaa mieltään ja palauttaa sen. Siksi kohdistetaan sekä `twitter.com` että `x.com`.
+
+Voit tehdä sen vaihtamalla Wildcardista [Säännölliseen lausekkeeseen](rule-settings#url-pattern-regular-expression) ja asettamalla tämän kuvioksi:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: se kohdistuu sekä `twitteriin` että `x`:ään. (`|` on nimeltään *putki*.)
+* `.*`: Se on sama kuin Wildcardin `*`. Tarkemmin sanottuna `.` tarkoittaa *mitä tahansa merkkiä* ja `*` tarkoittaa *mitä tahansa ennen tätä symbolia toistettuna minkä tahansa määrän kertoja*, mikä johtaa siihen, että se vastaa mitä tahansa.
+
+Säännöllinen lauseke on hieman monimutkainen, mutta kun siihen tottuu, se on tehokas työkalu. Suosittelemme käyttämään [RegExr](https://regexr.com) -sivustoa leikkikenttänä analysoidaksesi, miten säännöllinen lausekekuviosi toimii.
+
+> [!TIP]
+> Säännöllisissä lausekkeissa `.` kohdassa `(twitter|x).com` käsitellään myös *minä tahansa merkkinä*. Siksi `(twitter|x).com/.*` vastaa myös esimerkiksi `twitter1com/` tai `x_com/`.
+> 
+> Tarkemmin sanottuna voit muuttaa sen muotoon `(twitter|x)\.com/.*`. `\` käytetään käsittelemään `.` kirjaimellisena pisteenä erikoismerkin sijaan.
+> 
+> Yleisessä internet-ympäristössä ei kuitenkaan ole tällaisia URL-osoitteita. Siksi voit jättää `.` erikoismerkiksi, jos haluat.
+
+### Vaihe 3: Määritä "Uudelleenohjaa kohteeseen"
+
+Määritä URL-osoite yksinkertaisesti seuraavasti:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (Valinnainen) Vaihe 4: Tarkista sääntö
+
+Voit tarkistaa, miten sääntö toimii, lisäämällä esimerkkisivun *Esimerkit*-osioon *Muokkaa sääntöä* -näytössä. Jos esimerkiksi syötät `https://x.com/UN`, se näyttää tuloksena `https://insighttimer.com/saraauster/guided-meditations/calm`.
+
+Tältä sääntösi pitäisi näyttää nyt:
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Esimerkkisääntö toisen verkkosivuston avaamiseksi" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Lataa sääntö</a>**
+
+Nyt Redirect Web vie sinut meditaatioon, kun avaat Twitterin!

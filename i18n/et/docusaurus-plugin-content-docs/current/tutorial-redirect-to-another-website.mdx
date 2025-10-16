@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# Juhtum 1: Ümbersuunamine teisele veebisaidile
+
+Oletame, et olete Twitterist sõltuvuses ja otsustate mediteerida Insight Timeri abil iga kord, kui kogemata Twitteri avate. Loome selleks reegli!
+
+### Samm 1. Avage ekraan "Muuda reeglit"
+
+Avame ekraani *Muuda reeglit*, et alustada oma reegli loomist rakenduses. Seda saate teha, klõpsates pluss (+) nupul vahekaardil *Minu reeglid*.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobiil"
+  desktopLabel="Töölaud"
+  mobile={
+    <>
+      See on mobiilile
+    </>
+  }
+  desktop={
+    <>
+      See on töölauale
+    </>
+  }
+/>
+
+### Samm 2. Seadistage "Suuna ümber alates"
+
+Kõigepealt peaksite rakenduses ekraanil *Muuda reeglit* seadistama jaotise *Suuna ümber alates*. Sihtmärgid on URL-id, mis algavad `https://twitter.com/`.
+
+Sel juhul saate määrata järgmise mustri [metamärgi](rule-settings#url-pattern-wildcard) režiimis:
+
+```
+https://twitter.com/*
+```
+
+Metamärgi režiimis tähendab `*`, et see vastab kõigele (= null või rohkem märki).
+
+Kuid oodake. `twitter.com` nimetati ümber `x.com`-iks. Saate lihtsalt asendada `twitter.com` `x.com`-iga, kuid keegi ei tea, millal uus omanik oma meelt uuesti muudab ja selle tagasi pöörab. Seepärast sihtime nii `twitter.com` kui ka `x.com`.
+
+Selleks lülitage metamärgist [regulaaravaldisele](rule-settings#url-pattern-regular-expression) ja määrake see mustriks:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: see sihib nii `twitterit` kui ka `x`-i. (`|` nimetatakse *toruks*.)
+* `.*`: See on sama, mis metamärgi `*`. Täpsemalt tähendab `.` *mis tahes märki* ja `*` tähendab *kõike enne seda sümbolit, mis kordub suvalise arvu kordi*, mille tulemusena see vastab kõigele.
+
+Regulaaravaldis on veidi keeruline, kuid kui olete sellega harjunud, on see võimas tööriist. Soovitame kasutada [RegExr](https://regexr.com) mänguväljana, et analüüsida, kuidas teie regulaaravaldise muster töötab.
+
+> [!TIP]
+> Regulaaravaldistes käsitletakse `.` kaustas `(twitter|x).com` samuti kui *mis tahes märki*. Seetõttu vastab `(twitter|x).com/.*` ka näiteks `twitter1com/` või `x_com/`.
+> 
+> Täpsemalt saate selle muuta `(twitter|x)\.com/.*`-ks. `\` kasutatakse `.` käsitlemiseks sõnasõnalise punktimärgina, mitte erimärgina.
+> 
+> Kuid üldises internetikeskkonnas selliseid URL-e ei ole. Seetõttu võite jätta `.` erimärgiks, kui eelistate.
+
+### Samm 3: Seadistage "Suuna ümber"
+
+Määrake URL lihtsalt järgmiselt:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (Valikuline) Samm 4: Kontrollige reeglit
+
+Saate kontrollida, kuidas reegel töötab, lisades näidis-URL-i ekraani *Muuda reeglit* jaotisesse *Näited*. Näiteks kui sisestate `https://x.com/UN`, kuvatakse tulemuseks `https://insighttimer.com/saraauster/guided-meditations/calm`.
+
+Siin on, milline peaks teie reegel nüüd välja nägema:
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Näidisreegel teise veebisaidi avamiseks" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Laadi reegel alla</a>**
+
+Nüüd viib Redirect Web teid Twitterile ligi pääsemisel meditatsiooni juurde!

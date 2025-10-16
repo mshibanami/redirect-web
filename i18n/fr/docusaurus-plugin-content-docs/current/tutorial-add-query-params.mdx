@@ -1,0 +1,72 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Cas 3 : Ajouter des paramètres de requête à l'URL
+
+Disons qu'il existe un site web appelé `example.com` qui affiche une mise en page mobile par défaut, mais vous préférez sa mise en page de bureau. Heureusement, le site web prend en charge un paramètre de requête `layout` pour spécifier la mise en page affichée par le site web. Créons une règle qui ajoute `layout=desktop` automatiquement.
+
+Vous pensez peut-être que vous pourriez le définir comme suit :
+
+* **Rediriger depuis** : `https://example.com/.*` (Expression régulière)
+* **Rediriger vers** : `$0?layout=desktop`
+
+`$0` fait référence à l'URL cible. Si vous essayez d'accéder à `example.com/hello`, vous êtes redirigé vers `example.com/hello?layout=desktop`. Cette fonctionnalité s'appelle la *substitution*.
+
+> [!TIP]
+> La substitution est également disponible pour le mode Joker car elle est convertie en interne en expression régulière.
+
+Cependant, il y a quelques problèmes avec ces paramètres.
+
+### Problème 1 : Boucle infinie
+
+Le paramètre actuel crée une boucle de redirection infinie car `https://example.com/.*` cible également `https://example.com/hello?layout=desktop`.
+
+Dans ce cas, vous pouvez spécifier un modèle d'URL exclu qui vous permet d'accéder sans redirection, comme ceci avec une expression régulière :
+
+```
+.*[&?]layout=[^&]*.*
+```
+
+* `.*` : Correspond à n'importe quoi
+* `[&?]` : Correspond à `&` ou `?`
+* `[^&]*` : Correspond à n'importe quoi sauf `&`
+
+### Problème 2 : Ne peut pas gérer correctement les paramètres existants
+
+Si l'URL cible a déjà d'autres paramètres de requête comme `example.com/hello?theme=dark`, la destination sera `example.com/hello?theme=dark?layout=desktop` (il y a deux `?` dans l'URL) mais vous ne pouvez joindre les paramètres qu'avec `&`. `?` en tant que caractère spécial n'est autorisé qu'au début des paramètres. Il n'est donc pas traité comme un paramètre valide.
+
+Dans ce cas, modifiez les paramètres comme suit :
+
+* **Rediriger depuis** : `(https://example.com/[^?]*)(\(.*))?`
+* **Rediriger vers** : `$1?layout=desktop&$3`
+
+Examinons étape par étape.
+
+* `(https://example.com/[^?]*)` : Correspond à la partie jusqu'au caractère précédent de `?`.
+    * `[^?]*` correspond à n'importe quoi sauf `?`.
+    * Ceci est enveloppé de `()` afin que vous puissiez y faire référence avec `$1` plus tard.
+* `(\(.*))?` : Correspond à une chaîne commençant par `?`, ce qui signifie des paramètres de requête.
+    * Cela correspond également à une chaîne vide par le quantificateur `?` à la fin du modèle, qui *correspond zéro ou une fois*.
+    * Le `()` extérieur et le `()` intérieur peuvent être référencés avec `$2` et `$3` plus tard.
+
+[RegExr](https://regexr.com) peut vous aider à comprendre les détails.
+
+> [!NOTE]
+> RegExr affiche une erreur lorsque vous n'échappez pas `/` avec `\`. Bien que vous puissiez l'échapper, ce n'est pas obligatoire car Redirect Web utilise un moteur différent d'Apple qui ne nécessite pas d'échappement.
+
+Ce n'est pas une solution parfaite, car elle redirige `example.com/hello` vers `example.com/hello?layout=desktop&`, ce qui inclut un `&` inutile à la fin de l'URL. Ce n'est pas un gros problème en général, mais si vous souhaitez le supprimer, vous pouvez utiliser le *Traitement des groupes de capture*.
+
+En conclusion, voici le résultat final :
+
+* **Rediriger depuis** : `(https://example.com/[^?]*)((\(.*))?)` (Expression régulière)
+* **Rediriger vers** : `$1?layout=desktop$3`
+* **Modèle d'URL exclu** : `.*[&?]layout=[^&]*.*` (Expression régulière)
+* **Traitement des groupes de capture** :
+    * **Groupe** : `$3`
+    * **Processus** : Remplacer les occurrences
+        * **Cible** : `\\?(.*)`
+        * **Remplacement** : `&$1`
+
+**<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Télécharger la règle</a>**
+
+
+Ceci n'est qu'un exemple. Vous pouvez également créer plusieurs règles pour gérer chaque problème. Cela peut être beaucoup plus simple.

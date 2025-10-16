@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# 2 atvejis: Pašalinkite užklausos parametrus iš URL
+
+Tarkime, kad yra užklausos parametras `source=twitter` URL adrese `example.com`, ir nusprendėte jį pašalinti, kad anonimizuotumėte save.
+
+Šiuo atveju, **Capturing Group Processing** parinktis yra lengviausias būdas:
+
+*   **Nukreipti iš**: `https://example.com/*` (Pakaitos simbolis)
+*   **Nukreipti į**: `$0`
+*   **Capturing Group Processing**:
+    *   **Grupė**: `$0`
+    *   **Procesas**: Pakeisti pasikartojimus
+        *   **Tikslas**: `&?source=[^&]*`
+        *   **Pakeitimas**: *(nieko)*
+        *   **Teksto šablonas**: Reguliarioji išraiška
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Atsisiųsti taisyklę</a>**
+
+Ši taisyklė veikia taip:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Jei norite pašalinti daugiau parametrų, pridėkite daugiau procesų.

@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Případ 2: Odebrání parametrů dotazu z URL
+
+Předpokládejme, že v URL `example.com` existuje parametr dotazu `source=twitter` a vy jste se rozhodli jej odstranit, abyste se anonymizovali.
+
+V tomto případě je nejjednodušší způsob použití možnosti **Zpracování zachycené skupiny**:
+
+*   **Přesměrovat z**: `https://example.com/*` (Zástupný znak)
+*   **Přesměrovat na**: `$0`
+*   **Zpracování zachycené skupiny**:
+    *   **Skupina**: `$0`
+    *   **Proces**: Nahradit výskyty
+        *   **Cíl**: `&?source=[^&]*`
+        *   **Náhrada**: *(žádná)*
+        *   **Vzor textu**: Regulární výraz
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Stáhnout pravidlo</a>**
+
+Toto pravidlo funguje následovně:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Pokud chcete odstranit více parametrů, přidejte další procesy.

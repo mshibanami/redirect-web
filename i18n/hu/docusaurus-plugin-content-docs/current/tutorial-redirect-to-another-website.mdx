@@ -1,0 +1,80 @@
+import Image from "@site/src/components/Image";
+import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.png";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
+
+# 1. eset: Átirányítás egy másik webhelyre
+
+Tegyük fel, hogy Twitter-függő vagy, és úgy döntesz, hogy az Insight Timer segítségével meditálsz, amikor véletlenül megnyitod a Twittert. Készítsünk erre egy szabályt!
+
+### 1. lépés: Nyissa meg a "Szabály szerkesztése" képernyőt
+
+Nyissuk meg a *Szabály szerkesztése* képernyőt, hogy elkezdhesse saját szabályának létrehozását az alkalmazásban. Ezt a plusz (+) gombra kattintva teheti meg a *Saját szabályok* lapon.
+
+<DeviceAwareTabs
+  groupId="open-edit-rule"
+  mobileLabel="Mobil"
+  desktopLabel="Asztali"
+  mobile={
+    <>
+      Ez mobilra vonatkozik
+    </>
+  }
+  desktop={
+    <>
+      Ez asztalira vonatkozik
+    </>
+  }
+/>
+
+### 2. lépés: Állítsa be az "Átirányítás innen" részt
+
+Először állítsa be az *Átirányítás innen* részt a *Szabály szerkesztése* képernyőn az alkalmazásban. A célok az `https://twitter.com/` kezdetű URL-ek.
+
+Ebben az esetben a következő mintát adhatja meg a [Helyettesítő karakter](rule-settings#url-pattern-wildcard) móddal:
+
+```
+https://twitter.com/*
+```
+
+A Helyettesítő karakter módban a `*` azt jelenti, hogy bármit illeszt (azaz nulla vagy több karaktert).
+
+Azonban várjon. A `twitter.com` átnevezésre került `x.com`-ra. Egyszerűen lecserélheti a `twitter.com`-ot `x.com`-ra, de senki sem tudja, mikor gondolja meg magát az új tulajdonos, és állítja vissza. Ezért célozzuk meg mind a `twitter.com`, mind az `x.com` címet.
+
+Ehhez váltson Helyettesítő karakterről [Reguláris kifejezésre](rule-settings#url-pattern-regular-expression), és állítsa be ezt a mintát:
+
+```
+https://(twitter|x).com/.*
+```
+
+* `(twitter|x)`: mind a `twitter`, mind az `x` címet célozza. (`|` az úgynevezett *pipe*.)
+* `.*`: Ugyanaz, mint a Helyettesítő karakter `*`-a. Pontosabban, a `.` *bármely karaktert* jelent, a `*` pedig azt, hogy *bármi e szimbólum előtt tetszőleges számú alkalommal ismétlődik*, ami azt eredményezi, hogy bármit illeszt.
+
+A reguláris kifejezés kissé bonyolult, de ha megszokja, hatékony eszközzé válik. Javasoljuk, hogy használja a [RegExr](https://regexr.com) oldalt játszótérként a reguláris kifejezés mintájának működésének elemzéséhez.
+
+> [!TIP]
+> A reguláris kifejezésekben a `.` a `(twitter|x).com`-ban is *bármely karakterként* kezelendő. Ezért a `(twitter|x).com/.*` illeszkedik például a `twitter1com/` vagy az `x_com/` címre is.
+> 
+> Pontosabbá teheti, ha `(twitter|x)\.com/.*` -ra változtatja. A `\` arra szolgál, hogy a `.`-ot szó szerinti pont karakterként kezelje, nem pedig speciális karakterként.
+> 
+> Azonban az általános internetes környezetben nincsenek ilyen URL-ek. Ezért a `.`-ot speciális karakterként hagyhatja, ha úgy tetszik.
+
+### 3. lépés: Állítsa be az "Átirányítás ide" részt
+
+Egyszerűen adja meg az URL-t a következőképpen:
+
+```
+https://insighttimer.com/saraauster/guided-meditations/calm
+```
+
+### (Opcionális) 4. lépés: Ellenőrizze a szabályt
+
+Ellenőrizheti a szabály működését, ha hozzáad egy példa URL-t a *Példák* szakaszban a *Szabály szerkesztése* képernyőn. Például, ha beírja a `https://x.com/UN` címet, akkor az eredmény `https://insighttimer.com/saraauster/guided-meditations/calm` lesz.
+
+Így kell kinéznie a szabályának most:
+
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Példa szabály egy másik webhely megnyitására" height="460" hasRoundedCorners hasShadow />
+
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Töltse le a szabályt</a>**
+
+Mostantól a Redirect Web a meditációhoz viszi, amikor hozzáfér a Twitterhez!

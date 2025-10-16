@@ -1,0 +1,53 @@
+.heroBanner {
+  padding-top: 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 1;
+}
+
+.heroBanner p {
+  font-size: 1.2rem;
+}
+
+.heroImageContainer {
+  margin-top: 40px;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+}
+
+.heroImage {
+  max-width: 600px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.heroVideoContainer {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroVideo {
+  height: min(70vh, 720px);
+  width: auto;
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  background: #000;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.useCases {
+  padding: 0 0 4rem 0;
+}
+
+.useCase {
+  margin-bottom: 2rem;
+}

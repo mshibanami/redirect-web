@@ -1,0 +1,32 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Durum 2: URL'den sorgu parametrelerini kaldırma
+
+Diyelim ki `example.com` URL'sinde `source=twitter` sorgu parametresi var ve kendinizi anonimleştirmek için bunu kaldırmaya karar verdiniz.
+
+Bu durumda, **Yakalama Grubu İşleme** seçeneği en kolay yoldur:
+
+*   **Şuradan Yönlendir**: `https://example.com/*` (Joker Karakter)
+*   **Şuraya Yönlendir**: `$0`
+*   **Yakalama Grubu İşleme**:
+    *   **Grup**: `$0`
+    *   **İşlem**: Oluşumları Değiştir
+        *   **Hedef**: `&?source=[^&]*`
+        *   **Değiştirme**: *(yok)*
+        *   **Metin Deseni**: Normal İfade
+
+**<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Kuralı İndir</a>**
+
+Bu kural şu şekilde çalışır:
+
+```
+https://example.com/?source=twitter
+➡️ https://example.com/?
+```
+
+```
+https://example.com/?hello=world&source=twitter&foo=bar
+➡️ https://example.com/?hello=world&foo=bar
+```
+
+Daha fazla parametre kaldırmak isterseniz, daha fazla işlem ekleyin.

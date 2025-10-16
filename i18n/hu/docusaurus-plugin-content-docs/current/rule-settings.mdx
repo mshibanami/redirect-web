@@ -1,40 +1,40 @@
 # Szabálybeállítások
 
-Ez az oldal részletes információkat nyújt a Redirect Web alkalmazás Szerkesztési szabály képernyőjének minden egyes beállításáról.
+Ez az oldal részletes információkat tartalmaz a Redirect Web alkalmazás *Szabály szerkesztése* képernyőjének minden beállításáról.
 
 ## Opciók
 
 ### Típus {#type}
 
-Adja meg a **Típus** opciót, hogy szabályozza, hogyan kezeli az alkalmazás az átirányítást. A következőkből választhat:
+Adja meg a **Típus** opciót, hogy szabályozza, hogyan kezeli az alkalmazás az átirányítást. Ezek közül választhat:
 
-*   **Eredeti** (Alapértelmezett)
-    *   Ez hagyományos webes API-kat használ az átirányítás vezérlésére. Emellett a [Tabs API-t](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) használja tartalékként.
-        *   Firefoxban a [WebRequest API-t](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) használja az átirányítás kezelésére.
-    *   Az összes opciót használhatja, kivéve az [Erőforrástípusokat](#resource-types) és a [Kérésmódokat](#request-methods).
-    *   Ez lassabb, mint a *Deklaratív* típus, és extra hálózati kéréseket okozhat.
-*   **DNR** (Kísérleti Safarihoz):
-    *   Ez a típus sokkal gyorsabban működik, mint az Eredeti típus, mert nem kezdeményez hálózati kérést a forrás URL-hez.
-    *   Ez lehetővé teszi az [Erőforrástípusok](#resource-types) és a [Kérésmódok](#request-methods) megadását.
-    *   ⚠️ Néhány opciót, például a [Rögzítőcsoport-feldolgozást](#capturing-group-processing) és a [Kizárt URL-mintákat](#excluded-url-patterns) nem használhatja, mivel ezeket a DNR API még nem támogatja.
-    *   ⚠️ Safariban jelenleg nem szerepeltethet csöveket (`|`) a reguláris kifejezés mintájában. [Részletek](https://github.com/mshibanami/redirect-web/issues/44)
-    *   ⚠️ Mivel a Safari DNR API-jának még vannak problémái, ezt még kísérleti funkciónak tekintjük a Safari számára. Az összes ismert probléma listáját [itt](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari) találja.
+* **Eredeti** (Alapértelmezett)
+    * Ez a hagyományos webes API-kat használja az átirányítás vezérlésére. Ezenkívül a [Tabs API-t](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) használja tartalékként.
+        * Firefoxban a [WebRequest API-t](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) használja az átirányítás kezelésére.
+    * Az összes opciót használhatja, kivéve az [Erőforrástípusokat](#resource-types) és a [Kérésmódokat](#request-methods).
+    * Ez lassabb, mint a *Deklaratív* típus, és extra hálózati kéréseket okozhat.
+* **DNR** (Kísérleti Safarihoz):
+    * Ez a típus sokkal gyorsabban működik, mint az Eredeti típus, mert nem kezdeményez hálózati kérést a forrás URL-hez.
+    * Ez lehetővé teszi az [Erőforrástípusok](#resource-types) és a [Kérésmódok](#request-methods) megadását.
+    * ⚠️ Néhány opciót, például a [Rögzítőcsoport-feldolgozást](#capturing-group-processing) és a [Kizárt URL-mintákat](#excluded-url-patterns) nem használhatja, mivel ezeket még nem támogatja a DNR API.
+    * ⚠️ Safariban jelenleg nem tartalmazhat pipe-okat (`|`) a reguláris kifejezés mintájában. [Részletek](https://github.com/mshibanami/redirect-web/issues/44)
+    * ⚠️ Mivel a Safari DNR API-ja még mindig tartalmaz néhány problémát, úgy gondoljuk, hogy ez még mindig kísérleti funkció a Safarihoz. Az összes ismert probléma listáját [itt](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari) találja.
 
 ### Átirányítás innen {#redirect-from}
 
-Az **Átirányítás innen** opció lehetővé teszi, hogy megadja azoknak a weboldalaknak az URL-mintáját, ahonnan átirányítani szeretne. Választhat [Helyettesítő karaktert](#wildcard) vagy [Reguláris kifejezést](#regular-expression).
+Az **Átirányítás innen** opció lehetővé teszi, hogy megadja azoknak a weboldalaknak az URL-mintáját, amelyekről átirányítani szeretne. Választhat [Helyettesítő karakter](#wildcard) vagy [Reguláris kifejezés](#regular-expression) közül.
 
-Például, ha `https://example.com/*` értéket ad meg helyettesítő karakterrel, az illeszkedik a `https://example.com/` vagy a `https://example.com/hello` címre.
+Például, ha `https://example.com/*` -ot ad meg Helyettesítő karakterrel, akkor illeszkedik a `https://example.com/` vagy a `https://example.com/hello` címre.
 
 > [!NOTE]
-> Az Átirányítás ide opcióban hivatkozhat a teljes egyezésre a `$0` használatával, vagy részleges egyezésekre a `$1`, `$2`, ... használatával. Részleteket lásd az [URL-minta](#url-pattern) részben ezen az oldalon.
+> Az Átirányítás ide opcióban hivatkozhat a teljes egyezésre `$0` használatával, vagy részleges egyezésekre `$1`, `$2`, ... használatával. Ellenőrizze a részleteket az [URL minta](#url-pattern) részben ezen az oldalon.
 
 #### Erőforrástípusok {#resource-types}
 
 ![Támogatott típusok: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-Az **Erőforrástípusok** opció lehetővé teszi a webes kérések kategóriáinak megadását, például képek, JavaScript-ek és stíluslapok, amelyekre a szabály vonatkozik.
-Például, ha `script` értéket állít be, átirányíthatja a weboldalak által betöltött JavaScript fájlokat.
+Az **Erőforrástípusok** opció lehetővé teszi, hogy megadja a webes kérések kategóriáit, például képeket, JavaScript-eket és stíluslapokat, amelyekre a szabály vonatkozik.
+ például, ha `script`-et állít be, átirányíthatja a weboldalak által betöltött JavaScript fájlokat.
 
 Jelenleg ezek érhetők el: 
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
@@ -49,12 +49,12 @@ Kérjük, ellenőrizze az egyes erőforrástípusok részleteit az [mdn web docs
 
 A **Kérésmódok** opció lehetővé teszi a forrás URL cél HTTP metódusainak beállítását.
 
-Alapértelmezetten minden metódus be van állítva.
+Alapértelmezés szerint minden metódus be van állítva.
 
 Kérjük, ellenőrizze az egyes metódusok részleteit az [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) oldalon.
 
 > [!WARNING]
-> Safariban ez az opció nem biztos, hogy elérhető, mert az Apple DNR típusú implementációja jelenleg nem kezeli. Visszajelzést küldtünk az Apple-nek FB14502272 néven.
+> Safariban ez az opció nem érhető el, mert az Apple DNR típusú implementációja jelenleg nem kezeli. Visszajelzést küldtünk az Apple-nek FB14502272 néven.
 
 #### Célböngészők {#target-browsers}
 
@@ -62,42 +62,42 @@ Kérjük, ellenőrizze az egyes metódusok részleteit az [mdn web docs](https:/
 
 A **Célböngészők** opció lehetővé teszi, hogy megadja, mely böngészőkre kell vagy nem kell alkalmazni a szabályt.
 
-*   2 típusú böngésző közül választhat:
-    *   **Alapértelmezetten választható böngészők**: Alapértelmezetten választhatja a Safarit, a Chrome-ot, a Firefoxot, az Edge-et, az Operát, az Arc-ot, a Brave-et és a Vivaldit. Ez nem különbözteti meg ugyanazon böngésző változatait, például a Safarit és a Safari Technology Preview-t.
-    *   **Felhasználó által megadott böngészők**: A felugró ablakon az Hozzáadás gombra koppintva kiválaszthat bármely böngészőt a Safari vagy a Safari Technology Preview kivételével, amelyen telepítve van a Redirect Web kiterjesztés.
-*   Az **Összes kivéve a kiválasztottat** jelölőnégyzet lehetővé teszi, hogy minden böngészőt megcélozzon, kivéve azokat, amelyeket kiválasztott.
+* 2 típusú böngésző közül választhat:
+    * **Alapértelmezés szerint választható böngészők**: Alapértelmezés szerint választhatja a Safarit, a Chrome-ot, a Firefoxot, az Edge-et, az Operát, az Arc-ot, a Brave-et és a Vivaldit. Ez nem különbözteti meg ugyanazon böngésző változatait, például a Safarit és a Safari Technology Preview-t.
+    * **Felhasználó által megadott böngészők**: A felugró ablakban az Hozzáadás gombra koppintva kiválaszthat bármely böngészőt a Safari vagy a Safari Technology Preview kivételével, amelyre telepítve van a Redirect Web bővítmény.
+* Az **Összes kivéve a kiválasztottat** jelölőnégyzet lehetővé teszi, hogy az összes böngészőt megcélozza, kivéve azokat, amelyeket kiválasztott.
 
 > [!WARNING]
-> A Redirect Web nem tudja megkülönböztetni, hogy a böngésző **Safari** vagy **Safari Technology Preview**, mert az alkalmazás az kiterjesztés szülőfolyamatát ellenőrzi annak észleléséhez, de ez a két böngésző ugyanazt a szülőfolyamatot (`/sbin/launchd`) használja.
+> A Redirect Web nem tudja megkülönböztetni, hogy a böngésző **Safari** vagy **Safari Technology Preview**, mert az alkalmazás az bővítmény szülőfolyamatát ellenőrzi annak észleléséhez, de ez a két böngésző ugyanazt a szülőfolyamatot (`/sbin/launchd`) használja.
 
 ### Átirányítás ide {#redirect-to}
 
-Az **Átirányítás ide** opció megadja azt a cél URL-t, amelyre átirányítani szeretne a *Redirect From* opcióval egyező forrás URL-ről. Helyettesítheti a rögzítő csoportokat `$1`, `$2`, ... vagy a teljes egyezést `$0` értékkel. Ezek segítenek dinamikusan megadni a célt. Részleteket lásd az [URL-minta](#url-pattern) részben ezen az oldalon.
+Az **Átirányítás ide** opció egy cél URL-t ad meg, amelyre átirányítani szeretne a *Redirect From* opcióval egyező forrás URL-ről. Helyettesítheti a rögzítőcsoportokat `$1`, `$2`, ... vagy a teljes egyezést `$0` használatával. Ezek segítenek dinamikusan megadni a célt. Ellenőrizze a részleteket az [URL minta](#url-pattern) részben ezen az oldalon.
 
 Például, ha a következő szabályt állítja be:
 
-*   **Átirányítás innen**: `https://google.com/*` (Helyettesítő karakter)
-*   **Átirányítás ide**: `https://apple.com/$1`
+* **Átirányítás innen**: `https://google.com/*` (Helyettesítő karakter)
+* **Átirányítás ide**: `https://apple.com/$1`
 
-és ez illeszkedik a `https://google.com/hello` címre, akkor a cél URL `https://apple.com/hello` lesz.
+és illeszkedik a `https://google.com/hello` címre, akkor a cél URL `https://apple.com/hello` lesz.
 
-Ezenkívül módosíthatja a `$1`, `$2`, ... szövegeit a helyettesítések előtt. Részletekért lásd a [Rögzítőcsoport-feldolgozás](#capturing-group-processing) szakaszt.
+Ezenkívül módosíthatja az `$1`, `$2`, ... szövegeit a helyettesítések előtt. Ellenőrizze a [Rögzítőcsoport-feldolgozás](#capturing-group-processing) szakaszt a részletekért.
 
 > [!TIP]
-> Egyéni URL-sémát adhat meg egy alkalmazás megnyitásához. Íme néhány példa az alkalmazásokra, amelyek támogatják a mélylinkelést:
+> Megadhat egy egyéni URL-sémát egy alkalmazás megnyitásához. Ezek példák olyan alkalmazásokra, amelyek támogatják a mélylinkelést:
 >
-> *   Figma: `figma://file/Your_Figma_ID`
-> *   Firefox: `firefox://open-url?url=https://example.com/hello`
-> *   Google Chrome: `googlechromes://example.com`
-> *   Microsoft Edge: `microsoft-edge://example.com`
-> *   Notion: `notion://www.notion.so/Your_Note_ID`
-> *   Slack: `slack://open`
+> * Figma: `figma://file/Your_Figma_ID`
+> * Firefox: `firefox://open-url?url=https://example.com/hello`
+> * Google Chrome: `googlechromes://example.com`
+> * Microsoft Edge: `microsoft-edge://example.com`
+> * Notion: `notion://www.notion.so/Your_Note_ID`
+> * Slack: `slack://open`
 
 #### Alkalmazás {#application}
 
 ![Támogatott típusok: Eredeti](https://img.shields.io/badge/Types-Original-blue) ![Támogatott platformok: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Ha meg szeretné adni azt az alkalmazást, amellyel meg szeretné nyitni a cél URL-t, használja az **Alkalmazás** legördülő menüt. Ez csak macOS rendszeren érhető el.
+Ha meg szeretné adni azt az alkalmazást, amellyel meg szeretné nyitni a cél URL-t, használja az **Alkalmazás** kombinált mezőt. Ez csak macOS-en érhető el.
 
 > [!WARNING]
 > Csak olyan alkalmazást nyithat meg, amely támogatja az [App Sandboxot](https://developer.apple.com/documentation/security/app_sandbox). Győződjön meg arról is, hogy az alkalmazás támogatja a megnyitni kívánt URL megnyitását.
@@ -106,38 +106,38 @@ Ha meg szeretné adni azt az alkalmazást, amellyel meg szeretné nyitni a cél 
 
 ![Támogatott típusok: Eredeti](https://img.shields.io/badge/Types-Original-blue)
 
-A **Rögzítőcsoport-feldolgozás** opció lehetővé teszi, hogy megadja, hogyan dolgozza fel a rögzített csoportokat, amelyeket a *Redirect To* opcióban `$1`, `$2`... értékkel helyettesíthet.
+A **Rögzítőcsoport-feldolgozás** opció lehetővé teszi, hogy megadja, hogyan dolgozza fel a rögzített csoportokat, amelyeket az *Átirányítás ide* opcióban `$1`, `$2`... használatával helyettesíthet.
 
-Így hozhat létre rögzítő csoportokat:
+Így hozhat létre rögzítőcsoportokat:
 
-*   **Helyettesítő karakter**: A `*` és `?` karakterekkel egyező szövegek automatikusan rögzítésre kerülnek.
-*   **Reguláris kifejezés**: A minta `()` belsejében lévő részével egyező szövegek rögzítésre kerülnek.
+* **Helyettesítő karakter**: A `*` és `?` karakterekkel egyező szövegek automatikusan rögzítésre kerülnek.
+* **Reguláris kifejezés**: A minta `()` belsejében lévő részével egyező szövegek rögzítésre kerülnek.
 
-Választhat egyet vagy többet a következő folyamatok közül:
+Az alábbi folyamatok közül választhat egyet vagy többet:
 
-*   **URL kódolás/dekódolás**: Ez [százalékos kódolást](https://en.wikipedia.org/wiki/Percent-encoding) vagy dekódolást alkalmaz egy rögzítő csoportra. Például, ha kódolja a `https://example.com/hello` címet, az `https%3A%2F%2Fexample.com%2Fhello` lesz. A dekódolás fordítva működik.
-*   **Base64 kódolás/dekódolás**: Ez egy szöveget [Base64](https://en.wikipedia.org/wiki/Base64) formátumba kódol/dekódol. Például, a `hello` kódolható `aGVsbG8=` értékre, és visszafejthető `hello` értékre.
-*   **Előfordulások cseréje**: Ez egy vagy több karaktert cserél egy csoportban, amelyet egy **Cél** egyeztet, egy **Csere** értékkel. Például, ha a *Csoport* `hello`, a *Cél* `l`, és a Csere `y`, akkor `heyyo` lesz belőle.
+* **URL kódolás/dekódolás**: Ez [százalékos kódolást](https://en.wikipedia.org/wiki/Percent-encoding) vagy dekódolást alkalmaz egy rögzítőcsoportra. Például, ha kódolja a `https://example.com/hello` címet, akkor `https%3A%2F%2Fexample.com%2Fhello` lesz belőle. A dekódolás fordítva működik.
+* **Base64 kódolás/dekódolás**: Ez egy szöveget [Base64](https://en.wikipedia.org/wiki/Base64) formátumba dekódol/kódol. Például kódolhatja a `hello` szót `aGVsbG8=`-ra, és visszafejtheti `hello`-ra.
+* **Előfordulások cseréje**: Ez egy vagy több karaktert cserél egy csoportban, amelyet egy **Cél** illeszt, egy **Csere**-vel. Például, ha a *Csoport* `hello`, a *Cél* `l`, és a Csere `y`, akkor `heyyo`-ra módosul.
 
 > [!NOTE]
-> Ez az egyes rögzítő csoportok feldolgozására szolgál, és nem befolyásolja, hogy mely URL-eket zárják ki a [Kizárt URL-minták](#excluded-url-patterns). Például, tegyük fel, hogy van ez a szabály:
+> Ez az egyes rögzítőcsoportok feldolgozására szolgál, és nem befolyásolja, hogy mely URL-ek vannak kizárva a [Kizárt URL-minták](#excluded-url-patterns) által. Például, tegyük fel, hogy van ez a szabály:
 >
-> *   **Átirányítás innen**: `https://example.com/(hello.*)`
-> *   **Rögzítőcsoport-feldolgozás**: 
->     *   Csoport: `$1`
->     *   Cél: `.*` (Reguláris kifejezés)
->     *   Csere: `hello`
-> *   **Kizárt URL-minta**: `https://example.com/hello`
+> * **Átirányítás innen**: `https://example.com/(hello.*)`
+> * **Rögzítőcsoport-feldolgozás**: 
+>     * Csoport: `$1`
+>     * Cél: `.*` (Reguláris kifejezés)
+>     * Csere: `hello`
+> * **Kizárt URL minta**: `https://example.com/hello`
 >
-> Ebben az esetben a `https://example.com/hello_world` nem lesz kizárva, míg a `https://example.com/hello` igen.
+> Ebben az esetben a `https://example.com/hello_world` nem lesz kizárva, míg a `https://example.com/hello` kizárásra kerül.
 
 ### Kizárt URL-minták {#excluded-url-patterns}
 
 ![Támogatott típusok: Eredeti](https://img.shields.io/badge/Types-Original-blue)
 
-A **Kizárt URL-minták** opció lehetővé teszi, hogy megadja azokat az URL-eket, amelyek nem kerülnek átirányításra. Ez hasznos lehet az átirányítási hurkok elkerülésére, vagy egy weboldal bizonyos részeinek kizárására az átirányításból.
+A **Kizárt URL-minták** opció lehetővé teszi, hogy megadja azokat az URL-eket, amelyek nem kerülnek átirányításra. Ez hasznos lehet az átirányítási hurkok elkerülésére, vagy egy webhely bizonyos részeinek kizárására az átirányításból.
 
-A kizárt URL-mintákat megadhatja reguláris kifejezés vagy helyettesítő karakteres mintatípusok használatával.
+Kizárt URL-mintákat megadhat Reguláris kifejezés vagy Helyettesítő karakter mintatípusok használatával.
 
 ### Példák {#examples}
 
@@ -147,39 +147,39 @@ A **Példák** opció lehetővé teszi, hogy tesztelje az átirányítási szab�
 
 A **Megjegyzések** opció lehetővé teszi, hogy jegyzeteket vagy megjegyzéseket fűzzön az átirányítási szabályához. Ez hasznos lehet annak nyomon követésére, hogy miért hozott létre egy adott szabályt, vagy kontextust biztosíthat mások számára, akik megtekinthetik a szabályait.
 
-A megjegyzéseket a következő formátumokban írhatja:
+Megjegyzéseket a következő formátumokban írhat:
 
-*   **Egyszerű szöveg** (Alapértelmezett): Egyszerű szöveg formázás nélkül.
-*   **Markdown**: Használhatja a [GitHub Markdown szintaxisát](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), beleértve néhány olyan kiterjesztést is, amelyet a GFM nem támogat. Például létrehozhat címsorokat, listákat, linkeket és még sok mást.
-*   **AsciiDoc**: Használhatja az [AsciiDoc szintaxisát](https://asciidoc.org/) a megjegyzések formázásához.
+* **Egyszerű szöveg** (Alapértelmezett): Egyszerű szöveg formázás nélkül.
+* **Markdown**: Használhatja a [GitHub Markdown szintaxisát](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), beleértve néhány olyan kiterjesztést is, amelyet a GFM nem támogat. Például létrehozhat címsorokat, listákat, linkeket és még sok mást.
+* **AsciiDoc**: Használhatja az [AsciiDoc szintaxisát](https://asciidoc.org/) a megjegyzések formázásához.
 
-## URL-minta {#url-pattern}
+## URL minta {#url-pattern}
 
-Az **URL-minták** az URL-ek egyeztetésére szolgálnak az *Átirányítás innen*, *Kizárt URL-minták* és *Rögzítőcsoport-feldolgozás* opciókban. Ezek megadásához választhat **Helyettesítő karaktert** vagy **Reguláris kifejezést**.
+Az **URL minták** az URL-ek illesztésére szolgálnak az *Átirányítás innen*, *Kizárt URL-minták* és *Rögzítőcsoport-feldolgozás* opciókban. Ezek megadásához választhat **Helyettesítő karakter** vagy **Reguláris kifejezés** közül.
 
 ### Helyettesítő karakter {#url-pattern-wildcard}
 
-A **Helyettesítő karakter** egy egyszerűbb mintatípus, amely lehetővé teszi a `*` (bármit egyeztet) és `?` (bármely egyetlen karaktert egyeztet) használatát helyettesítő karakterként. Íme néhány példa:
+A **Helyettesítő karakter** egy egyszerűbb mintatípus, amely lehetővé teszi a `*` (bármit illeszt) és `?` (bármely egyetlen karaktert illeszt) használatát helyettesítő karakterként. Íme néhány példa:
 
-*   A `https://example.com/hello` egyeztetéséhez használhatja a `https://example.com/*` címet. Ez bármilyen karakterláncot egyeztet a `https://example.com/` után.
-*   A `https://example.com/search?q=hello` egyeztetéséhez használhatja a `https://example.com/search?q=*` címet. Ez bármilyen értéket egyeztet a `q` paraméterhez.
-*   Bármely URL egyeztetéséhez, amely tartalmazza a `blog` szót, használhatja a `*blog*` címet.
+* A `https://example.com/hello` illesztéséhez használhatja a `https://example.com/*` címet. Ez illeszkedik a `https://example.com/` utáni bármely karakterláncra.
+* A `https://example.com/search?q=hello` illesztéséhez használhatja a `https://example.com/search?q=*` címet. Ez illeszkedik a `q` paraméter bármely értékére.
+* Bármely URL illesztéséhez, amely tartalmazza a `blog` szót, használhatja a `*blog*` címet.
 
-Helyettesítést is használhat a helyettesítő karakterben, ami azt jelenti, hogy hivatkozhat az egyező URL részeire a `$1`, `$2` stb. használatával. Például, ha a `https://example.com/*-world-*` címet használja, és az URL `https://example.com/hello-world-goodbye`, akkor a `$1` "hello" lenne, a `$2` pedig "goodbye". A `$0` is elérhető a teljes egyező URL hivatkozására.
+Helyettesítést is használhat a Helyettesítő karakterben, ami azt jelenti, hogy a matched URL részeit `$1`, `$2`, stb. használatával hivatkozhatja. Például, ha `https://example.com/*-world-*` címet használ, és az URL `https://example.com/hello-world-goodbye`, akkor `$1` "hello" és `$2` "goodbye" lenne. `$0` is elérhető a teljes matched URL hivatkozására.
 
 > [!NOTE]
-> Bár a helyettesítés a reguláris kifejezés egyik jellemzője, helyettesítő karakterekhez is használhatja, mert a Redirect Web belsőleg átalakítja a helyettesítő karaktert reguláris kifejezéssé.
+> Bár a helyettesítés a reguláris kifejezés egyik funkciója, a Helyettesítő karakterhez is használhatja, mert a Redirect Web belsőleg átalakítja a Helyettesítő karaktert reguláris kifejezéssé.
 
 ### Reguláris kifejezés {#url-pattern-regular-expression}
 
-A **Reguláris kifejezés** (Regex) egy hatékony eszköz a szövegminták egyeztetésére, és széles körben használják a programozásban is. Lehetővé teszi egy adott minta definiálását, amely egy karakterlánc-halmazt egyeztet. Íme néhány példa.
+A **Reguláris kifejezés** (Regex) egy hatékony eszköz a szövegekben lévő minták illesztésére, és széles körben használják a programozásban is. Lehetővé teszi egy adott minta definiálását, amely egy karakterlánc-halmazt illeszt. Íme néhány példa.
 
--   A `https://example.com/hello` egyeztetéséhez használhatja a `https://example.com/.*` címet. Ez bármilyen karakterláncot egyeztet a `https://example.com/` után.
--   A `https://example.com/search?q=hello` egyeztetéséhez használhatja a `https://example.com/search\?q=(.*)` címet. Ez egyezteti a `q` paraméter értékét, és egy rögzítő csoportba tárolja. Ezután hivatkozhat rá a `$1` használatával az *Átirányítás ide* opcióban.
--   Bármely URL egyeztetéséhez, amely tartalmazza a `blog` szót, használhatja a `.*blog.*` címet.
+- A `https://example.com/hello` illesztéséhez használhatja a `https://example.com/.*` címet. Ez illeszkedik a `https://example.com/` utáni bármely karakterláncra.
+- A `https://example.com/search?q=hello` illesztéséhez használhatja a `https://example.com/search\?q=(.*)` címet. Ez illeszkedik a `q` paraméter értékére, és egy rögzítőcsoportba tárolja. Ezután `$1` használatával hivatkozhat rá az *Átirányítás ide* opcióban.
+- Bármely URL illesztéséhez, amely tartalmazza a `blog` szót, használhatja a `.*blog.*` címet.
 
-Hivatkozhat a rögzítő csoportokra az *Átirányítás ide* vagy *Csere* opcióban a `$1`, `$2`, ... vagy `$0` használatával a teljes egyezésre való hivatkozáshoz.
+Hivatkozhat a rögzítőcsoportokra az *Átirányítás ide* vagy *Csere* opcióban `$1`, `$2`, ... vagy `$0` használatával a teljes egyezésre.
 
-A Redirect Web az [Apple Regex motorját](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) használja.
+A Redirect Web-et az [Apple Regex motorja](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) hajtja.
 
 További információ a Regex szintaxisról olyan forrásokban található, mint a [RegExr](https://regexr.com/).
