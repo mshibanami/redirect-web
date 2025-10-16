@@ -16,9 +16,9 @@ const FeatureList: FeatureItem[] = [
     description: "Create precise rules using wildcards, regular expressions, excluded URL patterns, and more, with intuitive UI.",
   },
   {
-    title: 'Multi-Platform',
+    title: 'Cross-Browser & Cross-Platform',
     icon: '🖥️📱🥽',
-    description: "Seamlessly works across all your Apple devices, including Mac, iPhone, iPad, and Apple Vision Pro."
+    description: "Available on Chrome, Edge, Firefox, and Safari on iOS, iPadOS, and macOS.",
   },
   {
     title: 'Blazing Fast',
@@ -34,11 +34,6 @@ const FeatureList: FeatureItem[] = [
     title: 'Unlock All for $4',
     icon: '💎',
     description: "iCloud Sync, unlimited rules, and future premium features for the price of a coffee.",
-  },
-  {
-    title: 'Privacy-Focused',
-    icon: '🔒',
-    description: "No ads, no tracking. Your data is yours. The extension only does what it says it does.",
   },
 ];
 

@@ -108,12 +108,17 @@ function UseCasesSection(): ReactNode {
                         <b>⭐️ Protip</b>: You can get rules of all these use cases from the Library section in the app!
                     </p>
                 </div>
-                <div className="text--center margin-bottom--xl">
+                <div className="text--center margin-vert--xl">
                     <Link
                         className="button button--primary button--lg"
                         to="docs/">
                         Getting Started
                     </Link>
+                </div>
+                <div className='text--center margin-bottom--lg'>
+                    <h4>
+                        No ads. No tracking. Enjoy a faster, cleaner web tailored to you.
+                    </h4>
                 </div>
             </div>
         </section>
