@@ -34,7 +34,7 @@ const config: Config = {
       'classic',
       {
         docs: {
-          routeBasePath: '/docs',
+          routeBasePath: '',
           sidebarPath: './sidebars.ts',
           sidebarCollapsible: false,
           sidebarCollapsed: false,
@@ -80,7 +80,7 @@ const config: Config = {
       },
       hideOnScroll: true,
       items: [
-        { to: '/docs', label: 'Docs', position: 'left', activeBaseRegex: `^/${projectName}/docs/?.*` },
+        { to: '/introduction', label: 'Docs', position: 'left', activeBaseRegex: `^/${projectName}/docs/?.*` },
         { to: '/release-notes', label: 'Release Notes', position: 'left', activeBaseRegex: `^/${projectName}/release-notes/?.*` },
         {
           type: 'html',
@@ -119,7 +119,7 @@ const config: Config = {
             },
             {
               label: 'How to Create Rules',
-              to: '/docs/category/how-to-create-rules',
+              to: '/category/how-to-create-rules',
             },
             {
               label: 'Release Notes',
@@ -136,11 +136,11 @@ const config: Config = {
             },
             {
               label: 'FAQ',
-              to: '/docs/faq',
+              to: '/faq',
             },
             {
               label: 'Contact Us',
-              to: '/docs/contact-us',
+              to: '/contact-us',
             }
           ]
         },
@@ -162,11 +162,11 @@ const config: Config = {
           items: [
             {
               label: "Privacy Policy",
-              to: "/docs/privacy-policy",
+              to: "/privacy-policy",
             },
             {
               label: "Terms of Use",
-              to: "/docs/terms-of-use",
+              to: "/terms-of-use",
             },
           ]
         }

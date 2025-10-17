@@ -164,7 +164,7 @@ export default function Home(): ReactNode {
                     <div className="text--center margin-vert--xl">
                         <Link
                             className="button button--primary button--lg"
-                            to="docs/">
+                            to="/introduction">
                             <Translate
                                 id="general.learnMoreAction"
                                 description="'Learn More' button">
