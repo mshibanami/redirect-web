@@ -34,7 +34,7 @@ function HomepageHeader() {
                 <div className="margin-vert--lg">
                     <ExtensionStoreLinks />
                 </div>
-                <Heading as='h4'>👇️ Click Video to Watch Demo</Heading>
+                <Heading as='h4'>👇️ Click to Watch Demo</Heading>
                 <div className={styles.heroVideoContainer}>
                     <video
                         className={styles.heroVideo}
@@ -105,18 +105,6 @@ function UseCasesSection(): ReactNode {
                         <b>⭐️ Protip</b>: You can get rules of all these use cases from the Library section in the app!
                     </p>
                 </div>
-                <div className="text--center margin-vert--xl">
-                    <Link
-                        className="button button--primary button--lg"
-                        to="docs/">
-                        Getting Started
-                    </Link>
-                </div>
-                <div className='text--center margin-bottom--lg'>
-                    <h4>
-                        No ads. No tracking. Enjoy a faster, cleaner web tailored to you.
-                    </h4>
-                </div>
             </div>
         </section>
     )
@@ -145,6 +133,21 @@ export default function Home(): ReactNode {
                     />
                     <HomepageFeatures />
                     <UseCasesSection />
+                    <div className="margin-bottom--xl">
+                        <ExtensionStoreLinks />
+                    </div>
+                    <div className="text--center margin-vert--xl">
+                        <Link
+                            className="button button--primary button--lg"
+                            to="docs/">
+                            Learn More
+                        </Link>
+                    </div>
+                    <div className='text--center margin-bottom--xl'>
+                        <h4>
+                            No ads. No tracking. Enjoy a faster, cleaner web tailored to you.
+                        </h4>
+                    </div>
                 </main>
             </Layout>
         </div>
