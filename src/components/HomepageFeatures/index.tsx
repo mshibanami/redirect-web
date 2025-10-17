@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.scss';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { translate } from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
 
 type FeatureItem = {
   title: string;
@@ -106,7 +106,14 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
-        <Heading as="h2" className='margin-bottom--lg'>Why Redirect Web?</Heading>
+        <Heading as="h2" className='margin-bottom--lg'>
+          <Translate
+            id="landingPage.productFeatures.title"
+            description="Title for the product features section."
+            values={{ productName: 'Redirect Web' }}>
+            {'Why {productName}?'}
+          </Translate>
+        </Heading>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

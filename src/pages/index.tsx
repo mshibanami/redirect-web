@@ -29,7 +29,7 @@ function HomepageHeader() {
                 <Heading as="h1" className="hero__title">
                     {siteConfig.tagline}
                 </Heading>
-                <p className="hero__subtitle">
+                <p className="hero__subtitle margin-bottom--xl">
                     <Translate
                         id="landingPage.heroSubtitle"
                         description="Landing page hero subtitle"
@@ -38,7 +38,7 @@ function HomepageHeader() {
                         {'{appName} is a powerful browser extension to redirect URLs based on your custom rules.'}
                     </Translate>
                 </p>
-                <div className="margin-vert--lg">
+                <div className="margin-vert--xl">
                     <ExtensionStoreLinks />
                 </div>
                 <Heading as='h4'>
@@ -99,7 +99,13 @@ function UseCasesSection(): ReactNode {
     return (
         <section className={styles.useCases}>
             <div className="container">
-                <Heading as="h2" className="margin-bottom--lg">Example Use Cases</Heading>
+                <Heading as="h2" className="margin-bottom--lg">
+                    <Translate
+                        id="landingPage.exampleUseCases.title"
+                        description="Title for the example use cases section">
+                        Example Use Cases
+                    </Translate>
+                </Heading>
                 <div className="row">
                     {useCases.map((useCase, idx) => (
                         <div key={idx} className={clsx('col col--4', styles.useCase)}>
