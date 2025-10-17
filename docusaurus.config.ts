@@ -85,7 +85,7 @@ const config: Config = {
         {
           type: 'html',
           position: 'right',
-          value: `<a href="https://apps.apple.com/app/id1571283503" class="navbar__appstore_button navbar__item_force"><img src="${baseUrl}img/appstore-badge.svg" alt="Go to Apple Store" /></a>`,
+          value: `<a href="https://apps.apple.com/app/id1571283503" class="navbar__appstore_button navbar__item_force"><img src="${baseUrl}${locale}/img/appstore-badge.svg" alt="Go to Apple Store" /></a>`,
           className: "navbar__item_force"
         },
         {
