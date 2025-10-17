@@ -1,15 +1,16 @@
 import Link from '@docusaurus/Link';
 import { ComponentType, SVGProps } from 'react';
-import AppStoreBadge from '@site/static/img/appstore-badge.svg';
 import ChromeStoreBadge from '@site/static/img/chrome-store-badge.svg';
 import FirefoxStoreBadge from '@site/static/img/firefox-store-badge.svg';
+import AppStoreBadge from '@site/static/img/appstore-badge.svg';
 import MicrosoftEdgeStoreBadge from '@site/static/img/microsoft-store-badge.svg';
 import { ALL_BROWSERS, BrowserName, ExtensionStoreDetails as BaseExtensionStoreDetails, getExtensionStore as getBaseExtensionStore } from './constants';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export { BrowserName, ALL_BROWSERS };
 
 export interface ExtensionStoreDetails extends BaseExtensionStoreDetails {
-    badge: ComponentType<SVGProps<SVGSVGElement>>;
+    badgePath: string;
 }
 
 export default function ExtensionStoreLinks() {
@@ -21,7 +22,7 @@ export default function ExtensionStoreLinks() {
                 const storeDetails = getExtensionStore({ browserName });
                 return (
                     <Link key={browserName} href={storeDetails.extensionPageUrl}>
-                        <storeDetails.badge style={{ height: badgeHeight, width: '100%' }} />
+                        <img src={useBaseUrl(storeDetails.badgePath)} style={{ height: badgeHeight, width: '100%' }} alt={`${browserName} Store Badge`} />
                     </Link>
                 );
             })}
@@ -31,27 +32,27 @@ export default function ExtensionStoreLinks() {
 
 export function getExtensionStore({ browserName }: { browserName: BrowserName }): ExtensionStoreDetails {
     const baseDetails = getBaseExtensionStore({ browserName });
-    let badge: ComponentType<SVGProps<SVGSVGElement>>;
-    
+    let badgePath: string;
+
     switch (browserName) {
         case BrowserName.Chrome:
-            badge = ChromeStoreBadge;
+            badgePath = "/img/chrome-store-badge.svg";
             break;
         case BrowserName.Firefox:
-            badge = FirefoxStoreBadge;
+            badgePath = "/img/firefox-store-badge.svg";
             break;
         case BrowserName.Safari:
-            badge = AppStoreBadge;
+            badgePath = "/img/appstore-badge.svg";
             break;
         case BrowserName.Edge:
-            badge = MicrosoftEdgeStoreBadge;
+            badgePath = "/img/microsoft-store-badge.svg";
             break;
         default:
-            badge = ChromeStoreBadge;
+            badgePath = "/img/chrome-store-badge.svg";
     }
-    
+
     return {
         ...baseDetails,
-        badge
-    };
+        badgePath
+    } satisfies ExtensionStoreDetails;
 }
