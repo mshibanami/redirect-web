@@ -13,7 +13,6 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
     "introduction",
-    "vs-other-tools",
     {
       type: "category",
       label: "How to Create Rules",
@@ -35,6 +34,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Help',
       items: [
+        "vs-other-tools",
         "faq",
         "contact-us",
       ],
