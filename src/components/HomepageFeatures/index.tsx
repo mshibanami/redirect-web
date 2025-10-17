@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.scss';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { translate } from '@docusaurus/Translate';
 
 type FeatureItem = {
   title: string;
@@ -13,33 +14,73 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Powerful Redirection Engine',
+    title: translate({
+      id: 'landingPage.feature.redirectionEngine.title',
+      message: 'Powerful Redirection Engine',
+      description: 'Landing page feature title for powerful redirection engine'
+    }),
     icon: '🎯',
     thumbnail: '/img/landing-feature-redirection-engine.png',
-    description: "Create precise rules using wildcards, regular expressions, excluded URL patterns, capture group processing, DNR, and more.",
+    description: translate({
+      id: 'landingPage.feature.redirectionEngine.description',
+      message: "Create precise rules using wildcards, regular expressions, excluded URL patterns, capture group processing, DNR, and more.",
+      description: 'Landing page feature description for powerful redirection engine'
+    }),
   },
   {
-    title: 'Useful Rules in Library',
+    title: translate({
+      id: 'landingPage.feature.library.title',
+      message: 'Useful Rules in Library',
+      description: 'Landing page feature title for useful rules in library'
+    }),
     icon: '📚',
     thumbnail: '/img/landing-feature-library.png',
-    description: "Quick start with useful pre-made rules from the Library section in the app.",
+    description: translate({
+      id: 'landingPage.feature.library.description',
+      message: "Quick start with useful pre-made rules from the Library section in the app.",
+      description: 'Landing page feature description for useful rules in library'
+    }),
   },
   {
-    title: 'Native UI',
+    title: translate({
+      id: 'landingPage.feature.nativeUI.title',
+      message: 'Native UI',
+      description: 'Landing page feature title for native UI'
+    }),
     icon: '✨',
     thumbnail: '/img/landing-feature-native-ui.png',
-    description: "Redirect Web offers a native app to provide a seamless experience on each platform.",
+    description: translate({
+      id: 'landingPage.feature.nativeUI.description',
+      message: "Redirect Web offers a native app to provide a seamless experience on each platform.",
+      description: 'Landing page feature description for native UI'
+    }),
   },
   {
-    title: 'Cross-Browser & Cross-Platform',
+    title: translate({
+      id: 'landingPage.feature.crossBrowser.title',
+      message: 'Cross-Browser & Cross-Platform',
+      description: 'Landing page feature title for cross-browser and cross-platform support'
+    }),
     icon: '🖥️📱🥽',
     thumbnail: '/img/landing-feature-multi-platform.png',
-    description: "Available in Any browser on Mac; Safari on iPhone, iPad, and Apple Vision Pro.",
+    description: translate({
+      id: 'landingPage.feature.crossBrowser.description',
+      message: "Available in Any browser on Mac; Safari on iPhone, iPad, and Apple Vision Pro.",
+      description: 'Landing page feature description for cross-browser and cross-platform support'
+    }),
   },
   {
-    title: 'Unlock All for $4',
+    title: translate({
+      id: 'landingPage.feature.unlockAll.title',
+      message: 'Unlock All for $4',
+      description: 'Landing page feature title for unlocking all features'
+    }),
     icon: '💎',
-    description: "Unlock iCloud Sync, unlimited rules, and future premium features with a one-time payment for the price of a coffee.",
+    description: translate({
+      id: 'landingPage.feature.unlockAll.description',
+      message: "Unlock iCloud Sync, unlimited rules, and future premium features with a one-time payment for the price of a coffee.",
+      description: 'Landing page feature description for unlocking all features'
+    }),
   },
 ];
 
