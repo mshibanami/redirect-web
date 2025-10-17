@@ -115,7 +115,7 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: '/docs',
+              to: '/introduction',
             },
             {
               label: 'How to Create Rules',
