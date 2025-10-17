@@ -1,6 +1,6 @@
 {
   "release-notes.description.rssLink": {
-    "message": "RSS 订阅源",
+    "message": "RSS 源",
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
@@ -8,7 +8,71 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "如果您正在寻找 7.10.0 或更早版本的发布说明，请查看 {appStoreLink}。",
-    "description": "The link text for the app page in the App Store"
+    "message": "如果您正在查找 7.10.0 或更早版本的发布说明，请查看 {appStoreLink}。",
+    "description": "The prompt for old release notes"
+  },
+  "landingPage.heroSubtitle": {
+    "message": "{appName} 是一个功能强大的浏览器扩展，可根据您的自定义规则重定向 URL。",
+    "description": "Landing page hero subtitle"
+  },
+  "landingPage.demoVideoPrompt": {
+    "message": "👇️ 点击观看演示",
+    "description": "Landing page demo video prompt"
+  },
+  "general.protipLabel": {
+    "message": "专业提示",
+    "description": "Label for a protip"
+  },
+  "landingPage.useCasesLibraryFootnote": {
+    "message": "您可以从应用程序的库部分获取所有这些用例的规则！",
+    "description": "A protip about use cases about the Library section on the landing page"
+  },
+  "general.learnMoreAction": {
+    "message": "了解更多",
+    "description": "'Learn More' button"
+  },
+  "landingPage.noAdsNoTracking": {
+    "message": "无广告。无跟踪。享受为您量身定制的更快、更干净的网络。",
+    "description": "Landing page tagline about no ads and no tracking"
+  },
+  "landingPage.feature.redirectionEngine.title": {
+    "message": "强大的重定向引擎",
+    "description": "Landing page feature title for powerful redirection engine"
+  },
+  "landingPage.feature.redirectionEngine.description": {
+    "message": "使用通配符、正则表达式、排除的 URL 模式、捕获组处理、DNR 等创建精确规则。",
+    "description": "Landing page feature description for powerful redirection engine"
+  },
+  "landingPage.feature.library.title": {
+    "message": "库中实用的规则",
+    "description": "Landing page feature title for useful rules in library"
+  },
+  "landingPage.feature.library.description": {
+    "message": "从应用程序的库部分快速开始使用有用的预制规则。",
+    "description": "Landing page feature description for useful rules in library"
+  },
+  "landingPage.feature.nativeUI.title": {
+    "message": "原生用户界面",
+    "description": "Landing page feature title for native UI"
+  },
+  "landingPage.feature.nativeUI.description": {
+    "message": "Redirect Web 提供原生应用程序，可在每个平台上提供无缝体验。",
+    "description": "Landing page feature description for native UI"
+  },
+  "landingPage.feature.crossBrowser.title": {
+    "message": "跨浏览器和跨平台",
+    "description": "Landing page feature title for cross-browser and cross-platform support"
+  },
+  "landingPage.feature.crossBrowser.description": {
+    "message": "适用于 Mac 上的任何浏览器；iPhone、iPad 和 Apple Vision Pro 上的 Safari。",
+    "description": "Landing page feature description for cross-browser and cross-platform support"
+  },
+  "landingPage.feature.unlockAll.title": {
+    "message": "解锁所有功能，仅需 $4",
+    "description": "Landing page feature title for unlocking all features"
+  },
+  "landingPage.feature.unlockAll.description": {
+    "message": "一次性支付一杯咖啡的价格，即可解锁 iCloud 同步、无限规则和未来的高级功能。",
+    "description": "Landing page feature description for unlocking all features"
   }
 }

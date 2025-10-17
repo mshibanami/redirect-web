@@ -1,14 +1,78 @@
 {
   "release-notes.description.rssLink": {
-    "message": "RSSフィード",
+    "message": "RSS フィード",
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "新しいリリースに関する最新情報を得るには、{rssLink} から購読してください！",
+    "message": "新しいリリース情報を受け取るには、{rssLink} から購読してください！",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "バージョン7.10.0以前のリリースノートをお探しの場合は、{appStoreLink} をご確認ください。",
+    "message": "バージョン 7.10.0 以前のリリースノートをお探しですか？{appStoreLink} をご確認ください。",
     "description": "The prompt for old release notes"
+  },
+  "landingPage.heroSubtitle": {
+    "message": "{appName} は、カスタムルールに基づいて URL をリダイレクトする強力なブラウザ拡張機能です。",
+    "description": "Landing page hero subtitle"
+  },
+  "landingPage.demoVideoPrompt": {
+    "message": "👇️ デモを見る",
+    "description": "Landing page demo video prompt"
+  },
+  "general.protipLabel": {
+    "message": "プロのヒント",
+    "description": "Label for a protip"
+  },
+  "landingPage.useCasesLibraryFootnote": {
+    "message": "これらのユースケースのルールはすべて、アプリのライブラリセクションから入手できます！",
+    "description": "A protip about use cases about the Library section on the landing page"
+  },
+  "general.learnMoreAction": {
+    "message": "詳細を見る",
+    "description": "'Learn More' button"
+  },
+  "landingPage.noAdsNoTracking": {
+    "message": "広告なし。トラッキングなし。より速く、よりクリーンで、あなたに合わせたウェブをお楽しみください。",
+    "description": "Landing page tagline about no ads and no tracking"
+  },
+  "landingPage.feature.redirectionEngine.title": {
+    "message": "強力なリダイレクトエンジン",
+    "description": "Landing page feature title for powerful redirection engine"
+  },
+  "landingPage.feature.redirectionEngine.description": {
+    "message": "ワイルドカード、正規表現、除外 URL パターン、キャプチャグループ処理、DNR などを使用して、正確なルールを作成します。",
+    "description": "Landing page feature description for powerful redirection engine"
+  },
+  "landingPage.feature.library.title": {
+    "message": "ライブラリの便利なルール",
+    "description": "Landing page feature title for useful rules in library"
+  },
+  "landingPage.feature.library.description": {
+    "message": "アプリのライブラリセクションにある便利な既製ルールですぐに始められます。",
+    "description": "Landing page feature description for useful rules in library"
+  },
+  "landingPage.feature.nativeUI.title": {
+    "message": "ネイティブ UI",
+    "description": "Landing page feature title for native UI"
+  },
+  "landingPage.feature.nativeUI.description": {
+    "message": "Redirect Web は、各プラットフォームでシームレスな体験を提供するためにネイティブアプリを提供しています。",
+    "description": "Landing page feature description for native UI"
+  },
+  "landingPage.feature.crossBrowser.title": {
+    "message": "クロスブラウザ＆クロスプラットフォーム",
+    "description": "Landing page feature title for cross-browser and cross-platform support"
+  },
+  "landingPage.feature.crossBrowser.description": {
+    "message": "Mac のあらゆるブラウザ、iPhone、iPad、Apple Vision Pro の Safari で利用可能です。",
+    "description": "Landing page feature description for cross-browser and cross-platform support"
+  },
+  "landingPage.feature.unlockAll.title": {
+    "message": "すべての機能を $4 でアンロック",
+    "description": "Landing page feature title for unlocking all features"
+  },
+  "landingPage.feature.unlockAll.description": {
+    "message": "iCloud 同期、無制限のルール、および将来のプレミアム機能を、コーヒー1杯分の価格で1回限りの支払いでアンロックします。",
+    "description": "Landing page feature description for unlocking all features"
   }
 }
