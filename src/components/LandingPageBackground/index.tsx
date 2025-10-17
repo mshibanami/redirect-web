@@ -1,7 +1,7 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useMemo, useRef, CSSProperties, useState, useEffect } from 'react'
 import { ShaderMaterial, Vector2, Texture, Mesh } from 'three'
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 import fragmentShader from '!!raw-loader!./fragment-shader.glsl';
 import vertexShader from '!!raw-loader!./vertex-shader.glsl';
 

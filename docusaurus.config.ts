@@ -20,6 +20,9 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ["bg", "cs", "da", "de", "el", "es", "en", "et", "fi", "fr", "hu", "id", "it", "ja", "ko", "lt", "lv", "nl", "pl", "pt-br", "pt-pt", "ro", "ru", "sk", "sl", "sv", "tr", "uk", "zh-hans"],
   },
+  plugins: [
+    'docusaurus-plugin-sass'
+  ],
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
@@ -56,7 +59,7 @@ const config: Config = {
           remarkPlugins: [remarkCjkFriendly],
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: './src/css/custom.scss',
         },
       } satisfies Preset.Options,
     ],

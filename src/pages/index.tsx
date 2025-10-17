@@ -10,7 +10,7 @@ import ExtensionStoreLinks from '@site/src/components/ExtensionStoreLinks';
 import Award from '@site/src/components/Award';
 import LandingPageBackground from '@site/src/components/LandingPageBackground';
 import Image from "@site/src/components/Image";
-import styles from './index.module.css';
+import styles from './index.module.scss';
 import AppleLogo from '@site/static/img/apple-logo.svg';
 
 function HomepageHeader() {
