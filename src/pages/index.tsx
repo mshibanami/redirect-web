@@ -119,13 +119,12 @@ function UseCasesSection(): ReactNode {
                         <b>⭐️
                             <Translate
                                 id="general.protipLabel"
-                                description="Label for a protip">
+                                description="Label for a hint">
                                 Protip
                             </Translate>
-                        </b>:
-                        <Translate
+                        </b>: <Translate
                             id="landingPage.useCasesLibraryFootnote"
-                            description="A protip about use cases about the Library section on the landing page">
+                            description="A hint about use cases about the Library section on the landing page">
                             You can get rules of all these use cases from the Library section in the app!
                         </Translate>
                     </p>

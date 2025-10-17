@@ -65,7 +65,7 @@ const FeatureList: FeatureItem[] = [
     thumbnail: '/img/landing-feature-multi-platform.png',
     description: translate({
       id: 'landingPage.feature.crossBrowser.description',
-      message: "Available in Any browser on Mac; Safari on iPhone, iPad, and Apple Vision Pro.",
+      message: "Available in all major browsers on Mac; Safari on iPhone, iPad, and Apple Vision Pro.",
       description: 'Landing page feature description for cross-browser and cross-platform support'
     }),
   },
