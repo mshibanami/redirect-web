@@ -4,13 +4,18 @@ import type * as Preset from '@docusaurus/preset-classic';
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 import remarkCjkFriendly from 'remark-cjk-friendly';
 import { ALL_BROWSERS, getExtensionStore } from './src/components/ExtensionStoreLinks/constants';
+import { translate } from '@docusaurus/Translate';
 
 const projectName = 'redirect-web';
 const baseUrl = `/${projectName}/`;
 
 const config: Config = {
   title: 'Redirect Web',
-  tagline: 'Take Control of Your Web Experience',
+  tagline: translate({
+    id: 'tagline',
+    description: 'A tagline of the app',
+    message: 'Take Control of Your Web Experience'
+  }),
   url: 'https://mshibanami.github.io/',
   baseUrl: baseUrl,
   organizationName: 'mshibanami',
