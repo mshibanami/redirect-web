@@ -12,6 +12,7 @@ import LandingPageBackground from '@site/src/components/LandingPageBackground';
 import Image from "@site/src/components/Image";
 import styles from './index.module.scss';
 import AppleLogo from '@site/static/img/apple-logo.svg';
+import Translate from '@docusaurus/Translate';
 
 function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
@@ -29,12 +30,24 @@ function HomepageHeader() {
                     {siteConfig.tagline}
                 </Heading>
                 <p className="hero__subtitle">
-                    <b>Redirect Web</b> is a powerful browser extension to redirect URLs based on your custom rules.
+                    <Translate
+                        id="landingPage.heroSubtitle"
+                        description="Landing page hero subtitle"
+                        values={{ appName: <b>Redirect Web</b> }}
+                    >
+                        {'{appName} is a powerful browser extension to redirect URLs based on your custom rules.'}
+                    </Translate>
                 </p>
                 <div className="margin-vert--lg">
                     <ExtensionStoreLinks />
                 </div>
-                <Heading as='h4'>👇️ Click to Watch Demo</Heading>
+                <Heading as='h4'>
+                    <Translate
+                        id="landingPage.demoVideoPrompt"
+                        description="Landing page demo video prompt">
+                        👇️ Click to Watch Demo
+                    </Translate>
+                </Heading>
                 <div className={styles.heroVideoContainer}>
                     <video
                         className={styles.heroVideo}
@@ -45,8 +58,9 @@ function HomepageHeader() {
                         aria-label="Demo video"
                     >
                         Your browser does not support the video tag. You can
-                        <a href={useBaseUrl('/videos/landing-demo.mov')} target="_blank" rel="noreferrer">download the video</a>
-                        .
+                        <a href={useBaseUrl('/videos/landing-demo.mov')} target="_blank" rel="noreferrer">
+                            download the video
+                        </a>.
                     </video>
                 </div>
             </div>
@@ -54,7 +68,7 @@ function HomepageHeader() {
     );
 }
 
-const useCases = [,
+const useCases = [
     {
         title: 'Custom Default Search Engine',
         description: 'Set Kagi, Startpage, ChatGPT, or any other search engine as your default.'
@@ -102,7 +116,18 @@ function UseCasesSection(): ReactNode {
                 </div>
                 <div className="text--center margin-bottom--lg">
                     <p>
-                        <b>⭐️ Protip</b>: You can get rules of all these use cases from the Library section in the app!
+                        <b>⭐️
+                            <Translate
+                                id="general.protipLabel"
+                                description="Label for a protip">
+                                Protip
+                            </Translate>
+                        </b>:
+                        <Translate
+                            id="landingPage.useCasesLibraryFootnote"
+                            description="A protip about use cases about the Library section on the landing page">
+                            You can get rules of all these use cases from the Library section in the app!
+                        </Translate>
                     </p>
                 </div>
             </div>
@@ -140,12 +165,20 @@ export default function Home(): ReactNode {
                         <Link
                             className="button button--primary button--lg"
                             to="docs/">
-                            Learn More
+                            <Translate
+                                id="general.learnMoreAction"
+                                description="'Learn More' button">
+                                Learn More
+                            </Translate>
                         </Link>
                     </div>
                     <div className='text--center margin-bottom--xl'>
                         <h4>
-                            No ads. No tracking. Enjoy a faster, cleaner web tailored to you.
+                            <Translate
+                                id="landingPage.noAdsNoTracking"
+                                description="Landing page tagline about no ads and no tracking">
+                                No ads. No tracking. Enjoy a faster, cleaner web tailored to you.
+                            </Translate>
                         </h4>
                     </div>
                 </main>
