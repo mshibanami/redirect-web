@@ -1,0 +1,50 @@
+# Palyginimas su kitais įrankiais
+
+Yra įvairių įrankių, kurių funkcionalumas panašus į „Redirect Web“. „Redirect Web“ nesistengia jų pakeisti, bet bando juos papildyti. Štai keletas palyginimų.
+
+> [!NOTE]
+> Šie palyginimai pagrįsti 2025 m. spalio mėn. būkle. Prašome [susisiekti su mumis](/contact-us), jei pastebėsite pasenusios informacijos ar klaidų. Ačiū! 🙏
+
+## [Redirector](https://github.com/einaregilsson/Redirector) {#redirector}
+
+„Redirector“ yra puikus naršyklės plėtinys, skirtas peradresavimui. Jis yra visiškai nemokamas ir atvirojo kodo, be to, veikia ir ne „Apple“ platformose. Tačiau „Redirect Web“ turi keletą papildomų funkcijų, kurios jums gali patikti:
+
+* **Išsamūs taisyklių nustatymai:** Palaiko kelis išskyrimo šablonus, kelis proceso atitikmenis ir eilučių pakeitimo funkcijas, prieinamas tik „Redirect Web“.
+* **Atidaryti vietinėse programose:** „Mac“ kompiuteryje galite pasirinkti, kur atidaryti tikslinį URL. Jis tiesiogiai iškviečia komandą `open` (ne gilusis susiejimas).
+* **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) palaikymas:** Užtikrina žaibišką peradresavimą.
+* **Centralizuotas taisyklių valdymas:** Valdykite taisykles visoms naršyklėms vienoje vietoje per vietinę programą.
+* **„Manifest V3“ ir „V2“ palaikymas:** „Redirect Web“ palaiko „V3“ „Chromium“ pagrindu veikiančiose naršyklėse ir „MV2“ „Firefox“, leidžiant naudoti tą pačią API kaip „Redirector“ lankstumui ir efektyvumui.
+* **„Safari“ palaikymas:** „Redirect Web“ palaiko „Safari“ „iOS“ ir „macOS“; „Redirector“ nepalaiko.
+
+Mes labai gerbiame „Redirector“ ir siūlome peradresavimo taisyklių importavimą/eksportavimą, kurias jis taip pat gali tvarkyti, todėl galite lanksčiai persijungti tarp jų. Daugiau informacijos rasite [čia](/export-or-import-rules).
+
+## Vartotojo scenarijų tvarkyklės, tokios kaip [Tampermonkey](https://www.tampermonkey.net/) arba [Greasemonkey](https://www.greasespot.net/) {#userscript-managers}
+
+Vartotojo scenarijų tvarkyklės yra labai galingos ir lanksčios. Su jomis galite atlikti daugybę dalykų, įskaitant peradresavimą. Tačiau jos turi tam tikrų trūkumų, palyginti su „Redirect Web“:
+
+* **Sudėtingumas:** Scenarijų rašymas ir priežiūra gali būti sudėtinga ir daug laiko reikalaujanti, ypač vartotojams, kurie nėra susipažinę su programavimu. „Redirect Web“ suteikia patogią vartotojo sąsają, skirtą kurti ir valdyti taisykles be kodavimo.
+* **Saugumas:** Vartotojo scenarijų tvarkyklės gali sukelti našumo perkrovą, ypač jei scenarijai yra sudėtingi arba neoptimizuoti. Jos taip pat gali sukelti begalinį peradresavimo ciklą, jei nėra kruopščiai parašytos. „Redirect Web“ sukurta taip, kad būtų efektyvi ir saugi.
+* **Naujesnės API palaikymas:** Kai kurios vartotojo scenarijų tvarkyklės gali neturėti prieigos prie „Declarative Net Request (DNR)“ API, kuri gali užtikrinti greitesnį ir efektyvesnį peradresavimą. „Redirect Web“ palaiko DNR geresniam našumui.
+
+## „Apple“ [Shortcuts](https://support.apple.com/guide/shortcuts/welcome/ios) {#why-not-shortcuts}
+
+„Shortcuts“ yra galingas „Apple“ automatizavimo įrankis, pasiekiamas „iOS“ ir „macOS“. Galite kurti nuorodas įvairioms užduotims atlikti, įskaitant URL atidarymą. Tačiau jis paleidžiamas rankiniu būdu ir nėra skirtas sklandžiam naršymui internete.
+
+## [OpenIn](https://loshadki.app/openin4/) arba [Velja](https://sindresorhus.com/velja) {#openin-or-velja}
+
+„OpenIn“ ir „Velja“ yra naršyklės pasirinkimo programos, ir jos taip pat turi naršyklės plėtinius, leidžiančius atidaryti nuorodas kitoje programoje iš naršyklės. „Redirect Web“ taip pat turi naršyklės į programą peradresavimo galimybę. Tačiau yra keletas skirtumų:
+
+* **Automatinis peradresavimas:** Jos reikalauja, kad rankiniu būdu pasirinktumėte jų įrankių juostos piktogramą, kad atidarytumėte nuorodą kitoje programoje. „Redirect Web“ automatiškai peradresuoja URL pagal jūsų taisykles be papildomų veiksmų. Tai yra du skirtingi požiūriai į nuorodų tvarkymą.
+* **Kelių platformų palaikymas:** Nors jos skirtos „Mac“, „Redirect Web“ palaiko visas pagrindines naršykles „Mac“ ir „Safari“ „iPhone“, „iPad“ ir „Apple Vision Pro“.
+
+## [StopTheMadness](https://www.stopthemadness.com/) {#stopthemadness}
+
+„StopTheMadness“ yra naršyklės plėtinys, kuris suteikia įvairių funkcijų, skirtų pagerinti naršymą internete, įskaitant peradresavimą. Tačiau jis turi tam tikrų apribojimų, palyginti su „Redirect Web“:
+
+* **Taisyklių lankstumas:** „StopTheMadness“ turi ribotas taisyklių konfigūravimo parinktis. „Redirect Web“ siūlo išsamesnius taisyklių nustatymus, įskaitant kelis išskyrimo šablonus, fiksavimo grupės apdorojimą ir dar daugiau.
+* **Funkcijų sudėtingumas:** „StopTheMadness“ apima daug funkcijų, kurios gali būti nereikalingos vartotojams, norintiems tik peradresavimo. „Redirect Web“ sutelkia dėmesį tik į peradresavimą.
+* **Kaina:** „StopTheMadness“ kainuoja 12–15 USD be nemokamo bandomojo laikotarpio ar nemokamo plano. „Redirect Web“ siūlo nemokamą planą su pagrindinėmis funkcijomis ir prenumeratą su nemokamu visų funkcijų bandomuoju laikotarpiu bei vienkartinio pirkimo galimybę už kavos kainą.
+
+## Galiausiai...
+
+Aukščiau minėti įrankiai yra puikūs savaip, ir jūs galite juos rasti tinkamesnius savo poreikiams. Raginame jus tyrinėti ir naudoti įrankius, kurie geriausiai atitinka jūsų reikalavimus! 😊

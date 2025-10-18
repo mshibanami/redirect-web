@@ -1,0 +1,50 @@
+# Sammenligning med andre værktøjer
+
+Der findes forskellige værktøjer med lignende funktionalitet som Redirect Web. Redirect Web forsøger ikke at erstatte dem, men prøver at supplere dem. Her er nogle sammenligninger.
+
+> [!NOTE]
+> Disse sammenligninger er baseret på situationen i oktober 2025. Venligst [kontakt os](/contact-us), hvis du finder forældet information eller fejl. Tak! 🙏
+
+## [Redirector](https://github.com/einaregilsson/Redirector) {#redirector}
+
+Redirector er en fantastisk browserudvidelse til omdirigering. Den er helt gratis og open source, og den fungerer også på ikke-Apple-platforme. Men Redirect Web har nogle ekstra funktioner, du måske vil kunne lide:
+
+*   **Detaljerede regelindstillinger:** Understøtter flere udelukkelsesmønstre, flere procesmatches og strengerstatningsfunktioner, der kun er tilgængelige i Redirect Web.
+*   **Åbn i native apps:** På Mac kan du vælge, hvor mål-URL'en skal åbnes. Den kalder `open`-kommandoen direkte (ikke deep linking).
+*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) support:** Giver lynhurtig omdirigering.
+*   **Centraliseret regelstyring:** Administrer regler for alle browsere ét sted via den native app.
+*   **Manifest V3 & V2 support:** Redirect Web understøtter V3 på Chromium-baserede browsere og MV2 på Firefox, hvilket tillader brug af den samme API som Redirector for fleksibilitet og effektivitet.
+*   **Safari support:** Redirect Web understøtter Safari på iOS og macOS; Redirector gør det ikke.
+
+Vi respekterer Redirector højt og tilbyder import/eksport af omdirigeringsregler, som den også kan håndtere, så du fleksibelt kan skifte mellem dem. Se flere detaljer [her](/export-or-import-rules).
+
+## Userscript-administratorer som [Tampermonkey](https://www.tampermonkey.net/) eller [Greasemonkey](https://www.greasespot.net/) {#userscript-managers}
+
+Userscript-administratorer er meget kraftfulde og fleksible. Du kan gøre så mange ting med dem, herunder omdirigering. De har dog nogle ulemper sammenlignet med Redirect Web:
+
+*   **Kompleksitet:** At skrive og vedligeholde scripts kan være komplekst og tidskrævende, især for brugere, der ikke er fortrolige med programmering. Redirect Web tilbyder en brugervenlig grænseflade til at oprette og administrere regler uden kodning.
+*   **Sikkerhed:** Userscript-administratorer kan introducere ydeevne-overhead, især hvis scripts er komplekse eller ikke optimerede. De kan også forårsage en uendelig omdirigeringsløkke, hvis de ikke er omhyggeligt skrevet. Redirect Web er designet til at være effektiv og sikker.
+*   **Nyere API-understøttelse:** Nogle userscript-administratorer har muligvis ikke adgang til Declarative Net Request (DNR) API'en, som kan give hurtigere og mere effektiv omdirigering. Redirect Web understøtter DNR for bedre ydeevne.
+
+## Apples [Genveje](https://support.apple.com/guide/shortcuts/welcome/ios) {#why-not-shortcuts}
+
+Genveje er Apples kraftfulde automatiseringsværktøj, der er tilgængeligt på iOS og macOS. Du kan oprette genveje til at udføre forskellige opgaver, herunder åbning af URL'er. Det udløses dog manuelt og er ikke designet til problemfri webbrowsing.
+
+## [OpenIn](https://loshadki.app/openin4/) eller [Velja](https://sindresorhus.com/velja) {#openin-or-velja}
+
+OpenIn og Velja er begge browser-vælger-apps, og de har også browserudvidelser, der lader dig åbne links i en anden app fra en browser. Redirect Web har også en browser-til-app-omdirigeringsfunktion. Der er dog nogle forskelle:
+
+*   **Automatisk omdirigering:** De kræver, at du manuelt vælger deres værktøjslinjeikon for at åbne et link i en anden app. Redirect Web omdirigerer automatisk URL'er baseret på dine regler uden ekstra trin. Dette er to forskellige tilgange til linkhåndtering.
+*   **Cross-platform support:** Mens de er designet til Mac, understøtter Redirect Web alle større browsere på Mac og Safari på iPhone, iPad og Apple Vision Pro.
+
+## [StopTheMadness](https://www.stopthemadness.com/) {#stopthemadness}
+
+StopTheMadness er en browserudvidelse, der tilbyder forskellige funktioner til at forbedre webbrowsing, herunder omdirigering. Den har dog nogle begrænsninger sammenlignet med Redirect Web:
+
+*   **Regelfleksibilitet:** StopTheMadness har begrænsede konfigurationsmuligheder for regler. Redirect Web tilbyder mere detaljerede regelindstillinger, herunder flere udelukkelsesmønstre, behandling af indfangningsgrupper og mere.
+*   **Funktionernes kompleksitet:** StopTheMadness inkluderer mange funktioner, der muligvis ikke er nødvendige for brugere, der kun ønsker omdirigering. Redirect Web fokuserer udelukkende på omdirigering.
+*   **Pris:** StopTheMadness koster 12-15 USD uden en gratis prøveperiode eller en gratis plan. Redirect Web tilbyder en gratis plan med grundlæggende funktioner, og et abonnement med en gratis prøveperiode af alle funktioner, samt en engangskøbsmulighed til prisen af en kop kaffe.
+
+## Til sidst...
+
+Ovenstående værktøjer er fantastiske på deres egne måder, og du finder dem måske mere passende til dine behov. Vi opfordrer dig til at udforske og bruge de værktøjer, der bedst passer til dine krav! 😊

@@ -1,0 +1,50 @@
+# 다른 도구와의 비교
+
+Redirect Web과 유사한 기능을 가진 다양한 도구들이 있습니다. Redirect Web은 이러한 도구들을 대체하려 하지 않고 보완하려 합니다. 다음은 몇 가지 비교입니다.
+
+> [!NOTE]
+> 이 비교는 2025년 10월 기준입니다. 오래된 정보나 오류를 발견하시면 [문의하기](/contact-us)를 통해 알려주세요. 감사합니다! 🙏
+
+## [Redirector](https://github.com/einaregilsson/Redirector) {#redirector}
+
+Redirector는 리디렉션을 위한 훌륭한 브라우저 확장 프로그램입니다. 완전히 무료이며 오픈 소스이며, Apple 이외의 플랫폼에서도 작동합니다. 하지만 Redirect Web에는 다음과 같은 추가 기능이 있습니다.
+
+* **세부적인 규칙 설정:** Redirect Web에서만 사용할 수 있는 여러 제외 패턴, 여러 프로세스 일치 및 문자열 대체 기능을 지원합니다.
+* **네이티브 앱에서 열기:** Mac에서는 대상 URL을 열 위치를 선택할 수 있습니다. `open` 명령을 직접 호출합니다(딥 링크 아님).
+* **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) 지원:** 매우 빠른 리디렉션을 제공합니다.
+* **중앙 집중식 규칙 관리:** 네이티브 앱을 통해 모든 브라우저의 규칙을 한 곳에서 관리합니다.
+* **Manifest V3 및 V2 지원:** Redirect Web은 Chromium 기반 브라우저에서 V3를 지원하고 Firefox에서 MV2를 지원하여 유연성과 효율성을 위해 Redirector와 동일한 API를 사용할 수 있습니다.
+* **Safari 지원:** Redirect Web은 iOS 및 macOS의 Safari를 지원하지만 Redirector는 지원하지 않습니다.
+
+저희는 Redirector를 매우 존중하며, Redirector도 처리할 수 있는 리디렉션 규칙의 가져오기/내보내기를 제공하므로 유연하게 전환할 수 있습니다. 자세한 내용은 [여기](/export-or-import-rules)를 참조하세요.
+
+## [Tampermonkey](https://www.tampermonkey.net/) 또는 [Greasemonkey](https://www.greasespot.net/)와 같은 사용자 스크립트 관리자 {#userscript-managers}
+
+사용자 스크립트 관리자는 매우 강력하고 유연합니다. 리디렉션을 포함하여 많은 작업을 수행할 수 있습니다. 그러나 Redirect Web과 비교할 때 몇 가지 단점이 있습니다.
+
+* **복잡성:** 스크립트를 작성하고 유지 관리하는 것은 특히 프로그래밍에 익숙하지 않은 사용자에게는 복잡하고 시간이 많이 소요될 수 있습니다. Redirect Web은 코딩 없이 규칙을 생성하고 관리할 수 있는 사용자 친화적인 인터페이스를 제공합니다.
+* **안전성:** 사용자 스크립트 관리자는 특히 스크립트가 복잡하거나 최적화되지 않은 경우 성능 오버헤드를 유발할 수 있습니다. 또한 신중하게 작성하지 않으면 무한 리디렉션 루프가 발생할 수 있습니다. Redirect Web은 효율적이고 안전하도록 설계되었습니다.
+* **최신 API 지원:** 일부 사용자 스크립트 관리자는 더 빠르고 효율적인 리디렉션을 제공할 수 있는 Declarative Net Request (DNR) API에 액세스하지 못할 수 있습니다. Redirect Web은 더 나은 성능을 위해 DNR을 지원합니다.
+
+## Apple의 [단축어](https://support.apple.com/guide/shortcuts/welcome/ios) {#why-not-shortcuts}
+
+단축어는 iOS 및 macOS에서 사용할 수 있는 Apple의 강력한 자동화 도구입니다. URL 열기를 포함하여 다양한 작업을 수행하는 단축어를 만들 수 있습니다. 그러나 수동으로 트리거되며 원활한 웹 브라우징을 위해 설계되지 않았습니다.
+
+## [OpenIn](https://loshadki.app/openin4/) 또는 [Velja](https://sindresorhus.com/velja) {#openin-or-velja}
+
+OpenIn과 Velja는 모두 브라우저 선택기 앱이며, 브라우저에서 다른 앱으로 링크를 열 수 있는 브라우저 확장 프로그램도 있습니다. Redirect Web도 브라우저-앱 리디렉션 기능을 가지고 있습니다. 그러나 몇 가지 차이점이 있습니다.
+
+* **자동 리디렉션:** 다른 앱에서 링크를 열려면 도구 모음 아이콘을 수동으로 선택해야 합니다. Redirect Web은 추가 단계 없이 규칙에 따라 URL을 자동으로 리디렉션합니다. 이들은 링크 처리 방식에 대한 두 가지 다른 접근 방식입니다.
+* **교차 플랫폼 지원:** Mac용으로 설계되었지만 Redirect Web은 Mac의 모든 주요 브라우저와 iPhone, iPad 및 Apple Vision Pro의 Safari를 지원합니다.
+
+## [StopTheMadness](https://www.stopthemadness.com/) {#stopthemadness}
+
+StopTheMadness는 리디렉션을 포함하여 웹 브라우징을 향상시키는 다양한 기능을 제공하는 브라우저 확장 프로그램입니다. 그러나 Redirect Web과 비교할 때 몇 가지 제한 사항이 있습니다.
+
+* **규칙 유연성:** StopTheMadness는 규칙 구성 옵션이 제한적입니다. Redirect Web은 여러 제외 패턴, 캡처 그룹 처리 등 더 세부적인 규칙 설정을 제공합니다.
+* **기능의 복잡성:** StopTheMadness에는 리디렉션만 원하는 사용자에게는 필요하지 않을 수 있는 많은 기능이 포함되어 있습니다. Redirect Web은 리디렉션에만 중점을 둡니다.
+* **가격:** StopTheMadness는 무료 평가판이나 무료 요금제 없이 12-15 USD입니다. Redirect Web은 기본 기능이 포함된 무료 요금제와 모든 기능의 무료 평가판이 포함된 구독, 그리고 커피 한 잔 가격으로 일회성 구매 옵션을 제공합니다.
+
+## 마지막으로...
+
+위의 도구들은 각자의 방식으로 훌륭하며, 필요에 더 적합하다고 생각할 수도 있습니다. 귀하의 요구 사항에 가장 적합한 도구를 탐색하고 사용해 보시기를 권장합니다! 😊
