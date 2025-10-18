@@ -12,7 +12,7 @@ import LandingPageBackground from '@site/src/components/LandingPageBackground';
 import Image from "@site/src/components/Image";
 import styles from './index.module.scss';
 import AppleLogo from '@site/static/img/apple-logo.svg';
-import Translate from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
 
 function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
@@ -70,28 +70,72 @@ function HomepageHeader() {
 
 const useCases = [
     {
-        title: 'Custom Default Search Engine',
-        description: 'Set Kagi, Startpage, ChatGPT, or any other search engine as your default.'
+        title: translate({
+            id: 'productUseCases.customDefaultSearchEngine.title',
+            message: 'Custom Default Search Engine',
+            description: 'Use case title for a redirection rules of changing browser\'s default search engine to another search engine'
+        }),
+        description: translate({
+            id: 'productUseCases.customDefaultSearchEngine.description',
+            message: 'Set Kagi, Startpage, ChatGPT, or any other search engine as your default.',
+            description: 'Use case description for a redirection rules of changing browser\'s default search engine to another search engine'
+        })
     },
     {
-        title: 'View Reddit in its classic design',
-        description: 'Automatically redirect from www.reddit.com to old.reddit.com.'
+        title: translate({
+            id: 'productUseCases.viewRedditClassic.title',
+            message: 'View Reddit in its classic design',
+            description: 'Use case title for a redirection rules of viewing Reddit in its classic design'
+        }),
+        description: translate({
+            id: 'productUseCases.viewRedditClassic.description',
+            message: 'Automatically redirect from www.reddit.com to old.reddit.com.',
+            description: 'Use case description for a redirection rules of viewing Reddit in its classic design'
+        })
     },
     {
-        title: 'Open Apple Maps from Google Maps links',
+        title: translate({
+            id: 'productUseCases.openAppleMaps.title',
+            message: 'Open Apple Maps from Google Maps links',
+            description: 'Use case title for a redirection rules of opening Apple Maps from Google Maps links'
+        }),
         description: 'Prefer Apple Maps? Redirect any Google Maps URL to open in Apple Maps.'
     },
     {
-        title: 'Declutter Google Search',
-        description: 'Automatically add "?udm=14" to your Google searches to hide AI Overviews.'
+        title: translate({
+            id: 'productUseCases.declutterGoogleSearch.title',
+            message: 'Declutter Google Search',
+            description: 'Use case title for a redirection rules of decluttering Google Search'
+        }),
+        description: translate({
+            id: 'productUseCases.declutterGoogleSearch.description',
+            message: 'Automatically add "?udm=14" to your Google searches to hide AI Overviews.',
+            description: 'Use case description for a redirection rules of decluttering Google Search'
+        })
     },
     {
-        title: 'Use Your Favorite Wiki',
-        description: 'Jump from Fandom pages to the official Terraria or Minecraft wikis.'
+        title: translate({
+            id: 'productUseCases.useYourFavoriteWiki.title',
+            message: 'Use Your Favorite Wiki',
+            description: 'Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis'
+        }),
+        description: translate({
+            id: 'productUseCases.useYourFavoriteWiki.description',
+            message: 'Jump from Fandom pages to the official Terraria or Minecraft wikis.',
+            description: 'Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis'
+        })
     },
     {
-        title: 'Open Links in Native Apps',
-        description: 'Open Figma, Notion, or Google Meet links directly in their desktop apps on your Mac.'
+        title: translate({
+            id: 'productUseCases.openLinksInNativeApps.title',
+            message: 'Open Links in Native Apps',
+            description: 'Use case title for a redirection rules of opening links in their native apps'
+        }),
+        description: translate({
+            id: 'productUseCases.openLinksInNativeApps.description',
+            message: 'Open Figma, Notion, or Google Meet links directly in their desktop apps on your Mac.',
+            description: 'Use case description for a redirection rules of opening links in their native apps'
+        })
     }
 ] satisfies { title: string; description: string }[]
 
