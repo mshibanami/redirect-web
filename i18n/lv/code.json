@@ -16,23 +16,23 @@
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
-    "message": "👇️ Noklikšķiniet, lai skatītos demonstrāciju",
+    "message": "👇️ Noklikšķiniet, lai skatītu demonstrāciju",
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
     "message": "Padoms",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Visu šo lietošanas gadījumu noteikumus varat iegūt lietotnes sadaļā Bibliotēka!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "message": "Visus šos lietošanas gadījumus varat iegūt no lietotnes sadaļas Bibliotēka!",
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Uzzināt vairāk",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Bez reklāmām. Bez izsekošanas. Izbaudiet ātrāku, tīrāku tīmekli, kas pielāgots jums.",
+    "message": "Nav reklāmu. Nav izsekošanas. Izbaudiet ātrāku, tīrāku tīmekli, kas pielāgots jums.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Izveidojiet precīzus noteikumus, izmantojot aizstājējzīmes, regulārās izteiksmes, izslēgtos URL modeļus, uztveršanas grupu apstrādi, DNR un citus.",
+    "message": "Izveidojiet precīzus noteikumus, izmantojot aizstājējzīmes, regulārās izteiksmes, izslēgtos URL modeļus, tveršanas grupu apstrādi, DNR un citus.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -60,11 +60,11 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Starppārlūkprogrammu un starpplatformu",
+    "message": "Starppārlūku un starpplatformu",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Pieejams jebkurā pārlūkprogrammā Mac datorā; Safari iPhone, iPad un Apple Vision Pro.",
+    "message": "Pieejams visās galvenajās pārlūkprogrammās Mac datoros; Safari iPhone, iPad un Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -72,7 +72,59 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Atbloķējiet iCloud sinhronizāciju, neierobežotus noteikumus un nākotnes premium funkcijas ar vienreizēju maksājumu kafijas cenas apmērā.",
+    "message": "Atbloķējiet iCloud sinhronizāciju, neierobežotus noteikumus un nākotnes premium funkcijas ar vienreizēju maksājumu par kafijas cenu.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Pielāgota noklusējuma meklētājprogramma",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Iestatiet Kagi, Startpage, ChatGPT vai jebkuru citu meklētājprogrammu kā noklusējuma.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Skatīt Reddit klasiskajā dizainā",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Automātiski novirzīt no www.reddit.com uz old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Atvērt Apple Maps no Google Maps saitēm",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Sakārtot Google meklēšanu",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Automātiski pievienojiet \"?udm=14\" saviem Google meklējumiem, lai paslēptu AI pārskatus.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Izmantojiet savu iecienītāko Wiki",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Pārejiet no Fandom lapām uz oficiālajām Terraria vai Minecraft wiki lapām.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Atvērt saites vietējās lietotnēs",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Atveriet Figma, Notion vai Google Meet saites tieši to darbvirsmas lietotnēs savā Mac datorā.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Piemēri lietošanas gadījumiem",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Kāpēc {productName}?",
+    "description": "Title for the product features section."
   }
 }

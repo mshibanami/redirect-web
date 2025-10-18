@@ -21,18 +21,18 @@
   },
   "general.protipLabel": {
     "message": "Protip",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
     "message": "Anda bisa mendapatkan aturan untuk semua kasus penggunaan ini dari bagian Perpustakaan di aplikasi!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Pelajari Lebih Lanjut",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Tanpa iklan. Tanpa pelacakan. Nikmati web yang lebih cepat, lebih bersih, dan disesuaikan untuk Anda.",
+    "message": "Tanpa iklan. Tanpa pelacakan. Nikmati web yang lebih cepat, lebih bersih, disesuaikan untuk Anda.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Tersedia di browser apa pun di Mac; Safari di iPhone, iPad, dan Apple Vision Pro.",
+    "message": "Tersedia di semua browser utama di Mac; Safari di iPhone, iPad, dan Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -72,7 +72,59 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Buka Kunci Sinkronisasi iCloud, aturan tak terbatas, dan fitur premium masa depan dengan pembayaran satu kali seharga secangkir kopi.",
+    "message": "Buka iCloud Sync, aturan tak terbatas, dan fitur premium masa depan dengan pembayaran satu kali seharga secangkir kopi.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Mesin Pencari Default Kustom",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Atur Kagi, Startpage, ChatGPT, atau mesin pencari lainnya sebagai default Anda.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Lihat Reddit dalam desain klasiknya",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Secara otomatis mengarahkan ulang dari www.reddit.com ke old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Buka Apple Maps dari tautan Google Maps",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Bersihkan Pencarian Google",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Secara otomatis menambahkan \"?udm=14\" ke pencarian Google Anda untuk menyembunyikan Ringkasan AI.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Gunakan Wiki Favorit Anda",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Lompat dari halaman Fandom ke wiki resmi Terraria atau Minecraft.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Buka Tautan di Aplikasi Asli",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Buka tautan Figma, Notion, atau Google Meet langsung di aplikasi desktop mereka di Mac Anda.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Contoh Kasus Penggunaan",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Mengapa {productName}?",
+    "description": "Title for the product features section."
   }
 }

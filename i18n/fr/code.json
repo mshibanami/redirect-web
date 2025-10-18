@@ -21,11 +21,11 @@
   },
   "general.protipLabel": {
     "message": "Astuce",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
     "message": "Vous pouvez obtenir les règles de tous ces cas d'utilisation depuis la section Bibliothèque de l'application !",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "En savoir plus",
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Créez des règles précises à l'aide de caractères génériques, d'expressions régulières, de modèles d'URL exclus, de traitement de groupes de capture, de DNR, et plus encore.",
+    "message": "Créez des règles précises en utilisant des caractères génériques, des expressions régulières, des modèles d'URL exclus, le traitement des groupes de capture, le DNR, et plus encore.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Démarrez rapidement avec des règles prédéfinies utiles de la section Bibliothèque de l'application.",
+    "message": "Démarrez rapidement avec des règles prédéfinies utiles depuis la section Bibliothèque de l'application.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -56,7 +56,7 @@
     "description": "Landing page feature title for native UI"
   },
   "landingPage.feature.nativeUI.description": {
-    "message": "Redirect Web offre une application native pour offrir une expérience transparente sur chaque plateforme.",
+    "message": "Redirect Web offre une application native pour offrir une expérience fluide sur chaque plateforme.",
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Disponible sur n'importe quel navigateur sur Mac ; Safari sur iPhone, iPad et Apple Vision Pro.",
+    "message": " Disponible sur tous les principaux navigateurs sur Mac ; Safari sur iPhone, iPad et Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -72,7 +72,59 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Débloquez la synchronisation iCloud, les règles illimitées et les futures fonctionnalités premium avec un paiement unique au prix d'un café.",
+    "message": "Débloquez la synchronisation iCloud, des règles illimitées et les futures fonctionnalités premium avec un paiement unique pour le prix d'un café.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Moteur de recherche par défaut personnalisé",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Définissez Kagi, Startpage, ChatGPT ou tout autre moteur de recherche comme votre moteur par défaut.",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Voir Reddit dans son design classique",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Redirigez automatiquement de www.reddit.com vers old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Ouvrir Apple Maps à partir des liens Google Maps",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Désencombrer la recherche Google",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Ajoutez automatiquement \"?udm=14\" à vos recherches Google pour masquer les aperçus d'IA.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Utilisez votre Wiki préféré",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Passez des pages Fandom aux wikis officiels de Terraria ou Minecraft.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Ouvrir les liens dans les applications natives",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Ouvrez les liens Figma, Notion ou Google Meet directement dans leurs applications de bureau sur votre Mac.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Exemples de cas d'utilisation",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Pourquoi {productName} ?",
+    "description": "Title for the product features section."
   }
 }

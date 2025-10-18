@@ -21,11 +21,11 @@
   },
   "general.protipLabel": {
     "message": "Sfat util",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Puteți obține reguli pentru toate aceste cazuri de utilizare din secțiunea Bibliotecă a aplicației!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "message": "Puteți obține reguli pentru toate aceste cazuri de utilizare din secțiunea Bibliotecă din aplicație!",
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Aflați mai multe",
@@ -44,11 +44,11 @@
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
-    "message": "Reguli utile în Bibliotecă",
+    "message": "Reguli utile în bibliotecă",
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Începeți rapid cu reguli utile predefinite din secțiunea Bibliotecă a aplicației.",
+    "message": "Începeți rapid cu reguli utile predefinite din secțiunea Bibliotecă din aplicație.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -64,15 +64,67 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Disponibil în orice browser pe Mac; Safari pe iPhone, iPad și Apple Vision Pro.",
+    "message": "Disponibil în toate browserele majore pe Mac; Safari pe iPhone, iPad și Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Deblocați totul pentru 4 $",
+    "message": "Deblocați totul pentru $4",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
     "message": "Deblocați sincronizarea iCloud, reguli nelimitate și funcții premium viitoare cu o plată unică la prețul unei cafele.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Motor de căutare implicit personalizat",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Setați Kagi, Startpage, ChatGPT sau orice alt motor de căutare ca implicit.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Vizualizați Reddit în designul său clasic",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Redirecționați automat de la www.reddit.com la old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Deschideți Apple Maps din linkurile Google Maps",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Dezordonați căutarea Google",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Adăugați automat \"?udm=14\" la căutările dvs. Google pentru a ascunde prezentările generale AI.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Utilizați Wiki-ul preferat",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Treceți de la paginile Fandom la wiki-urile oficiale Terraria sau Minecraft.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Deschideți linkuri în aplicații native",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Deschideți linkurile Figma, Notion sau Google Meet direct în aplicațiile lor desktop pe Mac.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Exemple de cazuri de utilizare",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "De ce {productName}?",
+    "description": "Title for the product features section."
   }
 }

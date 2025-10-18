@@ -12,35 +12,35 @@
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName} yra galingas naršyklės plėtinys, skirtas nukreipti URL pagal jūsų pasirinktines taisykles.",
+    "message": "{appName} yra galingas naršyklės plėtinys, skirtas peradresuoti URL pagal jūsų pasirinktines taisykles.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
-    "message": "👇️ Spauskite, kad žiūrėtumėte demonstraciją",
+    "message": "👇️ Spustelėkite, kad žiūrėtumėte demonstracinę versiją",
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
     "message": "Patarimas",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Visų šių naudojimo atvejų taisykles galite rasti programos bibliotekos skiltyje!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "message": "Visų šių naudojimo atvejų taisykles galite rasti programos skyriuje „Biblioteka“!",
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Sužinoti daugiau",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Jokių skelbimų. Jokio sekimo. Mėgaukitės greitesniu, švaresniu, jums pritaikytu internetu.",
+    "message": "Jokių skelbimų. Jokio sekimo. Mėgaukitės greitesniu, švaresniu, jums pritaikytu žiniatinkliu.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
-    "message": "Galingas nukreipimo variklis",
+    "message": "Galingas peradresavimo variklis",
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Kurkite tikslias taisykles naudodami pakaitos simbolius, reguliarias išraiškas, išskirtus URL šablonus, fiksavimo grupių apdorojimą, DNR ir dar daugiau.",
+    "message": "Kurkite tikslias taisykles naudodami pakaitos simbolius, reguliarias išraiškas, neįtrauktus URL šablonus, fiksavimo grupių apdorojimą, DNR ir dar daugiau.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Greitai pradėkite naudodami naudingas iš anksto sukurtas taisykles iš programos bibliotekos skilties.",
+    "message": "Greitai pradėkite naudodami naudingas iš anksto sukurtas taisykles iš programos skyriaus „Biblioteka“.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -56,7 +56,7 @@
     "description": "Landing page feature title for native UI"
   },
   "landingPage.feature.nativeUI.description": {
-    "message": "„Redirect Web“ siūlo vietinę programą, užtikrinančią sklandžią patirtį kiekvienoje platformoje.",
+    "message": "„Redirect Web“ siūlo vietinę programą, užtikrinančią sklandų veikimą kiekvienoje platformoje.",
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
@@ -64,15 +64,67 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Galima naudoti bet kurioje „Mac“ naršyklėje; „Safari“ „iPhone“, „iPad“ ir „Apple Vision Pro“.",
+    "message": "Galima naudoti visose pagrindinėse „Mac“ naršyklėse; „Safari“ „iPhone“, „iPad“ ir „Apple Vision Pro“.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Atrakinti viską už $4",
+    "message": "Atrakinti viską už 4 USD",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Atrakinkite „iCloud“ sinchronizavimą, neribotas taisykles ir būsimas aukščiausios kokybės funkcijas su vienkartiniu mokėjimu už kavos kainą.",
+    "message": "Atrakinkite „iCloud“ sinchronizavimą, neribotas taisykles ir būsimas aukščiausios kokybės funkcijas vienkartiniu mokėjimu už kavos kainą.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Pasirinktinis numatytasis paieškos variklis",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Nustatykite „Kagi“, „Startpage“, „ChatGPT“ ar bet kurį kitą paieškos variklį kaip numatytąjį.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Peržiūrėkite „Reddit“ klasikiniu dizainu",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Automatiškai peradresuoti iš www.reddit.com į old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Atidarykite „Apple Maps“ iš „Google Maps“ nuorodų",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Išvalykite „Google“ paiešką",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Automatiškai pridėkite „?udm=14“ prie „Google“ paieškų, kad paslėptumėte AI apžvalgas.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Naudokite savo mėgstamą „Wiki“",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Peršokite iš „Fandom“ puslapių į oficialius „Terraria“ ar „Minecraft“ wiki.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Atidarykite nuorodas vietinėse programose",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Atidarykite „Figma“, „Notion“ ar „Google Meet“ nuorodas tiesiai jų darbalaukio programose „Mac“ kompiuteryje.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Pavyzdiniai naudojimo atvejai",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Kodėl {productName}?",
+    "description": "Title for the product features section."
   }
 }

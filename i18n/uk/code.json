@@ -8,11 +8,11 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Якщо ви шукаєте примітки до випуску 7.10.0 або раніших версій, будь ласка, перевірте {appStoreLink}.",
+    "message": "Якщо ви шукаєте примітки до випусків 7.10.0 або раніше, перегляньте {appStoreLink або раніше, перегляньте {appStoreLink.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName} — це потужне розширення для браузера, яке перенаправляє URL-адреси на основі ваших власних правил.",
+    "message": "{appName} — це потужне розширення для браузера, що дозволяє перенаправляти URL-адреси на основі ваших власних правил.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
@@ -21,18 +21,18 @@
   },
   "general.protipLabel": {
     "message": "Порада",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
     "message": "Ви можете отримати правила для всіх цих випадків використання з розділу Бібліотека в додатку!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Дізнатися більше",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Без реклами. Без відстеження. Насолоджуйтесь швидшим, чистішим веб-сайтом, налаштованим під вас.",
+    "message": "Без реклами. Без відстеження. Насолоджуйтесь швидшим, чистішим вебом, налаштованим під вас.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Створюйте точні правила за допомогою підстановочних знаків, регулярних виразів, виключених шаблонів URL-адрес, обробки груп захоплення, DNR тощо.",
+    "message": "Створюйте точні правила, використовуючи символи підстановки, регулярні вирази, виключені шаблони URL, обробку груп захоплення, DNR та багато іншого.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Швидко почніть роботу з корисними готовими правилами з розділу Бібліотека в додатку.",
+    "message": "Швидкий старт з корисними готовими правилами з розділу Бібліотека в додатку.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Доступно в будь-якому браузері на Mac; Safari на iPhone, iPad та Apple Vision Pro.",
+    "message": "Доступно у всіх основних браузерах на Mac; Safari на iPhone, iPad та Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -72,7 +72,59 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Розблокуйте синхронізацію iCloud, необмежену кількість правил та майбутні преміум-функції за одноразову плату за ціною кави.",
+    "message": "Розблокуйте синхронізацію iCloud, необмежені правила та майбутні преміум-функції за одноразову плату за ціною кави.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Власний пошуковий механізм за замовчуванням",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Встановіть Kagi, Startpage, ChatGPT або будь-яку іншу пошукову систему як свою за замовчуванням.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Перегляд Reddit у класичному дизайні",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Автоматично перенаправляйте з www.reddit.com на old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Відкривати Apple Maps за посиланнями Google Maps",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Очистити пошук Google",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Автоматично додавайте \"?udm=14\" до ваших пошукових запитів Google, щоб приховати огляди ШІ.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Використовуйте свою улюблену Вікі",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Переходьте зі сторінок Fandom на офіційні вікі Terraria або Minecraft.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Відкривати посилання в нативних додатках",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Відкривайте посилання Figma, Notion або Google Meet безпосередньо в їхніх настільних додатках на вашому Mac.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Приклади використання",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Чому {productName}?",
+    "description": "Title for the product features section."
   }
 }

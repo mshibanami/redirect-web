@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Om du letar efter versionsanteckningar för 7.10.0 eller tidigare, vänligen kolla {appStoreLink}.",
+    "message": "Om du letar efter versionsanteckningarna för 7.10.0 eller tidigare, vänligen kolla {appStoreLink}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -21,11 +21,11 @@
   },
   "general.protipLabel": {
     "message": "Proffstips",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
     "message": "Du kan få regler för alla dessa användningsfall från bibliotekssektionen i appen!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Läs mer",
@@ -60,11 +60,11 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Webbläsar- och plattformsoberoende",
+    "message": "Webbläsarövergripande och plattformsoberoende",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Tillgänglig i vilken webbläsare som helst på Mac; Safari på iPhone, iPad och Apple Vision Pro.",
+    "message": "Tillgänglig i alla större webbläsare på Mac; Safari på iPhone, iPad och Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -74,5 +74,57 @@
   "landingPage.feature.unlockAll.description": {
     "message": "Lås upp iCloud-synkronisering, obegränsade regler och framtida premiumfunktioner med en engångsbetalning för priset av en kaffe.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Anpassad standardsökmotor",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Ställ in Kagi, Startpage, ChatGPT eller någon annan sökmotor som din standard.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Visa Reddit i dess klassiska design",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Omdirigera automatiskt från www.reddit.com till old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Öppna Apple Maps från Google Maps-länkar",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Rensa Google-sökning",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Lägg automatiskt till \"?udm=14\" till dina Google-sökningar för att dölja AI-översikter.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Använd din favoritwiki",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Hoppa från Fandom-sidor till de officiella Terraria- eller Minecraft-wikierna.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Öppna länkar i inbyggda appar",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Öppna Figma-, Notion- eller Google Meet-länkar direkt i deras skrivbordsappar på din Mac.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Exempel på användningsfall",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Varför {productName}?",
+    "description": "Title for the product features section."
   }
 }

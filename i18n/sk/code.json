@@ -4,7 +4,7 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "Prihláste sa na odber cez {rssLink} aby ste boli informovaní o nových vydaniach!",
+    "message": "Prihláste sa na odber prostredníctvom {rssLink}, aby ste boli informovaní o nových vydaniach!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
@@ -20,12 +20,12 @@
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
-    "message": "Protip",
-    "description": "Label for a protip"
+    "message": "Tip",
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
     "message": "Pravidlá pre všetky tieto prípady použitia nájdete v sekcii Knižnica v aplikácii!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Zistiť viac",
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Vytvárajte presné pravidlá pomocou zástupných znakov, regulárnych výrazov, vylúčených vzorov URL, spracovania skupín zachytenia, DNR a ďalších.",
+    "message": "Vytvárajte presné pravidlá pomocou zástupných znakov, regulárnych výrazov, vylúčených vzorov URL, spracovania zachytávacích skupín, DNR a ďalších.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Dostupné v akomkoľvek prehliadači na Macu; Safari na iPhone, iPad a Apple Vision Pro.",
+    "message": "Dostupné vo všetkých hlavných prehliadačoch na Macu; Safari na iPhone, iPad a Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -74,5 +74,57 @@
   "landingPage.feature.unlockAll.description": {
     "message": "Odomknite synchronizáciu iCloud, neobmedzené pravidlá a budúce prémiové funkcie jednorazovou platbou za cenu kávy.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Vlastný predvolený vyhľadávač",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Nastavte si Kagi, Startpage, ChatGPT alebo akýkoľvek iný vyhľadávač ako predvolený.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Zobraziť Reddit v jeho klasickom dizajne",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Automaticky presmerovať z www.reddit.com na old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Otvoriť Apple Mapy z odkazov Google Maps",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Prehľadnejšie vyhľadávanie Google",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Automaticky pridajte \"?udm=14\" do vyhľadávania Google, aby ste skryli prehľady AI.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Použite svoju obľúbenú Wiki",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Prejdite z Fandom stránok na oficiálne wiki Terraria alebo Minecraft.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Otvoriť odkazy v natívnych aplikáciách",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Otvorte odkazy Figma, Notion alebo Google Meet priamo v ich desktopových aplikáciách na vašom Macu.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Príklady použitia",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Prečo {productName}?",
+    "description": "Title for the product features section."
   }
 }

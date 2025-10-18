@@ -16,19 +16,19 @@
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
-    "message": "👇️ Κάντε κλικ για να δείτε το Demo",
+    "message": "👇️ Κάντε κλικ για να παρακολουθήσετε την επίδειξη",
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
     "message": "Συμβουλή",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
     "message": "Μπορείτε να λάβετε κανόνες για όλες αυτές τις περιπτώσεις χρήσης από την ενότητα Βιβλιοθήκη στην εφαρμογή!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
-    "message": "Μάθετε Περισσότερα",
+    "message": "Μάθετε περισσότερα",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
@@ -60,19 +60,71 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Πολλαπλά Προγράμματα Περιήγησης & Πολλαπλές Πλατφόρμες",
+    "message": "Cross-Browser & Cross-Platform",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Διαθέσιμο σε οποιοδήποτε πρόγραμμα περιήγησης σε Mac. Safari σε iPhone, iPad και Apple Vision Pro.",
+    "message": "Διαθέσιμο σε όλα τα μεγάλα προγράμματα περιήγησης σε Mac. Safari σε iPhone, iPad και Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Ξεκλειδώστε τα Όλα για $4",
+    "message": "Ξεκλειδώστε τα όλα για $4",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
     "message": "Ξεκλειδώστε τον συγχρονισμό iCloud, απεριόριστους κανόνες και μελλοντικές premium λειτουργίες με εφάπαξ πληρωμή στην τιμή ενός καφέ.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Προσαρμοσμένη Προεπιλεγμένη Μηχανή Αναζήτησης",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Ορίστε το Kagi, το Startpage, το ChatGPT ή οποιαδήποτε άλλη μηχανή αναζήτησης ως προεπιλεγμένη.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Προβολή Reddit στην κλασική του σχεδίαση",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Αυτόματη ανακατεύθυνση από www.reddit.com στο old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Άνοιγμα Apple Maps από συνδέσμους Google Maps",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Αποσυμφόρηση Αναζήτησης Google",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Προσθέστε αυτόματα \"?udm=14\" στις αναζητήσεις σας στο Google για να αποκρύψετε τις επισκοπήσεις AI.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Χρησιμοποιήστε το αγαπημένο σας Wiki",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Μεταβείτε από σελίδες Fandom στα επίσημα wikis Terraria ή Minecraft.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Άνοιγμα συνδέσμων σε εγγενείς εφαρμογές",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Ανοίξτε συνδέσμους Figma, Notion ή Google Meet απευθείας στις εφαρμογές επιφάνειας εργασίας σας στο Mac.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Παραδείγματα Περιπτώσεων Χρήσης",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Γιατί {productName};",
+    "description": "Title for the product features section."
   }
 }

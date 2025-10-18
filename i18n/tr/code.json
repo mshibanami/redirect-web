@@ -4,7 +4,7 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "{rssLink} aracılığıyla abone olarak yeni sürümlerden haberdar olun!",
+    "message": "Yeni sürümlerden haberdar olmak için {rssLink} aracılığıyla abone olun!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
@@ -21,11 +21,11 @@
   },
   "general.protipLabel": {
     "message": "İpucu",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Tüm bu kullanım durumlarının kurallarını uygulamadaki Kütüphane bölümünden alabilirsiniz!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "message": "Tüm bu kullanım senaryolarının kurallarını uygulamadaki Kütüphane bölümünden alabilirsiniz!",
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Daha Fazla Bilgi Edinin",
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Mac'teki herhangi bir tarayıcıda; iPhone, iPad ve Apple Vision Pro'daki Safari'de kullanılabilir.",
+    "message": "Mac'teki tüm büyük tarayıcılarda; iPhone, iPad ve Apple Vision Pro'daki Safari'de mevcuttur.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -74,5 +74,57 @@
   "landingPage.feature.unlockAll.description": {
     "message": "iCloud Senkronizasyonu, sınırsız kurallar ve gelecekteki premium özelliklerin kilidini tek seferlik bir kahve fiyatına açın.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Özel Varsayılan Arama Motoru",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Kagi, Startpage, ChatGPT veya başka herhangi bir arama motorunu varsayılan olarak ayarlayın.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Reddit'i klasik tasarımında görüntüleyin",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Otomatik olarak www.reddit.com'dan old.reddit.com'a yönlendirin.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Google Haritalar bağlantılarından Apple Haritalar'ı açın",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Google Arama'yı Düzenleyin",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Yapay Zeka Genel Bakışlarını gizlemek için Google aramalarınıza otomatik olarak \"?udm=14\" ekleyin.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Favori Wikinizi Kullanın",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Fandom sayfalarından resmi Terraria veya Minecraft wikilerine atlayın.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Bağlantıları Yerel Uygulamalarda Açın",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Figma, Notion veya Google Meet bağlantılarını doğrudan Mac'inizdeki masaüstü uygulamalarında açın.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Örnek Kullanım Senaryoları",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Neden {productName}?",
+    "description": "Title for the product features section."
   }
 }

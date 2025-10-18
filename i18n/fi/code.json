@@ -8,24 +8,24 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Jos etsit julkaisutietoja versiosta 7.10.0 tai vanhemmista, tarkista {appStoreLink}.",
+    "message": "Jos etsit julkaisutiedotteita versiosta 7.10.0 tai vanhemmista, tarkista {appStoreLink}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName} on tehokas selainlaajennus URL-osoitteiden uudelleenohjaamiseen omien sääntöjesi perusteella.",
+    "message": "{appName} on tehokas selainlaajennus URL-osoitteiden uudelleenohjaamiseen mukautettujen sääntöjen perusteella.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
-    "message": "👇️ Katso demo napsauttamalla",
+    "message": "👇️ Napsauta katsoaksesi esittelyvideon",
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
     "message": "Vinkki",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
     "message": "Voit saada säännöt kaikkiin näihin käyttötapauksiin sovelluksen Kirjasto-osiosta!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Lue lisää",
@@ -64,15 +64,67 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Saatavilla kaikissa Mac-selaimissa; Safari iPhonessa, iPadissa ja Apple Vision Prossa.",
+    "message": "Saatavilla kaikissa tärkeimmissä selaimissa Macissa; Safarissa iPhonessa, iPadissa ja Apple Vision Prossa.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Avaa kaikki hintaan 4 $",
+    "message": "Avaa kaikki hintaan $4",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
     "message": "Avaa iCloud-synkronointi, rajoittamattomat säännöt ja tulevat premium-ominaisuudet kertamaksulla kahvin hinnalla.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Mukautettu oletushakukone",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Aseta Kagi, Startpage, ChatGPT tai mikä tahansa muu hakukone oletukseksi.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Näytä Reddit sen klassisessa suunnittelussa",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Ohjaa automaattisesti www.reddit.comista old.reddit.comiin.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Avaa Apple Maps Google Maps -linkeistä",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Siivoa Google-haku",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Lisää automaattisesti \"?udm=14\" Google-hakuihisi piilottaaksesi tekoälyn yleiskatsaukset.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Käytä suosikkikiwikiäsi",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Hyppää Fandom-sivuilta virallisiin Terraria- tai Minecraft-wikiin.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Avaa linkit natiivisovelluksissa",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Avaa Figma-, Notion- tai Google Meet -linkit suoraan työpöytäsovelluksissaan Macissasi.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Esimerkkikäyttötapaukset",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Miksi {productName}?",
+    "description": "Title for the product features section."
   }
 }

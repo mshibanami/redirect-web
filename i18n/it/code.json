@@ -1,6 +1,6 @@
 {
   "release-notes.description.rssLink": {
-    "message": "feed RSS",
+    "message": "Feed RSS",
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Se stai cercando le note di rilascio della versione 7.10.0 o precedente, controlla {appStoreLink}.",
+    "message": "Se stai cercando le note di rilascio della versione 7.10.0 o precedenti, controlla {appStoreLink}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -21,11 +21,11 @@
   },
   "general.protipLabel": {
     "message": "Suggerimento",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Puoi ottenere le regole per tutti questi casi d'uso dalla sezione Libreria nell'app!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "message": "Puoi ottenere le regole di tutti questi casi d'uso dalla sezione Libreria nell'app!",
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Scopri di più",
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Crea regole precise utilizzando caratteri jolly, espressioni regolari, modelli URL esclusi, elaborazione di gruppi di acquisizione, DNR e altro ancora.",
+    "message": "Crea regole precise usando caratteri jolly, espressioni regolari, modelli URL esclusi, elaborazione di gruppi di cattura, DNR e altro ancora.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Disponibile in qualsiasi browser su Mac; Safari su iPhone, iPad e Apple Vision Pro.",
+    "message": "Disponibile in tutti i principali browser su Mac; Safari su iPhone, iPad e Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -74,5 +74,57 @@
   "landingPage.feature.unlockAll.description": {
     "message": "Sblocca la sincronizzazione iCloud, regole illimitate e future funzionalità premium con un pagamento una tantum al prezzo di un caffè.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Motore di ricerca predefinito personalizzato",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Imposta Kagi, Startpage, ChatGPT o qualsiasi altro motore di ricerca come predefinito.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Visualizza Reddit nel suo design classico",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Reindirizza automaticamente da www.reddit.com a old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Apri Apple Maps dai link di Google Maps",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Declutter Google Search",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Aggiungi automaticamente \"?udm=14\" alle tue ricerche Google per nascondere le panoramiche AI.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Usa la tua Wiki preferita",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Passa dalle pagine di Fandom alle wiki ufficiali di Terraria o Minecraft.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Apri link in app native",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Apri i link di Figma, Notion o Google Meet direttamente nelle loro app desktop sul tuo Mac.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Casi d'uso di esempio",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Perché {productName}?",
+    "description": "Title for the product features section."
   }
 }

@@ -8,24 +8,24 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Ha a 7.10.0-s vagy korábbi verziók kiadási megjegyzéseit keresed, kérjük, ellenőrizd a {appStoreLink} oldalt.",
+    "message": "Ha a 7.10.0-ás vagy korábbi kiadások megjegyzéseit keresed, kérjük, ellenőrizd a {appStoreLink} oldalt.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName} egy hatékony böngészőbővítmény, amely az egyéni szabályaid alapján irányítja át az URL-eket.",
+    "message": "{appName} egy hatékony böngészőbővítmény az URL-ek átirányítására az egyéni szabályaid alapján.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
-    "message": "👇️ Kattints a demó megtekintéséhez",
+    "message": "👇️ Kattints a Demó megtekintéséhez",
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
     "message": "Protipp",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Ezen használati esetek szabályait az alkalmazás Könyvtár szakaszában találod!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "message": "Az összes ilyen felhasználási esetre vonatkozó szabályt megtalálhatod az alkalmazás Könyvtár szakaszában!",
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Tudj meg többet",
@@ -36,11 +36,11 @@
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
-    "message": "Erőteljes átirányítási motor",
+    "message": "Hatékony átirányítási motor",
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Hozzon létre pontos szabályokat helyettesítő karakterek, reguláris kifejezések, kizárt URL-minták, rögzítési csoport feldolgozás, DNR és egyebek segítségével.",
+    "message": "Készíts pontos szabályokat helyettesítő karakterek, reguláris kifejezések, kizárt URL-minták, rögzítőcsoport-feldolgozás, DNR és egyebek használatával.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -64,15 +64,67 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Elérhető bármely böngészőben Macen; Safariban iPhone-on, iPaden és Apple Vision Pro-n.",
+    "message": "Elérhető az összes főbb böngészőben Macen; Safariban iPhone-on, iPaden és Apple Vision Pro-n.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Mindent feloldani 4 dollárért",
+    "message": "Oldj fel mindent 4 dollárért",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Oldja fel az iCloud szinkronizálást, a korlátlan szabályokat és a jövőbeli prémium funkciókat egy egyszeri fizetéssel, egy kávé áráért.",
+    "message": "Oldd fel az iCloud szinkronizálást, a korlátlan szabályokat és a jövőbeli prémium funkciókat egy egyszeri fizetéssel, egy kávé áráért.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Egyéni alapértelmezett keresőmotor",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Állítsd be a Kagit, Startpage-et, ChatGPT-t vagy bármely más keresőmotort alapértelmezettként.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Reddit megtekintése klasszikus designban",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Automatikus átirányítás a www.reddit.com-ról az old.reddit.com-ra.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Apple Térképek megnyitása Google Térképek linkekről",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Google Keresés rendszerezése",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Automatikusan hozzáadja a „?udm=14” paramétert a Google kereséseidhez az AI áttekintések elrejtéséhez.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Használd a kedvenc wikidet",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Ugrás a Fandom oldalakról a hivatalos Terraria vagy Minecraft wikikre.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Linkek megnyitása natív alkalmazásokban",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Nyisd meg a Figma, Notion vagy Google Meet linkeket közvetlenül az asztali alkalmazásaikban Macen.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Példa felhasználási esetek",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Miért {productName}?",
+    "description": "Title for the product features section."
   }
 }

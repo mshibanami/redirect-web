@@ -1,10 +1,10 @@
 {
   "release-notes.description.rssLink": {
-    "message": "RSS 源",
+    "message": "RSS 订阅",
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "通过 {rssLink} 订阅以获取最新版本！",
+    "message": "通过 {rssLink} 订阅，随时了解最新版本！",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
@@ -21,18 +21,18 @@
   },
   "general.protipLabel": {
     "message": "专业提示",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "您可以从应用程序的库部分获取所有这些用例的规则！",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "message": "您可以从应用程序的“库”部分获取所有这些用例的规则！",
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "了解更多",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "无广告。无跟踪。享受为您量身定制的更快、更干净的网络。",
+    "message": "无广告。无跟踪。享受更快、更干净、为您量身定制的网络。",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "从应用程序的库部分快速开始使用有用的预制规则。",
+    "message": "从应用程序的“库”部分开始使用有用的预制规则。",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -64,15 +64,67 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "适用于 Mac 上的任何浏览器；iPhone、iPad 和 Apple Vision Pro 上的 Safari。",
+    "message": "适用于 Mac 上的所有主流浏览器；适用于 iPhone、iPad 和 Apple Vision Pro 上的 Safari。",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "解锁所有功能，仅需 $4",
+    "message": "4 美元解锁所有功能",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
     "message": "一次性支付一杯咖啡的价格，即可解锁 iCloud 同步、无限规则和未来的高级功能。",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "自定义默认搜索引擎",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "将 Kagi、Startpage、ChatGPT 或任何其他搜索引擎设置为您的默认搜索引擎。",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "以经典设计查看 Reddit",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "自动从 www.reddit.com 重定向到 old.reddit.com。",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "从 Google 地图链接打开 Apple 地图",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "整理 Google 搜索",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "自动将“?udm=14”添加到您的 Google 搜索中，以隐藏 AI 概览。",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "使用您最喜欢的维基",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "从 Fandom 页面跳转到官方 Terraria 或 Minecraft 维基。",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "在原生应用中打开链接",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "在 Mac 上直接在 Figma、Notion 或 Google Meet 桌面应用中打开链接。",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "示例用例",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "为什么选择 {productName}？",
+    "description": "Title for the product features section."
   }
 }

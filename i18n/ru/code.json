@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Если вы ищете примечания к выпуску 7.10.0 или более ранних версий, пожалуйста, проверьте {appStoreLink}.",
+    "message": "Если вы ищете заметки о выпуске 7.10.0 или более ранних версий, пожалуйста, проверьте {appStoreLink}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -21,11 +21,11 @@
   },
   "general.protipLabel": {
     "message": "Совет",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
     "message": "Вы можете получить правила для всех этих вариантов использования из раздела «Библиотека» в приложении!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Узнать больше",
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Доступно в любом браузере на Mac; Safari на iPhone, iPad и Apple Vision Pro.",
+    "message": "Доступно во всех основных браузерах на Mac; Safari на iPhone, iPad и Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -72,7 +72,59 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Разблокируйте синхронизацию iCloud, неограниченные правила и будущие премиум-функции с помощью единовременного платежа по цене чашки кофе.",
+    "message": "Разблокируйте синхронизацию iCloud, неограниченные правила и будущие премиум-функции с помощью одноразового платежа по цене чашки кофе.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Пользовательская поисковая система по умолчанию",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Установите Kagi, Startpage, ChatGPT или любую другую поисковую систему в качестве своей по умолчанию.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Просмотр Reddit в классическом дизайне",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Автоматически перенаправлять с www.reddit.com на old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Открывать Apple Maps из ссылок Google Maps",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Очистить поиск Google",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Автоматически добавлять \"?udm=14\" к вашим запросам Google, чтобы скрыть обзоры ИИ.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Используйте свою любимую вики",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Переходите со страниц Fandom на официальные вики Terraria или Minecraft.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Открывать ссылки в нативных приложениях",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Открывайте ссылки Figma, Notion или Google Meet непосредственно в их настольных приложениях на вашем Mac.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Примеры использования",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Почему {productName}?",
+    "description": "Title for the product features section."
   }
 }

@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Kui otsite versioonimärkmeid 7.10.0 või varasemate kohta, vaadake palun {appStoreLink}.",
+    "message": "Kui otsite versiooni 7.10.0 või varasemate väljalaskemärkmeid, vaadake {appStoreLink}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -20,27 +20,27 @@
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
-    "message": "Pro-näpunäide",
-    "description": "Label for a protip"
+    "message": "Proffide nipp",
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
     "message": "Kõigi nende kasutusjuhtude reeglid leiate rakenduse teegist!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Lisateave",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Ei reklaame. Ei jälgimist. Nautige kiiremat ja puhtamat veebi, mis on kohandatud teile.",
+    "message": "Ei reklaame. Ei jälgimist. Nautige kiiremat, puhtamat veebi, mis on kohandatud teile.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
-    "message": "Võimas ümbersuunamise mootor",
+    "message": "Võimas ümbersuunamismootor",
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Looge täpseid reegleid, kasutades metamärke, regulaaravaldiseid, välistatud URL-mustreid, püüdurühmade töötlemist, DNR-i ja palju muud.",
+    "message": "Looge täpsed reeglid, kasutades metamärke, regulaaravaldisi, välistatud URL-i mustreid, püüdurühmade töötlemist, DNR-i ja palju muud.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -56,7 +56,7 @@
     "description": "Landing page feature title for native UI"
   },
   "landingPage.feature.nativeUI.description": {
-    "message": "Redirect Web pakub natiivset rakendust, et pakkuda sujuvat kogemust igal platvormil.",
+    "message": "Redirect Web pakub natiivset rakendust, et pakkuda sujuvat kasutuskogemust igal platvormil.",
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Saadaval igas brauseris Macis; Safari iPhone'is, iPadis ja Apple Vision Pro's.",
+    "message": "Saadaval kõigis suuremates brauserites Macis; Safaris iPhone'is, iPadis ja Apple Vision Pros.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -74,5 +74,53 @@
   "landingPage.feature.unlockAll.description": {
     "message": "Avage iCloudi sünkroonimine, piiramatu arv reegleid ja tulevased premium-funktsioonid ühekordse maksega kohvi hinna eest.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Kohandatud vaikimisi otsingumootor",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Määrake Kagi, Startpage, ChatGPT või mõni muu otsingumootor oma vaikimisi otsingumootoriks.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Vaata Redditit klassikalises kujunduses",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Korista Google'i otsing",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Lisage oma Google'i otsingutele automaatselt \"?udm=14\", et peita AI ülevaateid.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Kasuta oma lemmikwikit",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Hüppa Fandomi lehtedelt ametlikele Terraria või Minecrafti vikidele.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Ava lingid natiivsetes rakendustes",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Ava Figma, Notion või Google Meet lingid otse nende töölauarakendustes oma Macis.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Näiteid kasutusjuhtudest",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Miks {productName}?",
+    "description": "Title for the product features section."
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Ava Apple Maps Google Mapsi linkidelt",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
   }
 }

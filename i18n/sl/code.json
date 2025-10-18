@@ -4,7 +4,7 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "Naročite se preko {rssLink} za obveščanje o novih izdajah!",
+    "message": "Naročite se preko {rssLink}, da boste na tekočem z novimi izdajami!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
@@ -21,14 +21,14 @@
   },
   "general.protipLabel": {
     "message": "Nasvet",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
     "message": "Pravila za vse te primere uporabe lahko dobite v razdelku Knjižnica v aplikaciji!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
-    "message": "Izvedite več",
+    "message": "Več o tem",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Ustvarite natančna pravila z uporabo nadomestnih znakov, regularnih izrazov, izključenih vzorcev URL, obdelave skupin za zajemanje, DNR in še več.",
+    "message": "Ustvarite natančna pravila z uporabo nadomestnih znakov, regularnih izrazov, izključenih vzorcev URL-jev, obdelave skupin za zajemanje, DNR in še več.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Hiter začetek z uporabnimi vnaprej pripravljenimi pravili iz razdelka Knjižnica v aplikaciji.",
+    "message": "Hitro začnite z uporabnimi vnaprej pripravljenimi pravili iz razdelka Knjižnica v aplikaciji.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Na voljo v katerem koli brskalniku na Macu; Safari na iPhonu, iPadu in Apple Vision Pro.",
+    "message": "Na voljo v vseh glavnih brskalnikih na Macu; Safari na iPhonu, iPadu in Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -72,7 +72,59 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Odklenite sinhronizacijo iCloud, neomejena pravila in prihodnje premium funkcije z enkratnim plačilom za ceno kave.",
+    "message": "Odklenite sinhronizacijo iCloud, neomejeno število pravil in prihodnje premium funkcije z enkratnim plačilom za ceno kave.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Iskalnik po meri",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Nastavite Kagi, Startpage, ChatGPT ali kateri koli drug iskalnik kot privzetega.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Oglejte si Reddit v klasični zasnovi",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Samodejno preusmerite z www.reddit.com na old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Odprite Apple Maps iz povezav Google Maps",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Počistite Google Iskanje",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Samodejno dodajte \"?udm=14\" v iskanja Google, da skrijete preglede AI.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Uporabite svojo najljubšo Wiki",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Skočite s strani Fandom na uradne wikije Terraria ali Minecraft.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Odprite povezave v izvornih aplikacijah",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Odprite povezave Figma, Notion ali Google Meet neposredno v namiznih aplikacijah na vašem Macu.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Primeri uporabe",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Zakaj {productName}?",
+    "description": "Title for the product features section."
   }
 }

@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Ако търсите бележките по изданието на версия 7.10.0 или по-ранна, моля, проверете {appStoreLink}.",
+    "message": "Ако търсите бележките по изданието от 7.10.0 или по-ранна версия, моля, проверете {appStoreLink}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -21,18 +21,18 @@
   },
   "general.protipLabel": {
     "message": "Професионален съвет",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
     "message": "Можете да получите правила за всички тези случаи на употреба от секцията Библиотека в приложението!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Научете повече",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Без реклами. Без проследяване. Насладете се на по-бърз, по-чист уеб, персонализиран за вас.",
+    "message": "Без реклами. Без проследяване. Насладете се на по-бърз, по-чист уеб, съобразен с вас.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -56,7 +56,7 @@
     "description": "Landing page feature title for native UI"
   },
   "landingPage.feature.nativeUI.description": {
-    "message": "Redirect Web предлага нативно приложение за осигуряване на безпроблемно изживяване на всяка платформа.",
+    "message": "Redirect Web предлага нативно приложение, за да осигури безпроблемно изживяване на всяка платформа.",
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Налично във всеки браузър на Mac; Safari на iPhone, iPad и Apple Vision Pro.",
+    "message": "Налично във всички основни браузъри на Mac; Safari на iPhone, iPad и Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -72,7 +72,59 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Отключете iCloud Sync, неограничени правила и бъдещи премиум функции с еднократно плащане на цената на едно кафе.",
+    "message": "Отключете iCloud Sync, неограничени правила и бъдещи премиум функции с еднократно плащане на цената на кафе.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Персонализирана търсачка по подразбиране",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Задайте Kagi, Startpage, ChatGPT или друга търсачка като ваша по подразбиране.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Преглеждайте Reddit в класическия му дизайн",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Автоматично пренасочване от www.reddit.com към old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Отваряне на Apple Maps от връзки на Google Maps",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Изчистване на търсенето в Google",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Автоматично добавяне на \"?udm=14\" към търсенията ви в Google, за да скриете AI прегледите.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Използвайте любимата си Уики",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Прескачайте от Fandom страници към официалните Уикита на Terraria или Minecraft.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Отваряне на връзки в нативни приложения",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Отваряйте връзки на Figma, Notion или Google Meet директно в техните настолни приложения на вашия Mac.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Примерни случаи на употреба",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Защо {productName}?",
+    "description": "Title for the product features section."
   }
 }

@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Als u op zoek bent naar de release-opmerkingen van 7.10.0 of eerder, raadpleeg dan {appStoreLink}.",
+    "message": "Als u op zoek bent naar de release-opmerkingen van 7.10.0 of eerder, controleer dan {appStoreLink}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -21,18 +21,18 @@
   },
   "general.protipLabel": {
     "message": "Protip",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "U kunt regels voor al deze gebruiksscenario's vinden in de bibliotheeksectie van de app!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "message": "U kunt regels voor al deze use cases krijgen via de Bibliotheek-sectie in de app!",
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "Meer informatie",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Geen advertenties. Geen tracking. Geniet van een sneller, schoner web op maat.",
+    "message": "Geen advertenties. Geen tracking. Geniet van een sneller, schoner web dat op u is afgestemd.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Maak precieze regels met behulp van wildcards, reguliere expressies, uitgesloten URL-patronen, verwerking van opnamegroepen, DNR en meer.",
+    "message": "Maak precieze regels met wildcards, reguliere expressies, uitgesloten URL-patronen, verwerking van opnamegroepen, DNR en meer.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -48,11 +48,11 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Begin snel met handige vooraf gemaakte regels uit de bibliotheeksectie in de app.",
+    "message": "Begin snel met handige vooraf gemaakte regels uit de Bibliotheek-sectie in de app.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
-    "message": "Native gebruikersinterface",
+    "message": "Native UI",
     "description": "Landing page feature title for native UI"
   },
   "landingPage.feature.nativeUI.description": {
@@ -60,11 +60,11 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Cross-browser en cross-platform",
+    "message": "Cross-Browser & Cross-Platform",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Beschikbaar in elke browser op Mac; Safari op iPhone, iPad en Apple Vision Pro.",
+    "message": "Beschikbaar in alle belangrijke browsers op Mac; Safari op iPhone, iPad en Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -74,5 +74,57 @@
   "landingPage.feature.unlockAll.description": {
     "message": "Ontgrendel iCloud Sync, onbeperkte regels en toekomstige premiumfuncties met een eenmalige betaling voor de prijs van een kopje koffie.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "Aangepaste standaard zoekmachine",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Stel Kagi, Startpage, ChatGPT of een andere zoekmachine in als uw standaard.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "Bekijk Reddit in zijn klassieke ontwerp",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Automatisch omleiden van www.reddit.com naar old.reddit.com.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Open Apple Maps vanuit Google Maps-links",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Google Zoeken opruimen",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "Voeg automatisch \"?udm=14\" toe aan uw Google-zoekopdrachten om AI Overviews te verbergen.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "Gebruik uw favoriete Wiki",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Spring van Fandom-pagina's naar de officiële Terraria- of Minecraft-wiki's.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "Links openen in native apps",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Open Figma-, Notion- of Google Meet-links rechtstreeks in hun desktop-apps op uw Mac.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "Voorbeeldgebruiksscenario's",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "Waarom {productName}?",
+    "description": "Title for the product features section."
   }
 }

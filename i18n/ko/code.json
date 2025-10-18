@@ -4,11 +4,11 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "새 릴리스에 대한 최신 정보를 받으려면 {rssLink}를 통해 구독하세요!",
+    "message": "{rssLink}를 통해 구독하여 새로운 릴리스 소식을 받아보세요!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "7.10.0 또는 이전 버전의 릴리스 노트를 찾고 있다면 {appStoreLink}를 확인하세요.",
+    "message": "7.10.0 또는 이전 버전의 릴리스 노트를 찾고 계시다면, {appStoreLink}를 확인해주세요.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -16,23 +16,23 @@
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
-    "message": "👇️ 데모 시청을 클릭하세요",
+    "message": "👇️ 데모 시청하기",
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
     "message": "전문가 팁",
-    "description": "Label for a protip"
+    "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "앱의 라이브러리 섹션에서 이 모든 사용 사례에 대한 규칙을 얻을 수 있습니다!",
-    "description": "A protip about use cases about the Library section on the landing page"
+    "message": "앱의 라이브러리 섹션에서 이 모든 사용 사례의 규칙을 얻을 수 있습니다!",
+    "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
     "message": "더 알아보기",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "광고 없음. 추적 없음. 더 빠르고 깨끗하며 나에게 맞춰진 웹을 즐기세요.",
+    "message": "광고 없음. 추적 없음. 나에게 맞춰진 더 빠르고 깔끔한 웹을 즐기세요.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "앱의 라이브러리 섹션에서 유용한 사전 제작 규칙으로 빠르게 시작하세요.",
+    "message": "앱의 라이브러리 섹션에서 유용한 미리 만들어진 규칙으로 빠르게 시작하세요.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Mac의 모든 브라우저, iPhone, iPad 및 Apple Vision Pro의 Safari에서 사용 가능합니다.",
+    "message": "Mac의 모든 주요 브라우저, iPhone, iPad 및 Apple Vision Pro의 Safari에서 사용할 수 있습니다.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -72,7 +72,59 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "커피 한 잔 가격으로 iCloud 동기화, 무제한 규칙 및 향후 프리미엄 기능을 일회성 결제로 잠금 해제하세요.",
+    "message": "커피 한 잔 가격으로 iCloud 동기화, 무제한 규칙 및 향후 프리미엄 기능을 잠금 해제하세요.",
     "description": "Landing page feature description for unlocking all features"
+  },
+  "productUseCases.customDefaultSearchEngine.title": {
+    "message": "사용자 지정 기본 검색 엔진",
+    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.customDefaultSearchEngine.description": {
+    "message": "Kagi, Startpage, ChatGPT 또는 다른 검색 엔진을 기본값으로 설정하세요.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
+  },
+  "productUseCases.viewRedditClassic.title": {
+    "message": "클래식 디자인으로 Reddit 보기",
+    "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "www.reddit.com에서 old.reddit.com으로 자동 리디렉션합니다.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Google 지도 링크에서 Apple 지도 열기",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  },
+  "productUseCases.declutterGoogleSearch.title": {
+    "message": "Google 검색 정리",
+    "description": "Use case title for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.declutterGoogleSearch.description": {
+    "message": "AI 개요를 숨기려면 Google 검색에 자동으로 \"?udm=14\"를 추가하세요.",
+    "description": "Use case description for a redirection rules of decluttering Google Search"
+  },
+  "productUseCases.useYourFavoriteWiki.title": {
+    "message": "즐겨찾는 위키 사용",
+    "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.useYourFavoriteWiki.description": {
+    "message": "Fandom 페이지에서 공식 테라리아 또는 마인크래프트 위키로 이동하세요.",
+    "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
+  },
+  "productUseCases.openLinksInNativeApps.title": {
+    "message": "네이티브 앱에서 링크 열기",
+    "description": "Use case title for a redirection rules of opening links in their native apps"
+  },
+  "productUseCases.openLinksInNativeApps.description": {
+    "message": "Mac에서 Figma, Notion 또는 Google Meet 링크를 데스크톱 앱에서 직접 여세요.",
+    "description": "Use case description for a redirection rules of opening links in their native apps"
+  },
+  "landingPage.exampleUseCases.title": {
+    "message": "예시 사용 사례",
+    "description": "Title for the example use cases section"
+  },
+  "landingPage.productFeatures.title": {
+    "message": "{productName}을(를) 선택하는 이유?",
+    "description": "Title for the product features section."
   }
 }
