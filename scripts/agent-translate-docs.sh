@@ -3,7 +3,7 @@
 cd "$(dirname "$0")/.."
 
 readonly model="gemini-2.5-flash"
-readonly targetLangs=(
+readonly allTargetLangs=(
   "bg"
   "cs"
   "da"
@@ -34,10 +34,66 @@ readonly targetLangs=(
   "zh-hans"
 )
 
+targetLangs=()
+sourceFiles=""
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --target-langs)
+      shift
+      while [[ $# -gt 0 && ! "$1" =~ ^-- ]]; do
+        targetLangs+=("$1")
+        shift
+      done
+      ;;
+    --source-files)
+      shift
+      while [[ $# -gt 0 && ! "$1" =~ ^-- ]]; do
+        if [ -z "$sourceFiles" ]; then
+          sourceFiles="$1"
+        else
+          sourceFiles="$sourceFiles $1"
+        fi
+        shift
+      done
+      ;;
+    *)
+      echo "Unknown option: $1"
+      echo "Usage: $0 [--target-langs lang1 lang2 ...] [--source-files file1 file2 ...]"
+      exit 1
+      ;;
+  esac
+done
+
+if [ ${#targetLangs[@]} -eq 0 ]; then
+  echo "Available languages: ${allTargetLangs[*]}"
+  echo "Enter target languages (space-separated, or press Enter for all):"
+  read -r input
+  if [ -z "$input" ]; then
+    targetLangs=("${allTargetLangs[@]}")
+  else
+    read -ra targetLangs <<< "$input"
+  fi
+fi
+
+if [ -z "$sourceFiles" ]; then
+  echo "Enter source files to translate (space-separated, or press Enter to skip):"
+  read -r input
+  if [ -n "$input" ]; then
+    sourceFiles="$input"
+  fi
+fi
+
 taskFilePath="$(pwd)/prompts/translate-docs.md"
 
 for lang in "${targetLangs[@]}"; do
-  gemini --prompt "Finish the task described in '$taskFilePath'. Target language: $lang" \
+  prompt="Finish the task described in '$taskFilePath'. Target language: $lang"
+  
+  if [ -n "$sourceFiles" ]; then
+    prompt="$prompt Source files: $sourceFiles"
+  fi
+  
+  gemini --prompt "$prompt" \
     --yolo \
     --model "$model"
 done
