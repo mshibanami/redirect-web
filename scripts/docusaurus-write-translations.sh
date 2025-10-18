@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")/.."
 
-npx docusaurus write-translations
+npx docusaurus write-translations --override
 
 declare -a ignored_code_json_patterns=(
   "^theme\\\\."

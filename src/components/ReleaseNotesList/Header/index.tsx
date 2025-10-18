@@ -53,13 +53,13 @@ export default function ReleaseNotesListHeader({
                 <Translate
                     id="release-notes.description.oldReleaseNotes"
                     values={{
-                        appStoreLink: (
+                        appStoreName: (
                             <Link href="https://apps.apple.com/app/id1571283503">
                                 App Store
                             </Link>
                         ),
                     }}>
-                    {'If you are looking for the release notes of 7.10.0 or earlier, please check the app page in the {appStoreLink}.'}
+                    {'If you are looking for the release notes of 7.10.0 or earlier, please check the app page in the {appStoreName}.'}
                 </Translate>
             </p>
         </header>
