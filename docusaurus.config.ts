@@ -4,6 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 import remarkCjkFriendly from 'remark-cjk-friendly';
 import { ALL_BROWSERS, getExtensionStore } from './src/components/ExtensionStoreLinks/constants';
+import { SUPPORTED_LOCALES } from './src/constants';
 
 const locale = process.env.DOCUSAURUS_CURRENT_LOCALE;
 const projectName = 'redirect-web';
@@ -19,7 +20,7 @@ const config: Config = {
   onBrokenLinks: 'throw',
   i18n: {
     defaultLocale: 'en',
-    locales: ["bg", "cs", "da", "de", "el", "es", "en", "et", "fi", "fr", "hu", "id", "it", "ja", "ko", "lt", "lv", "nl", "pl", "pt-br", "pt-pt", "ro", "ru", "sk", "sl", "sv", "tr", "uk", "zh-hans"],
+    locales: [...SUPPORTED_LOCALES],
   },
   plugins: [
     'docusaurus-plugin-sass'
