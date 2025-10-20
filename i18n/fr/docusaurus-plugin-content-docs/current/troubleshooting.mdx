@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Dépannage
+
+Cette page répertorie les problèmes courants et leurs solutions lors de l'utilisation de Redirect Web.
+
+<TOCInline toc={toc} />
+
+## Les règles de redirection ne fonctionnent pas
+
+Si vos règles ne fonctionnent pas comme prévu, veuillez vérifier les points suivants :
+
+- **L'extension de navigateur est installée et activée pour la bonne page :** Assurez-vous d'avoir installé l'extension de navigateur Redirect Web et qu'elle est activée dans votre navigateur pour la page web à partir de laquelle vous souhaitez rediriger. Si vous pouvez ouvrir la fenêtre contextuelle de l'extension comme ceci sur la page web source, elle est correctement installée :
+    <Image src={ExtensionPopup} alt="Fenêtre contextuelle de l'extension Redirect Web" width="260" hasShadow/>
+
+- **La configuration de la règle est correcte :** Vérifiez attentivement vos règles de redirection dans l'application native Redirect Web. Assurez-vous que les modèles d'URL source, les URL cibles et toutes les conditions sont correctement configurés. Pour vérifier si votre règle est valide ou non, saisissez une URL d'exemple dans la section Exemples de l'écran Modifier la règle. Si votre règle est valide, vous verrez l'URL de destination attendue sous votre saisie, comme ceci :
+    <Image src={RuleEditExampleResult} alt="Un exemple d'écran de modification de règle montrant le résultat de l'URL d'exemple" width="260" hasShadow/>
+
+## La fenêtre contextuelle de l'extension affiche une erreur
+
+<Image src={ErrorOverlay} alt="Superposition d'erreur Redirect Web" width="260" hasShadow hasRoundedCorners/>
+
+> L'application Redirect Web n'a pas été installée ou ne fonctionne pas correctement.
+> Veuillez obtenir l'application depuis l'App Store.
+
+Si vous voyez l'erreur ci-dessus lors de l'ouverture de la fenêtre contextuelle de l'extension, cela signifie que l'application native Redirect Web n'est pas installée ou ne fonctionne pas correctement.
+
+Veuillez vous assurer que vous avez installé la dernière version de Redirect Web depuis l'[App Store](https://apps.apple.com/app/id1571283503).
+
+Vous devrez peut-être également relancer votre navigateur après avoir installé l'application native.
+
+> [!NOTE]
+> * Vous devez installer l'application native Redirect Web pour utiliser l'extension de navigateur. L'extension seule ne fonctionne pas.
+> * Les utilisateurs de Safari n'ont pas besoin d'installer l'extension séparément, car elle est fournie avec l'application native.

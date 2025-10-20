@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Vianmääritys
+
+Tällä sivulla luetellaan yleisiä ongelmia ja niiden ratkaisuja Redirect Webin käytössä.
+
+<TOCInline toc={toc} />
+
+## Uudelleenohjaussäännöt eivät toimi
+
+Jos sääntösi eivät toimi odotetusti, tarkista seuraavat asiat:
+
+- **Selaimen laajennus on asennettu ja käytössä oikealla sivulla:** Varmista, että olet asentanut Redirect Web -selainlaajennuksen ja että se on käytössä selaimessasi verkkosivulla, jolta haluat ohjata uudelleen. Jos voit avata laajennuksen ponnahdusikkunan tällä tavalla lähdeverkkosivulla, se on asennettu oikein:
+    <Image src={ExtensionPopup} alt="Redirect Web -laajennuksen ponnahdusikkuna" width="260" hasShadow/>
+
+- **Säännön määritys on oikein:** Tarkista uudelleenohjaussääntösi Redirect Web -natiivisovelluksessa. Varmista, että lähde-URL-kuviot, kohde-URL-osoitteet ja kaikki ehdot on määritetty oikein. Tarkistaaksesi, onko sääntösi kelvollinen, syötä esimerkkiosoite Esimerkit-osioon Muokkaa sääntöä -näytössä. Jos sääntösi on kelvollinen, näet odotetun kohde-URL-osoitteen syötteesi alla, näin:
+    <Image src={RuleEditExampleResult} alt="Esimerkki säännön muokkausnäytöstä, joka näyttää esimerkkiosoitteen tuloksen" width="260" hasShadow/>
+
+## Laajennuksen ponnahdusikkuna näyttää virheen
+
+<Image src={ErrorOverlay} alt="Redirect Web -virhepeite" width="260" hasShadow hasRoundedCorners/>
+
+> Redirect Web -sovellusta ei ole asennettu tai se ei toimi oikein.  
+> Hanki sovellus App Storesta.
+
+Jos näet yllä olevan virheen avatessasi laajennuksen ponnahdusikkunan, se tarkoittaa, että Redirect Web -natiivisovellusta ei ole asennettu tai se ei toimi oikein.
+
+Varmista, että olet asentanut Redirect Webin uusimman version [App Storesta](https://apps.apple.com/app/id1571283503).
+
+Saatat joutua myös käynnistämään selaimesi uudelleen natiivisovelluksen asentamisen jälkeen.
+
+> [!NOTE]
+> * Sinun on asennettava Redirect Web -natiivisovellus käyttääksesi selainlaajennusta. Laajennus yksinään ei toimi.
+> * Safarin käyttäjien ei tarvitse asentaa laajennusta erikseen, koska se toimitetaan natiivisovelluksen mukana.

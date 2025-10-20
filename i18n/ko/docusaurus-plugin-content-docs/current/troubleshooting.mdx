@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# 문제 해결
+
+이 페이지는 Redirect Web 사용 시 발생하는 일반적인 문제와 해결 방법을 나열합니다.
+
+<TOCInline toc={toc} />
+
+## 리디렉션 규칙이 작동하지 않습니다.
+
+규칙이 예상대로 작동하지 않는 경우 다음 사항을 확인하십시오.
+
+- **브라우저 확장이 올바른 페이지에 설치 및 활성화되어 있는지 확인:** Redirect Web 브라우저 확장을 설치했으며 리디렉션하려는 웹 페이지에서 브라우저 확장이 활성화되어 있는지 확인하십시오. 소스 웹 페이지에서 다음과 같이 확장 프로그램 팝업을 열 수 있다면 올바르게 설치된 것입니다.
+    <Image src={ExtensionPopup} alt="Redirect Web extension popup" width="260" hasShadow/>
+
+- **규칙 구성이 올바른지 확인:** Redirect Web 네이티브 앱에서 리디렉션 규칙을 다시 확인하십시오. 소스 URL 패턴, 대상 URL 및 모든 조건이 올바르게 설정되었는지 확인하십시오. 규칙이 유효한지 확인하려면 규칙 편집 화면의 예제 섹션에 예제 URL을 입력하십시오. 규칙이 유효하면 다음과 같이 입력 아래에 예상되는 대상 URL이 표시됩니다.
+    <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
+
+## 확장 프로그램 팝업에 오류가 표시됩니다.
+
+<Image src={ErrorOverlay} alt="Redirect Web error overlay" width="260" hasShadow hasRoundedCorners/>
+
+> Redirect Web 앱이 설치되지 않았거나 제대로 작동하지 않습니다.
+> App Store에서 앱을 다운로드하십시오.
+
+확장 프로그램 팝업을 열 때 위 오류가 표시되면 Redirect Web 네이티브 앱이 설치되지 않았거나 제대로 실행되고 있지 않음을 의미합니다.
+
+[App Store](https://apps.apple.com/app/id1571283503)에서 최신 버전의 Redirect Web을 설치했는지 확인하십시오.
+
+네이티브 앱을 설치한 후 브라우저를 다시 시작해야 할 수도 있습니다.
+
+> [!NOTE]
+> * 브라우저 확장을 사용하려면 Redirect Web 네이티브 앱을 설치해야 합니다. 확장 프로그램만으로는 작동하지 않습니다.
+> * Safari 사용자는 네이티브 앱에 번들로 제공되므로 확장 프로그램을 별도로 설치할 필요가 없습니다.

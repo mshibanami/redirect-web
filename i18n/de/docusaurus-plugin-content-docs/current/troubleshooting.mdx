@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Fehlerbehebung
+
+Diese Seite listet häufige Probleme und deren Lösungen bei der Verwendung von Redirect Web auf.
+
+<TOCInline toc={toc} />
+
+## Weiterleitungsregeln funktionieren nicht
+
+Wenn Ihre Regeln nicht wie erwartet funktionieren, überprüfen Sie bitte Folgendes:
+
+- **Browser-Erweiterung ist installiert und für die richtige Seite aktiviert:** Stellen Sie sicher, dass Sie die Redirect Web Browser-Erweiterung installiert haben und dass sie in Ihrem Browser für die Webseite aktiviert ist, von der Sie weiterleiten möchten. Wenn Sie das Popup der Erweiterung auf der Quellwebseite wie folgt öffnen können, ist sie korrekt installiert:
+    <Image src={ExtensionPopup} alt="Redirect Web Erweiterungs-Popup" width="260" hasShadow/>
+
+- **Regelkonfiguration ist korrekt:** Überprüfen Sie Ihre Weiterleitungsregeln in der nativen Redirect Web App. Stellen Sie sicher, dass die Quell-URL-Muster, Ziel-URLs und alle Bedingungen korrekt eingerichtet sind. Um zu überprüfen, ob Ihre Regel gültig ist, geben Sie eine Beispiel-URL im Abschnitt "Beispiele" im Bildschirm "Regel bearbeiten" ein. Wenn Ihre Regel gültig ist, sehen Sie die erwartete Ziel-URL unter Ihrer Eingabe, wie hier:
+    <Image src={RuleEditExampleResult} alt="Ein Beispiel für den Regelbearbeitungsbildschirm, der das Ergebnis der Beispiel-URL zeigt" width="260" hasShadow/>
+
+## Das Popup der Erweiterung zeigt einen Fehler an
+
+<Image src={ErrorOverlay} alt="Redirect Web Fehler-Overlay" width="260" hasShadow hasRoundedCorners/>
+
+> Redirect Web App wurde nicht installiert oder funktioniert nicht richtig.
+> Bitte laden Sie die App aus dem App Store herunter.
+
+Wenn Sie den obigen Fehler beim Öffnen des Erweiterungs-Popups sehen, bedeutet dies, dass die native Redirect Web App nicht installiert ist oder nicht richtig funktioniert.
+
+Bitte stellen Sie sicher, dass Sie die neueste Version von Redirect Web aus dem [App Store](https://apps.apple.com/app/id1571283503) installiert haben.
+
+Möglicherweise müssen Sie Ihren Browser nach der Installation der nativen App neu starten.
+
+> [!NOTE]
+> * Sie müssen die native Redirect Web App installieren, um die Browser-Erweiterung nutzen zu können. Die Erweiterung allein funktioniert nicht.
+> * Safari-Benutzer müssen die Erweiterung nicht separat installieren, da sie mit der nativen App gebündelt ist.

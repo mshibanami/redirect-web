@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Fejlfinding
+
+Denne side viser almindelige problemer og deres løsninger, når du bruger Redirect Web.
+
+<TOCInline toc={toc} />
+
+## Omdirigeringsregler virker ikke
+
+Hvis dine regler ikke virker som forventet, skal du kontrollere følgende:
+
+- **Browserudvidelsen er installeret og aktiveret for den korrekte side:** Sørg for, at du har installeret Redirect Web-browserudvidelsen, og at den er aktiveret i din browser for den webside, du vil omdirigere fra. Hvis du kan åbne udvidelsens popup som denne på kildewebsiden, er den installeret korrekt:
+    <Image src={ExtensionPopup} alt="Redirect Web udvidelsespopup" width="260" hasShadow/>
+
+- **Regelkonfigurationen er korrekt:** Dobbelttjek dine omdirigeringsregler i Redirect Web-nativeappen. Sørg for, at kilde-URL-mønstrene, destinations-URL'erne og eventuelle betingelser er korrekt indstillet. For at kontrollere, om din regel er gyldig eller ej, skal du indtaste en eksempel-URL i afsnittet Eksempler på skærmbilledet Rediger regel. Hvis din regel er gyldig, vil du se den forventede destinations-URL under dit input, som denne:
+    <Image src={RuleEditExampleResult} alt="Et eksempel på skærmbilledet til redigering af regler, der viser resultatet af eksempel-URL'en" width="260" hasShadow/>
+
+## Udvidelsens popup viser en fejl
+
+<Image src={ErrorOverlay} alt="Redirect Web fejl-overlay" width="260" hasShadow hasRoundedCorners/>
+
+> Redirect Web-appen er ikke installeret eller fungerer ikke korrekt.
+> Hent venligst appen fra App Store.
+
+Hvis du ser ovenstående fejl, når du åbner udvidelsens popup, betyder det, at Redirect Web-nativeappen ikke er installeret eller ikke kører korrekt.
+
+Sørg for, at du har installeret den seneste version af Redirect Web fra [App Store](https://apps.apple.com/app/id1571283503).
+
+Du skal muligvis også genstarte din browser efter installation af nativeappen.
+
+> [!NOTE]
+> * Du skal installere Redirect Web-nativeappen for at bruge browserudvidelsen. Udvidelsen alene virker ikke.
+> * Safari-brugere behøver ikke at installere udvidelsen separat, da den er bundtet med nativeappen.

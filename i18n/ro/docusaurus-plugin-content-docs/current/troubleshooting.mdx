@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Depanare
+
+Această pagină listează problemele comune și soluțiile acestora atunci când utilizați Redirect Web.
+
+<TOCInline toc={toc} />
+
+## Regulile de redirecționare nu funcționează
+
+Dacă regulile dvs. nu funcționează conform așteptărilor, vă rugăm să verificați următoarele:
+
+- **Extensia de browser este instalată și activată pentru pagina corectă:** Asigurați-vă că ați instalat extensia de browser Redirect Web și că este activată în browserul dvs. pentru pagina web de la care doriți să redirecționați. Dacă puteți deschide fereastra pop-up a extensiei așa cum se arată mai jos pe pagina web sursă, aceasta este instalată corect:
+    <Image src={ExtensionPopup} alt="Fereastra pop-up a extensiei Redirect Web" width="260" hasShadow/>
+
+- **Configurația regulii este corectă:** Verificați din nou regulile de redirecționare în aplicația nativă Redirect Web. Asigurați-vă că modelele URL sursă, URL-urile țintă și orice condiții sunt configurate corect. Pentru a verifica dacă regula dvs. este validă sau nu, introduceți un exemplu de URL în secțiunea Exemple din ecranul Editare regulă. Dacă regula dvs. este validă, veți vedea URL-ul de destinație așteptat sub intrarea dvs., așa cum se arată aici:
+    <Image src={RuleEditExampleResult} alt="Un exemplu de ecran de editare a regulii care arată rezultatul URL-ului exemplu" width="260" hasShadow/>
+
+## Fereastra pop-up a extensiei afișează o eroare
+
+<Image src={ErrorOverlay} alt="Suprapunere de eroare Redirect Web" width="260" hasShadow hasRoundedCorners/>
+
+> Aplicația Redirect Web nu a fost instalată sau nu funcționează corect.
+> Vă rugăm să obțineți aplicația din App Store.
+
+Dacă vedeți eroarea de mai sus la deschiderea ferestrei pop-up a extensiei, înseamnă că aplicația nativă Redirect Web nu este instalată sau nu rulează corect.
+
+Vă rugăm să vă asigurați că ați instalat cea mai recentă versiune a Redirect Web din [App Store](https://apps.apple.com/app/id1571283503).
+
+De asemenea, poate fi necesar să reporniți browserul după instalarea aplicației native.
+
+> [!NOTE]
+> * Trebuie să instalați aplicația nativă Redirect Web pentru a utiliza extensia de browser. Extensia singură nu funcționează.
+> * Utilizatorii Safari nu trebuie să instaleze extensia separat, deoarece este inclusă în aplicația nativă.

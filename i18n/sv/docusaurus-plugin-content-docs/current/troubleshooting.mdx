@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Felsökning
+
+Den här sidan listar vanliga problem och deras lösningar när du använder Redirect Web.
+
+<TOCInline toc={toc} />
+
+## Omdirigeringsregler fungerar inte
+
+Om dina regler inte fungerar som förväntat, vänligen kontrollera följande:
+
+- **Webbläsartillägget är installerat och aktiverat för rätt sida:** Se till att du har installerat webbläsartillägget Redirect Web och att det är aktiverat i din webbläsare för den webbsida du vill omdirigera från. Om du kan öppna tilläggets popup som detta på källwebbsidan, är det korrekt installerat:
+    <Image src={ExtensionPopup} alt="Redirect Web tilläggs-popup" width="260" hasShadow/>
+
+- **Regelkonfigurationen är korrekt:** Dubbelkolla dina omdirigeringsregler i Redirect Web-appen. Se till att käll-URL-mönstren, mål-URL:erna och eventuella villkor är korrekt inställda. För att kontrollera om din regel är giltig eller inte, ange en exempel-URL i avsnittet Exempel på skärmen Redigera regel. Om din regel är giltig kommer du att se den förväntade destinations-URL:en under din inmatning, så här:
+    <Image src={RuleEditExampleResult} alt="Ett exempel på skärmen för regelredigering som visar resultatet av exempel-URL" width="260" hasShadow/>
+
+## Tilläggets popup visar ett fel
+
+<Image src={ErrorOverlay} alt="Redirect Web felöverlägg" width="260" hasShadow hasRoundedCorners/>
+
+> Redirect Web-appen har inte installerats eller fungerar inte korrekt.
+> Vänligen hämta appen från App Store.
+
+Om du ser ovanstående fel när du öppnar tilläggets popup, betyder det att Redirect Web-appen inte är installerad eller inte körs korrekt.
+
+Se till att du har installerat den senaste versionen av Redirect Web från [App Store](https://apps.apple.com/app/id1571283503).
+
+Du kan också behöva starta om din webbläsare efter att ha installerat appen.
+
+> [!NOTE]
+> * Du måste installera Redirect Web-appen för att kunna använda webbläsartillägget. Tillägget ensamt fungerar inte.
+> * Safari-användare behöver inte installera tillägget separat, eftersom det är paketerat med appen.

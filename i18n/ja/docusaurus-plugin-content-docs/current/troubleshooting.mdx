@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# トラブルシューティング
+
+このページでは、Redirect Web の使用中に発生する一般的な問題とその解決策を一覧表示します。
+
+<TOCInline toc={toc} />
+
+## リダイレクトルールが機能しない
+
+ルールが期待どおりに機能しない場合は、以下を確認してください。
+
+- **ブラウザ拡張機能がインストールされており、正しいページで有効になっているか:** Redirect Web ブラウザ拡張機能がインストールされており、リダイレクト元のウェブページでブラウザで有効になっていることを確認してください。ソースウェブページで拡張機能のポップアップをこのように開くことができれば、正しくインストールされています。
+    <Image src={ExtensionPopup} alt="Redirect Web extension popup" width="260" hasShadow/>
+
+- **ルール設定が正しいか:** Redirect Web ネイティブアプリでリダイレクトルールを再確認してください。ソース URL パターン、ターゲット URL、および条件が正しく設定されていることを確認してください。ルールが有効かどうかを確認するには、ルール編集画面の「Examples」セクションに例の URL を入力します。ルールが有効な場合、入力の下に期待される宛先 URL が次のように表示されます。
+    <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
+
+## 拡張機能のポップアップにエラーが表示される
+
+<Image src={ErrorOverlay} alt="Redirect Web error overlay" width="260" hasShadow hasRoundedCorners/>
+
+> Redirect Web アプリがインストールされていないか、正しく動作していません。
+> App Store からアプリを入手してください。
+
+拡張機能のポップアップを開いたときに上記のエラーが表示される場合、Redirect Web ネイティブアプリがインストールされていないか、正しく実行されていないことを意味します。
+
+[App Store](https://apps.apple.com/app/id1571283503) から Redirect Web の最新バージョンがインストールされていることを確認してください。
+
+ネイティブアプリのインストール後にブラウザを再起動する必要がある場合もあります。
+
+> [!NOTE]
+> * ブラウザ拡張機能を使用するには、Redirect Web ネイティブアプリをインストールする必要があります。拡張機能だけでは機能しません。
+> * Safari ユーザーは、ネイティブアプリにバンドルされているため、拡張機能を別途インストールする必要はありません。

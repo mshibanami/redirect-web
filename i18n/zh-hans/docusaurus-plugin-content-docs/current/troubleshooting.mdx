@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# 故障排除
+
+本页面列出了使用 Redirect Web 时常见的问​​题及其解决方案。
+
+<TOCInline toc={toc} />
+
+## 重定向规则不起作用
+
+如果您的规则未按预期工作，请检查以下内容：
+
+- **浏览器扩展已安装并为正确的页面启用：** 确保您已安装 Redirect Web 浏览器扩展，并且它已在浏览器中为您要重定向的网页启用。如果您可以在源网页上像这样打开扩展程序的弹出窗口，则表示它已正确安装：
+    <Image src={ExtensionPopup} alt="Redirect Web extension popup" width="260" hasShadow/>
+
+- **规则配置正确：** 在 Redirect Web 本机应用程序中仔细检查您的重定向规则。确保源 URL 模式、目标 URL 和任何条件都已正确设置。要检查您的规则是否有效，请在“编辑规则”屏幕的“示例”部分输入一个示例 URL。如果您的规则有效，您将在输入下方看到预期的目标 URL，如下所示：
+    <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
+
+## 扩展程序的弹出窗口显示错误
+
+<Image src={ErrorOverlay} alt="Redirect Web error overlay" width="260" hasShadow hasRoundedCorners/>
+
+> Redirect Web 应用程序尚未安装或无法正常工作。
+> 请从 App Store 获取该应用程序。
+
+如果您在打开扩展程序弹出窗口时看到上述错误，则表示 Redirect Web 本机应用程序未安装或未正常运行。
+
+请确保您已从 [App Store](https://apps.apple.com/app/id1571283503) 安装了最新版本的 Redirect Web。
+
+安装本机应用程序后，您可能还需要重新启动浏览器。
+
+> [!NOTE]
+> * 您需要安装 Redirect Web 本机应用程序才能使用浏览器扩展。仅扩展程序无法工作。
+> * Safari 用户无需单独安装扩展程序，因为它已与本机应用程序捆绑在一起。

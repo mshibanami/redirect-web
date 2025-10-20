@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Trikčių šalinimas
+
+Šiame puslapyje pateikiamos dažniausiai pasitaikančios problemos ir jų sprendimai naudojant „Redirect Web“.
+
+<TOCInline toc={toc} />
+
+## Nukreipimo taisyklės neveikia
+
+Jei jūsų taisyklės neveikia taip, kaip tikėtasi, patikrinkite šiuos dalykus:
+
+- **Naršyklės plėtinys įdiegtas ir įjungtas tinkamam puslapiui:** Įsitikinkite, kad įdiegėte „Redirect Web“ naršyklės plėtinį ir kad jis įjungtas jūsų naršyklėje tam tinklalapiui, iš kurio norite nukreipti. Jei galite atidaryti plėtinio iššokantįjį langą, kaip parodyta toliau, šaltinio tinklalapyje, jis įdiegtas teisingai:
+    <Image src={ExtensionPopup} alt="Redirect Web plėtinio iššokantysis langas" width="260" hasShadow/>
+
+- **Taisyklių konfigūracija yra teisinga:** Dar kartą patikrinkite savo nukreipimo taisykles „Redirect Web“ vietinėje programoje. Įsitikinkite, kad šaltinio URL šablonai, tiksliniai URL ir visos sąlygos yra tinkamai nustatytos. Norėdami patikrinti, ar jūsų taisyklė galioja, ar ne, įveskite pavyzdinį URL skyriuje „Pavyzdžiai“ taisyklių redagavimo ekrane. Jei jūsų taisyklė galioja, po jūsų įvesties matysite numatomą paskirties URL, kaip parodyta toliau:
+    <Image src={RuleEditExampleResult} alt="Taisyklių redagavimo ekrano pavyzdys, rodantis pavyzdinio URL rezultatą" width="260" hasShadow/>
+
+## Plėtinio iššokančiajame lange rodoma klaida
+
+<Image src={ErrorOverlay} alt="Redirect Web klaidos perdanga" width="260" hasShadow hasRoundedCorners/>
+
+> „Redirect Web“ programa nebuvo įdiegta arba neveikia tinkamai.  
+> Gaukite programą iš „App Store“.
+
+Jei atidarydami plėtinio iššokantįjį langą matote aukščiau nurodytą klaidą, tai reiškia, kad „Redirect Web“ vietinė programa nėra įdiegta arba neveikia tinkamai.
+
+Please make sure that you have installed the latest version of Redirect Web from the [App Store](https://apps.apple.com/app/id1571283503).
+
+You may also need to re-launch your browser after installing the native app.
+
+> [!NOTE]
+> * Norėdami naudoti naršyklės plėtinį, turite įdiegti „Redirect Web“ vietinę programą. Vien plėtinys neveikia.
+> * „Safari“ naudotojams nereikia atskirai diegti plėtinio, nes jis yra sujungtas su vietine programa.

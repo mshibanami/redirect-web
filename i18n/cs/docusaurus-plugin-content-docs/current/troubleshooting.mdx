@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Odstraňování problémů
+
+Tato stránka uvádí běžné problémy a jejich řešení při používání Redirect Web.
+
+<TOCInline toc={toc} />
+
+## Pravidla přesměrování nefungují
+
+Pokud vaše pravidla nefungují podle očekávání, zkontrolujte následující:
+
+- **Rozšíření prohlížeče je nainstalováno a povoleno pro správnou stránku:** Ujistěte se, že jste nainstalovali rozšíření prohlížeče Redirect Web a že je povoleno ve vašem prohlížeči pro webovou stránku, ze které chcete přesměrovat. Pokud můžete otevřít vyskakovací okno rozšíření, jako je toto, na zdrojové webové stránce, je nainstalováno správně:
+    <Image src={ExtensionPopup} alt="Vyskakovací okno rozšíření Redirect Web" width="260" hasShadow/>
+
+- **Konfigurace pravidla je správná:** Dvakrát zkontrolujte svá pravidla přesměrování v nativní aplikaci Redirect Web. Ujistěte se, že vzory zdrojových URL, cílové URL a všechny podmínky jsou správně nastaveny. Chcete-li zkontrolovat, zda je vaše pravidlo platné, zadejte příklad URL v sekci Příklady na obrazovce Upravit pravidlo. Pokud je vaše pravidlo platné, uvidíte pod svým vstupem očekávanou cílovou URL, jako je tato:
+    <Image src={RuleEditExampleResult} alt="Příklad obrazovky pro úpravu pravidla zobrazující výsledek příkladové URL" width="260" hasShadow/>
+
+## Vyskakovací okno rozšíření zobrazuje chybu
+
+<Image src={ErrorOverlay} alt="Překryvná chyba Redirect Web" width="260" hasShadow hasRoundedCorners/>
+
+> Aplikace Redirect Web nebyla nainstalována nebo nefunguje správně.
+> Získejte aplikaci z App Store.
+
+Pokud se při otevření vyskakovacího okna rozšíření zobrazí výše uvedená chyba, znamená to, že nativní aplikace Redirect Web není nainstalována nebo nefunguje správně.
+
+Ujistěte se, že máte nainstalovanou nejnovější verzi Redirect Web z [App Store](https://apps.apple.com/app/id1571283503).
+
+Možná budete také muset po instalaci nativní aplikace znovu spustit prohlížeč.
+
+> [!NOTE]
+> * K používání rozšíření prohlížeče musíte nainstalovat nativní aplikaci Redirect Web. Samotné rozšíření nefunguje.
+> * Uživatelé Safari nemusí instalovat rozšíření samostatně, protože je součástí nativní aplikace.

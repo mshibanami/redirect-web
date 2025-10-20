@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Hibaelhárítás
+
+Ez az oldal a Redirect Web használatakor felmerülő gyakori problémákat és azok megoldásait sorolja fel.
+
+<TOCInline toc={toc} />
+
+## Az átirányítási szabályok nem működnek
+
+Ha a szabályai nem a várt módon működnek, ellenőrizze a következőket:
+
+- **A böngészőbővítmény telepítve van és engedélyezve van a megfelelő oldalon:** Győződjön meg arról, hogy telepítette a Redirect Web böngészőbővítményt, és engedélyezve van a böngészőjében azon a weboldalon, ahonnan átirányítani szeretne. Ha a bővítmény előugró ablakát meg tudja nyitni az adott weboldalon az alábbiak szerint, akkor helyesen van telepítve:
+    <Image src={ExtensionPopup} alt="Redirect Web bővítmény előugró ablaka" width="260" hasShadow/>
+
+- **A szabálykonfiguráció helyes:** Ellenőrizze újra az átirányítási szabályokat a Redirect Web natív alkalmazásban. Győződjön meg arról, hogy a forrás URL-minták, a cél URL-ek és az esetleges feltételek helyesen vannak beállítva. Annak ellenőrzéséhez, hogy a szabály érvényes-e, adjon meg egy példa URL-t a Szabály szerkesztése képernyő Példák szakaszában. Ha a szabály érvényes, akkor a bemenet alatt látni fogja a várható cél URL-t, például így:
+    <Image src={RuleEditExampleResult} alt="Példa a szabályszerkesztő képernyőre, amely a példa URL eredményét mutatja" width="260" hasShadow/>
+
+## A bővítmény előugró ablaka hibát jelez
+
+<Image src={ErrorOverlay} alt="Redirect Web hiba overlay" width="260" hasShadow hasRoundedCorners/>
+
+> A Redirect Web alkalmazás nincs telepítve, vagy nem működik megfelelően.  
+> Kérjük, töltse le az alkalmazást az App Store-ból.
+
+Ha a fenti hibát látja a bővítmény előugró ablakának megnyitásakor, az azt jelenti, hogy a Redirect Web natív alkalmazás nincs telepítve vagy nem fut megfelelően.
+
+Kérjük, győződjön meg arról, hogy a Redirect Web legújabb verzióját telepítette az [App Store](https://apps.apple.com/app/id1571283503) áruházból.
+
+Előfordulhat, hogy a natív alkalmazás telepítése után újra kell indítania a böngészőjét.
+
+> [!NOTE]
+> * A böngészőbővítmény használatához telepítenie kell a Redirect Web natív alkalmazást. A bővítmény önmagában nem működik.
+> * A Safari felhasználóknak nem kell külön telepíteniük a bővítményt, mivel az a natív alkalmazással együtt van csomagolva.

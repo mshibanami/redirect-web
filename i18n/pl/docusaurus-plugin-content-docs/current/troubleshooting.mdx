@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Rozwiązywanie problemów
+
+Ta strona zawiera listę typowych problemów i ich rozwiązań podczas korzystania z Redirect Web.
+
+<TOCInline toc={toc} />
+
+## Reguły przekierowań nie działają
+
+Jeśli Twoje reguły nie działają zgodnie z oczekiwaniami, sprawdź następujące kwestie:
+
+- **Rozszerzenie przeglądarki jest zainstalowane i włączone dla właściwej strony:** Upewnij się, że zainstalowałeś rozszerzenie przeglądarki Redirect Web i że jest ono włączone w Twojej przeglądarce dla strony internetowej, z której chcesz przekierować. Jeśli możesz otworzyć wyskakujące okienko rozszerzenia w ten sposób na źródłowej stronie internetowej, oznacza to, że jest ono poprawnie zainstalowane:
+    <Image src={ExtensionPopup} alt="Wyskakujące okienko rozszerzenia Redirect Web" width="260" hasShadow/>
+
+- **Konfiguracja reguły jest poprawna:** Dokładnie sprawdź swoje reguły przekierowań w natywnej aplikacji Redirect Web. Upewnij się, że wzorce źródłowych adresów URL, docelowe adresy URL i wszelkie warunki są poprawnie ustawione. Aby sprawdzić, czy Twoja reguła jest prawidłowa, wprowadź przykładowy adres URL w sekcji Przykłady na ekranie Edytuj regułę. Jeśli Twoja reguła jest prawidłowa, zobaczysz oczekiwany docelowy adres URL pod swoim wpisem, tak jak tutaj:
+    <Image src={RuleEditExampleResult} alt="Przykład ekranu edycji reguły pokazujący wynik przykładowego adresu URL" width="260" hasShadow/>
+
+## Wyskakujące okienko rozszerzenia pokazuje błąd
+
+<Image src={ErrorOverlay} alt="Nakładka błędu Redirect Web" width="260" hasShadow hasRoundedCorners/>
+
+> Aplikacja Redirect Web nie została zainstalowana lub nie działa poprawnie.
+> Pobierz aplikację z App Store.
+
+Jeśli podczas otwierania wyskakującego okienka rozszerzenia widzisz powyższy błąd, oznacza to, że natywna aplikacja Redirect Web nie jest zainstalowana lub nie działa poprawnie.
+
+Upewnij się, że zainstalowałeś najnowszą wersję Redirect Web z [App Store](https://apps.apple.com/app/id1571283503).
+
+Może być również konieczne ponowne uruchomienie przeglądarki po zainstalowaniu natywnej aplikacji.
+
+> [!NOTE]
+> * Aby korzystać z rozszerzenia przeglądarki, musisz zainstalować natywną aplikację Redirect Web. Samo rozszerzenie nie działa.
+> * Użytkownicy Safari nie muszą instalować rozszerzenia osobno, ponieważ jest ono dołączone do natywnej aplikacji.

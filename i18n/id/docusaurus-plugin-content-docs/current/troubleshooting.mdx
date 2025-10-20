@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Pemecahan Masalah
+
+Halaman ini mencantumkan masalah umum dan solusinya saat menggunakan Redirect Web.
+
+<TOCInline toc={toc} />
+
+## Aturan pengalihan tidak berfungsi
+
+Jika aturan Anda tidak berfungsi seperti yang diharapkan, periksa hal berikut:
+
+- **Ekstensi browser terinstal dan diaktifkan untuk halaman yang benar:** Pastikan Anda telah menginstal ekstensi browser Redirect Web dan diaktifkan di browser Anda untuk halaman web yang ingin Anda alihkan. Jika Anda dapat membuka popup ekstensi seperti ini di halaman web sumber, itu berarti sudah terinstal dengan benar:
+    <Image src={ExtensionPopup} alt="Redirect Web extension popup" width="260" hasShadow/>
+
+- **Konfigurasi aturan sudah benar:** Periksa kembali aturan pengalihan Anda di aplikasi native Redirect Web. Pastikan pola URL sumber, URL target, dan kondisi apa pun telah diatur dengan benar. Untuk memeriksa apakah aturan Anda valid atau tidak, masukkan contoh URL di bagian Contoh di layar Edit Aturan. Jika aturan Anda valid, Anda akan melihat URL tujuan yang diharapkan di bawah input Anda, seperti ini:
+    <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
+
+## Popup ekstensi menampilkan kesalahan
+
+<Image src={ErrorOverlay} alt="Redirect Web error overlay" width="260" hasShadow hasRoundedCorners/>
+
+> Aplikasi Redirect Web belum terinstal atau tidak berfungsi dengan baik.
+> Harap dapatkan aplikasi dari App Store.
+
+Jika Anda melihat kesalahan di atas saat membuka popup ekstensi, itu berarti aplikasi native Redirect Web tidak terinstal atau tidak berjalan dengan baik.
+
+Pastikan Anda telah menginstal versi terbaru Redirect Web dari [App Store](https://apps.apple.com/app/id1571283503).
+
+Anda mungkin juga perlu meluncurkan ulang browser Anda setelah menginstal aplikasi native.
+
+> [!CATATAN]
+> * Anda perlu menginstal aplikasi native Redirect Web untuk menggunakan ekstensi browser. Ekstensi saja tidak berfungsi.
+> * Pengguna Safari tidak perlu menginstal ekstensi secara terpisah, karena sudah dibundel dengan aplikasi native.

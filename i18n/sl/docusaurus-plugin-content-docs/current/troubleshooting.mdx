@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Odpravljanje težav
+
+Ta stran navaja pogoste težave in njihove rešitve pri uporabi Redirect Web.
+
+<TOCInline toc={toc} />
+
+## Pravila preusmeritve ne delujejo
+
+Če vaša pravila ne delujejo, kot je pričakovano, preverite naslednje:
+
+- **Razširitev brskalnika je nameščena in omogočena za pravilno stran:** Prepričajte se, da ste namestili razširitev brskalnika Redirect Web in da je omogočena v vašem brskalniku za spletno stran, s katere želite preusmeriti. Če lahko odprete pojavno okno razširitve, kot je prikazano na izvorni spletni strani, je pravilno nameščena:
+    <Image src={ExtensionPopup} alt="Pojavno okno razširitve Redirect Web" width="260" hasShadow/>
+
+- **Konfiguracija pravila je pravilna:** Dvakrat preverite pravila preusmeritve v izvorni aplikaciji Redirect Web. Prepričajte se, da so vzorci izvornih URL-jev, ciljni URL-ji in vsi pogoji pravilno nastavljeni. Če želite preveriti, ali je vaše pravilo veljavno, vnesite primer URL-ja v razdelek Primeri na zaslonu za urejanje pravil. Če je vaše pravilo veljavno, boste pod vnosom videli pričakovani ciljni URL, kot je prikazano:
+    <Image src={RuleEditExampleResult} alt="Primer zaslona za urejanje pravil, ki prikazuje rezultat primernega URL-ja" width="260" hasShadow/>
+
+## Pojavno okno razširitve prikazuje napako
+
+<Image src={ErrorOverlay} alt="Prekrivanje napake Redirect Web" width="260" hasShadow hasRoundedCorners/>
+
+> Aplikacija Redirect Web ni bila nameščena ali ne deluje pravilno.
+> Prosimo, prenesite aplikacijo iz App Store.
+
+Če se pri odpiranju pojavnega okna razširitve prikaže zgornja napaka, to pomeni, da izvorna aplikacija Redirect Web ni nameščena ali ne deluje pravilno.
+
+Prepričajte se, da ste namestili najnovejšo različico Redirect Web iz [App Store](https://apps.apple.com/app/id1571283503).
+
+Morda boste morali znova zagnati brskalnik po namestitvi izvorne aplikacije.
+
+> [!NOTE]
+> * Za uporabo razširitve brskalnika morate namestiti izvorno aplikacijo Redirect Web. Sama razširitev ne deluje.
+> * Uporabnikom Safarija ni treba posebej namestiti razširitve, saj je priložena izvorni aplikaciji.
