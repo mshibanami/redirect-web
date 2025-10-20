@@ -17,8 +17,6 @@ import Translate, { translate } from '@docusaurus/Translate';
 
 function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
-    const demoVideoAnimation = useScrollAnimation();
-    
     return (
         <header className={clsx('hero', styles.heroBanner)}>
             <LandingPageBackground style={{ height: "600px", width: "100%" }} />
@@ -44,33 +42,27 @@ function HomepageHeader() {
                 <div className="margin-vert--xl">
                     <ExtensionStoreLinks />
                 </div>
-                <div
-                    ref={demoVideoAnimation.ref}
-                    className={clsx(styles.animatedSection, {
-                        [styles.visible]: demoVideoAnimation.isVisible
-                    })}>
-                    <Heading as='h4'>
-                        <Translate
-                            id="landingPage.demoVideoPrompt"
-                            description="Landing page demo video prompt">
-                            👇️ Click to Watch Demo
-                        </Translate>
-                    </Heading>
-                    <div className={styles.heroVideoContainer}>
-                        <video
-                            className={styles.heroVideo}
-                            src={useBaseUrl('/videos/landing-demo.mov')}
-                            controls
-                            playsInline
-                            preload="metadata"
-                            aria-label="Demo video"
-                        >
-                            Your browser does not support the video tag. You can
-                            <a href={useBaseUrl('/videos/landing-demo.mov')} target="_blank" rel="noreferrer">
-                                download the video
-                            </a>.
-                        </video>
-                    </div>
+                <Heading as='h4'>
+                    <Translate
+                        id="landingPage.demoVideoPrompt"
+                        description="Landing page demo video prompt">
+                        👇️ Click to Watch Demo
+                    </Translate>
+                </Heading>
+                <div className={styles.heroVideoContainer}>
+                    <video
+                        className={styles.heroVideo}
+                        src={useBaseUrl('/videos/landing-demo.mov')}
+                        controls
+                        playsInline
+                        preload="metadata"
+                        aria-label="Demo video"
+                    >
+                        Your browser does not support the video tag. You can
+                        <a href={useBaseUrl('/videos/landing-demo.mov')} target="_blank" rel="noreferrer">
+                            download the video
+                        </a>.
+                    </video>
                 </div>
             </div>
         </header>
