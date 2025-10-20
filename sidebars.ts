@@ -35,6 +35,7 @@ const sidebars: SidebarsConfig = {
       label: 'Help',
       items: [
         "vs-other-tools",
+        "troubleshooting",
         "faq",
         "contact-us",
       ],

@@ -1,0 +1,38 @@
+import TOCInline from '@theme/TOCInline';
+import Image from "@site/src/components/Image";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+
+# Troubleshooting
+
+This page lists common issues and their solutions when using Redirect Web.
+
+<TOCInline toc={toc} />
+
+## Redirect rules are not working
+
+If your rules are not working as expected, please check the following:
+
+- **Browser extension is installed and enabled for the correct page:** Make sure you have installed the Redirect Web browser extension and that it is enabled in your browser for the web page you want to redirect from. If you can open the extension's popup like this on the source web page, it is installed correctly:
+    <Image src={ExtensionPopup} alt="Redirect Web extension popup" width="260" hasShadow/>
+
+- **Rule configuration is correct:** Double-check your redirect rules in the Redirect Web native app. Ensure that the source URL patterns, target URLs, and any conditions are correctly set up. To check if your rule is valid or not, input an example URL in the Examples section in the Edit Rule screen. If your rule is valid, you will see the expected destination URL under your input, like this:
+    <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
+
+## Extension's popup shows an error
+
+<Image src={ErrorOverlay} alt="Redirect Web error overlay" width="260" hasShadow hasRoundedCorners/>
+
+> Redirect Web app hasn't been installed or is not working properly.  
+> Please get the app from the App Store.
+
+If you see the above error when opening the extension popup, it means that the Redirect Web native app is not installed or not running properly.
+
+Please make sure that you have installed the latest version of Redirect Web from the [App Store](https://apps.apple.com/app/id1571283503).
+
+You may also need to re-launch your browser after installing the native app.
+
+> [!NOTE]
+> * You need to install Redirect Web native app to use the browser extension. The extension alone does not work.
+> * Safari users do not need to install the extension separately, as it is bundled with the native app.
