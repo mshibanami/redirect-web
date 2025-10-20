@@ -19,6 +19,7 @@ Please do NOT include these files:
 - Make sure to preserve the original structure of the JSON files and only change the text values.
 - Only translate the `message`'s values provided. Use the `description` values only as context.
 - Do NOT translate code syntax, variable names, file paths, HTML tags, Markdown link URLs, code blocks, inline code (backticks), and other technical elements.
+- Do NOT translate article titles.
 - Keep punctuation and spacing natural for the target language.
 - Translate only natural language content.
 
