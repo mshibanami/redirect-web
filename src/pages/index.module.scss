@@ -51,3 +51,15 @@
 .useCase {
   margin-bottom: 2rem;
 }
+
+.animatedSection {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.5, 1, 0.89, 1) 0.1s,
+    transform 0.9s cubic-bezier(0.5, 1, 0.89, 1) 0.1s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

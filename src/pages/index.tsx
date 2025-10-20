@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -16,6 +17,8 @@ import Translate, { translate } from '@docusaurus/Translate';
 
 function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
+    const demoVideoAnimation = useScrollAnimation();
+    
     return (
         <header className={clsx('hero', styles.heroBanner)}>
             <LandingPageBackground style={{ height: "600px", width: "100%" }} />
@@ -41,27 +44,33 @@ function HomepageHeader() {
                 <div className="margin-vert--xl">
                     <ExtensionStoreLinks />
                 </div>
-                <Heading as='h4'>
-                    <Translate
-                        id="landingPage.demoVideoPrompt"
-                        description="Landing page demo video prompt">
-                        👇️ Click to Watch Demo
-                    </Translate>
-                </Heading>
-                <div className={styles.heroVideoContainer}>
-                    <video
-                        className={styles.heroVideo}
-                        src={useBaseUrl('/videos/landing-demo.mov')}
-                        controls
-                        playsInline
-                        preload="metadata"
-                        aria-label="Demo video"
-                    >
-                        Your browser does not support the video tag. You can
-                        <a href={useBaseUrl('/videos/landing-demo.mov')} target="_blank" rel="noreferrer">
-                            download the video
-                        </a>.
-                    </video>
+                <div
+                    ref={demoVideoAnimation.ref}
+                    className={clsx(styles.animatedSection, {
+                        [styles.visible]: demoVideoAnimation.isVisible
+                    })}>
+                    <Heading as='h4'>
+                        <Translate
+                            id="landingPage.demoVideoPrompt"
+                            description="Landing page demo video prompt">
+                            👇️ Click to Watch Demo
+                        </Translate>
+                    </Heading>
+                    <div className={styles.heroVideoContainer}>
+                        <video
+                            className={styles.heroVideo}
+                            src={useBaseUrl('/videos/landing-demo.mov')}
+                            controls
+                            playsInline
+                            preload="metadata"
+                            aria-label="Demo video"
+                        >
+                            Your browser does not support the video tag. You can
+                            <a href={useBaseUrl('/videos/landing-demo.mov')} target="_blank" rel="noreferrer">
+                                download the video
+                            </a>.
+                        </video>
+                    </div>
                 </div>
             </div>
         </header>
@@ -139,9 +148,47 @@ const useCases = [
     }
 ] satisfies { title: string; description: string }[]
 
+function useScrollAnimation() {
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            }
+        );
+
+        const currentRef = ref.current;
+        if (currentRef) {
+            observer.observe(currentRef);
+        }
+
+        return () => {
+            if (currentRef) {
+                observer.unobserve(currentRef);
+            }
+        };
+    }, []);
+
+    return { ref, isVisible };
+}
+
 function UseCasesSection(): ReactNode {
+    const { ref, isVisible } = useScrollAnimation();
+
     return (
-        <section className={styles.useCases}>
+        <section
+            ref={ref}
+            className={clsx(styles.useCases, styles.animatedSection, {
+                [styles.visible]: isVisible
+            })}>
             <div className="container">
                 <Heading as="h2" className="margin-bottom--lg">
                     <Translate
@@ -187,6 +234,11 @@ function UseCasesSection(): ReactNode {
 
 export default function Home(): ReactNode {
     const { siteConfig } = useDocusaurusContext();
+    const awardAnimation = useScrollAnimation();
+    const featuresAnimation = useScrollAnimation();
+    const learnMoreAnimation = useScrollAnimation();
+    const taglineAnimation = useScrollAnimation();
+
     return (
         <div className='index-page'>
             <Layout
@@ -194,34 +246,58 @@ export default function Home(): ReactNode {
                 description="A browser extension that redirects all page loads in your browser, ensuring you always land where you want.">
                 <HomepageHeader />
                 <main>
-                    <Award
-                        header={
-                            <span>Featured by</span>
-                        }
-                        main={
-                            <span><AppleLogo style={{ width: '20px', height: 'auto', verticalAlign: 'text-bottom' }} /> Apple</span>
-                        }
-                        footer={
-                            <span>The best Safari extension</span>
-                        }
-                    />
-                    <HomepageFeatures />
+                    <div
+                        ref={awardAnimation.ref}
+                        className={clsx(styles.animatedSection, {
+                            [styles.visible]: awardAnimation.isVisible
+                        })}>
+                        <Award
+                            header={
+                                <span>Featured by</span>
+                            }
+                            main={
+                                <span><AppleLogo style={{ width: '20px', height: 'auto', verticalAlign: 'text-bottom' }} /> Apple</span>
+                            }
+                            footer={
+                                <span>The best Safari extension</span>
+                            }
+                        />
+                    </div>
+                    <div
+                        ref={featuresAnimation.ref}
+                        className={clsx(styles.animatedSection, {
+                            [styles.visible]: featuresAnimation.isVisible
+                        })}>
+                        <HomepageFeatures />
+                    </div>
                     <UseCasesSection />
-                    <div className="margin-bottom--xl">
-                        <ExtensionStoreLinks />
+                    <div
+                        ref={learnMoreAnimation.ref}
+                        className={clsx(styles.animatedSection, {
+                            [styles.visible]: learnMoreAnimation.isVisible
+                        })}>
+
+                        <div
+                            className="margin-bottom--xl">
+                            <ExtensionStoreLinks />
+                        </div>
+                        <div className="text--center margin-vert--xl">
+                            <Link
+                                className="button button--primary button--lg"
+                                to="/introduction">
+                                <Translate
+                                    id="general.learnMoreAction"
+                                    description="'Learn More' button">
+                                    Learn More
+                                </Translate>
+                            </Link>
+                        </div>
                     </div>
-                    <div className="text--center margin-vert--xl">
-                        <Link
-                            className="button button--primary button--lg"
-                            to="/introduction">
-                            <Translate
-                                id="general.learnMoreAction"
-                                description="'Learn More' button">
-                                Learn More
-                            </Translate>
-                        </Link>
-                    </div>
-                    <div className='text--center margin-bottom--xl'>
+                    <div
+                        ref={taglineAnimation.ref}
+                        className={clsx(styles.animatedSection, 'text--center margin-bottom--xl', {
+                            [styles.visible]: taglineAnimation.isVisible
+                        })}>
                         <h4>
                             <Translate
                                 id="landingPage.noAdsNoTracking"
