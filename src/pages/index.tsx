@@ -243,17 +243,19 @@ export default function Home(): ReactNode {
                         className={clsx(styles.animatedSection, {
                             [styles.visible]: awardAnimation.isVisible
                         })}>
-                        <Award
-                            header={
-                                <span>Featured by</span>
-                            }
-                            main={
-                                <span><AppleLogo style={{ width: '20px', height: 'auto', verticalAlign: 'text-bottom' }} /> Apple</span>
-                            }
-                            footer={
-                                <span>The best Safari extension</span>
-                            }
-                        />
+                        <div className='margin-vert--xl'>
+                            <Award
+                                header={
+                                    <span>Featured by</span>
+                                }
+                                main={
+                                    <span><AppleLogo style={{ width: '20px', height: 'auto', verticalAlign: 'text-bottom' }} /> Apple</span>
+                                }
+                                footer={
+                                    <span>The best Safari extension</span>
+                                }
+                            />
+                        </div>
                     </div>
                     <div
                         ref={featuresAnimation.ref}
