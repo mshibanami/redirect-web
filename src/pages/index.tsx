@@ -14,6 +14,7 @@ import Image from "@site/src/components/Image";
 import styles from './index.module.scss';
 import AppleLogo from '@site/static/img/apple-logo.svg';
 import Translate, { translate } from '@docusaurus/Translate';
+import Head from '@docusaurus/Head';
 
 function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
@@ -23,7 +24,7 @@ function HomepageHeader() {
             <div className={clsx("container", styles.heroContainer)}>
                 <Image
                     src={useBaseUrl('/img/logo.png')}
-                    alt="Redirect Web Library Screenshot"
+                    alt="Redirect Web Logo"
                     width={100}
                     margin='80px 0' />
 
@@ -235,7 +236,16 @@ export default function Home(): ReactNode {
         <div className='index-page'>
             <Layout
                 title={siteConfig.tagline}
-                description="A browser extension that redirects all page loads in your browser, ensuring you always land where you want.">
+                description={
+                    translate(
+                        {
+                            id: "landingPage.heroSubtitle",
+                            description: "Landing page hero subtitle",
+                            message: '{appName} is a powerful browser extension to redirect URLs based on your custom rules.'
+                        },
+                        { appName: 'Redirect Web' }
+                    )
+                }>
                 <HomepageHeader />
                 <main>
                     <div
@@ -302,6 +312,12 @@ export default function Home(): ReactNode {
                     </div>
                 </main>
             </Layout>
-        </div>
+
+            <Head titleTemplate="%s">
+                <title>
+                    Redirect Web - {siteConfig.tagline}
+                </title>
+            </Head>
+        </div >
     );
 }
