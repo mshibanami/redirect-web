@@ -1,3 +1,12 @@
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
 # Export/Import Rules
 
 ## Export Rules {#export-rules}
@@ -6,21 +15,24 @@
 
 Click either the ellipsis button or the Share button as shown in this screenshot:
 
-![Share on macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Share button on macOS" width="460" hasShadow hasRoundedCorners/>
+
+Then, select "Export Rule" or "Share Rule..." from the context menu:
 
 You can also multi-select your rules and export them by secondary clicking (right-clicking) them on the rule-listing sidebar:
 
-![Share multiple rules on macOS](/img/multiselect-on-macos.png)
+<Image src={MultiSelectOnMacOS} alt="Share multiple rules on macOS" height="400" hasShadow hasRoundedCorners/>
+
 
 In addition, you can export all the rules from the menubar > File > Export All Rules:
 
-![Menubar > File](/img/menubar-file.png)
+<Image src={MenubarFile} alt="Menubar > File" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > If you want to export your rules in the format compatible with [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/), press the Option key (`⌥`) on the context menu or the menubar, then you'll see these:
-> ![Menubar > File (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Context Menu (Redirector)](/img/context-menu-redirector.png)
+> <Image src={MenubarFileRedirector} alt="Menubar > File (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Context Menu (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
 > Redirect Web is not fully compatible with Redirector, and vice versa. Some settings, such as "Replace Occurrences" for Capturing Group Processing, aren't exported with the Redirector's format.
@@ -43,6 +55,6 @@ You can export your rules like this:
 
 Suppose your rule file is in the Files app. Open it on Files, tap the Share button, and then select Redirect Web:
 
-| Step 1: Tap the Share button on Files                                     | Step 2: Select Redirect Web                                         |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Tap the share button in the toolbar](/img/files-share-ios.png) | ![Tap the app icon in the sheet](/img/share-sheet-ios.png) |
+| Step 1: Tap the Share button on Files                                                                          | Step 2: Select Redirect Web                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Tap the share button in the toolbar" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Tap the app icon in the sheet" width="400" hasShadow hasRoundedCorners/> |
