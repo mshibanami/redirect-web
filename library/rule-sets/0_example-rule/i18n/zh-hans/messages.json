@@ -1,0 +1,14 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "通过此规则，当您在浏览器中打开 https://example.com/hello 时，您将看到单词“hello”的搜索结果。\n\n这是一个用于说明目的的示例规则。\n更改或删除此规则以享受您自己的重定向规则！🚀\n",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "示例重定向规则",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/destinationURLPattern": {
+    "message": "https://www.baidu.com/s?wd=$1",
+    "description": "The destination URL pattern of redirect rule #0"
+  }
+}
