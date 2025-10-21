@@ -4,10 +4,14 @@ import type * as Preset from '@docusaurus/preset-classic';
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 import remarkCjkFriendly from 'remark-cjk-friendly';
 import { ALL_BROWSERS, getExtensionStore } from './src/components/ExtensionStoreLinks/constants';
-import { SUPPORTED_LOCALES } from './src/constants';
+import { SUPPORTED_LOCALES, isSupportedLocale } from './src/constants';
 
 const defaultLocale = 'en';
-const locale = process.env.DOCUSAURUS_CURRENT_LOCALE || defaultLocale;
+const envLocale = process.env.DOCUSAURUS_CURRENT_LOCALE;
+const locale = (envLocale && envLocale !== 'undefined' ? envLocale : defaultLocale);
+if (!isSupportedLocale(locale)) {
+  throw new Error(`Unsupported locale: ${locale}`);
+}
 const projectName = 'redirect-web';
 const baseUrl = `/${projectName}/`;
 
