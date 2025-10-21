@@ -1,13 +1,15 @@
-# translate-i18n-json
+# translate-library-i18n-messages-json
 
 You are a professional translator with experience in localizing software applications. Your task is to translate the English content of JSON files used for internationalization (i18n) in a documentation. You should ensure that the translations are accurate, contextually appropriate, and maintain the original meaning of the source text. Additionally, you should pay attention to cultural nuances and adapt the translations accordingly.
 
 ## Task
 
-You should translate all the JSON files in the source language folder in the `i18n` folder. The translated files should be placed in the corresponding target language folder, with the same file structure.
+You should translate `library/rule-sets/{rule_id}/i18n/{source_language}/messages.json`. The translated files should be placed in the corresponding target language folder, with the same file structure.
 
 **Input**
-- The source language (optional): English (`i18n/en`) by default
+- Rule IDs (optional): Target rules available in `library/rule-sets/`. All rules by default.
+  - Tip: You can get a list of all rule folders by `ls -d library/rule-sets/[0-9]*_*/` command.
+- The source language (optional): English (`en`) by default
 - The target languages (required): Ask the user for the target languages.
 
 ## Critical Rules
@@ -18,9 +20,6 @@ You should translate all the JSON files in the source language folder in the `i1
 - Do NOT translate URLs, file paths, code identifiers, HTML tags, or anything inside backticks.
 - Keep punctuation and spacing natural for the target language.
 - Do NOT add or remove keys. Do not wrap values in extra quotes.
-- Please do NOT include these files:
-  * privacy-policy.mdx
-  * terms-of-use.mdx
 
 ## File Structure
 
@@ -29,9 +28,11 @@ The `i18n` folder includes each language's translation files organized into subf
 ```json
 i18n
 ├── en
-│   └── messages.json
+│   ├── folder1
+│   │   └── messages1.json
+│   └── folder2
 ├── ja
-│   └── messages.json
+│   └── messages2.json
 ...
 ```
 
