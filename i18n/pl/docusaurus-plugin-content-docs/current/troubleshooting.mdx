@@ -3,6 +3,7 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Rozwiązywanie problemów
 
@@ -10,14 +11,14 @@ Ta strona zawiera listę typowych problemów i ich rozwiązań podczas korzystan
 
 <TOCInline toc={toc} />
 
-## Reguły przekierowań nie działają
+## Reguły przekierowania nie działają
 
 Jeśli Twoje reguły nie działają zgodnie z oczekiwaniami, sprawdź następujące kwestie:
 
-- **Rozszerzenie przeglądarki jest zainstalowane i włączone dla właściwej strony:** Upewnij się, że zainstalowałeś rozszerzenie przeglądarki Redirect Web i że jest ono włączone w Twojej przeglądarce dla strony internetowej, z której chcesz przekierować. Jeśli możesz otworzyć wyskakujące okienko rozszerzenia w ten sposób na źródłowej stronie internetowej, oznacza to, że jest ono poprawnie zainstalowane:
+- **Rozszerzenie przeglądarki jest zainstalowane i włączone dla odpowiedniej strony:** Upewnij się, że zainstalowałeś rozszerzenie przeglądarki Redirect Web i że jest ono włączone w Twojej przeglądarce dla strony internetowej, z której chcesz przekierować. Jeśli możesz otworzyć wyskakujące okienko rozszerzenia w ten sposób na źródłowej stronie internetowej, jest ono zainstalowane poprawnie:
     <Image src={ExtensionPopup} alt="Wyskakujące okienko rozszerzenia Redirect Web" width="260" hasShadow/>
 
-- **Konfiguracja reguły jest poprawna:** Dokładnie sprawdź swoje reguły przekierowań w natywnej aplikacji Redirect Web. Upewnij się, że wzorce źródłowych adresów URL, docelowe adresy URL i wszelkie warunki są poprawnie ustawione. Aby sprawdzić, czy Twoja reguła jest prawidłowa, wprowadź przykładowy adres URL w sekcji Przykłady na ekranie Edytuj regułę. Jeśli Twoja reguła jest prawidłowa, zobaczysz oczekiwany docelowy adres URL pod swoim wpisem, tak jak tutaj:
+- **Konfiguracja reguły jest poprawna:** Dokładnie sprawdź swoje reguły przekierowania w natywnej aplikacji Redirect Web. Upewnij się, że wzorce źródłowych adresów URL, docelowe adresy URL i wszelkie warunki są poprawnie ustawione. Aby sprawdzić, czy Twoja reguła jest prawidłowa, wprowadź przykładowy adres URL w sekcji Przykłady na ekranie Edytuj regułę. Jeśli Twoja reguła jest prawidłowa, zobaczysz oczekiwany docelowy adres URL pod swoim wpisem, tak jak tutaj:
     <Image src={RuleEditExampleResult} alt="Przykład ekranu edycji reguły pokazujący wynik przykładowego adresu URL" width="260" hasShadow/>
 
 ## Wyskakujące okienko rozszerzenia pokazuje błąd
@@ -27,12 +28,27 @@ Jeśli Twoje reguły nie działają zgodnie z oczekiwaniami, sprawdź następuj�
 > Aplikacja Redirect Web nie została zainstalowana lub nie działa poprawnie.
 > Pobierz aplikację z App Store.
 
-Jeśli podczas otwierania wyskakującego okienka rozszerzenia widzisz powyższy błąd, oznacza to, że natywna aplikacja Redirect Web nie jest zainstalowana lub nie działa poprawnie.
+Jeśli widzisz powyższy błąd podczas otwierania wyskakującego okienka rozszerzenia, oznacza to, że natywna aplikacja Redirect Web nie jest zainstalowana lub nie działa poprawnie.
 
 Upewnij się, że zainstalowałeś najnowszą wersję Redirect Web z [App Store](https://apps.apple.com/app/id1571283503).
 
 Może być również konieczne ponowne uruchomienie przeglądarki po zainstalowaniu natywnej aplikacji.
 
 > [!NOTE]
-> * Aby korzystać z rozszerzenia przeglądarki, musisz zainstalować natywną aplikację Redirect Web. Samo rozszerzenie nie działa.
+> * Musisz zainstalować natywną aplikację Redirect Web, aby korzystać z rozszerzenia przeglądarki. Samo rozszerzenie nie działa.
 > * Użytkownicy Safari nie muszą instalować rozszerzenia osobno, ponieważ jest ono dołączone do natywnej aplikacji.
+
+## Oryginalna strona miga krótko przed przekierowaniem
+
+Dzieje się tak, gdy używasz reguł przekierowania typu **Oryginalny**. Ten typ zapewnia różne zaawansowane funkcje, ale może powodować krótkie mignięcie oryginalnej strony, ponieważ może pozwolić na załadowanie oryginalnej strony przed wykonaniem przekierowania.
+
+Otwórz ekran Edytuj regułę i zmień **Typ** na **DNR**, aby uniknąć tego problemu.
+
+<Image src={EditRuleDnr} alt="Wyskakujące okienko rozszerzenia Redirect Web" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> W Firefoksie ten problem nie powinien występować nawet w przypadku typu Oryginalny, ponieważ opiera się on na API WebRequest, które zapobiega ładowaniu oryginalnej strony.
+
+## Dalsza pomoc
+
+Jeśli nadal występują problemy po wypróbowaniu powyższych rozwiązań, prosimy o [kontakt](./contact-us).

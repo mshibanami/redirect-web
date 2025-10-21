@@ -3,10 +3,11 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Riešenie problémov
 
-Táto stránka uvádza bežné problémy a ich riešenia pri používaní Redirect Web.
+Táto stránka obsahuje zoznam bežných problémov a ich riešení pri používaní Redirect Web.
 
 <TOCInline toc={toc} />
 
@@ -14,10 +15,10 @@ Táto stránka uvádza bežné problémy a ich riešenia pri používaní Redire
 
 Ak vaše pravidlá nefungujú podľa očakávania, skontrolujte nasledovné:
 
-- **Rozšírenie prehliadača je nainštalované a povolené pre správnu stránku:** Uistite sa, že ste nainštalovali rozšírenie prehliadača Redirect Web a že je povolené vo vašom prehliadači pre webovú stránku, z ktorej chcete presmerovať. Ak môžete otvoriť vyskakovacie okno rozšírenia, ako je toto, na zdrojovej webovej stránke, je nainštalované správne:
+- **Rozšírenie prehliadača je nainštalované a povolené pre správnu stránku:** Uistite sa, že ste nainštalovali rozšírenie prehliadača Redirect Web a že je povolené vo vašom prehliadači pre webovú stránku, z ktorej chcete presmerovať. Ak môžete otvoriť vyskakovacie okno rozšírenia takto na zdrojovej webovej stránke, je nainštalované správne:
     <Image src={ExtensionPopup} alt="Vyskakovacie okno rozšírenia Redirect Web" width="260" hasShadow/>
 
-- **Konfigurácia pravidiel je správna:** Dôkladne skontrolujte svoje pravidlá presmerovania v natívnej aplikácii Redirect Web. Uistite sa, že vzory zdrojových URL adries, cieľové URL adresy a všetky podmienky sú správne nastavené. Ak chcete skontrolovať, či je vaše pravidlo platné, zadajte príklad URL adresy do sekcie Príklady na obrazovke Upraviť pravidlo. Ak je vaše pravidlo platné, pod vaším vstupom sa zobrazí očakávaná cieľová URL adresa, ako je táto:
+- **Konfigurácia pravidla je správna:** Dôkladne skontrolujte svoje pravidlá presmerovania v natívnej aplikácii Redirect Web. Uistite sa, že vzory zdrojových URL adries, cieľové URL adresy a všetky podmienky sú správne nastavené. Ak chcete skontrolovať, či je vaše pravidlo platné, zadajte príklad URL adresy v sekcii Príklady na obrazovke Upraviť pravidlo. Ak je vaše pravidlo platné, uvidíte očakávanú cieľovú URL adresu pod vaším vstupom, takto:
     <Image src={RuleEditExampleResult} alt="Príklad obrazovky úpravy pravidla zobrazujúci výsledok príkladovej URL adresy" width="260" hasShadow/>
 
 ## Vyskakovacie okno rozšírenia zobrazuje chybu
@@ -27,12 +28,27 @@ Ak vaše pravidlá nefungujú podľa očakávania, skontrolujte nasledovné:
 > Aplikácia Redirect Web nebola nainštalovaná alebo nefunguje správne.
 > Získajte aplikáciu z App Store.
 
-Ak pri otváraní vyskakovacieho okna rozšírenia vidíte vyššie uvedenú chybu, znamená to, že natívna aplikácia Redirect Web nie je nainštalovaná alebo nefunguje správne.
+Ak sa pri otváraní vyskakovacieho okna rozšírenia zobrazí vyššie uvedená chyba, znamená to, že natívna aplikácia Redirect Web nie je nainštalovaná alebo nefunguje správne.
 
-Uistite sa, že ste nainštalovali najnovšiu verziu Redirect Web z [App Store](https://apps.apple.com/app/id1571283503).
+Uistite sa, že máte nainštalovanú najnovšiu verziu Redirect Web z [App Store](https://apps.apple.com/app/id1571283503).
 
-Po inštalácii natívnej aplikácie možno budete musieť znova spustiť prehliadač.
+Možno budete musieť po inštalácii natívnej aplikácie reštartovať prehliadač.
 
 > [!NOTE]
 > * Na používanie rozšírenia prehliadača musíte nainštalovať natívnu aplikáciu Redirect Web. Samotné rozšírenie nefunguje.
-> * Používatelia prehliadača Safari nemusia inštalovať rozšírenie samostatne, pretože je súčasťou natívnej aplikácie.
+> * Používatelia Safari nemusia inštalovať rozšírenie samostatne, pretože je súčasťou natívnej aplikácie.
+
+## Pôvodná stránka krátko preblikne pred presmerovaním
+
+Stáva sa to, keď používate pravidlá presmerovania typu **Originál**. Tento typ poskytuje rôzne pokročilé funkcie, ale môže spôsobiť krátke prebliknutie pôvodnej stránky, pretože môže umožniť načítanie pôvodnej stránky pred vykonaním presmerovania.
+
+Otvorte obrazovku Upraviť pravidlo a zmeňte **Typ** na **DNR**, aby ste sa vyhli tomuto problému.
+
+<Image src={EditRuleDnr} alt="Vyskakovacie okno rozšírenia Redirect Web" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> Vo Firefoxe by sa tento problém nemal vyskytnúť ani pri type Originál, pretože sa spolieha na WebRequest API, ktoré zabraňuje načítaniu pôvodnej stránky.
+
+## Ďalšia pomoc
+
+Ak stále pretrvávajú problémy aj po vyskúšaní vyššie uvedených riešení, [kontaktujte nás](./contact-us).

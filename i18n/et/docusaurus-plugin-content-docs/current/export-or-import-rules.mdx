@@ -1,29 +1,41 @@
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
 # Reeglite eksportimine/importimine
 
 ## Reeglite eksportimine {#export-rules}
 
 ### Eksportimine macOS-is {#export-on-macos}
 
-Klõpsake kas kolme punkti nupul või jagamisnupul, nagu on näidatud sellel ekraanipildil:
+Klõpsake kas kolme punkti nuppu või jagamisnuppu, nagu on näidatud sellel ekraanipildil:
 
-![Jaga macOS-is](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Jagamisnupp macOS-is" width="460" hasShadow hasRoundedCorners/>
 
-Saate ka mitu reeglit valida ja neid eksportida, klõpsates neil parema hiireklõpsuga reeglite loendi külgribal:
+Seejärel valige kontekstimenüüst "Ekspordi reegel" või "Jaga reeglit...":
 
-![Jaga mitut reeglit macOS-is](/img/multiselect-on-macos.png)
+Saate ka oma reegleid mitmikvalida ja eksportida, paremklõpsates neid reeglite loendi külgribal:
+
+<Image src={MultiSelectOnMacOS} alt="Mitmikvalik reeglite jagamiseks macOS-is" height="400" hasShadow hasRoundedCorners/>
+
 
 Lisaks saate kõik reeglid eksportida menüüribalt > Fail > Ekspordi kõik reeglid:
 
-![Menüüriba > Fail](/img/menubar-file.png)
+<Image src={MenubarFile} alt="Menüüriba > Fail" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Kui soovite oma reegleid eksportida [Einar Egilssoni Redirectori](https://einaregilsson.com/redirector/) jaoks sobivas vormingus, vajutage kontekstimenüüs või menüüribal klahvi Option (`⌥`), siis näete järgmist:
-> ![Menüüriba > Fail (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Kontekstimenüü (Redirector)](/img/context-menu-redirector.png)
+> Kui soovite oma reegleid eksportida [Einar Egilssoni Redirectoriga](https://einaregilsson.com/redirector/) ühilduvas vormingus, vajutage kontekstimenüüs või menüüribal klahvi Option (`⌥`), siis näete järgmist:
+> <Image src={MenubarFileRedirector} alt="Menüüriba > Fail (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Kontekstimenüü (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
-> Redirect Web ei ole täielikult ühilduv Redirectoriga ja vastupidi. Mõned seaded, näiteks "Asendada esinemised" püüdmisrühma töötlemiseks, ei ekspordita Redirectori vormingus.
+> Redirect Web ei ole Redirectoriga täielikult ühilduv ja vastupidi. Mõned seaded, näiteks "Asendada esinemised" püüdurühma töötlemiseks, ei ekspordita Redirectori vormingus.
 > :::
 
 ### Eksportimine iOS-is {#export-on-ios}
@@ -36,13 +48,13 @@ Saate oma reegleid eksportida järgmiselt:
 
 ### Importimine macOS-is {#import-on-macos}
 
-- Lihtsalt lohistage eksporditud reeglifailid Redirect Webi aknasse.
+- Lihtsalt lohistage eksporditud reeglifailid Redirect Web'i aknasse.
 - Või saate neid importida ka menüüribalt > Fail > Impordi reeglid
 
 ### Importimine iOS-is {#import-on-ios}
 
-Oletame, et teie reeglifail asub rakenduses Failid. Avage see rakenduses Failid, puudutage jagamisnuppu ja seejärel valige Redirect Web:
+Oletame, et teie reeglifail on rakenduses Failid. Avage see rakenduses Failid, puudutage jagamisnuppu ja seejärel valige Redirect Web:
 
-| Samm 1: Puudutage jagamisnuppu tööriistaribal | Samm 2: Valige Redirect Web |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Puudutage jagamisnuppu tööriistaribal](/img/files-share-ios.png) | ![Puudutage rakenduse ikooni lehel](/img/share-sheet-ios.png) |
+| 1. samm: Puudutage tööriistaribal jagamisnuppu | 2. samm: Valige Redirect Web |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Puudutage tööriistaribal jagamisnuppu" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Puudutage rakenduse ikooni lehel" width="400" hasShadow hasRoundedCorners/> |

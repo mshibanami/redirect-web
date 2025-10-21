@@ -1,48 +1,60 @@
-# Eksport/Import reguł
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
 
-## Eksport reguł {#export-rules}
+# Eksportowanie/Importowanie Reguł
 
-### Eksport na macOS {#export-on-macos}
+## Eksportowanie Reguł {#export-rules}
+
+### Eksportowanie na macOS {#export-on-macos}
 
 Kliknij przycisk wielokropka lub przycisk Udostępnij, jak pokazano na tym zrzucie ekranu:
 
-![Udostępnij na macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Przycisk Udostępnij na macOS" width="460" hasShadow hasRoundedCorners/>
+
+Następnie wybierz "Eksportuj regułę" lub "Udostępnij regułę..." z menu kontekstowego:
 
 Możesz również zaznaczyć wiele reguł i wyeksportować je, klikając prawym przyciskiem myszy na pasku bocznym listy reguł:
 
-![Udostępnij wiele reguł na macOS](/img/multiselect-on-macos.png)
+<Image src={MultiSelectOnMacOS} alt="Udostępnianie wielu reguł na macOS" height="400" hasShadow hasRoundedCorners/>
+
 
 Dodatkowo, możesz wyeksportować wszystkie reguły z paska menu > Plik > Eksportuj wszystkie reguły:
 
-![Pasek menu > Plik](/img/menubar-file.png)
+<Image src={MenubarFile} alt="Pasek menu > Plik" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Jeśli chcesz wyeksportować swoje reguły w formacie zgodnym z [Redirector Einar Egilsson](https://einaregilsson.com/redirector/), naciśnij klawisz Option (`⌥`) w menu kontekstowym lub na pasku menu, a następnie zobaczysz:
-> ![Pasek menu > Plik (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Menu kontekstowe (Redirector)](/img/context-menu-redirector.png)
+> Jeśli chcesz wyeksportować swoje reguły w formacie zgodnym z [Redirector Einar Egilsson](https://einaregilsson.com/redirector/), naciśnij klawisz Option (`⌥`) w menu kontekstowym lub na pasku menu, a zobaczysz:
+> <Image src={MenubarFileRedirector} alt="Pasek menu > Plik (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Menu kontekstowe (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
 > Redirect Web nie jest w pełni kompatybilny z Redirector, i odwrotnie. Niektóre ustawienia, takie jak "Zastąp wystąpienia" dla przetwarzania grup przechwytujących, nie są eksportowane w formacie Redirector.
 > :::
 
-### Eksport na iOS {#export-on-ios}
+### Eksportowanie na iOS {#export-on-ios}
 
 Możesz wyeksportować swoje reguły w ten sposób:
 
-<iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="Wideo demonstracyjne iOS do eksportowania reguł (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="Wideo demonstracyjne iOS dotyczące eksportowania reguł (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Import reguł {#import-rules}
+## Importowanie Reguł {#import-rules}
 
-### Import na macOS {#import-on-macos}
+### Importowanie na macOS {#import-on-macos}
 
 - Po prostu przeciągnij i upuść wyeksportowane pliki reguł do okna Redirect Web.
-- Lub możesz je również zaimportować z paska menu > Plik > Importuj reguły
+- Możesz również zaimportować je z paska menu > Plik > Importuj reguły
 
-### Import na iOS {#import-on-ios}
+### Importowanie na iOS {#import-on-ios}
 
-Załóżmy, że plik z regułami znajduje się w aplikacji Pliki. Otwórz go w Plikach, dotknij przycisku Udostępnij, a następnie wybierz Redirect Web:
+Załóżmy, że plik reguł znajduje się w aplikacji Pliki. Otwórz go w Plikach, dotknij przycisku Udostępnij, a następnie wybierz Redirect Web:
 
-| Krok 1: Dotknij przycisku Udostępnij na Plikach                                     | Krok 2: Wybierz Redirect Web                                         |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Dotknij przycisku udostępniania na pasku narzędzi](/img/files-share-ios.png) | ![Dotknij ikony aplikacji w arkuszu](/img/share-sheet-ios.png) |
+| Krok 1: Dotknij przycisku Udostępnij w Plikach                                                                          | Krok 2: Wybierz Redirect Web                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Dotknij przycisku udostępniania na pasku narzędzi" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Dotknij ikony aplikacji w arkuszu" width="400" hasShadow hasRoundedCorners/>

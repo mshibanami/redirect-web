@@ -3,6 +3,7 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Problēmu novēršana
 
@@ -14,25 +15,40 @@ import ErrorOverlay from "@site/static/img/error-overlay.png";
 
 Ja jūsu noteikumi nedarbojas, kā paredzēts, lūdzu, pārbaudiet sekojošo:
 
-- **Pārlūkprogrammas paplašinājums ir instalēts un iespējots pareizajai lapai:** Pārliecinieties, vai esat instalējis Redirect Web pārlūkprogrammas paplašinājumu un vai tas ir iespējots jūsu pārlūkprogrammā tīmekļa lapai, no kuras vēlaties veikt pāradresāciju. Ja varat atvērt paplašinājuma uznirstošo logu, kā parādīts zemāk, avota tīmekļa lapā, tas ir instalēts pareizi:
+- **Pārlūkprogrammas paplašinājums ir instalēts un iespējots pareizajai lapai:** Pārliecinieties, vai esat instalējis Redirect Web pārlūkprogrammas paplašinājumu un vai tas ir iespējots jūsu pārlūkprogrammā tīmekļa lapai, no kuras vēlaties pāradresēt. Ja varat atvērt paplašinājuma uznirstošo logu, kā parādīts šajā avota tīmekļa lapā, tas ir instalēts pareizi:
     <Image src={ExtensionPopup} alt="Redirect Web paplašinājuma uznirstošais logs" width="260" hasShadow/>
 
-- **Noteikumu konfigurācija ir pareiza:** Vēlreiz pārbaudiet savus pāradresācijas noteikumus Redirect Web vietējā lietotnē. Pārliecinieties, vai avota URL modeļi, mērķa URL un visi nosacījumi ir pareizi iestatīti. Lai pārbaudītu, vai jūsu noteikums ir derīgs, ievadiet piemēra URL sadaļā "Piemēri" ekrānā "Rediģēt noteikumu". Ja jūsu noteikums ir derīgs, zem jūsu ievades redzēsiet paredzēto galamērķa URL, piemēram:
+- **Noteikumu konfigurācija ir pareiza:** Vēlreiz pārbaudiet savus pāradresācijas noteikumus Redirect Web vietējā lietotnē. Pārliecinieties, vai avota URL modeļi, mērķa URL un visi nosacījumi ir pareizi iestatīti. Lai pārbaudītu, vai jūsu noteikums ir derīgs, ievadiet piemēra URL sadaļā "Piemēri" ekrānā "Rediģēt noteikumu". Ja jūsu noteikums ir derīgs, zem jūsu ievades redzēsiet paredzēto galamērķa URL, piemēram, šādi:
     <Image src={RuleEditExampleResult} alt="Noteikumu rediģēšanas ekrāna piemērs, kas parāda piemēra URL rezultātu" width="260" hasShadow/>
 
-## Paplašinājuma uznirstošajā logā tiek parādīta kļūda
+## Paplašinājuma uznirstošajā logā tiek rādīta kļūda
 
 <Image src={ErrorOverlay} alt="Redirect Web kļūdas pārklājums" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web lietotne nav instalēta vai nedarbojas pareizi.
+> Redirect Web lietotne nav instalēta vai nedarbojas pareizi.  
 > Lūdzu, iegūstiet lietotni no App Store.
 
 Ja, atverot paplašinājuma uznirstošo logu, redzat iepriekš minēto kļūdu, tas nozīmē, ka Redirect Web vietējā lietotne nav instalēta vai nedarbojas pareizi.
 
-Lūdzu, pārliecinieties, vai esat instalējis jaunāko Redirect Web versiju no [App Store](https://apps.apple.com/app/id1571283503).
+Pārliecinieties, vai esat instalējis jaunāko Redirect Web versiju no [App Store](https://apps.apple.com/app/id1571283503).
 
-Pēc vietējās lietotnes instalēšanas, iespējams, būs jārestartē pārlūkprogramma.
+Pēc vietējās lietotnes instalēšanas, iespējams, jums būs jārestartē pārlūkprogramma.
 
 > [!NOTE]
-> * Lai izmantotu pārlūkprogrammas paplašinājumu, jums ir jāinstalē Redirect Web vietējā lietotne. Paplašinājums pats par sevi nedarbojas.
+> * Lai izmantotu pārlūkprogrammas paplašinājumu, jums ir jāinstalē Redirect Web vietējā lietotne. Tikai paplašinājums nedarbojas.
 > * Safari lietotājiem nav jāinstalē paplašinājums atsevišķi, jo tas ir iekļauts vietējā lietotnē.
+
+## Oriģinālā lapa īslaicīgi mirgo pirms pāradresācijas
+
+Tas notiek, ja izmantojat **Oriģinālā** tipa pāradresācijas noteikumus. Šis tips nodrošina dažādas uzlabotas funkcijas, taču tas var izraisīt īslaicīgu oriģinālās lapas mirgošanu, jo tas var ļaut oriģinālajai lapai ielādēties pirms pāradresācijas veikšanas.
+
+Atveriet ekrānu "Rediģēt noteikumu" un mainiet **Tipu** uz **DNR**, lai izvairītos no šīs problēmas.
+
+<Image src={EditRuleDnr} alt="Redirect Web paplašinājuma uznirstošais logs" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> Firefox pārlūkprogrammā šai problēmai nevajadzētu rasties pat ar oriģinālo tipu, jo tā paļaujas uz WebRequest API, kas novērš oriģinālās lapas ielādi.
+
+## Papildu palīdzība
+
+Ja pēc iepriekš minēto risinājumu izmēģināšanas joprojām rodas problēmas, lūdzu, [sazinieties ar mums](./contact-us).

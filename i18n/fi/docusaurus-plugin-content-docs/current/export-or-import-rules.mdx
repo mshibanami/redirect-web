@@ -1,3 +1,13 @@
+
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
 # Sääntöjen vienti/tuonti
 
 ## Sääntöjen vienti {#export-rules}
@@ -6,21 +16,24 @@
 
 Napsauta joko kolmen pisteen painiketta tai Jaa-painiketta, kuten tässä kuvakaappauksessa näkyy:
 
-![Jaa macOS:llä](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Jaa-painike macOS:ssä" width="460" hasShadow hasRoundedCorners/>
 
-Voit myös valita useita sääntöjä ja viedä ne napsauttamalla hiiren kakkospainikkeella (oikealla napsautuksella) sääntölistan sivupalkissa:
+Valitse sitten "Vie sääntö" tai "Jaa sääntö..." kontekstivalikosta:
 
-![Jaa useita sääntöjä macOS:llä](/img/multiselect-on-macos.png)
+Voit myös valita useita sääntöjä ja viedä ne napsauttamalla hiiren kakkospainikkeella sääntöluettelon sivupalkissa:
+
+<Image src={MultiSelectOnMacOS} alt="Jaa useita sääntöjä macOS:ssä" height="400" hasShadow hasRoundedCorners/>
+
 
 Lisäksi voit viedä kaikki säännöt valikkoriviltä > Tiedosto > Vie kaikki säännöt:
 
-![Valikkorivi > Tiedosto](/img/menubar-file.png)
+<Image src={MenubarFile} alt="Valikkorivi > Tiedosto" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Jos haluat viedä sääntösi [Einar Egilssonin Redirectorin](https://einaregilsson.com/redirector/) kanssa yhteensopivassa muodossa, paina Option-näppäintä (`⌥`) kontekstivalikossa tai valikkorivillä, jolloin näet nämä:
-> ![Valikkorivi > Tiedosto (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Kontekstivalikko (Redirector)](/img/context-menu-redirector.png)
+> Jos haluat viedä säännöt [Einar Egilssonin Redirectorin](https://einaregilsson.com/redirector/) kanssa yhteensopivassa muodossa, paina Option-näppäintä (`⌥`) kontekstivalikossa tai valikkorivillä, niin näet nämä:
+> <Image src={MenubarFileRedirector} alt="Valikkorivi > Tiedosto (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Kontekstivalikko (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
 > Redirect Web ei ole täysin yhteensopiva Redirectorin kanssa, eikä päinvastoin. Joitakin asetuksia, kuten "Korvaa esiintymät" sieppausryhmän käsittelyssä, ei viedä Redirectorin muodossa.
@@ -28,9 +41,9 @@ Lisäksi voit viedä kaikki säännöt valikkoriviltä > Tiedosto > Vie kaikki s
 
 ### Vienti iOS:llä {#export-on-ios}
 
-Voit viedä sääntösi näin:
+Voit viedä säännöt näin:
 
-<iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="iOS Demo Video for exporting rules (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="iOS-esittelyvideo sääntöjen viemiseksi (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Sääntöjen tuonti {#import-rules}
 
@@ -43,6 +56,6 @@ Voit viedä sääntösi näin:
 
 Oletetaan, että sääntötiedostosi on Tiedostot-sovelluksessa. Avaa se Tiedostoissa, napauta Jaa-painiketta ja valitse sitten Redirect Web:
 
-| Vaihe 1: Napauta Jaa-painiketta työkalupalkissa | Vaihe 2: Valitse Redirect Web |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Napauta jakopainiketta työkalupalkissa](/img/files-share-ios.png) | ![Napauta sovelluskuvaketta arkissa](/img/share-sheet-ios.png) |
+| Vaihe 1: Napauta Jaa-painiketta Tiedostoissa                                                                          | Vaihe 2: Valitse Redirect Web                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Napauta työkalupalkin jakopainiketta" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Napauta sovelluskuvaketta arkissa" width="400" hasShadow hasRoundedCorners/>

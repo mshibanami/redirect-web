@@ -1,29 +1,41 @@
-# Exportera/Importera regler
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
 
-## Exportera regler {#export-rules}
+# Exportera/Importera Regler
+
+## Exportera Regler {#export-rules}
 
 ### Exportera på macOS {#export-on-macos}
 
-Klicka antingen på ellips-knappen eller Dela-knappen som visas på denna skärmdump:
+Klicka antingen på ellips-knappen eller Dela-knappen som visas i denna skärmdump:
 
-![Dela på macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Dela-knapp på macOS" width="460" hasShadow hasRoundedCorners/>
 
-Du kan också markera flera regler och exportera dem genom att högerklicka på dem i sidofältet för regellistan:
+Välj sedan "Exportera regel" eller "Dela regel..." från snabbmenyn:
 
-![Dela flera regler på macOS](/img/multiselect-on-macos.png)
+Du kan också markera flera regler och exportera dem genom att sekundärklicka (högerklicka) på dem i sidofältet för regellistan:
+
+<Image src={MultiSelectOnMacOS} alt="Dela flera regler på macOS" height="400" hasShadow hasRoundedCorners/>
+
 
 Dessutom kan du exportera alla regler från menyraden > Arkiv > Exportera alla regler:
 
-![Menyrad > Arkiv](/img/menubar-file.png)
+<Image src={MenubarFile} alt="Menyrad > Arkiv" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Om du vill exportera dina regler i ett format som är kompatibelt med [Einar Egilssons Redirector](https://einaregilsson.com/redirector/), tryck på Option-tangenten (`⌥`) i snabbmenyn eller menyraden, så ser du dessa:
-> ![Menyrad > Arkiv (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Snabbmeny (Redirector)](/img/context-menu-redirector.png)
+> Om du vill exportera dina regler i ett format som är kompatibelt med [Einar Egilssons Redirector](https://einaregilsson.com/redirector/), tryck på Option-tangenten (`⌥`) i snabbmenyn eller menyraden, då ser du dessa:
+> <Image src={MenubarFileRedirector} alt="Menyrad > Arkiv (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Snabbmeny (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
-> Redirect Web är inte helt kompatibelt med Redirector, och vice versa. Vissa inställningar, som "Ersätt förekomster" för bearbetning av fångstgrupper, exporteras inte med Redirectors format.
+> Redirect Web är inte helt kompatibel med Redirector, och vice versa. Vissa inställningar, som "Ersätt förekomster" för bearbetning av fångstgrupper, exporteras inte med Redirectors format.
 > :::
 
 ### Exportera på iOS {#export-on-ios}
@@ -32,7 +44,7 @@ Du kan exportera dina regler så här:
 
 <iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="iOS Demo Video för export av regler (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Importera regler {#import-rules}
+## Importera Regler {#import-rules}
 
 ### Importera på macOS {#import-on-macos}
 
@@ -41,8 +53,8 @@ Du kan exportera dina regler så här:
 
 ### Importera på iOS {#import-on-ios}
 
-Anta att din regelfil finns i Filer-appen. Öppna den i Filer, tryck på Dela-knappen och välj sedan Redirect Web:
+Anta att din regelfil finns i appen Filer. Öppna den i Filer, tryck på Dela-knappen och välj sedan Redirect Web:
 
-| Steg 1: Tryck på dela-knappen i verktygsfältet | Steg 2: Välj Redirect Web |
-| ------------------------------------------------- | ------------------------------------------ |
-| ![Tryck på dela-knappen i verktygsfältet](/img/files-share-ios.png) | ![Tryck på appikonen i bladet](/img/share-sheet-ios.png) |
+| Steg 1: Tryck på Dela-knappen i Filer                                                                          | Steg 2: Välj Redirect Web                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Tryck på dela-knappen i verktygsfältet" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Tryck på appikonen i arket" width="400" hasShadow hasRoundedCorners/> |

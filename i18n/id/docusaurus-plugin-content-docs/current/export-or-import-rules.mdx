@@ -1,3 +1,12 @@
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
 # Ekspor/Impor Aturan
 
 ## Ekspor Aturan {#export-rules}
@@ -6,24 +15,27 @@
 
 Klik tombol elipsis atau tombol Bagikan seperti yang ditunjukkan pada tangkapan layar ini:
 
-![Bagikan di macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Tombol Bagikan di macOS" width="460" hasShadow hasRoundedCorners/>
+
+Kemudian, pilih "Ekspor Aturan" atau "Bagikan Aturan..." dari menu konteks:
 
 Anda juga dapat memilih beberapa aturan dan mengekspornya dengan mengklik sekunder (klik kanan) pada bilah sisi daftar aturan:
 
-![Bagikan beberapa aturan di macOS](/img/multiselect-on-macos.png)
+<Image src={MultiSelectOnMacOS} alt="Bagikan beberapa aturan di macOS" height="400" hasShadow hasRoundedCorners/>
 
-Selain itu, Anda dapat mengekspor semua aturan dari bilah menu > File > Export All Rules:
 
-![Bilah Menu > File](/img/menubar-file.png)
+Selain itu, Anda dapat mengekspor semua aturan dari bilah menu > File > Ekspor Semua Aturan:
 
-> [!CATATAN]
+<Image src={MenubarFile} alt="Bilah Menu > File" width="400" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
 > Jika Anda ingin mengekspor aturan Anda dalam format yang kompatibel dengan [Redirector Einar Egilsson](https://einaregilsson.com/redirector/), tekan tombol Option (`⌥`) pada menu konteks atau bilah menu, maka Anda akan melihat ini:
-> ![Bilah Menu > File (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Menu Konteks (Redirector)](/img/context-menu-redirector.png)
+> <Image src={MenubarFileRedirector} alt="Bilah Menu > File (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Menu Konteks (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
-> Redirect Web tidak sepenuhnya kompatibel dengan Redirector, dan sebaliknya. Beberapa pengaturan, seperti "Replace Occurrences" untuk Pemrosesan Grup Penangkapan, tidak diekspor dengan format Redirector.
+> Redirect Web tidak sepenuhnya kompatibel dengan Redirector, dan sebaliknya. Beberapa pengaturan, seperti "Ganti Kejadian" untuk Pemrosesan Grup Penangkapan, tidak diekspor dengan format Redirector.
 > :::
 
 ### Ekspor di iOS {#export-on-ios}
@@ -37,12 +49,12 @@ Anda dapat mengekspor aturan Anda seperti ini:
 ### Impor di macOS {#import-on-macos}
 
 - Cukup seret dan lepas file aturan yang diekspor ke jendela Redirect Web.
-- Atau, Anda juga dapat mengimpornya dari bilah menu > File > Import Rules
+- Atau, Anda juga dapat mengimpornya dari bilah menu > File > Impor Aturan
 
 ### Impor di iOS {#import-on-ios}
 
 Misalkan file aturan Anda ada di aplikasi File. Buka di File, ketuk tombol Bagikan, lalu pilih Redirect Web:
 
 | Langkah 1: Ketuk tombol Bagikan di File | Langkah 2: Pilih Redirect Web |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Ketuk tombol bagikan di bilah alat](/img/files-share-ios.png) | ![Ketuk ikon aplikasi di lembar](/img/share-sheet-ios.png) |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Ketuk tombol bagikan di bilah alat" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Ketuk ikon aplikasi di lembar" width="400" hasShadow hasRoundedCorners/> |

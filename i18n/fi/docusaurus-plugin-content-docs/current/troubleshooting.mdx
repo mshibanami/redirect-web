@@ -3,6 +3,7 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Vianmääritys
 
@@ -14,13 +15,13 @@ Tällä sivulla luetellaan yleisiä ongelmia ja niiden ratkaisuja Redirect Webin
 
 Jos sääntösi eivät toimi odotetusti, tarkista seuraavat asiat:
 
-- **Selaimen laajennus on asennettu ja käytössä oikealla sivulla:** Varmista, että olet asentanut Redirect Web -selainlaajennuksen ja että se on käytössä selaimessasi verkkosivulla, jolta haluat ohjata uudelleen. Jos voit avata laajennuksen ponnahdusikkunan tällä tavalla lähdeverkkosivulla, se on asennettu oikein:
+- **Selaimen laajennus on asennettu ja käytössä oikealla sivulla:** Varmista, että olet asentanut Redirect Web -selainlaajennuksen ja että se on käytössä selaimessasi sillä verkkosivulla, jolta haluat ohjata uudelleen. Jos voit avata laajennuksen ponnahdusikkunan tällä tavalla lähdeverkkosivulla, se on asennettu oikein:
     <Image src={ExtensionPopup} alt="Redirect Web -laajennuksen ponnahdusikkuna" width="260" hasShadow/>
 
-- **Säännön määritys on oikein:** Tarkista uudelleenohjaussääntösi Redirect Web -natiivisovelluksessa. Varmista, että lähde-URL-kuviot, kohde-URL-osoitteet ja kaikki ehdot on määritetty oikein. Tarkistaaksesi, onko sääntösi kelvollinen, syötä esimerkkiosoite Esimerkit-osioon Muokkaa sääntöä -näytössä. Jos sääntösi on kelvollinen, näet odotetun kohde-URL-osoitteen syötteesi alla, näin:
+- **Säännön määritys on oikein:** Tarkista uudelleenohjaussääntösi Redirect Web -natiivisovelluksessa. Varmista, että lähde-URL-mallit, kohde-URL-osoitteet ja kaikki ehdot on asetettu oikein. Tarkistaaksesi, onko sääntösi kelvollinen, syötä esimerkkiosoite Esimerkit-osioon Muokkaa sääntöä -näytössä. Jos sääntösi on kelvollinen, näet odotetun kohde-URL-osoitteen syötteesi alla, näin:
     <Image src={RuleEditExampleResult} alt="Esimerkki säännön muokkausnäytöstä, joka näyttää esimerkkiosoitteen tuloksen" width="260" hasShadow/>
 
-## Laajennuksen ponnahdusikkuna näyttää virheen
+## Laajennuksen ponnahdusikkunassa näkyy virhe
 
 <Image src={ErrorOverlay} alt="Redirect Web -virhepeite" width="260" hasShadow hasRoundedCorners/>
 
@@ -29,10 +30,25 @@ Jos sääntösi eivät toimi odotetusti, tarkista seuraavat asiat:
 
 Jos näet yllä olevan virheen avatessasi laajennuksen ponnahdusikkunan, se tarkoittaa, että Redirect Web -natiivisovellusta ei ole asennettu tai se ei toimi oikein.
 
-Varmista, että olet asentanut Redirect Webin uusimman version [App Storesta](https://apps.apple.com/app/id1571283503).
+Varmista, että olet asentanut uusimman version Redirect Webistä [App Storesta](https://apps.apple.com/app/id1571283503).
 
-Saatat joutua myös käynnistämään selaimesi uudelleen natiivisovelluksen asentamisen jälkeen.
+Saatat joutua käynnistämään selaimesi uudelleen natiivisovelluksen asentamisen jälkeen.
 
 > [!NOTE]
 > * Sinun on asennettava Redirect Web -natiivisovellus käyttääksesi selainlaajennusta. Laajennus yksinään ei toimi.
-> * Safarin käyttäjien ei tarvitse asentaa laajennusta erikseen, koska se toimitetaan natiivisovelluksen mukana.
+> * Safari-käyttäjien ei tarvitse asentaa laajennusta erikseen, koska se toimitetaan natiivisovelluksen mukana.
+
+## Alkuperäinen sivu välähtää hetken ennen uudelleenohjausta
+
+Tämä tapahtuu, kun käytät **alkuperäisen** tyyppisiä uudelleenohjaussääntöjä. Tämä tyyppi tarjoaa erilaisia edistyneitä ominaisuuksia, mutta se voi aiheuttaa lyhyen välähdyksen alkuperäisestä sivusta, koska se voi sallia alkuperäisen sivun latautumisen ennen uudelleenohjauksen suorittamista.
+
+Avaa Muokkaa sääntöä -näyttö ja muuta **Tyyppi** **DNR**:ksi välttääksesi tämän ongelman.
+
+<Image src={EditRuleDnr} alt="Redirect Web -laajennuksen ponnahdusikkuna" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> Firefoxissa tätä ongelmaa ei pitäisi esiintyä edes alkuperäisen tyypin kanssa, koska se perustuu WebRequest API:iin, joka estää alkuperäisen sivun latautumisen.
+
+## Lisäapua
+
+Jos sinulla on edelleen ongelmia yllä olevien ratkaisujen kokeilemisen jälkeen, ota meihin yhteyttä [täällä](./contact-us).

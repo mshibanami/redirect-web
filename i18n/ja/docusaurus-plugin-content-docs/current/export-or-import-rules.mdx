@@ -1,48 +1,60 @@
-# ルールのエクスポート/インポート
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
 
-## ルールのエクスポート {#export-rules}
+# Export/Import Rules
 
-### macOSでのエクスポート {#export-on-macos}
+## Export Rules {#export-rules}
+
+### Export on macOS {#export-on-macos}
 
 このスクリーンショットに示すように、省略記号ボタンまたは共有ボタンをクリックします。
 
-![macOSでの共有](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Share button on macOS" width="460" hasShadow hasRoundedCorners/>
 
-ルールリストのサイドバーで、ルールを複数選択し、副クリック（右クリック）してエクスポートすることもできます。
+次に、コンテキストメニューから「Export Rule」または「Share Rule...」を選択します。
 
-![macOSでの複数ルール選択](/img/multiselect-on-macos.png)
+ルールを複数選択し、ルールリストのサイドバーで副クリック（右クリック）してエクスポートすることもできます。
 
-さらに、メニューバー > ファイル > すべてのルールをエクスポートからすべてのルールをエクスポートできます。
+<Image src={MultiSelectOnMacOS} alt="Share multiple rules on macOS" height="400" hasShadow hasRoundedCorners/>
 
-![メニューバー > ファイル](/img/menubar-file.png)
+
+さらに、メニューバー > ファイル > すべてのルールをエクスポート からすべてのルールをエクスポートできます。
+
+<Image src={MenubarFile} alt="Menubar > File" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> [Einar EgilssonのRedirector](https://einaregilsson.com/redirector/)と互換性のある形式でルールをエクスポートしたい場合は、コンテキストメニューまたはメニューバーでOptionキー（`⌥`）を押すと、以下が表示されます。
-> ![メニューバー > ファイル (Redirector)](/img/menubar-file-redirector.png)
->
-> ![コンテキストメニュー (Redirector)](/img/context-menu-redirector.png)
+> [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/) と互換性のある形式でルールをエクスポートしたい場合は、コンテキストメニューまたはメニューバーで Option キー (`⌥`) を押すと、これらが表示されます。
+> <Image src={MenubarFileRedirector} alt="Menubar > File (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Context Menu (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
-> Redirect WebはRedirectorと完全に互換性があるわけではなく、その逆も同様です。キャプチャグループ処理の「出現箇所の置換」などの一部の設定は、Redirectorの形式ではエクスポートされません。
+> Redirect Web は Redirector と完全に互換性があるわけではありません。また、その逆も同様です。キャプチャグループ処理の「Replace Occurrences」などの一部の設定は、Redirector の形式ではエクスポートされません。
 > :::
 
-### iOSでのエクスポート {#export-on-ios}
+### Export on iOS {#export-on-ios}
 
 ルールは次のようにエクスポートできます。
 
-<iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="ルールをエクスポートするためのiOSデモビデオ (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="iOS Demo Video for exporting rules (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## ルールのインポート {#import-rules}
+## Import Rules {#import-rules}
 
-### macOSでのインポート {#import-on-macos}
+### Import on macOS {#import-on-macos}
 
-- エクスポートされたルールファイルをRedirect Webのウィンドウにドラッグ＆ドロップするだけです。
-- または、メニューバー > ファイル > ルールのインポートからインポートすることもできます。
+- エクスポートされたルールファイルを Redirect Web のウィンドウにドラッグアンドドロップするだけです。
+- または、メニューバー > ファイル > ルールのインポート からインポートすることもできます。
 
-### iOSでのインポート {#import-on-ios}
+### Import on iOS {#import-on-ios}
 
-ルールファイルがファイルアプリにあるとします。ファイルアプリでそれを開き、共有ボタンをタップし、Redirect Webを選択します。
+ルールファイルがファイルアプリにあるとします。ファイルアプリでファイルを開き、共有ボタンをタップして、Redirect Web を選択します。
 
-| ステップ1：ファイルアプリの共有ボタンをタップ | ステップ2：Redirect Webを選択 |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![ツールバーの共有ボタンをタップ](/img/files-share-ios.png) | ![シート内のアプリアイコンをタップ](/img/share-sheet-ios.png) |
+| ステップ 1: ファイルアプリの共有ボタンをタップします                                                                          | ステップ 2: Redirect Web を選択します                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Tap the share button in the toolbar" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Tap the app icon in the sheet" width="400" hasShadow hasRoundedCorners/> |

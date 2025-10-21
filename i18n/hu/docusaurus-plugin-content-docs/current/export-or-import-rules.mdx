@@ -1,26 +1,38 @@
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
 # Szabályok exportálása/importálása
 
 ## Szabályok exportálása {#export-rules}
 
 ### Exportálás macOS-en {#export-on-macos}
 
-Kattintson a három pont gombra vagy a Megosztás gombra, ahogy az ezen a képernyőképen látható:
+Kattintson az ellipszis gombra vagy a Megosztás gombra, ahogy az ezen a képernyőképen látható:
 
-![Megosztás macOS-en](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Megosztás gomb macOS-en" width="460" hasShadow hasRoundedCorners/>
+
+Ezután válassza az "Exportálás szabály" vagy a "Szabály megosztása..." lehetőséget a helyi menüből:
 
 Több szabályt is kijelölhet, és exportálhatja őket a szabálylistázó oldalsávon a másodlagos kattintással (jobb kattintással):
 
-![Több szabály megosztása macOS-en](/img/multiselect-on-macos.png)
+<Image src={MultiSelectOnMacOS} alt="Több szabály megosztása macOS-en" height="400" hasShadow hasRoundedCorners/>
 
-Ezenkívül az összes szabályt exportálhatja a menüsorból > Fájl > Összes szabály exportálása menüponttal:
 
-![Menüsor > Fájl](/img/menubar-file.png)
+Ezenkívül az összes szabályt exportálhatja a menüsorból > Fájl > Összes szabály exportálása:
+
+<Image src={MenubarFile} alt="Menüsor > Fájl" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Ha a szabályokat az [Einar Egilsson Redirector](https://einaregilsson.com/redirector/) programmal kompatibilis formátumban szeretné exportálni, nyomja meg az Option billentyűt (`⌥`) a helyi menüben vagy a menüsorban, ekkor a következőket fogja látni:
-> ![Menüsor > Fájl (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Helyi menü (Redirector)](/img/context-menu-redirector.png)
+> Ha a szabályokat az [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/) programmal kompatibilis formátumban szeretné exportálni, nyomja meg az Option (`⌥`) billentyűt a helyi menüben vagy a menüsorban, ekkor a következőket fogja látni:
+> <Image src={MenubarFileRedirector} alt="Menüsor > Fájl (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Helyi menü (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
 > A Redirect Web nem teljesen kompatibilis a Redirectorral, és fordítva. Néhány beállítás, például a "Replace Occurrences" a Capturing Group Processinghez, nem exportálódik a Redirector formátumával.
@@ -37,12 +49,12 @@ A szabályokat így exportálhatja:
 ### Importálás macOS-en {#import-on-macos}
 
 - Egyszerűen húzza át az exportált szabályfájlokat a Redirect Web ablakába.
-- Vagy importálhatja őket a menüsorból > Fájl > Szabályok importálása menüponttal.
+- Vagy importálhatja őket a menüsorból > Fájl > Szabályok importálása
 
 ### Importálás iOS-en {#import-on-ios}
 
-Tegyük fel, hogy a szabályfájl a Fájlok alkalmazásban van. Nyissa meg a Fájlokban, koppintson a Megosztás gombra, majd válassza a Redirect Web-et:
+Tegyük fel, hogy a szabályfájl a Fájlok alkalmazásban van. Nyissa meg a Fájlokban, koppintson a Megosztás gombra, majd válassza a Redirect Webet:
 
-| 1. lépés: Koppintson a Megosztás gombra az eszköztáron a Fájlokban | 2. lépés: Válassza a Redirect Web-et                                |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------- |
-| ![Koppintson a megosztás gombra az eszköztáron](/img/files-share-ios.png) | ![Koppintson az alkalmazás ikonjára a lapon](/img/share-sheet-ios.png) |
+| 1. lépés: Koppintson a Megosztás gombra a Fájlokban                                                                          | 2. lépés: Válassza a Redirect Webet                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Koppintson a megosztás gombra az eszköztáron" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Koppintson az alkalmazás ikonjára a lapon" width="400" hasShadow hasRoundedCorners/>

@@ -3,10 +3,11 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
-# トラブルシューティング
+# Troubleshooting
 
-このページでは、Redirect Web の使用中に発生する一般的な問題とその解決策を一覧表示します。
+このページでは、Redirect Web の使用時に発生する一般的な問題とその解決策を説明します。
 
 <TOCInline toc={toc} />
 
@@ -14,10 +15,10 @@ import ErrorOverlay from "@site/static/img/error-overlay.png";
 
 ルールが期待どおりに機能しない場合は、以下を確認してください。
 
-- **ブラウザ拡張機能がインストールされており、正しいページで有効になっているか:** Redirect Web ブラウザ拡張機能がインストールされており、リダイレクト元のウェブページでブラウザで有効になっていることを確認してください。ソースウェブページで拡張機能のポップアップをこのように開くことができれば、正しくインストールされています。
+- **ブラウザ拡張機能がインストールされ、正しいページで有効になっていること:** Redirect Web ブラウザ拡張機能がインストールされており、リダイレクト元の Web ページでブラウザで有効になっていることを確認してください。ソース Web ページでこのように拡張機能のポップアップを開くことができれば、正しくインストールされています。
     <Image src={ExtensionPopup} alt="Redirect Web extension popup" width="260" hasShadow/>
 
-- **ルール設定が正しいか:** Redirect Web ネイティブアプリでリダイレクトルールを再確認してください。ソース URL パターン、ターゲット URL、および条件が正しく設定されていることを確認してください。ルールが有効かどうかを確認するには、ルール編集画面の「Examples」セクションに例の URL を入力します。ルールが有効な場合、入力の下に期待される宛先 URL が次のように表示されます。
+- **ルール設定が正しいこと:** Redirect Web ネイティブアプリでリダイレクトルールを再確認してください。ソース URL パターン、ターゲット URL、および条件が正しく設定されていることを確認してください。ルールが有効かどうかを確認するには、ルール編集画面の「Examples」セクションに例の URL を入力します。ルールが有効な場合は、入力の下に期待される宛先 URL が表示されます。
     <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
 
 ## 拡張機能のポップアップにエラーが表示される
@@ -27,7 +28,7 @@ import ErrorOverlay from "@site/static/img/error-overlay.png";
 > Redirect Web アプリがインストールされていないか、正しく動作していません。
 > App Store からアプリを入手してください。
 
-拡張機能のポップアップを開いたときに上記のエラーが表示される場合、Redirect Web ネイティブアプリがインストールされていないか、正しく実行されていないことを意味します。
+拡張機能のポップアップを開いたときに上記のエラーが表示される場合は、Redirect Web ネイティブアプリがインストールされていないか、正しく実行されていないことを意味します。
 
 [App Store](https://apps.apple.com/app/id1571283503) から Redirect Web の最新バージョンがインストールされていることを確認してください。
 
@@ -36,3 +37,18 @@ import ErrorOverlay from "@site/static/img/error-overlay.png";
 > [!NOTE]
 > * ブラウザ拡張機能を使用するには、Redirect Web ネイティブアプリをインストールする必要があります。拡張機能だけでは機能しません。
 > * Safari ユーザーは、ネイティブアプリにバンドルされているため、拡張機能を別途インストールする必要はありません。
+
+## リダイレクト前に元のページが briefly 表示される
+
+これは、**Original** タイプのリダイレクトルールを使用している場合に発生します。このタイプはさまざまな高度な機能を提供しますが、リダイレクトを実行する前に元のページが読み込まれる可能性があるため、元のページが briefly 表示されることがあります。
+
+この問題を回避するには、ルール編集画面を開き、**Type** を **DNR** に変更します。
+
+<Image src={EditRuleDnr} alt="Redirect Web extension popup" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> Firefox では、WebRequest API に依存しているため、Original タイプでもこの問題は発生しません。これにより、元のページが読み込まれるのを防ぎます。
+
+## さらなる支援
+
+上記の解決策を試しても問題が解決しない場合は、[お問い合わせください](./contact-us)。

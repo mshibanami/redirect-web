@@ -3,6 +3,7 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Sorun Giderme
 
@@ -14,20 +15,20 @@ Bu sayfa, Redirect Web kullanırken karşılaşılan yaygın sorunları ve çöz
 
 Kurallarınız beklendiği gibi çalışmıyorsa, lütfen aşağıdakileri kontrol edin:
 
-- **Tarayıcı uzantısı doğru sayfa için yüklü ve etkin:** Redirect Web tarayıcı uzantısını yüklediğinizden ve yönlendirmek istediğiniz web sayfası için tarayıcınızda etkinleştirildiğinden emin olun. Kaynak web sayfasında uzantının açılır penceresini bu şekilde açabiliyorsanız, doğru şekilde yüklenmiştir:
-    <Image src={ExtensionPopup} alt="Redirect Web uzantı açılır penceresi" width="260" hasShadow/>
+- **Tarayıcı uzantısı doğru sayfa için yüklü ve etkinleştirilmiş:** Redirect Web tarayıcı uzantısını yüklediğinizden ve yönlendirmek istediğiniz web sayfası için tarayıcınızda etkinleştirildiğinden emin olun. Kaynak web sayfasında uzantının açılır penceresini şu şekilde açabiliyorsanız, doğru şekilde yüklenmiştir:
+    <Image src={ExtensionPopup} alt="Redirect Web uzantısı açılır penceresi" width="260" hasShadow/>
 
-- **Kural yapılandırması doğru:** Redirect Web yerel uygulamasındaki yönlendirme kurallarınızı tekrar kontrol edin. Kaynak URL desenlerinin, hedef URL'lerin ve tüm koşulların doğru şekilde ayarlandığından emin olun. Kuralınızın geçerli olup olmadığını kontrol etmek için, Kural Düzenleme ekranındaki Örnekler bölümüne bir örnek URL girin. Kuralınız geçerliyse, girdinizin altında beklenen hedef URL'yi şöyle göreceksiniz:
-    <Image src={RuleEditExampleResult} alt="Örnek URL sonucunu gösteren kural düzenleme ekranı örneği" width="260" hasShadow/>
+- **Kural yapılandırması doğru:** Redirect Web yerel uygulamasındaki yönlendirme kurallarınızı tekrar kontrol edin. Kaynak URL desenlerinin, hedef URL'lerin ve tüm koşulların doğru ayarlandığından emin olun. Kuralınızın geçerli olup olmadığını kontrol etmek için, Kural Düzenleme ekranındaki Örnekler bölümüne örnek bir URL girin. Kuralınız geçerliyse, girdinizin altında beklenen hedef URL'yi şöyle göreceksiniz:
+    <Image src={RuleEditExampleResult} alt="Örnek bir URL'nin sonucunu gösteren kural düzenleme ekranı örneği" width="260" hasShadow/>
 
 ## Uzantının açılır penceresi bir hata gösteriyor
 
 <Image src={ErrorOverlay} alt="Redirect Web hata katmanı" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web uygulaması yüklenmedi veya düzgün çalışmıyor.
+> Redirect Web uygulaması yüklenmedi veya düzgün çalışmıyor.  
 > Lütfen uygulamayı App Store'dan edinin.
 
-Uzantı açılır penceresini açarken yukarıdaki hatayı görüyorsanız, bu Redirect Web yerel uygulamasının yüklü olmadığı veya düzgün çalışmadığı anlamına gelir.
+Uzantı açılır penceresini açtığınızda yukarıdaki hatayı görüyorsanız, bu, Redirect Web yerel uygulamasının yüklü olmadığı veya düzgün çalışmadığı anlamına gelir.
 
 Lütfen Redirect Web'in en son sürümünü [App Store](https://apps.apple.com/app/id1571283503)'dan yüklediğinizden emin olun.
 
@@ -36,3 +37,18 @@ Yerel uygulamayı yükledikten sonra tarayıcınızı yeniden başlatmanız da g
 > [!NOTE]
 > * Tarayıcı uzantısını kullanmak için Redirect Web yerel uygulamasını yüklemeniz gerekir. Uzantı tek başına çalışmaz.
 > * Safari kullanıcılarının uzantıyı ayrıca yüklemesine gerek yoktur, çünkü yerel uygulama ile birlikte gelir.
+
+## Yönlendirmeden önce orijinal sayfa kısaca yanıp sönüyor
+
+Bu, **Orijinal** tip yönlendirme kurallarını kullandığınızda meydana gelir. Bu tip çeşitli gelişmiş özellikler sunar, ancak yönlendirmeyi gerçekleştirmeden önce orijinal sayfanın yüklenmesine izin verebileceği için orijinal sayfanın kısa bir anlık yanıp sönmesine neden olabilir.
+
+Bu sorunu önlemek için Kural Düzenleme ekranını açın ve **Tip**'i **DNR** olarak değiştirin.
+
+<Image src={EditRuleDnr} alt="Redirect Web uzantısı açılır penceresi" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> Firefox'ta, WebRequest API'sine dayandığı için orijinal sayfanın yüklenmesini engellediğinden, Orijinal tipte bile bu sorun oluşmamalıdır.
+
+## Daha fazla yardım
+
+Yukarıdaki çözümleri denedikten sonra hala sorun yaşıyorsanız, lütfen [bize ulaşın](./contact-us).

@@ -1,3 +1,12 @@
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
 # Exportar/Importar Regras
 
 ## Exportar Regras {#export-rules}
@@ -6,31 +15,34 @@
 
 Clique no botão de reticências ou no botão Partilhar, como mostrado nesta captura de ecrã:
 
-![Partilhar no macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Botão Partilhar no macOS" width="460" hasShadow hasRoundedCorners/>
 
-Também pode selecionar várias regras e exportá-las clicando com o botão secundário (botão direito) nelas na barra lateral de listagem de regras:
+Em seguida, selecione "Exportar Regra" ou "Partilhar Regra..." no menu de contexto:
 
-![Partilhar várias regras no macOS](/img/multiselect-on-macos.png)
+Também pode selecionar várias regras e exportá-las clicando com o botão direito do rato na barra lateral de listagem de regras:
+
+<Image src={MultiSelectOnMacOS} alt="Partilhar várias regras no macOS" height="400" hasShadow hasRoundedCorners/>
+
 
 Além disso, pode exportar todas as regras a partir da barra de menus > Ficheiro > Exportar Todas as Regras:
 
-![Barra de menus > Ficheiro](/img/menubar-file.png)
+<Image src={MenubarFile} alt="Barra de Menus > Ficheiro" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > Se quiser exportar as suas regras no formato compatível com o [Redirector de Einar Egilsson](https://einaregilsson.com/redirector/), prima a tecla Option (`⌥`) no menu de contexto ou na barra de menus, e verá o seguinte:
-> ![Barra de menus > Ficheiro (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Menu de Contexto (Redirector)](/img/context-menu-redirector.png)
+> <Image src={MenubarFileRedirector} alt="Barra de Menus > Ficheiro (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Menu de Contexto (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
-> O Redirect Web não é totalmente compatível com o Redirector, e vice-versa. Algumas configurações, como "Substituir Ocorrências" para Processamento de Grupo de Captura, não são exportadas com o formato do Redirector.
+> O Redirect Web não é totalmente compatível com o Redirector, e vice-versa. Algumas configurações, como "Substituir Ocorrências" para Processamento de Grupo de Captura, não são exportadas no formato do Redirector.
 > :::
 
 ### Exportar no iOS {#export-on-ios}
 
-Pode exportar as suas regras assim:
+Pode exportar as suas regras da seguinte forma:
 
-<iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="Vídeo de Demonstração iOS para exportar regras (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="Vídeo de Demonstração do iOS para exportar regras (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Importar Regras {#import-rules}
 
@@ -43,6 +55,6 @@ Pode exportar as suas regras assim:
 
 Suponha que o seu ficheiro de regras está na aplicação Ficheiros. Abra-o nos Ficheiros, toque no botão Partilhar e, em seguida, selecione Redirect Web:
 
-| Passo 1: Toque no botão Partilhar na barra de ferramentas | Passo 2: Selecione Redirect Web |
-| --------------------------------------------------------- | ------------------------------- |
-| ![Toque no botão de partilha na barra de ferramentas](/img/files-share-ios.png) | ![Toque no ícone da aplicação na folha](/img/share-sheet-ios.png) |
+| Passo 1: Toque no botão Partilhar na barra de ferramentas                                                                          | Passo 2: Selecione Redirect Web                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Toque no botão de partilha na barra de ferramentas" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Toque no ícone da aplicação na folha" width="400" hasShadow hasRoundedCorners/> |

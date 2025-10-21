@@ -3,6 +3,7 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Resolução de Problemas
 
@@ -12,27 +13,42 @@ Esta página lista problemas comuns e as suas soluções ao usar o Redirect Web.
 
 ## As regras de redirecionamento não estão a funcionar
 
-Se as suas regras não estiverem a funcionar como esperado, verifique o seguinte:
+Se as suas regras não estão a funcionar como esperado, por favor verifique o seguinte:
 
 - **A extensão do navegador está instalada e ativada para a página correta:** Certifique-se de que instalou a extensão do navegador Redirect Web e que está ativada no seu navegador para a página web da qual pretende redirecionar. Se conseguir abrir o pop-up da extensão como este na página web de origem, está instalada corretamente:
     <Image src={ExtensionPopup} alt="Pop-up da extensão Redirect Web" width="260" hasShadow/>
 
 - **A configuração da regra está correta:** Verifique novamente as suas regras de redirecionamento na aplicação nativa Redirect Web. Certifique-se de que os padrões de URL de origem, URLs de destino e quaisquer condições estão configurados corretamente. Para verificar se a sua regra é válida ou não, insira um URL de exemplo na secção Exemplos no ecrã Editar Regra. Se a sua regra for válida, verá o URL de destino esperado abaixo da sua entrada, assim:
-    <Image src={RuleEditExampleResult} alt="Um exemplo do ecrã de edição de regras mostrando o resultado do URL de exemplo" width="260" hasShadow/>
+    <Image src={RuleEditExampleResult} alt="Um exemplo de ecrã de edição de regra mostrando o resultado do URL de exemplo" width="260" hasShadow/>
 
 ## O pop-up da extensão mostra um erro
 
 <Image src={ErrorOverlay} alt="Sobreposição de erro do Redirect Web" width="260" hasShadow hasRoundedCorners/>
 
-> A aplicação Redirect Web não foi instalada ou não está a funcionar corretamente.
+> A aplicação Redirect Web não foi instalada ou não está a funcionar corretamente.  
 > Por favor, obtenha a aplicação na App Store.
 
 Se vir o erro acima ao abrir o pop-up da extensão, significa que a aplicação nativa Redirect Web não está instalada ou não está a funcionar corretamente.
 
-Certifique-se de que instalou a versão mais recente do Redirect Web da [App Store](https://apps.apple.com/app/id1571283503).
+Por favor, certifique-se de que instalou a versão mais recente do Redirect Web da [App Store](https://apps.apple.com/app/id1571283503).
 
-Pode também ser necessário reiniciar o seu navegador após instalar a aplicação nativa.
+Também pode ser necessário reiniciar o seu navegador depois de instalar a aplicação nativa.
 
 > [!NOTE]
 > * Precisa de instalar a aplicação nativa Redirect Web para usar a extensão do navegador. A extensão sozinha não funciona.
-> * Os utilizadores do Safari não precisam de instalar a extensão separadamente, pois esta está incluída na aplicação nativa.
+> * Os utilizadores do Safari não precisam de instalar a extensão separadamente, pois está incluída na aplicação nativa.
+
+## A página original pisca brevemente antes do redirecionamento
+
+Isto acontece quando usa regras de redirecionamento do tipo **Original**. Este tipo oferece várias funcionalidades avançadas, mas pode causar um breve piscar da página original porque pode permitir que a página original carregue antes de realizar o redirecionamento.
+
+Abra o ecrã Editar Regra e altere o **Tipo** para **DNR** para evitar este problema.
+
+<Image src={EditRuleDnr} alt="Pop-up da extensão Redirect Web" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> No Firefox, este problema não deve ocorrer mesmo com o tipo Original, uma vez que depende da API WebRequest, que impede que a página original seja carregada.
+
+## Mais assistência
+
+Se ainda estiver a ter problemas depois de tentar as soluções acima, por favor [contacte-nos](./contact-us).

@@ -3,26 +3,27 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # 문제 해결
 
-이 페이지는 Redirect Web 사용 시 발생하는 일반적인 문제와 해결 방법을 나열합니다.
+이 페이지는 Redirect Web 사용 시 발생하는 일반적인 문제와 해결책을 나열합니다.
 
 <TOCInline toc={toc} />
 
-## 리디렉션 규칙이 작동하지 않습니다.
+## 리디렉션 규칙이 작동하지 않습니다
 
-규칙이 예상대로 작동하지 않는 경우 다음 사항을 확인하십시오.
+규칙이 예상대로 작동하지 않는 경우 다음을 확인하십시오:
 
-- **브라우저 확장이 올바른 페이지에 설치 및 활성화되어 있는지 확인:** Redirect Web 브라우저 확장을 설치했으며 리디렉션하려는 웹 페이지에서 브라우저 확장이 활성화되어 있는지 확인하십시오. 소스 웹 페이지에서 다음과 같이 확장 프로그램 팝업을 열 수 있다면 올바르게 설치된 것입니다.
-    <Image src={ExtensionPopup} alt="Redirect Web extension popup" width="260" hasShadow/>
+- **브라우저 확장이 올바른 페이지에 설치 및 활성화되어 있습니다:** Redirect Web 브라우저 확장을 설치했으며 리디렉션하려는 웹 페이지에서 브라우저에 활성화되어 있는지 확인하십시오. 소스 웹 페이지에서 확장 프로그램 팝업을 다음과 같이 열 수 있다면 올바르게 설치된 것입니다:
+    <Image src={ExtensionPopup} alt="Redirect Web 확장 팝업" width="260" hasShadow/>
 
-- **규칙 구성이 올바른지 확인:** Redirect Web 네이티브 앱에서 리디렉션 규칙을 다시 확인하십시오. 소스 URL 패턴, 대상 URL 및 모든 조건이 올바르게 설정되었는지 확인하십시오. 규칙이 유효한지 확인하려면 규칙 편집 화면의 예제 섹션에 예제 URL을 입력하십시오. 규칙이 유효하면 다음과 같이 입력 아래에 예상되는 대상 URL이 표시됩니다.
-    <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
+- **규칙 구성이 올바릅니다:** Redirect Web 네이티브 앱에서 리디렉션 규칙을 다시 확인하십시오. 소스 URL 패턴, 대상 URL 및 모든 조건이 올바르게 설정되었는지 확인하십시오. 규칙이 유효한지 확인하려면 규칙 편집 화면의 예제 섹션에 예제 URL을 입력하십시오. 규칙이 유효하면 입력 아래에 예상되는 대상 URL이 다음과 같이 표시됩니다:
+    <Image src={RuleEditExampleResult} alt="예제 URL 결과가 표시된 규칙 편집 화면의 예" width="260" hasShadow/>
 
-## 확장 프로그램 팝업에 오류가 표시됩니다.
+## 확장 프로그램 팝업에 오류가 표시됩니다
 
-<Image src={ErrorOverlay} alt="Redirect Web error overlay" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="Redirect Web 오류 오버레이" width="260" hasShadow hasRoundedCorners/>
 
 > Redirect Web 앱이 설치되지 않았거나 제대로 작동하지 않습니다.
 > App Store에서 앱을 다운로드하십시오.
@@ -36,3 +37,18 @@ import ErrorOverlay from "@site/static/img/error-overlay.png";
 > [!NOTE]
 > * 브라우저 확장을 사용하려면 Redirect Web 네이티브 앱을 설치해야 합니다. 확장 프로그램만으로는 작동하지 않습니다.
 > * Safari 사용자는 네이티브 앱에 번들로 제공되므로 확장 프로그램을 별도로 설치할 필요가 없습니다.
+
+## 리디렉션 전에 원래 페이지가 잠시 깜박입니다
+
+이 문제는 **원본** 유형 리디렉션 규칙을 사용할 때 발생합니다. 이 유형은 다양한 고급 기능을 제공하지만, 리디렉션을 수행하기 전에 원래 페이지가 로드될 수 있으므로 원래 페이지가 잠시 깜박일 수 있습니다.
+
+이 문제를 피하려면 규칙 편집 화면을 열고 **유형**을 **DNR**로 변경하십시오.
+
+<Image src={EditRuleDnr} alt="Redirect Web 확장 팝업" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> Firefox에서는 WebRequest API를 사용하므로 원래 페이지가 로드되는 것을 방지하여 원본 유형에서도 이 문제가 발생하지 않아야 합니다.
+
+## 추가 지원
+
+위 해결책을 시도한 후에도 문제가 계속 발생하면 [문의하십시오](./contact-us).

@@ -1,3 +1,12 @@
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
 # Експортиране/Импортиране на правила
 
 ## Експортиране на правила {#export-rules}
@@ -6,24 +15,27 @@
 
 Кликнете върху бутона с многоточие или бутона за споделяне, както е показано на тази екранна снимка:
 
-![Споделяне на macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Бутон за споделяне на macOS" width="460" hasShadow hasRoundedCorners/>
+
+След това изберете "Експортиране на правило" или "Споделяне на правило..." от контекстното меню:
 
 Можете също така да изберете няколко правила и да ги експортирате, като щракнете с десния бутон върху тях в страничната лента със списъка с правила:
 
-![Споделяне на множество правила на macOS](/img/multiselect-on-macos.png)
+<Image src={MultiSelectOnMacOS} alt="Споделяне на няколко правила на macOS" height="400" hasShadow hasRoundedCorners/>
+
 
 В допълнение, можете да експортирате всички правила от лентата с менюта > Файл > Експортиране на всички правила:
 
-![Лента с менюта > Файл](/img/menubar-file.png)
+<Image src={MenubarFile} alt="Лента с менюта > Файл" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > Ако искате да експортирате правилата си във формат, съвместим с [Redirector на Einar Egilsson](https://einaregilsson.com/redirector/), натиснете клавиша Option (`⌥`) в контекстното меню или лентата с менюта, след което ще видите следното:
-> ![Лента с менюта > Файл (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Контекстно меню (Redirector)](/img/context-menu-redirector.png)
+> <Image src={MenubarFileRedirector} alt="Лента с менюта > Файл (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Контекстно меню (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
-> Redirect Web не е напълно съвместим с Redirector, и обратното. Някои настройки, като "Замяна на срещания" за обработка на групи за заснемане, не се експортират във формата на Redirector.
+> Redirect Web не е напълно съвместим с Redirector и обратно. Някои настройки, като "Replace Occurrences" за обработка на групи за улавяне, не се експортират във формата на Redirector.
 > :::
 
 ### Експортиране на iOS {#export-on-ios}
@@ -41,8 +53,8 @@
 
 ### Импортиране на iOS {#import-on-ios}
 
-Да предположим, че файлът с вашето правило е в приложението Files. Отворете го във Files, докоснете бутона Share и след това изберете Redirect Web:
+Да предположим, че файлът с правилата ви е в приложението Files. Отворете го в Files, докоснете бутона Share и след това изберете Redirect Web:
 
-| Стъпка 1: Докоснете бутона Share в лентата с инструменти | Стъпка 2: Изберете Redirect Web |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Докоснете бутона за споделяне в лентата с инструменти](/img/files-share-ios.png) | ![Докоснете иконата на приложението в листа](/img/share-sheet-ios.png) |
+| Стъпка 1: Докоснете бутона Share в Files                                                                          | Стъпка 2: Изберете Redirect Web                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Докоснете бутона за споделяне в лентата с инструменти" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Докоснете иконата на приложението в листа" width="400" hasShadow hasRoundedCorners/>

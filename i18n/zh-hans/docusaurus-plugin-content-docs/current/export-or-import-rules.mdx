@@ -1,26 +1,38 @@
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
 # 导出/导入规则
 
 ## 导出规则 {#export-rules}
 
 ### 在 macOS 上导出 {#export-on-macos}
 
-单击省略号按钮或共享按钮，如下图所示：
+点击省略号按钮或分享按钮，如截图所示：
 
-![Share on macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Share button on macOS" width="460" hasShadow hasRoundedCorners/>
 
-您还可以多选规则，然后通过辅助点击（右键单击）规则列表侧边栏中的规则来导出它们：
+然后，从上下文菜单中选择“导出规则”或“分享规则...”：
 
-![Share multiple rules on macOS](/img/multiselect-on-macos.png)
+您还可以多选规则，然后通过在规则列表侧边栏上二次点击（右键点击）它们来导出：
+
+<Image src={MultiSelectOnMacOS} alt="Share multiple rules on macOS" height="400" hasShadow hasRoundedCorners/>
+
 
 此外，您可以从菜单栏 > 文件 > 导出所有规则中导出所有规则：
 
-![Menubar > File](/img/menubar-file.png)
+<Image src={MenubarFile} alt="Menubar > File" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> 如果您想以与 [Einar Egilsson 的 Redirector](https://einaregilsson.com/redirector/) 兼容的格式导出规则，请在上下文菜单或菜单栏上按 Option 键 (`⌥`)，然后您将看到以下内容：
-> ![Menubar > File (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Context Menu (Redirector)](/img/context-menu-redirector.png)
+> 如果您想以与 [Einar Egilsson 的 Redirector](https://einaregilsson.com/redirector/) 兼容的格式导出规则，请在上下文菜单或菜单栏上按住 Option 键 (`⌥`)，然后您将看到：
+> <Image src={MenubarFileRedirector} alt="Menubar > File (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Context Menu (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
 > Redirect Web 与 Redirector 不完全兼容，反之亦然。某些设置，例如捕获组处理的“替换出现次数”，不会以 Redirector 的格式导出。
@@ -28,7 +40,7 @@
 
 ### 在 iOS 上导出 {#export-on-ios}
 
-您可以像这样导出您的规则：
+您可以这样导出规则：
 
 <iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="iOS Demo Video for exporting rules (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -41,8 +53,8 @@
 
 ### 在 iOS 上导入 {#import-on-ios}
 
-假设您的规则文件在“文件”应用中。在“文件”中打开它，点击“共享”按钮，然后选择 Redirect Web：
+假设您的规则文件在“文件”应用中。在“文件”中打开它，点击“分享”按钮，然后选择 Redirect Web：
 
-| 步骤 1：在“文件”中点击共享按钮                                     | 步骤 2：选择 Redirect Web                                         |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Tap the share button in the toolbar](/img/files-share-ios.png) | ![Tap the app icon in the sheet](/img/share-sheet-ios.png) |
+| 步骤 1：点击“文件”工具栏中的分享按钮                                                                          | 步骤 2：选择 Redirect Web                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Tap the share button in the toolbar" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Tap the app icon in the sheet" width="400" hasShadow hasRoundedCorners/> |

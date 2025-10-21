@@ -3,10 +3,11 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Felsökning
 
-Den här sidan listar vanliga problem och deras lösningar när du använder Redirect Web.
+Denna sida listar vanliga problem och deras lösningar när du använder Redirect Web.
 
 <TOCInline toc={toc} />
 
@@ -14,10 +15,10 @@ Den här sidan listar vanliga problem och deras lösningar när du använder Red
 
 Om dina regler inte fungerar som förväntat, vänligen kontrollera följande:
 
-- **Webbläsartillägget är installerat och aktiverat för rätt sida:** Se till att du har installerat webbläsartillägget Redirect Web och att det är aktiverat i din webbläsare för den webbsida du vill omdirigera från. Om du kan öppna tilläggets popup som detta på källwebbsidan, är det korrekt installerat:
+- **Webbläsartillägget är installerat och aktiverat för rätt sida:** Se till att du har installerat webbläsartillägget Redirect Web och att det är aktiverat i din webbläsare för den webbsida du vill omdirigera från. Om du kan öppna tilläggets popup som denna på källwebbsidan är det korrekt installerat:
     <Image src={ExtensionPopup} alt="Redirect Web tilläggs-popup" width="260" hasShadow/>
 
-- **Regelkonfigurationen är korrekt:** Dubbelkolla dina omdirigeringsregler i Redirect Web-appen. Se till att käll-URL-mönstren, mål-URL:erna och eventuella villkor är korrekt inställda. För att kontrollera om din regel är giltig eller inte, ange en exempel-URL i avsnittet Exempel på skärmen Redigera regel. Om din regel är giltig kommer du att se den förväntade destinations-URL:en under din inmatning, så här:
+- **Regelkonfigurationen är korrekt:** Dubbelkolla dina omdirigeringsregler i Redirect Webs inbyggda app. Se till att käll-URL-mönstren, mål-URL:erna och eventuella villkor är korrekt inställda. För att kontrollera om din regel är giltig eller inte, ange en exempel-URL i avsnittet Exempel på skärmen Redigera regel. Om din regel är giltig kommer du att se den förväntade destinations-URL:en under din inmatning, så här:
     <Image src={RuleEditExampleResult} alt="Ett exempel på skärmen för regelredigering som visar resultatet av exempel-URL" width="260" hasShadow/>
 
 ## Tilläggets popup visar ett fel
@@ -27,12 +28,27 @@ Om dina regler inte fungerar som förväntat, vänligen kontrollera följande:
 > Redirect Web-appen har inte installerats eller fungerar inte korrekt.
 > Vänligen hämta appen från App Store.
 
-Om du ser ovanstående fel när du öppnar tilläggets popup, betyder det att Redirect Web-appen inte är installerad eller inte körs korrekt.
+Om du ser ovanstående fel när du öppnar tilläggets popup betyder det att Redirect Webs inbyggda app inte är installerad eller inte körs korrekt.
 
 Se till att du har installerat den senaste versionen av Redirect Web från [App Store](https://apps.apple.com/app/id1571283503).
 
-Du kan också behöva starta om din webbläsare efter att ha installerat appen.
+Du kan också behöva starta om din webbläsare efter att ha installerat den inbyggda appen.
 
 > [!NOTE]
-> * Du måste installera Redirect Web-appen för att kunna använda webbläsartillägget. Tillägget ensamt fungerar inte.
-> * Safari-användare behöver inte installera tillägget separat, eftersom det är paketerat med appen.
+> * Du måste installera Redirect Webs inbyggda app för att kunna använda webbläsartillägget. Tillägget ensamt fungerar inte.
+> * Safari-användare behöver inte installera tillägget separat, eftersom det levereras med den inbyggda appen.
+
+## Ursprunglig sida blinkar kort innan omdirigering
+
+Detta händer när du använder omdirigeringsregler av typen **Original**. Denna typ erbjuder olika avancerade funktioner, men den kan orsaka en kort blinkning av den ursprungliga sidan eftersom den kan tillåta den ursprungliga sidan att laddas innan omdirigeringen utförs.
+
+Öppna skärmen Redigera regel och ändra **Typ** till **DNR** för att undvika detta problem.
+
+<Image src={EditRuleDnr} alt="Redirect Web tilläggs-popup" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> I Firefox bör detta problem inte uppstå även med typen Original, eftersom det förlitar sig på WebRequest API, vilket förhindrar att den ursprungliga sidan laddas.
+
+## Ytterligare hjälp
+
+Om du fortfarande upplever problem efter att ha provat ovanstående lösningar, vänligen [kontakta oss](./contact-us).

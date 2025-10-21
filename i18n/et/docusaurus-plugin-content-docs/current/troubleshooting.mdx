@@ -3,6 +3,7 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Tõrkeotsing
 
@@ -14,25 +15,40 @@ See leht loetleb levinud probleemid ja nende lahendused Redirect Web'i kasutamis
 
 Kui teie reeglid ei tööta ootuspäraselt, kontrollige palun järgmist:
 
-- **Brauserilaiendus on installitud ja lubatud õige lehe jaoks:** Veenduge, et olete installinud Redirect Web'i brauserilaienduse ja et see on teie brauseris lubatud veebilehe jaoks, kust soovite ümbersuunata. Kui saate laienduse hüpikakna avada lähtelehel nii, on see õigesti installitud:
-    <Image src={ExtensionPopup} alt="Redirect Web'i laienduse hüpikaken" width="260" hasShadow/>
+- **Brauserilaiendus on installitud ja lubatud õige lehe jaoks:** Veenduge, et olete installinud Redirect Web brauserilaienduse ja et see on teie brauseris lubatud veebilehe jaoks, millelt soovite ümbersuunata. Kui saate laienduse hüpikakna avada lähtelehel, on see õigesti installitud:
+    <Image src={ExtensionPopup} alt="Redirect Web laienduse hüpikaken" width="260" hasShadow/>
 
-- **Reegli konfiguratsioon on õige:** Kontrollige oma ümbersuunamisreegleid Redirect Web'i natiivirakenduses. Veenduge, et lähteaadressi mustrid, sihtaadressid ja kõik tingimused on õigesti seadistatud. Kontrollimaks, kas teie reegel on kehtiv, sisestage näidis-URL reegli redigeerimise ekraani jaotisesse "Näited". Kui teie reegel on kehtiv, näete sisestuse all oodatud siht-URL-i, näiteks nii:
+- **Reegli konfiguratsioon on õige:** Kontrollige oma ümbersuunamisreegleid Redirect Web natiivrakenduses. Veenduge, et lähteaadressi mustrid, sihtaadressid ja kõik tingimused on õigesti seadistatud. Kontrollimaks, kas teie reegel on kehtiv või mitte, sisestage näidis-URL reegli redigeerimise ekraani jaotisesse Näited. Kui teie reegel on kehtiv, näete sisestatud URL-i all oodatavat siht-URL-i, nagu see:
     <Image src={RuleEditExampleResult} alt="Näide reegli redigeerimise ekraanist, mis näitab näidis-URL-i tulemust" width="260" hasShadow/>
 
 ## Laienduse hüpikaken näitab viga
 
-<Image src={ErrorOverlay} alt="Redirect Web'i veateade" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="Redirect Web veateade" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web'i rakendust pole installitud või see ei tööta korralikult.
+> Redirect Web rakendust pole installitud või see ei tööta korralikult.  
 > Palun hankige rakendus App Store'ist.
 
-Kui näete laienduse hüpikakna avamisel ülaltoodud viga, tähendab see, et Redirect Web'i natiivirakendus pole installitud või ei tööta korralikult.
+Kui näete ülaltoodud viga laienduse hüpikakna avamisel, tähendab see, et Redirect Web natiivrakendus pole installitud või ei tööta korralikult.
 
 Veenduge, et olete installinud Redirect Web'i uusima versiooni [App Store'ist](https://apps.apple.com/app/id1571283503).
 
-Võimalik, et peate pärast natiivirakenduse installimist brauseri uuesti käivitama.
+Võimalik, et peate pärast natiivrakenduse installimist brauseri uuesti käivitama.
 
 > [!NOTE]
-> * Brauserilaienduse kasutamiseks peate installima Redirect Web'i natiivirakenduse. Ainult laiendus ei tööta.
-> * Safari kasutajad ei pea laiendust eraldi installima, kuna see on natiivirakendusega kaasas.
+> * Brauserilaienduse kasutamiseks peate installima Redirect Web natiivrakenduse. Laiendus üksi ei tööta.
+> * Safari kasutajad ei pea laiendust eraldi installima, kuna see on natiivrakendusega kaasas.
+
+## Algne leht vilgub korraks enne ümbersuunamist
+
+See juhtub, kui kasutate **algse** tüüpi ümbersuunamisreegleid. See tüüp pakub erinevaid täiustatud funktsioone, kuid see võib põhjustada algse lehe lühikese vilkumise, kuna see võib lubada algse lehe laadimist enne ümbersuunamise sooritamist.
+
+Avage reegli redigeerimise ekraan ja muutke **tüüp** **DNR**-iks, et seda probleemi vältida.
+
+<Image src={EditRuleDnr} alt="Redirect Web laienduse hüpikaken" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> Firefoxis ei tohiks see probleem tekkida isegi algse tüübiga, kuna see tugineb WebRequest API-le, mis takistab algse lehe laadimist.
+
+## Edasine abi
+
+Kui teil on pärast ülaltoodud lahenduste proovimist endiselt probleeme, palun [võtke meiega ühendust](./contact-us).

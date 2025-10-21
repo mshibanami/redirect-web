@@ -1,3 +1,12 @@
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
 # Regels exporteren/importeren
 
 ## Regels exporteren {#export-rules}
@@ -6,21 +15,24 @@
 
 Klik op de ellips-knop of de deelknop zoals weergegeven in deze schermafbeelding:
 
-![Delen op macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Deelknop op macOS" width="460" hasShadow hasRoundedCorners/>
 
-U kunt ook meerdere regels selecteren en exporteren door er met de rechtermuisknop op te klikken in de zijbalk met regellijsten:
+Selecteer vervolgens "Regel exporteren" of "Regel delen..." uit het contextmenu:
 
-![Meerdere regels delen op macOS](/img/multiselect-on-macos.png)
+U kunt ook meerdere regels selecteren en deze exporteren door er met de rechtermuisknop op te klikken in de zijbalk met regellijsten:
+
+<Image src={MultiSelectOnMacOS} alt="Meerdere regels delen op macOS" height="400" hasShadow hasRoundedCorners/>
+
 
 Bovendien kunt u alle regels exporteren via de menubalk > Bestand > Alle regels exporteren:
 
-![Menubalk > Bestand](/img/menubar-file.png)
+<Image src={MenubarFile} alt="Menubalk > Bestand" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Als u uw regels wilt exporteren in een formaat dat compatibel is met [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/), druk dan op de Option-toets (`⌥`) in het contextmenu of de menubalk, dan ziet u dit:
-> ![Menubalk > Bestand (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Contextmenu (Redirector)](/img/context-menu-redirector.png)
+> Als u uw regels wilt exporteren in een formaat dat compatibel is met [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/), drukt u op de Option-toets (`⌥`) in het contextmenu of de menubalk, dan ziet u het volgende:
+> <Image src={MenubarFileRedirector} alt="Menubalk > Bestand (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Contextmenu (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
 > Redirect Web is niet volledig compatibel met Redirector, en vice versa. Sommige instellingen, zoals "Vervang voorkomens" voor het verwerken van opnamegroepen, worden niet geëxporteerd met het formaat van Redirector.
@@ -36,13 +48,13 @@ U kunt uw regels als volgt exporteren:
 
 ### Importeren op macOS {#import-on-macos}
 
-- Sleep de geëxporteerde regelbestanden eenvoudig naar het venster van Redirect Web.
+- Sleep de geëxporteerde regelbestanden eenvoudigweg naar het venster van Redirect Web.
 - Of u kunt ze ook importeren via de menubalk > Bestand > Regels importeren
 
 ### Importeren op iOS {#import-on-ios}
 
-Stel dat uw regelbestand in de Bestanden-app staat. Open het in Bestanden, tik op de deelknop en selecteer vervolgens Redirect Web:
+Stel dat uw regelbestand zich in de Bestanden-app bevindt. Open het in Bestanden, tik op de deelknop en selecteer vervolgens Redirect Web:
 
-| Stap 1: Tik op de deelknop in de werkbalk | Stap 2: Selecteer Redirect Web |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Tik op de deelknop in de werkbalk](/img/files-share-ios.png) | ![Tik op het app-pictogram in het blad](/img/share-sheet-ios.png) |
+| Stap 1: Tik op de deelknop in Bestanden                                                                          | Stap 2: Selecteer Redirect Web                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Tik op de deelknop in de werkbalk" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Tik op het app-pictogram in het blad" width="400" hasShadow hasRoundedCorners/> |

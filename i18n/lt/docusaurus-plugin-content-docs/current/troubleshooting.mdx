@@ -3,6 +3,7 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Trikčių šalinimas
 
@@ -10,29 +11,44 @@ import ErrorOverlay from "@site/static/img/error-overlay.png";
 
 <TOCInline toc={toc} />
 
-## Nukreipimo taisyklės neveikia
+## Peradresavimo taisyklės neveikia
 
 Jei jūsų taisyklės neveikia taip, kaip tikėtasi, patikrinkite šiuos dalykus:
 
-- **Naršyklės plėtinys įdiegtas ir įjungtas tinkamam puslapiui:** Įsitikinkite, kad įdiegėte „Redirect Web“ naršyklės plėtinį ir kad jis įjungtas jūsų naršyklėje tam tinklalapiui, iš kurio norite nukreipti. Jei galite atidaryti plėtinio iššokantįjį langą, kaip parodyta toliau, šaltinio tinklalapyje, jis įdiegtas teisingai:
+- **Naršyklės plėtinys įdiegtas ir įjungtas tinkamam puslapiui:** Įsitikinkite, kad įdiegėte „Redirect Web“ naršyklės plėtinį ir kad jis įjungtas jūsų naršyklėje tam tinklalapiui, iš kurio norite peradresuoti. Jei galite atidaryti plėtinio iššokantįjį langą, kaip parodyta šiame šaltinio tinklalapyje, jis įdiegtas teisingai:
     <Image src={ExtensionPopup} alt="Redirect Web plėtinio iššokantysis langas" width="260" hasShadow/>
 
-- **Taisyklių konfigūracija yra teisinga:** Dar kartą patikrinkite savo nukreipimo taisykles „Redirect Web“ vietinėje programoje. Įsitikinkite, kad šaltinio URL šablonai, tiksliniai URL ir visos sąlygos yra tinkamai nustatytos. Norėdami patikrinti, ar jūsų taisyklė galioja, ar ne, įveskite pavyzdinį URL skyriuje „Pavyzdžiai“ taisyklių redagavimo ekrane. Jei jūsų taisyklė galioja, po jūsų įvesties matysite numatomą paskirties URL, kaip parodyta toliau:
+- **Taisyklių konfigūracija yra teisinga:** Dar kartą patikrinkite savo peradresavimo taisykles „Redirect Web“ vietinėje programoje. Įsitikinkite, kad šaltinio URL šablonai, tiksliniai URL ir visos sąlygos yra tinkamai nustatytos. Norėdami patikrinti, ar jūsų taisyklė galioja, ar ne, įveskite pavyzdinį URL į skyrių „Pavyzdžiai“ taisyklių redagavimo ekrane. Jei jūsų taisyklė galioja, po įvesties pamatysite numatytąjį paskirties URL, kaip parodyta čia:
     <Image src={RuleEditExampleResult} alt="Taisyklių redagavimo ekrano pavyzdys, rodantis pavyzdinio URL rezultatą" width="260" hasShadow/>
 
-## Plėtinio iššokančiajame lange rodoma klaida
+## Plėtinio iššokantysis langas rodo klaidą
 
 <Image src={ErrorOverlay} alt="Redirect Web klaidos perdanga" width="260" hasShadow hasRoundedCorners/>
 
-> „Redirect Web“ programa nebuvo įdiegta arba neveikia tinkamai.  
+> „Redirect Web“ programa nebuvo įdiegta arba neveikia tinkamai.
 > Gaukite programą iš „App Store“.
 
 Jei atidarydami plėtinio iššokantįjį langą matote aukščiau nurodytą klaidą, tai reiškia, kad „Redirect Web“ vietinė programa nėra įdiegta arba neveikia tinkamai.
 
-Please make sure that you have installed the latest version of Redirect Web from the [App Store](https://apps.apple.com/app/id1571283503).
+Įsitikinkite, kad įdiegėte naujausią „Redirect Web“ versiją iš [App Store](https://apps.apple.com/app/id1571283503).
 
-You may also need to re-launch your browser after installing the native app.
+Taip pat gali tekti iš naujo paleisti naršyklę po vietinės programos įdiegimo.
 
 > [!NOTE]
-> * Norėdami naudoti naršyklės plėtinį, turite įdiegti „Redirect Web“ vietinę programą. Vien plėtinys neveikia.
+> * Norėdami naudoti naršyklės plėtinį, turite įdiegti „Redirect Web“ vietinę programą. Vien tik plėtinys neveikia.
 > * „Safari“ naudotojams nereikia atskirai diegti plėtinio, nes jis yra sujungtas su vietine programa.
+
+## Originalus puslapis trumpam mirkteli prieš peradresavimą
+
+Taip nutinka, kai naudojate **Originalaus** tipo peradresavimo taisykles. Šis tipas suteikia įvairių pažangių funkcijų, tačiau jis gali sukelti trumpą originalaus puslapio mirktelėjimą, nes gali leisti originaliam puslapiui įkelti prieš atliekant peradresavimą.
+
+Atidarykite taisyklių redagavimo ekraną ir pakeiskite **Tipą** į **DNR**, kad išvengtumėte šios problemos.
+
+<Image src={EditRuleDnr} alt="Redirect Web plėtinio iššokantysis langas" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> „Firefox“ naršyklėje ši problema neturėtų kilti net ir naudojant originalų tipą, nes ji remiasi „WebRequest API“, kuri neleidžia įkelti originalaus puslapio.
+
+## Tolesnė pagalba
+
+Jei vis dar kyla problemų išbandžius aukščiau nurodytus sprendimus, [susisiekite su mumis](./contact-us).

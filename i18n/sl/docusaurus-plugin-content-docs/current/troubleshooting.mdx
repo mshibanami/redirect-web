@@ -3,6 +3,7 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Odpravljanje težav
 
@@ -17,7 +18,7 @@ Ta stran navaja pogoste težave in njihove rešitve pri uporabi Redirect Web.
 - **Razširitev brskalnika je nameščena in omogočena za pravilno stran:** Prepričajte se, da ste namestili razširitev brskalnika Redirect Web in da je omogočena v vašem brskalniku za spletno stran, s katere želite preusmeriti. Če lahko odprete pojavno okno razširitve, kot je prikazano na izvorni spletni strani, je pravilno nameščena:
     <Image src={ExtensionPopup} alt="Pojavno okno razširitve Redirect Web" width="260" hasShadow/>
 
-- **Konfiguracija pravila je pravilna:** Dvakrat preverite pravila preusmeritve v izvorni aplikaciji Redirect Web. Prepričajte se, da so vzorci izvornih URL-jev, ciljni URL-ji in vsi pogoji pravilno nastavljeni. Če želite preveriti, ali je vaše pravilo veljavno, vnesite primer URL-ja v razdelek Primeri na zaslonu za urejanje pravil. Če je vaše pravilo veljavno, boste pod vnosom videli pričakovani ciljni URL, kot je prikazano:
+- **Konfiguracija pravila je pravilna:** Dvakrat preverite pravila preusmeritve v izvorni aplikaciji Redirect Web. Prepričajte se, da so vzorci izvornih URL-jev, ciljni URL-ji in morebitni pogoji pravilno nastavljeni. Če želite preveriti, ali je vaše pravilo veljavno, vnesite primer URL-ja v razdelek Primeri na zaslonu za urejanje pravil. Če je vaše pravilo veljavno, boste pod vnosom videli pričakovani ciljni URL, kot je ta:
     <Image src={RuleEditExampleResult} alt="Primer zaslona za urejanje pravil, ki prikazuje rezultat primernega URL-ja" width="260" hasShadow/>
 
 ## Pojavno okno razširitve prikazuje napako
@@ -31,8 +32,23 @@ Ta stran navaja pogoste težave in njihove rešitve pri uporabi Redirect Web.
 
 Prepričajte se, da ste namestili najnovejšo različico Redirect Web iz [App Store](https://apps.apple.com/app/id1571283503).
 
-Morda boste morali znova zagnati brskalnik po namestitvi izvorne aplikacije.
+Po namestitvi izvorne aplikacije boste morda morali znova zagnati brskalnik.
 
 > [!NOTE]
 > * Za uporabo razširitve brskalnika morate namestiti izvorno aplikacijo Redirect Web. Sama razširitev ne deluje.
-> * Uporabnikom Safarija ni treba posebej namestiti razširitve, saj je priložena izvorni aplikaciji.
+> * Uporabnikom Safarija ni treba posebej nameščati razširitve, saj je ta priložena izvorni aplikaciji.
+
+## Izvirna stran se za kratek čas prikaže pred preusmeritvijo
+
+To se zgodi, ko uporabljate pravila preusmeritve tipa **Original**. Ta vrsta ponuja različne napredne funkcije, vendar lahko povzroči kratek blisk izvirne strani, ker lahko omogoči nalaganje izvirne strani pred izvedbo preusmeritve.
+
+Odprite zaslon za urejanje pravil in spremenite **Vrsto** v **DNR**, da se izognete tej težavi.
+
+<Image src={EditRuleDnr} alt="Pojavno okno razširitve Redirect Web" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> V brskalniku Firefox se ta težava ne bi smela pojaviti niti pri tipu Original, saj se zanaša na API WebRequest, ki preprečuje nalaganje izvirne strani.
+
+## Nadaljnja pomoč
+
+Če imate po preizkusu zgornjih rešitev še vedno težave, nas [kontaktirajte](./contact-us).

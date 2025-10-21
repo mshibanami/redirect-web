@@ -1,26 +1,38 @@
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
 # Εξαγωγή/Εισαγωγή Κανόνων
 
 ## Εξαγωγή Κανόνων {#export-rules}
 
 ### Εξαγωγή σε macOS {#export-on-macos}
 
-Κάντε κλικ είτε στο κουμπί με τις αποσιωπητικά είτε στο κουμπί Κοινή χρήση, όπως φαίνεται σε αυτό το στιγμιότυπο οθόνης:
+Κάντε κλικ είτε στο κουμπί με τις ελλείψεις είτε στο κουμπί Κοινή χρήση όπως φαίνεται σε αυτό το στιγμιότυπο οθόνης:
 
-![Κοινή χρήση σε macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Κουμπί Κοινή χρήση σε macOS" width="460" hasShadow hasRoundedCorners/>
+
+Στη συνέχεια, επιλέξτε "Εξαγωγή Κανόνα" ή "Κοινή χρήση Κανόνα..." από το μενού περιβάλλοντος:
 
 Μπορείτε επίσης να επιλέξετε πολλούς κανόνες και να τους εξαγάγετε κάνοντας δευτερεύον κλικ (δεξί κλικ) σε αυτούς στην πλευρική γραμμή λίστας κανόνων:
 
-![Κοινή χρήση πολλαπλών κανόνων σε macOS](/img/multiselect-on-macos.png)
+<Image src={MultiSelectOnMacOS} alt="Κοινή χρήση πολλαπλών κανόνων σε macOS" height="400" hasShadow hasRoundedCorners/>
+
 
 Επιπλέον, μπορείτε να εξαγάγετε όλους τους κανόνες από τη γραμμή μενού > Αρχείο > Εξαγωγή Όλων των Κανόνων:
 
-![Γραμμή μενού > Αρχείο](/img/menubar-file.png)
+<Image src={MenubarFile} alt="Γραμμή μενού > Αρχείο" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > Εάν θέλετε να εξαγάγετε τους κανόνες σας σε μορφή συμβατή με το [Redirector του Einar Egilsson](https://einaregilsson.com/redirector/), πατήστε το πλήκτρο Option (`⌥`) στο μενού περιβάλλοντος ή στη γραμμή μενού, τότε θα δείτε αυτά:
-> ![Γραμμή μενού > Αρχείο (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Μενού περιβάλλοντος (Redirector)](/img/context-menu-redirector.png)
+> <Image src={MenubarFileRedirector} alt="Γραμμή μενού > Αρχείο (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Μενού περιβάλλοντος (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
 > Το Redirect Web δεν είναι πλήρως συμβατό με το Redirector, και το αντίστροφο. Ορισμένες ρυθμίσεις, όπως το "Αντικατάσταση Εμφανίσεων" για την Επεξεργασία Ομάδας Καταγραφής, δεν εξάγονται με τη μορφή του Redirector.
@@ -36,13 +48,13 @@
 
 ### Εισαγωγή σε macOS {#import-on-macos}
 
-- Απλά σύρετε και αποθέστε τα εξαγόμενα αρχεία κανόνων στο παράθυρο του Redirect Web.
+- Απλώς σύρετε και αποθέστε τα εξαγόμενα αρχεία κανόνων στο παράθυρο του Redirect Web.
 - Ή, μπορείτε επίσης να τα εισαγάγετε από τη γραμμή μενού > Αρχείο > Εισαγωγή Κανόνων
 
 ### Εισαγωγή σε iOS {#import-on-ios}
 
 Ας υποθέσουμε ότι το αρχείο κανόνων σας βρίσκεται στην εφαρμογή Αρχεία. Ανοίξτε το στα Αρχεία, πατήστε το κουμπί Κοινή χρήση και, στη συνέχεια, επιλέξτε Redirect Web:
 
-| Βήμα 1: Πατήστε το κουμπί Κοινή χρήση στη γραμμή εργαλείων | Βήμα 2: Επιλέξτε Redirect Web |
-| --------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Πατήστε το κουμπί κοινής χρήσης στη γραμμή εργαλείων](/img/files-share-ios.png) | ![Πατήστε το εικονίδιο της εφαρμογής στο φύλλο](/img/share-sheet-ios.png) |
+| Βήμα 1: Πατήστε το κουμπί Κοινή χρήση στα Αρχεία                                                                          | Βήμα 2: Επιλέξτε Redirect Web                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Πατήστε το κουμπί κοινής χρήσης στη γραμμή εργαλείων" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Πατήστε το εικονίδιο της εφαρμογής στο φύλλο" width="400" hasShadow hasRoundedCorners/> |

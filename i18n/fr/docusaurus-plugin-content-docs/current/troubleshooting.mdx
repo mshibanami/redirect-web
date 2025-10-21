@@ -3,6 +3,7 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Dépannage
 
@@ -17,7 +18,7 @@ Si vos règles ne fonctionnent pas comme prévu, veuillez vérifier les points s
 - **L'extension de navigateur est installée et activée pour la bonne page :** Assurez-vous d'avoir installé l'extension de navigateur Redirect Web et qu'elle est activée dans votre navigateur pour la page web à partir de laquelle vous souhaitez rediriger. Si vous pouvez ouvrir la fenêtre contextuelle de l'extension comme ceci sur la page web source, elle est correctement installée :
     <Image src={ExtensionPopup} alt="Fenêtre contextuelle de l'extension Redirect Web" width="260" hasShadow/>
 
-- **La configuration de la règle est correcte :** Vérifiez attentivement vos règles de redirection dans l'application native Redirect Web. Assurez-vous que les modèles d'URL source, les URL cibles et toutes les conditions sont correctement configurés. Pour vérifier si votre règle est valide ou non, saisissez une URL d'exemple dans la section Exemples de l'écran Modifier la règle. Si votre règle est valide, vous verrez l'URL de destination attendue sous votre saisie, comme ceci :
+- **La configuration de la règle est correcte :** Vérifiez attentivement vos règles de redirection dans l'application native Redirect Web. Assurez-vous que les modèles d'URL source, les URL cibles et toutes les conditions sont correctement configurés. Pour vérifier si votre règle est valide ou non, saisissez un exemple d'URL dans la section Exemples de l'écran Modifier la règle. Si votre règle est valide, vous verrez l'URL de destination attendue sous votre saisie, comme ceci :
     <Image src={RuleEditExampleResult} alt="Un exemple d'écran de modification de règle montrant le résultat de l'URL d'exemple" width="260" hasShadow/>
 
 ## La fenêtre contextuelle de l'extension affiche une erreur
@@ -36,3 +37,18 @@ Vous devrez peut-être également relancer votre navigateur après avoir install
 > [!NOTE]
 > * Vous devez installer l'application native Redirect Web pour utiliser l'extension de navigateur. L'extension seule ne fonctionne pas.
 > * Les utilisateurs de Safari n'ont pas besoin d'installer l'extension séparément, car elle est fournie avec l'application native.
+
+## La page originale clignote brièvement avant la redirection
+
+Cela se produit lorsque vous utilisez les règles de redirection de type **Original**. Ce type offre diverses fonctionnalités avancées, mais il peut provoquer un bref clignotement de la page originale car il peut permettre à la page originale de se charger avant d'effectuer la redirection.
+
+Ouvrez l'écran Modifier la règle et changez le **Type** en **DNR** pour éviter ce problème.
+
+<Image src={EditRuleDnr} alt="Fenêtre contextuelle de l'extension Redirect Web" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> Dans Firefox, ce problème ne devrait pas se produire même avec le type Original, car il repose sur l'API WebRequest, qui empêche le chargement de la page originale.
+
+## Assistance supplémentaire
+
+Si vous rencontrez toujours des problèmes après avoir essayé les solutions ci-dessus, veuillez [nous contacter](./contact-us).

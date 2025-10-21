@@ -1,48 +1,60 @@
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
 # Eksportēt/Importēt noteikumus
 
 ## Eksportēt noteikumus {#export-rules}
 
-### Eksportēt macOS {#export-on-macos}
+### Eksportēt macOS ierīcē {#export-on-macos}
 
 Noklikšķiniet uz elipses pogas vai kopīgošanas pogas, kā parādīts šajā ekrānuzņēmumā:
 
-![Kopīgot macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Kopīgošanas poga macOS ierīcē" width="460" hasShadow hasRoundedCorners/>
+
+Pēc tam konteksta izvēlnē atlasiet "Eksportēt noteikumu" vai "Kopīgot noteikumu...":
 
 Varat arī atlasīt vairākus noteikumus un eksportēt tos, sekundāri noklikšķinot (ar peles labo pogu) uz tiem noteikumu saraksta sānjoslā:
 
-![Atlasīt vairākus noteikumus macOS](/img/multiselect-on-macos.png)
+<Image src={MultiSelectOnMacOS} alt="Kopīgot vairākus noteikumus macOS ierīcē" height="400" hasShadow hasRoundedCorners/>
 
-Turklāt varat eksportēt visus noteikumus no izvēlnes joslas > Fails > Eksportēt visus noteikumus:
 
-![Izvēlnes josla > Fails](/img/menubar-file.png)
+Turklāt visus noteikumus varat eksportēt no izvēlnes joslas > Fails > Eksportēt visus noteikumus:
+
+<Image src={MenubarFile} alt="Izvēlņu josla > Fails" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Ja vēlaties eksportēt savus noteikumus formātā, kas saderīgs ar [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/), nospiediet taustiņu Option (`⌥`) konteksta izvēlnē vai izvēlnes joslā, tad redzēsiet šos:
-> ![Izvēlnes josla > Fails (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Konteksta izvēlne (Redirector)](/img/context-menu-redirector.png)
+> Ja vēlaties eksportēt noteikumus formātā, kas ir saderīgs ar [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/), konteksta izvēlnē vai izvēlnes joslā nospiediet taustiņu Option (`⌥`), tad redzēsiet šos:
+> <Image src={MenubarFileRedirector} alt="Izvēlņu josla > Fails (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Konteksta izvēlne (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
 > Redirect Web nav pilnībā saderīgs ar Redirector, un otrādi. Daži iestatījumi, piemēram, "Aizstāt gadījumus" tveršanas grupas apstrādei, netiek eksportēti ar Redirector formātu.
 > :::
 
-### Eksportēt iOS {#export-on-ios}
+### Eksportēt iOS ierīcē {#export-on-ios}
 
-Varat eksportēt savus noteikumus šādi:
+Noteikumus varat eksportēt šādi:
 
 <iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="iOS demonstrācijas video noteikumu eksportēšanai (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Importēt noteikumus {#import-rules}
 
-### Importēt macOS {#import-on-macos}
+### Importēt macOS ierīcē {#import-on-macos}
 
-- Vienkārši velciet un nometiet eksportētos noteikumu failus uz Redirect Web logu.
+- Vienkārši velciet un nometiet eksportētos noteikumu failus uz Redirect Web loga.
 - Vai arī varat tos importēt no izvēlnes joslas > Fails > Importēt noteikumus
 
-### Importēt iOS {#import-on-ios}
+### Importēt iOS ierīcē {#import-on-ios}
 
 Pieņemsim, ka jūsu noteikumu fails atrodas lietotnē Faili. Atveriet to lietotnē Faili, pieskarieties pogai Kopīgot un pēc tam atlasiet Redirect Web:
 
-| 1. solis: Pieskarieties kopīgošanas pogai rīkjoslā | 2. solis: Atlasiet Redirect Web |
-| -------------------------------------------------- | -------------------------------- |
-| ![Pieskarieties kopīgošanas pogai rīkjoslā](/img/files-share-ios.png) | ![Pieskarieties lietotnes ikonai lapā](/img/share-sheet-ios.png) |
+| 1. darbība: Pieskarieties kopīgošanas pogai rīkjoslā                                                                          | 2. darbība: Atlasiet Redirect Web                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Pieskarieties kopīgošanas pogai rīkjoslā" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Pieskarieties lietotnes ikonai lapā" width="400" hasShadow hasRoundedCorners/> |

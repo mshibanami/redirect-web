@@ -1,29 +1,41 @@
-# Export/Import pravidiel
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
 
-## Export pravidiel {#export-rules}
+# Export/Import Pravidiel
+
+## Export Pravidiel {#export-rules}
 
 ### Export na macOS {#export-on-macos}
 
-Kliknite buď na tlačidlo s tromi bodkami, alebo na tlačidlo Zdieľať, ako je znázornené na tomto snímku obrazovky:
+Kliknite buď na tlačidlo s tromi bodkami alebo na tlačidlo Zdieľať, ako je znázornené na tomto screenshote:
 
-![Zdieľať na macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Tlačidlo Zdieľať na macOS" width="460" hasShadow hasRoundedCorners/>
+
+Potom z kontextového menu vyberte "Exportovať pravidlo" alebo "Zdieľať pravidlo...":
 
 Môžete tiež vybrať viacero pravidiel a exportovať ich sekundárnym kliknutím (pravým kliknutím) na bočnom paneli so zoznamom pravidiel:
 
-![Zdieľať viacero pravidiel na macOS](/img/multiselect-on-macos.png)
+<Image src={MultiSelectOnMacOS} alt="Zdieľať viacero pravidiel na macOS" height="400" hasShadow hasRoundedCorners/>
 
-Okrem toho môžete exportovať všetky pravidlá z ponuky > Súbor > Exportovať všetky pravidlá:
 
-![Ponuka > Súbor](/img/menubar-file.png)
+Okrem toho môžete exportovať všetky pravidlá z menubaru > Súbor > Exportovať všetky pravidlá:
+
+<Image src={MenubarFile} alt="Menubar > Súbor" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Ak chcete exportovať svoje pravidlá vo formáte kompatibilnom s [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/), stlačte kláves Option (`⌥`) v kontextovom menu alebo v ponuke, potom uvidíte toto:
-> ![Ponuka > Súbor (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Kontextové menu (Redirector)](/img/context-menu-redirector.png)
+> Ak chcete exportovať svoje pravidlá vo formáte kompatibilnom s [Redirectorom od Einara Egilssona](https://einaregilsson.com/redirector/), stlačte kláves Option (`⌥`) v kontextovom menu alebo v menubare, potom uvidíte toto:
+> <Image src={MenubarFileRedirector} alt="Menubar > Súbor (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Kontextové menu (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
-> Redirect Web nie je plne kompatibilný s Redirectorom a naopak. Niektoré nastavenia, ako napríklad "Nahradiť výskyty" pre spracovanie zachytávacej skupiny, sa neexportujú vo formáte Redirectora.
+> Redirect Web nie je plne kompatibilný s Redirectorom a naopak. Niektoré nastavenia, ako napríklad "Nahradiť výskyty" pre spracovanie zachytávacích skupín, sa neexportujú vo formáte Redirectora.
 > :::
 
 ### Export na iOS {#export-on-ios}
@@ -32,17 +44,17 @@ Svoje pravidlá môžete exportovať takto:
 
 <iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="iOS Demo Video pre export pravidiel (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Import pravidiel {#import-rules}
+## Import Pravidiel {#import-rules}
 
 ### Import na macOS {#import-on-macos}
 
 - Jednoducho pretiahnite exportované súbory pravidiel do okna Redirect Web.
-- Alebo ich môžete importovať z ponuky > Súbor > Importovať pravidlá
+- Alebo ich môžete importovať z menubaru > Súbor > Importovať pravidlá
 
 ### Import na iOS {#import-on-ios}
 
-Predpokladajme, že váš súbor pravidiel je v aplikácii Súbory. Otvorte ho v Súboroch, klepnite na tlačidlo Zdieľať a potom vyberte Redirect Web:
+Predpokladajme, že váš súbor pravidiel je v aplikácii Súbory. Otvorte ho v Súboroch, ťuknite na tlačidlo Zdieľať a potom vyberte Redirect Web:
 
-| Krok 1: Klepnite na tlačidlo Zdieľať na Súboroch | Krok 2: Vyberte Redirect Web |
-| ------------------------------------------------- | --------------------------------------------------- |
-| ![Klepnite na tlačidlo zdieľania na paneli nástrojov](/img/files-share-ios.png) | ![Klepnite na ikonu aplikácie v hárku](/img/share-sheet-ios.png) |
+| Krok 1: Ťuknite na tlačidlo Zdieľať na Súboroch                                                                          | Krok 2: Vyberte Redirect Web                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Ťuknite na tlačidlo zdieľať na paneli nástrojov" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Ťuknite na ikonu aplikácie v hárku" width="400" hasShadow hasRoundedCorners/> |

@@ -1,48 +1,60 @@
-# Taisyklių eksportavimas/importavimas
+import Image from "@site/src/components/Image";
+import ShareOnMacOS from "@site/static/img/share-on-macos.png";
+import MultiSelectOnMacOS from "@site/static/img/multiselect-on-macos.png";
+import MenubarFile from "@site/static/img/menubar-file.png";
+import MenubarFileRedirector from "@site/static/img/menubar-file-redirector.png";
+import ContextMenuRedirector from "@site/static/img/context-menu-redirector.png";
+import FilesShareIOS from "@site/static/img/files-share-ios.png";
+import ShareSheetIOS from "@site/static/img/share-sheet-ios.png";
+
+# Taisyklių eksportavimas / importavimas
 
 ## Taisyklių eksportavimas {#export-rules}
 
-### Eksportavimas „macOS“ sistemoje {#export-on-macos}
+### Eksportavimas macOS sistemoje {#export-on-macos}
 
 Spustelėkite daugtaškio mygtuką arba bendrinimo mygtuką, kaip parodyta šioje ekrano kopijoje:
 
-![Share on macOS](/img/share-on-macos.png)
+<Image src={ShareOnMacOS} alt="Bendrinimo mygtukas macOS sistemoje" width="460" hasShadow hasRoundedCorners/>
 
-Taip pat galite pasirinkti kelias taisykles ir eksportuoti jas, antriniu paspaudimu (dešiniuoju pelės mygtuku) spustelėdami jas šoninėje taisyklių sąrašo juostoje:
+Tada kontekstiniame meniu pasirinkite „Eksportuoti taisyklę“ arba „Bendrinti taisyklę...“:
 
-![Share multiple rules on macOS](/img/multiselect-on-macos.png)
+Taip pat galite pasirinkti kelias taisykles ir eksportuoti jas dešiniuoju pelės mygtuku spustelėdami šoninėje juostoje esantį taisyklių sąrašą:
+
+<Image src={MultiSelectOnMacOS} alt="Bendrinti kelias taisykles macOS sistemoje" height="400" hasShadow hasRoundedCorners/>
+
 
 Be to, visas taisykles galite eksportuoti iš meniu juostos > Failas > Eksportuoti visas taisykles:
 
-![Menubar > File](/img/menubar-file.png)
+<Image src={MenubarFile} alt="Meniu juosta > Failas" width="400" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Jei norite eksportuoti savo taisykles formatu, suderinamu su [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/), paspauskite „Option“ klavišą (`⌥`) kontekstiniame meniu arba meniu juostoje, tada pamatysite šiuos:
-> ![Menubar > File (Redirector)](/img/menubar-file-redirector.png)
->
-> ![Context Menu (Redirector)](/img/context-menu-redirector.png)
+> Jei norite eksportuoti taisykles formatu, suderinamu su [Einar Egilsson's Redirector](https://einaregilsson.com/redirector/), kontekstiniame meniu arba meniu juostoje paspauskite klavišą Option (`⌥`), tada pamatysite šiuos:
+> <Image src={MenubarFileRedirector} alt="Meniu juosta > Failas (Redirector)" width="400" hasShadow hasRoundedCorners/>
+> <br/>
+> <Image src={ContextMenuRedirector} alt="Kontekstinis meniu (Redirector)" width="400" hasShadow hasRoundedCorners/>
 >
 > :::warning
-> „Redirect Web“ nėra visiškai suderinama su „Redirector“ ir atvirkščiai. Kai kurie nustatymai, pvz., „Replace Occurrences“ (pakeisti pasikartojimus) fiksavimo grupės apdorojimui, nėra eksportuojami „Redirector“ formatu.
+> „Redirect Web“ nėra visiškai suderinama su „Redirector“ ir atvirkščiai. Kai kurie nustatymai, pvz., „Pakeisti pasikartojimus“ fiksavimo grupės apdorojimui, nėra eksportuojami „Redirector“ formatu.
 > :::
 
-### Eksportavimas „iOS“ sistemoje {#export-on-ios}
+### Eksportavimas iOS sistemoje {#export-on-ios}
 
-Savo taisykles galite eksportuoti taip:
+Taisykles galite eksportuoti taip:
 
-<iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="iOS Demo Video for exporting rules (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe height="540" src="https://www.youtube.com/embed/uQ6-SLEMlT4" title="iOS demonstracinis vaizdo įrašas, skirtas taisyklių eksportavimui (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Taisyklių importavimas {#import-rules}
 
-### Importavimas „macOS“ sistemoje {#import-on-macos}
+### Importavimas macOS sistemoje {#import-on-macos}
 
-- Tiesiog vilkite ir numeskite eksportuotus taisyklių failus į „Redirect Web“ langą.
+- Tiesiog nuvilkite eksportuotus taisyklių failus į „Redirect Web“ langą.
 - Arba galite juos importuoti iš meniu juostos > Failas > Importuoti taisykles
 
-### Importavimas „iOS“ sistemoje {#import-on-ios}
+### Importavimas iOS sistemoje {#import-on-ios}
 
-Tarkime, kad jūsų taisyklių failas yra programoje „Files“. Atidarykite jį programoje „Files“, bakstelėkite bendrinimo mygtuką ir pasirinkite „Redirect Web“:
+Tarkime, kad jūsų taisyklių failas yra programoje „Failai“. Atidarykite jį programoje „Failai“, bakstelėkite mygtuką „Bendrinti“ ir tada pasirinkite „Redirect Web“:
 
-| 1 žingsnis: Bakstelėkite bendrinimo mygtuką programoje „Files“ | 2 žingsnis: Pasirinkite „Redirect Web“ |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Tap the share button in the toolbar](/img/files-share-ios.png) | ![Tap the app icon in the sheet](/img/share-sheet-ios.png) |
+| 1 veiksmas: bakstelėkite bendrinimo mygtuką įrankių juostoje                                                                          | 2 veiksmas: pasirinkite „Redirect Web“                                                                              |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <Image src={FilesShareIOS} alt="Bakstelėkite bendrinimo mygtuką įrankių juostoje" width="400" hasShadow hasRoundedCorners/> | <Image src={ShareSheetIOS} alt="Bakstelėkite programos piktogramą lape" width="400" hasShadow hasRoundedCorners/> |
