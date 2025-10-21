@@ -6,7 +6,8 @@ import remarkCjkFriendly from 'remark-cjk-friendly';
 import { ALL_BROWSERS, getExtensionStore } from './src/components/ExtensionStoreLinks/constants';
 import { SUPPORTED_LOCALES } from './src/constants';
 
-const locale = process.env.DOCUSAURUS_CURRENT_LOCALE;
+const defaultLocale = 'en';
+const locale = process.env.DOCUSAURUS_CURRENT_LOCALE || defaultLocale;
 const projectName = 'redirect-web';
 const baseUrl = `/${projectName}/`;
 
@@ -19,11 +20,12 @@ const config: Config = {
   projectName: projectName,
   onBrokenLinks: 'throw',
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: defaultLocale,
     locales: [...SUPPORTED_LOCALES],
   },
   plugins: [
-    'docusaurus-plugin-sass'
+    'docusaurus-plugin-sass',
+    'docusaurus-plugin-image-zoom',
   ],
   markdown: {
     hooks: {
@@ -189,6 +191,16 @@ const config: Config = {
         },
       },
     },
+    zoom: {
+      selector: '.markdown img, .zooming img',
+      background: {
+        light: 'rgb(255, 255, 255, 0.8)',
+        dark: 'rgb(50, 50, 50, 0.8)',
+      },
+      config: {
+        // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+      }
+    }
   } satisfies Preset.ThemeConfig,
 };
 

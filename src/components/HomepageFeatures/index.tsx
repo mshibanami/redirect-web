@@ -104,7 +104,7 @@ function Feature({ title, icon, thumbnail, description }: FeatureItem) {
 
 export default function HomepageFeatures(): ReactNode {
   return (
-    <section className={styles.features}>
+    <section className={clsx('zooming', styles.features)}>
       <div className="container">
         <Heading as="h2" className='margin-bottom--lg'>
           <Translate
