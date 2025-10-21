@@ -3,6 +3,7 @@ import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 
 # Troubleshooting
 
@@ -36,3 +37,18 @@ You may also need to re-launch your browser after installing the native app.
 > [!NOTE]
 > * You need to install Redirect Web native app to use the browser extension. The extension alone does not work.
 > * Safari users do not need to install the extension separately, as it is bundled with the native app.
+
+## Original page flashes briefly before redirect
+
+This happens when you use the **Original** type redirect rules. This type provides various advanced features, but it may cause a brief flash of the original page because it may allow the original page to load before performing the redirect.
+
+Open the Edit Rule screen and change the **Type** to **DNR** to avoid this issue.
+
+<Image src={EditRuleDnr} alt="Redirect Web extension popup" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> In Firefox, this issue shouldn’t occur even with the Original type, since it relies on the WebRequest API, which prevents the original page from being loaded.
+
+## Further assistance
+
+If you are still experiencing issues after trying the above solutions, please [contact us](./contact-us).
