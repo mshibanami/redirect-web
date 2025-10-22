@@ -19,9 +19,9 @@
             "comments": "",
             "destinationURLPattern": "$1?layout=desktop$3",
             "exampleURLs": [
-                "https:\/\/example.com\/hello?theme=dark",
-                "https:\/\/example.com\/hello",
-                "https:\/\/example.com\/hello?layout=desktop&theme=dark"
+                "https://example.com/hello?theme=dark",
+                "https://example.com/hello",
+                "https://example.com/hello?layout=desktop&theme=dark"
             ],
             "excludeURLPatterns": [
                 {
@@ -32,7 +32,7 @@
             "kind": "Redirect",
             "sourceURLPattern": {
                 "type": "regularExpression",
-                "value": "(https:\/\/example.com\/[^?]*)((\\?(.*))?)"
+                "value": "(https://example.com/[^?]*)((\\?(.*))?)"
             },
             "title": "Always Use Desktop Layout"
         }

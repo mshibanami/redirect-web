@@ -5,16 +5,16 @@
     {
       "captureGroupProcesses": [],
       "comments": "",
-      "destinationURLPattern": "https:\/\/insighttimer.com\/saraauster\/guided-meditations\/calm",
+      "destinationURLPattern": "https://insighttimer.com/saraauster/guided-meditations/calm",
       "exampleURLs": [
-        "https:\/\/x.com\/home",
-        "https:\/\/twitter.com\/home"
+        "https://x.com/home",
+        "https://twitter.com/home"
       ],
       "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https:\/\/(twitter|x).com\/.*"
+        "value": "https://(twitter|x).com/.*"
       },
       "title": "Reduce Twitter Addiction"
     }

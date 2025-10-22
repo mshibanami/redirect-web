@@ -36,16 +36,16 @@ Below is an example of `rule-set.json` that configures Google Meet links to open
   "kind": "RedirectList",
   "redirects": [
     {
-      "appURL": "file:\/\/\/Applications\/Google%20Chrome.app",
+      "appURL": "file:///Applications/Google%20Chrome.app",
       "comments": "This is a rule to open Google Meet links in Google Chrome automatically.",
       "destinationURLPattern": "$0",
       "exampleURLs": [
-        "https:\/\/meet.google.com\/xxx-yyyy-zzz"
+        "https://meet.google.com/xxx-yyyy-zzz"
       ],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "https:\/\/meet.google.com\/[a-z]*-[a-z]*-[a-z]*"
+        "value": "https://meet.google.com/[a-z]*-[a-z]*-[a-z]*"
       },
       "title": "Google Meet: Open in Chrome"
     }

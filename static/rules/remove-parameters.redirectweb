@@ -19,14 +19,14 @@
             "comments": "",
             "destinationURLPattern": "$0",
             "exampleURLs": [
-                "https:\/\/example.com\/?source=twitter",
-                "https:\/\/example.com\/?hello=world&source=twitter&foo=bar"
+                "https://example.com/?source=twitter",
+                "https://example.com/?hello=world&source=twitter&foo=bar"
             ],
             "excludeURLPatterns": [],
             "kind": "Redirect",
             "sourceURLPattern": {
                 "type": "wildcard",
-                "value": "https:\/\/example.com\/*"
+                "value": "https://example.com/*"
             },
             "title": "Remove parameters"
         }
