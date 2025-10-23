@@ -9,6 +9,7 @@ You should translate `library/rule-sets/{rule_id}/i18n/{source_language}/message
 **Input**
 - Rule IDs (optional): Target rules available in `library/rule-sets/`. All rules by default.
   - Tip: You can get a list of all rule folders by `ls -d library/rule-sets/[0-9]*_*/` command.
+  - Ignore rules with `DELETED` or `HIDDEN` in its ID as they are deleted rules.
 - The source language (optional): English (`en`) by default
 - The target languages (required): Ask the user for the target languages.
 
