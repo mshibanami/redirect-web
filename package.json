@@ -13,7 +13,8 @@
     "write-translations": "bash scripts/docusaurus-write-translations.sh",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "translate-library": "bash scripts/extract-library-translatables.sh && bash scripts/agent-translate-library-i18n-messages-json.sh"
+    "translate-library": "bash scripts/extract-library-translatables.sh && bash scripts/agent-translate-library-i18n-messages-json.sh",
+    "check-generated-json-translations": "bash scripts/check-generated-json-translations.sh"
   },
   "dependencies": {
     "@ai-sdk/google": "^2.0.23",
