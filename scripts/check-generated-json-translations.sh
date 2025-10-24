@@ -4,7 +4,8 @@ cd "$(dirname "$0")/.."
 
 readonly baseLang="en"
 readonly baseJsonFilePatterns=(
-    "./library/rule-sets/*/i18n/${baseLang}/messages.json"
+    # "./library/rule-sets/*/i18n/${baseLang}/messages.json"
+    "./i18n/${baseLang}/*.json"
     "./i18n/${baseLang}/**/*.json"
 )
 
