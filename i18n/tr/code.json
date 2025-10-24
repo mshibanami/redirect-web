@@ -4,7 +4,7 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "Yeni sürümlerden haberdar olmak için {rssLink} aracılığıyla abone olun!",
+    "message": "{rssLink} aracılığıyla abone olarak yeni sürümlerden haberdar olun!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Uygulamadaki Kütüphane bölümünden faydalı hazır kurallarla hızlı başlangıç yapın.",
+    "message": "Uygulamadaki Kütüphane bölümünden kullanışlı hazır kurallarla hızlıca başlayın.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -60,15 +60,15 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Tarayıcılar Arası ve Platformlar Arası",
+    "message": "Çapraz Tarayıcı ve Çapraz Platform",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Mac'teki tüm büyük tarayıcılarda; iPhone, iPad ve Apple Vision Pro'da Safari'de kullanılabilir.",
+    "message": "Mac'teki tüm büyük tarayıcılarda; iPhone, iPad ve Apple Vision Pro'daki Safari'de kullanılabilir.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Tümünü $4 Karşılığında Açın",
+    "message": "Tümünü 4 Dolara Açın",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
@@ -84,11 +84,11 @@
     "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.viewRedditClassic.title": {
-    "message": "Reddit'i klasik tasarımında görüntüleyin",
+    "message": "Reddit'i Klasik Tasarımında Görüntüleyin",
     "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.viewRedditClassic.description": {
-    "message": "www.reddit.com adresinden otomatik olarak old.reddit.com adresine yönlendirin.",
+    "message": "www.reddit.com'dan old.reddit.com'a otomatik olarak yönlendirin.",
     "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.openAppleMaps.title": {
@@ -116,7 +116,7 @@
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "Figma, Notion veya Google Meet bağlantılarını Mac'inizdeki masaüstü uygulamalarında doğrudan açın.",
+    "message": "Figma, Notion veya Google Meet bağlantılarını doğrudan Mac'inizdeki masaüstü uygulamalarında açın.",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
@@ -140,7 +140,7 @@
     "description": "FAQ answer link to comparison page"
   },
   "landingPageFAQ.appRequired.question": {
-    "message": "Tarayıcı uzantısını yükledikten sonra yerel uygulamayı da almalı mıyım?",
+    "message": "Tarayıcı uzantısını yükledikten sonra yerel uygulamayı almalı mıyım?",
     "description": "FAQ question about app requirement"
   },
   "landingPageFAQ.appRequired.answer": {
@@ -163,15 +163,15 @@
     "description": "FAQ question about platform support"
   },
   "landingPageFAQ.platforms.answer": {
-    "message": "Fiyat farkı az olduğu için tek seferlik satın almayı öneriyoruz. Abonelik sunmamızın ana nedeni, ücretsiz deneme sürümü aracılığıyla tüm özellikleri denemenize olanak sağlamaktır.",
-    "description": "FAQ answer about purchasing"
+    "message": "Şu anda hayır. Redirect Web şu anda yalnızca Mac, iPhone, iPad ve Apple Vision Pro'da çalışmaktadır.",
+    "description": "FAQ answer about platform support"
   },
   "landingPageFAQ.whichPlanIsBest.question": {
     "message": "Tek seferlik satın alma mı yoksa yıllık abonelik mi: hangisi daha iyi?",
     "description": "FAQ question about purchasing"
   },
   "landingPageFAQ.ads.question": {
-    "message": "Web sitelerine reklam veya takip enjekte ediyor mu?",
+    "message": "Web sitelerine reklam veya izleme kodu enjekte ediyor mu?",
     "description": "FAQ question about ads and tracking"
   },
   "landingPageFAQ.ads.answer": {
@@ -183,11 +183,15 @@
     "description": "FAQ question about ownership transfer"
   },
   "landingPageFAQ.ownership.answer": {
-    "message": "%100 hayır. Tarayıcı uzantıları, göz atma ve verileriniz üzerinde derin bir kontrole sahiptir. Redirect Web her zaman bizim elimizde kalacak, böylece tam bir güvenle gezinebilirsiniz.",
+    "message": "Kesinlikle hayır. Tarayıcı uzantıları, taramanız ve verileriniz üzerinde derin bir kontrole sahiptir. Redirect Web her zaman bizim elimizde kalacaktır, böylece tam bir güvenle gezinebilirsiniz.",
     "description": "FAQ answer about ownership transfer"
   },
   "landingPageFAQ.title": {
     "message": "Sıkça Sorulan Sorular",
     "description": "FAQ section title"
+  },
+  "landingPageFAQ.whichPlanIsBest.answer": {
+    "message": "Fiyat farkı az olduğu için tek seferlik satın almayı öneriyoruz. Abonelik sunmamızın ana nedeni, ücretsiz deneme sürümü aracılığıyla tüm özellikleri denemenize izin vermektir.",
+    "description": "FAQ answer about purchasing"
   }
 }

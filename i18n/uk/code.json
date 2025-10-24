@@ -1,6 +1,6 @@
 {
   "release-notes.description.rssLink": {
-    "message": "RSS-канали",
+    "message": "RSS-стрічки",
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
@@ -8,11 +8,11 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Якщо ви шукаєте примітки до випуску 7.10.0 або раніше, будь ласка, перевірте {appStoreName}.",
+    "message": "Якщо ви шукаєте примітки до випусків 7.10.0 або раніших версій, перегляньте {appStoreName або перевірте {appStoreName}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName} — це потужне розширення для браузера для перенаправлення URL-адрес на основі ваших власних правил.",
+    "message": "{appName} — це потужне розширення для браузера, що перенаправляє URL-адреси на основі ваших власних правил.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
@@ -20,11 +20,11 @@
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
-    "message": "Професійна порада",
+    "message": "Порада",
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Ви можете отримати правила для всіх цих випадків використання з розділу Бібліотека в програмі!",
+    "message": "Ви можете отримати правила для всіх цих випадків використання з розділу Бібліотека в додатку!",
     "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
@@ -32,7 +32,7 @@
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Без реклами. Без відстеження. Насолоджуйтесь швидшим, чистішим вебом, налаштованим під вас.",
+    "message": "Без реклами. Без відстеження. Насолоджуйтесь швидшим, чистішим Інтернетом, налаштованим під вас.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Швидкий старт із корисними готовими правилами з розділу Бібліотека в застосунку.",
+    "message": "Швидко починайте з корисних готових правил із розділу Бібліотека в додатку.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Доступно в усіх основних браузерах на Mac; Safari на iPhone, iPad та Apple Vision Pro.",
+    "message": "Доступно у всіх основних браузерах на Mac; Safari на iPhone, iPad та Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -72,7 +72,7 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Розблокуйте синхронізацію iCloud, необмежені правила та майбутні преміум-функції за одноразову плату за ціною кави.",
+    "message": "Розблокуйте синхронізацію iCloud, необмежену кількість правил та майбутні преміум-функції за одноразову плату за ціною кави.",
     "description": "Landing page feature description for unlocking all features"
   },
   "productUseCases.customDefaultSearchEngine.title": {
@@ -80,11 +80,11 @@
     "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.customDefaultSearchEngine.description": {
-    "message": "Встановіть Kagi, Startpage, ChatGPT або будь-яку іншу пошукову систему як типову.",
+    "message": "Встановіть Kagi, Startpage, ChatGPT або будь-яку іншу пошукову систему як свою за замовчуванням.",
     "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.viewRedditClassic.title": {
-    "message": "Переглянути Reddit у його класичному дизайні",
+    "message": "Перегляд Reddit у класичному дизайні",
     "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.viewRedditClassic.description": {
@@ -96,15 +96,15 @@
     "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
   },
   "productUseCases.declutterGoogleSearch.title": {
-    "message": "Упорядкувати Пошук Google",
+    "message": "Очистити пошук Google",
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
-    "message": "Автоматично додавайте \"?udm=14\" до ваших пошукових запитів у Google, щоб приховати огляди ШІ.",
+    "message": "Автоматично додавайте \"?udm=14\" до своїх пошукових запитів Google, щоб приховати огляди ШІ.",
     "description": "Use case description for a redirection rules of decluttering Google Search"
   },
   "productUseCases.useYourFavoriteWiki.title": {
-    "message": "Використовуйте свою улюблену вікі",
+    "message": "Використовуйте свою улюблену Вікі",
     "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.useYourFavoriteWiki.description": {
@@ -128,7 +128,7 @@
     "description": "Title for the product features section."
   },
   "landingPageFAQ.otherApps.question": {
-    "message": "Існують інші подібні розширення. Чим відрізняється Redirect Web?",
+    "message": "Існують інші подібні розширення. Чим Redirect Web відрізняється?",
     "description": "FAQ question about other apps"
   },
   "landingPageFAQ.otherApps.answer": {
@@ -140,11 +140,11 @@
     "description": "FAQ answer link to comparison page"
   },
   "landingPageFAQ.appRequired.question": {
-    "message": "Чи варто мені завантажувати нативний додаток після встановлення розширення для браузера?",
+    "message": "Чи потрібно мені завантажувати нативний додаток після встановлення розширення для браузера?",
     "description": "FAQ question about app requirement"
   },
   "landingPageFAQ.appRequired.answer": {
-    "message": "Так. Вам потрібно завантажити програму Redirect Web з App Store незалежно від того, який браузер ви використовуєте. Програма потрібна для керування вашими правилами.",
+    "message": "Так. Вам потрібно завантажити додаток Redirect Web з App Store незалежно від того, який браузер ви використовуєте. Додаток потрібен для керування вашими правилами.",
     "description": "FAQ answer about app requirement"
   },
   "landingPageFAQ.library.question": {
@@ -152,19 +152,19 @@
     "description": "FAQ question about library pricing"
   },
   "landingPageFAQ.library.answer": {
-    "message": "Ні, це завжди безкоштовно та з відкритим кодом. Ви можете знайти вихідний код усього вмісту на GitHub.",
+    "message": "Ні, вона завжди безкоштовна та з відкритим вихідним кодом. Ви можете знайти джерело всього вмісту на GitHub.",
     "description": "FAQ answer about library pricing"
   },
   "landingPageFAQ.library.completeListOfLibraryRules": {
     "message": "Повний список правил бібліотеки"
   },
   "landingPageFAQ.platforms.question": {
-    "message": "Чи працює воно на Windows, Android чи Linux?",
+    "message": "Чи працює він на Windows, Android або Linux?",
     "description": "FAQ question about platform support"
   },
   "landingPageFAQ.platforms.answer": {
-    "message": "Ми рекомендуємо одноразову покупку, оскільки різниця в ціні невелика. Основна причина, чому ми пропонуємо підписку, полягає в тому, щоб дозволити вам спробувати всі функції через безкоштовну пробну версію.",
-    "description": "FAQ answer about purchasing"
+    "message": "Наразі ні. Наразі Redirect Web працює лише на Mac, iPhone, iPad та Apple Vision Pro.",
+    "description": "FAQ answer about platform support"
   },
   "landingPageFAQ.whichPlanIsBest.question": {
     "message": "Одноразова покупка чи річна підписка: що краще?",
@@ -175,19 +175,23 @@
     "description": "FAQ question about ads and tracking"
   },
   "landingPageFAQ.ads.answer": {
-    "message": "Ні, він ніколи нічого подібного не впроваджує. Жодної реклами, жодного відстеження, жодного нерелевантного вмісту.",
+    "message": "Ні, він ніколи не вставляє нічого подібного. Без реклами, без відстеження, без непов'язаного вмісту.",
     "description": "FAQ answer about ads and tracking"
   },
   "landingPageFAQ.ownership.question": {
-    "message": "Чи може Redirect Web бути колись проданий комусь іншому?",
+    "message": "Чи може Redirect Web бути проданий комусь іншому?",
     "description": "FAQ question about ownership transfer"
   },
   "landingPageFAQ.ownership.answer": {
-    "message": "100% ні. Розширення браузера мають глибокий контроль над вашим переглядом і даними. Redirect Web завжди залишатиметься в наших руках, тому ви можете переглядати веб-сторінки з повною впевненістю.",
+    "message": "100% ні. Розширення для браузерів мають глибокий контроль над вашим переглядом та даними. Redirect Web завжди залишатиметься в наших руках, тому ви можете переглядати веб-сторінки з повною впевненістю.",
     "description": "FAQ answer about ownership transfer"
   },
   "landingPageFAQ.title": {
-    "message": "Часті питання",
+    "message": "Часті запитання",
     "description": "FAQ section title"
+  },
+  "landingPageFAQ.whichPlanIsBest.answer": {
+    "message": "Ми рекомендуємо одноразову покупку, оскільки різниця в ціні невелика. Основна причина, чому ми пропонуємо підписку, полягає в тому, щоб дозволити вам спробувати всі функції через її безкоштовну пробну версію.",
+    "description": "FAQ answer about purchasing"
   }
 }

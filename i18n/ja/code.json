@@ -4,11 +4,11 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "新しいリリース情報を受け取るには、{rssLink}から購読してください！",
+    "message": "{rssLink}から購読して、新しいリリース情報を入手しましょう！",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "バージョン7.10.0以前のリリースノートをお探しですか？{appStoreName}をご確認ください。",
+    "message": "バージョン7.10.0以前のリリースノートをお探しの場合は、{appStoreName}をご確認ください。",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -24,15 +24,15 @@
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "アプリのライブラリセクションから、これらすべてのユースケースのルールを入手できます！",
+    "message": "これらのユースケースのルールはすべて、アプリのライブラリセクションから入手できます！",
     "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
-    "message": "詳細はこちら",
+    "message": "詳細を見る",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "広告なし。トラッキングなし。あなたに合わせた、より速く、よりクリーンなウェブをお楽しみください。",
+    "message": "広告なし。追跡なし。あなたに合わせた、より速く、よりクリーンなウェブをお楽しみください。",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "アプリのライブラリセクションにある便利な既製ルールですぐに開始できます。",
+    "message": "アプリのライブラリセクションにある便利な既製ルールですぐに始められます。",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -64,15 +64,15 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Macの主要なすべてのブラウザ、iPhone、iPad、Apple Vision ProのSafariで利用可能です。",
+    "message": "Macのすべての主要ブラウザ、iPhone、iPad、Apple Vision ProのSafariで利用可能です。",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "$4ですべてをアンロック",
+    "message": "すべてを$4でアンロック",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "iCloud同期、無制限のルール、および将来のプレミアム機能を、コーヒー1杯分の1回払いでアンロックします。",
+    "message": "iCloud同期、無制限のルール、将来のプレミアム機能をコーヒー1杯分の料金で1回限りの支払いでアンロックします。",
     "description": "Landing page feature description for unlocking all features"
   },
   "productUseCases.customDefaultSearchEngine.title": {
@@ -88,7 +88,7 @@
     "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.viewRedditClassic.description": {
-    "message": "www.reddit.comからold.reddit.comへ自動的にリダイレクトします。",
+    "message": "www.reddit.comからold.reddit.comに自動的にリダイレクトします。",
     "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.openAppleMaps.title": {
@@ -100,7 +100,7 @@
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
-    "message": "Google検索に自動的に「?udm=14」を追加して、AI概要を非表示にします。",
+    "message": "Google検索に「?udm=14」を自動的に追加して、AI概要を非表示にします。",
     "description": "Use case description for a redirection rules of decluttering Google Search"
   },
   "productUseCases.useYourFavoriteWiki.title": {
@@ -116,7 +116,7 @@
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "MacでFigma、Notion、またはGoogle Meetのリンクをデスクトップアプリで直接開きます。",
+    "message": "MacでFigma、Notion、Google Meetのリンクをデスクトップアプリで直接開きます。",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
@@ -132,7 +132,7 @@
     "description": "FAQ question about other apps"
   },
   "landingPageFAQ.otherApps.answer": {
-    "message": "Redirect Webは、詳細なルール設定、便利なルールライブラリ、iCloud同期、Safariサポートなど、独自の機能を提供します。しかし、各ツールにはそれぞれの利点があります。あなたのニーズに最適なものを選ぶために、比較ページをご確認ください。",
+    "message": "Redirect Webは、詳細なルール設定、便利なルールライブラリ、iCloud同期、Safariサポートなどのユニークな機能を提供しています。しかし、それぞれのツールには独自の利点があります。あなたのニーズに最適なものを選ぶために、比較ページをご確認ください。",
     "description": "FAQ answer about other apps"
   },
   "landingPageFAQ.otherApps.comparisonLink": {
@@ -144,7 +144,7 @@
     "description": "FAQ question about app requirement"
   },
   "landingPageFAQ.appRequired.answer": {
-    "message": "はい。どのブラウザを使用しているかに関わらず、App StoreからRedirect Webアプリをダウンロードする必要があります。アプリはルールを管理するために必要です。",
+    "message": "はい。どのブラウザを使用しているかに関わらず、App StoreからRedirect Webアプリをダウンロードする必要があります。このアプリはルールを管理するために必要です。",
     "description": "FAQ answer about app requirement"
   },
   "landingPageFAQ.library.question": {
@@ -152,42 +152,46 @@
     "description": "FAQ question about library pricing"
   },
   "landingPageFAQ.library.answer": {
-    "message": "いいえ、常に無料でオープンソースです。すべてのコンテンツのソースはGitHubで見つけることができます。",
+    "message": "いいえ、常に無料でオープンソースです。すべてのコンテンツのソースはGitHubで確認できます。",
     "description": "FAQ answer about library pricing"
   },
   "landingPageFAQ.library.completeListOfLibraryRules": {
     "message": "ライブラリのルール完全リスト"
   },
   "landingPageFAQ.platforms.question": {
-    "message": "Windows、Android、Linuxで動作しますか？",
+    "message": "Windows、Android、またはLinuxで動作しますか？",
     "description": "FAQ question about platform support"
   },
   "landingPageFAQ.platforms.answer": {
-    "message": "価格差が小さいため、一括購入をお勧めします。サブスクリプションを提供している主な理由は、無料トライアルを通じてすべての機能を試せるようにするためです。",
-    "description": "FAQ answer about purchasing"
+    "message": "現時点では動作しません。現在、Redirect WebはMac、iPhone、iPad、Apple Vision Proでのみ動作します。",
+    "description": "FAQ answer about platform support"
   },
   "landingPageFAQ.whichPlanIsBest.question": {
-    "message": "一括購入と年間サブスクリプション：どちらが良いですか？",
+    "message": "1回限りの購入と年間サブスクリプション：どちらが良いですか？",
     "description": "FAQ question about purchasing"
   },
   "landingPageFAQ.ads.question": {
-    "message": "広告やトラッキングをウェブサイトに挿入しますか？",
+    "message": "ウェブサイトに広告やトラッキングを挿入しますか？",
     "description": "FAQ question about ads and tracking"
   },
   "landingPageFAQ.ads.answer": {
-    "message": "いいえ、そのようなものは一切挿入しません。広告なし、トラッキングなし、無関係なコンテンツなし。",
+    "message": "いいえ、そのようなものは一切挿入しません。広告なし、追跡なし、無関係なコンテンツなし。",
     "description": "FAQ answer about ads and tracking"
   },
   "landingPageFAQ.ownership.question": {
-    "message": "Redirect Webが他者に売却される可能性はありますか？",
+    "message": "Redirect Webが他の誰かに売却される可能性はありますか？",
     "description": "FAQ question about ownership transfer"
   },
   "landingPageFAQ.ownership.answer": {
-    "message": "100%ありません。ブラウザ拡張機能はブラウジングとデータに対して深い制御を持ちます。Redirect Webは常に私たちの手元にあり、安心してブラウジングできます。",
+    "message": "100％ありません。ブラウザ拡張機能は、あなたのブラウジングとデータに対して深い制御を持っています。Redirect Webは常に私たちの手元にあり、安心してブラウジングできます。",
     "description": "FAQ answer about ownership transfer"
   },
   "landingPageFAQ.title": {
     "message": "よくある質問",
     "description": "FAQ section title"
+  },
+  "landingPageFAQ.whichPlanIsBest.answer": {
+    "message": "価格差が小さいため、1回限りの購入をお勧めします。サブスクリプションを提供する主な理由は、無料トライアルを通じてすべての機能を試せるようにするためです。",
+    "description": "FAQ answer about purchasing"
   }
 }

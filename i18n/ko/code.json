@@ -1,193 +1,197 @@
 {
   "release-notes.description.rssLink": {
-    "message": "RSS 피드",
+    "message": "ko: RSS feeds",
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "새로운 릴리스에 대한 최신 정보를 받으려면 {rssLink}를 통해 구독하세요!",
+    "message": "ko: Subscribe through {rssLink} to stay up-to-date with new releases!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "7.10.0 또는 이전 버전의 릴리스 노트를 찾고 있다면 {appStoreName}을 확인하세요.",
+    "message": "ko: If you are looking for the release notes of 7.10.0 or earlier, please check {appStoreName}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName}은(는) 사용자 지정 규칙에 따라 URL을 리디렉션하는 강력한 브라우저 확장 프로그램입니다.",
+    "message": "ko: {appName} is a powerful browser extension to redirect URLs based on your custom rules.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
-    "message": "👇️ 데모를 보려면 클릭하세요",
+    "message": "ko: 👇️ Click to Watch Demo",
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
-    "message": "전문가 팁",
+    "message": "ko: Protip",
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "앱의 라이브러리 섹션에서 이 모든 사용 사례에 대한 규칙을 얻을 수 있습니다!",
+    "message": "ko: You can get rules of all these use cases from the Library section in the app!",
     "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
-    "message": "더 알아보기",
+    "message": "ko: Learn More",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "광고 없음. 추적 없음. 나에게 맞춰진 더 빠르고 깔끔한 웹을 즐기세요.",
+    "message": "ko: No ads. No tracking. Enjoy a faster, cleaner web tailored to you.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
-    "message": "강력한 리디렉션 엔진",
+    "message": "ko: Powerful Redirection Engine",
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "와일드카드, 정규 표현식, 제외된 URL 패턴, 캡처 그룹 처리, DNR 등을 사용하여 정확한 규칙을 만드세요.",
+    "message": "ko: Create precise rules using wildcards, regular expressions, excluded URL patterns, capture group processing, DNR, and more.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
-    "message": "라이브러리의 유용한 규칙",
+    "message": "ko: Useful Rules in Library",
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "앱의 라이브러리 섹션에서 유용한 사전 제작 규칙으로 빠르게 시작하세요.",
+    "message": "ko: Quick start with useful pre-made rules from the Library section in the app.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
-    "message": "네이티브 UI",
+    "message": "ko: Native UI",
     "description": "Landing page feature title for native UI"
   },
   "landingPage.feature.nativeUI.description": {
-    "message": "Redirect Web은 각 플랫폼에서 원활한 경험을 제공하기 위해 네이티브 앱을 제공합니다.",
+    "message": "ko: Redirect Web offers a native app to provide a seamless experience on each platform.",
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "크로스 브라우저 및 크로스 플랫폼",
+    "message": "ko: Cross-Browser & Cross-Platform",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Mac의 모든 주요 브라우저, iPhone, iPad 및 Apple Vision Pro의 Safari에서 사용할 수 있습니다.",
+    "message": "ko: Available in all major browsers on Mac; Safari on iPhone, iPad, and Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "$4로 모두 잠금 해제",
+    "message": "ko: Unlock All for $4",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "커피 한 잔 가격으로 iCloud 동기화, 무제한 규칙 및 향후 프리미엄 기능을 일회성 결제로 잠금 해제하세요.",
+    "message": "ko: Unlock iCloud Sync, unlimited rules, and future premium features with a one-time payment for the price of a coffee.",
     "description": "Landing page feature description for unlocking all features"
   },
   "productUseCases.customDefaultSearchEngine.title": {
-    "message": "사용자 지정 기본 검색 엔진",
+    "message": "ko: Custom Default Search Engine",
     "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.customDefaultSearchEngine.description": {
-    "message": "Kagi, Startpage, ChatGPT 또는 다른 검색 엔진을 기본값으로 설정하세요.",
+    "message": "ko: Set Kagi, Startpage, ChatGPT, or any other search engine as your default.",
     "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.viewRedditClassic.title": {
-    "message": "클래식 디자인으로 Reddit 보기",
+    "message": "ko: View Reddit in its classic design",
     "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.viewRedditClassic.description": {
-    "message": "www.reddit.com에서 old.reddit.com으로 자동 리디렉션됩니다.",
+    "message": "ko: Automatically redirect from www.reddit.com to old.reddit.com.",
     "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.openAppleMaps.title": {
-    "message": "Google 지도 링크에서 Apple 지도 열기",
+    "message": "ko: Open Apple Maps from Google Maps links",
     "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
   },
   "productUseCases.declutterGoogleSearch.title": {
-    "message": "Google 검색 정리",
+    "message": "ko: Declutter Google Search",
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
-    "message": "Google 검색에 자동으로 \"?udm=14\"를 추가하여 AI 개요를 숨깁니다.",
+    "message": "ko: Automatically add \"?udm=14\" to your Google searches to hide AI Overviews.",
     "description": "Use case description for a redirection rules of decluttering Google Search"
   },
   "productUseCases.useYourFavoriteWiki.title": {
-    "message": "즐겨찾는 위키 사용",
+    "message": "ko: Use Your Favorite Wiki",
     "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.useYourFavoriteWiki.description": {
-    "message": "Fandom 페이지에서 공식 Terraria 또는 Minecraft 위키로 이동합니다.",
+    "message": "ko: Jump from Fandom pages to the official Terraria or Minecraft wikis.",
     "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.openLinksInNativeApps.title": {
-    "message": "네이티브 앱에서 링크 열기",
+    "message": "ko: Open Links in Native Apps",
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "Mac에서 Figma, Notion 또는 Google Meet 링크를 데스크톱 앱에서 직접 엽니다.",
+    "message": "ko: Open Figma, Notion, or Google Meet links directly in their desktop apps on your Mac.",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
-    "message": "사용 사례 예시",
+    "message": "ko: Example Use Cases",
     "description": "Title for the example use cases section"
   },
   "landingPage.productFeatures.title": {
-    "message": "왜 {productName}인가요?",
+    "message": "ko: Why {productName}?",
     "description": "Title for the product features section."
   },
   "landingPageFAQ.otherApps.question": {
-    "message": "다른 유사한 확장 프로그램이 있습니다. Redirect Web은 어떻게 다른가요?",
+    "message": "ko: There are other similar extensions. How is Redirect Web different?",
     "description": "FAQ question about other apps"
   },
   "landingPageFAQ.otherApps.answer": {
-    "message": "Redirect Web은 상세한 규칙 설정, 유용한 규칙 라이브러리, iCloud 동기화, Safari 지원 등 고유한 기능을 제공합니다. 하지만 각 도구마다 장점이 있습니다. 귀하의 필요에 가장 적합한 도구를 선택하는 데 도움이 되는 비교 페이지를 확인하세요:",
+    "message": "ko: Redirect Web offers unique features like detailed rule settings, useful rule library, iCloud Sync, Safari support, and more. But each tool has its own advantages. Check our comparison page to help you choose the one that best fits your needs:",
     "description": "FAQ answer about other apps"
   },
   "landingPageFAQ.otherApps.comparisonLink": {
-    "message": "다른 도구와의 비교",
+    "message": "ko: Comparison with Other Tools",
     "description": "FAQ answer link to comparison page"
   },
   "landingPageFAQ.appRequired.question": {
-    "message": "브라우저 확장 프로그램을 설치한 후 네이티브 앱을 받아야 하나요?",
+    "message": "ko: Should I get the native app after installing the browser extension?",
     "description": "FAQ question about app requirement"
   },
   "landingPageFAQ.appRequired.answer": {
-    "message": "예. 어떤 브라우저를 사용하든 App Store에서 Redirect Web 앱을 다운로드해야 합니다. 앱은 규칙을 관리하는 데 필요합니다.",
+    "message": "ko: Yes. You need to download the Redirect Web app from the App Store regardless of which browser you use. The app is required to manage your rules.",
     "description": "FAQ answer about app requirement"
   },
   "landingPageFAQ.library.question": {
-    "message": "라이브러리는 미래에 유료가 되나요?",
+    "message": "ko: Will the library become paid in the future?",
     "description": "FAQ question about library pricing"
   },
   "landingPageFAQ.library.answer": {
-    "message": "아니요, 항상 무료이며 오픈 소스입니다. 모든 콘텐츠의 소스는 GitHub에서 찾을 수 있습니다.",
+    "message": "ko: No, it's always free and open source. You can find the source of all the contents on GitHub.",
     "description": "FAQ answer about library pricing"
   },
   "landingPageFAQ.library.completeListOfLibraryRules": {
-    "message": "라이브러리 규칙 전체 목록"
+    "message": "ko: Complete list of Library Rules"
   },
   "landingPageFAQ.platforms.question": {
-    "message": "Windows, Android 또는 Linux에서 작동하나요?",
+    "message": "ko: Does it work on Windows, Android, or Linux?",
     "description": "FAQ question about platform support"
   },
   "landingPageFAQ.platforms.answer": {
-    "message": "가격 차이가 작으므로 일회성 구매를 권장합니다. 구독을 제공하는 주된 이유는 무료 평가판을 통해 모든 기능을 사용해 볼 수 있도록 하기 위함입니다.",
-    "description": "FAQ answer about purchasing"
+    "message": "ko: Not at this time. Currently, Redirect Web only works on Mac, iPhone, iPad, and Apple Vision Pro.",
+    "description": "FAQ answer about platform support"
   },
   "landingPageFAQ.whichPlanIsBest.question": {
-    "message": "일회성 구매 또는 연간 구독: 어떤 것이 가장 좋나요?",
+    "message": "ko: One-time purchase or annual subscription: which is best?",
     "description": "FAQ question about purchasing"
   },
   "landingPageFAQ.ads.question": {
-    "message": "웹사이트에 광고 또는 추적을 삽입하나요?",
+    "message": "ko: Does it inject ads or tracking into websites?",
     "description": "FAQ question about ads and tracking"
   },
   "landingPageFAQ.ads.answer": {
-    "message": "아니요, 그런 것을 절대 삽입하지 않습니다. 광고, 추적, 관련 없는 콘텐츠가 없습니다.",
+    "message": "ko: No, it never injects anything like that. No ads, no tracking, no unrelated content.",
     "description": "FAQ answer about ads and tracking"
   },
   "landingPageFAQ.ownership.question": {
-    "message": "Redirect Web이 다른 사람에게 판매될 수도 있나요?",
+    "message": "ko: Could Redirect Web ever be sold to someone else?",
     "description": "FAQ question about ownership transfer"
   },
   "landingPageFAQ.ownership.answer": {
-    "message": "100% 아닙니다. 브라우저 확장 프로그램은 브라우징 및 데이터에 대한 깊은 제어 권한을 가집니다. Redirect Web은 항상 저희의 손에 남아 있을 것이므로, 안심하고 브라우징할 수 있습니다.",
+    "message": "ko: 100% no. Browser extensions have deep control over your browsing and data. Redirect Web will always remain in our hands, so you can browse with complete confidence.",
     "description": "FAQ answer about ownership transfer"
   },
   "landingPageFAQ.title": {
-    "message": "자주 묻는 질문",
+    "message": "ko: Frequently Asked Questions",
     "description": "FAQ section title"
+  },
+  "landingPageFAQ.whichPlanIsBest.answer": {
+    "message": "ko: We recommend the one-time purchase, as the price difference is small. The main reason we offer the subscription is to allow you to try all the features through its free trial.",
+    "description": "FAQ answer about purchasing"
   }
 }

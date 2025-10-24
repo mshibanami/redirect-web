@@ -12,11 +12,11 @@
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName} on tehokas selainlaajennus URL-osoitteiden uudelleenohjaamiseen mukautettujen sääntöjen perusteella.",
+    "message": "{appName} on tehokas selainlaajennus URL-osoitteiden uudelleenohjaamiseen mukautettujen sääntöjesi perusteella.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
-    "message": "👇️ Katso demo napsauttamalla",
+    "message": "👇️ Katso demo",
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Luo tarkkoja sääntöjä käyttämällä yleismerkkejä, säännöllisiä lausekkeita, poissuljettuja URL-malleja, sieppausryhmän käsittelyä, DNR:ää ja paljon muuta.",
+    "message": "Luo tarkkoja sääntöjä käyttämällä yleismerkkejä, säännöllisiä lausekkeita, poissuljettuja URL-malleja, kaappausryhmän käsittelyä, DNR:ää ja paljon muuta.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Saatavilla kaikissa tärkeimmissä selaimissa Macilla; Safari iPhonessa, iPadissa ja Apple Vision Prossa.",
+    "message": "Saatavilla kaikissa tärkeimmissä selaimissa Macissa; Safarissa iPhonessa, iPadissa ja Apple Vision Prossa.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -116,7 +116,7 @@
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "Avaa Figma-, Notion- tai Google Meet -linkit suoraan työpöytäsovelluksissaan Macilla.",
+    "message": "Avaa Figma-, Notion- tai Google Meet -linkit suoraan työpöytäsovelluksissaan Macissasi.",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
@@ -144,7 +144,7 @@
     "description": "FAQ question about app requirement"
   },
   "landingPageFAQ.appRequired.answer": {
-    "message": "Kyllä. Sinun on ladattava Redirect Web -sovellus App Storesta riippumatta siitä, mitä selainta käytät. Sovellus tarvitaan sääntöjen hallintaan.",
+    "message": "Kyllä. Sinun on ladattava Redirect Web -sovellus App Storesta riippumatta siitä, mitä selainta käytät. Sovellus tarvitaan sääntöjesi hallintaan.",
     "description": "FAQ answer about app requirement"
   },
   "landingPageFAQ.library.question": {
@@ -152,7 +152,7 @@
     "description": "FAQ question about library pricing"
   },
   "landingPageFAQ.library.answer": {
-    "message": "Ei, se on aina ilmainen ja avoimen lähdekoodin. Kaiken sisällön lähde löytyy GitHubista.",
+    "message": "Ei, se on aina ilmainen ja avoimen lähdekoodin. Löydät kaiken sisällön lähteen GitHubista.",
     "description": "FAQ answer about library pricing"
   },
   "landingPageFAQ.library.completeListOfLibraryRules": {
@@ -163,8 +163,8 @@
     "description": "FAQ question about platform support"
   },
   "landingPageFAQ.platforms.answer": {
-    "message": "Suosittelemme kertaluonteista ostoa, sillä hintaero on pieni. Pääsyy siihen, miksi tarjoamme tilauksen, on antaa sinun kokeilla kaikkia ominaisuuksia sen ilmaisen kokeilujakson kautta.",
-    "description": "FAQ answer about purchasing"
+    "message": "Ei tällä hetkellä. Tällä hetkellä Redirect Web toimii vain Macissa, iPhonessa, iPadissa ja Apple Vision Prossa.",
+    "description": "FAQ answer about platform support"
   },
   "landingPageFAQ.whichPlanIsBest.question": {
     "message": "Kertaluonteinen osto vai vuositilaus: kumpi on parempi?",
@@ -183,11 +183,15 @@
     "description": "FAQ question about ownership transfer"
   },
   "landingPageFAQ.ownership.answer": {
-    "message": "100 % ei. Selainlaajennuksilla on syvällinen hallinta selaamiseesi ja tietoihisi. Redirect Web pysyy aina meidän käsissämme, joten voit selata täysin luottavaisin mielin.",
+    "message": "100% ei. Selainlaajennuksilla on syvällinen hallinta selaamiseesi ja tietoihisi. Redirect Web pysyy aina meidän käsissämme, joten voit selata täysin luottavaisin mielin.",
     "description": "FAQ answer about ownership transfer"
   },
   "landingPageFAQ.title": {
     "message": "Usein kysytyt kysymykset",
     "description": "FAQ section title"
+  },
+  "landingPageFAQ.whichPlanIsBest.answer": {
+    "message": "Suosittelemme kertaluonteista ostoa, sillä hintaero on pieni. Tärkein syy tilauksen tarjoamiseen on antaa sinun kokeilla kaikkia ominaisuuksia sen ilmaisen kokeilujakson kautta.",
+    "description": "FAQ answer about purchasing"
   }
 }
