@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Це перенаправляє посилання Google Maps на веб-сайт Apple Maps.\n\nЦе корисно, коли ваш друг ділиться з вами посиланням на Google Maps, а ви хочете відкрити те саме місце на веб-сайті Apple Maps замість цього.\n\nЦей набір правил складається з 4 правил перенаправлення.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Відкривати URL-адреси Google Maps на веб-сайті Apple Maps",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Це перенаправляє посилання Google Maps, які починаються з /maps?, на Apple Maps.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Відкривати посилання Google Maps в Apple Maps",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Це перенаправляє посилання Google Maps, які починаються з /maps/place/ або /maps/search/, на Apple Maps.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Відкривати посилання Google Maps в Apple Maps",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Це перенаправляє посилання Google Maps, які починаються з /maps/@, на Apple Maps.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Відкривати посилання Google Maps в Apple Maps",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Це перенаправляє посилання Google Maps для маршрутів, які починаються з /maps/dir/, на Apple Maps.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Відкривати посилання Google Maps в Apple Maps",
+    "description": "The title of redirect rule #3"
+  }
+}

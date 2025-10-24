@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Esto redirige los enlaces de Google Maps al sitio web de Apple Maps.\n\nEsto es útil cuando tu amigo comparte un enlace de Google Maps contigo y quieres abrir la misma ubicación en el sitio web de Apple Maps en su lugar.\n\nEste conjunto de reglas consta de 4 reglas de redirección.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Abrir URLs de Google Maps en el sitio web de Apple Maps",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Esto redirige los enlaces de Google Maps que comienzan con /maps? a Apple Maps.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Abrir enlaces de Google Maps en Apple Maps",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Esto redirige los enlaces de Google Maps que comienzan con /maps/place/ o /maps/search/ a Apple Maps.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Abrir enlaces de Google Maps en Apple Maps",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Esto redirige los enlaces de Google Maps que comienzan con /maps/@ a Apple Maps.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Abrir enlaces de Google Maps en Apple Maps",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Esto redirige los enlaces de Google Maps para direcciones, que comienzan con /maps/dir/, a Apple Maps.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Abrir enlaces de Google Maps en Apple Maps",
+    "description": "The title of redirect rule #3"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Ceci redirige les liens Google Maps vers Apple Maps via la commande 'open' de macOS.\n\nC'est utile lorsque votre ami partage un lien Google Maps avec vous, et que vous souhaitez ouvrir le même emplacement dans Apple Maps à la place.\n\nCet ensemble de règles se compose de 4 règles de redirection.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Ouvrir les liens Google Maps dans Apple Maps (via 'open તેમ')",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Ceci redirige les liens Google Maps qui commencent par /maps? vers Apple Maps.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Ouvrir les liens Google Maps dans Apple Maps",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Ceci redirige les liens Google Maps qui commencent par /maps/place/ ou /maps/search/ vers Apple Maps.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Ouvrir les liens Google Maps dans Apple Maps",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Ceci redirige les liens Google Maps qui commencent par /maps/@ vers Apple Maps.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Ouvrir les liens Google Maps dans Apple Maps",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Ceci redirige les liens Google Maps pour les itinéraires, qui commencent par /maps/dir/, vers Apple Maps.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Ouvrir les liens Google Maps dans Apple Maps",
+    "description": "The title of redirect rule #3"
+  }
+}

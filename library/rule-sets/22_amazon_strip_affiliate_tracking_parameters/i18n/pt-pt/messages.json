@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Esta regra remove parâmetros desnecessários dos links de produtos da Amazon, incluindo códigos de afiliado e de rastreamento.\n\nAdiciona um parâmetro `th=1` para evitar um loop infinito causado pela Amazon ao adicioná-lo automaticamente.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Amazon: Remover Parâmetros de Afiliados e Rastreamento",
+    "description": "The title of redirect rule #0"
+  }
+}

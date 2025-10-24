@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "此规则默认将Google搜索重定向到ChatGPT，让您可以使用ChatGPT作为默认搜索引擎。\n\n您可以添加以下选项：\n\n- `q={your text}`：您的ChatGPT提示\n- `hints=search`：开启ChatGPT的搜索模式\n- `temporary-chat=true`：开启一次性聊天\n- `model={model name}`：选择要使用的模型（例如`gpt-5`，`gpt-4o`）",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Google搜索 → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

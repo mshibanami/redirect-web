@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Toto přesměruje z odkazů Google Maps na webové stránky Apple Maps.\n\nTo je užitečné, když s vámi přítel sdílí odkaz na Google Maps a vy chcete místo toho otevřít stejné místo na webových stránkách Apple Maps.\n\nTato sada pravidel se skládá ze 4 pravidel přesměrování.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Otevřít URL adresy Google Maps na webových stránkách Apple Maps",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Toto přesměruje z odkazů Google Maps, které začínají /maps?, na Apple Maps.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Otevřít odkazy Google Maps v Apple Maps",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Toto přesměruje z odkazů Google Maps, které začínají /maps/place/ nebo /maps/search/, na Apple Maps.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Otevřít odkazy Google Maps v Apple Maps",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Toto přesměruje z odkazů Google Maps, které začínají /maps/@, na Apple Maps.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Otevřít odkazy Google Maps v Apple Maps",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Toto přesměruje z odkazů Google Maps pro trasy, které začínají /maps/dir/, na Apple Maps.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Otevřít odkazy Google Maps v Apple Maps",
+    "description": "The title of redirect rule #3"
+  }
+}

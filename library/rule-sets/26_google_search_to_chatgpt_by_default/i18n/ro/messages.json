@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Această regulă redirecționează implicit Căutarea Google către ChatGPT, permițându-vă să utilizați ChatGPT ca motor de căutare implicit.\n\nPuteți adăuga aceste opțiuni:\n\n- `q={textul tău}`: promptul tău pentru ChatGPT\n- `hints=search`: activează modul de căutare al ChatGPT\n- `temporary-chat=true`: deschide un chat unic\n- `model={numele modelului}`: alege ce model să folosești (ex. `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Căutare Google → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

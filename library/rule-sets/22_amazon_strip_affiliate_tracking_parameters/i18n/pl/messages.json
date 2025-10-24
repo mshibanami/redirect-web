@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Ta reguła usuwa niepotrzebne parametry z linków produktów Amazon, w tym kody partnerskie i śledzące.\n\nDodaje parametr `th=1`, aby zapobiec nieskończonej pętli spowodowanej automatycznym dodawaniem go przez Amazon.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Amazon: Usuń parametry partnerskie i śledzące",
+    "description": "The title of redirect rule #0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Это правило удаляет ненужные параметры из ссылок на товары Amazon, включая партнерские и отслеживающие коды.\n\nОно добавляет параметр `th=1` для предотвращения бесконечного цикла, вызванного автоматическим добавлением его Amazon.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Amazon: Удалить партнерские и отслеживающие параметры",
+    "description": "The title of redirect rule #0"
+  }
+}

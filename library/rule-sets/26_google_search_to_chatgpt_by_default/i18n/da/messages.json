@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Denne regel omdirigerer Google Søgning til ChatGPT som standard, hvilket giver dig mulighed for at bruge ChatGPT som din standard søgemaskine.\n\nDu kan tilføje disse muligheder:\n\n- `q={din tekst}`: din ChatGPT-prompt\n- `hints=search`: slår ChatGPT's søgetilstand til\n- `temporary-chat=true`: åbner en engangschat\n- `model={modelnavn}`: vælger hvilken model der skal bruges (f.eks. `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Google Søgning → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

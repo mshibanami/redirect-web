@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Bu kural, Google Arama'yı varsayılan olarak ChatGPT'ye yönlendirerek ChatGPT'yi varsayılan arama motorunuz olarak kullanmanızı sağlar.\n\nŞu seçenekleri ekleyebilirsiniz:\n\n- `q={your text}`: ChatGPT isteminiz\n- `hints=search`: ChatGPT'nin arama modunu açar\n- `temporary-chat=true`: tek seferlik bir sohbet açar\n- `model={model name}`: kullanılacak modeli seçer (örn. `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Google Arama → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

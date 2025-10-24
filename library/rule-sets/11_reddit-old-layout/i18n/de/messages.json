@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Diese Regel ändert Reddit-URLs vom neuesten Layout (www.reddit.com) zum alten Layout (old.reddit.com).\n\nDies ist nützlich, wenn Sie das alte Layout gegenüber anderen Layouten bevorzugen.\n\n> [!NOTE]\n> Medien- und Galerie-URLs sind von dieser Weiterleitung ausgeschlossen, da sie in diesem Layout nicht unterstützt werden.\n\n> [!IMPORTANT]\n> Bitte aktivieren Sie diese Regel ERST NACHDEM Sie sich in Ihrem Reddit-Konto angemeldet haben. Andernfalls könnte Reddit Sie auf www.reddit.com umleiten, was zu einer Endlosschleife führen würde.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Reddit: Altes Layout als Standard",
+    "description": "The title of redirect rule #0"
+  }
+}

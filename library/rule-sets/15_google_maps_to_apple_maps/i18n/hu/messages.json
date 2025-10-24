@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Ez átirányít a Google Térkép linkekről az Apple Térkép weboldalára.\n\nEz akkor hasznos, ha egy barátja Google Térkép linket oszt meg Önnel, és Ön ugyanazt a helyet az Apple Térkép weboldalán szeretné megnyitni.\n\nEz a szabálykészlet 4 átirányítási szabályból áll.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Google Térkép URL-ek megnyitása az Apple Térkép weboldalán",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Ez átirányít a /maps? kezdetű Google Térkép linkekről az Apple Térképre.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Google Térkép linkek megnyitása az Apple Térképen",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Ez átirányít a /maps/place/ vagy /maps/search/ kezdetű Google Térkép linkekről az Apple Térképre.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Google Térkép linkek megnyitása az Apple Térképen",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Ez átirányít a /maps/@ kezdetű Google Térkép linkekről az Apple Térképre.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Google Térkép linkek megnyitása az Apple Térképen",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Ez átirányít a /maps/dir/ kezdetű Google Térkép útvonaltervező linkekről az Apple Térképre.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Google Térkép linkek megnyitása az Apple Térképen",
+    "description": "The title of redirect rule #3"
+  }
+}

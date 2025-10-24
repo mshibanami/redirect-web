@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "This redirects from Google Maps links to Apple Maps via macOS's 'open' command.\n\nThis is useful when your friend shares a Google Maps link with you, and you want to open the same location in Apple Maps instead.\n\nThis rule set consists of 4 redirect rules.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Open Google Maps URLs in Apple Maps (via 'open')",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "This redirects from Google Maps links that start with /maps? to Apple Maps.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Open Google Maps Links in Apple Maps",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "This redirects from Google Maps links that start with /maps/place/ or /maps/search/ to Apple Maps.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Open Google Maps Links in Apple Maps",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "This redirects from Google Maps links that start with /maps/@ to Apple Maps.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Open Google Maps Links in Apple Maps",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "This redirects from Google Maps links for directions, which starts with /maps/dir/, to Apple Maps.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Open Google Maps Links in Apple Maps",
+    "description": "The title of redirect rule #3"
+  }
+}

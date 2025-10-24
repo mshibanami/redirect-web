@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Ta reguła działa, gdy Google jest Twoją domyślną wyszukiwarką. Jeśli rozpoczniesz wyszukiwanie w pasku wyszukiwania od `gpt `, Redirect Web pomija Google i przenosi Cię bezpośrednio do ChatGPT z tym, co następuje po `gpt `. Aby użyć innego słowa wyzwalającego, po prostu zastąp `gpt ` w regule własnym.\n\nMożesz dodać następujące opcje:\n\n- `q={twój tekst}`: Twoje zapytanie do ChatGPT\n- `hints=search`: włącza tryb wyszukiwania ChatGPT\n- `temporary-chat=true`: otwiera jednorazowy czat\n- `model={nazwa modelu}`: wybiera model do użycia (np. `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Wyszukiwarka Google „gpt ” Prefiks → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

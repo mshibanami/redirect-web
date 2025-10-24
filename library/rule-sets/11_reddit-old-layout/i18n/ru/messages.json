@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Это правило изменяет URL-адреса Reddit с новейшего макета (www.reddit.com) на старый макет (old.reddit.com).\n\nЭто полезно, если вы предпочитаете старый макет другим макетам.\n\n> [!NOTE]\n> URL-адреса медиа и галерей исключены из этого перенаправления, так как они не поддерживаются в этом макете.\n\n> [!IMPORTANT]\n> Пожалуйста, включите это правило ПОСЛЕ входа в свою учетную запись Reddit. В противном случае Reddit может перенаправить вас на www.reddit.com, что приведет к бесконечному циклу.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Reddit: Старый макет по умолчанию",
+    "description": "The title of redirect rule #0"
+  }
+}

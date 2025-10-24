@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Deze regel leidt Google Zoeken standaard om naar ChatGPT, zodat je ChatGPT als je standaard zoekmachine kunt gebruiken.\n\nJe kunt deze opties toevoegen:\n\n- `q={jouw tekst}`: je ChatGPT-prompt\n- `hints=search`: schakelt de zoekmodus van ChatGPT in\n- `temporary-chat=true`: opent een eenmalige chat\n- `model={modelnaam}`: kiest welk model te gebruiken (bijv. `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Google Zoeken → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

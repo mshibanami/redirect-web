@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Це правило перенаправляє Google Search до ChatGPT за замовчуванням, дозволяючи використовувати ChatGPT як пошукову систему за замовчуванням.\n\nВи можете додати такі опції:\n\n- `q={ваш текст}`: ваш запит до ChatGPT\n- `hints=search`: вмикає режим пошуку ChatGPT\n- `temporary-chat=true`: відкриває одноразовий чат\n- `model={назва моделі}`: вибирає модель для використання (наприклад, `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Google Search → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

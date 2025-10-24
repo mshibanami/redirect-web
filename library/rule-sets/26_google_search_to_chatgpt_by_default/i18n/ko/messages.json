@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "이 규칙은 Google 검색을 기본적으로 ChatGPT로 리디렉션하여 ChatGPT를 기본 검색 엔진으로 사용할 수 있도록 합니다.\n\n다음 옵션을 추가할 수 있습니다:\n\n- `q={your text}`: ChatGPT 프롬프트\n- `hints=search`: ChatGPT의 검색 모드를 켭니다.\n- `temporary-chat=true`: 일회성 채팅을 엽니다.\n- `model={model name}`: 사용할 모델을 선택합니다(예: `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Google 검색 → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

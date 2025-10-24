@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Ez a szabály akkor működik, ha a Google az alapértelmezett keresőmotorja. Ha a keresősávban `gpt␣` előtaggal indít keresést, a Redirect Web kihagyja a Google-t, és egyenesen a ChatGPT-re viszi Önt az `gpt␣` utáni tartalommal. Másik aktiváló szó használatához egyszerűen cserélje le a `gpt␣` kifejezést a szabályban a sajátjára.\n\nHozzáadhatja ezeket az opciókat:\n\n- `q={az Ön szövege}`: az Ön ChatGPT promptja\n- `hints=search`: bekapcsolja a ChatGPT keresési módját\n- `temporary-chat=true`: egyszeri csevegést nyit meg\n- `model={modell neve}`: kiválasztja a használni kívánt modellt (pl. `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Google Keresés „gpt ” előtag → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

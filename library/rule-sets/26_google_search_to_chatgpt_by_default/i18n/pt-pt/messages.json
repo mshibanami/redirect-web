@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Esta regra redireciona a Pesquisa Google para o ChatGPT por padrão, permitindo-lhe usar o ChatGPT como o seu motor de busca predefinido.\n\nPode adicionar estas opções:\n\n- `q={o seu texto}`: o seu prompt do ChatGPT\n- `hints=search`: ativa o modo de pesquisa do ChatGPT\n- `temporary-chat=true`: abre um chat único\n- `model={nome do modelo}`: escolhe qual modelo usar (por exemplo, `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Pesquisa Google → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

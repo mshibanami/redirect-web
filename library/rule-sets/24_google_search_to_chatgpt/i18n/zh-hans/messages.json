@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "当Google是您的默认搜索引擎时，此规则有效。如果您以`gpt␣`开头进行搜索栏搜索，Redirect Web会跳过Google，直接将您带到ChatGPT，并附带`gpt␣`之后的所有内容。要使用不同的触发词，只需将规则中的`gpt␣`替换为您自己的。\n\n您可以添加以下选项：\n\n- `q={your text}`：您的ChatGPT提示\n- `hints=search`：开启ChatGPT的搜索模式\n- `temporary-chat=true`：开启一次性聊天\n- `model={model name}`：选择要使用的模型（例如`gpt-5`，`gpt-4o`）",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Google搜索“gpt ”前缀 → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

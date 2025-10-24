@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Это перенаправляет ссылки Google Карт в Apple Maps с использованием глубокой ссылки.\n\nЭто полезно, когда ваш друг делится с вами ссылкой на Google Карты, а вы хотите открыть то же местоположение в Apple Maps.\n\nЭтот набор правил состоит из 4 правил перенаправления.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Открывать URL-адреса Google Карт в Apple Maps (через глубокую ссылку)",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Это перенаправляет ссылки Google Карт, которые начинаются с /maps?, в Apple Maps.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Открывать ссылки Google Карт в Apple Maps",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Это перенаправляет ссылки Google Карт, которые начинаются с /maps/place/ или /maps/search/, в Apple Maps.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Открывать ссылки Google Карт в Apple Maps",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Это перенаправляет ссылки Google Карт, которые начинаются с /maps/@, в Apple Maps.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Открывать ссылки Google Карт в Apple Maps",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Это перенаправляет ссылки Google Карт для маршрутов, которые начинаются с /maps/dir/, в Apple Maps.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Открывать ссылки Google Карт в Apple Maps",
+    "description": "The title of redirect rule #3"
+  }
+}

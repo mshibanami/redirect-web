@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Це правило працює, коли Google є вашою пошуковою системою за замовчуванням. Якщо ви починаєте пошук у рядку пошуку з `gpt `, Redirect Web пропускає Google і перенаправляє вас безпосередньо до ChatGPT з усім, що слідує за `gpt `. Щоб використовувати інше тригерне слово, просто замініть `gpt ` у правилі на своє власне.\n\nВи можете додати такі опції:\n\n- `q={ваш текст}`: ваш запит до ChatGPT\n- `hints=search`: вмикає режим пошуку ChatGPT\n- `temporary-chat=true`: відкриває одноразовий чат\n- `model={назва моделі}`: вибирає модель для використання (наприклад, `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Пошук Google з префіксом “gpt ” → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

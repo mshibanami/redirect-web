@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "このルールは、RedditのURLを最新のレイアウト (www.reddit.com) から古いレイアウト (old.reddit.com) に変更します。\n\nこれは、他のレイアウトよりも古いレイアウトを好む場合に便利です。\n\n> [!NOTE]\n> メディアおよびギャラリーのURLは、このレイアウトではサポートされていないため、このリダイレクトから除外されます。\n\n> [!IMPORTANT]\n> Redditアカウントにログインした後、このルールを有効にしてください。そうしないと、Redditがwww.reddit.comにリダイレクトし、無限ループが発生する可能性があります。",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Reddit: デフォルトで古いレイアウト",
+    "description": "The title of redirect rule #0"
+  }
+}

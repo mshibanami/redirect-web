@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "此规则将 Google 地图链接重定向到 Apple 地图网站。\n\n当您的朋友与您分享 Google 地图链接，而您想在 Apple 地图网站上打开同一位置时，这很有用。\n\n此规则集包含 4 条重定向规则。",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "在 Apple 地图网站中打开 Google 地图 URL",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "此规则将以 /maps? 开头的 Google 地图链接重定向到 Apple 地图。",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) 在 Apple 地图中打开 Google 地图链接",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "此规则将以 /maps/place/ 或 /maps/search/ 开头的 Google 地图链接重定向到 Apple 地图。",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) 在 Apple 地图中打开 Google 地图链接",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "此规则将以 /maps/@ 开头的 Google 地图链接重定向到 Apple 地图。",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) 在 Apple 地图中打开 Google 地图链接",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "此规则将以 /maps/dir/ 开头的 Google 地图路线链接重定向到 Apple 地图。",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) 在 Apple 地图中打开 Google 地图链接",
+    "description": "The title of redirect rule #3"
+  }
+}

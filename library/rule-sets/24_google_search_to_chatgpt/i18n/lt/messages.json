@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Ši taisyklė veikia, kai „Google“ yra jūsų numatytoji paieškos sistema. Jei paieškos juostoje pradedate paiešką su `gpt `, „Redirect Web“ praleidžia „Google“ ir nukreipia jus tiesiai į „ChatGPT“ su viskuo, kas seka po `gpt `. Norėdami naudoti kitą paleidimo žodį, tiesiog pakeiskite `gpt ` taisyklėje savo.\n\nGalite pridėti šias parinktis:\n\n- `q={jūsų tekstas}`: jūsų „ChatGPT“ raginimas\n- `hints=search`: įjungia „ChatGPT“ paieškos režimą\n- `temporary-chat=true`: atidaro vienkartinį pokalbį\n- `model={modelio pavadinimas}`: pasirenka, kurį modelį naudoti (pvz., `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "„Google“ paieška „gpt “ priešdėlis → „ChatGPT“",
+    "description": "The title of redirect rule #0"
+  }
+}

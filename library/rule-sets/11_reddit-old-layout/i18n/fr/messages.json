@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Cette règle modifie les URL Reddit de la nouvelle mise en page (www.reddit.com) vers l'ancienne mise en page (old.reddit.com).\n\nCeci est utile si vous préférez l'ancienne mise en page aux autres mises en page.\n\n> [!NOTE]\n> Les URL de médias et de galeries sont exclues de cette redirection, car elles ne sont pas prises en charge dans cette mise en page.\n\n> [!IMPORTANT]\n> Veuillez activer cette règle APRÈS vous être connecté à votre compte Reddit. Sinon, Reddit pourrait vous rediriger vers www.reddit.com, ce qui entraînerait une boucle infinie.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Reddit : Ancienne mise en page par défaut",
+    "description": "The title of redirect rule #0"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "이 규칙은 Google 지도 링크를 Apple 지도 웹사이트로 리디렉션합니다.\n\n친구가 Google 지도 링크를 공유했을 때, 동일한 위치를 Apple 지도 웹사이트에서 열고 싶을 때 유용합니다.\n\n이 규칙 세트는 4개의 리디렉션 규칙으로 구성됩니다.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Google 지도 URL을 Apple 지도 웹사이트에서 열기",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "이 규칙은 /maps?로 시작하는 Google 지도 링크를 Apple 지도로 리디렉션합니다.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Google 지도 링크를 Apple 지도에서 열기",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "이 규칙은 /maps/place/ 또는 /maps/search/로 시작하는 Google 지도 링크를 Apple 지도로 리디렉션합니다.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Google 지도 링크를 Apple 지도에서 열기",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "이 규칙은 /maps/@로 시작하는 Google 지도 링크를 Apple 지도로 리디렉션합니다.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Google 지도 링크를 Apple 지도에서 열기",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "이 규칙은 /maps/dir/로 시작하는 길찾기 Google 지도 링크를 Apple 지도로 리디렉션합니다.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Google 지도 링크를 Apple 지도에서 열기",
+    "description": "The title of redirect rule #3"
+  }
+}

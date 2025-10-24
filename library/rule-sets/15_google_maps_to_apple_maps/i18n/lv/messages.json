@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Tas novirza no Google Maps saitēm uz Apple Maps vietni.\n\nTas ir noderīgi, ja jūsu draugs ar jums kopīgo Google Maps saiti, un jūs vēlaties atvērt to pašu atrašanās vietu Apple Maps vietnē.\n\nŠis noteikumu kopums sastāv no 4 novirzīšanas noteikumiem.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Atvērt Google Maps URL Apple Maps vietnē",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Tas novirza no Google Maps saitēm, kas sākas ar /maps?, uz Apple Maps.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Atvērt Google Maps saites Apple Maps",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Tas novirza no Google Maps saitēm, kas sākas ar /maps/place/ vai /maps/search/, uz Apple Maps.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Atvērt Google Maps saites Apple Maps",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Tas novirza no Google Maps saitēm, kas sākas ar /maps/@, uz Apple Maps.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Atvērt Google Maps saites Apple Maps",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Tas novirza no Google Maps saitēm virzieniem, kas sākas ar /maps/dir/, uz Apple Maps.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Atvērt Google Maps saites Apple Maps",
+    "description": "The title of redirect rule #3"
+  }
+}

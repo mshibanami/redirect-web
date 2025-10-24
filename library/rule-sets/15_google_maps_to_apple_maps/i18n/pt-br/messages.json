@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Isso redireciona de links do Google Maps para o site do Apple Maps.\n\nIsso é útil quando seu amigo compartilha um link do Google Maps com você, e você quer abrir o mesmo local no site do Apple Maps em vez disso.\n\nEste conjunto de regras consiste em 4 regras de redirecionamento.",
+    "description": "A descrição do conjunto de regras em metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Abrir URLs do Google Maps no site do Apple Maps",
+    "description": "O título do conjunto de regras em metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Isso redireciona de links do Google Maps que começam com /maps? para o Apple Maps.",
+    "description": "Os comentários da regra de redirecionamento #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Abrir Links do Google Maps no Apple Maps",
+    "description": "O título da regra de redirecionamento #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Isso redireciona de links do Google Maps que começam com /maps/place/ ou /maps/search/ para o Apple Maps.",
+    "description": "Os comentários da regra de redirecionamento #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Abrir Links do Google Maps no Apple Maps",
+    "description": "O título da regra de redirecionamento #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Isso redireciona de links do Google Maps que começam com /maps/@ para o Apple Maps.",
+    "description": "Os comentários da regra de redirecionamento #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Abrir Links do Google Maps no Apple Maps",
+    "description": "O título da regra de redirecionamento #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Isso redireciona de links do Google Maps para direções, que começam com /maps/dir/, para o Apple Maps.",
+    "description": "Os comentários da regra de redirecionamento #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Abrir Links do Google Maps no Apple Maps",
+    "description": "O título da regra de redirecionamento #3"
+  }
+}

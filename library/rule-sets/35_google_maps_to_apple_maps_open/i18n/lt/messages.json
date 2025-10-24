@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Tai nukreipia iš „Google Maps“ nuorodų į „Apple Maps“ per „macOS“ komandą „open“.\n\nTai naudinga, kai jūsų draugas pasidalina „Google Maps“ nuoroda, o jūs norite atidaryti tą pačią vietą „Apple Maps“.\n\nŠis taisyklių rinkinys susideda iš 4 peradresavimo taisyklių.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Atidaryti „Google Maps“ URL „Apple Maps“ (per „open“)",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Tai nukreipia iš „Google Maps“ nuorodų, kurios prasideda /maps?, į „Apple Maps“.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Atidaryti „Google Maps“ nuorodas „Apple Maps“",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Tai nukreipia iš „Google Maps“ nuorodų, kurios prasideda /maps/place/ arba /maps/search/, į „Apple Maps“.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Atidaryti „Google Maps“ nuorodas „Apple Maps“",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Tai nukreipia iš „Google Maps“ nuorodų, kurios prasideda /maps/@, į „Apple Maps“.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Atidaryti „Google Maps“ nuorodas „Apple Maps“",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Tai nukreipia iš „Google Maps“ nuorodų, skirtų nuorodoms, kurios prasideda /maps/dir/, į „Apple Maps“.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Atidaryti „Google Maps“ nuorodas „Apple Maps“",
+    "description": "The title of redirect rule #3"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Denna regel tar bort onödiga parametrar från Amazon-produktlänkar, inklusive affiliate- och spårningskoder.\n\nDen lägger till en `th=1`-parameter för att förhindra en oändlig loop orsakad av att Amazon automatiskt lägger till den.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Amazon: Ta bort affiliate- och spårningsparametrar",
+    "description": "The title of redirect rule #0"
+  }
+}

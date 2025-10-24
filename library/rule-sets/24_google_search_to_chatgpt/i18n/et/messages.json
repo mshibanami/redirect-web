@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "See reegel töötab, kui Google on teie vaikimisi otsingumootor. Kui alustate otsinguriba otsingut `gpt␣`-ga, jätab Redirect Web Google'i vahele ja viib teid otse ChatGPT-sse koos kõigega, mis järgneb `gpt␣`-le. Teise käivitussõna kasutamiseks asendage reeglis `gpt␣` oma sõnaga.\n\nSaate lisada järgmised valikud:\n\n- `q={teie tekst}`: teie ChatGPT viip\n- `hints=search`: lülitab sisse ChatGPT otsingurežiimi\n- `temporary-chat=true`: avab ühekordse vestluse\n- `model={mudeli nimi}`: valib kasutatava mudeli (nt `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Google otsing \"gpt \" eesliide → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Diese Regel funktioniert, wenn Google Ihre Standardsuchmaschine ist. Wenn Sie eine Suchleisten-Suche mit `gpt ☀` beginnen, überspringt Redirect Web Google und bringt Sie direkt zu ChatGPT mit allem, was auf `gpt ☀` folgt. Um ein anderes Auslösewort zu verwenden, ersetzen Sie einfach `gpt ☀` in der Regel durch Ihr eigenes.\n\nSie können diese Optionen hinzufügen:\n\n- `q={Ihr Text}`: Ihr ChatGPT-Prompt\n- `hints=search`: aktiviert den Suchmodus von ChatGPT\n- `temporary-chat=true`: öffnet einen einmaligen Chat\n- `model={Modellname}`: wählt das zu verwendende Modell aus (z.B. `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Google Suche „gpt “ Präfix → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

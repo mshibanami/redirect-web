@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Αυτό ανακατευθύνει από συνδέσμους των Χαρτών Google στους Χάρτες Apple χρησιμοποιώντας deep linking.\n\nΑυτό είναι χρήσιμο όταν ο φίλος σας μοιράζεται έναν σύνδεσμο των Χαρτών Google μαζί σας και θέλετε να ανοίξετε την ίδια τοποθεσία στους Χάρτες Apple αντ' αυτού.\n\nΑυτό το σύνολο κανόνων αποτελείται από 4 κανόνες ανακατεύθυνσης.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Άνοιγμα διευθύνσεων URL των Χαρτών Google στους Χάρτες Apple (μέσω deep link)",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Αυτό ανακατευθύνει από συνδέσμους των Χαρτών Google που ξεκινούν με /maps? στους Χάρτες Apple.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Άνοιγμα συνδέσμων Χαρτών Google στους Χάρτες Apple",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Αυτό ανακατευθύνει από συνδέσμους των Χαρτών Google που ξεκινούν με /maps/place/ ή /maps/search/ στους Χάρτες Apple.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Άνοιγμα συνδέσμων Χαρτών Google στους Χάρτες Apple",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Αυτό ανακατευθύνει από συνδέσμους των Χαρτών Google που ξεκινούν με /maps/@ στους Χάρτες Apple.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Άνοιγμα συνδέσμων Χαρτών Google στους Χάρτες Apple",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Αυτό ανακατευθύνει από συνδέσμους των Χαρτών Google για οδηγίες, οι οποίοι ξεκινούν με /maps/dir/, στους Χάρτες Apple.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Άνοιγμα συνδέσμων Χαρτών Google στους Χάρτες Apple",
+    "description": "The title of redirect rule #3"
+  }
+}

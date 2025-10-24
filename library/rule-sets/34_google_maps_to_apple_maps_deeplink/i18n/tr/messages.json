@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Bu, Google Haritalar bağlantılarını derin bağlantı kullanarak Apple Haritalar'a yönlendirir.\n\nBu, arkadaşınız size bir Google Haritalar bağlantısı paylaştığında ve aynı konumu Apple Haritalar'da açmak istediğinizde kullanışlıdır.\n\nBu kural seti 4 yönlendirme kuralından oluşur.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Google Haritalar URL'lerini Apple Haritalar'da Aç (derin bağlantı ile)",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Bu, /maps? ile başlayan Google Haritalar bağlantılarını Apple Haritalar'a yönlendirir.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Google Haritalar Bağlantılarını Apple Haritalar'da Aç",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Bu, /maps/place/ veya /maps/search/ ile başlayan Google Haritalar bağlantılarını Apple Haritalar'a yönlendirir.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Google Haritalar Bağlantılarını Apple Haritalar'da Aç",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Bu, /maps/@ ile başlayan Google Haritalar bağlantılarını Apple Haritalar'a yönlendirir.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Google Haritalar Bağlantılarını Apple Haritalar'da Aç",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Bu, /maps/dir/ ile başlayan yol tarifleri için Google Haritalar bağlantılarını Apple Haritalar'a yönlendirir.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Google Haritalar Bağlantılarını Apple Haritalar'da Aç",
+    "description": "The title of redirect rule #3"
+  }
+}

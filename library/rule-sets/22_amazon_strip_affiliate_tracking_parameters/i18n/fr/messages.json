@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Cette règle supprime les paramètres inutiles des liens de produits Amazon, y compris les codes d'affiliation et de suivi.\n\nElle ajoute un paramètre `th=1` pour éviter une boucle infinie causée par l'ajout automatique d'Amazon.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Amazon : Supprimer les paramètres d'affiliation et de suivi",
+    "description": "The title of redirect rule #0"
+  }
+}

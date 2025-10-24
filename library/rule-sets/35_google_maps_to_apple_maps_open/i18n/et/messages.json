@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "See suunab Google Mapsi linkidelt Apple Mapsi macOS-i käsu \"open\" kaudu.\n\nSee on kasulik, kui teie sõber jagab teiega Google Mapsi linki ja soovite sama asukoha avada hoopis Apple Mapsis.\n\nSee reeglite kogum koosneb 4 ümbersuunamisreeglist.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Ava Google Mapsi URL-id Apple Mapsis (käsu \"open\" kaudu)",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "See suunab Google Mapsi linkidelt, mis algavad /maps?, Apple Mapsi.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Ava Google Mapsi lingid Apple Mapsis",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "See suunab Google Mapsi linkidelt, mis algavad /maps/place/ või /maps/search/, Apple Mapsi.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Ava Google Mapsi lingid Apple Mapsis",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "See suunab Google Mapsi linkidelt, mis algavad /maps/@, Apple Mapsi.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Ava Google Mapsi lingid Apple Mapsis",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "See suunab Google Mapsi linkidelt, mis on mõeldud juhiste jaoks ja algavad /maps/dir/, Apple Mapsi.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Ava Google Mapsi lingid Apple Mapsis",
+    "description": "The title of redirect rule #3"
+  }
+}

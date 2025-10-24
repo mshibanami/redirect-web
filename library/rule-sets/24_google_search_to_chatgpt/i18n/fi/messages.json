@@ -1,0 +1,10 @@
+{
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Tämä sääntö toimii, kun Google on oletushakukoneesi. Jos aloitat hakupalkin haun `gpt `-merkillä, Redirect Web ohittaa Googlen ja vie sinut suoraan ChatGPT:hen kaikella, mikä seuraa `gpt `-merkkiä. Jos haluat käyttää eri käynnistyssanaa, korvaa vain `gpt ` säännössä omallasi.\n\nVoit lisätä nämä vaihtoehdot:\n\n- `q={tekstisi}`: ChatGPT-kehotteesi\n- `hints=search`: ottaa käyttöön ChatGPT:n hakutilan\n- `temporary-chat=true`: avaa kertaluonteisen chatin\n- `model={mallin nimi}`: valitsee käytettävän mallin (esim. `gpt-5`, `gpt-4o`)",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "Google-haku ”gpt ”-etuliite → ChatGPT",
+    "description": "The title of redirect rule #0"
+  }
+}

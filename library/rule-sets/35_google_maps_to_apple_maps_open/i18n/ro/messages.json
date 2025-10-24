@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "Acest lucru redirecționează de la link-urile Google Maps către Apple Maps prin comanda \"open\" a macOS.\n\nAcest lucru este util atunci când un prieten îți trimite un link Google Maps și vrei să deschizi aceeași locație în Apple Maps.\n\nAcest set de reguli constă din 4 reguli de redirecționare.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Deschideți adresele URL Google Maps în Apple Maps (prin 'open').",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "Aceasta redirecționează de la link-urile Google Maps care încep cu /maps? către Apple Maps.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Deschide linkuri Google Maps în Apple Maps",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "Aceasta redirecționează de la link-urile Google Maps care încep cu /maps/place/ sau /maps/search/ către Apple Maps.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Deschide linkuri Google Maps în Apple Maps.",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "Aceasta redirecționează de la link-urile Google Maps care încep cu /maps/@ către Apple Maps.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Deschide link-urile Google Maps în Apple Maps",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "Aceasta redirecționează de la linkurile Google Maps pentru indicații, care încep cu /maps/dir/, către Apple Maps.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Deschide linkuri Google Maps în Apple Maps",
+    "description": "The title of redirect rule #3"
+  }
+}

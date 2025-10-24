@@ -1,0 +1,42 @@
+{
+  "metadata.json#/description": {
+    "message": "To preusmeri iz povezav Google Zemljevidov na Apple Zemljevide z uporabo globokega povezovanja.\n\nTo je uporabno, ko vaš prijatelj z vami deli povezavo Google Zemljevidov, vi pa želite namesto tega odpreti isto lokacijo v Apple Zemljevidih.\n\nTa nabor pravil je sestavljen iz 4 pravil preusmeritve.",
+    "description": "The description of the rule set in metadata.json"
+  },
+  "metadata.json#/title": {
+    "message": "Odpri URL-je Google Zemljevidov v Apple Zemljevidih (prek globoke povezave)",
+    "description": "The title of the rule set in metadata.json"
+  },
+  "rule-set.json#/redirects/0/comments": {
+    "message": "To preusmeri iz povezav Google Zemljevidov, ki se začnejo z /maps?, na Apple Zemljevide.",
+    "description": "The comments of redirect rule #0"
+  },
+  "rule-set.json#/redirects/0/title": {
+    "message": "(1/4) Odpri povezave Google Zemljevidov v Apple Zemljevidih",
+    "description": "The title of redirect rule #0"
+  },
+  "rule-set.json#/redirects/1/comments": {
+    "message": "To preusmeri iz povezav Google Zemljevidov, ki se začnejo z /maps/place/ ali /maps/search/, na Apple Zemljevide.",
+    "description": "The comments of redirect rule #1"
+  },
+  "rule-set.json#/redirects/1/title": {
+    "message": "(2/4) Odpri povezave Google Zemljevidov v Apple Zemljevidih",
+    "description": "The title of redirect rule #1"
+  },
+  "rule-set.json#/redirects/2/comments": {
+    "message": "To preusmeri iz povezav Google Zemljevidov, ki se začnejo z /maps/@, na Apple Zemljevide.",
+    "description": "The comments of redirect rule #2"
+  },
+  "rule-set.json#/redirects/2/title": {
+    "message": "(3/4) Odpri povezave Google Zemljevidov v Apple Zemljevidih",
+    "description": "The title of redirect rule #2"
+  },
+  "rule-set.json#/redirects/3/comments": {
+    "message": "To preusmeri iz povezav Google Zemljevidov za navodila, ki se začnejo z /maps/dir/, na Apple Zemljevide.",
+    "description": "The comments of redirect rule #3"
+  },
+  "rule-set.json#/redirects/3/title": {
+    "message": "(4/4) Odpri povezave Google Zemljevidov v Apple Zemljevidih",
+    "description": "The title of redirect rule #3"
+  }
+}
