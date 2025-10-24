@@ -72,6 +72,7 @@ if [ ${#targetLangs[@]} -eq 0 ]; then
 fi
 
 for lang in "${targetLangs[@]}"; do
+    echo "[${lang}] Checking translations ..."
     for pattern in "${baseJsonFilePatterns[@]}"; do
         baseJsonFiles=($(find . -path "$pattern" | sort -V))
         
@@ -107,4 +108,6 @@ for lang in "${targetLangs[@]}"; do
             fi
         done
     done
+    
+    echo
 done
