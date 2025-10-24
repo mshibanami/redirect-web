@@ -15,6 +15,7 @@ import styles from './index.module.scss';
 import AppleLogo from '@site/static/img/apple-logo.svg';
 import Translate, { translate } from '@docusaurus/Translate';
 import Head from '@docusaurus/Head';
+import LandingPageFAQ from '@site/src/components/LandingPageFAQ';
 
 function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
@@ -227,6 +228,7 @@ function UseCasesSection(): ReactNode {
 
 export default function Home(): ReactNode {
     const { siteConfig } = useDocusaurusContext();
+    const headerAnimation = useScrollAnimation();
     const awardAnimation = useScrollAnimation();
     const featuresAnimation = useScrollAnimation();
     const learnMoreAnimation = useScrollAnimation();
@@ -246,7 +248,11 @@ export default function Home(): ReactNode {
                         { appName: 'Redirect Web' }
                     )
                 }>
-                <HomepageHeader />
+                <div ref={headerAnimation.ref} className={clsx(styles.animatedSection, {
+                    [styles.visible]: headerAnimation.isVisible
+                })}>
+                    <HomepageHeader />
+                </div>
                 <main>
                     <div
                         ref={awardAnimation.ref}
@@ -275,12 +281,14 @@ export default function Home(): ReactNode {
                         <HomepageFeatures />
                     </div>
                     <UseCasesSection />
+
                     <div
                         ref={learnMoreAnimation.ref}
                         className={clsx(styles.animatedSection, {
                             [styles.visible]: learnMoreAnimation.isVisible
                         })}>
 
+                        <LandingPageFAQ />
                         <div
                             className="margin-bottom--xl">
                             <ExtensionStoreLinks />
@@ -297,18 +305,19 @@ export default function Home(): ReactNode {
                             </Link>
                         </div>
                     </div>
+
                     <div
                         ref={taglineAnimation.ref}
                         className={clsx(styles.animatedSection, 'text--center margin-bottom--xl', {
                             [styles.visible]: taglineAnimation.isVisible
                         })}>
-                        <h4>
+                        <h3>
                             <Translate
                                 id="landingPage.noAdsNoTracking"
                                 description="Landing page tagline about no ads and no tracking">
                                 No ads. No tracking. Enjoy a faster, cleaner web tailored to you.
                             </Translate>
-                        </h4>
+                        </h3>
                     </div>
                 </main>
             </Layout>
