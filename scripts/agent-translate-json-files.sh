@@ -36,6 +36,7 @@ readonly allTargetLangs=(
 
 # Parse command-line arguments
 targetLangs=()
+sourceFiles=""
 
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -46,9 +47,20 @@ while [[ $# -gt 0 ]]; do
         shift
       done
       ;;
+    --source-files)
+      shift
+      while [[ $# -gt 0 && ! "$1" =~ ^-- ]]; do
+        if [ -z "$sourceFiles" ]; then
+          sourceFiles="$1"
+        else
+          sourceFiles="$sourceFiles $1"
+        fi
+        shift
+      done
+      ;;
     *)
       echo "Unknown option: $1"
-      echo "Usage: $0 [--target-langs lang1 lang2 ...]"
+      echo "Usage: $0 [--target-langs lang1 lang2 ...] [--source-files file1 file2 ...]"
       exit 1
       ;;
   esac
@@ -66,11 +78,26 @@ if [ ${#targetLangs[@]} -eq 0 ]; then
   fi
 fi
 
+if [ -z "$sourceFiles" ]; then
+  echo "Enter source json files to translate (space-separated, or press Enter to skip):"
+  read -r input
+  if [ -n "$input" ]; then
+    sourceFiles="$input"
+  fi
+fi
+
+
 # Build the prompt
 taskFilePath="$(pwd)/prompts/translate-i18n-json-files.md"
 
 for lang in "${targetLangs[@]}"; do
-  gemini --prompt "Finish the task described in '$taskFilePath'. Target language: $lang" \
+  prompt="Finish the task described in '$taskFilePath'. Target language: $lang"
+  
+  if [ -n "$sourceFiles" ]; then
+    prompt="$prompt Source files: $sourceFiles"
+  fi
+  
+  gemini --prompt "$prompt" \
     --yolo \
     --model "$model"
 done
