@@ -109,7 +109,7 @@ const faqItems: FAQItem[] = [
         answer: (
             <p>
                 <Translate
-                    id="landingPageFAQ.platforms.answer"
+                    id="landingPageFAQ.whichPlanIsBest.answer"
                     description="FAQ answer about purchasing">
                     We recommend the one-time purchase, as the price difference is small. The main reason we offer the subscription is to allow you to try all the features through its free trial.
                 </Translate>
