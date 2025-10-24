@@ -4,7 +4,7 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "Abonnieren Sie über {rssLink}, um über neue Versionen auf dem Laufenden zu bleiben!",
+    "message": "Abonnieren Sie über {rssLink}, um über neue Veröffentlichungen auf dem Laufenden zu bleiben!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
@@ -12,7 +12,7 @@
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName} ist eine leistungsstarke Browsererweiterung, um URLs basierend auf Ihren benutzerdefinierten Regeln umzuleiten.",
+    "message": "{appName} ist eine leistungsstarke Browser-Erweiterung, um URLs basierend auf Ihren benutzerdefinierten Regeln umzuleiten.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
@@ -24,7 +24,7 @@
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Sie können Regeln für all diese Anwendungsfälle im Bereich Bibliothek in der App abrufen!",
+    "message": "Sie können Regeln für all diese Anwendungsfälle im Bereich „Bibliothek“ in der App abrufen!",
     "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Schneller Start mit nützlichen vorgefertigten Regeln aus dem Bereich Bibliothek in der App.",
+    "message": "Schneller Start mit nützlichen vorgefertigten Regeln aus dem Bereich „Bibliothek“ in der App.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -56,11 +56,11 @@
     "description": "Landing page feature title for native UI"
   },
   "landingPage.feature.nativeUI.description": {
-    "message": "Redirect Web bietet eine native App, um ein nahtloses Erlebnis auf jeder Plattform zu bieten.",
+    "message": "Redirect Web bietet eine native App, um auf jeder Plattform ein nahtloses Erlebnis zu bieten.",
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Browser- und plattformübergreifend",
+    "message": "Browserübergreifend & plattformübergreifend",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
@@ -68,7 +68,7 @@
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Alle freischalten für $4",
+    "message": "Alles freischalten für 4 $ ",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
@@ -92,15 +92,15 @@
     "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.openAppleMaps.title": {
-    "message": "Apple Maps von Google Maps Links öffnen",
+    "message": "Apple Karten von Google Maps Links öffnen",
     "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
   },
   "productUseCases.declutterGoogleSearch.title": {
-    "message": "Google-Suche entrümpeln",
+    "message": "Google Suche entrümpeln",
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
-    "message": "Fügen Sie Ihren Google-Suchen automatisch \"?udm=14\" hinzu, um KI-Übersichten auszublenden.",
+    "message": "Fügen Sie Ihren Google-Suchen automatisch „?udm=14“ hinzu, um KI-Übersichten auszublenden.",
     "description": "Use case description for a redirection rules of decluttering Google Search"
   },
   "productUseCases.useYourFavoriteWiki.title": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "Warum {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Es gibt andere ähnliche Erweiterungen. Wie unterscheidet sich Redirect Web?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web bietet einzigartige Funktionen wie detaillierte Regeleinstellungen, eine nützliche Regelbibliothek, iCloud-Synchronisierung, Safari-Unterstützung und mehr. Aber jedes Tool hat seine eigenen Vorteile. Überprüfen Sie unsere Vergleichsseite, um das für Ihre Bedürfnisse am besten geeignete auszuwählen:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Vergleich mit anderen Tools",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Sollte ich die native App nach der Installation der Browser-Erweiterung herunterladen?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Ja. Sie müssen die Redirect Web App aus dem App Store herunterladen, unabhängig davon, welchen Browser Sie verwenden. Die App ist erforderlich, um Ihre Regeln zu verwalten.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Wird die Bibliothek in Zukunft kostenpflichtig sein?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Nein, es ist immer kostenlos und Open Source. Sie finden den Quellcode aller Inhalte auf GitHub.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Vollständige Liste der Bibliotheksregeln"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Funktioniert es unter Windows, Android oder Linux?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Wir empfehlen den einmaligen Kauf, da der Preisunterschied gering ist. Der Hauptgrund, warum wir das Abonnement anbieten, ist, dass Sie alle Funktionen über die kostenlose Testversion ausprobieren können.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Einmaliger Kauf oder Jahresabonnement: Was ist am besten?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Fügt es Werbung oder Tracking in Websites ein?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Nein, es fügt niemals so etwas ein. Keine Werbung, kein Tracking, keine irrelevanten Inhalte.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Könnte Redirect Web jemals an jemand anderen verkauft werden?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% nein. Browser-Erweiterungen haben eine tiefe Kontrolle über Ihr Browsing und Ihre Daten. Redirect Web wird immer in unseren Händen bleiben, damit Sie mit vollem Vertrauen surfen können.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Häufig gestellte Fragen",
+    "description": "FAQ section title"
   }
 }

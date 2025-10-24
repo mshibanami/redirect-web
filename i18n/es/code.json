@@ -4,7 +4,7 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "¡Suscríbete a través de {rssLink} para mantenerte al día con los nuevos lanzamientos!",
+    "message": "¡Suscríbete a través de {rssLink} para mantenerte al día con las nuevas versiones!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Empieza rápidamente con reglas útiles predefinidas de la sección Biblioteca en la aplicación.",
+    "message": "Comienza rápidamente con reglas útiles preestablecidas de la sección Biblioteca en la aplicación.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "¿Por qué {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Hay otras extensiones similares. ¿En qué se diferencia Redirect Web?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web ofrece características únicas como configuraciones de reglas detalladas, una útil biblioteca de reglas, sincronización con iCloud, soporte para Safari y más. Pero cada herramienta tiene sus propias ventajas. Consulta nuestra página de comparación para ayudarte a elegir la que mejor se adapte a tus necesidades:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Comparación con otras herramientas",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "¿Debo obtener la aplicación nativa después de instalar la extensión del navegador?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Sí. Debes descargar la aplicación Redirect Web desde la App Store, independientemente del navegador que uses. La aplicación es necesaria para administrar tus reglas.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "¿La biblioteca será de pago en el futuro?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "No, siempre es gratis y de código abierto. Puedes encontrar la fuente de todo el contenido en GitHub.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Lista completa de reglas de la biblioteca"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "¿Funciona en Windows, Android o Linux?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Recomendamos la compra única, ya que la diferencia de precio es pequeña. La razón principal por la que ofrecemos la suscripción es para permitirte probar todas las funciones a través de su prueba gratuita.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Compra única o suscripción anual: ¿cuál es mejor?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "¿Inyecta anuncios o rastreadores en los sitios web?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "No, nunca inyecta nada de eso. Sin anuncios, sin seguimiento, sin contenido no relacionado.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "¿Podría Redirect Web ser vendido a otra persona?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% no. Las extensiones de navegador tienen un control profundo sobre tu navegación y tus datos. Redirect Web siempre permanecerá en nuestras manos, para que puedas navegar con total confianza.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Preguntas frecuentes",
+    "description": "FAQ section title"
   }
 }

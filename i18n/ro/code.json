@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Dacă căutați notele de lansare pentru versiunea 7.10.0 sau anterioară, vă rugăm să verificați {appStoreName}.",
+    "message": "Dacă sunteți în căutarea notelor de lansare pentru versiunile 7.10.0 sau anterioare, vă rugăm să verificați {appStoreName}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -20,19 +20,19 @@
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
-    "message": "Sfat util",
+    "message": "Sfat Pro",
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Puteți obține reguli pentru toate aceste cazuri de utilizare din secțiunea Bibliotecă din aplicație!",
+    "message": "Puteți obține reguli pentru toate aceste cazuri de utilizare din secțiunea Bibliotecă a aplicației!",
     "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
-    "message": "Aflați mai multe",
+    "message": "Află mai multe",
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Fără reclame. Fără urmărire. Bucurați-vă de un web mai rapid, mai curat, adaptat nevoilor dvs.",
+    "message": "Fără reclame. Fără urmărire. Bucurați-vă de un web mai rapid, mai curat, adaptat pentru dvs.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Creați reguli precise folosind caractere wildcard, expresii regulate, modele URL excluse, procesare de grupuri de captură, DNR și multe altele.",
+    "message": "Creați reguli precise folosind caractere generice, expresii regulate, modele URL excluse, procesare de grupuri de captură, DNR și multe altele.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Începeți rapid cu reguli utile predefinite din secțiunea Bibliotecă din aplicație.",
+    "message": "Începeți rapid cu reguli predefinite utile din secțiunea Bibliotecă a aplicației.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -60,7 +60,7 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Multi-browser și multi-platformă",
+    "message": "Compatibil cu mai multe browsere și platforme",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
@@ -68,11 +68,11 @@
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Deblocați totul pentru $4",
+    "message": "Deblochează totul pentru 4 USD",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Deblocați sincronizarea iCloud, reguli nelimitate și funcții premium viitoare cu o plată unică la prețul unei cafele.",
+    "message": "Deblocați iCloud Sync, reguli nelimitate și funcții premium viitoare cu o plată unică la prețul unei cafele.",
     "description": "Landing page feature description for unlocking all features"
   },
   "productUseCases.customDefaultSearchEngine.title": {
@@ -100,11 +100,11 @@
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
-    "message": "Adăugați automat \"?udm=14\" la căutările dvs. Google pentru a ascunde prezentările generale AI.",
+    "message": "Adăugați automat \"?udm=14\" la căutările Google pentru a ascunde prezentările AI.",
     "description": "Use case description for a redirection rules of decluttering Google Search"
   },
   "productUseCases.useYourFavoriteWiki.title": {
-    "message": "Utilizați Wiki-ul preferat",
+    "message": "Utilizați wiki-ul preferat",
     "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.useYourFavoriteWiki.description": {
@@ -112,7 +112,7 @@
     "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.openLinksInNativeApps.title": {
-    "message": "Deschideți linkuri în aplicații native",
+    "message": "Deschideți linkurile în aplicațiile native",
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "De ce {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Există alte extensii similare. Cum este diferit Redirect Web?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web oferă funcții unice, cum ar fi setări detaliate pentru reguli, bibliotecă de reguli utile, iCloud Sync, suport Safari și multe altele. Dar fiecare instrument are propriile sale avantaje. Consultați pagina noastră de comparație pentru a vă ajuta să alegeți cel care se potrivește cel mai bine nevoilor dvs.:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Comparație cu alte instrumente",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Ar trebui să obțin aplicația nativă după instalarea extensiei de browser?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Da. Trebuie să descărcați aplicația Redirect Web din App Store, indiferent de browserul pe care îl utilizați. Aplicația este necesară pentru a vă gestiona regulile.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Va deveni biblioteca plătită în viitor?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Nu, este întotdeauna gratuită și open source. Puteți găsi sursa tuturor conținutului pe GitHub.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Lista completă a regulilor din bibliotecă"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Funcționează pe Windows, Android sau Linux?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Recomandăm achiziția unică, deoarece diferența de preț este mică. Principalul motiv pentru care oferim abonamentul este să vă permitem să încercați toate funcțiile prin intermediul versiunii de încercare gratuită.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Achiziție unică sau abonament anual: care este mai bun?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Injectează reclame sau urmărire în site-uri web?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Nu, nu injectează niciodată așa ceva. Fără reclame, fără urmărire, fără conținut irelevant.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Ar putea Redirect Web să fie vândut vreodată altcuiva?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% nu. Extensiile de browser au un control profund asupra navigării și datelor dvs. Redirect Web va rămâne întotdeauna în mâinile noastre, astfel încât să puteți naviga cu încredere deplină.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Întrebări frecvente",
+    "description": "FAQ section title"
   }
 }

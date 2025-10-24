@@ -4,7 +4,7 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "Prenumerera via {rssLink} för att hålla dig uppdaterad med nya versioner!",
+    "message": "Prenumerera via {rssLink} för att hålla dig uppdaterad med nya utgåvor!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
@@ -12,7 +12,7 @@
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName} är ett kraftfullt webbläsartillägg för att omdirigera URL:er baserat på dina anpassade regler.",
+    "message": "{appName} är ett kraftfullt webbläsartillägg för att omdirigera webbadresser baserat på dina anpassade regler.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Kom igång snabbt med användbara fördefinierade regler från bibliotekssektionen i appen.",
+    "message": "Kom igång snabbt med användbara förgjorda regler från bibliotekssektionen i appen.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -68,7 +68,7 @@
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Lås upp allt för $4",
+    "message": "Lås upp allt för 4 $",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
@@ -96,7 +96,7 @@
     "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
   },
   "productUseCases.declutterGoogleSearch.title": {
-    "message": "Rensa Google-sökning",
+    "message": "Rensa upp Google-sökning",
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "Varför {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Det finns andra liknande tillägg. Hur skiljer sig Redirect Web?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web erbjuder unika funktioner som detaljerade regelinställningar, användbart regelbibliotek, iCloud-synkronisering, Safari-stöd och mer. Men varje verktyg har sina egna fördelar. Kolla vår jämförelsesida för att hjälpa dig att välja den som bäst passar dina behov:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Jämförelse med andra verktyg",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Ska jag skaffa den inbyggda appen efter att ha installerat webbläsartillägget?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Ja. Du måste ladda ner Redirect Web-appen från App Store oavsett vilken webbläsare du använder. Appen krävs för att hantera dina regler.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Kommer biblioteket att bli betalt i framtiden?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Nej, det är alltid gratis och öppen källkod. Du hittar källan till allt innehåll på GitHub.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Komplett lista över biblioteksregler"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Fungerar det på Windows, Android eller Linux?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Vi rekommenderar engångsköpet, eftersom prisskillnaden är liten. Huvudanledningen till att vi erbjuder prenumerationen är att du ska kunna prova alla funktioner genom dess gratis provperiod.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Engångsköp eller årsabonnemang: vilket är bäst?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Injicerar det annonser eller spårning på webbplatser?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Nej, det injicerar aldrig något sådant. Inga annonser, ingen spårning, inget orelaterat innehåll.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Skulle Redirect Web någonsin kunna säljas till någon annan?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100 % nej. Webbläsartillägg har djup kontroll över din surfning och dina data. Redirect Web kommer alltid att förbli i våra händer, så du kan surfa med fullständigt förtroende.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Vanliga frågor",
+    "description": "FAQ section title"
   }
 }

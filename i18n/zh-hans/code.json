@@ -1,10 +1,10 @@
 {
   "release-notes.description.rssLink": {
-    "message": "RSS 订阅",
+    "message": "RSS 订阅源",
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "通过 {rssLink} 订阅，随时了解最新版本！",
+    "message": "通过 {rssLink} 订阅，及时了解最新版本！",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
@@ -20,7 +20,7 @@
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
-    "message": "专业提示",
+    "message": "提示",
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
@@ -32,7 +32,7 @@
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "无广告。无跟踪。享受更快、更干净、为您量身定制的网络。",
+    "message": "无广告。无跟踪。享受为您量身定制的更快、更纯净的网络。",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -40,15 +40,15 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "使用通配符、正则表达式、排除的 URL 模式、捕获组处理、DNR 等创建精确规则。",
+    "message": "使用通配符、正则表达式、排除的 URL 模式、捕获组处理、DNR 等功能创建精确规则。",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
-    "message": "库中实用的规则",
+    "message": "库中实用规则",
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "从应用程序的“库”部分开始使用有用的预制规则。",
+    "message": "从应用程序的“库”部分快速开始使用有用的预制规则。",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -68,7 +68,7 @@
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "4 美元解锁所有功能",
+    "message": "解锁全部功能，仅需 $4",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
@@ -100,7 +100,7 @@
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
-    "message": "自动将“?udm=14”添加到您的 Google 搜索中，以隐藏 AI 概览。",
+    "message": "自动将 \"?udm=14\" 添加到您的 Google 搜索中，以隐藏 AI 概览。",
     "description": "Use case description for a redirection rules of decluttering Google Search"
   },
   "productUseCases.useYourFavoriteWiki.title": {
@@ -116,7 +116,7 @@
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "在 Mac 上直接在 Figma、Notion 或 Google Meet 桌面应用中打开链接。",
+    "message": "在 Mac 上直接在桌面应用中打开 Figma、Notion 或 Google Meet 链接。",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "为什么选择 {productName}？",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "还有其他类似的扩展。Redirect Web 有何不同？",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web 提供独特的功能，例如详细的规则设置、有用的规则库、iCloud 同步、Safari 支持等。但每个工具都有其自身的优势。请查看我们的比较页面，以帮助您选择最适合您需求的产品：",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "与其他工具的比较",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "安装浏览器扩展后，我是否需要获取原生应用程序？",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "是的。无论您使用哪种浏览器，都需要从 App Store 下载 Redirect Web 应用程序。该应用程序是管理您的规则所必需的。",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "该库将来会收费吗？",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "不，它始终是免费和开源的。您可以在 GitHub 上找到所有内容的源代码。",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "完整的库规则列表"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "它适用于 Windows、Android 或 Linux 吗？",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "我们建议一次性购买，因为价格差异很小。我们提供订阅的主要原因是让您可以通过免费试用体验所有功能。",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "一次性购买还是年度订阅：哪个最好？",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "它会在网站中注入广告或跟踪吗？",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "不，它绝不会注入任何此类内容。无广告、无跟踪、无不相关内容。",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Redirect Web 会被出售给其他人吗？",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% 不会。浏览器扩展对您的浏览和数据拥有深度控制权。Redirect Web 将始终掌握在我们手中，因此您可以完全放心地浏览。",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "常见问题",
+    "description": "FAQ section title"
   }
 }

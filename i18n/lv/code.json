@@ -16,7 +16,7 @@
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
-    "message": "👇️ Noklikšķiniet, lai skatītu demonstrāciju",
+    "message": "👇️ Noklikšķiniet, lai skatītos demonstrāciju",
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
@@ -24,7 +24,7 @@
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Visus šos lietošanas gadījumus varat iegūt no lietotnes sadaļas Bibliotēka!",
+    "message": "Visu šo lietošanas gadījumu noteikumus varat iegūt lietotnes sadaļā Bibliotēka!",
     "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
@@ -32,7 +32,7 @@
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Nav reklāmu. Nav izsekošanas. Izbaudiet ātrāku, tīrāku tīmekli, kas pielāgots jums.",
+    "message": "Bez reklāmām. Bez izsekošanas. Izbaudiet ātrāku, tīrāku tīmekli, kas pielāgots jums.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -60,7 +60,7 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Starppārlūku un starpplatformu",
+    "message": "Starppārlūkprogrammu un starpplatformu",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
@@ -84,7 +84,7 @@
     "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.viewRedditClassic.title": {
-    "message": "Skatīt Reddit klasiskajā dizainā",
+    "message": "Skatiet Reddit klasiskajā dizainā",
     "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.viewRedditClassic.description": {
@@ -108,7 +108,7 @@
     "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.useYourFavoriteWiki.description": {
-    "message": "Pārejiet no Fandom lapām uz oficiālajām Terraria vai Minecraft wiki lapām.",
+    "message": "Pārejiet no Fandom lapām uz oficiālajām Terraria vai Minecraft vikipēdijām.",
     "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.openLinksInNativeApps.title": {
@@ -120,11 +120,74 @@
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
-    "message": "Piemēri lietošanas gadījumiem",
+    "message": "Piemēru lietošanas gadījumi",
     "description": "Title for the example use cases section"
   },
   "landingPage.productFeatures.title": {
     "message": "Kāpēc {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Ir citi līdzīgi paplašinājumi. Ar ko Redirect Web atšķiras?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web piedāvā unikālas funkcijas, piemēram, detalizētus noteikumu iestatījumus, noderīgu noteikumu bibliotēku, iCloud sinhronizāciju, Safari atbalstu un daudz ko citu. Bet katram rīkam ir savas priekšrocības. Pārbaudiet mūsu salīdzinājuma lapu, lai palīdzētu jums izvēlēties to, kas vislabāk atbilst jūsu vajadzībām:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Salīdzinājums ar citiem rīkiem",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Vai man vajadzētu iegūt vietējo lietotni pēc pārlūkprogrammas paplašinājuma instalēšanas?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Jā. Jums ir jālejupielādē lietotne Redirect Web no App Store neatkarīgi no tā, kuru pārlūkprogrammu izmantojat. Lietotne ir nepieciešama, lai pārvaldītu jūsu noteikumus.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Vai bibliotēka nākotnē kļūs maksas?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Nē, tā vienmēr ir bezmaksas un atvērta koda. Visu saturu varat atrast GitHub.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Pilns bibliotēkas noteikumu saraksts"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Vai tas darbojas operētājsistēmās Windows, Android vai Linux?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Mēs iesakām vienreizēju pirkumu, jo cenu atšķirība ir neliela. Galvenais iemesls, kāpēc mēs piedāvājam abonementu, ir dot jums iespēju izmēģināt visas funkcijas, izmantojot bezmaksas izmēģinājuma versiju.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Vienreizējs pirkums vai gada abonements: kurš ir labākais?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Vai tas ievieto reklāmas vai izsekošanu tīmekļa vietnēs?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Nē, tas nekad neko tādu neievieto. Bez reklāmām, bez izsekošanas, bez nesaistīta satura.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Vai Redirect Web varētu tikt pārdots kādam citam?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% nē. Pārlūkprogrammas paplašinājumiem ir dziļa kontrole pār jūsu pārlūkošanu un datiem. Redirect Web vienmēr paliks mūsu rokās, lai jūs varētu pārlūkot ar pilnīgu pārliecību.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Bieži uzdotie jautājumi",
+    "description": "FAQ section title"
   }
 }

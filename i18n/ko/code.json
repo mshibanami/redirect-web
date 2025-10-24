@@ -4,11 +4,11 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "{rssLink}를 통해 구독하여 새로운 릴리스 소식을 받아보세요!",
+    "message": "새로운 릴리스에 대한 최신 정보를 받으려면 {rssLink}를 통해 구독하세요!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "7.10.0 또는 이전 버전의 릴리스 노트를 찾고 계시다면, {appStoreName}를 확인해주세요.",
+    "message": "7.10.0 또는 이전 버전의 릴리스 노트를 찾고 있다면 {appStoreName}을 확인하세요.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -16,7 +16,7 @@
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
-    "message": "👇️ 데모 시청하기",
+    "message": "👇️ 데모를 보려면 클릭하세요",
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
@@ -24,7 +24,7 @@
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "앱의 라이브러리 섹션에서 이 모든 사용 사례의 규칙을 얻을 수 있습니다!",
+    "message": "앱의 라이브러리 섹션에서 이 모든 사용 사례에 대한 규칙을 얻을 수 있습니다!",
     "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "앱의 라이브러리 섹션에서 유용한 미리 만들어진 규칙으로 빠르게 시작하세요.",
+    "message": "앱의 라이브러리 섹션에서 유용한 사전 제작 규칙으로 빠르게 시작하세요.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -72,7 +72,7 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "커피 한 잔 가격으로 iCloud 동기화, 무제한 규칙 및 향후 프리미엄 기능을 잠금 해제하세요.",
+    "message": "커피 한 잔 가격으로 iCloud 동기화, 무제한 규칙 및 향후 프리미엄 기능을 일회성 결제로 잠금 해제하세요.",
     "description": "Landing page feature description for unlocking all features"
   },
   "productUseCases.customDefaultSearchEngine.title": {
@@ -88,7 +88,7 @@
     "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.viewRedditClassic.description": {
-    "message": "www.reddit.com에서 old.reddit.com으로 자동 리디렉션합니다.",
+    "message": "www.reddit.com에서 old.reddit.com으로 자동 리디렉션됩니다.",
     "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.openAppleMaps.title": {
@@ -100,7 +100,7 @@
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
-    "message": "AI 개요를 숨기려면 Google 검색에 자동으로 \"?udm=14\"를 추가하세요.",
+    "message": "Google 검색에 자동으로 \"?udm=14\"를 추가하여 AI 개요를 숨깁니다.",
     "description": "Use case description for a redirection rules of decluttering Google Search"
   },
   "productUseCases.useYourFavoriteWiki.title": {
@@ -108,7 +108,7 @@
     "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.useYourFavoriteWiki.description": {
-    "message": "Fandom 페이지에서 공식 테라리아 또는 마인크래프트 위키로 이동하세요.",
+    "message": "Fandom 페이지에서 공식 Terraria 또는 Minecraft 위키로 이동합니다.",
     "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.openLinksInNativeApps.title": {
@@ -116,15 +116,78 @@
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "Mac에서 Figma, Notion 또는 Google Meet 링크를 데스크톱 앱에서 직접 여세요.",
+    "message": "Mac에서 Figma, Notion 또는 Google Meet 링크를 데스크톱 앱에서 직접 엽니다.",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
-    "message": "예시 사용 사례",
+    "message": "사용 사례 예시",
     "description": "Title for the example use cases section"
   },
   "landingPage.productFeatures.title": {
-    "message": "{productName}을(를) 선택하는 이유?",
+    "message": "왜 {productName}인가요?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "다른 유사한 확장 프로그램이 있습니다. Redirect Web은 어떻게 다른가요?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web은 상세한 규칙 설정, 유용한 규칙 라이브러리, iCloud 동기화, Safari 지원 등 고유한 기능을 제공합니다. 하지만 각 도구마다 장점이 있습니다. 귀하의 필요에 가장 적합한 도구를 선택하는 데 도움이 되는 비교 페이지를 확인하세요:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "다른 도구와의 비교",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "브라우저 확장 프로그램을 설치한 후 네이티브 앱을 받아야 하나요?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "예. 어떤 브라우저를 사용하든 App Store에서 Redirect Web 앱을 다운로드해야 합니다. 앱은 규칙을 관리하는 데 필요합니다.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "라이브러리는 미래에 유료가 되나요?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "아니요, 항상 무료이며 오픈 소스입니다. 모든 콘텐츠의 소스는 GitHub에서 찾을 수 있습니다.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "라이브러리 규칙 전체 목록"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Windows, Android 또는 Linux에서 작동하나요?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "가격 차이가 작으므로 일회성 구매를 권장합니다. 구독을 제공하는 주된 이유는 무료 평가판을 통해 모든 기능을 사용해 볼 수 있도록 하기 위함입니다.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "일회성 구매 또는 연간 구독: 어떤 것이 가장 좋나요?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "웹사이트에 광고 또는 추적을 삽입하나요?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "아니요, 그런 것을 절대 삽입하지 않습니다. 광고, 추적, 관련 없는 콘텐츠가 없습니다.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Redirect Web이 다른 사람에게 판매될 수도 있나요?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% 아닙니다. 브라우저 확장 프로그램은 브라우징 및 데이터에 대한 깊은 제어 권한을 가집니다. Redirect Web은 항상 저희의 손에 남아 있을 것이므로, 안심하고 브라우징할 수 있습니다.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "자주 묻는 질문",
+    "description": "FAQ section title"
   }
 }

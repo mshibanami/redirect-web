@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Если вы ищете заметки о выпуске 7.10.0 или более ранних версий, пожалуйста, проверьте {appStoreName}.",
+    "message": "Если вы ищете примечания к выпуску 7.10.0 или более ранних версий, пожалуйста, проверьте {appStoreName}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -56,7 +56,7 @@
     "description": "Landing page feature title for native UI"
   },
   "landingPage.feature.nativeUI.description": {
-    "message": "Redirect Web предлагает нативное приложение для обеспечения бесперебойной работы на каждой платформе.",
+    "message": "Redirect Web предлагает нативное приложение для обеспечения бесшовного опыта на каждой платформе.",
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
@@ -72,7 +72,7 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Разблокируйте синхронизацию iCloud, неограниченные правила и будущие премиум-функции с помощью одноразового платежа по цене чашки кофе.",
+    "message": "Разблокируйте iCloud Sync, неограниченное количество правил и будущие премиум-функции с помощью одноразового платежа по цене чашки кофе.",
     "description": "Landing page feature description for unlocking all features"
   },
   "productUseCases.customDefaultSearchEngine.title": {
@@ -80,11 +80,11 @@
     "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.customDefaultSearchEngine.description": {
-    "message": "Установите Kagi, Startpage, ChatGPT или любую другую поисковую систему в качестве своей по умолчанию.",
+    "message": "Установите Kagi, Startpage, ChatGPT или любую другую поисковую систему в качестве вашей по умолчанию.",
     "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.viewRedditClassic.title": {
-    "message": "Просмотр Reddit в классическом дизайне",
+    "message": "Просмотр Reddit в его классическом дизайне",
     "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.viewRedditClassic.description": {
@@ -92,7 +92,7 @@
     "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.openAppleMaps.title": {
-    "message": "Открывать Apple Maps из ссылок Google Maps",
+    "message": "Открывать Apple Maps по ссылкам Google Maps",
     "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
   },
   "productUseCases.declutterGoogleSearch.title": {
@@ -116,7 +116,7 @@
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "Открывайте ссылки Figma, Notion или Google Meet непосредственно в их настольных приложениях на вашем Mac.",
+    "message": "Открывайте ссылки Figma, Notion или Google Meet прямо в их настольных приложениях на вашем Mac.",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "Почему {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Есть другие похожие расширения. Чем Redirect Web отличается?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web предлагает уникальные функции, такие как подробные настройки правил, полезная библиотека правил, iCloud Sync, поддержка Safari и многое другое. Но у каждого инструмента есть свои преимущества. Проверьте нашу страницу сравнения, чтобы помочь вам выбрать тот, который лучше всего соответствует вашим потребностям:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Сравнение с другими инструментами",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Нужно ли мне устанавливать нативное приложение после установки расширения для браузера?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Да. Вам нужно загрузить приложение Redirect Web из App Store независимо от того, какой браузер вы используете. Приложение требуется для управления вашими правилами.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Станет ли библиотека платной в будущем?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Нет, она всегда бесплатна и имеет открытый исходный код. Вы можете найти исходный код всего содержимого на GitHub.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Полный список правил библиотеки"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Работает ли это на Windows, Android или Linux?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Мы рекомендуем одноразовую покупку, так как разница в цене невелика. Основная причина, по которой мы предлагаем подписку, — это возможность попробовать все функции в течение бесплатного пробного периода.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Одноразовая покупка или годовая подписка: что лучше?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Внедряет ли он рекламу или отслеживание на веб-сайты?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Нет, он никогда не внедряет ничего подобного. Никакой рекламы, никакого отслеживания, никакого несвязанного контента.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Может ли Redirect Web быть продан кому-то другому?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% нет. Расширения для браузеров имеют глубокий контроль над вашим просмотром и данными. Redirect Web всегда будет оставаться в наших руках, поэтому вы можете просматривать веб-страницы с полной уверенностью.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Часто задаваемые вопросы",
+    "description": "FAQ section title"
   }
 }

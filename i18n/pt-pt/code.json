@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Se procura as notas de lançamento da versão 7.10.0 ou anterior, por favor, consulte {appStoreName}.",
+    "message": "Se procura as notas de lançamento da versão 7.10.0 ou anterior, por favor, verifique {appStoreName}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -32,7 +32,7 @@
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Sem anúncios. Sem rastreamento. Desfrute de uma web mais rápida e limpa, adaptada a si.",
+    "message": "Sem anúncios. Sem rastreamento. Desfrute de uma web mais rápida, limpa e adaptada a si.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Comece rapidamente com regras pré-definidas úteis da secção Biblioteca na aplicação.",
+    "message": "Comece rapidamente com regras úteis pré-fabricadas da secção Biblioteca na aplicação.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -60,7 +60,7 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Multi-Navegador e Multiplataforma",
+    "message": "Multi-navegador e Multiplataforma",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
@@ -100,7 +100,7 @@
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
-    "message": "Adicione automaticamente \"?udm=14\" às suas pesquisas Google para ocultar as Visões Gerais de IA.",
+    "message": "Adicione automaticamente \"?udm=14\" às suas pesquisas no Google para ocultar as Visões Gerais de IA.",
     "description": "Use case description for a redirection rules of decluttering Google Search"
   },
   "productUseCases.useYourFavoriteWiki.title": {
@@ -108,7 +108,7 @@
     "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.useYourFavoriteWiki.description": {
-    "message": "Salte de páginas Fandom para as wikis oficiais de Terraria ou Minecraft.",
+    "message": "Passe de páginas Fandom para as wikis oficiais de Terraria ou Minecraft.",
     "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.openLinksInNativeApps.title": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "Porquê {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Existem outras extensões semelhantes. Como é que o Redirect Web é diferente?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "O Redirect Web oferece funcionalidades únicas como configurações detalhadas de regras, biblioteca de regras úteis, Sincronização iCloud, suporte Safari e muito mais. Mas cada ferramenta tem as suas próprias vantagens. Consulte a nossa página de comparação para o ajudar a escolher a que melhor se adapta às suas necessidades:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Comparação com Outras Ferramentas",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Devo obter a aplicação nativa depois de instalar a extensão do navegador?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Sim. Precisa de descarregar a aplicação Redirect Web da App Store, independentemente do navegador que usa. A aplicação é necessária para gerir as suas regras.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "A biblioteca tornar-se-á paga no futuro?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Não, é sempre gratuita e de código aberto. Pode encontrar a fonte de todos os conteúdos no GitHub.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Lista completa de Regras da Biblioteca"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Funciona no Windows, Android ou Linux?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Recomendamos a compra única, pois a diferença de preço é pequena. A principal razão pela qual oferecemos a subscrição é para lhe permitir experimentar todas as funcionalidades através da sua avaliação gratuita.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Compra única ou subscrição anual: qual é a melhor?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Injeta anúncios ou rastreamento em websites?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Não, nunca injeta nada disso. Sem anúncios, sem rastreamento, sem conteúdo não relacionado.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "O Redirect Web poderia ser vendido a outra pessoa?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% não. As extensões de navegador têm controlo profundo sobre a sua navegação e dados. O Redirect Web permanecerá sempre nas nossas mãos, para que possa navegar com total confiança.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Perguntas Frequentes",
+    "description": "FAQ section title"
   }
 }

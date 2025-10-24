@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Kui otsite versiooni 7.10.0 või varasemate väljalaskemärkmeid, vaadake {appStoreName}.",
+    "message": "Kui otsite versioonimärkmeid 7.10.0 või varasemate kohta, vaadake palun {appStoreName}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -20,7 +20,7 @@
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
-    "message": "Proffide nipp",
+    "message": "Pro-näpunäide",
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Looge täpsed reeglid, kasutades metamärke, regulaaravaldisi, välistatud URL-i mustreid, püüdurühmade töötlemist, DNR-i ja palju muud.",
+    "message": "Looge täpseid reegleid, kasutades metamärke, regulaaravaldisi, välistatud URL-mustreid, püüdurühmade töötlemist, DNR-i ja palju muud.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -60,11 +60,11 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Platvormiülene ja brauseriülene",
+    "message": "Ristbrauseri ja platvormiülene",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Saadaval kõigis suuremates brauserites Macis; Safaris iPhone'is, iPadis ja Apple Vision Pros.",
+    "message": "Saadaval kõigis peamistes brauserites Macis; Safaris iPhone'is, iPadis ja Apple Vision Pros.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -80,12 +80,20 @@
     "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.customDefaultSearchEngine.description": {
-    "message": "Määrake Kagi, Startpage, ChatGPT või mõni muu otsingumootor oma vaikimisi otsingumootoriks.",
+    "message": "Määrake Kagi, Startpage, ChatGPT või mõni muu otsingumootor oma vaikeotsingumootoriks.",
     "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.viewRedditClassic.title": {
-    "message": "Vaata Redditit klassikalises kujunduses",
+    "message": "Vaata Redditit selle klassikalises kujunduses",
     "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.viewRedditClassic.description": {
+    "message": "Suunake automaatselt ümber www.reddit.com-ist old.reddit.com-i.",
+    "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
+  },
+  "productUseCases.openAppleMaps.title": {
+    "message": "Ava Apple Maps Google Mapsi linkidelt",
+    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
   },
   "productUseCases.declutterGoogleSearch.title": {
     "message": "Korista Google'i otsing",
@@ -112,15 +120,74 @@
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
-    "message": "Näiteid kasutusjuhtudest",
+    "message": "Näitekasutusjuhud",
     "description": "Title for the example use cases section"
   },
   "landingPage.productFeatures.title": {
     "message": "Miks {productName}?",
     "description": "Title for the product features section."
   },
-  "productUseCases.openAppleMaps.title": {
-    "message": "Ava Apple Maps Google Mapsi linkidelt",
-    "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
+  "landingPageFAQ.otherApps.question": {
+    "message": "On ka teisi sarnaseid laiendusi. Kuidas Redirect Web erineb?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web pakub unikaalseid funktsioone, nagu üksikasjalikud reegliseaded, kasulik reeglite kogu, iCloudi sünkroonimine, Safari tugi ja palju muud. Kuid igal tööriistal on oma eelised. Vaadake meie võrdluslehte, et aidata teil valida see, mis teie vajadustele kõige paremini sobib:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Võrdlus teiste tööriistadega",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Kas peaksin pärast brauserilaienduse installimist hankima natiivse rakenduse?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Jah. Peate alla laadima Redirect Web rakenduse App Store'ist, olenemata sellest, millist brauserit te kasutate. Rakendus on vajalik teie reeglite haldamiseks.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Kas teek muutub tulevikus tasuliseks?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Ei, see on alati tasuta ja avatud lähtekoodiga. Kogu sisu allika leiate GitHubist.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Täielik teegi reeglite loend"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Kas see töötab Windowsis, Androidis või Linuxis?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Soovitame ühekordset ostu, kuna hinnavahe on väike. Peamine põhjus, miks me tellimust pakume, on see, et saaksite kõiki funktsioone tasuta prooviperioodi kaudu proovida.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Ühekordne ost või aastatellimus: kumb on parem?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Kas see süstib veebisaitidele reklaame või jälgimist?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Ei, see ei süsti kunagi midagi sellist. Ei reklaame, ei jälgimist, ei mitteseotud sisu.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Kas Redirect Web võidakse kunagi kellelegi teisele müüa?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% ei. Brauserilaiendustel on sügav kontroll teie sirvimise ja andmete üle. Redirect Web jääb alati meie kätte, nii et saate sirvida täieliku kindlusega.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Korduma kippuvad küsimused",
+    "description": "FAQ section title"
   }
 }

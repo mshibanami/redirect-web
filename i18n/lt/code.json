@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Jei ieškote 7.10.0 ar ankstesnių versijų išleidimo pastabų, patikrinkite {appStoreName}.",
+    "message": "Jei ieškote 7.10.0 ar ankstesnių versijų leidimo pastabų, patikrinkite {appStoreName}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -32,7 +32,7 @@
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Jokių skelbimų. Jokio sekimo. Mėgaukitės greitesniu, švaresniu, jums pritaikytu žiniatinkliu.",
+    "message": "Jokių skelbimų. Jokio sekimo. Mėgaukitės greitesniu, švaresniu žiniatinkliu, pritaikytu jums.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Kurkite tikslias taisykles naudodami pakaitos simbolius, reguliarias išraiškas, neįtrauktus URL šablonus, fiksavimo grupių apdorojimą, DNR ir dar daugiau.",
+    "message": "Kurkite tikslias taisykles naudodami pakaitos simbolius, reguliarias išraiškas, išskirtus URL šablonus, fiksavimo grupės apdorojimą, DNR ir dar daugiau.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Galima naudoti visose pagrindinėse „Mac“ naršyklėse; „Safari“ „iPhone“, „iPad“ ir „Apple Vision Pro“.",
+    "message": "Galima visose pagrindinėse „Mac“ naršyklėse; „Safari“ „iPhone“, „iPad“ ir „Apple Vision Pro“.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -108,7 +108,7 @@
     "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.useYourFavoriteWiki.description": {
-    "message": "Peršokite iš „Fandom“ puslapių į oficialius „Terraria“ ar „Minecraft“ wiki.",
+    "message": "Peršokite iš „Fandom“ puslapių į oficialias „Terraria“ ar „Minecraft“ „Wiki“.",
     "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.openLinksInNativeApps.title": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "Kodėl {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Yra kitų panašių plėtinių. Kuo „Redirect Web“ skiriasi?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "„Redirect Web“ siūlo unikalias funkcijas, tokias kaip išsamūs taisyklių nustatymai, naudinga taisyklių biblioteka, „iCloud“ sinchronizavimas, „Safari“ palaikymas ir dar daugiau. Tačiau kiekviena priemonė turi savo privalumų. Peržiūrėkite mūsų palyginimo puslapį, kad padėtumėte pasirinkti geriausiai atitinkančią jūsų poreikius:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Palyginimas su kitomis priemonėmis",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Ar turėčiau gauti vietinę programą įdiegęs naršyklės plėtinį?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Taip. Turite atsisiųsti „Redirect Web“ programą iš „App Store“, nepriklausomai nuo to, kokią naršyklę naudojate. Programa reikalinga jūsų taisyklėms valdyti.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Ar biblioteka ateityje taps mokama?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Ne, ji visada nemokama ir atvirojo kodo. Viso turinio šaltinį galite rasti „GitHub“.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Visas bibliotekos taisyklių sąrašas"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Ar ji veikia „Windows“, „Android“ ar „Linux“?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Rekomenduojame vienkartinį pirkimą, nes kainų skirtumas yra nedidelis. Pagrindinė priežastis, kodėl siūlome prenumeratą, yra suteikti jums galimybę išbandyti visas funkcijas per nemokamą bandomąjį laikotarpį.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Vienkartinis pirkimas ar metinė prenumerata: kas geriau?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Ar ji įterpia skelbimus ar sekimą į svetaines?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Ne, ji niekada nieko panašaus neįterpia. Jokių skelbimų, jokio sekimo, jokio nesusijusio turinio.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Ar „Redirect Web“ kada nors gali būti parduota kam nors kitam?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% ne. Naršyklės plėtiniai turi didelę kontrolę jūsų naršymui ir duomenims. „Redirect Web“ visada liks mūsų rankose, todėl galite naršyti visiškai pasitikėdami.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Dažnai užduodami klausimai",
+    "description": "FAQ section title"
   }
 }

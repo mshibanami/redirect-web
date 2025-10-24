@@ -4,15 +4,15 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "Naročite se preko {rssLink}, da boste na tekočem z novimi izdajami!",
+    "message": "Naročite se prek {rssLink}, da boste na tekočem z novimi izdajami!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Če iščete opombe ob izdaji 7.10.0 ali starejše, preverite {appStoreName}.",
+    "message": "Če iščete opombe ob izdaji različice 7.10.0 ali starejše, preverite {appStoreName}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName} je zmogljiva razširitev brskalnika za preusmerjanje URL-jev na podlagi vaših pravil po meri.",
+    "message": "{appName} je zmogljiva razširitev brskalnika za preusmerjanje URL-jev na podlagi vaših pravil.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
@@ -32,7 +32,7 @@
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Brez oglasov. Brez sledenja. Uživajte v hitrejšem, čistejšem spletu, prilagojenem vam.",
+    "message": "Brez oglasov. Brez sledenja. Uživajte v hitrejši, čistejši spletni strani, prilagojeni vam.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Ustvarite natančna pravila z uporabo nadomestnih znakov, regularnih izrazov, izključenih vzorcev URL-jev, obdelave skupin za zajemanje, DNR in še več.",
+    "message": "Ustvarite natančna pravila z uporabo nadomestnih znakov, regularnih izrazov, izključenih vzorcev URL-jev, obdelave zajetih skupin, DNR in še več.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Hitro začnite z uporabnimi vnaprej pripravljenimi pravili iz razdelka Knjižnica v aplikaciji.",
+    "message": "Hiter začetek z uporabnimi vnaprej pripravljenimi pravili iz razdelka Knjižnica v aplikaciji.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -60,7 +60,7 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Medbrskalniško in večplatformsko",
+    "message": "Medbrskalniško in večplatformno",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
@@ -68,11 +68,11 @@
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Odklenite vse za 4 $",
+    "message": "Odkleni vse za 4 $",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Odklenite sinhronizacijo iCloud, neomejeno število pravil in prihodnje premium funkcije z enkratnim plačilom za ceno kave.",
+    "message": "Odklenite sinhronizacijo iCloud, neomejena pravila in prihodnje premium funkcije z enkratnim plačilom za ceno kave.",
     "description": "Landing page feature description for unlocking all features"
   },
   "productUseCases.customDefaultSearchEngine.title": {
@@ -96,7 +96,7 @@
     "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
   },
   "productUseCases.declutterGoogleSearch.title": {
-    "message": "Počistite Google Iskanje",
+    "message": "Počistite Iskanje Google",
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
@@ -116,7 +116,7 @@
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "Odprite povezave Figma, Notion ali Google Meet neposredno v namiznih aplikacijah na vašem Macu.",
+    "message": "Odprite povezave Figma, Notion ali Google Meet neposredno v njihovih namiznih aplikacijah na vašem Macu.",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "Zakaj {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Obstajajo druge podobne razširitve. V čem se Redirect Web razlikuje?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web ponuja edinstvene funkcije, kot so podrobne nastavitve pravil, uporabna knjižnica pravil, sinhronizacija iCloud, podpora za Safari in še več. Vendar ima vsako orodje svoje prednosti. Preverite našo stran za primerjavo, da boste lažje izbrali tisto, ki najbolj ustreza vašim potrebam:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Primerjava z drugimi orodji",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Ali naj namestim izvorno aplikacijo po namestitvi razširitve brskalnika?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Da. Aplikacijo Redirect Web morate prenesti iz App Store, ne glede na to, kateri brskalnik uporabljate. Aplikacija je potrebna za upravljanje vaših pravil.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Ali bo knjižnica v prihodnosti plačljiva?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Ne, vedno je brezplačna in odprtokodna. Vir vseh vsebin najdete na GitHubu.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Celoten seznam pravil knjižnice"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Ali deluje na sistemih Windows, Android ali Linux?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Priporočamo enkratni nakup, saj je razlika v ceni majhna. Glavni razlog, da ponujamo naročnino, je, da vam omogočimo preizkus vseh funkcij prek brezplačnega preizkusa.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Enkratni nakup ali letna naročnina: kaj je bolje?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Ali vbrizga oglase ali sledenje na spletna mesta?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Ne, nikoli ne vbrizga ničesar podobnega. Brez oglasov, brez sledenja, brez nepovezane vsebine.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Ali bi se Redirect Web kdaj lahko prodal komu drugemu?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100 % ne. Razširitve brskalnika imajo globok nadzor nad vašim brskanjem in podatki. Redirect Web bo vedno ostal v naših rokah, tako da lahko brskate s popolnim zaupanjem.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Pogosto zastavljena vprašanja",
+    "description": "FAQ section title"
   }
 }

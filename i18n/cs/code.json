@@ -4,7 +4,7 @@
     "description": "The link text for the RSS feeds link"
   },
   "release-notes.description.subscribe": {
-    "message": "Přihlaste se k odběru prostřednictvím {rssLink}, abyste byli informováni o nových vydáních!",
+    "message": "Přihlaste se k odběru prostřednictvím {rssLink}, abyste byli vždy informováni o nových vydáních!",
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
@@ -20,7 +20,7 @@
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
-    "message": "Tip",
+    "message": "Protip",
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
@@ -36,7 +36,7 @@
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
-    "message": "Výkonný přesměrovací modul",
+    "message": "Výkonný přesměrovací engine",
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Dostupné ve všech hlavních prohlížečích na Macu; Safari na iPhone, iPad a Apple Vision Pro.",
+    "message": "Dostupné ve všech hlavních prohlížečích na Macu; Safari na iPhonu, iPadu a Apple Vision Pro.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -92,15 +92,15 @@
     "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.openAppleMaps.title": {
-    "message": "Otevřít Apple Mapy z odkazů Google Maps",
+    "message": "Otevřít Apple Mapy z odkazů Google Map",
     "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
   },
   "productUseCases.declutterGoogleSearch.title": {
-    "message": "Uklidit vyhledávání Google",
+    "message": "Uklidit Google vyhledávání",
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
-    "message": "Automaticky přidat \"?udm=14\" k vašim vyhledáváním Google pro skrytí přehledů AI.",
+    "message": "Automaticky přidat \"?udm=14\" k vašim vyhledáváním na Google, abyste skryli přehledy AI.",
     "description": "Use case description for a redirection rules of decluttering Google Search"
   },
   "productUseCases.useYourFavoriteWiki.title": {
@@ -108,7 +108,7 @@
     "description": "Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.useYourFavoriteWiki.description": {
-    "message": "Přejděte z Fandom stránek na oficiální wiki Terraria nebo Minecraft.",
+    "message": "Přejděte z Fandom stránek na oficiální Terraria nebo Minecraft wiki.",
     "description": "Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis"
   },
   "productUseCases.openLinksInNativeApps.title": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "Proč {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Existují další podobná rozšíření. Jak se Redirect Web liší?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web nabízí jedinečné funkce, jako jsou podrobné nastavení pravidel, užitečná knihovna pravidel, iCloud Sync, podpora Safari a další. Každý nástroj má však své vlastní výhody. Podívejte se na naši srovnávací stránku, která vám pomůže vybrat ten, který nejlépe vyhovuje vašim potřebám:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Srovnání s jinými nástroji",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Mám si po instalaci rozšíření prohlížeče pořídit nativní aplikaci?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Ano. Musíte si stáhnout aplikaci Redirect Web z App Store bez ohledu na to, jaký prohlížeč používáte. Aplikace je vyžadována pro správu vašich pravidel.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Bude knihovna v budoucnu placená?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Ne, je vždy zdarma a open source. Zdroj veškerého obsahu najdete na GitHubu.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Kompletní seznam pravidel knihovny"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Funguje to na Windows, Android nebo Linux?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Doporučujeme jednorázový nákup, protože cenový rozdíl je malý. Hlavním důvodem, proč nabízíme předplatné, je umožnit vám vyzkoušet všechny funkce prostřednictvím bezplatné zkušební verze.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Jednorázový nákup nebo roční předplatné: co je lepší?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Vkládá reklamy nebo sledování do webových stránek?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Ne, nikdy nic takového nevkládá. Žádné reklamy, žádné sledování, žádný nesouvisející obsah.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Může být Redirect Web někdy prodán někomu jinému?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% ne. Rozšíření prohlížeče mají hlubokou kontrolu nad vaším prohlížením a daty. Redirect Web zůstane vždy v našich rukou, takže můžete prohlížet s naprostou důvěrou.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Často kladené otázky",
+    "description": "FAQ section title"
   }
 }

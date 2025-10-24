@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "7.10.0 veya önceki sürümlerin sürüm notlarını arıyorsanız, lütfen {appStoreName} adresini kontrol edin.",
+    "message": "7.10.0 veya daha önceki sürüm notlarını arıyorsanız, lütfen {appStoreName} adresini kontrol edin.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -24,7 +24,7 @@
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Tüm bu kullanım senaryolarının kurallarını uygulamadaki Kütüphane bölümünden alabilirsiniz!",
+    "message": "Tüm bu kullanım durumlarının kurallarını uygulamadaki Kütüphane bölümünden alabilirsiniz!",
     "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
@@ -48,7 +48,7 @@
     "description": "Landing page feature title for useful rules in library"
   },
   "landingPage.feature.library.description": {
-    "message": "Uygulamadaki Kütüphane bölümünden kullanışlı hazır kurallarla hızlıca başlayın.",
+    "message": "Uygulamadaki Kütüphane bölümünden faydalı hazır kurallarla hızlı başlangıç yapın.",
     "description": "Landing page feature description for useful rules in library"
   },
   "landingPage.feature.nativeUI.title": {
@@ -60,19 +60,19 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Çapraz Tarayıcı ve Çapraz Platform",
+    "message": "Tarayıcılar Arası ve Platformlar Arası",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Mac'teki tüm büyük tarayıcılarda; iPhone, iPad ve Apple Vision Pro'daki Safari'de mevcuttur.",
+    "message": "Mac'teki tüm büyük tarayıcılarda; iPhone, iPad ve Apple Vision Pro'da Safari'de kullanılabilir.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Tümünü 4 Dolara Kilidini Açın",
+    "message": "Tümünü $4 Karşılığında Açın",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "iCloud Senkronizasyonu, sınırsız kurallar ve gelecekteki premium özelliklerin kilidini tek seferlik bir kahve fiyatına açın.",
+    "message": "iCloud Senkronizasyonu, sınırsız kural ve gelecekteki premium özellikleri bir kahve fiyatına tek seferlik ödeme ile açın.",
     "description": "Landing page feature description for unlocking all features"
   },
   "productUseCases.customDefaultSearchEngine.title": {
@@ -88,7 +88,7 @@
     "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.viewRedditClassic.description": {
-    "message": "Otomatik olarak www.reddit.com'dan old.reddit.com'a yönlendirin.",
+    "message": "www.reddit.com adresinden otomatik olarak old.reddit.com adresine yönlendirin.",
     "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.openAppleMaps.title": {
@@ -96,7 +96,7 @@
     "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
   },
   "productUseCases.declutterGoogleSearch.title": {
-    "message": "Google Arama'yı Düzenleyin",
+    "message": "Google Aramasını Düzenleyin",
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
@@ -116,15 +116,78 @@
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "Figma, Notion veya Google Meet bağlantılarını doğrudan Mac'inizdeki masaüstü uygulamalarında açın.",
+    "message": "Figma, Notion veya Google Meet bağlantılarını Mac'inizdeki masaüstü uygulamalarında doğrudan açın.",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
-    "message": "Örnek Kullanım Senaryoları",
+    "message": "Örnek Kullanım Durumları",
     "description": "Title for the example use cases section"
   },
   "landingPage.productFeatures.title": {
     "message": "Neden {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Benzer başka uzantılar da var. Redirect Web nasıl farklı?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web, ayrıntılı kural ayarları, kullanışlı kural kütüphanesi, iCloud Senkronizasyonu, Safari desteği ve daha fazlası gibi benzersiz özellikler sunar. Ancak her aracın kendine göre avantajları vardır. İhtiyaçlarınıza en uygun olanı seçmenize yardımcı olmak için karşılaştırma sayfamızı inceleyin:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Diğer Araçlarla Karşılaştırma",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Tarayıcı uzantısını yükledikten sonra yerel uygulamayı da almalı mıyım?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Evet. Hangi tarayıcıyı kullanırsanız kullanın, Redirect Web uygulamasını App Store'dan indirmeniz gerekir. Uygulama, kurallarınızı yönetmek için gereklidir.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Kütüphane gelecekte ücretli olacak mı?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Hayır, her zaman ücretsiz ve açık kaynaklıdır. Tüm içeriklerin kaynağını GitHub'da bulabilirsiniz.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Kütüphane Kurallarının Tam Listesi"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Windows, Android veya Linux'ta çalışıyor mu?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Fiyat farkı az olduğu için tek seferlik satın almayı öneriyoruz. Abonelik sunmamızın ana nedeni, ücretsiz deneme sürümü aracılığıyla tüm özellikleri denemenize olanak sağlamaktır.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Tek seferlik satın alma mı yoksa yıllık abonelik mi: hangisi daha iyi?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Web sitelerine reklam veya takip enjekte ediyor mu?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Hayır, asla böyle bir şey enjekte etmez. Reklam yok, takip yok, alakasız içerik yok.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Redirect Web başka birine satılabilir mi?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "%100 hayır. Tarayıcı uzantıları, göz atma ve verileriniz üzerinde derin bir kontrole sahiptir. Redirect Web her zaman bizim elimizde kalacak, böylece tam bir güvenle gezinebilirsiniz.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Sıkça Sorulan Sorular",
+    "description": "FAQ section title"
   }
 }

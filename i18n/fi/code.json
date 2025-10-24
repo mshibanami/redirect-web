@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Jos etsit julkaisutiedotteita versiosta 7.10.0 tai vanhemmista, tarkista {appStoreName}.",
+    "message": "Jos etsit julkaisutietoja versiosta 7.10.0 tai vanhemmista, tarkista {appStoreName}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -16,7 +16,7 @@
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
-    "message": "👇️ Napsauta katsoaksesi esittelyvideon",
+    "message": "👇️ Katso demo napsauttamalla",
     "description": "Landing page demo video prompt"
   },
   "general.protipLabel": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Luo tarkkoja sääntöjä käyttämällä yleismerkkejä, säännöllisiä lausekkeita, poissuljettuja URL-malleja, kaappausryhmän käsittelyä, DNR:ää ja paljon muuta.",
+    "message": "Luo tarkkoja sääntöjä käyttämällä yleismerkkejä, säännöllisiä lausekkeita, poissuljettuja URL-malleja, sieppausryhmän käsittelyä, DNR:ää ja paljon muuta.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -64,7 +64,7 @@
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Saatavilla kaikissa tärkeimmissä selaimissa Macissa; Safarissa iPhonessa, iPadissa ja Apple Vision Prossa.",
+    "message": "Saatavilla kaikissa tärkeimmissä selaimissa Macilla; Safari iPhonessa, iPadissa ja Apple Vision Prossa.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
@@ -116,7 +116,7 @@
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "Avaa Figma-, Notion- tai Google Meet -linkit suoraan työpöytäsovelluksissaan Macissasi.",
+    "message": "Avaa Figma-, Notion- tai Google Meet -linkit suoraan työpöytäsovelluksissaan Macilla.",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "Miksi {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "On olemassa muita vastaavia laajennuksia. Miten Redirect Web eroaa niistä?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web tarjoaa ainutlaatuisia ominaisuuksia, kuten yksityiskohtaiset sääntöasetukset, hyödyllisen sääntökirjaston, iCloud-synkronoinnin, Safari-tuen ja paljon muuta. Mutta jokaisella työkalulla on omat etunsa. Tarkista vertailusivumme auttaaksemme sinua valitsemaan tarpeisiisi parhaiten sopivan:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Vertailu muihin työkaluihin",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Pitäisikö minun hankkia natiivisovellus selainlaajennuksen asentamisen jälkeen?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Kyllä. Sinun on ladattava Redirect Web -sovellus App Storesta riippumatta siitä, mitä selainta käytät. Sovellus tarvitaan sääntöjen hallintaan.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Tuleeko kirjastosta maksullinen tulevaisuudessa?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Ei, se on aina ilmainen ja avoimen lähdekoodin. Kaiken sisällön lähde löytyy GitHubista.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Täydellinen luettelo kirjastosäännöistä"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Toimiiko se Windowsissa, Androidissa tai Linuxissa?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Suosittelemme kertaluonteista ostoa, sillä hintaero on pieni. Pääsyy siihen, miksi tarjoamme tilauksen, on antaa sinun kokeilla kaikkia ominaisuuksia sen ilmaisen kokeilujakson kautta.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Kertaluonteinen osto vai vuositilaus: kumpi on parempi?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Lisääkö se mainoksia tai seurantaa verkkosivustoille?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Ei, se ei koskaan lisää mitään sellaista. Ei mainoksia, ei seurantaa, ei liityntäsisältöä.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Voiko Redirect Webin myydä jollekin toiselle?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100 % ei. Selainlaajennuksilla on syvällinen hallinta selaamiseesi ja tietoihisi. Redirect Web pysyy aina meidän käsissämme, joten voit selata täysin luottavaisin mielin.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Usein kysytyt kysymykset",
+    "description": "FAQ section title"
   }
 }

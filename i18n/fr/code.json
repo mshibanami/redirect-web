@@ -8,11 +8,11 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Si vous recherchez les notes de version 7.10.0 ou antérieures, veuillez consulter {appStoreName}.",
+    "message": "Si vous recherchez les notes de version de 7.10.0 ou antérieures, veuillez consulter {appStoreName}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName} est une puissante extension de navigateur pour rediriger les URL en fonction de vos règles personnalisées.",
+    "message": "{appName} est une extension de navigateur puissante pour rediriger les URL en fonction de vos règles personnalisées.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
@@ -32,7 +32,7 @@
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Pas de pubs. Pas de suivi. Profitez d'un web plus rapide et plus propre, adapté à vos besoins.",
+    "message": "Pas de publicités. Pas de suivi. Profitez d'un web plus rapide, plus propre et adapté à vos besoins.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Créez des règles précises en utilisant des caractères génériques, des expressions régulières, des modèles d'URL exclus, le traitement des groupes de capture, le DNR, et plus encore.",
+    "message": "Créez des règles précises à l'aide de caractères génériques, d'expressions régulières, de modèles d'URL exclus, de traitement de groupes de capture, de DNR, et plus encore.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -72,7 +72,7 @@
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Débloquez la synchronisation iCloud, des règles illimitées et les futures fonctionnalités premium avec un paiement unique pour le prix d'un café.",
+    "message": "Débloquez la synchronisation iCloud, les règles illimitées et les futures fonctionnalités premium avec un paiement unique pour le prix d'un café.",
     "description": "Landing page feature description for unlocking all features"
   },
   "productUseCases.customDefaultSearchEngine.title": {
@@ -80,11 +80,11 @@
     "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.customDefaultSearchEngine.description": {
-    "message": "Définissez Kagi, Startpage, ChatGPT ou tout autre moteur de recherche comme votre moteur par défaut.",
-    "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
+    "message": "Définissez Kagi, Startpage, ChatGPT ou tout autre moteur de recherche comme moteur par défaut.",
+    "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.viewRedditClassic.title": {
-    "message": "Voir Reddit dans son design classique",
+    "message": "Afficher Reddit dans son design classique",
     "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.viewRedditClassic.description": {
@@ -92,7 +92,7 @@
     "description": "Use case description for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.openAppleMaps.title": {
-    "message": "Ouvrir Apple Maps à partir des liens Google Maps",
+    "message": "Ouvrir Apple Plans à partir des liens Google Maps",
     "description": "Use case title for a redirection rules of opening Apple Maps from Google Maps links"
   },
   "productUseCases.declutterGoogleSearch.title": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "Pourquoi {productName} ?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Il existe d'autres extensions similaires. En quoi Redirect Web est-il différent ?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web offre des fonctionnalités uniques telles que des paramètres de règles détaillés, une bibliothèque de règles utiles, la synchronisation iCloud, la prise en charge de Safari, et bien plus encore. Mais chaque outil a ses propres avantages. Consultez notre page de comparaison pour vous aider à choisir celui qui correspond le mieux à vos besoins :",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Comparaison avec d'autres outils",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Dois-je obtenir l'application native après avoir installé l'extension de navigateur ?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Oui. Vous devez télécharger l'application Redirect Web depuis l'App Store, quel que soit le navigateur que vous utilisez. L'application est nécessaire pour gérer vos règles.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "La bibliothèque deviendra-t-elle payante à l'avenir ?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Non, elle est toujours gratuite et open source. Vous pouvez trouver la source de tous les contenus sur GitHub.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Liste complète des règles de la bibliothèque"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Fonctionne-t-il sur Windows, Android ou Linux ?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Nous recommandons l'achat unique, car la différence de prix est faible. La principale raison pour laquelle nous proposons l'abonnement est de vous permettre d'essayer toutes les fonctionnalités grâce à son essai gratuit.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Achat unique ou abonnement annuel : lequel est le meilleur ?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Injecte-t-il des publicités ou un suivi dans les sites web ?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Non, il n'injecte jamais rien de tel. Pas de publicités, pas de suivi, pas de contenu non pertinent.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Redirect Web pourrait-il être vendu à quelqu'un d'autre ?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% non. Les extensions de navigateur ont un contrôle profond sur votre navigation et vos données. Redirect Web restera toujours entre nos mains, afin que vous puissiez naviguer en toute confiance.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Foire aux questions",
+    "description": "FAQ section title"
   }
 }

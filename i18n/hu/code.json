@@ -8,7 +8,7 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Ha a 7.10.0-ás vagy korábbi kiadások megjegyzéseit keresed, kérjük, ellenőrizd a {appStoreName} oldalt.",
+    "message": "Ha a 7.10.0-ás vagy korábbi kiadásokról szóló megjegyzéseket keresed, kérjük, ellenőrizd az {appStoreName} oldalt.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
@@ -24,7 +24,7 @@
     "description": "Label for a hint"
   },
   "landingPage.useCasesLibraryFootnote": {
-    "message": "Az összes ilyen felhasználási esetre vonatkozó szabályt megtalálhatod az alkalmazás Könyvtár szakaszában!",
+    "message": "Az összes használati eset szabályait megtalálhatod az alkalmazás Könyvtár szakaszában!",
     "description": "A hint about use cases about the Library section on the landing page"
   },
   "general.learnMoreAction": {
@@ -32,7 +32,7 @@
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Nincsenek hirdetések. Nincs nyomkövetés. Élvezd a gyorsabb, tisztább, rád szabott webet.",
+    "message": "Nincsenek hirdetések. Nincs nyomkövetés. Élvezd a gyorsabb, tisztább webet, amely rád van szabva.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -40,7 +40,7 @@
     "description": "Landing page feature title for powerful redirection engine"
   },
   "landingPage.feature.redirectionEngine.description": {
-    "message": "Készíts pontos szabályokat helyettesítő karakterek, reguláris kifejezések, kizárt URL-minták, rögzítőcsoport-feldolgozás, DNR és egyebek használatával.",
+    "message": "Hozzon létre pontos szabályokat helyettesítő karakterek, reguláris kifejezések, kizárt URL-minták, rögzítőcsoport-feldolgozás, DNR és egyebek használatával.",
     "description": "Landing page feature description for powerful redirection engine"
   },
   "landingPage.feature.library.title": {
@@ -60,19 +60,19 @@
     "description": "Landing page feature description for native UI"
   },
   "landingPage.feature.crossBrowser.title": {
-    "message": "Böngészőfüggetlen és platformfüggetlen",
+    "message": "Böngészők és platformok közötti kompatibilitás",
     "description": "Landing page feature title for cross-browser and cross-platform support"
   },
   "landingPage.feature.crossBrowser.description": {
-    "message": "Elérhető az összes főbb böngészőben Macen; Safariban iPhone-on, iPaden és Apple Vision Pro-n.",
+    "message": "Elérhető az összes főbb böngészőben Macen; Safari iPhone-on, iPaden és Apple Vision Pro-n.",
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Oldj fel mindent 4 dollárért",
+    "message": "Oldja fel az összeset 4 dollárért",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
-    "message": "Oldd fel az iCloud szinkronizálást, a korlátlan szabályokat és a jövőbeli prémium funkciókat egy egyszeri fizetéssel, egy kávé áráért.",
+    "message": "Oldja fel az iCloud szinkronizálást, a korlátlan szabályokat és a jövőbeli prémium funkciókat egy egyszeri fizetéssel, egy kávé áráért.",
     "description": "Landing page feature description for unlocking all features"
   },
   "productUseCases.customDefaultSearchEngine.title": {
@@ -80,7 +80,7 @@
     "description": "Use case title for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.customDefaultSearchEngine.description": {
-    "message": "Állítsd be a Kagit, Startpage-et, ChatGPT-t vagy bármely más keresőmotort alapértelmezettként.",
+    "message": "Állítsa be a Kagi-t, a Startpage-t, a ChatGPT-t vagy bármely más keresőmotort alapértelmezettként.",
     "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.viewRedditClassic.title": {
@@ -100,7 +100,7 @@
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
-    "message": "Automatikusan hozzáadja a „?udm=14” paramétert a Google kereséseidhez az AI áttekintések elrejtéséhez.",
+    "message": "Automatikusan hozzáadja a \"?udm=14\"-et a Google kereséseihez az AI áttekintések elrejtéséhez.",
     "description": "Use case description for a redirection rules of decluttering Google Search"
   },
   "productUseCases.useYourFavoriteWiki.title": {
@@ -116,15 +116,78 @@
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "Nyisd meg a Figma, Notion vagy Google Meet linkeket közvetlenül az asztali alkalmazásaikban Macen.",
+    "message": "Nyissa meg a Figma, Notion vagy Google Meet linkeket közvetlenül az asztali alkalmazásaikban Mac gépén.",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
-    "message": "Példa felhasználási esetek",
+    "message": "Példa használati esetek",
     "description": "Title for the example use cases section"
   },
   "landingPage.productFeatures.title": {
     "message": "Miért {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Vannak más hasonló bővítmények. Miben különbözik a Redirect Web?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "A Redirect Web egyedi funkciókat kínál, mint például részletes szabálybeállítások, hasznos szabálykönyvtár, iCloud szinkronizálás, Safari támogatás és még sok más. De minden eszköznek megvannak a maga előnyei. Tekintse meg összehasonlító oldalunkat, hogy segítsen kiválasztani az Ön igényeinek leginkább megfelelőt:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Összehasonlítás más eszközökkel",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Telepítenem kell a natív alkalmazást a böngészőbővítmény telepítése után?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Igen. Le kell töltened a Redirect Web alkalmazást az App Store-ból, függetlenül attól, hogy melyik böngészőt használod. Az alkalmazás szükséges a szabályok kezeléséhez.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "A könyvtár fizetőssé válik a jövőben?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Nem, mindig ingyenes és nyílt forráskódú. Az összes tartalom forrását megtalálhatod a GitHubon.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "A könyvtári szabályok teljes listája"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Működik Windows, Android vagy Linux rendszeren?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Javasoljuk az egyszeri vásárlást, mivel az árkülönbség kicsi. A fő ok, amiért előfizetést kínálunk, az, hogy lehetővé tegyük az összes funkció kipróbálását az ingyenes próbaidőszak alatt.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Egyszeri vásárlás vagy éves előfizetés: melyik a legjobb?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Hirdetéseket vagy nyomkövetést injektál a weboldalakba?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Nem, soha nem injektál ilyesmit. Nincsenek hirdetések, nincs nyomkövetés, nincs irreleváns tartalom.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Eladható-e valaha a Redirect Web valaki másnak?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100%-ban nem. A böngészőbővítmények mélyrehatóan ellenőrzik a böngészést és az adatokat. A Redirect Web mindig a mi kezünkben marad, így teljes bizalommal böngészhetsz.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Gyakran Ismételt Kérdések",
+    "description": "FAQ section title"
   }
 }

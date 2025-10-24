@@ -8,11 +8,11 @@
     "description": "The subscription prompt for release notes"
   },
   "release-notes.description.oldReleaseNotes": {
-    "message": "Jika Anda mencari catatan rilis 7.10.0 atau yang lebih lama, silakan periksa {appStoreName}.",
+    "message": "Jika Anda mencari catatan rilis versi 7.10.0 atau yang lebih lama, silakan periksa {appStoreName}.",
     "description": "The prompt for old release notes"
   },
   "landingPage.heroSubtitle": {
-    "message": "{appName} adalah ekstensi browser yang kuat untuk mengarahkan ulang URL berdasarkan aturan kustom Anda.",
+    "message": "{appName} adalah ekstensi browser canggih untuk mengarahkan ulang URL berdasarkan aturan kustom Anda.",
     "description": "Landing page hero subtitle"
   },
   "landingPage.demoVideoPrompt": {
@@ -32,7 +32,7 @@
     "description": "'Learn More' button"
   },
   "landingPage.noAdsNoTracking": {
-    "message": "Tanpa iklan. Tanpa pelacakan. Nikmati web yang lebih cepat, lebih bersih, disesuaikan untuk Anda.",
+    "message": "Tanpa iklan. Tanpa pelacakan. Nikmati web yang lebih cepat, lebih bersih, dan disesuaikan untuk Anda.",
     "description": "Landing page tagline about no ads and no tracking"
   },
   "landingPage.feature.redirectionEngine.title": {
@@ -68,7 +68,7 @@
     "description": "Landing page feature description for cross-browser and cross-platform support"
   },
   "landingPage.feature.unlockAll.title": {
-    "message": "Buka Semua dengan $4",
+    "message": "Buka Semua Fitur seharga $4",
     "description": "Landing page feature title for unlocking all features"
   },
   "landingPage.feature.unlockAll.description": {
@@ -84,7 +84,7 @@
     "description": "Use case description for a redirection rules of changing browser's default search engine to another search engine"
   },
   "productUseCases.viewRedditClassic.title": {
-    "message": "Lihat Reddit dalam desain klasiknya",
+    "message": "Lihat Reddit dalam Desain Klasiknya",
     "description": "Use case title for a redirection rules of viewing Reddit in its classic design"
   },
   "productUseCases.viewRedditClassic.description": {
@@ -100,7 +100,7 @@
     "description": "Use case title for a redirection rules of decluttering Google Search"
   },
   "productUseCases.declutterGoogleSearch.description": {
-    "message": "Secara otomatis menambahkan \"?udm=14\" ke pencarian Google Anda untuk menyembunyikan Ringkasan AI.",
+    "message": "Secara otomatis menambahkan \"?udm=14\" ke pencarian Google Anda untuk menyembunyikan AI Overviews.",
     "description": "Use case description for a redirection rules of decluttering Google Search"
   },
   "productUseCases.useYourFavoriteWiki.title": {
@@ -116,7 +116,7 @@
     "description": "Use case title for a redirection rules of opening links in their native apps"
   },
   "productUseCases.openLinksInNativeApps.description": {
-    "message": "Buka tautan Figma, Notion, atau Google Meet langsung di aplikasi desktop mereka di Mac Anda.",
+    "message": "Buka tautan Figma, Notion, atau Google Meet langsung di aplikasi desktop Anda di Mac.",
     "description": "Use case description for a redirection rules of opening links in their native apps"
   },
   "landingPage.exampleUseCases.title": {
@@ -126,5 +126,68 @@
   "landingPage.productFeatures.title": {
     "message": "Mengapa {productName}?",
     "description": "Title for the product features section."
+  },
+  "landingPageFAQ.otherApps.question": {
+    "message": "Ada ekstensi serupa lainnya. Apa bedanya Redirect Web?",
+    "description": "FAQ question about other apps"
+  },
+  "landingPageFAQ.otherApps.answer": {
+    "message": "Redirect Web menawarkan fitur unik seperti pengaturan aturan terperinci, perpustakaan aturan yang berguna, iCloud Sync, dukungan Safari, dan banyak lagi. Tetapi setiap alat memiliki kelebihannya sendiri. Periksa halaman perbandingan kami untuk membantu Anda memilih yang paling sesuai dengan kebutuhan Anda:",
+    "description": "FAQ answer about other apps"
+  },
+  "landingPageFAQ.otherApps.comparisonLink": {
+    "message": "Perbandingan dengan Alat Lain",
+    "description": "FAQ answer link to comparison page"
+  },
+  "landingPageFAQ.appRequired.question": {
+    "message": "Haruskah saya mendapatkan aplikasi asli setelah menginstal ekstensi browser?",
+    "description": "FAQ question about app requirement"
+  },
+  "landingPageFAQ.appRequired.answer": {
+    "message": "Ya. Anda perlu mengunduh aplikasi Redirect Web dari App Store terlepas dari browser mana yang Anda gunakan. Aplikasi ini diperlukan untuk mengelola aturan Anda.",
+    "description": "FAQ answer about app requirement"
+  },
+  "landingPageFAQ.library.question": {
+    "message": "Apakah perpustakaan akan berbayar di masa mendatang?",
+    "description": "FAQ question about library pricing"
+  },
+  "landingPageFAQ.library.answer": {
+    "message": "Tidak, ini selalu gratis dan sumber terbuka. Anda dapat menemukan sumber semua konten di GitHub.",
+    "description": "FAQ answer about library pricing"
+  },
+  "landingPageFAQ.library.completeListOfLibraryRules": {
+    "message": "Daftar Lengkap Aturan Perpustakaan"
+  },
+  "landingPageFAQ.platforms.question": {
+    "message": "Apakah ini berfungsi di Windows, Android, atau Linux?",
+    "description": "FAQ question about platform support"
+  },
+  "landingPageFAQ.platforms.answer": {
+    "message": "Kami merekomendasikan pembelian satu kali, karena perbedaan harga kecil. Alasan utama kami menawarkan langganan adalah untuk memungkinkan Anda mencoba semua fitur melalui uji coba gratisnya.",
+    "description": "FAQ answer about purchasing"
+  },
+  "landingPageFAQ.whichPlanIsBest.question": {
+    "message": "Pembelian satu kali atau langganan tahunan: mana yang terbaik?",
+    "description": "FAQ question about purchasing"
+  },
+  "landingPageFAQ.ads.question": {
+    "message": "Apakah ini menyuntikkan iklan atau pelacakan ke situs web?",
+    "description": "FAQ question about ads and tracking"
+  },
+  "landingPageFAQ.ads.answer": {
+    "message": "Tidak, ini tidak pernah menyuntikkan hal seperti itu. Tanpa iklan, tanpa pelacakan, tanpa konten yang tidak terkait.",
+    "description": "FAQ answer about ads and tracking"
+  },
+  "landingPageFAQ.ownership.question": {
+    "message": "Bisakah Redirect Web dijual kepada orang lain?",
+    "description": "FAQ question about ownership transfer"
+  },
+  "landingPageFAQ.ownership.answer": {
+    "message": "100% tidak. Ekstensi browser memiliki kontrol mendalam atas penjelajahan dan data Anda. Redirect Web akan selalu tetap di tangan kami, sehingga Anda dapat menjelajah dengan keyakinan penuh.",
+    "description": "FAQ answer about ownership transfer"
+  },
+  "landingPageFAQ.title": {
+    "message": "Pertanyaan yang Sering Diajukan",
+    "description": "FAQ section title"
   }
 }
