@@ -76,7 +76,8 @@ const faqItems: FAQItem[] = [
                 <Link href='https://github.com/mshibanami/redirect-web/tree/main/library/rule-sets'>
                     <b>
                         <Translate
-                            id="landingPageFAQ.library.completeListOfLibraryRules">
+                            id="landingPageFAQ.library.completeListOfLibraryRules"
+                            description="FAQ answer link to complete list of library rules">
                             Complete list of Library Rules
                         </Translate>
                     </b>
