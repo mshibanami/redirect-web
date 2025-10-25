@@ -105,3 +105,8 @@ code {
 img.medium-zoom-image--opened {
   border-radius: 0 !important;
 }
+
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 999;
+}

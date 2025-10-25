@@ -196,7 +196,7 @@ const config: Config = {
       },
     },
     zoom: {
-      selector: '.markdown img, .zooming img',
+      selector: '.markdown img:not(a img), .zooming img:not(a img)',
       background: {
         light: 'rgb(255, 255, 255, 0.8)',
         dark: 'rgb(50, 50, 50, 0.8)',
