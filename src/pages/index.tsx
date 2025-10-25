@@ -233,21 +233,21 @@ export default function Home(): ReactNode {
     const featuresAnimation = useScrollAnimation();
     const learnMoreAnimation = useScrollAnimation();
     const taglineAnimation = useScrollAnimation();
+    const title = `Redirect Web - ${siteConfig.tagline}`;
+    const description = translate(
+        {
+            id: "landingPage.heroSubtitle",
+            description: "Landing page hero subtitle",
+            message: '{appName} is a powerful browser extension to redirect URLs based on your custom rules.'
+        },
+        { appName: 'Redirect Web' }
+    );
 
     return (
         <div className='index-page'>
             <Layout
-                title={siteConfig.tagline}
-                description={
-                    translate(
-                        {
-                            id: "landingPage.heroSubtitle",
-                            description: "Landing page hero subtitle",
-                            message: '{appName} is a powerful browser extension to redirect URLs based on your custom rules.'
-                        },
-                        { appName: 'Redirect Web' }
-                    )
-                }>
+                title={title}
+                description={description}>
                 <div ref={headerAnimation.ref} className={clsx(styles.animatedSection, {
                     [styles.visible]: headerAnimation.isVisible
                 })}>
@@ -323,10 +323,10 @@ export default function Home(): ReactNode {
             </Layout>
 
             <Head titleTemplate="%s">
-                <title>
-                    Redirect Web - {siteConfig.tagline}
-                </title>
+                <title>{title}</title>
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={description} />
             </Head>
-        </div >
+        </div>
     );
 }
