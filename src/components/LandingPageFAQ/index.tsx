@@ -44,6 +44,22 @@ const faqItems: FAQItem[] = [
     },
     {
         question: translate({
+            id: 'landingPageFAQ.whichPlanIsBest.question',
+            message: 'One-time purchase or annual subscription: which is best?',
+            description: 'FAQ question about purchasing'
+        }),
+        answer: (
+            <p>
+                <Translate
+                    id="landingPageFAQ.whichPlanIsBest.answer"
+                    description="FAQ answer about purchasing">
+                    We recommend the one-time purchase, as the price difference is small. The main reason we offer the subscription is to allow you to try all the features through its free trial.
+                </Translate>
+            </p>
+        )
+    },
+    {
+        question: translate({
             id: 'landingPageFAQ.appRequired.question',
             message: 'Should I get the native app after installing the browser extension?',
             description: 'FAQ question about app requirement'
@@ -97,22 +113,6 @@ const faqItems: FAQItem[] = [
                     id="landingPageFAQ.platforms.answer"
                     description="FAQ answer about platform support">
                     Not at this time. Currently, Redirect Web only works on Mac, iPhone, iPad, and Apple Vision Pro.
-                </Translate>
-            </p>
-        )
-    },
-    {
-        question: translate({
-            id: 'landingPageFAQ.whichPlanIsBest.question',
-            message: 'One-time purchase or annual subscription: which is best?',
-            description: 'FAQ question about purchasing'
-        }),
-        answer: (
-            <p>
-                <Translate
-                    id="landingPageFAQ.whichPlanIsBest.answer"
-                    description="FAQ answer about purchasing">
-                    We recommend the one-time purchase, as the price difference is small. The main reason we offer the subscription is to allow you to try all the features through its free trial.
                 </Translate>
             </p>
         )
