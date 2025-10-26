@@ -102,7 +102,11 @@ const useCases = [
             message: 'Open Apple Maps from Google Maps links',
             description: 'Use case title for a redirection rules of opening Apple Maps from Google Maps links'
         }),
-        description: 'Prefer Apple Maps? Redirect any Google Maps URL to open in Apple Maps.'
+        description: translate({
+            id: 'productUseCases.openAppleMaps.description',
+            message: 'Prefer Apple Maps? Redirect any Google Maps URL to open in Apple Maps.',
+            description: 'Use case description for a redirection rules of opening Apple Maps from Google Maps links'
+        })
     },
     {
         title: translate({
