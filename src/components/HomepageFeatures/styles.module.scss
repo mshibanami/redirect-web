@@ -7,7 +7,14 @@
 }
 
 .featureCard {
-  height: 100%;
+  background-color: var(--ifm-card-background-color);
+  border-radius: var(--ifm-card-border-radius);
+  box-shadow: var(--ifm-global-shadow-lw);
+  overflow: hidden;
+}
+
+.featureCardBody {
+  margin: var(--ifm-card-vertical-spacing) var(--ifm-card-horizontal-spacing);
 }
 
 .featureIcon {
@@ -15,6 +22,6 @@
 }
 
 .featureThumbnail {
-  border-radius: 14px;
+  display: block;
   border: 0.5px solid #8882;
 }
