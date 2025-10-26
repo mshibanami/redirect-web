@@ -4,34 +4,34 @@ import ExtensionStoreLinks from "@site/src/components/ExtensionStoreLinks";
 # Johdanto
 
 <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", marginBottom: "25px"}}>
-  <img src={useBaseUrl("img/redirect-a-to-b.png")} style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Uudelleenohjaa A:sta B:hen" />
+  <img src={useBaseUrl("img/redirect-a-to-b.png")} style={{display: "block", minWidth: "360px", maxWidth: "500px", width: "100%", height: "auto", marginBottom: "25px"}} alt="Redirect A to B" />
   <ExtensionStoreLinks />
 </div>
 
-Tervetuloa Redirect Webin tukisivustolle. Redirect Web on selainlaajennus, joka uudelleenohjaa kaikki selaimen sivulataukset varmistaen, että päädyt aina haluamaasi paikkaan.
+Tervetuloa Redirect Webin tukisivustolle — selainlaajennukselle, joka uudelleenohjaa kaikki selaimesi sivulataukset, jotta päädyt aina haluamaasi paikkaan.
 
 (Aiemmin tunnettu nimellä Redirect Web for Safari.)
 
 ## ⬇️ Latauslinkit {#download-links}
 
 - [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
-- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox Add-ons)
-- [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge Add-ons)
-- [Safari](https://apps.apple.com/app/id1571283503) (Laajennus on jo mukana natiivisovelluksessa.)
+- [Firefox](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox-lisäosat)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edgen lisäosat)
+- [Safari](https://apps.apple.com/app/id1571283503) (Laajennus on jo mukana erillisessä sovelluksessa.)
 
-Redirect Web on saatavilla:
+Redirect Web on saatavilla seuraaville alustoille:
 
-- **Mac** (Safari, Chrome, Firefox, Edge ja muut)
+- **Mac** (Safari, Chrome, Firefox, Edge ja muita)
 - **iPhone**, **iPad** ja **Apple Vision Pro** (Safari)
 
 :::note
 
-- Sinun on asennettava [Redirect Web -sovellus Mac App Storesta](https://apps.apple.com/app/id1571283503) käyttääksesi laajennusta, riippumatta siitä, mitä selainta käytät, koska laajennukset luottavat sovellukseen päästäkseen sääntöihisi, asetuksiisi jne.
+- Sinun on asennettava [Redirect Web -sovellus Mac App Storesta](https://apps.apple.com/app/id1571283503) käyttääksesi laajennusta, riippumatta siitä, mitä selainta käytät, koska laajennukset hyödyntävät sovellusta sääntöihisi, asetuksiisi ym. pääsemiseksi.
 - Moniselaintuki on saatavilla vain Macilla.
 
 :::
 
-Nämä ovat peruskäyttötapoja:
+Nämä ovat peruskäyttötapaukset:
 
 <iframe style={{width:"100%", aspectRatio:"9/16", height:"auto", maxHeight:"60vh", maxWidth:"35vh"}} src="https://www.youtube.com/embed/NaQ5X-v-qJU" title="iOS Demo Video (YouTube)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -39,46 +39,46 @@ Nämä ovat peruskäyttötapoja:
 
 ## Suositut käyttötapaukset {#popular-use-cases}
 
-Voit esimerkiksi luoda näitä sääntöjä:
+Esimerkiksi voit luoda seuraavia sääntöjä:
 
-- Tarkastele **Reddit**iä sen klassisessa suunnittelussa (old.reddit.com).
-- Avaa **Apple Maps** aina, kun **Google Maps** -linkki ilmestyy.
-- Piilota Googlen tekoäly-yleiskatsaukset **Google-hakutuloksista** lisäämällä **?udm=14** jokaiseen hakuun.
-- Hyppää Fandom-sivuilta virallisiin **Terraria**- tai **Minecraft**-wikiin.
-- Käytä **Kagia**, **Startpagea**, **ChatGPT**tä ja mitä tahansa muuta hakukonetta **oletushakukoneenasi**.
+- Katso **Reddit** sen klassisessa näkymässä (old.reddit.com).
+- Avaa **Apple Maps**, kun **Google Maps** -linkki esiintyy.
+- Piilota Googlen AI-yhteenvedot **Google-hakutuloksista** lisäämällä **?udm=14** jokaiseen hakuun.
+- Siirry Fandom-sivuilta virallisille **Terraria**- tai **Minecraft**-wikille.
+- Käytä **Kagi**, **Startpage**, **ChatGPT** tai mitä tahansa muuta hakukonetta oletushakukoneenasi.
 - Avaa **Google Meet** -linkit Google Chromessa. (Mac)
 - Avaa **Figma**-linkit suoraan Figma-sovelluksessa. (Mac)
 - Avaa **Notion**-linkit suoraan Notion-sovelluksessa. (Mac)
 
-Voit saada kaikki nämä ennalta määriteltyinä sääntöinä ilmaiseksi sovelluksen Kirjasto-osiosta!
+Saat kaikki nämä valmiiksi määritettyinä sääntöinä ilmaiseksi sovelluksen Kirjasto‑osiosta!
 
 ## Ominaisuudet {#features}
 
 Redirect Web sisältää seuraavat ominaisuudet:
 
-- Luo sääntöjä käyttämällä **säännöllisiä lausekkeita** tai **yleismerkkejä**
-- Käytä **takaisinviittauksia** dynaamisten kohde-URL-osoitteiden määrittämiseen
+- Luo sääntöjä käyttämällä **säännöllisiä lausekkeita (Regular Expression)** tai **jokerimerkkejä (Wildcard)**
+- Käytä **takaisinviittausta (back-referencing)** määrittääksesi dynaamisia kohde-URL-osoitteita
 - **Poissulje** URL-osoitteita uudelleenohjauksesta
-- **Käsittele kaapattuja tekstejä** käyttämällä URL-koodausta/dekoodausta, base64-koodausta/dekoodausta tai esiintymien korvaamista
+- **Käsittele siepattuja tekstejä** käyttämällä URL-koodauksen/purkauksen, base64-koodauksen/purkauksen tai merkkijonojen korvaamisen toimintoja
 
-Lisäksi voit avata seuraavat ominaisuudet joko tilauksella tai kertaluonteisella ostolla:
+Lisäksi voit avata seuraavat ominaisuudet tilauksen tai kertamaksun avulla:
 
-- **Rajoittamattoman** määrän sääntöjen käyttöönotto
+- Mahdollisuus lisätä **rajoittamaton** määrä sääntöjä
 - **Sääntöjen synkronointi** muiden Mac-, iPhone- ja iPad-laitteidesi kanssa **iCloudin kautta**
 
-(Sovelluksen ostaminen tukee myös meitä Redirect Webin ylläpidossa. 🙏)
+(Sovelluksen ostaminen tukee myös kehitystyötämme Redirect Webin ylläpitämiseksi. 🙏)
 
-Ostoksesi tai tilauksesi jaetaan Macin, iPhonen, iPadin ja Apple Vision Pron kesken Universal Purchasen kautta. Tukesi auttaa jatkuvaa kehitystä.
+Ostoksesi tai tilauksesi jaetaan Macillasi, iPhonellasi, iPadillasi ja Apple Vision Prolla Universal Purchase -ominaisuuden kautta. Tukesi auttaa jatkokehitystä.
 
 
-## Meidät on esitelty monissa medioissa! {#media-coverage}
+## Olemme olleet esillä monissa medioissa! {#media-coverage}
 
 * 🏅 Palkinnot
-    * **Apple**: [Parhaat Safari-laajennukset](https://apps.apple.com/us/story/id1377753262)
+    * **Apple**: [The best Safari extensions](https://apps.apple.com/us/story/id1377753262)
 * 📰 Artikkelit
-    * **Six Colors**: [Redirect Web for Safari vie minut oikeisiin paikkoihin](https://sixcolors.com/post/2022/11/redirect-web-for-safari-takes-me-to-the-right-places/)
-    * **Lifehacker**: [Paranna Safari-selauskokemustasi näillä automaattisilla uudelleenohjauksilla](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
-    * **MacStories**: [ChatGPT-laajennuksen tuolla puolen: Kuinka uudelleenohjata Safari-haut mihin tahansa LLM:ään](https://www.macstories.net/tutorials/beyond-chatgpts-extension-how-to-redirect-safari-searches-to-any-llm/)
+    * **Six Colors**: [Redirect Web for Safari takes me to the right places](https://sixcolors.com/post/2022/11/redirect-web-for-safari-takes-me-to-the-right-places/)
+    * **Lifehacker**: [Improve Your Safari Browsing Experience With These Automatic Redirects](https://lifehacker.com/improve-your-safari-browsing-experience-with-these-auto-1849812013)
+    * **MacStories**: [Beyond ChatGPT’s Extension: How to Redirect Safari Searches to Any LLM](https://www.macstories.net/tutorials/beyond-chatgpts-extension-how-to-redirect-safari-searches-to-any-llm/)
     * **AppAddict**: [Redirect Web for Safari](https://appaddict.app/post/redirect-web-for-safari)
 * 🎙️ Podcastit
     * [**MacBreak Weekly**](https://youtu.be/I251K3L2s88?t=7427)
@@ -86,6 +86,6 @@ Ostoksesi tai tilauksesi jaetaan Macin, iPhonen, iPadin ja Apple Vision Pron kes
 
 ---
 
-Jos sinulla on kysyttävää, palautetta tai ongelmia, älä epäröi [ottaa meihin yhteyttä](/contact-us).
+Jos sinulla on kysyttävää, palautetta tai ongelmia, ota rohkeasti yhteyttä [meihin](/contact-us).
 
-Ei mainoksia. Ei seurantaa. Nauti nopeammasta, puhtaammasta ja sinulle räätälöidystä verkosta.
+Ei mainoksia. Ei seurantaa. Nauti nopeammasta, siistimmästä verkosta, joka on räätälöity sinulle.
