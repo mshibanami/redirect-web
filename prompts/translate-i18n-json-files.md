@@ -14,7 +14,7 @@ You should translate the JSON files in the source language folder in the `i18n` 
 ## Critical Rules
 
 - Make sure to preserve the original structure of the JSON files and only change the text values.
-- Only translate the \"message\" values provided. Use \"description\" and the key only as context.
+- Only translate the `message` values provided. Use `description` and the key only as context.
 - Preserve placeholders and variables exactly: `$NAME$`, `$1`, `$2`, `{name}`, `{count}`, `{count, plural, ...}`, `%s`, `%d`, `{{mustache}}`, `<tags>`, `\n`, `\t`.
 - Do NOT translate URLs, file paths, code identifiers, HTML tags, or anything inside backticks.
 - Keep punctuation and spacing natural for the target language.

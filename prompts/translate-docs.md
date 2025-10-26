@@ -17,9 +17,9 @@ Please do NOT include these files:
 ## Critical Rules
 
 - Make sure to preserve the original structure of the JSON files and only change the text values.
-- Only translate the `message`'s values provided. Use the `description` values only as context.
 - Do NOT translate code syntax, variable names, file paths, HTML tags, Markdown link URLs, code blocks, inline code (backticks), and other technical elements.
-- Do NOT translate referenced posts, podcasts, or proper nouns.
+- Do NOT translate referenced external posts or podcasts.
+- Translate link texts when they are naturally part of the sentence.
 - Keep punctuation and spacing natural for the target language.
 - Translate only natural language content.
 
