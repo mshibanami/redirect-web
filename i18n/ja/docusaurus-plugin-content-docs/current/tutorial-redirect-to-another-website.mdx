@@ -15,7 +15,7 @@ Twitter中毒で、誤ってTwitterを開いてしまったときにInsight Time
 
 まず、アプリの「ルール編集」画面で「リダイレクト元」セクションを設定する必要があります。ターゲットは`https://twitter.com/`で始まるURLです。
 
-この場合、[ワイルドカード](rule-settings#url-pattern-wildcard)モードで以下のパターンを指定できます。
+この場合、[ワイルドカード](/rule-settings#url-pattern-wildcard)モードで以下のパターンを指定できます。
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ https://twitter.com/*
 
 しかし、ちょっと待ってください。`twitter.com`は`x.com`に改名されました。`twitter.com`を`x.com`に置き換えることもできますが、新しいオーナーがいつ気が変わって元に戻すかは誰にもわかりません。したがって、`twitter.com`と`x.com`の両方をターゲットにしましょう。
 
-そのためには、ワイルドカードから[正規表現](rule-settings#url-pattern-regular-expression)に切り替えて、これをパターンとして設定します。
+そのためには、ワイルドカードから[正規表現](/rule-settings#url-pattern-regular-expression)に切り替えて、これをパターンとして設定します。
 
 ```
 https://(twitter|x).com/.*

@@ -15,7 +15,7 @@ Let's open the *Edit Rule* screen to start creating your own rule in the app. Yo
 
 First, you should set up the *Redirect From* section in the *Edit Rule* screen in the app. The targets are URLs starting with `https://twitter.com/`.
 
-In this case, you can specify the following pattern with the [Wildcard](rule-settings#url-pattern-wildcard) mode:
+In this case, you can specify the following pattern with the [Wildcard](/rule-settings#url-pattern-wildcard) mode:
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ In the Wildcard mode, `*` means it matches anything (= zero or more characters).
 
 However, hold on. `twitter.com` was renamed to `x.com`. You can simply replace `twitter.com` with `x.com` but no one knows when the new owner will change his mind again to roll it back. Therefore, let's target both `twitter.com` and `x.com`.
 
-To do that, switch from Wildcard to [Regular Expression](rule-settings#url-pattern-regular-expression), and set this as the pattern:
+To do that, switch from Wildcard to [Regular Expression](/rule-settings#url-pattern-regular-expression), and set this as the pattern:
 
 ```
 https://(twitter|x).com/.*

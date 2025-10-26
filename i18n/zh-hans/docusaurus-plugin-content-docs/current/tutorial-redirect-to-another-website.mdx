@@ -15,7 +15,7 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 首先，您应该在应用程序的“编辑规则”屏幕中设置“重定向自”部分。目标是 `https://twitter.com/` 开头的 URL。
 
-在这种情况下，您可以使用[通配符](rule-settings#url-pattern-wildcard)模式指定以下模式：
+在这种情况下，您可以使用[通配符](/rule-settings#url-pattern-wildcard)模式指定以下模式：
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ https://twitter.com/*
 
 但是，请稍等。`twitter.com` 已更名为 `x.com`。您可以简单地将 `twitter.com` 替换为 `x.com`，但没人知道新所有者何时会再次改变主意将其改回。因此，让我们同时定位 `twitter.com` 和 `x.com`。
 
-为此，请从通配符切换到[正则表达式](rule-settings#url-pattern-regular-expression)，并将此设置为模式：
+为此，请从通配符切换到[正则表达式](/rule-settings#url-pattern-regular-expression)，并将此设置为模式：
 
 ```
 https://(twitter|x).com/.*

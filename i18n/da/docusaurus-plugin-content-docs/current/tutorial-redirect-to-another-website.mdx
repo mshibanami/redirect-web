@@ -15,7 +15,7 @@ Lad os åbne *Rediger regel*-skærmen for at begynde at oprette din egen regel i
 
 Først skal du opsætte sektionen *Omdiriger fra* på skærmen *Rediger regel* i appen. Målene er URL'er, der starter med `https://twitter.com/`.
 
-I dette tilfælde kan du angive følgende mønster med [Jokertegn](rule-settings#url-pattern-wildcard)-tilstanden:
+I dette tilfælde kan du angive følgende mønster med [Jokertegn](/rule-settings#url-pattern-wildcard)-tilstanden:
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ I Jokertegn-tilstanden betyder `*`, at den matcher alt (= nul eller flere tegn).
 
 Men vent. `twitter.com` blev omdøbt til `x.com`. Du kan blot erstatte `twitter.com` med `x.com`, men ingen ved, hvornår den nye ejer igen vil ændre mening og rulle det tilbage. Derfor vil vi målrette både `twitter.com` og `x.com`.
 
-For at gøre dette skal du skifte fra Jokertegn til [Regulært udtryk](rule-settings#url-pattern-regular-expression) og indstille dette som mønsteret:
+For at gøre dette skal du skifte fra Jokertegn til [Regulært udtryk](/rule-settings#url-pattern-regular-expression) og indstille dette som mønsteret:
 
 ```
 https://(twitter|x).com/.*

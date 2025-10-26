@@ -15,7 +15,7 @@ Låt oss öppna skärmen *Redigera regel* för att börja skapa din egen regel i
 
 Först bör du ställa in avsnittet *Omdirigera från* på skärmen *Redigera regel* i appen. Målen är URL:er som börjar med `https://twitter.com/`.
 
-I det här fallet kan du ange följande mönster med läget [Wildcard](rule-settings#url-pattern-wildcard):
+I det här fallet kan du ange följande mönster med läget [Wildcard](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ I Wildcard-läget betyder `*` att det matchar vad som helst (= noll eller fler t
 
 Men vänta. `twitter.com` döptes om till `x.com`. Du kan helt enkelt ersätta `twitter.com` med `x.com` men ingen vet när den nya ägaren kommer att ändra sig igen för att återställa det. Låt oss därför rikta in oss på både `twitter.com` och `x.com`.
 
-För att göra det, byt från Wildcard till [Reguljärt uttryck](rule-settings#url-pattern-regular-expression), och ställ in detta som mönstret:
+För att göra det, byt från Wildcard till [Reguljärt uttryck](/rule-settings#url-pattern-regular-expression), och ställ in detta som mönstret:
 
 ```
 https://(twitter|x).com/.*

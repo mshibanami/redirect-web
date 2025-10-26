@@ -15,7 +15,7 @@ Să deschidem ecranul *Editare regulă* pentru a începe să vă creați propria
 
 Mai întâi, ar trebui să configurați secțiunea *Redirecționare de la* din ecranul *Editare regulă* din aplicație. Țintele sunt URL-uri care încep cu `https://twitter.com/`.
 
-În acest caz, puteți specifica următorul model cu modul [Joker](rule-settings#url-pattern-wildcard):
+În acest caz, puteți specifica următorul model cu modul [Joker](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ https://twitter.com/*
 
 Totuși, stați. `twitter.com` a fost redenumit în `x.com`. Puteți pur și simplu să înlocuiți `twitter.com` cu `x.com`, dar nimeni nu știe când noul proprietar se va răzgândi din nou să-l readucă. Prin urmare, să vizăm atât `twitter.com`, cât și `x.com`.
 
-Pentru a face acest lucru, comutați de la Joker la [Expresie regulată](rule-settings#url-pattern-regular-expression) și setați acest lucru ca model:
+Pentru a face acest lucru, comutați de la Joker la [Expresie regulată](/rule-settings#url-pattern-regular-expression) și setați acest lucru ca model:
 
 ```
 https://(twitter|x).com/.*

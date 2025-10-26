@@ -15,7 +15,7 @@ Atvērsim *Rediģēt noteikumu* ekrānu, lai sāktu veidot savu noteikumu lietot
 
 Vispirms jums jāiestata sadaļa *Pārvirzīt no* lietotnes ekrānā *Rediģēt noteikumu*. Mērķi ir URL, kas sākas ar `https://twitter.com/`.
 
-Šajā gadījumā varat norādīt šādu modeli ar [Aizstājējzīmes](rule-settings#url-pattern-wildcard) režīmu:
+Šajā gadījumā varat norādīt šādu modeli ar [Aizstājējzīmes](/rule-settings#url-pattern-wildcard) režīmu:
 
 ```
 https://twitter.com/*
@@ -23,7 +23,7 @@ https://twitter.com/*
 
 Tomēr pagaidiet. `twitter.com` tika pārdēvēts par `x.com`. Jūs varat vienkārši aizstāt `twitter.com` ar `x.com`, taču neviens nezina, kad jaunais īpašnieks atkal mainīs savas domas, lai to atjaunotu. Tāpēc mērķēsim gan `twitter.com`, gan `x.com`.
 
-Lai to izdarītu, pārslēdzieties no Aizstājējzīmes uz [Regulāro izteiksmi](rule-settings#url-pattern-regular-expression) un iestatiet šo kā modeli:
+Lai to izdarītu, pārslēdzieties no Aizstājējzīmes uz [Regulāro izteiksmi](/rule-settings#url-pattern-regular-expression) un iestatiet šo kā modeli:
 
 ```
 https://(twitter|x).com/.*

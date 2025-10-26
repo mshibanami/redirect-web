@@ -15,7 +15,7 @@ Otevřete obrazovku *Upravit pravidlo* a začněte vytvářet vlastní pravidlo 
 
 Nejprve byste měli nastavit sekci *Přesměrovat z* na obrazovce *Upravit pravidlo* v aplikaci. Cíle jsou URL začínající `https://twitter.com/`.
 
-V tomto případě můžete zadat následující vzor s režimem [Zástupný znak](rule-settings#url-pattern-wildcard):
+V tomto případě můžete zadat následující vzor s režimem [Zástupný znak](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ V režimu Zástupný znak `*` znamená, že se shoduje s čímkoli (= nula nebo 
 
 Nicméně, počkejte. `twitter.com` byl přejmenován na `x.com`. Můžete jednoduše nahradit `twitter.com` za `x.com`, ale nikdo neví, kdy si nový majitel opět rozmyslí a vrátí to zpět. Proto se zaměřme na `twitter.com` i `x.com`.
 
-Chcete-li to provést, přepněte z Zástupného znaku na [Regulární výraz](rule-settings#url-pattern-regular-expression) a nastavte tento vzor:
+Chcete-li to provést, přepněte z Zástupného znaku na [Regulární výraz](/rule-settings#url-pattern-regular-expression) a nastavte tento vzor:
 
 ```
 https://(twitter|x).com/.*

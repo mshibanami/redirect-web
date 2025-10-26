@@ -15,7 +15,7 @@ Atidarykime *Taisyklių redagavimo* ekraną, kad pradėtumėte kurti savo taisyk
 
 Pirmiausia turėtumėte nustatyti skyrių *Nukreipti iš* programėlės ekrane *Taisyklių redagavimas*. Tikslai yra URL, prasidedantys `https://twitter.com/`.
 
-Šiuo atveju galite nurodyti šį šabloną naudodami [Wildcard](rule-settings#url-pattern-wildcard) režimą:
+Šiuo atveju galite nurodyti šį šabloną naudodami [Wildcard](/rule-settings#url-pattern-wildcard) režimą:
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ Wildcard režimu `*` reiškia, kad jis atitinka bet ką (= nulį ar daugiau simb
 
 Tačiau palaukite. `twitter.com` buvo pervadintas į `x.com`. Galite tiesiog pakeisti `twitter.com` į `x.com`, bet niekas nežino, kada naujasis savininkas vėl persigalvos ir atšauks pakeitimą. Todėl nukreipkime į abu: `twitter.com` ir `x.com`.
 
-Norėdami tai padaryti, perjunkite iš Wildcard į [Regular Expression](rule-settings#url-pattern-regular-expression) ir nustatykite šį šabloną:
+Norėdami tai padaryti, perjunkite iš Wildcard į [Regular Expression](/rule-settings#url-pattern-regular-expression) ir nustatykite šį šabloną:
 
 ```
 https://(twitter|x).com/.*

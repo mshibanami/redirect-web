@@ -15,7 +15,7 @@ Abramos la pantalla *Editar regla* para comenzar a crear tu propia regla en la a
 
 Primero, debes configurar la sección *Redirigir desde* en la pantalla *Editar regla* de la aplicación. Los objetivos son URLs que comienzan con `https://twitter.com/`.
 
-En este caso, puedes especificar el siguiente patrón con el modo [Comodín](rule-settings#url-pattern-wildcard):
+En este caso, puedes especificar el siguiente patrón con el modo [Comodín](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ En el modo Comodín, `*` significa que coincide con cualquier cosa (= cero o má
 
 Sin embargo, espera. `twitter.com` fue renombrado a `x.com`. Puedes simplemente reemplazar `twitter.com` con `x.com`, pero nadie sabe cuándo el nuevo propietario cambiará de opinión nuevamente para revertirlo. Por lo tanto, apuntemos tanto a `twitter.com` como a `x.com`.
 
-Para hacer eso, cambia de Comodín a [Expresión Regular](rule-settings#url-pattern-regular-expression), y establece esto como el patrón:
+Para hacer eso, cambia de Comodín a [Expresión Regular](/rule-settings#url-pattern-regular-expression), y establece esto como el patrón:
 
 ```
 https://(twitter|x).com/.*

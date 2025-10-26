@@ -15,7 +15,7 @@ Avataan *Muokkaa sääntöä* -näyttö aloittaaksesi oman säännön luomisen s
 
 Ensin sinun tulee määrittää *Uudelleenohjaa kohteesta* -osio *Muokkaa sääntöä* -näytössä sovelluksessa. Kohteet ovat URL-osoitteita, jotka alkavat `https://twitter.com/`.
 
-Tässä tapauksessa voit määrittää seuraavan kuvion [Wildcard](rule-settings#url-pattern-wildcard) -tilassa:
+Tässä tapauksessa voit määrittää seuraavan kuvion [Wildcard](/rule-settings#url-pattern-wildcard) -tilassa:
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ Wildcard-tilassa `*` tarkoittaa, että se vastaa mitä tahansa (= nolla tai usea
 
 Mutta odota. `twitter.com` nimettiin uudelleen `x.com`:ksi. Voit yksinkertaisesti korvata `twitter.com`:n `x.com`:lla, mutta kukaan ei tiedä, milloin uusi omistaja muuttaa mieltään ja palauttaa sen. Siksi kohdistetaan sekä `twitter.com` että `x.com`.
 
-Voit tehdä sen vaihtamalla Wildcardista [Säännölliseen lausekkeeseen](rule-settings#url-pattern-regular-expression) ja asettamalla tämän kuvioksi:
+Voit tehdä sen vaihtamalla Wildcardista [Säännölliseen lausekkeeseen](/rule-settings#url-pattern-regular-expression) ja asettamalla tämän kuvioksi:
 
 ```
 https://(twitter|x).com/.*

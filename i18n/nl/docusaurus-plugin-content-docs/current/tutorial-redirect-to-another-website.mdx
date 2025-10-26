@@ -15,7 +15,7 @@ Laten we het scherm *Regel bewerken* openen om uw eigen regel in de app te maken
 
 Eerst moet u de sectie *Omleiden van* instellen in het scherm *Regel bewerken* in de app. De doelen zijn URL's die beginnen met `https://twitter.com/`.
 
-In dit geval kunt u het volgende patroon opgeven met de [Wildcard](rule-settings#url-pattern-wildcard) modus:
+In dit geval kunt u het volgende patroon opgeven met de [Wildcard](/rule-settings#url-pattern-wildcard) modus:
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ In de Wildcard-modus betekent `*` dat het alles overeenkomt (= nul of meer teken
 
 Maar wacht even. `twitter.com` is hernoemd naar `x.com`. U kunt `twitter.com` eenvoudig vervangen door `x.com`, maar niemand weet wanneer de nieuwe eigenaar van gedachten zal veranderen om het terug te draaien. Laten we daarom zowel `twitter.com` als `x.com` targeten.
 
-Om dat te doen, schakelt u over van Wildcard naar [Reguliere expressie](rule-settings#url-pattern-regular-expression) en stelt u dit in als patroon:
+Om dat te doen, schakelt u over van Wildcard naar [Reguliere expressie](/rule-settings#url-pattern-regular-expression) en stelt u dit in als patroon:
 
 ```
 https://(twitter|x).com/.*

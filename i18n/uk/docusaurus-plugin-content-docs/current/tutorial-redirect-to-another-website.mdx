@@ -15,7 +15,7 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 Спочатку ви повинні налаштувати розділ *Перенаправляти з* на екрані *Редагувати правило* в додатку. Цільовими є URL-адреси, що починаються з `https://twitter.com/`.
 
-У цьому випадку ви можете вказати наступний шаблон у режимі [Wildcard](rule-settings#url-pattern-wildcard):
+У цьому випадку ви можете вказати наступний шаблон у режимі [Wildcard](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ https://twitter.com/*
 
 Однак, зачекайте. `twitter.com` було перейменовано на `x.com`. Ви можете просто замінити `twitter.com` на `x.com`, але ніхто не знає, коли новий власник знову передумає повернути його. Тому давайте націлимося як на `twitter.com`, так і на `x.com`.
 
-Для цього переключіться з Wildcard на [Регулярний вираз](rule-settings#url-pattern-regular-expression) і встановіть це як шаблон:
+Для цього переключіться з Wildcard на [Регулярний вираз](/rule-settings#url-pattern-regular-expression) і встановіть це як шаблон:
 
 ```
 https://(twitter|x).com/.*

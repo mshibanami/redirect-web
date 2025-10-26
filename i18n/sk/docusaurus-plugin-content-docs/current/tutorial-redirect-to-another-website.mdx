@@ -15,7 +15,7 @@ Otvorme obrazovku *Upraviť pravidlo*, aby ste mohli začať vytvárať vlastné
 
 Najprv by ste mali nastaviť sekciu *Presmerovať z* na obrazovke *Upraviť pravidlo* v aplikácii. Cieľové adresy URL začínajú `https://twitter.com/`.
 
-V tomto prípade môžete zadať nasledujúci vzor s režimom [Zástupný znak](rule-settings#url-pattern-wildcard):
+V tomto prípade môžete zadať nasledujúci vzor s režimom [Zástupný znak](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ V režime Zástupný znak `*` znamená, že sa zhoduje s čímkoľvek (= nula al
 
 Avšak, počkajte. `twitter.com` bol premenovaný na `x.com`. Môžete jednoducho nahradiť `twitter.com` za `x.com`, ale nikto nevie, kedy si nový majiteľ opäť rozmyslí a vráti to späť. Preto sa zamerajme na `twitter.com` aj `x.com`.
 
-Ak to chcete urobiť, prepnite zo Zástupného znaku na [Regulárny výraz](rule-settings#url-pattern-regular-expression) a nastavte tento vzor:
+Ak to chcete urobiť, prepnite zo Zástupného znaku na [Regulárny výraz](/rule-settings#url-pattern-regular-expression) a nastavte tento vzor:
 
 ```
 https://(twitter|x).com/.*

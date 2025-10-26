@@ -15,7 +15,7 @@ Uygulamada kendi kuralınızı oluşturmaya başlamak için *Kuralı Düzenle* e
 
 İlk olarak, uygulamadaki *Kuralı Düzenle* ekranında *Şuradan Yönlendir* bölümünü ayarlamalısınız. Hedefler `https://twitter.com/` ile başlayan URL'lerdir.
 
-Bu durumda, [Joker Karakter](rule-settings#url-pattern-wildcard) moduyla aşağıdaki deseni belirtebilirsiniz:
+Bu durumda, [Joker Karakter](/rule-settings#url-pattern-wildcard) moduyla aşağıdaki deseni belirtebilirsiniz:
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ Joker Karakter modunda, `*` herhangi bir şey anlamına gelir (= sıfır veya da
 
 Ancak, durun. `twitter.com` adı `x.com` olarak değiştirildi. `twitter.com`'u `x.com` ile değiştirebilirsiniz, ancak yeni sahibinin ne zaman fikrini değiştirip geri alacağını kimse bilemez. Bu nedenle, hem `twitter.com` hem de `x.com`'u hedefleyelim.
 
-Bunu yapmak için, Joker Karakter'den [Normal İfade](rule-settings#url-pattern-regular-expression)'ye geçin ve deseni şu şekilde ayarlayın:
+Bunu yapmak için, Joker Karakter'den [Normal İfade](/rule-settings#url-pattern-regular-expression)'ye geçin ve deseni şu şekilde ayarlayın:
 
 ```
 https://(twitter|x).com/.*

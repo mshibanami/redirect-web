@@ -15,7 +15,7 @@ Vamos abrir a tela *Editar Regra* para começar a criar sua própria regra no ap
 
 Primeiro, você deve configurar a seção *Redirecionar De* na tela *Editar Regra* no aplicativo. Os alvos são URLs que começam com `https://twitter.com/`.
 
-Neste caso, você pode especificar o seguinte padrão com o modo [Curinga](rule-settings#url-pattern-wildcard):
+Neste caso, você pode especificar o seguinte padrão com o modo [Curinga](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ No modo Curinga, `*` significa que corresponde a qualquer coisa (= zero ou mais 
 
 No entanto, espere. `twitter.com` foi renomeado para `x.com`. Você pode simplesmente substituir `twitter.com` por `x.com`, mas ninguém sabe quando o novo proprietário mudará de ideia novamente para reverter. Portanto, vamos direcionar tanto `twitter.com` quanto `x.com`.
 
-Para fazer isso, mude de Curinga para [Expressão Regular](rule-settings#url-pattern-regular-expression) e defina este como o padrão:
+Para fazer isso, mude de Curinga para [Expressão Regular](/rule-settings#url-pattern-regular-expression) e defina este como o padrão:
 
 ```
 https://(twitter|x).com/.*

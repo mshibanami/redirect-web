@@ -15,7 +15,7 @@ Nyissuk meg a *Szabály szerkesztése* képernyőt, hogy elkezdhesse saját szab
 
 Először állítsa be az *Átirányítás innen* részt a *Szabály szerkesztése* képernyőn az alkalmazásban. A célok az `https://twitter.com/` kezdetű URL-ek.
 
-Ebben az esetben a következő mintát adhatja meg a [Helyettesítő karakter](rule-settings#url-pattern-wildcard) móddal:
+Ebben az esetben a következő mintát adhatja meg a [Helyettesítő karakter](/rule-settings#url-pattern-wildcard) móddal:
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ A Helyettesítő karakter módban a `*` azt jelenti, hogy bármit illeszt (azaz 
 
 Azonban várjon. A `twitter.com` átnevezésre került `x.com`-ra. Egyszerűen lecserélheti a `twitter.com`-ot `x.com`-ra, de senki sem tudja, mikor gondolja meg magát az új tulajdonos, és állítja vissza. Ezért célozzuk meg mind a `twitter.com`, mind az `x.com` címet.
 
-Ehhez váltson Helyettesítő karakterről [Reguláris kifejezésre](rule-settings#url-pattern-regular-expression), és állítsa be ezt a mintát:
+Ehhez váltson Helyettesítő karakterről [Reguláris kifejezésre](/rule-settings#url-pattern-regular-expression), és állítsa be ezt a mintát:
 
 ```
 https://(twitter|x).com/.*

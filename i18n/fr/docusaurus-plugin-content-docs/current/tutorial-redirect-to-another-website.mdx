@@ -15,7 +15,7 @@ Ouvrons l'écran *Modifier la règle* pour commencer à créer votre propre règ
 
 Tout d'abord, vous devez configurer la section *Rediriger depuis* dans l'écran *Modifier la règle* de l'application. Les cibles sont les URL commençant par `https://twitter.com/`.
 
-Dans ce cas, vous pouvez spécifier le modèle suivant avec le mode [Joker](rule-settings#url-pattern-wildcard) :
+Dans ce cas, vous pouvez spécifier le modèle suivant avec le mode [Joker](/rule-settings#url-pattern-wildcard) :
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ En mode Joker, `*` signifie qu'il correspond à n'importe quoi (= zéro ou plusi
 
 Cependant, attendez. `twitter.com` a été renommé `x.com`. Vous pouvez simplement remplacer `twitter.com` par `x.com`, mais personne ne sait quand le nouveau propriétaire changera d'avis pour revenir en arrière. Par conséquent, ciblons à la fois `twitter.com` et `x.com`.
 
-Pour ce faire, passez du mode Joker à [Expression régulière](rule-settings#url-pattern-regular-expression), et définissez ceci comme modèle :
+Pour ce faire, passez du mode Joker à [Expression régulière](/rule-settings#url-pattern-regular-expression), et définissez ceci comme modèle :
 
 ```
 https://(twitter|x).com/.*

@@ -15,7 +15,7 @@ Avame ekraani *Muuda reeglit*, et alustada oma reegli loomist rakenduses. Seda s
 
 Kõigepealt peaksite rakenduses ekraanil *Muuda reeglit* seadistama jaotise *Suuna ümber alates*. Sihtmärgid on URL-id, mis algavad `https://twitter.com/`.
 
-Sel juhul saate määrata järgmise mustri [metamärgi](rule-settings#url-pattern-wildcard) režiimis:
+Sel juhul saate määrata järgmise mustri [metamärgi](/rule-settings#url-pattern-wildcard) režiimis:
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ Metamärgi režiimis tähendab `*`, et see vastab kõigele (= null või rohkem m
 
 Kuid oodake. `twitter.com` nimetati ümber `x.com`-iks. Saate lihtsalt asendada `twitter.com` `x.com`-iga, kuid keegi ei tea, millal uus omanik oma meelt uuesti muudab ja selle tagasi pöörab. Seepärast sihtime nii `twitter.com` kui ka `x.com`.
 
-Selleks lülitage metamärgist [regulaaravaldisele](rule-settings#url-pattern-regular-expression) ja määrake see mustriks:
+Selleks lülitage metamärgist [regulaaravaldisele](/rule-settings#url-pattern-regular-expression) ja määrake see mustriks:
 
 ```
 https://(twitter|x).com/.*

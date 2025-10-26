@@ -15,7 +15,7 @@ Odprimo zaslon *Uredi pravilo*, da začnete ustvarjati svoje pravilo v aplikacij
 
 Najprej morate nastaviti razdelek *Preusmeri iz* na zaslonu *Uredi pravilo* v aplikaciji. Cilji so URL-ji, ki se začnejo z `https://twitter.com/`.
 
-V tem primeru lahko določite naslednji vzorec z načinom [Nadomestni znak](rule-settings#url-pattern-wildcard):
+V tem primeru lahko določite naslednji vzorec z načinom [Nadomestni znak](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ V načinu Nadomestni znak `*` pomeni, da se ujema s čimer koli (= nič ali več
 
 Vendar počakajte. `twitter.com` je bil preimenovan v `x.com`. Preprosto lahko zamenjate `twitter.com` z `x.com`, vendar nihče ne ve, kdaj si bo novi lastnik spet premislil in ga vrnil nazaj. Zato ciljajmo na `twitter.com` in `x.com`.
 
-Če želite to storiti, preklopite z Nadomestnega znaka na [Regularni izraz](rule-settings#url-pattern-regular-expression) in nastavite to kot vzorec:
+Če želite to storiti, preklopite z Nadomestnega znaka na [Regularni izraz](/rule-settings#url-pattern-regular-expression) in nastavite to kot vzorec:
 
 ```
 https://(twitter|x).com/.*

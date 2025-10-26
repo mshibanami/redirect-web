@@ -15,7 +15,7 @@ Otwórzmy ekran *Edytuj regułę*, aby rozpocząć tworzenie własnej reguły w 
 
 Najpierw należy skonfigurować sekcję *Przekieruj z* na ekranie *Edytuj regułę* w aplikacji. Celami są adresy URL zaczynające się od `https://twitter.com/`.
 
-W tym przypadku możesz określić następujący wzorzec w trybie [Wildcard](rule-settings#url-pattern-wildcard):
+W tym przypadku możesz określić następujący wzorzec w trybie [Wildcard](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ W trybie Wildcard, `*` oznacza, że pasuje do wszystkiego (= zero lub więcej zn
 
 Jednak poczekaj. `twitter.com` został zmieniony na `x.com`. Możesz po prostu zastąpić `twitter.com` przez `x.com`, ale nikt nie wie, kiedy nowy właściciel ponownie zmieni zdanie, aby to cofnąć. Dlatego celujmy zarówno w `twitter.com`, jak i `x.com`.
 
-Aby to zrobić, przełącz się z Wildcard na [Wyrażenie regularne](rule-settings#url-pattern-regular-expression) i ustaw to jako wzorzec:
+Aby to zrobić, przełącz się z Wildcard na [Wyrażenie regularne](/rule-settings#url-pattern-regular-expression) i ustaw to jako wzorzec:
 
 ```
 https://(twitter|x).com/.*

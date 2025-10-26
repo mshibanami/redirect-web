@@ -15,7 +15,7 @@ Apriamo la schermata *Modifica regola* per iniziare a creare la tua regola nell'
 
 Innanzitutto, dovresti impostare la sezione *Reindirizza da* nella schermata *Modifica regola* nell'app. I target sono URL che iniziano con `https://twitter.com/`.
 
-In questo caso, puoi specificare il seguente pattern con la modalità [Carattere jolly](rule-settings#url-pattern-wildcard):
+In questo caso, puoi specificare il seguente pattern con la modalità [Carattere jolly](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ Nella modalità Carattere jolly, `*` significa che corrisponde a qualsiasi cosa 
 
 Tuttavia, aspetta un attimo. `twitter.com` è stato rinominato in `x.com`. Puoi semplicemente sostituire `twitter.com` con `x.com`, ma nessuno sa quando il nuovo proprietario cambierà di nuovo idea per ripristinarlo. Pertanto, miriamo sia a `twitter.com` che a `x.com`.
 
-Per fare ciò, passa da Carattere jolly a [Espressione regolare](rule-settings#url-pattern-regular-expression) e imposta questo come pattern:
+Per fare ciò, passa da Carattere jolly a [Espressione regolare](/rule-settings#url-pattern-regular-expression) e imposta questo come pattern:
 
 ```
 https://(twitter|x).com/.*

@@ -15,7 +15,7 @@ Mari kita buka layar *Edit Aturan* untuk mulai membuat aturan Anda sendiri di ap
 
 Pertama, Anda harus mengatur bagian *Alihkan Dari* di layar *Edit Aturan* di aplikasi. Targetnya adalah URL yang dimulai dengan `https://twitter.com/`.
 
-Dalam kasus ini, Anda dapat menentukan pola berikut dengan mode [Wildcard](rule-settings#url-pattern-wildcard):
+Dalam kasus ini, Anda dapat menentukan pola berikut dengan mode [Wildcard](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -25,7 +25,7 @@ Dalam mode Wildcard, `*` berarti cocok dengan apa saja (= nol atau lebih karakte
 
 Namun, tunggu dulu. `twitter.com` diganti namanya menjadi `x.com`. Anda cukup mengganti `twitter.com` dengan `x.com` tetapi tidak ada yang tahu kapan pemilik baru akan berubah pikiran lagi untuk mengembalikannya. Oleh karena itu, mari kita targetkan `twitter.com` dan `x.com`.
 
-Untuk melakukannya, beralihlah dari Wildcard ke [Ekspresi Reguler](rule-settings#url-pattern-regular-expression), dan atur ini sebagai pola:
+Untuk melakukannya, beralihlah dari Wildcard ke [Ekspresi Reguler](/rule-settings#url-pattern-regular-expression), dan atur ini sebagai pola:
 
 ```
 https://(twitter|x).com/.*
