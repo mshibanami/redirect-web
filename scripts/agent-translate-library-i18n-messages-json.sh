@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")/.."
 
-readonly model="gemini-2.5-flash"
+readonly model="github-copilot/gpt-5-mini"
 readonly allTargetLangs=(
   "bg"
   "cs"
@@ -93,7 +93,6 @@ for lang in "${targetLangs[@]}"; do
     promptText="$promptText. Rule IDs: ${ruleIds[*]}"
   fi
   
-  gemini --prompt "$promptText" \
-    --yolo \
+  opencode run "$prompt" \
     --model "$model"
 done
