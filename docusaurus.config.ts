@@ -14,6 +14,7 @@ if (!isSupportedLocale(locale)) {
 }
 const projectName = 'redirect-web';
 const baseUrl = `/${projectName}/`;
+const localedBaseUrl = `${baseUrl}${locale == 'en' ? '' : `${locale}/`}`;
 
 const config: Config = {
   title: 'Redirect Web',
@@ -87,12 +88,12 @@ const config: Config = {
       },
       hideOnScroll: true,
       items: [
-        { to: '/introduction', label: 'Docs', position: 'left', activeBaseRegex: `^/${projectName}/(?!release-notes/?)[^/]+` },
-        { to: '/release-notes', label: 'Release Notes', position: 'left', activeBaseRegex: `^/${projectName}/release-notes/?.*` },
+        { to: '/introduction', label: 'Docs', position: 'left', activeBaseRegex: `^${localedBaseUrl}(?!release-notes/?)[^/]+` },
+        { to: '/release-notes', label: 'Release Notes', position: 'left', activeBaseRegex: `^${localedBaseUrl}release-notes/?.*` },
         {
           type: 'html',
           position: 'right',
-          value: `<a href="https://apps.apple.com/app/id1571283503" class="navbar__appstore_button navbar__item_force"><img src="${baseUrl}${locale == 'en' ? '' : `${locale}/`}img/appstore-badge.svg" alt="Go to Apple Store" /></a>`,
+          value: `<a href="https://apps.apple.com/app/id1571283503" class="navbar__appstore_button navbar__item_force"><img src="${localedBaseUrl}img/appstore-badge.svg" alt="Go to Apple Store" /></a>`,
           className: "navbar__item_force"
         },
         {
