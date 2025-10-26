@@ -87,7 +87,7 @@ const config: Config = {
       },
       hideOnScroll: true,
       items: [
-        { to: '/introduction', label: 'Docs', position: 'left', activeBaseRegex: `^/${projectName}/docs/?.*` },
+        { to: '/introduction', label: 'Docs', position: 'left', activeBaseRegex: `^/${projectName}/(?!release-notes/?)[^/]+` },
         { to: '/release-notes', label: 'Release Notes', position: 'left', activeBaseRegex: `^/${projectName}/release-notes/?.*` },
         {
           type: 'html',
