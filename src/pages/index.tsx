@@ -265,7 +265,7 @@ export default function Home(): ReactNode {
                                     <span>Featured by</span>
                                 }
                                 main={
-                                    <span><AppleLogo style={{ width: '20px', height: 'auto', verticalAlign: 'text-bottom' }} /> Apple</span>
+                                    <span><AppleLogo style={{ width: '20px', height: 'auto', verticalAlign: 'text-bottom', paddingBottom: '0.15rem' }} /> Apple</span>
                                 }
                                 footer={
                                     <span>The best Safari extensions</span>
