@@ -10,6 +10,7 @@
   --ifm-h2-font-size: 2.4rem !important;
   --ifm-code-font-size: 95% !important;
   --ifm-code-padding-horizontal: 0.4em !important;
+  --ifm-hero-background-color: transparent !important;
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-background-color: #fafafa !important;
@@ -24,7 +25,6 @@
   --ifm-color-primary-lighter: #3399ff;
   --ifm-color-primary-lightest: #4da6ff;
   --ifm-color-primary: #007aff;
-  --ifm-hero-background-color: #fafafa !important;
 }
 
 @media screen and (max-width: 996px) {
@@ -38,7 +38,6 @@
   font-size: var(--ifm-h1-font-size);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
   --docusaurus-highlighted-code-line-bg: #0000004d;
   --ifm-background-color: #212830 !important;
@@ -53,7 +52,6 @@
   --ifm-color-primary-lightest: #80bfff;
   --ifm-color-primary: #3399ff;
   --ifm-color-secondary-contrast-background: #2d3748 !important;
-  --ifm-hero-background-color: #212830 !important;
   --ifm-link-color: var(--ifm-color-primary-lighter);
 }
 

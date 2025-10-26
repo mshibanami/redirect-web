@@ -21,12 +21,12 @@ function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
     return (
         <header className={clsx('hero', styles.heroBanner)}>
-            <LandingPageBackground style={{ height: "600px", width: "100%" }} />
             <div className={clsx("container", styles.heroContainer)}>
                 <Image
                     src={useBaseUrl('/img/logo.png')}
                     alt="Redirect Web Logo"
                     width={100}
+                    height={100}
                     margin='80px 0' />
 
                 <Heading as="h1" className="hero__title">
@@ -225,7 +225,6 @@ function UseCasesSection(): ReactNode {
     )
 }
 
-
 export default function Home(): ReactNode {
     const { siteConfig } = useDocusaurusContext();
     const headerAnimation = useScrollAnimation();
@@ -248,6 +247,7 @@ export default function Home(): ReactNode {
             <Layout
                 title={title}
                 description={description}>
+                <LandingPageBackground style={{ height: "600px", width: "100%" }} />
                 <div ref={headerAnimation.ref} className={clsx(styles.animatedSection, {
                     [styles.visible]: headerAnimation.isVisible
                 })}>
