@@ -86,11 +86,11 @@ fi
 taskFilePath="$(pwd)/prompts/translate-library-i18n-messages-json.md"
 
 for lang in "${targetLangs[@]}"; do
-  promptText="Finish the task described in '$taskFilePath'. Target language: $lang"
+  prompt="Finish the task described in '$taskFilePath'. Target language: $lang."
   
   # Add rule IDs to prompt if specified
   if [ ${#ruleIds[@]} -gt 0 ]; then
-    promptText="$promptText. Rule IDs: ${ruleIds[*]}"
+    prompt="$prompt Rule IDs: ${ruleIds[*]}"
   fi
   
   opencode run "$prompt" \
