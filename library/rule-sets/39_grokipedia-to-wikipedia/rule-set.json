@@ -1,0 +1,31 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "4",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "comments": "This rule redirects Grokipedia articles to the corresponding Wikipedia articles.\n\n**Grokipedia** is an encyclopedia whose content is entirely created by AI trained under the direction of Elon Musk, the founder of Grokipedia.\n\n**Wikipedia** is a non-profit encyclopedia built and maintained by volunteers around the world.\n\n> [!WARNING]\n> \n> This rule is still in beta, as it may be updated soon due to the current development status of Grokipedia.",
+      "commentsOptions": {
+        "format": "markdown"
+      },
+      "destinationURLPattern": "https://en.wikipedia.org/wiki/$1",
+      "exampleURLs": [
+        "https://grokipedia.com/page/Transgender"
+      ],
+      "kind": "Redirect",
+      "resourceTypes": [
+        "main_frame"
+      ],
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https://grokipedia.com/page/(.*)"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "Grokipedia → Wikipedia",
+      "type": "declarativeNetRequestRedirect"
+    }
+  ]
+}
