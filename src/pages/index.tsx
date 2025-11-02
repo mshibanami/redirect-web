@@ -257,13 +257,13 @@ export default function Home(): ReactNode {
             <Layout
                 title={title}
                 description={description}>
-                <LandingPageBackground style={{ height: "600px", width: "100%" }} />
-                <div ref={headerAnimation.ref} className={clsx(styles.animatedSection, {
-                    [styles.visible]: headerAnimation.isVisible
-                })}>
-                    <HomepageHeader />
-                </div>
                 <main>
+                    <LandingPageBackground style={{ height: "600px", width: "100%" }} />
+                    <div ref={headerAnimation.ref} className={clsx(styles.animatedSection, {
+                        [styles.visible]: headerAnimation.isVisible
+                    })}>
+                        <HomepageHeader />
+                    </div>
                     <div
                         ref={awardAnimation.ref}
                         className={clsx(styles.animatedSection, {
