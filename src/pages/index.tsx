@@ -236,14 +236,20 @@ export default function Home(): ReactNode {
     const featuresAnimation = useScrollAnimation();
     const learnMoreAnimation = useScrollAnimation();
     const taglineAnimation = useScrollAnimation();
-    const title = `Redirect Web - ${siteConfig.tagline}`;
+    const titleDescription = translate({
+        id: "landingPage.metadataTitleDescription",
+        description: "Short description of the app for the landing page metadata",
+        message: "A Browser Extension to Auto-Redirect Pages You Specify"
+    })
+    const appName = siteConfig.title;
+    const title = `${appName} – ${titleDescription}`;
     const description = translate(
         {
             id: "landingPage.heroSubtitle",
             description: "Landing page hero subtitle",
             message: '{appName} is a powerful browser extension to redirect URLs based on your custom rules.'
         },
-        { appName: 'Redirect Web' }
+        { appName }
     );
 
     return (
