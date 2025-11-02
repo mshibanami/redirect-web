@@ -1,6 +1,7 @@
 .testimonials {
   padding: 4rem 0;
   background: var(--ifm-background-surface-color);
+  font-size: 0.8rem;
 }
 
 .sectionTitle {
@@ -43,7 +44,7 @@
 
 .truncatedText {
   cursor: pointer;
-  
+
   &:hover {
     opacity: 0.8;
   }
@@ -60,7 +61,7 @@
   text-decoration: underline;
   font-style: normal;
   margin-left: 0.25rem;
-  
+
   &:hover {
     opacity: 0.8;
   }
@@ -74,7 +75,6 @@
 }
 
 .translatedFrom {
-  font-size: 0.875rem;
   color: var(--ifm-color-content-secondary);
 }
 
@@ -83,7 +83,6 @@
   border: none;
   color: var(--ifm-color-primary);
   cursor: pointer;
-  font-size: 0.875rem;
   padding: 0.25rem 0;
   text-decoration: underline;
   transition: opacity 0.2s ease;
