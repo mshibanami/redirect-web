@@ -13,6 +13,7 @@ import FeaturesSection from '@site/src/components/FeaturesSection';
 import LearnMoreSection from '@site/src/components/LearnMoreSection';
 import TaglineSection from '@site/src/components/TaglineSection';
 import UseCasesSection from '@site/src/components/UseCasesSection';
+import TestimonialsSection from '@site/src/components/TestimonialsSection';
 import styles from './index.module.scss';
 import Translate, { translate } from '@docusaurus/Translate';
 import Head from '@docusaurus/Head';
@@ -84,7 +85,7 @@ function useScrollAnimation() {
             },
             {
                 threshold: 0.1,
-                rootMargin: '0px 0px -100px 0px'
+                rootMargin: '0px 0px -80px 0px'
             }
         );
 
@@ -109,6 +110,7 @@ export default function Home(): ReactNode {
     const awardAnimation = useScrollAnimation();
     const featuresAnimation = useScrollAnimation();
     const useCasesAnimation = useScrollAnimation();
+    const testimonialsAnimation = useScrollAnimation();
     const learnMoreAnimation = useScrollAnimation();
     const taglineAnimation = useScrollAnimation();
     const titleDescription = translate({
@@ -158,6 +160,11 @@ export default function Home(): ReactNode {
                     <UseCasesSection
                         animationRef={useCasesAnimation.ref}
                         isVisible={useCasesAnimation.isVisible}
+                    />
+
+                    <TestimonialsSection
+                        animationRef={testimonialsAnimation.ref}
+                        isVisible={testimonialsAnimation.isVisible}
                     />
 
                     <div

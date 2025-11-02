@@ -13,6 +13,8 @@
   --ifm-hero-background-color: transparent !important;
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-content: #444950 !important;
+  --ifm-color-content-secondary: #888888 !important;
   --ifm-background-color: #fafafa !important;
   --ifm-background-surface-color: var(--ifm-background-color) !important;
   --ifm-card-background-color: #ffffff !important;
@@ -40,6 +42,8 @@
 
 [data-theme="dark"] {
   --docusaurus-highlighted-code-line-bg: #0000004d;
+  --ifm-color-content: #cfcfcf !important;
+  --ifm-color-content-secondary: #a0a0a0 !important;
   --ifm-background-color: #212830 !important;
   --ifm-card-background-color: #2d3748 !important;
   --ifm-card-background-color-hover: #333d4a !important;

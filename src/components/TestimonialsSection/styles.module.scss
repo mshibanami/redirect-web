@@ -1,0 +1,123 @@
+.testimonials {
+  padding: 4rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.sectionTitle {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.testimonialCol {
+  margin-bottom: 2rem;
+}
+
+.testimonialCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.stars {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.star {
+  color: #fbbf24;
+  margin-right: 0.2rem;
+}
+
+.reviewText {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ifm-color-content);
+  margin-bottom: 1rem;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.truncatedText {
+  cursor: pointer;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.ellipsis {
+  font-style: normal;
+  margin-right: 0.25rem;
+}
+
+.moreButton {
+  color: var(--ifm-color-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  font-style: normal;
+  margin-left: 0.25rem;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.translationInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.translatedFrom {
+  font-size: 0.875rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.originalButton {
+  background: none;
+  border: none;
+  color: var(--ifm-color-primary);
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0.25rem 0;
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.cardFooter {
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 996px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .testimonialCol {
+    max-width: 100%;
+  }
+}
