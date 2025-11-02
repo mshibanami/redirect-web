@@ -12,6 +12,7 @@ import AwardSection from '@site/src/components/AwardSection';
 import FeaturesSection from '@site/src/components/FeaturesSection';
 import LearnMoreSection from '@site/src/components/LearnMoreSection';
 import TaglineSection from '@site/src/components/TaglineSection';
+import UseCasesSection from '@site/src/components/UseCasesSection';
 import styles from './index.module.scss';
 import Translate, { translate } from '@docusaurus/Translate';
 import Head from '@docusaurus/Head';
@@ -70,81 +71,6 @@ function HomepageHeader() {
     );
 }
 
-const useCases = [
-    {
-        title: translate({
-            id: 'productUseCases.customDefaultSearchEngine.title',
-            message: 'Custom Default Search Engine',
-            description: 'Use case title for a redirection rules of changing browser\'s default search engine to another search engine'
-        }),
-        description: translate({
-            id: 'productUseCases.customDefaultSearchEngine.description',
-            message: 'Set Kagi, Startpage, ChatGPT, or any other search engine as your default.',
-            description: 'Use case description for a redirection rules of changing browser\'s default search engine to another search engine'
-        })
-    },
-    {
-        title: translate({
-            id: 'productUseCases.viewRedditClassic.title',
-            message: 'View Reddit in its classic design',
-            description: 'Use case title for a redirection rules of viewing Reddit in its classic design'
-        }),
-        description: translate({
-            id: 'productUseCases.viewRedditClassic.description',
-            message: 'Automatically redirect from www.reddit.com to old.reddit.com.',
-            description: 'Use case description for a redirection rules of viewing Reddit in its classic design'
-        })
-    },
-    {
-        title: translate({
-            id: 'productUseCases.openAppleMaps.title',
-            message: 'Open Apple Maps from Google Maps links',
-            description: 'Use case title for a redirection rules of opening Apple Maps from Google Maps links'
-        }),
-        description: translate({
-            id: 'productUseCases.openAppleMaps.description',
-            message: 'Prefer Apple Maps? Redirect any Google Maps URL to open in Apple Maps.',
-            description: 'Use case description for a redirection rules of opening Apple Maps from Google Maps links'
-        })
-    },
-    {
-        title: translate({
-            id: 'productUseCases.declutterGoogleSearch.title',
-            message: 'Declutter Google Search',
-            description: 'Use case title for a redirection rules of decluttering Google Search'
-        }),
-        description: translate({
-            id: 'productUseCases.declutterGoogleSearch.description',
-            message: 'Automatically add "?udm=14" to your Google searches to hide AI Overviews.',
-            description: 'Use case description for a redirection rules of decluttering Google Search'
-        })
-    },
-    {
-        title: translate({
-            id: 'productUseCases.useYourFavoriteWiki.title',
-            message: 'Use Your Favorite Wiki',
-            description: 'Use case title for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis'
-        }),
-        description: translate({
-            id: 'productUseCases.useYourFavoriteWiki.description',
-            message: 'Jump from Fandom pages to the official Terraria or Minecraft wikis.',
-            description: 'Use case description for a redirection rules of jumping from Fandom pages to the official Terraria or Minecraft wikis'
-        })
-    },
-    {
-        title: translate({
-            id: 'productUseCases.openLinksInNativeApps.title',
-            message: 'Open Links in Native Apps',
-            description: 'Use case title for a redirection rules of opening links in their native apps'
-        }),
-        description: translate({
-            id: 'productUseCases.openLinksInNativeApps.description',
-            message: 'Open Figma, Notion, or Google Meet links directly in their desktop apps on your Mac.',
-            description: 'Use case description for a redirection rules of opening links in their native apps'
-        })
-    }
-] satisfies { title: string; description: string }[]
-
 function useScrollAnimation() {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -177,62 +103,12 @@ function useScrollAnimation() {
     return { ref, isVisible };
 }
 
-function UseCasesSection(): ReactNode {
-    const { ref, isVisible } = useScrollAnimation();
-
-    return (
-        <section
-            ref={ref}
-            className={clsx(styles.useCases, styles.animatedSection, {
-                [styles.visible]: isVisible
-            })}>
-            <div className="container">
-                <Heading as="h2" className="margin-bottom--lg">
-                    <Translate
-                        id="landingPage.exampleUseCases.title"
-                        description="Title for the example use cases section">
-                        Example Use Cases
-                    </Translate>
-                </Heading>
-                <div className="row">
-                    {useCases.map((useCase, idx) => (
-                        <div key={idx} className={clsx('col col--4', styles.useCase)}>
-                            <div className='card'>
-                                <div className="card__header">
-                                    <Heading as="h3">{useCase.title}</Heading>
-                                </div>
-                                <div className="card__body">
-                                    <p>{useCase.description}</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                <div className="text--center margin-bottom--lg">
-                    <p>
-                        <b>⭐️
-                            <Translate
-                                id="general.protipLabel"
-                                description="Label for a hint">
-                                Protip
-                            </Translate>
-                        </b>: <Translate
-                            id="landingPage.useCasesLibraryFootnote"
-                            description="A hint about use cases about the Library section on the landing page">
-                            You can get rules of all these use cases from the Library section in the app!
-                        </Translate>
-                    </p>
-                </div>
-            </div>
-        </section>
-    )
-}
-
 export default function Home(): ReactNode {
     const { siteConfig } = useDocusaurusContext();
     const headerAnimation = useScrollAnimation();
     const awardAnimation = useScrollAnimation();
     const featuresAnimation = useScrollAnimation();
+    const useCasesAnimation = useScrollAnimation();
     const learnMoreAnimation = useScrollAnimation();
     const taglineAnimation = useScrollAnimation();
     const titleDescription = translate({
@@ -270,6 +146,7 @@ export default function Home(): ReactNode {
                         })}>
                         <AwardSection />
                     </div>
+
                     <div
                         ref={featuresAnimation.ref}
                         className={clsx(styles.animatedSection, {
@@ -277,7 +154,11 @@ export default function Home(): ReactNode {
                         })}>
                         <FeaturesSection />
                     </div>
-                    <UseCasesSection />
+
+                    <UseCasesSection
+                        animationRef={useCasesAnimation.ref}
+                        isVisible={useCasesAnimation.isVisible}
+                    />
 
                     <div
                         ref={learnMoreAnimation.ref}
