@@ -3,8 +3,10 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import Translate, { translate } from '@docusaurus/Translate';
-import { useColorMode } from '@docusaurus/theme-common';
 import styles from './styles.module.scss';
+import enCode from '../../../i18n/en/code.json'
+import frCode from '../../../i18n/fr/code.json'
+import ruCode from '../../../i18n/ru/code.json'
 
 interface Testimonial {
     name: string;
@@ -17,76 +19,73 @@ interface Testimonial {
 
 const appStoreAffiliation = 'App Store';
 
-const makeTestimonial = ({
-    name,
-    affiliation,
-    reviewId,
-    reviewMessage,
-    originalReview,
-    originalLanguage,
-    avatar
-}: { name: string; affiliation: string; reviewId: string; reviewMessage: string; originalReview?: string; originalLanguage?: string; avatar?: string; }): Testimonial => ({
-    name,
-    affiliation,
-    review: translate({
-        id: reviewId,
-        message: reviewMessage,
-        description: 'Body of user review',
-    }),
-    originalReview,
-    originalLanguage,
-    avatar
-});
-
 const testimonials: Testimonial[] = [
-    makeTestimonial({
+    {
         name: 'Aliuskonte',
         affiliation: '🇷🇺 ' + appStoreAffiliation + ' ･ Mac',
-        reviewId: 'testimonials.aliuskonte.review',
-        reviewMessage: 'Все работает. Управление редиректами интуитивно понятное, настройка занимает минимальное количество времени. И стоимость вполне демократичная. Рекомендую',
-        originalReview: 'Все работает. Управление редиректами интуитивно понятное, настройка занимает минимальное количество времени. И стоимость вполне демократичная. Рекомендую',
+        review: translate({
+            id: 'testimonials.userReview.aliuskonte',
+            message: 'Все работает. Управление редиректами интуитивно понятное, настройка занимает минимальное количество времени. И стоимость вполне демократичная. Рекомендую',
+            description: 'Testimonial review by a user'
+        }),
+        originalReview: ruCode['testimonials.userReview.aliuskonte'].message,
         originalLanguage: 'ru'
-    }),
-    makeTestimonial({
+    },
+    {
         name: '=== World 1 ===',
         affiliation: '🇨🇦 ' + appStoreAffiliation + ' ･ iOS',
-        reviewId: 'testimonials.world1.review',
-        reviewMessage: 'Works as intended and it’s very fast! Allows almost unlimited customization with the paid plan which is very affordable (thanks for making a lifetime plan!)',
-        originalReview: 'Works as intended and it’s very fast! Allows almost unlimited customization with the paid plan which is very affordable (thanks for making a lifetime plan!)',
+        review: translate({
+            id: 'testimonials.userReview.world1',
+            message: 'Works as intended and it’s very fast! Allows almost unlimited customization with the paid plan which is very affordable (thanks for making a lifetime plan!)',
+            description: 'Testimonial review by a user'
+        }),
+        originalReview: enCode['testimonials.userReview.world1'].message,
         originalLanguage: 'en'
-    }),
-    makeTestimonial({
+    },
+    {
         name: 'Juliewlwwlw',
         affiliation: '🇵🇱 ' + appStoreAffiliation + ' ･ iOS',
-        reviewId: 'testimonials.juliewlwwlw.review',
-        reviewMessage: 'Nice, very nice. Does the job of 10 other extensions with more flexibility. Very future proof. Sleek UI, good price. Must buy for anyone into privacy redirects.',
-        originalReview: 'Nice, very nice. Does the job of 10 other extensions with more flexibility. Very future proof. Sleek UI, good price. Must buy for anyone into privacy redirects.',
+        review: translate({
+            id: 'testimonials.userReview.juliewlwwlw',
+            message: 'Nice, very nice. Does the job of 10 other extensions with more flexibility. Very future proof. Sleek UI, good price. Must buy for anyone into privacy redirects.',
+            description: 'Testimonial review by a user'
+        }),
+        originalReview: enCode['testimonials.userReview.juliewlwwlw'].message,
         originalLanguage: 'en'
-    }),
-    makeTestimonial({
+    },
+    {
         name: 'kieran_hunt',
         affiliation: '🇮🇪 ' + appStoreAffiliation + ' ･ iOS',
-        reviewId: 'testimonials.kieranHunt.review',
-        reviewMessage: 'I needed an app to help curb my internet addiction. Every time my muscle memory takes me to YouTube, Hacker News or Twitter, I’ve set Redirect Web to send me to a site filled with stoic quotes. That’s enough of a kick in the behind to stop me wanting to mindlessly browse.',
-        originalReview: 'I needed an app to help curb my internet addiction. Every time my muscle memory takes me to YouTube, Hacker News or Twitter, I’ve set Redirect Web to send me to a site filled with stoic quotes. That’s enough of a kick in the behind to stop me wanting to mindlessly browse.',
+        review: translate({
+            id: 'testimonials.userReview.kieranHunt',
+            message: 'I needed an app to help curb my internet addiction. Every time my muscle memory takes me to YouTube, Hacker News or Twitter, I’ve set Redirect Web to send me to a site filled with stoic quotes. That’s enough of a kick in the behind to stop me wanting to mindlessly browse.',
+            description: 'Testimonial review by a user'
+        }),
+        originalReview: enCode['testimonials.userReview.kieranHunt'].message,
         originalLanguage: 'en'
-    }),
-    makeTestimonial({
+    },
+    {
         name: 'Phearlez',
         affiliation: '🇺🇸 ' + appStoreAffiliation + ' ･ Mac',
-        reviewId: 'testimonials.phearlez.review',
-        reviewMessage: "This app removes a minor but constant annoyance in my life and I LOVE IT. My work requires me to click on Google Meet links that are sent to me in Mail and Slack but they don't have a great experience in Safari - my default browser - so I have to right click, copy, open Chrome, paste, then go. Except when I forget and then it's a whole different pain. Not any more, though. One quick rule setup to grab any matching URL and open it in Chrome and boom, now I can just click and not have to remember. I'm sure there will be more to come, what with places like my bank and some airlines having sites that don't work well in Safari. I'd rather just use Safari all the time but I can't control what those places do. Now I can at least control how much headache they cause me. Hooray for this app!",
-        originalReview: "This app removes a minor but constant annoyance in my life and I LOVE IT. My work requires me to click on Google Meet links that are sent to me in Mail and Slack but they don't have a great experience in Safari - my default browser - so I have to right click, copy, open Chrome, paste, then go. Except when I forget and then it's a whole different pain. Not any more, though. One quick rule setup to grab any matching URL and open it in Chrome and boom, now I can just click and not have to remember. I'm sure there will be more to come, what with places like my bank and some airlines having sites that don't work well in Safari. I'd rather just use Safari all the time but I can't control what those places do. Now I can at least control how much headache they cause me. Hooray for this app!",
+        review: translate({
+            id: 'testimonials.userReview.phearlez',
+            message: "This app removes a minor but constant annoyance in my life and I LOVE IT. My work requires me to click on Google Meet links that are sent to me in Mail and Slack but they don't have a great experience in Safari - my default browser - so I have to right click, copy, open Chrome, paste, then go. Except when I forget and then it's a whole different pain. Not any more, though. One quick rule setup to grab any matching URL and open it in Chrome and boom, now I can just click and not have to remember. I'm sure there will be more to come, what with places like my bank and some airlines having sites that don't work well in Safari. I'd rather just use Safari all the time but I can't control what those places do. Now I can at least control how much headache they cause me. Hooray for this app!",
+            description: 'Testimonial review by a user'
+        }),
+        originalReview: enCode['testimonials.userReview.phearlez'].message,
         originalLanguage: 'en'
-    }),
-    makeTestimonial({
+    },
+    {
         name: 'iAbcdaire',
         affiliation: '🇫🇷 ' + appStoreAffiliation + ' ･ iOS',
-        reviewId: 'testimonials.iAbcdaire.review',
-        reviewMessage: 'Meilleur application pour rediriger les liens et sites web vers la destination que vous aurez choisi. Et plus performant que les autres, redirige même les liens bloqués par votre bloqueur de contenu ou votre pare-feu.',
-        originalReview: 'Meilleur application pour rediriger les liens et sites web vers la destination que vous aurez choisi. Et plus performant que les autres, redirige même les liens bloqués par votre bloqueur de contenu ou votre pare-feu.',
+        review: translate({
+            id: 'testimonials.userReview.iAbcdaire',
+            message: 'Meilleur application pour rediriger les liens et sites web vers la destination que vous aurez choisi. Et plus performant que les autres, redirige même les liens bloqués par votre bloqueur de contenu ou votre pare-feu.',
+            description: 'Testimonial review by a user'
+        }),
+        originalReview: frCode['testimonials.userReview.iAbcdaire'].message,
         originalLanguage: 'fr'
-    })
+    }
 ];
 
 interface TestimonialCardProps {
