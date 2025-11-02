@@ -1,17 +1,6 @@
 .testimonials {
-  padding: 4rem 0;
-  background: var(--ifm-background-surface-color);
-  font-size: 0.8rem;
-}
-
-.sectionTitle {
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-.testimonialCol {
-  margin-bottom: 2rem;
+  padding: 64px 0;
+  font-size: 12.8px;
 }
 
 .testimonialCard {
@@ -23,21 +12,21 @@
 }
 
 .stars {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-size: 19.2px;
   line-height: 1;
 }
 
 .star {
   color: #fbbf24;
-  margin-right: 0.2rem;
+  margin-right: 3.2px;
 }
 
 .reviewText {
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ifm-color-content);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   font-style: italic;
   flex-grow: 1;
 }
@@ -52,7 +41,7 @@
 
 .ellipsis {
   font-style: normal;
-  margin-right: 0.25rem;
+  margin-right: 4px;
 }
 
 .moreButton {
@@ -60,7 +49,7 @@
   cursor: pointer;
   text-decoration: underline;
   font-style: normal;
-  margin-left: 0.25rem;
+  margin-left: 4px;
 
   &:hover {
     opacity: 0.8;
@@ -70,7 +59,7 @@
 .translationInfo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
@@ -83,7 +72,7 @@
   border: none;
   color: var(--ifm-color-primary);
   cursor: pointer;
-  padding: 0.25rem 0;
+  padding: 4px 0;
   text-decoration: underline;
   transition: opacity 0.2s ease;
 
@@ -93,14 +82,14 @@
 }
 
 .cardFooter {
-  padding: 1rem;
+  padding: 16px;
   margin-top: auto;
 }
 
 .userInfo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
   color: var(--ifm-color-content-secondary);
 }
 
@@ -109,14 +98,4 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-}
-
-@media screen and (max-width: 996px) {
-  .sectionTitle {
-    font-size: 2rem;
-  }
-
-  .testimonialCol {
-    max-width: 100%;
-  }
 }

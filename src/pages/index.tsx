@@ -157,15 +157,21 @@ export default function Home(): ReactNode {
                         <FeaturesSection />
                     </div>
 
-                    <UseCasesSection
-                        animationRef={useCasesAnimation.ref}
-                        isVisible={useCasesAnimation.isVisible}
-                    />
+                    <div
+                        ref={useCasesAnimation.ref}
+                        className={clsx(styles.animatedSection, {
+                            [styles.visible]: useCasesAnimation.isVisible
+                        })}>
+                        <UseCasesSection />
+                    </div>
 
-                    <TestimonialsSection
-                        animationRef={testimonialsAnimation.ref}
-                        isVisible={testimonialsAnimation.isVisible}
-                    />
+                    <div
+                        ref={testimonialsAnimation.ref}
+                        className={clsx(styles.animatedSection, {
+                            [styles.visible]: testimonialsAnimation.isVisible
+                        })}>
+                        <TestimonialsSection />
+                    </div>
 
                     <div
                         ref={learnMoreAnimation.ref}

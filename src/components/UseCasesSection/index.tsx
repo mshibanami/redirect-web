@@ -1,4 +1,4 @@
-import type { ReactNode, RefObject } from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import Translate, { translate } from '@docusaurus/Translate';
@@ -79,18 +79,9 @@ const useCases = [
     }
 ] satisfies { title: string; description: string }[]
 
-interface UseCasesSectionProps {
-    animationRef: RefObject<HTMLDivElement>;
-    isVisible: boolean;
-}
-
-export default function UseCasesSection({ animationRef, isVisible }: UseCasesSectionProps): ReactNode {
+export default function UseCasesSection(): ReactNode {
     return (
-        <section
-            ref={animationRef}
-            className={clsx(styles.useCases, styles.animatedSection, {
-                [styles.visible]: isVisible
-            })}>
+        <section className={styles.useCases}>
             <div className="container">
                 <Heading as="h2" className="margin-bottom--lg">
                     <Translate

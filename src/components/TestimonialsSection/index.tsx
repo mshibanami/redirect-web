@@ -1,4 +1,4 @@
-import type { ReactNode, RefObject } from 'react';
+import type { ReactNode } from 'react';
 import { useState } from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 import enCode from '../../../i18n/en/code.json'
 import frCode from '../../../i18n/fr/code.json'
 import ruCode from '../../../i18n/ru/code.json'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 interface Testimonial {
     name: string;
@@ -20,28 +21,28 @@ interface Testimonial {
 const appStoreAffiliation = 'App Store';
 
 const testimonials: Testimonial[] = [
-    {
-        name: 'Aliuskonte',
-        affiliation: '🇷🇺 ' + appStoreAffiliation + ' ･ Mac',
-        review: translate({
-            id: 'testimonials.userReview.aliuskonte',
-            message: 'Все работает. Управление редиректами интуитивно понятное, настройка занимает минимальное количество времени. И стоимость вполне демократичная. Рекомендую',
-            description: 'Testimonial review by a user'
-        }),
-        originalReview: ruCode['testimonials.userReview.aliuskonte'].message,
-        originalLanguage: 'ru'
-    },
-    {
-        name: '=== World 1 ===',
-        affiliation: '🇨🇦 ' + appStoreAffiliation + ' ･ iOS',
-        review: translate({
-            id: 'testimonials.userReview.world1',
-            message: 'Works as intended and it’s very fast! Allows almost unlimited customization with the paid plan which is very affordable (thanks for making a lifetime plan!)',
-            description: 'Testimonial review by a user'
-        }),
-        originalReview: enCode['testimonials.userReview.world1'].message,
-        originalLanguage: 'en'
-    },
+    // {
+    //     name: 'Aliuskonte',
+    //     affiliation: '🇷🇺 ' + appStoreAffiliation + ' ･ Mac',
+    //     review: translate({
+    //         id: 'testimonials.userReview.aliuskonte',
+    //         message: 'Everything works. Managing redirects is intuitive, setup takes minimal time, and the price is quite reasonable. I recommend it.',
+    //         description: 'Testimonial review by a user'
+    //     }),
+    //     originalReview: ruCode['testimonials.userReview.aliuskonte'].message,
+    //     originalLanguage: 'ru'
+    // },
+    // {
+    //     name: '=== World 1 ===',
+    //     affiliation: '🇨🇦 ' + appStoreAffiliation + ' ･ iOS',
+    //     review: translate({
+    //         id: 'testimonials.userReview.world1',
+    //         message: 'Works as intended and it’s very fast! Allows almost unlimited customization with the paid plan which is very affordable (thanks for making a lifetime plan!)',
+    //         description: 'Testimonial review by a user'
+    //     }),
+    //     originalReview: enCode['testimonials.userReview.world1'].message,
+    //     originalLanguage: 'en'
+    // },
     {
         name: 'Juliewlwwlw',
         affiliation: '🇵🇱 ' + appStoreAffiliation + ' ･ iOS',
@@ -80,7 +81,7 @@ const testimonials: Testimonial[] = [
         affiliation: '🇫🇷 ' + appStoreAffiliation + ' ･ iOS',
         review: translate({
             id: 'testimonials.userReview.iAbcdaire',
-            message: 'Meilleur application pour rediriger les liens et sites web vers la destination que vous aurez choisi. Et plus performant que les autres, redirige même les liens bloqués par votre bloqueur de contenu ou votre pare-feu.',
+            message: 'Best app for redirecting links and websites to the destination of your choice. And more efficient than the others — it even redirects links blocked by your content blocker or firewall.',
             description: 'Testimonial review by a user'
         }),
         originalReview: frCode['testimonials.userReview.iAbcdaire'].message,
@@ -101,7 +102,7 @@ function getLanguageName(languageCode: string, currentLocale: string): string {
 function TestimonialCard({ testimonial, currentLocale }: TestimonialCardProps): ReactNode {
     const [showOriginal, setShowOriginal] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
-    const maxReviewTextLength = 200;
+    const maxReviewTextLength = 160;
 
     const hasOriginal = testimonial.originalReview &&
         testimonial.originalLanguage &&
@@ -114,9 +115,9 @@ function TestimonialCard({ testimonial, currentLocale }: TestimonialCardProps): 
         : displayReview;
 
     return (
-        <div className={clsx('col col--4', styles.testimonialCol)}>
+        <div className={'col col--3 margin-bottom--md'}>
             <div className={'card'}>
-                <div className="card__body">
+                <div className={clsx('card__body', styles.testimonialCard)}>
                     <div className={styles.stars}>
                         {[...Array(5)].map((_, i) => (
                             <span key={i} className={styles.star}>★</span>
@@ -178,8 +179,6 @@ function TestimonialCard({ testimonial, currentLocale }: TestimonialCardProps): 
                             </button>
                         </div>
                     )}
-                </div>
-                <div className={clsx('card__footer', styles.cardFooter)}>
                     <div className={styles.userInfo}>
                         {testimonial.avatar && (
                             <img
@@ -201,24 +200,14 @@ function TestimonialCard({ testimonial, currentLocale }: TestimonialCardProps): 
     );
 }
 
-interface TestimonialsSectionProps {
-    animationRef: RefObject<HTMLDivElement>;
-    isVisible: boolean;
-}
-
-export default function TestimonialsSection({ animationRef, isVisible }: TestimonialsSectionProps): ReactNode {
-    const currentLocale = typeof window !== 'undefined'
-        ? document.documentElement.lang
-        : 'en';
+export default function TestimonialsSection(): ReactNode {
+    const { i18n } = useDocusaurusContext();
+    const currentLocale = i18n.currentLocale;
 
     return (
-        <section
-            ref={animationRef}
-            className={clsx(styles.testimonials, styles.animatedSection, {
-                [styles.visible]: isVisible
-            })}>
+        <section className={styles.testimonials}>
             <div className="container">
-                <Heading as="h2" className={clsx('text--center', styles.sectionTitle)}>
+                <Heading as="h2" className="margin-bottom--lg">
                     <Translate
                         id="landingPage.testimonials.title"
                         description="Title for the testimonials section">
