@@ -139,12 +139,16 @@ const config: Config = {
           title: 'Help',
           items: [
             {
-              label: "Forums (GitHub)",
-              href: "https://github.com/mshibanami/redirect-web/discussions",
+              label: 'Troubleshooting',
+              to: '/troubleshooting',
             },
             {
               label: 'FAQ',
               to: '/faq',
+            },
+            {
+              label: "Forums (GitHub)",
+              href: "https://github.com/mshibanami/redirect-web/discussions",
             },
             {
               label: 'Contact Us',
