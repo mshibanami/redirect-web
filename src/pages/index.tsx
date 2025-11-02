@@ -1,21 +1,20 @@
 import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import ExtensionStoreLinks from '@site/src/components/ExtensionStoreLinks';
-import Award from '@site/src/components/Award';
 import LandingPageBackground from '@site/src/components/LandingPageBackground';
 import Image from "@site/src/components/Image";
+import AwardSection from '@site/src/components/AwardSection';
+import FeaturesSection from '@site/src/components/FeaturesSection';
+import LearnMoreSection from '@site/src/components/LearnMoreSection';
+import TaglineSection from '@site/src/components/TaglineSection';
 import styles from './index.module.scss';
-import AppleLogo from '@site/static/img/apple-logo.svg';
 import Translate, { translate } from '@docusaurus/Translate';
 import Head from '@docusaurus/Head';
-import LandingPageFAQ from '@site/src/components/LandingPageFAQ';
 
 function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
@@ -269,26 +268,14 @@ export default function Home(): ReactNode {
                         className={clsx(styles.animatedSection, {
                             [styles.visible]: awardAnimation.isVisible
                         })}>
-                        <div className='margin-vert--xl'>
-                            <Award
-                                header={
-                                    <span>Featured by</span>
-                                }
-                                main={
-                                    <span><AppleLogo style={{ width: '20px', height: 'auto', verticalAlign: 'text-bottom', paddingBottom: '0.15rem' }} /> Apple</span>
-                                }
-                                footer={
-                                    <span>The best Safari extensions</span>
-                                }
-                            />
-                        </div>
+                        <AwardSection />
                     </div>
                     <div
                         ref={featuresAnimation.ref}
                         className={clsx(styles.animatedSection, {
                             [styles.visible]: featuresAnimation.isVisible
                         })}>
-                        <HomepageFeatures />
+                        <FeaturesSection />
                     </div>
                     <UseCasesSection />
 
@@ -297,37 +284,15 @@ export default function Home(): ReactNode {
                         className={clsx(styles.animatedSection, {
                             [styles.visible]: learnMoreAnimation.isVisible
                         })}>
-
-                        <LandingPageFAQ />
-                        <div
-                            className="margin-bottom--xl">
-                            <ExtensionStoreLinks />
-                        </div>
-                        <div className="text--center margin-vert--xl">
-                            <Link
-                                className="button button--primary button--lg"
-                                to="/introduction">
-                                <Translate
-                                    id="general.learnMoreAction"
-                                    description="'Learn More' button">
-                                    Learn More
-                                </Translate>
-                            </Link>
-                        </div>
+                        <LearnMoreSection />
                     </div>
 
                     <div
                         ref={taglineAnimation.ref}
-                        className={clsx(styles.animatedSection, 'text--center margin-bottom--xl', {
+                        className={clsx(styles.animatedSection, {
                             [styles.visible]: taglineAnimation.isVisible
                         })}>
-                        <h3>
-                            <Translate
-                                id="landingPage.noAdsNoTracking"
-                                description="Landing page tagline about no ads and no tracking">
-                                No ads. No tracking. Enjoy a faster, cleaner web tailored to you.
-                            </Translate>
-                        </h3>
+                        <TaglineSection />
                     </div>
                 </main>
             </Layout>
