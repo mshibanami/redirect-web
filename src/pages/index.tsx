@@ -60,6 +60,7 @@ function HomepageHeader() {
                         playsInline
                         preload="metadata"
                         aria-label="Demo video"
+                        muted
                     >
                         Your browser does not support the video tag. You can
                         <a href={useBaseUrl('/videos/landing-demo.mov')} target="_blank" rel="noreferrer">
