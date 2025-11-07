@@ -17,7 +17,7 @@ export default function ExtensionStoreLinks() {
     const badgeHeight = '60px';
 
     return (
-        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'start', flexWrap: 'wrap' }}>
             {ALL_BROWSERS.map((browserName) => {
                 const storeDetails = getExtensionStore({ browserName });
                 return (
