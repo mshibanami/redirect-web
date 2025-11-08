@@ -82,43 +82,41 @@ const useCases = [
 export default function UseCasesSection(): ReactNode {
     return (
         <section className={styles.useCases}>
-            <div className="container">
-                <Heading as="h2" className="margin-bottom--lg">
-                    <Translate
-                        id="landingPage.exampleUseCases.title"
-                        description="Title for the example use cases section">
-                        Example Use Cases
-                    </Translate>
-                </Heading>
-                <div className="row">
-                    {useCases.map((useCase, idx) => (
-                        <div key={idx} className={clsx('col col--4', styles.useCase)}>
-                            <div className='card'>
-                                <div className="card__header">
-                                    <Heading as="h3">{useCase.title}</Heading>
-                                </div>
-                                <div className="card__body">
-                                    <p>{useCase.description}</p>
-                                </div>
+            <Heading as="h2" className="margin-bottom--lg">
+                <Translate
+                    id="landingPage.exampleUseCases.title"
+                    description="Title for the example use cases section">
+                    Example Use Cases
+                </Translate>
+            </Heading>
+            <div className="row">
+                {useCases.map((useCase, idx) => (
+                    <div key={idx} className={clsx('col col--4', styles.useCase)}>
+                        <div className='card'>
+                            <div className="card__header">
+                                <Heading as="h3">{useCase.title}</Heading>
+                            </div>
+                            <div className="card__body">
+                                <p>{useCase.description}</p>
                             </div>
                         </div>
-                    ))}
-                </div>
-                <div className="text--center margin-bottom--lg">
-                    <p>
-                        <b>⭐️
-                            <Translate
-                                id="general.protipLabel"
-                                description="Label for a hint">
-                                Protip
-                            </Translate>
-                        </b>: <Translate
-                            id="landingPage.useCasesLibraryFootnote"
-                            description="A hint about use cases about the Library section on the landing page">
-                            You can get rules of all these use cases from the Library section in the app!
+                    </div>
+                ))}
+            </div>
+            <div className="text--center margin-bottom--lg">
+                <p>
+                    <b>⭐️
+                        <Translate
+                            id="general.protipLabel"
+                            description="Label for a hint">
+                            Protip
                         </Translate>
-                    </p>
-                </div>
+                    </b>: <Translate
+                        id="landingPage.useCasesLibraryFootnote"
+                        description="A hint about use cases about the Library section on the landing page">
+                        You can get rules of all these use cases from the Library section in the app!
+                    </Translate>
+                </p>
             </div>
         </section>
     )

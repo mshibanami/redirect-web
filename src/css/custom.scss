@@ -59,37 +59,39 @@
   --ifm-link-color: var(--ifm-color-primary-lighter);
 }
 
-:not(.index-page) .navbar__item_force {
+:not(.indexPage) .navbar__item_force {
   display: block !important;
 }
 
 .navbar__appstore_button {
   height: 34px !important;
+
+  > img {
+    height: 100%;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }
 
-.navbar__appstore_button > img {
-  height: 100%;
-}
+.indexPage {
+  .navbar {
+    background-color: transparent !important;
+    box-shadow: unset !important;
+  }
 
-.navbar__appstore_button > img:hover {
-  opacity: 0.8;
-}
+  .navbar--fixed-top {
+    position: absolute !important;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
 
-.index-page .navbar {
-  background-color: transparent !important;
-  box-shadow: unset !important;
-}
-
-.index-page .navbar--fixed-top {
-  position: absolute !important;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
-
-.index-page .navbar__appstore_button {
-  display: none !important;
+  .navbar__appstore_button {
+    display: none !important;
+  }
 }
 
 a:hover {

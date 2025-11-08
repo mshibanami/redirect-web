@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react';
 import Link from '@docusaurus/Link';
 import ExtensionStoreLinks from '@site/src/components/ExtensionStoreLinks';
-import LandingPageFAQ from '@site/src/components/LandingPageFAQ';
+import LandingPageFAQ from '@site/src/components/landing/LandingPageFAQ';
 import Translate from '@docusaurus/Translate';
 
 export default function LearnMoreSection(): ReactNode {
     return (
-        <>
+        <section>
             <LandingPageFAQ />
             <div className="margin-bottom--xl">
                 <ExtensionStoreLinks />
@@ -22,6 +22,6 @@ export default function LearnMoreSection(): ReactNode {
                     </Translate>
                 </Link>
             </div>
-        </>
+        </section>
     );
 }

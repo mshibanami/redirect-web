@@ -8,6 +8,7 @@ export enum BrowserName {
 export interface ExtensionStoreDetails {
     storeName: string;
     extensionPageUrl: string;
+    badgePath: string;
 }
 
 export const ALL_BROWSERS: BrowserName[] = [
@@ -22,22 +23,26 @@ export function getExtensionStore({ browserName }: { browserName: BrowserName })
         case BrowserName.Chrome:
             return {
                 storeName: 'Chrome Web Store',
-                extensionPageUrl: 'https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh'
+                extensionPageUrl: 'https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh',
+                badgePath: '/img/chrome-store-badge.svg'
             };
         case BrowserName.Firefox:
             return {
                 storeName: 'Firefox Add-ons',
                 extensionPageUrl: 'https://addons.mozilla.org/firefox/addon/redirect-web/',
+                badgePath: '/img/firefox-store-badge.svg'
             };
         case BrowserName.Safari:
             return {
                 storeName: 'App Store',
-                extensionPageUrl: 'https://apps.apple.com/app/id1571283503'
+                extensionPageUrl: 'https://apps.apple.com/app/id1571283503',
+                badgePath: '/img/appstore-badge.svg'
             };
         case BrowserName.Edge:
             return {
                 storeName: 'Microsoft Edge Add-ons',
-                extensionPageUrl: 'https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga'
+                extensionPageUrl: 'https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga',
+                badgePath: '/img/microsoft-store-badge.svg'
             };
         default:
             return getExtensionStore({ browserName: BrowserName.Chrome });

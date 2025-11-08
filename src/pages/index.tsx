@@ -6,19 +6,19 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import ExtensionStoreLinks from '@site/src/components/ExtensionStoreLinks';
-import LandingPageBackground from '@site/src/components/LandingPageBackground';
+import LandingPageBackground from '@site/src/components/landing/LandingPageBackground';
 import Image from "@site/src/components/Image";
-import AwardSection from '@site/src/components/AwardSection';
-import FeaturesSection from '@site/src/components/FeaturesSection';
-import LearnMoreSection from '@site/src/components/LearnMoreSection';
-import TaglineSection from '@site/src/components/TaglineSection';
-import UseCasesSection from '@site/src/components/UseCasesSection';
-import TestimonialsSection from '@site/src/components/TestimonialsSection';
+import AwardSection from '@site/src/components/landing/AwardSection';
+import FeaturesSection from '@site/src/components/landing/FeaturesSection';
+import LearnMoreSection from '@site/src/components/landing/LearnMoreSection';
+import TaglineSection from '@site/src/components/landing/TaglineSection';
+import UseCasesSection from '@site/src/components/landing/UseCasesSection';
+import TestimonialsSection from '@site/src/components/landing/TestimonialsSection';
 import styles from './index.module.scss';
 import Translate, { translate } from '@docusaurus/Translate';
 import Head from '@docusaurus/Head';
 
-function HomepageHeader() {
+function LandingPageHero() {
     const { siteConfig } = useDocusaurusContext();
     return (
         <header className={clsx('hero', styles.heroBanner)}>
@@ -131,7 +131,7 @@ export default function Home(): ReactNode {
     );
 
     return (
-        <div className='index-page'>
+        <div className='indexPage'>
             <Layout
                 title={title}
                 description={description}>
@@ -140,11 +140,12 @@ export default function Home(): ReactNode {
                     <div ref={headerAnimation.ref} className={clsx(styles.animatedSection, {
                         [styles.visible]: headerAnimation.isVisible
                     })}>
-                        <HomepageHeader />
+                        <LandingPageHero />
                     </div>
+
                     <div
                         ref={awardAnimation.ref}
-                        className={clsx(styles.animatedSection, {
+                        className={clsx('container', 'margin-vert--xl', styles.animatedSection, {
                             [styles.visible]: awardAnimation.isVisible
                         })}>
                         <AwardSection />
@@ -152,7 +153,7 @@ export default function Home(): ReactNode {
 
                     <div
                         ref={featuresAnimation.ref}
-                        className={clsx(styles.animatedSection, {
+                        className={clsx('container', styles.animatedSection, {
                             [styles.visible]: featuresAnimation.isVisible
                         })}>
                         <FeaturesSection />
@@ -160,7 +161,7 @@ export default function Home(): ReactNode {
 
                     <div
                         ref={useCasesAnimation.ref}
-                        className={clsx(styles.animatedSection, {
+                        className={clsx('container', styles.animatedSection, {
                             [styles.visible]: useCasesAnimation.isVisible
                         })}>
                         <UseCasesSection />
@@ -168,7 +169,7 @@ export default function Home(): ReactNode {
 
                     <div
                         ref={testimonialsAnimation.ref}
-                        className={clsx(styles.animatedSection, {
+                        className={clsx('container', styles.animatedSection, {
                             [styles.visible]: testimonialsAnimation.isVisible
                         })}>
                         <TestimonialsSection />
@@ -176,7 +177,7 @@ export default function Home(): ReactNode {
 
                     <div
                         ref={learnMoreAnimation.ref}
-                        className={clsx(styles.animatedSection, {
+                        className={clsx('container', styles.animatedSection, {
                             [styles.visible]: learnMoreAnimation.isVisible
                         })}>
                         <LearnMoreSection />
@@ -184,7 +185,7 @@ export default function Home(): ReactNode {
 
                     <div
                         ref={taglineAnimation.ref}
-                        className={clsx(styles.animatedSection, {
+                        className={clsx('container', 'margin-bottom--xl', styles.animatedSection, {
                             [styles.visible]: taglineAnimation.isVisible
                         })}>
                         <TaglineSection />

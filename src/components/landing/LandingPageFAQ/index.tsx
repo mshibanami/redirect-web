@@ -204,28 +204,26 @@ export default function LandingPageFAQ(): ReactNode {
     };
 
     return (
-        <section className={styles.faqSection}>
-            <div className="container">
-                <div className={styles.faqHeader}>
-                    <Heading as="h2">
-                        <Translate
-                            id="landingPageFAQ.title"
-                            description="FAQ section title">
-                            Frequently Asked Questions
-                        </Translate>
-                    </Heading>
-                </div>
-                <div className={styles.faqContainer}>
-                    {faqItems.map((item, index) => (
-                        <FAQAccordionItem
-                            key={index}
-                            item={item}
-                            isOpen={openIndex === index}
-                            onClick={() => toggleItem(index)}
-                        />
-                    ))}
-                </div>
+        <div className={styles.faqSection}>
+            <div className={styles.faqHeader}>
+                <Heading as="h2">
+                    <Translate
+                        id="landingPageFAQ.title"
+                        description="FAQ section title">
+                        Frequently Asked Questions
+                    </Translate>
+                </Heading>
             </div>
-        </section>
+            <div className={styles.faqContainer}>
+                {faqItems.map((item, index) => (
+                    <FAQAccordionItem
+                        key={index}
+                        item={item}
+                        isOpen={openIndex === index}
+                        onClick={() => toggleItem(index)}
+                    />
+                ))}
+            </div>
+        </div>
     );
 }

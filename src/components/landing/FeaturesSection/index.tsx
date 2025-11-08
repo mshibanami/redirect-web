@@ -102,23 +102,21 @@ function Feature({ title, icon, thumbnail, description }: FeatureItem) {
   );
 }
 
-export default function HomepageFeatures(): ReactNode {
+export default function FeaturesSection(): ReactNode {
   return (
     <section className={clsx('zooming', styles.features)}>
-      <div className="container">
-        <Heading as="h2" className='margin-bottom--lg'>
-          <Translate
-            id="landingPage.productFeatures.title"
-            description="Title for the product features section."
-            values={{ productName: 'Redirect Web' }}>
-            {'Why {productName}?'}
-          </Translate>
-        </Heading>
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
+      <Heading as="h2" className='margin-bottom--lg'>
+        <Translate
+          id="landingPage.productFeatures.title"
+          description="Title for the product features section."
+          values={{ productName: 'Redirect Web' }}>
+          {'Why {productName}?'}
+        </Translate>
+      </Heading>
+      <div className="row">
+        {FeatureList.map((props, idx) => (
+          <Feature key={idx} {...props} />
+        ))}
       </div>
     </section>
   );

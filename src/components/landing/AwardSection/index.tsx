@@ -4,7 +4,7 @@ import AppleLogo from '@site/static/img/apple-logo.svg';
 
 export default function AwardSection(): ReactNode {
     return (
-        <div className='margin-vert--xl'>
+        <section>
             <Award
                 header={
                     <span>Featured by</span>
@@ -16,6 +16,6 @@ export default function AwardSection(): ReactNode {
                     <span>The best Safari extensions</span>
                 }
             />
-        </div>
+        </section>
     );
 }

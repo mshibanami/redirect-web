@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import Translate, { translate } from '@docusaurus/Translate';
 import styles from './styles.module.scss';
-import enCode from '../../../i18n/en/code.json'
-import frCode from '../../../i18n/fr/code.json'
-import ruCode from '../../../i18n/ru/code.json'
+import enCode from '../../../../i18n/en/code.json'
+import frCode from '../../../../i18n/fr/code.json'
+import ruCode from '../../../../i18n/ru/code.json'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 interface Testimonial {
@@ -206,23 +206,21 @@ export default function TestimonialsSection(): ReactNode {
 
     return (
         <section className={styles.testimonials}>
-            <div className="container">
-                <Heading as="h2" className="margin-bottom--lg">
-                    <Translate
-                        id="landingPage.testimonials.title"
-                        description="Title for the testimonials section">
-                        Loved by Users Worldwide
-                    </Translate>
-                </Heading>
-                <div className="row">
-                    {testimonials.map((testimonial, idx) => (
-                        <TestimonialCard
-                            key={idx}
-                            testimonial={testimonial}
-                            currentLocale={currentLocale}
-                        />
-                    ))}
-                </div>
+            <Heading as="h2" className="margin-bottom--lg">
+                <Translate
+                    id="landingPage.testimonials.title"
+                    description="Title for the testimonials section">
+                    Loved by Users Worldwide
+                </Translate>
+            </Heading>
+            <div className="row">
+                {testimonials.map((testimonial, idx) => (
+                    <TestimonialCard
+                        key={idx}
+                        testimonial={testimonial}
+                        currentLocale={currentLocale}
+                    />
+                ))}
             </div>
         </section>
     );
