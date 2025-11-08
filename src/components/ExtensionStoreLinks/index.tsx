@@ -13,11 +13,11 @@ export interface ExtensionStoreDetails extends BaseExtensionStoreDetails {
     badgePath: string;
 }
 
-export default function ExtensionStoreLinks() {
+export default function ExtensionStoreLinks({ justifyContent = "center" }: { justifyContent: React.CSSProperties['justifyContent'] }) {
     const badgeHeight = '60px';
 
     return (
-        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'start', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', justifyContent, flexWrap: 'wrap' }}>
             {ALL_BROWSERS.map((browserName) => {
                 const storeDetails = getExtensionStore({ browserName });
                 return (
