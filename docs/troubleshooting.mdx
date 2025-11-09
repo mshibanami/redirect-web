@@ -4,6 +4,7 @@ import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
 import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
+import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2x.png";
 
 # Troubleshooting
 
@@ -48,6 +49,21 @@ Open the Edit Rule screen and change the **Type** to **DNR** to avoid this issue
 
 > [!NOTE]
 > In Firefox, this issue shouldn’t occur even with the Original type, since it relies on the WebRequest API, which prevents the original page from being loaded.
+
+## Errors are shown in Safari's Settings window
+
+You may see error messages in the Safari Settings window like the following:
+
+<Image src={PopupStyleLoadingError} alt="Screenshot of error messages in Safari's Settings window" height="360" hasShadow hasRoundedCorners/>
+
+> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+
+This doesn't affect the functionality of Redirect Web. You can safely ignore them.
+
+These errors are caused by the extension popup trying to load styling files for both desktop and mobile devices while they can only load either of them, depending on whether you are using Mac or iOS. As a result, one of the files will always fail to load, which is expected behavior.
+
+We understand that seeing error messages can be concerning, so we are planning to suppress these messages in a future update. See more details in [GitHub issue #96](https://github.com/mshibanami/redirect-web/issues/96). Sorry for the confusion!
 
 ## Further assistance
 
