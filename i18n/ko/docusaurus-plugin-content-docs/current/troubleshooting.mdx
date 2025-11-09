@@ -4,51 +4,67 @@ import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
 import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
+import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2x.png";
 
 # 문제 해결
 
-이 페이지는 Redirect Web 사용 시 발생하는 일반적인 문제와 해결책을 나열합니다.
+이 페이지에는 Redirect Web 사용 중 자주 발생하는 문제와 그 해결 방법을 정리해 두었습니다.
 
 <TOCInline toc={toc} />
 
-## 리디렉션 규칙이 작동하지 않습니다
+## 리디렉션 규칙이 작동하지 않을 때 {#rules-not-working}
 
-규칙이 예상대로 작동하지 않는 경우 다음을 확인하십시오:
+규칙이 예상대로 작동하지 않는 경우, 다음 항목을 확인하세요.
 
-- **브라우저 확장이 올바른 페이지에 설치 및 활성화되어 있습니다:** Redirect Web 브라우저 확장을 설치했으며 리디렉션하려는 웹 페이지에서 브라우저에 활성화되어 있는지 확인하십시오. 소스 웹 페이지에서 확장 프로그램 팝업을 다음과 같이 열 수 있다면 올바르게 설치된 것입니다:
+- **브라우저 확장 프로그램이 올바른 페이지에 설치되어 있고 활성화되어 있는지:** Redirect Web 브라우저 확장 기능이 설치되어 있으며, 리디렉션하려는 원본 웹페이지에서 확장 기능이 활성화되어 있는지 확인하세요. 소스 웹페이지에서 아래와 같이 확장 팝업을 열 수 있다면 올바르게 설치된 것입니다:
     <Image src={ExtensionPopup} alt="Redirect Web 확장 팝업" width="260" hasShadow/>
 
-- **규칙 구성이 올바릅니다:** Redirect Web 네이티브 앱에서 리디렉션 규칙을 다시 확인하십시오. 소스 URL 패턴, 대상 URL 및 모든 조건이 올바르게 설정되었는지 확인하십시오. 규칙이 유효한지 확인하려면 규칙 편집 화면의 예제 섹션에 예제 URL을 입력하십시오. 규칙이 유효하면 입력 아래에 예상되는 대상 URL이 다음과 같이 표시됩니다:
-    <Image src={RuleEditExampleResult} alt="예제 URL 결과가 표시된 규칙 편집 화면의 예" width="260" hasShadow/>
+- **규칙 설정이 올바른지:** Redirect Web 네이티브 앱에서 리디렉션 규칙을 다시 확인하세요. 소스 URL 패턴, 대상 URL 및 조건들이 정확히 설정되어 있는지 확인합니다. 규칙이 유효한지 확인하려면 편집 화면의 Examples 섹션에 예시 URL을 입력해 보세요. 규칙이 유효하면 입력한 예시 아래에 예상되는 목적지 URL이 표시됩니다:
+    <Image src={RuleEditExampleResult} alt="규칙 편집 화면의 예시 URL 결과" width="260" hasShadow/>
 
-## 확장 프로그램 팝업에 오류가 표시됩니다
+## 확장 팝업에 오류가 표시될 때 {#error-shown-in-extension-popup}
 
 <Image src={ErrorOverlay} alt="Redirect Web 오류 오버레이" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web 앱이 설치되지 않았거나 제대로 작동하지 않습니다.
-> App Store에서 앱을 다운로드하십시오.
+> Redirect Web 앱이 설치되지 않았거나 제대로 작동하지 않습니다.  
+> App Store에서 앱을 설치하세요.
 
-확장 프로그램 팝업을 열 때 위 오류가 표시되면 Redirect Web 네이티브 앱이 설치되지 않았거나 제대로 실행되고 있지 않음을 의미합니다.
+확장 팝업을 열 때 위와 같은 오류가 표시되면 Redirect Web 네이티브 앱이 설치되어 있지 않거나 정상적으로 실행되고 있지 않다는 의미입니다.
 
-[App Store](https://apps.apple.com/app/id1571283503)에서 최신 버전의 Redirect Web을 설치했는지 확인하십시오.
+App Store(https://apps.apple.com/app/id1571283503)에서 최신 버전의 Redirect Web을 설치했는지 확인해 주세요.
 
 네이티브 앱을 설치한 후 브라우저를 다시 시작해야 할 수도 있습니다.
 
 > [!NOTE]
-> * 브라우저 확장을 사용하려면 Redirect Web 네이티브 앱을 설치해야 합니다. 확장 프로그램만으로는 작동하지 않습니다.
-> * Safari 사용자는 네이티브 앱에 번들로 제공되므로 확장 프로그램을 별도로 설치할 필요가 없습니다.
+> * 브라우저 확장 기능을 사용하려면 Redirect Web 네이티브 앱을 설치해야 합니다. 확장 기능만으로는 동작하지 않습니다.
+> * Safari 사용자는 네이티브 앱에 확장 기능이 번들되어 있으므로 별도로 확장 기능을 설치할 필요가 없습니다.
 
-## 리디렉션 전에 원래 페이지가 잠시 깜박입니다
+## 원본 페이지가 잠깐 깜박인 후 리디렉션될 때 {#original-page-flash}
 
-이 문제는 **원본** 유형 리디렉션 규칙을 사용할 때 발생합니다. 이 유형은 다양한 고급 기능을 제공하지만, 리디렉션을 수행하기 전에 원래 페이지가 로드될 수 있으므로 원래 페이지가 잠시 깜박일 수 있습니다.
+이는 **Original** 타입의 리디렉션 규칙을 사용할 때 발생합니다. 이 타입은 다양한 고급 기능을 제공하지만, 리디렉션을 수행하기 전에 원본 페이지가 로드되도록 허용할 수 있어 원본 페이지가 잠깐 깜박일 수 있습니다.
 
-이 문제를 피하려면 규칙 편집 화면을 열고 **유형**을 **DNR**로 변경하십시오.
+편집 화면에서 **Type**을 **DNR**로 변경하면 이 문제를 피할 수 있습니다.
 
-<Image src={EditRuleDnr} alt="Redirect Web 확장 팝업" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="DNR 타입으로 설정된 확장 팝업 예시" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Firefox에서는 WebRequest API를 사용하므로 원래 페이지가 로드되는 것을 방지하여 원본 유형에서도 이 문제가 발생하지 않아야 합니다.
+> Firefox에서는 Original 타입에서도 이 문제가 발생하지 않아야 합니다. Firefox는 WebRequest API에 의존하여 원본 페이지가 로드되는 것을 차단하기 때문입니다.
+
+## Safari 설정 창에 오류 메시지가 표시될 때 {#safari-style-loading-errors}
+
+Safari 설정 창에서 다음과 같은 오류 메시지가 표시될 수 있습니다:
+
+<Image src={PopupStyleLoadingError} alt="Safari 설정 창의 오류 메시지 스크린샷" height="360" hasShadow hasRoundedCorners/>
+
+> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+
+이 오류는 Redirect Web의 기능에는 영향을 주지 않습니다. 안심하고 무시하셔도 됩니다.
+
+이 오류는 확장 팝업이 데스크톱용과 모바일용 스타일 파일을 모두 로드하려고 시도하지만, 사용 중인 환경(Mac 또는 iOS)에 따라 둘 중 하나만 로드할 수 있기 때문에 발생합니다. 그 결과 한 파일은 항상 로드에 실패하게 되며, 이는 예상된 동작입니다.
+
+오류 메시지를 보는 것이 걱정될 수 있다는 점을 이해하고 있으며, 향후 업데이트에서 이러한 메시지를 숨기도록 계획하고 있습니다. 자세한 내용은 [GitHub issue #96](https://github.com/mshibanami/redirect-web/issues/96)을 참조하세요. 혼란을 드려 죄송합니다!
 
 ## 추가 지원
 
-위 해결책을 시도한 후에도 문제가 계속 발생하면 [문의하십시오](/contact-us).
+위의 해결 방법으로 문제가 해결되지 않는 경우, [문의하기](/contact-us)로 연락해 주세요.

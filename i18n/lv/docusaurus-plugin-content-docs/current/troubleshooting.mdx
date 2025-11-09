@@ -4,50 +4,66 @@ import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
 import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
+import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2x.png";
 
 # Problēmu novēršana
 
-Šajā lapā ir uzskaitītas biežākās problēmas un to risinājumi, lietojot Redirect Web.
+Šī lapa uzskaita izplatītas problēmas un to risinājumus, izmantojot Redirect Web.
 
 <TOCInline toc={toc} />
 
-## Pāradresācijas noteikumi nedarbojas
+## Pāradresācijas noteikumi nedarbojas {#rules-not-working}
 
-Ja jūsu noteikumi nedarbojas, kā paredzēts, lūdzu, pārbaudiet sekojošo:
+Ja jūsu noteikumi nedarbojas gaidītajā veidā, lūdzu, pārbaudiet sekojošo:
 
-- **Pārlūkprogrammas paplašinājums ir instalēts un iespējots pareizajai lapai:** Pārliecinieties, vai esat instalējis Redirect Web pārlūkprogrammas paplašinājumu un vai tas ir iespējots jūsu pārlūkprogrammā tīmekļa lapai, no kuras vēlaties pāradresēt. Ja varat atvērt paplašinājuma uznirstošo logu, kā parādīts šajā avota tīmekļa lapā, tas ir instalēts pareizi:
+- **Pārlūkprogrammas paplašinājums ir uzstādīts un iespējots pareizajai lapai:** Pārliecinieties, ka esat uzstādījis Redirect Web pārlūkprogrammas paplašinājumu un ka tas ir iespējots jūsu pārlūkā attiecīgajai izcelsmes tīmekļa lapai, no kuras vēlaties veikt pāradresāciju. Ja uz izcelsmes lapas varat atvērt paplašinājuma uznirstošo logu šādi, tas ir uzstādīts pareizi:
     <Image src={ExtensionPopup} alt="Redirect Web paplašinājuma uznirstošais logs" width="260" hasShadow/>
 
-- **Noteikumu konfigurācija ir pareiza:** Vēlreiz pārbaudiet savus pāradresācijas noteikumus Redirect Web vietējā lietotnē. Pārliecinieties, vai avota URL modeļi, mērķa URL un visi nosacījumi ir pareizi iestatīti. Lai pārbaudītu, vai jūsu noteikums ir derīgs, ievadiet piemēra URL sadaļā "Piemēri" ekrānā "Rediģēt noteikumu". Ja jūsu noteikums ir derīgs, zem jūsu ievades redzēsiet paredzēto galamērķa URL, piemēram, šādi:
-    <Image src={RuleEditExampleResult} alt="Noteikumu rediģēšanas ekrāna piemērs, kas parāda piemēra URL rezultātu" width="260" hasShadow/>
+- **Noteikumu konfigurācija ir pareiza:** Rūpīgi pārbaudiet savus pāradresācijas noteikumus Redirect Web vietējā lietotnē. Pārliecinieties, ka avota URL paraugi, mērķa URL un jebkuri nosacījumi ir pareizi iestatīti. Lai pārbaudītu, vai noteikums ir derīgs, ievadiet piemēra URL sadaļā "Examples" ekrānā Edit Rule. Ja noteikums ir derīgs, jūs savā ievadā redzēsiet gaidāmo mērķa URL, piemēram šādi:
+    <Image src={RuleEditExampleResult} alt="Piemērs: noteikumu rediģēšanas ekrāns, kas parāda testa URL rezultātu" width="260" hasShadow/>
 
-## Paplašinājuma uznirstošajā logā tiek rādīta kļūda
+## Paplašinājuma uznirstošais logs rāda kļūdu {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Redirect Web kļūdas pārklājums" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="Redirect Web kļūdu pārklājums" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web lietotne nav instalēta vai nedarbojas pareizi.  
-> Lūdzu, iegūstiet lietotni no App Store.
+> Redirect Web app hasn't been installed or is not working properly.  
+> Please get the app from the App Store.
 
 Ja, atverot paplašinājuma uznirstošo logu, redzat iepriekš minēto kļūdu, tas nozīmē, ka Redirect Web vietējā lietotne nav instalēta vai nedarbojas pareizi.
 
-Pārliecinieties, vai esat instalējis jaunāko Redirect Web versiju no [App Store](https://apps.apple.com/app/id1571283503).
+Lūdzu, pārliecinieties, ka esat instalējis jaunāko Redirect Web versiju no [App Store](https://apps.apple.com/app/id1571283503).
 
-Pēc vietējās lietotnes instalēšanas, iespējams, jums būs jārestartē pārlūkprogramma.
+Var būt nepieciešams arī pārlūkprogrammas pārlādējums (restart), pēc vietējās lietotnes instalēšanas.
 
 > [!NOTE]
-> * Lai izmantotu pārlūkprogrammas paplašinājumu, jums ir jāinstalē Redirect Web vietējā lietotne. Tikai paplašinājums nedarbojas.
-> * Safari lietotājiem nav jāinstalē paplašinājums atsevišķi, jo tas ir iekļauts vietējā lietotnē.
+> * Jums nepieciešams uzstādīt Redirect Web vietējo lietotni, lai izmantotu pārlūkprogrammas paplašinājumu. Paša paplašinājuma lietošana bez lietotnes nav iespējama.
+> * Safari lietotājiem nav nepieciešams atsevišķi instalēt paplašinājumu, jo tas ir iekļauts vietējā lietotnē.
 
-## Oriģinālā lapa īslaicīgi mirgo pirms pāradresācijas
+## Oriģinālā lapa īslaicīgi mirgo pirms pāradresācijas {#original-page-flash}
 
-Tas notiek, ja izmantojat **Oriģinālā** tipa pāradresācijas noteikumus. Šis tips nodrošina dažādas uzlabotas funkcijas, taču tas var izraisīt īslaicīgu oriģinālās lapas mirgošanu, jo tas var ļaut oriģinālajai lapai ielādēties pirms pāradresācijas veikšanas.
+Šī situācija rodas, ja izmantojat **Original** tipa pāradresācijas noteikumus. Šis tips nodrošina dažādas papildu funkcijas, taču tas var izraisīt īslaicīgu oriģinālās lapas mirgošanu, jo dažkārt oriģinālā lapa var tikt ielādēta pirms pāradresācijas veikšanas.
 
-Atveriet ekrānu "Rediģēt noteikumu" un mainiet **Tipu** uz **DNR**, lai izvairītos no šīs problēmas.
+Atveriet Edit Rule ekrānu un mainiet **Type** uz **DNR**, lai izvairītos no šīs problēmas.
 
 <Image src={EditRuleDnr} alt="Redirect Web paplašinājuma uznirstošais logs" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Firefox pārlūkprogrammā šai problēmai nevajadzētu rasties pat ar oriģinālo tipu, jo tā paļaujas uz WebRequest API, kas novērš oriģinālās lapas ielādi.
+> Firefox gadījumā šai problēmai nevajadzētu rasties pat ar Original tipu, jo tas balstās uz WebRequest API, kas neļauj oriģinālajai lapai tikt ielādētai.
+
+## Kļūdas redzamas Safari iestatījumu logā {#safari-style-loading-errors}
+
+Jūs varat redzēt Safari iestatījumu logā sekojošas kļūdu ziņas:
+
+<Image src={PopupStyleLoadingError} alt="Ekrānuzņēmums ar kļūdu ziņām Safari iestatījumu logā" height="360" hasShadow hasRoundedCorners/>
+
+> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+
+Tam nav ietekmes uz Redirect Web funkcionalitāti. Jūs varat droši tās ignorēt.
+
+Šīs kļūdas rodas tāpēc, ka paplašinājuma uznirstošais logs mēģina ielādēt stilizācijas failus gan darbvirsmai, gan mobilajām ierīcēm, taču tas var ielādēt tikai vienu no tiem atkarībā no tā, vai izmantojat Mac vai iOS. Rezultātā viens no failiem vienmēr neizdosies ielādēt, kas ir gaidāma uzvedība.
+
+Mēs saprotam, ka kļūdu ziņu redzēšana var radīt satraukumu, tāpēc plānojam šīs ziņas slēpt nākamajā atjauninājumā. Skatīt vairāk detaļu [GitHub issue #96](https://github.com/mshibanami/redirect-web/issues/96). Atvainojamies par sagādātajām neērtībām!
 
 ## Papildu palīdzība
 

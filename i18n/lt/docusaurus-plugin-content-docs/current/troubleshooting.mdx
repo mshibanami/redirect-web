@@ -4,51 +4,67 @@ import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
 import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
+import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2x.png";
 
 # Trikčių šalinimas
 
-Šiame puslapyje pateikiamos dažniausiai pasitaikančios problemos ir jų sprendimai naudojant „Redirect Web“.
+Šiame puslapyje pateiktos dažnos problemos ir jų sprendimai naudojant Redirect Web.
 
 <TOCInline toc={toc} />
 
-## Peradresavimo taisyklės neveikia
+## Peradresavimo taisyklės neveikia {#rules-not-working}
 
-Jei jūsų taisyklės neveikia taip, kaip tikėtasi, patikrinkite šiuos dalykus:
+Jei jūsų taisyklės neveikia taip, kaip tikitės, patikrinkite šiuos dalykus:
 
-- **Naršyklės plėtinys įdiegtas ir įjungtas tinkamam puslapiui:** Įsitikinkite, kad įdiegėte „Redirect Web“ naršyklės plėtinį ir kad jis įjungtas jūsų naršyklėje tam tinklalapiui, iš kurio norite peradresuoti. Jei galite atidaryti plėtinio iššokantįjį langą, kaip parodyta šiame šaltinio tinklalapyje, jis įdiegtas teisingai:
-    <Image src={ExtensionPopup} alt="Redirect Web plėtinio iššokantysis langas" width="260" hasShadow/>
+- **Naršyklės plėtinys įdiegtas ir įjungtas tinkamam puslapiui:** Įsitikinkite, kad įdiegėte Redirect Web naršyklės plėtinį ir kad jis įjungtas jūsų naršyklėje puslapiui, iš kurio norite peradresuoti. Jei atidarius šaltinįjo puslapį galite atidaryti plėtinio iššokantį langą, plėtinys yra įdiegtas teisingai:
+    <Image src={ExtensionPopup} alt="Redirect Web plėtinio iššokantis langas" width="260" hasShadow/>
 
-- **Taisyklių konfigūracija yra teisinga:** Dar kartą patikrinkite savo peradresavimo taisykles „Redirect Web“ vietinėje programoje. Įsitikinkite, kad šaltinio URL šablonai, tiksliniai URL ir visos sąlygos yra tinkamai nustatytos. Norėdami patikrinti, ar jūsų taisyklė galioja, ar ne, įveskite pavyzdinį URL į skyrių „Pavyzdžiai“ taisyklių redagavimo ekrane. Jei jūsų taisyklė galioja, po įvesties pamatysite numatytąjį paskirties URL, kaip parodyta čia:
-    <Image src={RuleEditExampleResult} alt="Taisyklių redagavimo ekrano pavyzdys, rodantis pavyzdinio URL rezultatą" width="260" hasShadow/>
+- **Taisyklių konfiguracija teisinga:** Dar kartą patikrinkite peradresavimo taisykles Redirect Web natyvioje programoje. Įsitikinkite, kad šaltinio URL šablonai, paskirties URL ir bet kokios sąlygos yra nustatytos teisingai. Norėdami patikrinti, ar taisyklė galioja, įveskite pavyzdinį URL laukelyje "Examples" (Pavyzdžiai) taisyklės redagavimo ekrane. Jei taisyklė galioja, matysite laukiamą paskirties URL po savo įvestimi, kaip čia:
+    <Image src={RuleEditExampleResult} alt="Taisyklės redagavimo ekrano pavyzdys rodantis pavyzdinio URL rezultatą" width="260" hasShadow/>
 
-## Plėtinio iššokantysis langas rodo klaidą
+## Plėtinio iššokantis langas rodo klaidą {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Redirect Web klaidos perdanga" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="Redirect Web klaidos perdengimo vaizdas" width="260" hasShadow hasRoundedCorners/>
 
-> „Redirect Web“ programa nebuvo įdiegta arba neveikia tinkamai.
-> Gaukite programą iš „App Store“.
+> Redirect Web app hasn't been installed or is not working properly.  
+> Please get the app from the App Store.
 
-Jei atidarydami plėtinio iššokantįjį langą matote aukščiau nurodytą klaidą, tai reiškia, kad „Redirect Web“ vietinė programa nėra įdiegta arba neveikia tinkamai.
+Jei atidarius plėtinio iššokantį langą matote aukščiau pateiktą klaidą, tai reiškia, kad Redirect Web natyvioji programa nėra įdiegta arba neveikia tinkamai.
 
-Įsitikinkite, kad įdiegėte naujausią „Redirect Web“ versiją iš [App Store](https://apps.apple.com/app/id1571283503).
+Įsitikinkite, kad įdiegėte naujausią Redirect Web versiją iš [App Store](https://apps.apple.com/app/id1571283503).
 
-Taip pat gali tekti iš naujo paleisti naršyklę po vietinės programos įdiegimo.
-
-> [!NOTE]
-> * Norėdami naudoti naršyklės plėtinį, turite įdiegti „Redirect Web“ vietinę programą. Vien tik plėtinys neveikia.
-> * „Safari“ naudotojams nereikia atskirai diegti plėtinio, nes jis yra sujungtas su vietine programa.
-
-## Originalus puslapis trumpam mirkteli prieš peradresavimą
-
-Taip nutinka, kai naudojate **Originalaus** tipo peradresavimo taisykles. Šis tipas suteikia įvairių pažangių funkcijų, tačiau jis gali sukelti trumpą originalaus puslapio mirktelėjimą, nes gali leisti originaliam puslapiui įkelti prieš atliekant peradresavimą.
-
-Atidarykite taisyklių redagavimo ekraną ir pakeiskite **Tipą** į **DNR**, kad išvengtumėte šios problemos.
-
-<Image src={EditRuleDnr} alt="Redirect Web plėtinio iššokantysis langas" height="260" hasShadow hasRoundedCorners/>
+Po natyvios programos įdiegimo gali prireikti iš naujo paleisti naršyklę.
 
 > [!NOTE]
-> „Firefox“ naršyklėje ši problema neturėtų kilti net ir naudojant originalų tipą, nes ji remiasi „WebRequest API“, kuri neleidžia įkelti originalaus puslapio.
+> * Norint naudoti naršyklės plėtinį, reikia įdiegti Redirect Web natyviąją programą. Vien tik plėtinys neveiks.
+> * Safari vartotojams plėtinio atskirai įdiegti nereikia — jis yra įtrauktas į natyviąją programą.
 
-## Tolesnė pagalba
+## Pradinė puslapio versija trumpai mirksi prieš peradresavimą {#original-page-flash}
 
-Jei vis dar kyla problemų išbandžius aukščiau nurodytus sprendimus, [susisiekite su mumis](/contact-us).
+Tai atsitinka, kai naudojate **Original** tipo peradresavimo taisykles. Šis tipas suteikia įvairių pažangių funkcijų, tačiau jis gali sukelti trumpą pradinio puslapio mirksėjimą, nes leidžia pradiniam puslapiui pradėti krautis prieš atlikdamas peradresavimą.
+
+Atidarykite taisyklės redagavimo ekraną ir pakeiskite **Type** į **DNR**, kad išvengtumėte šios problemos.
+
+<Image src={EditRuleDnr} alt="Redirect Web iššokantis langas - DNR tipo taisyklė" height="260" hasShadow hasRoundedCorners/>
+
+> [!NOTE]
+> In Firefox, this issue shouldn’t occur even with the Original type, since it relies on the WebRequest API, which prevents the original page from being loaded.
+
+## Safari nustatymų lange rodomos klaidos {#safari-style-loading-errors}
+
+Nustatymų lange Safari galite matyti klaidų pranešimus, panašius į šiuos:
+
+<Image src={PopupStyleLoadingError} alt="Klaidų pranešimų ekrano nuotrauka Safari nustatymų lange" height="360" hasShadow hasRoundedCorners/>
+
+> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+
+Tai neturi įtakos Redirect Web funkcionalumui. Galite saugiai šiuos pranešimus ignoruoti.
+
+Šios klaidos atsiranda todėl, kad plėtinio iššokantis langas bando užkrauti stiliaus failus tiek darbalaukiui, tiek mobiliems įrenginiams, nors jis gali užkrauti tik vieną iš jų, priklausomai ar naudojate „Mac“ ar „iOS“. Dėl to vienas iš failų visuomet nepavyks užkrauti — tai numatomas elgesys.
+
+Suprantame, kad klaidų pranešimų matymas gali kelti susirūpinimą, todėl planuojame ateityje šiuos pranešimus slėpti. Daugiau detalių žr. [GitHub issue #96](https://github.com/mshibanami/redirect-web/issues/96). Atsiprašome už suklaidinimą!
+
+## Tolimesnė pagalba
+
+Jei po aukščiau nurodytų sprendimų vis tiek kyla problemų, prašome [susisiekite su mumis](/contact-us).

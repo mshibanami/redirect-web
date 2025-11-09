@@ -4,51 +4,67 @@ import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
 import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
+import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2x.png";
 
 # Fejlfinding
 
-Denne side viser almindelige problemer og deres løsninger, når du bruger Redirect Web.
+Denne side viser almindelige problemer og deres løsninger ved brug af Redirect Web.
 
 <TOCInline toc={toc} />
 
-## Omdirigeringsregler virker ikke
+## Omdirigeringsregler fungerer ikke {#rules-not-working}
 
-Hvis dine regler ikke virker som forventet, bedes du kontrollere følgende:
+Hvis dine regler ikke fungerer som forventet, så tjek følgende:
 
-- **Browserudvidelsen er installeret og aktiveret for den korrekte side:** Sørg for, at du har installeret Redirect Web browserudvidelsen, og at den er aktiveret i din browser for den webside, du vil omdirigere fra. Hvis du kan åbne udvidelsens popup som denne på kildewebsiden, er den installeret korrekt:
-    <Image src={ExtensionPopup} alt="Redirect Web udvidelsespopup" width="260" hasShadow/>
+- **Browserudvidelsen er installeret og aktiveret for den korrekte side:** Sørg for, at du har installeret Redirect Web-browserudvidelsen, og at den er aktiveret i din browser for den webside, du vil omdirigere fra. Hvis du kan åbne udvidelsens popup sådan her på kildesiden, er den installeret korrekt:
+    <Image src={ExtensionPopup} alt="Redirect Web extension popup" width="260" hasShadow/>
 
-- **Regelkonfigurationen er korrekt:** Dobbelttjek dine omdirigeringsregler i Redirect Web native app. Sørg for, at kilde-URL-mønstrene, destinations-URL'erne og eventuelle betingelser er korrekt indstillet. For at kontrollere, om din regel er gyldig eller ej, skal du indtaste en eksempel-URL i afsnittet Eksempler på skærmbilledet Rediger regel. Hvis din regel er gyldig, vil du se den forventede destinations-URL under dit input, som dette:
-    <Image src={RuleEditExampleResult} alt="Et eksempel på skærmbilledet til redigering af regler, der viser resultatet af eksempel-URL'en" width="260" hasShadow/>
+- **Regelkonfigurationen er korrekt:** Dobbelttjek dine omdirigeringsregler i Redirect Web native-appen. Sørg for, at kilde-URL-mønstre, mål-URL'er og eventuelle betingelser er sat korrekt op. For at tjekke om din regel er gyldig eller ej, indtast et eksempel-URL i Eksempler-sektionen på skærmen Rediger regel. Hvis din regel er gyldig, vil du se den forventede destinations-URL under dit input, som her:
+    <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
 
-## Udvidelsens popup viser en fejl
+## Udvidelsens popup viser en fejl {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Redirect Web fejl-overlay" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="Redirect Web error overlay" width="260" hasShadow hasRoundedCorners/>
 
 > Redirect Web-appen er ikke installeret eller fungerer ikke korrekt.  
 > Hent venligst appen fra App Store.
 
-Hvis du ser ovenstående fejl, når du åbner udvidelsens popup, betyder det, at Redirect Web native app ikke er installeret eller ikke kører korrekt.
+Hvis du ser ovenstående fejl, når du åbner udvidelsens popup, betyder det, at Redirect Web native-appen ikke er installeret eller ikke kører korrekt.
 
 Sørg for, at du har installeret den nyeste version af Redirect Web fra [App Store](https://apps.apple.com/app/id1571283503).
 
-Du skal muligvis også genstarte din browser efter installation af den native app.
+Du kan også få brug for at genstarte din browser efter installation af native-appen.
 
 > [!NOTE]
-> * Du skal installere Redirect Web native app for at bruge browserudvidelsen. Udvidelsen alene virker ikke.
-> * Safari-brugere behøver ikke at installere udvidelsen separat, da den er bundtet med den native app.
+> * Du skal installere Redirect Web native-appen for at bruge browserudvidelsen. Udvidelsen alene fungerer ikke.
+> * Safari-brugere behøver ikke installere udvidelsen separat, da den er inkluderet i native-appen.
 
-## Original side blinker kortvarigt før omdirigering
+## Den oprindelige side blinker kortvarigt før omdirigering {#original-page-flash}
 
-Dette sker, når du bruger omdirigeringsregler af typen **Original**. Denne type giver forskellige avancerede funktioner, men den kan forårsage et kort blink af den originale side, fordi den kan tillade den originale side at indlæses, før omdirigeringen udføres.
+Dette sker, når du bruger omdirigeringstype **Original**. Denne type giver forskellige avancerede funktioner, men kan forårsage en kort blink af den oprindelige side, fordi den kan tillade den oprindelige side at indlæse, før omdirigeringen udføres.
 
-Åbn skærmbilledet Rediger regel, og skift **Type** til **DNR** for at undgå dette problem.
+Åbn Rediger regel-skærmen og skift **Type** til **DNR** for at undgå dette problem.
 
-<Image src={EditRuleDnr} alt="Redirect Web udvidelsespopup" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="Redirect Web extension popup" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> I Firefox bør dette problem ikke opstå, selv med Original-typen, da den er afhængig af WebRequest API'en, som forhindrer den originale side i at blive indlæst.
+> I Firefox burde dette problem ikke opstå selv med Original-typen, da den bruger WebRequest API'et, som forhindrer den oprindelige side i at blive indlæst.
 
-## Yderligere assistance
+## Fejl vises i Safaris indstillingsvindue {#safari-style-loading-errors}
 
-Hvis du stadig oplever problemer efter at have prøvet ovenstående løsninger, bedes du [kontakte os](/contact-us).
+Du kan se fejlbeskeder i Safaris indstillingsvindue som følgende:
+
+<Image src={PopupStyleLoadingError} alt="Screenshot of error messages in Safari's Settings window" height="360" hasShadow hasRoundedCorners/>
+
+> * Kunne ikke finde "popup.mobile.css" i udvidelsens ressourcer. Det er en ugyldig sti.
+> * Kunne ikke finde "toolbar-button.mobile.css" i udvidelsens ressourcer. Det er en ugyldig sti.
+
+Dette påvirker ikke Redirect Web's funktionalitet. Du kan trygt ignorere dem.
+
+Disse fejl opstår, fordi udvidelsens popup forsøger at indlæse stilfiler til både desktop og mobile enheder, selvom den kun kan indlæse den ene af dem afhængig af, om du bruger Mac eller iOS. Som resultat vil en af filerne altid fejle at indlæse, hvilket er forventet adfærd.
+
+Vi forstår, at det kan virke bekymrende at se fejlmeddelelser, så vi planlægger at undertrykke disse meddelelser i en fremtidig opdatering. Se flere oplysninger i [GitHub issue #96](https://github.com/mshibanami/redirect-web/issues/96). Undskyld for forvirringen!
+
+## Yderligere hjælp
+
+Hvis du stadig oplever problemer efter at have prøvet ovenstående løsninger, så [kontakt os](/contact-us).

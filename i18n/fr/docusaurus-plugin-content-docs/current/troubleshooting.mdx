@@ -4,6 +4,7 @@ import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
 import ErrorOverlay from "@site/static/img/error-overlay.png";
 import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
+import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2x.png";
 
 # Dépannage
 
@@ -11,44 +12,59 @@ Cette page répertorie les problèmes courants et leurs solutions lors de l'util
 
 <TOCInline toc={toc} />
 
-## Les règles de redirection ne fonctionnent pas
+## Les règles de redirection ne fonctionnent pas {#rules-not-working}
 
-Si vos règles ne fonctionnent pas comme prévu, veuillez vérifier les points suivants :
+Si vos règles ne fonctionnent pas comme prévu, vérifiez les points suivants :
 
-- **L'extension de navigateur est installée et activée pour la bonne page :** Assurez-vous d'avoir installé l'extension de navigateur Redirect Web et qu'elle est activée dans votre navigateur pour la page web à partir de laquelle vous souhaitez rediriger. Si vous pouvez ouvrir la fenêtre contextuelle de l'extension comme ceci sur la page web source, elle est correctement installée :
-    <Image src={ExtensionPopup} alt="Fenêtre contextuelle de l'extension Redirect Web" width="260" hasShadow/>
+- **L'extension de navigateur est installée et activée pour la page concernée :** Assurez-vous d'avoir installé l'extension Redirect Web et qu'elle est activée dans votre navigateur pour la page depuis laquelle vous voulez rediriger. Si vous pouvez ouvrir la fenêtre contextuelle de l'extension comme ceci sur la page source, l'extension est correctement installée :
+    <Image src={ExtensionPopup} alt="Popup de l'extension Redirect Web" width="260" hasShadow/>
 
-- **La configuration de la règle est correcte :** Vérifiez attentivement vos règles de redirection dans l'application native Redirect Web. Assurez-vous que les modèles d'URL source, les URL cibles et toutes les conditions sont correctement configurés. Pour vérifier si votre règle est valide ou non, saisissez un exemple d'URL dans la section Exemples de l'écran Modifier la règle. Si votre règle est valide, vous verrez l'URL de destination attendue sous votre saisie, comme ceci :
-    <Image src={RuleEditExampleResult} alt="Un exemple d'écran de modification de règle montrant le résultat de l'URL d'exemple" width="260" hasShadow/>
+- **La configuration de la règle est correcte :** Vérifiez vos règles de redirection dans l'application native Redirect Web. Assurez-vous que les modèles d'URL source, les URL cibles et les éventuelles conditions sont correctement configurés. Pour vérifier si une règle est valide, saisissez une URL d'exemple dans la section Examples de l'écran Edit Rule. Si la règle est valide, l'URL de destination attendue s'affichera sous votre saisie, comme ceci :
+    <Image src={RuleEditExampleResult} alt="Exemple d'écran d'édition de règle montrant le résultat pour une URL d'exemple" width="260" hasShadow/>
 
-## La fenêtre contextuelle de l'extension affiche une erreur
+## Une erreur s'affiche dans la popup de l'extension {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Superposition d'erreur Redirect Web" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="Superposition d'erreur de Redirect Web" width="260" hasShadow hasRoundedCorners/>
 
-> L'application Redirect Web n'a pas été installée ou ne fonctionne pas correctement.
-> Veuillez obtenir l'application depuis l'App Store.
+> L'application Redirect Web n'a pas été installée ou ne fonctionne pas correctement.  
+> Veuillez télécharger l'application depuis l'App Store.
 
-Si vous voyez l'erreur ci-dessus lors de l'ouverture de la fenêtre contextuelle de l'extension, cela signifie que l'application native Redirect Web n'est pas installée ou ne fonctionne pas correctement.
+Si vous voyez l'erreur ci‑dessous en ouvrant la popup de l'extension, cela signifie que l'application native Redirect Web n'est pas installée ou ne tourne pas correctement.
 
-Veuillez vous assurer que vous avez installé la dernière version de Redirect Web depuis l'[App Store](https://apps.apple.com/app/id1571283503).
+Assurez‑vous d'avoir installé la dernière version de Redirect Web depuis l'[App Store](https://apps.apple.com/app/id1571283503).
 
-Vous devrez peut-être également relancer votre navigateur après avoir installé l'application native.
+Il se peut également que vous ayez besoin de relancer votre navigateur après l'installation de l'application native.
 
 > [!NOTE]
 > * Vous devez installer l'application native Redirect Web pour utiliser l'extension de navigateur. L'extension seule ne fonctionne pas.
-> * Les utilisateurs de Safari n'ont pas besoin d'installer l'extension séparément, car elle est fournie avec l'application native.
+> * Les utilisateurs de Safari n'ont pas besoin d'installer l'extension séparément, elle est incluse dans l'application native.
 
-## La page originale clignote brièvement avant la redirection
+## La page d'origine clignote brièvement avant la redirection {#original-page-flash}
 
-Cela se produit lorsque vous utilisez les règles de redirection de type **Original**. Ce type offre diverses fonctionnalités avancées, mais il peut provoquer un bref clignotement de la page originale car il peut permettre à la page originale de se charger avant d'effectuer la redirection.
+Cela arrive lorsque vous utilisez des règles de redirection de type **Original**. Ce type offre des fonctionnalités avancées, mais il peut provoquer un bref affichage de la page d'origine car il peut autoriser le chargement de la page d'origine avant d'effectuer la redirection.
 
-Ouvrez l'écran Modifier la règle et changez le **Type** en **DNR** pour éviter ce problème.
+Ouvrez l'écran Edit Rule et changez le **Type** en **DNR** pour éviter ce problème.
 
-<Image src={EditRuleDnr} alt="Fenêtre contextuelle de l'extension Redirect Web" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="Popup de l'extension Redirect Web" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
-> Dans Firefox, ce problème ne devrait pas se produire même avec le type Original, car il repose sur l'API WebRequest, qui empêche le chargement de la page originale.
+> Sous Firefox, ce problème ne devrait pas se produire même avec le type Original, car il s'appuie sur l'API WebRequest qui empêche le chargement de la page d'origine.
+
+## Des erreurs s'affichent dans la fenêtre Réglages de Safari {#safari-style-loading-errors}
+
+Vous pouvez voir des messages d'erreur dans la fenêtre Réglages de Safari comme suit :
+
+<Image src={PopupStyleLoadingError} alt="Capture d'écran des messages d'erreur dans la fenêtre Réglages de Safari" height="360" hasShadow hasRoundedCorners/>
+
+> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+
+Cela n'affecte pas le fonctionnement de Redirect Web. Vous pouvez les ignorer en toute sécurité.
+
+Ces erreurs sont causées par la tentative de la popup de l'extension de charger des fichiers de style pour les versions bureau et mobile, alors qu'elle ne peut en charger qu'un selon que vous utilisiez macOS ou iOS. En conséquence, l'un des fichiers échouera toujours à se charger, ce qui est un comportement attendu.
+
+Nous comprenons que ces messages d'erreur peuvent inquiéter, nous prévoyons donc de les supprimer dans une mise à jour future. Pour plus de détails, consultez [l'issue GitHub #96](https://github.com/mshibanami/redirect-web/issues/96). Désolé pour la confusion !
 
 ## Assistance supplémentaire
 
-Si vous rencontrez toujours des problèmes après avoir essayé les solutions ci-dessus, veuillez [nous contacter](/contact-us).
+Si vous rencontrez toujours des problèmes après avoir essayé les solutions ci‑dessus, veuillez [nous contacter](/contact-us).
