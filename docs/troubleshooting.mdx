@@ -12,7 +12,7 @@ This page lists common issues and their solutions when using Redirect Web.
 
 <TOCInline toc={toc} />
 
-## Redirect rules are not working
+## Redirect rules are not working {#rules-not-working}
 
 If your rules are not working as expected, please check the following:
 
@@ -22,7 +22,7 @@ If your rules are not working as expected, please check the following:
 - **Rule configuration is correct:** Double-check your redirect rules in the Redirect Web native app. Ensure that the source URL patterns, target URLs, and any conditions are correctly set up. To check if your rule is valid or not, input an example URL in the Examples section in the Edit Rule screen. If your rule is valid, you will see the expected destination URL under your input, like this:
     <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
 
-## Extension's popup shows an error
+## Extension's popup shows an error {#error-shown-in-extension-popup}
 
 <Image src={ErrorOverlay} alt="Redirect Web error overlay" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ You may also need to re-launch your browser after installing the native app.
 > * You need to install Redirect Web native app to use the browser extension. The extension alone does not work.
 > * Safari users do not need to install the extension separately, as it is bundled with the native app.
 
-## Original page flashes briefly before redirect
+## Original page flashes briefly before redirect {#original-page-flash}
 
 This happens when you use the **Original** type redirect rules. This type provides various advanced features, but it may cause a brief flash of the original page because it may allow the original page to load before performing the redirect.
 
@@ -50,7 +50,7 @@ Open the Edit Rule screen and change the **Type** to **DNR** to avoid this issue
 > [!NOTE]
 > In Firefox, this issue shouldn’t occur even with the Original type, since it relies on the WebRequest API, which prevents the original page from being loaded.
 
-## Errors are shown in Safari's Settings window
+## Errors are shown in Safari's Settings window {#safari-style-loading-errors}
 
 You may see error messages in the Safari Settings window like the following:
 
