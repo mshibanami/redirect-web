@@ -20,6 +20,12 @@ const config: Config = {
   title: 'Redirect Web',
   tagline: translatedTagline(locale),
   url: 'https://mshibanami.github.io/',
+  favicon: '/img/icon/favicon.ico',
+  headTags: [
+    { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '96x96', href: `${localedBaseUrl}img/icon/favicon-96x96.png` } },
+    { tagName: 'link', attributes: { rel: 'icon', type: 'image/svg+xml', href: `${localedBaseUrl}img/icon/favicon.svg` } },
+    { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: `${localedBaseUrl}img/icon/apple-touch-icon.png` } },
+  ],
   baseUrl: baseUrl,
   organizationName: 'mshibanami',
   projectName: projectName,
