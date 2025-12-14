@@ -25,18 +25,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - uses: pnpm/action-setup@v4
         with:
           version: 10
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - run: pnpm install --frozen-lockfile
+
       - name: Build Pages
-        run: ./build.sh
+        run: ./scripts/build.sh
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
