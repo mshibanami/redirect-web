@@ -80,12 +80,15 @@ function useScrollAnimation() {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
                     setIsVisible(true);
+                    if (entry.target) {
+                        observer.unobserve(entry.target);
+                    }
                 }
             },
             {
-                threshold: 0.1,
+                threshold: 0,
                 rootMargin: '0px 0px -80px 0px'
             }
         );
