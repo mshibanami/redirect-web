@@ -37,7 +37,7 @@ Jeśli docelowy adres URL ma już inne parametry zapytania, takie jak `example.c
 
 W tym przypadku zmień ustawienia w ten sposób:
 
-* **Przekieruj z**: `(https://example.com/[^?]*)(\(.*))?`
+* **Przekieruj z**: `(https://example.com/[^?]*)(\?(.*))?`
 * **Przekieruj do**: `$1?layout=desktop&$3`
 
 Przyjrzyjmy się krok po kroku.

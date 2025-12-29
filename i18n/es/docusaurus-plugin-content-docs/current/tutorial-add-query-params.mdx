@@ -36,7 +36,7 @@ Si la URL de destino ya tiene otros parámetros de consulta como `example.com/he
 
 En este caso, cambia la configuración de esta manera:
 
-* **Redirigir desde**: `(https://example.com/[^?]*)(\(.*))?`
+* **Redirigir desde**: `(https://example.com/[^?]*)(\?(.*))?`
 * **Redirigir a**: `$1?layout=desktop&$3`
 
 Echemos un vistazo paso a paso.

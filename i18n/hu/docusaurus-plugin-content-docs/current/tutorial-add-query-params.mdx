@@ -36,7 +36,7 @@ Ha a cél URL már tartalmaz más lekérdezési paramétereket, például `examp
 
 Ebben az esetben módosítsa a beállításokat a következőképpen:
 
-* **Átirányítás innen**: `(https://example.com/[^?]*)(\(.*))?`
+* **Átirányítás innen**: `(https://example.com/[^?]*)(\?(.*))?`
 * **Átirányítás ide**: `$1?layout=desktop&$3`
 
 Nézzük meg lépésről lépésre.

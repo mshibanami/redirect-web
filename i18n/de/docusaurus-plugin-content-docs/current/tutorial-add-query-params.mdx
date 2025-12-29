@@ -36,7 +36,7 @@ Wenn die Ziel-URL bereits andere Abfrageparameter wie `example.com/hello?theme=d
 
 Ändern Sie in diesem Fall die Einstellungen wie folgt:
 
-* **Umleiten von**: `(https://example.com/[^?]*)(\(.*))?`
+* **Umleiten von**: `(https://example.com/[^?]*)(\?(.*))?`
 * **Umleiten zu**: `$1?layout=desktop&$3`
 
 Schauen wir es uns Schritt für Schritt an.

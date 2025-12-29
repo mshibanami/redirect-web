@@ -37,7 +37,7 @@ Als de doel-URL al andere queryparameters heeft, zoals `example.com/hello?theme=
 
 In dit geval wijzigt u de instellingen als volgt:
 
-* **Omleiden van**: `(https://example.com/[^?]*)(\(.*))?`
+* **Omleiden van**: `(https://example.com/[^?]*)(\?(.*))?`
 * **Omleiden naar**: `$1?layout=desktop&$3`
 
 Laten we het stap voor stap bekijken.

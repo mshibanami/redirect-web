@@ -36,7 +36,7 @@ Dacă URL-ul țintă are deja alți parametri de interogare, cum ar fi `example.
 
 În acest caz, modificați setările astfel:
 
-*   **Redirecționare de la**: `(https://example.com/[^?]*)(\(.*))?`
+*   **Redirecționare de la**: `(https://example.com/[^?]*)(\?(.*))?`
 *   **Redirecționare către**: `$1?layout=desktop&$3`
 
 Să aruncăm o privire pas cu pas.
@@ -44,7 +44,7 @@ Să aruncăm o privire pas cu pas.
 *   `(https://example.com/[^?]*)`: Se potrivește cu partea până la caracterul anterior lui `?`.
     *   `[^?]*` se potrivește cu orice, cu excepția lui `?`.
     *   Acesta este încadrat cu `()` astfel încât să îl puteți referenția cu `$1` mai târziu.
-*   `(\(.*))?`: Se potrivește cu un șir care începe cu `?`, ceea ce înseamnă parametri de interogare.
+*   `(\?(.*))?`: Se potrivește cu un șir care începe cu `?`, ceea ce înseamnă parametri de interogare.
     *   Acesta se potrivește și cu un șir gol prin cuantificatorul `?` de la sfârșitul modelului, care *se potrivește de zero sau o dată*.
     *   `()` exterior și `()` interior pot fi referențiate cu `$2` și `$3` mai târziu.
 
@@ -57,7 +57,7 @@ Aceasta nu este o soluție perfectă, deoarece redirecționează `example.com/he
 
 În concluzie, acesta este rezultatul final:
 
-*   **Redirecționare de la**: `(https://example.com/[^?]*)((\(.*))?)` (Expresie regulată)
+*   **Redirecționare de la**: `(https://example.com/[^?]*)((\?(.*))?)` (Expresie regulată)
 *   **Redirecționare către**: `$1?layout=desktop$3`
 *   **Model URL exclus**: `.*[&?]layout=[^&]*.*` (Expresie regulată)
 *   **Procesarea grupurilor de captură**: 

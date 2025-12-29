@@ -36,7 +36,7 @@ Ja mērķa URL jau ir citi vaicājuma parametri, piemēram, `example.com/hello?t
 
 Šajā gadījumā mainiet iestatījumus šādi:
 
-* **Pārvirzīt no**: `(https://example.com/[^?]*)(\(.*))?`
+* **Pārvirzīt no**: `(https://example.com/[^?]*)(\?(.*))?`
 * **Pārvirzīt uz**: `$1?layout=desktop&$3`
 
 Apskatīsim soli pa solim.

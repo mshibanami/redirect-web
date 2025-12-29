@@ -36,7 +36,7 @@ Se l'URL di destinazione ha già altri parametri di query come `example.com/hell
 
 In questo caso, modifica le impostazioni in questo modo:
 
-* **Reindirizza da**: `(https://example.com/[^?]*)(\(.*))?`
+* **Reindirizza da**: `(https://example.com/[^?]*)(\?(.*))?`
 * **Reindirizza a**: `$1?layout=desktop&$3`
 
 Diamo un'occhiata passo dopo passo.

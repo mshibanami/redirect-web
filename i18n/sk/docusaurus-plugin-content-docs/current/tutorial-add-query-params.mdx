@@ -36,7 +36,7 @@ Ak cieľová URL už má iné parametre dotazu ako `example.com/hello?theme=dark
 
 V tomto prípade zmeňte nastavenia takto:
 
-* **Presmerovať z**: `(https://example.com/[^?]*)(\(.*))?`
+* **Presmerovať z**: `(https://example.com/[^?]*)(\?(.*))?`
 * **Presmerovať na**: `$1?layout=desktop&$3`
 
 Pozrime sa na to krok za krokom.

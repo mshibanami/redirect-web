@@ -36,7 +36,7 @@ Om mål-URL:en redan har andra frågeparametrar som `example.com/hello?theme=dar
 
 I det här fallet ändrar du inställningarna så här:
 
-*   **Omdirigera från**: `(https://example.com/[^?]*)(\(.*))?`
+*   **Omdirigera från**: `(https://example.com/[^?]*)(\?(.*))?`
 *   **Omdirigera till**: `$1?layout=desktop&$3`
 
 Låt oss titta steg för steg.

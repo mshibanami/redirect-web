@@ -36,7 +36,7 @@ Jos kohde-URL-osoitteessa on jo muita kyselyparametreja, kuten `example.com/hell
 
 Tässä tapauksessa muuta asetuksia näin:
 
-* **Uudelleenohjaa kohteesta**: `(https://example.com/[^?]*)(\(.*))?`
+* **Uudelleenohjaa kohteesta**: `(https://example.com/[^?]*)(\?(.*))?`
 * **Uudelleenohjaa kohteeseen**: `$1?layout=desktop&$3`
 
 Katsotaanpa askel askeleelta.

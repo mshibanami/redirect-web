@@ -36,7 +36,7 @@ Pokud cílová URL již obsahuje jiné parametry dotazu jako `example.com/hello?
 
 V tomto případě změňte nastavení takto:
 
-*   **Přesměrovat z**: `(https://example.com/[^?]*)(\(.*))?`
+*   **Přesměrovat z**: `(https://example.com/[^?]*)(\?(.*))?`
 *   **Přesměrovat na**: `$1?layout=desktop&$3`
 
 Pojďme se podívat krok za krokem.

@@ -36,7 +36,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 이 경우, 설정을 다음과 같이 변경합니다:
 
-* **리디렉션 시작**: `(https://example.com/[^?]*)(\(.*))?`
+* **리디렉션 시작**: `(https://example.com/[^?]*)(\?(.*))?`
 * **리디렉션 대상**: `$1?layout=desktop&$3`
 
 단계별로 살펴보겠습니다.

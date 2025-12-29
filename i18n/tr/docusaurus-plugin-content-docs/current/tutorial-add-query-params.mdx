@@ -36,7 +36,7 @@ Hedef URL'de `example.com/hello?theme=dark` gibi başka sorgu parametreleri zate
 
 Bu durumda, ayarları şöyle değiştirin:
 
-*   **Şuradan Yönlendir**: `(https://example.com/[^?]*)(\(.*))?`
+*   **Şuradan Yönlendir**: `(https://example.com/[^?]*)(\?(.*))?`
 *   **Şuraya Yönlendir**: `$1?layout=desktop&$3`
 
 Adım adım inceleyelim.
