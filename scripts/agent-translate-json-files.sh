@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")/.."
 
-readonly model="github-copilot/gpt-5-mini"
+readonly model="google/gemini-3-flash"
 readonly allTargetLangs=(
   "bg"
   "cs"
