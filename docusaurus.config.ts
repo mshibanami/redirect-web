@@ -29,6 +29,10 @@ const config: Config = {
   baseUrl: baseUrl,
   organizationName: 'mshibanami',
   projectName: projectName,
+  future: {
+    v4: true,
+    experimental_faster: true,
+  },
   onBrokenLinks: 'throw',
   i18n: {
     defaultLocale: defaultLocale,
