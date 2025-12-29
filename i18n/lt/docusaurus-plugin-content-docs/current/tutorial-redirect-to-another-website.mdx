@@ -5,45 +5,45 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # 1 atvejis: nukreipimas į kitą svetainę
 
-Tarkime, esate priklausomas nuo Twitter ir nusprendžiate medituoti naudodami [Unrush](https://unrush.org), kai netyčia atidarote Twitter. Sukurkim taisyklę tam!
+Tarkime, esate priklausomi nuo „Twitter“ ir, norėdami atsikratyti šio įpročio, nusprendžiate apsilankyti [„Unrush“](https://unrush.org), kur rasite motyvuojančių citatų ir trumpą meditaciją kiekvieną kartą, kai netyčia atidarote „Twitter“. Sukurkime tam taisyklę!
 
-### 1 žingsnis. Atidarykite ekraną „Taisyklių redagavimas“
+### 1 žingsnis. Atidarykite ekraną „Redaguoti taisyklę“
 
-Atidarykime *Taisyklių redagavimo* ekraną, kad pradėtumėte kurti savo taisyklę programėlėje. Tai galite padaryti spustelėdami pliuso (+) mygtuką skirtuke *Mano taisyklės*.
+Atidarykime ekraną *Redaguoti taisyklę*, kad pradėtumėte kurti savo taisyklę programėlėje. Tai galite padaryti spustelėdami pliuso (+) mygtuką skirtuke *Mano taisyklės*.
 
-### 2 žingsnis. Nustatykite „Nukreipti iš“
+### 2 žingsnis. Sukonfigūruokite „Nukreipti iš“
 
-Pirmiausia turėtumėte nustatyti skyrių *Nukreipti iš* programėlės ekrane *Taisyklių redagavimas*. Tikslai yra URL, prasidedantys `https://twitter.com/`.
+Pirmiausia programėlės ekrane *Redaguoti taisyklę* turėtumėte sukonfigūruoti skiltį *Nukreipti iš*. Tikslai yra URL, prasidedantys `https://twitter.com/`.
 
-Šiuo atveju galite nurodyti šį šabloną naudodami [Wildcard](/rule-settings#url-pattern-wildcard) režimą:
+Šiuo atveju galite nurodyti šį šabloną naudodami [Pakaitos simbolių (Wildcard)](/rule-settings#url-pattern-wildcard) režimą:
 
 ```
 https://twitter.com/*
 ```
 
-Wildcard režimu `*` reiškia, kad jis atitinka bet ką (= nulį ar daugiau simbolių).
+Pakaitos simbolių režime `*` reiškia, kad jis atitinka bet ką (= nulį ar daugiau simbolių).
 
-Tačiau palaukite. `twitter.com` buvo pervadintas į `x.com`. Galite tiesiog pakeisti `twitter.com` į `x.com`, bet niekas nežino, kada naujasis savininkas vėl persigalvos ir atšauks pakeitimą. Todėl nukreipkime į abu: `twitter.com` ir `x.com`.
+Tačiau palaukite. „twitter.com“ buvo pervadintas į „x.com“. Galite tiesiog pakeisti „twitter.com“ į „x.com“, bet niekas nežino, kada naujasis savininkas vėl persigalvos ir grąžins senąjį pavadinimą. Todėl nukreipkime į abu: „twitter.com“ ir „x.com“.
 
-Norėdami tai padaryti, perjunkite iš Wildcard į [Regular Expression](/rule-settings#url-pattern-regular-expression) ir nustatykite šį šabloną:
+Norėdami tai padaryti, perjunkite iš „Wildcard“ į [Reguliariąsias išraiškas (Regular Expression)](/rule-settings#url-pattern-regular-expression) ir nustatykite šį šabloną:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: jis nukreipia į abu: `twitter` ir `x`. (`|` vadinamas *vamzdžiu*.)
-* `.*`: Tai tas pats, kas Wildcard `*`. Tiksliau, `.` reiškia *bet kokį simbolį*, o `*` reiškia *bet ką prieš šį simbolį, pakartotą bet kiek kartų*, todėl jis atitinka bet ką.
+* `(twitter|x)`: jis nukreipia tiek į „twitter“, tiek į „x“. (`|` vadinamas *vertikaliu brūkšniu* arba *vamzdžiu*.)
+* `.*`: tai tas pats, kas „Wildcard“ režimo `*`. Tiksliau, `.` reiškia *bet kokį simbolį*, o `*` reiškia, kad *prieš šį simbolį esantis ženklas gali būti kartojamas bet kokį skaičių kartų*, todėl jis atitinka bet ką.
 
-Reguliariosios išraiškos yra šiek tiek sudėtingos, bet kai prie jų priprasite, jos taps galingu įrankiu. Rekomenduojame naudoti [RegExr](https://regexr.com) kaip žaidimų aikštelę, kad išanalizuotumėte, kaip veikia jūsų reguliariosios išraiškos šablonas.
+Reguliariosios išraiškos yra šiek tiek sudėtingos, bet kai prie jų priprasite, jos taps galingu įrankiu. Rekomenduojame naudoti [RegExr](https://regexr.com) kaip bandymų aikštelę, kad išanalizuotumėte, kaip veikia jūsų reguliariosios išraiškos šablonas.
 
-> [!PATARIMAS] 
-> Reguliariosiose išraiškose `.` `(twitter|x).com` taip pat traktuojamas kaip *bet koks simbolis*. Todėl `(twitter|x).com/.*` taip pat atitinka, pavyzdžiui, `twitter1com/` arba `x_com/`.
-> 
-> Kad būtų tiksliau, galite pakeisti į `(twitter|x)\.com/.*`. `\` naudojamas, kad `.` būtų traktuojamas kaip tiesioginis taško simbolis, o ne specialusis simbolis.
-> 
+> [!TIP]
+> Reguliariosiose išraiškose `.` dalyje `(twitter|x).com` taip pat traktuojamas kaip *bet koks simbolis*. Todėl `(twitter|x).com/.*` taip pat atitinka, pavyzdžiui, `twitter1com/` arba `x_com/`.
+>
+> Kad būtų tiksliau, galite pakeisti jį į `(twitter|x)\.com/.*`. `\` naudojamas tam, kad `.` būtų traktuojamas kaip tiesioginis taško simbolis, o ne specialusis simbolis.
+>
 > Tačiau bendroje interneto aplinkoje tokių URL nėra. Todėl, jei pageidaujate, galite palikti `.` kaip specialųjį simbolį.
 
-### 3 žingsnis: Nustatykite „Nukreipti į“
+### 3 žingsnis: Sukonfigūruokite „Nukreipti į“
 
 Tiesiog nurodykite URL taip:
 
@@ -51,9 +51,9 @@ Tiesiog nurodykite URL taip:
 https://unrush.org/
 ```
 
-### (Neprivaloma) 4 žingsnis: Patikrinkite taisyklę
+### (Nebūtina) 4 žingsnis: Patikrinkite taisyklę
 
-Galite patikrinti, kaip veikia taisyklė, pridėdami pavyzdinį URL skyriuje *Pavyzdžiai* ekrane *Taisyklių redagavimas*. Pavyzdžiui, jei įvesite `https://x.com/UN`, rezultatas bus `https://unrush.org/`.
+Galite patikrinti, kaip veikia taisyklė, pridėdami pavyzdinį URL skiltyje *Pavyzdžiai*, esančioje ekrane *Redaguoti taisyklę*. Pavyzdžiui, jei įvesite `https://x.com/UN`, bus rodomas rezultatas `https://unrush.org/`.
 
 Štai kaip dabar turėtų atrodyti jūsų taisyklė:
 
@@ -61,4 +61,4 @@ Galite patikrinti, kaip veikia taisyklė, pridėdami pavyzdinį URL skyriuje *Pa
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Atsisiųsti taisyklę</a>**
 
-Dabar „Redirect Web“ nukreips jus į meditaciją, kai pasieksite Twitter!
+Dabar „Redirect Web“ nukreips jus į meditaciją, kai bandysite pasiekti „Twitter“!

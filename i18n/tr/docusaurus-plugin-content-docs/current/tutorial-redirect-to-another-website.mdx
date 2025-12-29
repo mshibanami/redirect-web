@@ -5,7 +5,7 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Durum 1: Başka bir web sitesine yönlendirme
 
-Diyelim ki Twitter bağımlısısınız ve yanlışlıkla Twitter'ı açtığınızda [Unrush](https://unrush.org) kullanarak meditasyon yapmaya karar verdiniz. Bunun için bir kural oluşturalım!
+Diyelim ki Twitter bağımlısısınız ve bu alışkanlığı kırmak için, yanlışlıkla Twitter'ı açtığınızda motivasyonel alıntılar ve kısa bir meditasyon için [Unrush](https://unrush.org) sitesine gitmeye karar verdiniz. Bunun için bir kural oluşturalım!
 
 ### Adım 1. "Kuralı Düzenle" ekranını açın
 
@@ -23,7 +23,7 @@ https://twitter.com/*
 
 Joker Karakter modunda, `*` herhangi bir şey anlamına gelir (= sıfır veya daha fazla karakter).
 
-Ancak, durun. `twitter.com` adı `x.com` olarak değiştirildi. `twitter.com`'u `x.com` ile değiştirebilirsiniz, ancak yeni sahibinin ne zaman fikrini değiştirip geri alacağını kimse bilemez. Bu nedenle, hem `twitter.com` hem de `x.com`'u hedefleyelim.
+Ancak, durun. `twitter.com` adı `x.com` olarak değiştirildi. `twitter.com`'u `x.com` ile değiştirebilirsiniz, ancak yeni sahibinin ne zaman fikrini değiştirip geri alacağını kimse bilemez. Bu nedenle, hem `twitter.com` ve `x.com`'u hedefleyelim.
 
 Bunu yapmak için, Joker Karakter'den [Normal İfade](/rule-settings#url-pattern-regular-expression)'ye geçin ve deseni şu şekilde ayarlayın:
 
@@ -31,16 +31,16 @@ Bunu yapmak için, Joker Karakter'den [Normal İfade](/rule-settings#url-pattern
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: hem `twitter` hem de `x`'i hedefler. (`|` *boru* olarak adlandırılır.)
-* `.*`: Joker Karakter'deki `*` ile aynıdır. Daha spesifik olarak, `.` *herhangi bir karakter* anlamına gelir ve `*` *bu sembolden önce herhangi bir sayıda tekrarlanan herhangi bir şey* anlamına gelir, bu da herhangi bir şeyi eşleştirmesiyle sonuçlanır.
+* `(twitter|x)`: hem `twitter` hem de `x`'i hedefler. (`|` *boru* (pipe) olarak adlandırılır.)
+* `.*`: Joker Karakter'deki `*` ile aynıdır. Daha spesifik olarak, `.` *herhangi bir karakter* anlamına gelir ve `*` *bu sembolden önce gelen karakterin herhangi bir sayıda tekrarlanması* anlamına gelir, bu da her şeyle eşleşmesiyle sonuçlanır.
 
 Normal İfade biraz karmaşıktır, ancak bir kez alıştığınızda güçlü bir araç olacaktır. Normal İfade deseninizin nasıl çalıştığını analiz etmek için [RegExr](https://regexr.com)'ı bir oyun alanı olarak kullanmanızı öneririz.
 
 > [!TIP]
-> Normal İfadelere, `(twitter|x).com` içindeki `.` da *herhangi bir karakter* olarak kabul edilir. Bu nedenle, `(twitter|x).com/.*` örneğin `twitter1com/` veya `x_com/` ile de eşleşir.
-> 
-> Daha kesin olmak için, bunu `(twitter|x)\.com/.*` olarak değiştirebilirsiniz. `\` özel bir karakter yerine `.`'ı gerçek bir nokta karakteri olarak ele almak için kullanılır.
-> 
+> Normal İfadelerde, `(twitter|x).com` içindeki `.` da *herhangi bir karakter* olarak kabul edilir. Bu nedenle, `(twitter|x).com/.*` örneğin `twitter1com/` veya `x_com/` ile de eşleşir.
+>
+> Daha kesin olmak için, bunu `(twitter|x)\.com/.*` olarak değiştirebilirsiniz. `\` karakteri, `.`'ı özel bir karakter yerine gerçek bir nokta karakteri olarak ele almak için kullanılır.
+>
 > Ancak, genel internet ortamında bu tür URL'ler yoktur. Bu nedenle, isterseniz `.`'ı özel bir karakter olarak bırakabilirsiniz.
 
 ### Adım 3: "Şuraya Yönlendir"i ayarlayın

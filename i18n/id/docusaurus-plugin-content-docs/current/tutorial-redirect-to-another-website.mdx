@@ -5,13 +5,13 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Kasus 1: Mengalihkan ke situs web lain
 
-Misalkan Anda kecanduan Twitter, dan Anda memutuskan untuk bermeditasi menggunakan [Unrush](https://unrush.org) setiap kali Anda tidak sengaja membuka Twitter. Mari kita buat aturan untuk itu!
+Misalkan Anda kecanduan Twitter, dan untuk menghentikan kebiasaan tersebut, Anda memutuskan untuk membuka [Unrush](https://unrush.org) untuk mendapatkan kutipan motivasi dan meditasi singkat setiap kali Anda tidak sengaja membuka Twitter. Mari buat aturan untuk itu!
 
 ### Langkah 1. Buka layar "Edit Aturan"
 
 Mari kita buka layar *Edit Aturan* untuk mulai membuat aturan Anda sendiri di aplikasi. Anda dapat melakukannya dengan mengklik tombol plus (+) di tab *Aturan Saya*.
 
-### Langkah 2. Siapkan "Alihkan Dari"
+### Langkah 2. Atur "Alihkan Dari"
 
 Pertama, Anda harus mengatur bagian *Alihkan Dari* di layar *Edit Aturan* di aplikasi. Targetnya adalah URL yang dimulai dengan `https://twitter.com/`.
 
@@ -32,9 +32,9 @@ https://(twitter|x).com/.*
 ```
 
 * `(twitter|x)`: ini menargetkan `twitter` dan `x`. (`|` disebut *pipa*.)
-* `.*`: Ini sama dengan `*` Wildcard. Lebih spesifik, `.` berarti *karakter apa pun* dan `*` berarti *apa pun sebelum simbol ini diulang berapa kali pun*, menghasilkan kecocokan dengan apa saja.
+* `.*`: Ini sama dengan `*` Wildcard. Lebih spesifik, `.` berarti *karakter apa pun* dan `*` berarti *apa pun sebelum simbol ini diulang berapa kali pun*, sehingga cocok dengan apa saja.
 
-Ekspresi Reguler sedikit rumit, tetapi setelah Anda terbiasa, itu akan menjadi alat yang ampuh. Kami merekomendasikan menggunakan [RegExr](https://regexr.com) sebagai tempat bermain untuk menganalisis cara kerja pola Ekspresi Reguler Anda.
+Ekspresi Reguler agak rumit, tetapi setelah Anda terbiasa, itu akan menjadi alat yang ampuh. Kami merekomendasikan menggunakan [RegExr](https://regexr.com) sebagai tempat bermain untuk menganalisis cara kerja pola Ekspresi Reguler Anda.
 
 > [!TIP]
 > Dalam Ekspresi Reguler, `.` di `(twitter|x).com` juga diperlakukan sebagai *karakter apa pun*. Oleh karena itu, `(twitter|x).com/.*` juga cocok, misalnya, `twitter1com/` atau `x_com/`.
@@ -43,7 +43,7 @@ Ekspresi Reguler sedikit rumit, tetapi setelah Anda terbiasa, itu akan menjadi a
 > 
 > Namun, tidak ada URL seperti itu di lingkungan internet umum. Oleh karena itu, Anda dapat membiarkan `.` sebagai karakter khusus jika Anda mau.
 
-### Langkah 3: Siapkan "Alihkan Ke"
+### Langkah 3: Atur "Alihkan Ke"
 
 Cukup tentukan URL sebagai berikut:
 

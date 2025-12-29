@@ -5,7 +5,7 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Cas 1 : Rediriger vers un autre site web
 
-Supposons que vous soyez accro à Twitter, et que vous décidiez de méditer en utilisant [Unrush](https://unrush.org) chaque fois que vous ouvrez accidentellement Twitter. Créons une règle pour cela !
+Supposons que vous soyez accro à Twitter, et pour briser cette habitude, vous décidez d'aller sur [Unrush](https://unrush.org) pour des citations de motivation et une courte méditation chaque fois que vous ouvrez accidentellement Twitter. Créons une règle pour cela !
 
 ### Étape 1. Ouvrez l'écran "Modifier la règle"
 
@@ -38,9 +38,9 @@ L'expression régulière est un peu compliquée, mais une fois que vous vous y s
 
 > [!TIP]
 > Dans les expressions régulières, `.` dans `(twitter|x).com` est également traité comme *n'importe quel caractère*. Par conséquent, `(twitter|x).com/.*` correspond également, par exemple, à `twitter1com/` ou `x_com/`.
-> 
+>
 > Pour être plus précis, vous pouvez le changer en `(twitter|x)\.com/.*`. `\` est utilisé pour traiter `.` comme un caractère de point littéral plutôt que comme un caractère spécial.
-> 
+>
 > Cependant, il n'existe pas de telles URL dans l'environnement Internet général. Par conséquent, vous pouvez laisser `.` comme un caractère spécial si vous préférez.
 
 ### Étape 3 : Configurez "Rediriger vers"

@@ -3,27 +3,27 @@ import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-cre
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
-# Fall 1: Weiterleitung zu einer anderen Website
+# Fall 1: Zu einer anderen Website weiterleiten
 
-Angenommen, Sie sind Twitter-süchtig und beschließen, [Unrush](https://unrush.org) zum Meditieren zu verwenden, wann immer Sie versehentlich Twitter öffnen. Erstellen wir eine Regel dafür!
+Angenommen, Sie sind süchtig nach Twitter, und um diese Gewohnheit zu durchbrechen, entscheiden Sie sich, zu [Unrush](https://unrush.org) zu gehen, um motivierende Zitate und eine kurze Meditation zu erhalten, wann immer Sie versehentlich Twitter öffnen. Lassen Sie uns eine Regel dafür erstellen!
 
-### Schritt 1. Öffnen Sie den Bildschirm "Regel bearbeiten"
+### Schritt 1. Öffnen Sie den Bildschirm „Regel bearbeiten“
 
-Öffnen Sie den Bildschirm *Regel bearbeiten*, um Ihre eigene Regel in der App zu erstellen. Dies können Sie tun, indem Sie auf die Plus-Schaltfläche (+) im Tab *Meine Regeln* klicken.
+Öffnen wir den Bildschirm *Regel bearbeiten*, um mit der Erstellung Ihrer eigenen Regel in der App zu beginnen. Sie können dies tun, indem Sie auf die Plus-Schaltfläche (+) im Tab *Meine Regeln* klicken.
 
-### Schritt 2. Richten Sie "Umleiten von" ein
+### Schritt 2. „Weiterleiten von“ einrichten
 
-Zuerst sollten Sie den Abschnitt *Umleiten von* im Bildschirm *Regel bearbeiten* in der App einrichten. Die Ziele sind URLs, die mit `https://twitter.com/` beginnen.
+Zuerst sollten Sie den Bereich *Weiterleiten von* im Bildschirm *Regel bearbeiten* in der App einrichten. Die Ziele sind URLs, die mit `https://twitter.com/` beginnen.
 
-In diesem Fall können Sie das folgende Muster mit dem Modus [Wildcard](/rule-settings#url-pattern-wildcard) angeben:
+In diesem Fall können Sie das folgende Muster im [Wildcard](/rule-settings#url-pattern-wildcard)-Modus angeben:
 
 ```
 https://twitter.com/*
 ```
 
-Im Wildcard-Modus bedeutet `*`, dass es alles übereinstimmt (= null oder mehr Zeichen).
+Im Wildcard-Modus bedeutet `*`, dass es auf alles passt (= null oder mehr Zeichen).
 
-Aber warten Sie. `twitter.com` wurde in `x.com` umbenannt. Sie können `twitter.com` einfach durch `x.com` ersetzen, aber niemand weiß, wann der neue Besitzer seine Meinung wieder ändern wird, um es rückgängig zu machen. Daher zielen wir auf `twitter.com` und `x.com` ab.
+Aber Moment mal. `twitter.com` wurde in `x.com` umbenannt. Sie können einfach `twitter.com` durch `x.com` ersetzen, aber niemand weiß, wann der neue Besitzer seine Meinung wieder ändert und es rückgängig macht. Daher lassen Sie uns sowohl `twitter.com` als auch `x.com` anvisieren.
 
 Wechseln Sie dazu von Wildcard zu [Regulärer Ausdruck](/rule-settings#url-pattern-regular-expression) und legen Sie dies als Muster fest:
 
@@ -31,34 +31,34 @@ Wechseln Sie dazu von Wildcard zu [Regulärer Ausdruck](/rule-settings#url-patte
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: Es zielt auf `twitter` und `x` ab. (`|` wird als *Pipe* bezeichnet.)
-* `.*`: Es ist dasselbe wie Wildcard's `*`. Genauer gesagt bedeutet `.` *jedes Zeichen* und `*` bedeutet *alles vor diesem Symbol, das beliebig oft wiederholt wird*, was dazu führt, dass es alles übereinstimmt.
+* `(twitter|x)`: es zielt sowohl auf `twitter` als auch auf `x` ab. (`|` wird als *Pipe* bezeichnet.)
+* `.*`: Es ist dasselbe wie Wildcard's `*`. Genauer gesagt bedeutet `.` *ein beliebiges Zeichen* und `*` bedeutet *alles vor diesem Symbol, das beliebig oft wiederholt wird*, was dazu führt, dass es auf alles passt.
 
-Reguläre Ausdrücke sind etwas kompliziert, aber sobald Sie sich daran gewöhnt haben, werden sie ein mächtiges Werkzeug sein. Wir empfehlen die Verwendung von [RegExr](https://regexr.com) als Spielplatz, um zu analysieren, wie Ihr Muster für reguläre Ausdrücke funktioniert.
+Reguläre Ausdrücke sind etwas kompliziert, aber sobald man sich daran gewöhnt hat, werden sie ein mächtiges Werkzeug sein. Wir empfehlen [RegExr](https://regexr.com) als Spielwiese, um zu analysieren, wie Ihr reguläres Ausdrucksmuster funktioniert.
 
 > [!TIP]
-> In regulären Ausdrücken wird `.` in `(twitter|x).com` auch als *jedes Zeichen* behandelt. Daher stimmt `(twitter|x).com/.*` auch mit beispielsweise `twitter1com/` oder `x_com/` überein.
-> 
-> Um genauer zu sein, können Sie es in `(twitter|x)\.com/.*` ändern. `\` wird verwendet, um `.` als wörtliches Punktzeichen und nicht als Sonderzeichen zu behandeln.
-> 
-> Solche URLs gibt es jedoch in der allgemeinen Internetumgebung nicht. Daher können Sie `.` als Sonderzeichen belassen, wenn Sie dies bevorzugen.
+> In regulären Ausdrücken wird `.` in `(twitter|x).com` ebenfalls als *beliebiges Zeichen* behandelt. Daher passt `(twitter|x).com/.*` zum Beispiel auch auf `twitter1com/` oder `x_com/`.
+>
+> Um präziser zu sein, können Sie es in `(twitter|x)\.com/.*` ändern. `\` wird verwendet, um `.` als literalen Punkt zu behandeln und nicht als Sonderzeichen.
+>
+> Allerdings gibt es solche URLs im allgemeinen Internetumfeld nicht. Daher können Sie `.` als Sonderzeichen belassen, wenn Sie möchten.
 
-### Schritt 3: Richten Sie "Umleiten zu" ein
+### Schritt 3: „Weiterleiten nach“ einrichten
 
-Geben Sie einfach die URL wie folgt an:
+Geben Sie die URL einfach wie folgt an:
 
 ```
 https://unrush.org/
 ```
 
-### (Optional) Schritt 4: Überprüfen Sie die Regel
+### (Optional) Schritt 4: Regel prüfen
 
-Sie können überprüfen, wie die Regel funktioniert, indem Sie eine Beispiel-URL im Abschnitt *Beispiele* im Bildschirm *Regel bearbeiten* hinzufügen. Wenn Sie beispielsweise `https://x.com/UN` eingeben, wird `https://unrush.org/` als Ergebnis angezeigt.
+Sie können überprüfen, wie die Regel funktioniert, indem Sie eine Beispiel-URL im Abschnitt *Beispiele* im Bildschirm *Regel bearbeiten* hinzufügen. Wenn Sie zum Beispiel `https://x.com/UN` eingeben, wird `https://unrush.org/` als Ergebnis angezeigt.
 
 So sollte Ihre Regel jetzt aussehen:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Eine Beispielregel zum Öffnen einer anderen Website" height="460" hasRoundedCorners hasShadow />
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Eine Beispielregel, um eine andere Website zu öffnen" height="460" hasRoundedCorners hasShadow />
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Regel herunterladen</a>**
 
-Jetzt bringt Sie Redirect Web zur Meditation, wenn Sie auf Twitter zugreifen!
+Jetzt führt Sie Redirect Web zur Meditation, wenn Sie auf Twitter zugreifen!

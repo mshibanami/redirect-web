@@ -5,7 +5,7 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Cazul 1: Redirecționare către un alt site web
 
-Să presupunem că sunteți dependent de Twitter și decideți să meditați folosind [Unrush](https://unrush.org) ori de câte ori deschideți accidental Twitter. Să creăm o regulă pentru asta!
+Să presupunem că sunteți dependent de Twitter și, pentru a scăpa de acest obicei, decideți să mergeți pe [Unrush](https://unrush.org) pentru citate motivaționale și o scurtă meditație ori de câte ori deschideți accidental Twitter. Să creăm o regulă pentru asta!
 
 ### Pasul 1. Deschideți ecranul „Editare regulă”
 
@@ -13,9 +13,9 @@ Să deschidem ecranul *Editare regulă* pentru a începe să vă creați propria
 
 ### Pasul 2. Configurați „Redirecționare de la”
 
-Mai întâi, ar trebui să configurați secțiunea *Redirecționare de la* din ecranul *Editare regulă* din aplicație. Țintele sunt URL-uri care încep cu `https://twitter.com/`.
+Mai întâi, ar trebui să configurați secțiunea *Redirecționare de la* din ecranul *Editare regulă* al aplicației. Țintele sunt URL-uri care încep cu `https://twitter.com/`.
 
-În acest caz, puteți specifica următorul model cu modul [Joker](/rule-settings#url-pattern-wildcard):
+În acest caz, puteți specifica următorul model folosind modul [Joker](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -23,25 +23,25 @@ https://twitter.com/*
 
 În modul Joker, `*` înseamnă că se potrivește cu orice (= zero sau mai multe caractere).
 
-Totuși, stați. `twitter.com` a fost redenumit în `x.com`. Puteți pur și simplu să înlocuiți `twitter.com` cu `x.com`, dar nimeni nu știe când noul proprietar se va răzgândi din nou să-l readucă. Prin urmare, să vizăm atât `twitter.com`, cât și `x.com`.
+Totuși, stați puțin. `twitter.com` a fost redenumit în `x.com`. Ați putea pur și simplu să înlocuiți `twitter.com` cu `x.com`, dar nimeni nu știe când noul proprietar se va răzgândi din nou și va reveni la vechea denumire. Prin urmare, să vizăm atât `twitter.com`, cât și `x.com`.
 
-Pentru a face acest lucru, comutați de la Joker la [Expresie regulată](/rule-settings#url-pattern-regular-expression) și setați acest lucru ca model:
+Pentru a face acest lucru, comutați de la Joker la [Expresie regulată](/rule-settings#url-pattern-regular-expression) și setați acest model:
 
 ```
 https://(twitter|x).com/.*
 ```
 
 * `(twitter|x)`: vizează atât `twitter`, cât și `x`. (`|` se numește *o bară verticală*.)
-* `.*`: Este la fel ca `*` din Joker. Mai exact, `.` înseamnă *orice caracter* și `*` înseamnă *orice înainte de acest simbol repetat de oricâte ori*, rezultând că se potrivește cu orice.
+* `.*`: Este la fel ca `*` din Joker. Mai exact, `.` înseamnă *orice caracter*, iar `*` înseamnă că *orice dinaintea acestui simbol se repetă de oricâte ori*, rezultând o potrivire pentru orice șir de caractere.
 
-Expresia regulată este puțin complicată, dar odată ce vă obișnuiți cu ea, va fi un instrument puternic. Vă recomandăm să utilizați [RegExr](https://regexr.com) ca un loc de joacă pentru a analiza cum funcționează modelul dvs. de expresie regulată.
+Expresia regulată este puțin complicată, dar odată ce vă obișnuiți cu ea, va deveni un instrument puternic. Vă recomandăm să utilizați [RegExr](https://regexr.com) ca un loc de joacă pentru a analiza cum funcționează modelul dumneavoastră de expresie regulată.
 
 > [!TIP]
-> În expresiile regulate, `.` din `(twitter|x).com` este, de asemenea, tratat ca *orice caracter*. Prin urmare, `(twitter|x).com/.*` se potrivește, de exemplu, cu `twitter1com/` sau `x_com/`.
-> 
-> Pentru a fi mai precis, îl puteți schimba în `(twitter|x)\.com/.*`. `\` este folosit pentru a trata `.` ca un caracter punct literal, mai degrabă decât un caracter special.
-> 
-> Cu toate acestea, nu există astfel de URL-uri în mediul general de internet. Prin urmare, puteți lăsa `.` ca un caracter special dacă preferați.
+> În expresiile regulate, `.` din `(twitter|x).com` este, de asemenea, tratat ca *orice caracter*. Prin urmare, `(twitter|x).com/.*` se potrivește, de exemplu, și cu `twitter1com/` sau `x_com/`.
+>
+> Pentru a fi mai precis, îl puteți schimba în `(twitter|x)\.com/.*`. `\` este folosit pentru a trata `.` ca un caracter punct literal, nu ca un caracter special.
+>
+> Totuși, nu există astfel de URL-uri în mediul general al internetului. Prin urmare, puteți lăsa `.` ca un caracter special dacă preferați.
 
 ### Pasul 3: Configurați „Redirecționare către”
 
@@ -53,12 +53,12 @@ https://unrush.org/
 
 ### (Opțional) Pasul 4: Verificați regula
 
-Puteți verifica cum funcționează regula adăugând un exemplu de URL în secțiunea *Exemple* din ecranul *Editare regulă*. De exemplu, dacă introduceți `https://x.com/UN`, acesta afișează `https://unrush.org/` ca rezultat.
+Puteți verifica modul în care funcționează regula adăugând un exemplu de URL în secțiunea *Exemple* din ecranul *Editare regulă*. De exemplu, dacă introduceți `https://x.com/UN`, rezultatul afișat va fi `https://unrush.org/`.
 
-Iată cum ar trebui să arate regula dvs. acum:
+Iată cum ar trebui să arate regula dumneavoastră acum:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="O regulă exemplu pentru a deschide un alt site web" height="460" hasRoundedCorners hasShadow />
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Un exemplu de regulă pentru a deschide un alt site web" height="460" hasRoundedCorners hasShadow />
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Descărcați regula</a>**
 
-Acum, Redirect Web vă duce la meditație când accesați Twitter!
+Acum, Redirect Web vă trimite la meditație atunci când accesați Twitter!

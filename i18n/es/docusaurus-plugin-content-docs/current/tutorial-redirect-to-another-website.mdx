@@ -5,7 +5,7 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Caso 1: Redirigir a otro sitio web
 
-Supongamos que eres adicto a Twitter y decides meditar usando [Unrush](https://unrush.org) cada vez que abres Twitter accidentalmente. ¡Creemos una regla para eso!
+Supongamos que eres adicto a Twitter y, para romper el hábito, decides ir a [Unrush](https://unrush.org) para ver frases motivacionales y hacer una breve meditación cada vez que abras Twitter accidentalmente. ¡Vamos a crear una regla para eso!
 
 ### Paso 1. Abrir la pantalla "Editar regla"
 
@@ -13,9 +13,9 @@ Abramos la pantalla *Editar regla* para comenzar a crear tu propia regla en la a
 
 ### Paso 2. Configurar "Redirigir desde"
 
-Primero, debes configurar la sección *Redirigir desde* en la pantalla *Editar regla* de la aplicación. Los objetivos son URLs que comienzan con `https://twitter.com/`.
+Primero, debes configurar la sección *Redirigir desde* en la pantalla *Editar regla* de la aplicación. Los objetivos son las URL que comienzan con `https://twitter.com/`.
 
-En este caso, puedes especificar el siguiente patrón con el modo [Comodín](/rule-settings#url-pattern-wildcard):
+En este caso, puedes especificar el siguiente patrón con el modo [Comodín (Wildcard)](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -23,25 +23,25 @@ https://twitter.com/*
 
 En el modo Comodín, `*` significa que coincide con cualquier cosa (= cero o más caracteres).
 
-Sin embargo, espera. `twitter.com` fue renombrado a `x.com`. Puedes simplemente reemplazar `twitter.com` con `x.com`, pero nadie sabe cuándo el nuevo propietario cambiará de opinión nuevamente para revertirlo. Por lo tanto, apuntemos tanto a `twitter.com` como a `x.com`.
+Sin embargo, espera un momento. `twitter.com` pasó a llamarse `x.com`. Podrías simplemente reemplazar `twitter.com` con `x.com`, pero nadie sabe cuándo el nuevo dueño cambiará de opinión nuevamente para volver atrás. Por lo tanto, apuntemos tanto a `twitter.com` como a `x.com`.
 
-Para hacer eso, cambia de Comodín a [Expresión Regular](/rule-settings#url-pattern-regular-expression), y establece esto como el patrón:
+Para hacer eso, cambia de Comodín a [Expresión regular](/rule-settings#url-pattern-regular-expression) y establece esto como patrón:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: apunta tanto a `twitter` como a `x`. (`|` se llama *una barra vertical*.)
-* `.*`: Es lo mismo que `*` de Comodín. Más específicamente, `.` significa *cualquier carácter* y `*` significa *cualquier cosa antes de este símbolo repetida cualquier número de veces*, lo que resulta en que coincide con cualquier cosa.
+* `(twitter|x)`: apunta tanto a `twitter` como a `x`. (`|` se llama *tubería* o *pipe*).
+* `.*`: Es lo mismo que el `*` de Comodín. Más específicamente, `.` significa *cualquier carácter* y `*` significa *cualquier cosa antes de este símbolo repetida cualquier número de veces*, lo que hace que coincida con cualquier cosa.
 
-La Expresión Regular es un poco complicada, pero una vez que te acostumbras a ella, será una herramienta poderosa. Recomendamos usar [RegExr](https://regexr.com) como un campo de pruebas para analizar cómo funciona tu patrón de Expresión Regular.
+La Expresión Regular es un poco complicada, pero una vez que te acostumbras a ella, será una herramienta poderosa. Recomendamos usar [RegExr](https://regexr.com) como campo de pruebas para analizar cómo funciona tu patrón de Expresión Regular.
 
 > [!TIP]
-> En Expresiones Regulares, `.` en `(twitter|x).com` también se trata como *cualquier carácter*. Por lo tanto, `(twitter|x).com/.*` también coincide, por ejemplo, `twitter1com/` o `x_com/`.
+> En las Expresiones Regulares, el `.` en `(twitter|x).com` también se trata como *cualquier carácter*. Por lo tanto, `(twitter|x).com/.*` también coincide, por ejemplo, con `twitter1com/` o `x_com/`.
 >
-> Para ser más preciso, puedes cambiarlo a `(twitter|x)\.com/.*`. `\` se usa para tratar `.` como un carácter de punto literal en lugar de un carácter especial.
+> Para ser más precisos, puedes cambiarlo a `(twitter|x)\.com/.*`. El `\` se utiliza para tratar el `.` como un carácter de punto literal en lugar de un carácter especial.
 >
-> Sin embargo, no existen tales URLs en el entorno general de Internet. Por lo tanto, puedes dejar `.` como un carácter especial si lo prefieres.
+> Sin embargo, no existen tales URL en el entorno general de Internet. Por lo tanto, puedes dejar el `.` como un carácter especial si lo prefieres.
 
 ### Paso 3: Configurar "Redirigir a"
 
@@ -51,9 +51,9 @@ Simplemente especifica la URL de la siguiente manera:
 https://unrush.org/
 ```
 
-### (Opcional) Paso 4: Verificar la regla
+### (Opcional) Paso 4: Comprobar la regla
 
-Puedes verificar cómo funciona la regla agregando una URL de ejemplo en la sección *Ejemplos* de la pantalla *Editar regla*. Por ejemplo, si ingresas `https://x.com/UN`, muestra `https://unrush.org/` como resultado.
+Puedes comprobar cómo funciona la regla añadiendo una URL de ejemplo en la sección *Ejemplos* de la pantalla *Editar regla*. Por ejemplo, si introduces `https://x.com/UN`, muestra `https://unrush.org/` como resultado.
 
 Así es como debería verse tu regla ahora:
 

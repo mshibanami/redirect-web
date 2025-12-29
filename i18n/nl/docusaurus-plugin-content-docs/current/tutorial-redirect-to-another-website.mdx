@@ -5,47 +5,47 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Geval 1: Omleiden naar een andere website
 
-Stel dat u verslaafd bent aan Twitter, en u besluit te mediteren met [Unrush](https://unrush.org) wanneer u per ongeluk Twitter opent. Laten we daar een regel voor maken!
+Stel dat u verslaafd bent aan Twitter, en om de gewoonte te doorbreken, besluit u naar [Unrush](https://unrush.org) te gaan voor motiverende quotes en een korte meditatie telkens wanneer u per ongeluk Twitter opent. Laten we daar een regel voor maken!
 
 ### Stap 1. Open het scherm "Regel bewerken"
 
-Laten we het scherm *Regel bewerken* openen om uw eigen regel in de app te maken. U kunt dit doen door op de plusknop (+) te klikken in het tabblad *Mijn regels*.
+Laten we het scherm *Regel bewerken* openen om te beginnen met het maken van uw eigen regel in de app. U kunt dit doen door op de plusknop (+) te klikken in het tabblad *Mijn regels*.
 
 ### Stap 2. Stel "Omleiden van" in
 
 Eerst moet u de sectie *Omleiden van* instellen in het scherm *Regel bewerken* in de app. De doelen zijn URL's die beginnen met `https://twitter.com/`.
 
-In dit geval kunt u het volgende patroon opgeven met de [Wildcard](/rule-settings#url-pattern-wildcard) modus:
+In dit geval kunt u het volgende patroon opgeven met de [Wildcard](/rule-settings#url-pattern-wildcard)-modus:
 
 ```
 https://twitter.com/*
 ```
 
-In de Wildcard-modus betekent `*` dat het alles overeenkomt (= nul of meer tekens).
+In de Wildcard-modus betekent `*` dat het met alles overeenkomt (= nul of meer tekens).
 
-Maar wacht even. `twitter.com` is hernoemd naar `x.com`. U kunt `twitter.com` eenvoudig vervangen door `x.com`, maar niemand weet wanneer de nieuwe eigenaar van gedachten zal veranderen om het terug te draaien. Laten we daarom zowel `twitter.com` als `x.com` targeten.
+Maar wacht even. `twitter.com` is hernoemd naar `x.com`. U kunt `twitter.com` simpelweg vervangen door `x.com`, maar niemand weet wanneer de nieuwe eigenaar zich weer bedenkt en het terugdraait. Laten we daarom zowel `twitter.com` als `x.com` als doel instellen.
 
-Om dat te doen, schakelt u over van Wildcard naar [Reguliere expressie](/rule-settings#url-pattern-regular-expression) en stelt u dit in als patroon:
+Om dat te doen, schakelt u over van Wildcard naar [Reguliere expressie](/rule-settings#url-pattern-regular-expression), en stelt u dit in als het patroon:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: het richt zich op zowel `twitter` als `x`. (`|` wordt *een pipe* genoemd.)
-* `.*`: Het is hetzelfde als Wildcard's `*`. Meer specifiek betekent `.` *elk teken* en `*` betekent *alles vóór dit symbool herhaald een willekeurig aantal keren*, wat resulteert in een overeenkomst met alles.
+* `(twitter|x)`: het richt zich op zowel `twitter` als `x`. (`|` wordt een *pipe* genoemd.)
+* `.*`: Het is hetzelfde als de `*` van Wildcard. Specifiek betekent `.` *elk teken* en `*` betekent *alles vóór dit symbool dat een willekeurig aantal keren wordt herhaald*, waardoor het met alles overeenkomt.
 
-Reguliere expressie is een beetje ingewikkeld, maar als je er eenmaal aan gewend bent, is het een krachtig hulpmiddel. We raden aan [RegExr](https://regexr.com) te gebruiken als een speeltuin om te analyseren hoe uw reguliere expressiepatroon werkt.
+Reguliere expressie is een beetje ingewikkeld, maar zodra u er aan gewend bent, is het een krachtig hulpmiddel. We raden aan om [RegExr](https://regexr.com) te gebruiken als proeftuin om te analyseren hoe uw reguliere expressie-patroon werkt.
 
 > [!TIP]
-> In reguliere expressies, `.` in `(twitter|x).com` ook behandeld als *elk teken*. Daarom komt `(twitter|x).com/.*` ook overeen met bijvoorbeeld `twitter1com/` of `x_com/`.
-> 
-> Om preciezer te zijn, kunt u het wijzigen in `(twitter|x)\.com/.*`. `\` wordt gebruikt om `.` als een letterlijk puntteken te behandelen in plaats van een speciaal teken.
-> 
-> Er zijn echter geen dergelijke URL's in de algemene internetomgeving. Daarom kunt u `.` als een speciaal teken laten staan als u dat wilt.
+> In reguliere expressies wordt `.` in `(twitter|x).com` ook behandeld als *elk teken*. Daarom komt `(twitter|x).com/.*` bijvoorbeeld ook overeen met `twitter1com/` of `x_com/`.
+>
+> Om preciezer te zijn, kunt u het veranderen in `(twitter|x)\.com/.*`. `\` wordt gebruikt om `.` te behandelen als een letterlijke punt in plaats van als een speciaal teken.
+>
+> Dergelijke URL's komen echter niet voor op het algemene internet. Daarom kunt u de `.` als een speciaal teken laten staan als u dat liever hebt.
 
 ### Stap 3: Stel "Omleiden naar" in
 
-Geef eenvoudig de URL als volgt op:
+Geef de URL simpelweg als volgt op:
 
 ```
 https://unrush.org/
@@ -53,9 +53,9 @@ https://unrush.org/
 
 ### (Optioneel) Stap 4: Controleer de regel
 
-U kunt controleren hoe de regel werkt door een voorbeeld-URL toe te voegen in de sectie *Voorbeelden* in het scherm *Regel bewerken*. Als u bijvoorbeeld `https://x.com/UN` invoert, wordt `https://unrush.org/` als resultaat weergegeven.
+U kunt controleren hoe de regel werkt door een voorbeeld-URL toe te voegen in de sectie *Voorbeelden* in het scherm *Regel bewerken*. Als u bijvoorbeeld `https://x.com/UN` invoert, wordt `https://unrush.org/` als resultaat getoond.
 
-Zo zou uw regel er nu uit moeten zien:
+Dit is hoe uw regel er nu uit zou moeten zien:
 
 <Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Een voorbeeldregel om een andere website te openen" height="460" hasRoundedCorners hasShadow />
 

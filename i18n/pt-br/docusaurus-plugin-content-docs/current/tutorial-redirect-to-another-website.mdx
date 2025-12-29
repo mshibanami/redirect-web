@@ -5,25 +5,25 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Caso 1: Redirecionar para outro site
 
-Suponha que você seja viciado em Twitter, e você decida meditar usando o [Unrush](https://unrush.org) sempre que abrir o Twitter acidentalmente. Vamos criar uma regra para isso!
+Suponha que você seja viciado em Twitter e, para quebrar o hábito, decida ir para o [Unrush](https://unrush.org) para obter frases motivacionais e uma breve meditação sempre que abrir o Twitter acidentalmente. Vamos criar uma regra para isso!
 
 ### Passo 1. Abra a tela "Editar Regra"
 
 Vamos abrir a tela *Editar Regra* para começar a criar sua própria regra no aplicativo. Você pode fazer isso clicando no botão de mais (+) na aba *Minhas Regras*.
 
-### Passo 2. Configure "Redirecionar De"
+### Passo 2. Configure o "Redirecionar De"
 
 Primeiro, você deve configurar a seção *Redirecionar De* na tela *Editar Regra* no aplicativo. Os alvos são URLs que começam com `https://twitter.com/`.
 
-Neste caso, você pode especificar o seguinte padrão com o modo [Curinga](/rule-settings#url-pattern-wildcard):
+Nesse caso, você pode especificar o seguinte padrão com o modo [Curinga](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
 ```
 
-No modo Curinga, `*` significa que corresponde a qualquer coisa (= zero ou mais caracteres).
+No modo Curinga, `*` significa que ele corresponde a qualquer coisa (= zero ou mais caracteres).
 
-No entanto, espere. `twitter.com` foi renomeado para `x.com`. Você pode simplesmente substituir `twitter.com` por `x.com`, mas ninguém sabe quando o novo proprietário mudará de ideia novamente para reverter. Portanto, vamos direcionar tanto `twitter.com` quanto `x.com`.
+No entanto, espere um pouco. `twitter.com` foi renomeado para `x.com`. Você pode simplesmente substituir `twitter.com` por `x.com`, mas ninguém sabe quando o novo proprietário mudará de ideia novamente para reverter a mudança. Portanto, vamos direcionar tanto `twitter.com` quanto `x.com`.
 
 Para fazer isso, mude de Curinga para [Expressão Regular](/rule-settings#url-pattern-regular-expression) e defina este como o padrão:
 
@@ -31,19 +31,19 @@ Para fazer isso, mude de Curinga para [Expressão Regular](/rule-settings#url-pa
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: ele direciona tanto `twitter` quanto `x`. (`|` é chamado de *pipe*.)
-* `.*`: É o mesmo que `*` do Curinga. Mais especificamente, `.` significa *qualquer caractere* e `*` significa *qualquer coisa antes deste símbolo repetida qualquer número de vezes*, resultando em corresponder a qualquer coisa.
+* `(twitter|x)`: direciona tanto `twitter` quanto `x`. (`|` é chamado de *pipe*.)
+* `.*`: É o mesmo que o `*` do modo Curinga. Mais especificamente, `.` significa *qualquer caractere* e `*` significa que *o que vier antes deste símbolo pode ser repetido qualquer número de vezes*, resultando em uma correspondência com qualquer coisa.
 
-Expressão Regular é um pouco complicada, mas uma vez que você se acostuma, será uma ferramenta poderosa. Recomendamos usar [RegExr](https://regexr.com) como um playground para analisar como seu padrão de Expressão Regular funciona.
+Expressão Regular é um pouco complicada, mas quando você se acostuma, torna-se uma ferramenta poderosa. Recomendamos usar o [RegExr](https://regexr.com) como um ambiente de testes para analisar como seu padrão de Expressão Regular funciona.
 
 > [!TIP]
-> Em Expressões Regulares, `.` em `(twitter|x).com` também é tratado como *qualquer caractere*. Portanto, `(twitter|x).com/.*` também corresponde, por exemplo, `twitter1com/` ou `x_com/`.
-> 
-> Para ser mais preciso, você pode alterá-lo para `(twitter|x)\.com/.*`. `\` é usado para tratar `.` como um caractere de ponto literal em vez de um caractere especial.
-> 
-> No entanto, não existem tais URLs no ambiente geral da internet. Portanto, você pode deixar `.` como um caractere especial, se preferir.
+> Em Expressões Regulares, o `.` em `(twitter|x).com` também é tratado como *qualquer caractere*. Portanto, `(twitter|x).com/.*` também corresponde a, por exemplo, `twitter1com/` ou `x_com/`.
+>
+> Para ser mais preciso, você pode alterá-lo para `(twitter|x)\.com/.*`. O `\` é usado para tratar o `.` como um caractere de ponto literal, em vez de um caractere especial.
+>
+> No entanto, não existem URLs desse tipo no ambiente geral da internet. Portanto, você pode deixar o `.` como um caractere especial, se preferir.
 
-### Passo 3: Configure "Redirecionar Para"
+### Passo 3: Configure o "Redirecionar Para"
 
 Basta especificar a URL da seguinte forma:
 
@@ -53,12 +53,12 @@ https://unrush.org/
 
 ### (Opcional) Passo 4: Verifique a regra
 
-You pode verificar como a regra funciona adicionando um exemplo de URL na seção *Exemplos* na tela *Editar Regra*. Por exemplo, se você inserir `https://x.com/UN`, ele mostra `https://unrush.org/` como resultado.
+Você pode verificar como a regra funciona adicionando um exemplo de URL na seção *Exemplos* na tela *Editar Regra*. Por exemplo, se você inserir `https://x.com/UN`, o resultado mostrado será `https://unrush.org/`.
 
-Veja como sua regra deve ficar agora:
+Veja como sua regra deve estar agora:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Uma regra de exemplo para abrir outro site" height="460" hasRoundedCorners hasShadow />
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Um exemplo de regra para abrir outro site" height="460" hasRoundedCorners hasShadow />
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Baixar a Regra</a>**
 
-Agora, o Redirect Web te leva à meditação quando você acessa o Twitter!
+Agora, o Redirect Web leva você para a meditação quando você acessa o Twitter!

@@ -3,47 +3,47 @@ import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-cre
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
-# Caso 1: Reindirizzare a un altro sito web
+# Caso 1: Reindirizzamento a un altro sito web
 
-Supponiamo che tu sia dipendente da Twitter e decida di meditare usando [Unrush](https://unrush.org) ogni volta che apri accidentalmente Twitter. Creiamo una regola per questo!
+Supponi di avere una dipendenza da Twitter e, per interrompere l'abitudine, decidi di andare su [Unrush](https://unrush.org) per citazioni motivazionali e una breve meditazione ogni volta che apri accidentalmente Twitter. Creiamo una regola per questo!
 
-### Passaggio 1. Apri la schermata "Modifica regola"
+### Passaggio 1. Apri la schermata "Modifica Regola"
 
-Apriamo la schermata *Modifica regola* per iniziare a creare la tua regola nell'app. Puoi farlo cliccando sul pulsante più (+) nella scheda *Le mie regole*.
+Apriamo la schermata *Modifica Regola* per iniziare a creare la tua regola nell'app. Puoi farlo cliccando sul pulsante più (+) nella scheda *Le mie regole*.
 
-### Passaggio 2. Imposta "Reindirizza da"
+### Passaggio 2. Configura "Reindirizza da"
 
-Innanzitutto, dovresti impostare la sezione *Reindirizza da* nella schermata *Modifica regola* nell'app. I target sono URL che iniziano con `https://twitter.com/`.
+Innanzitutto, dovresti configurare la sezione *Reindirizza da* nella schermata *Modifica Regola* dell'app. I target sono gli URL che iniziano con `https://twitter.com/`.
 
-In questo caso, puoi specificare il seguente pattern con la modalità [Carattere jolly](/rule-settings#url-pattern-wildcard):
+In questo caso, puoi specificare il seguente pattern con la modalità [Wildcard](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
 ```
 
-Nella modalità Carattere jolly, `*` significa che corrisponde a qualsiasi cosa (= zero o più caratteri).
+Nella modalità Wildcard, `*` significa che corrisponde a qualsiasi cosa (= zero o più caratteri).
 
-Tuttavia, aspetta un attimo. `twitter.com` è stato rinominato in `x.com`. Puoi semplicemente sostituire `twitter.com` con `x.com`, ma nessuno sa quando il nuovo proprietario cambierà di nuovo idea per ripristinarlo. Pertanto, miriamo sia a `twitter.com` che a `x.com`.
+Tuttavia, aspetta. `twitter.com` è stato rinominato in `x.com`. Potresti semplicemente sostituire `twitter.com` con `x.com`, ma nessuno sa quando il nuovo proprietario cambierà di nuovo idea per tornare indietro. Pertanto, prendiamo di mira sia `twitter.com` che `x.com`.
 
-Per fare ciò, passa da Carattere jolly a [Espressione regolare](/rule-settings#url-pattern-regular-expression) e imposta questo come pattern:
+Per farlo, passa da Wildcard a [Espressione Regolare](/rule-settings#url-pattern-regular-expression) e imposta questo come pattern:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: mira sia a `twitter` che a `x`. (`|` è chiamato *una pipe*.)
-* `.*`: È lo stesso di `*` di Carattere jolly. Più specificamente, `.` significa *qualsiasi carattere* e `*` significa *qualsiasi cosa prima di questo simbolo ripetuta un numero qualsiasi di volte*, risultando che corrisponde a qualsiasi cosa.
+* `(twitter|x)`: prende di mira sia `twitter` che `x`. (`|` è chiamato *pipe*.)
+* `.*`: è lo stesso di `*` nelle Wildcard. Più specificamente, `.` significa *qualsiasi carattere* e `*` significa *qualsiasi cosa prima di questo simbolo ripetuta un numero qualsiasi di volte*, col risultato che corrisponde a tutto.
 
-L'espressione regolare è un po' complicata, ma una volta che ci si abitua, sarà uno strumento potente. Si consiglia di utilizzare [RegExr](https://regexr.com) come playground per analizzare come funziona il tuo pattern di espressione regolare.
+L'Espressione Regolare è un po' complicata, ma una volta che ti sarai abituato, sarà uno strumento potente. Ti consigliamo di usare [RegExr](https://regexr.com) come banco di prova per analizzare come funziona il tuo pattern di Espressione Regolare.
 
 > [!TIP]
-> Nelle espressioni regolari, `.` in `(twitter|x).com` è anche trattato come *qualsiasi carattere*. Pertanto, `(twitter|x).com/.*` corrisponde anche, ad esempio, `twitter1com/` o `x_com/`.
+> Nelle Espressioni Regolari, il `.` in `(twitter|x).com` viene trattato anche come *qualsiasi carattere*. Pertanto, `(twitter|x).com/.*` corrisponde anche, ad esempio, a `twitter1com/` o `x_com/`.
 >
-> Per essere più precisi, puoi cambiarlo in `(twitter|x)\.com/.*`. `\` viene utilizzato per trattare `.` come un carattere punto letterale piuttosto che un carattere speciale.
+> Per essere più precisi, puoi cambiarlo in `(twitter|x)\.com/.*`. `\` viene utilizzato per trattare il `.` come un carattere punto letterale piuttosto che come un carattere speciale.
 >
-> Tuttavia, non esistono tali URL nell'ambiente internet generale. Pertanto, puoi lasciare `.` come carattere speciale se preferisci.
+> Tuttavia, non esistono URL del genere nell'ambiente internet generale. Pertanto, puoi lasciare `.` come carattere speciale se preferisci.
 
-### Passaggio 3: Imposta "Reindirizza a"
+### Passaggio 3: Configura "Reindirizza a"
 
 Specifica semplicemente l'URL come segue:
 
@@ -51,9 +51,9 @@ Specifica semplicemente l'URL come segue:
 https://unrush.org/
 ```
 
-### (Opzionale) Passaggio 4: Controlla la regola
+### (Opzionale) Passaggio 4: Verifica la regola
 
-Puoi controllare come funziona la regola aggiungendo un URL di esempio nella sezione *Esempi* nella schermata *Modifica regola*. Ad esempio, se inserisci `https://x.com/UN`, mostra `https://unrush.org/` come risultato.
+Puoi verificare come funziona la regola aggiungendo un URL di esempio nella sezione *Esempi* della schermata *Modifica Regola*. Ad esempio, se inserisci `https://x.com/UN`, mostrerà `https://unrush.org/` come risultato.
 
 Ecco come dovrebbe apparire la tua regola ora:
 

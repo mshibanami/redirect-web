@@ -3,62 +3,62 @@ import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-cre
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
-# 1. eset: Átirányítás egy másik webhelyre
+# 1. eset: Átirányítás egy másik weboldalra
 
-Tegyük fel, hogy Twitter-függő vagy, és úgy döntesz, hogy az [Unrush](https://unrush.org) segítségével meditálsz, amikor véletlenül megnyitod a Twittert. Készítsünk erre egy szabályt!
+Tegyük fel, hogy Ön Twitter-függő, és a szokás megtörése érdekében úgy dönt, hogy felkeresi az [Unrush](https://unrush.org) oldalt motivációs idézetekért és egy rövid meditációért, valahányszor véletlenül megnyitja a Twittert. Készítsünk ehhez egy szabályt!
 
-### 1. lépés: Nyissa meg a "Szabály szerkesztése" képernyőt
+### 1. lépés: A „Szabály szerkesztése” képernyő megnyitása
 
-Nyissuk meg a *Szabály szerkesztése* képernyőt, hogy elkezdhesse saját szabályának létrehozását az alkalmazásban. Ezt a plusz (+) gombra kattintva teheti meg a *Saját szabályok* lapon.
+Nyissa meg a *Szabály szerkesztése* (Edit Rule) képernyőt a szabály létrehozásának megkezdéséhez az alkalmazásban. Ezt a *Saját szabályok* (My Rules) lapon található plusz (+) gombra kattintva teheti meg.
 
-### 2. lépés: Állítsa be az "Átirányítás innen" részt
+### 2. lépés: Az „Átirányítás innen” beállítása
 
-Először állítsa be az *Átirányítás innen* részt a *Szabály szerkesztése* képernyőn az alkalmazásban. A célok az `https://twitter.com/` kezdetű URL-ek.
+Először állítsa be az *Átirányítás innen* (Redirect From) szakaszt az alkalmazás *Szabály szerkesztése* képernyőjén. A célpontok a `https://twitter.com/` címmel kezdődő URL-ek.
 
-Ebben az esetben a következő mintát adhatja meg a [Helyettesítő karakter](/rule-settings#url-pattern-wildcard) móddal:
+Ebben az esetben a következő mintát adhatja meg a [Helyettesítő karakter](/rule-settings#url-pattern-wildcard) (Wildcard) módban:
 
 ```
 https://twitter.com/*
 ```
 
-A Helyettesítő karakter módban a `*` azt jelenti, hogy bármit illeszt (azaz nulla vagy több karaktert).
+Helyettesítő karakter módban a `*` bármilyen egyezést jelent (= nulla vagy több karakter).
 
-Azonban várjon. A `twitter.com` átnevezésre került `x.com`-ra. Egyszerűen lecserélheti a `twitter.com`-ot `x.com`-ra, de senki sem tudja, mikor gondolja meg magát az új tulajdonos, és állítja vissza. Ezért célozzuk meg mind a `twitter.com`, mind az `x.com` címet.
+Azonban várjunk csak. A `twitter.com` neve `x.com`-ra változott. Egyszerűen lecserélhetné a `twitter.com`-ot `x.com`-ra, de senki sem tudja, mikor gondolja meg magát az új tulajdonos, és állítja vissza a régit. Ezért vegyük célba mind a `twitter.com`-ot, mind az `x.com`-ot.
 
-Ehhez váltson Helyettesítő karakterről [Reguláris kifejezésre](/rule-settings#url-pattern-regular-expression), és állítsa be ezt a mintát:
+Ehhez váltson Helyettesítő karakterről [Reguláris kifejezésre](/rule-settings#url-pattern-regular-expression), és állítsa be ezt mintának:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: mind a `twitter`, mind az `x` címet célozza. (`|` az úgynevezett *pipe*.)
-* `.*`: Ugyanaz, mint a Helyettesítő karakter `*`-a. Pontosabban, a `.` *bármely karaktert* jelent, a `*` pedig azt, hogy *bármi e szimbólum előtt tetszőleges számú alkalommal ismétlődik*, ami azt eredményezi, hogy bármit illeszt.
+* `(twitter|x)`: mind a `twitter`, mind az `x` kifejezést célba veszi. (A `|` jelet *pipe*-nak nevezik.)
+* `.*`: Ugyanaz, mint a Helyettesítő karakter `*` jelzése. Pontosabban a `.` *bármilyen karaktert* jelent, a `*` pedig azt, hogy *a szimbólum előtti bármi tetszőleges számú alkalommal ismétlődik*, így bármire illeszkedik.
 
-A reguláris kifejezés kissé bonyolult, de ha megszokja, hatékony eszközzé válik. Javasoljuk, hogy használja a [RegExr](https://regexr.com) oldalt játszótérként a reguláris kifejezés mintájának működésének elemzéséhez.
+A reguláris kifejezések kicsit bonyolultak, de ha egyszer hozzászokik, hatékony eszköz lesz a kezében. Javasoljuk a [RegExr](https://regexr.com) használatát gyakorlóterepként, ahol elemezheti, hogyan működik a reguláris kifejezés mintája.
 
 > [!TIP]
-> A reguláris kifejezésekben a `.` a `(twitter|x).com`-ban is *bármely karakterként* kezelendő. Ezért a `(twitter|x).com/.*` illeszkedik például a `twitter1com/` vagy az `x_com/` címre is.
-> 
-> Pontosabbá teheti, ha `(twitter|x)\.com/.*` -ra változtatja. A `\` arra szolgál, hogy a `.`-ot szó szerinti pont karakterként kezelje, nem pedig speciális karakterként.
-> 
-> Azonban az általános internetes környezetben nincsenek ilyen URL-ek. Ezért a `.`-ot speciális karakterként hagyhatja, ha úgy tetszik.
+> A reguláris kifejezésekben a `.` a `(twitter|x).com` részben is *bármilyen karakterként* kezelendő. Ezért a `(twitter|x).com/.*` illeszkedik például a `twitter1com/` vagy az `x_com/` címekre is.
+>
+> A pontosabb meghatározás érdekében módosíthatja erre: `(twitter|x)\.com/.*`. A `\` karaktert arra használjuk, hogy a `.` jelet valódi pontként kezeljük, ne pedig speciális karakterként.
+>
+> Azonban az általános internetes környezetben nincsenek ilyen URL-ek. Ezért, ha úgy preferálja, meghagyhatja a `.`-ot speciális karakterként.
 
-### 3. lépés: Állítsa be az "Átirányítás ide" részt
+### 3. lépés: Az „Átirányítás ide” beállítása
 
-Egyszerűen adja meg az URL-t a következőképpen:
+Egyszerűen adja meg az URL-t az alábbiak szerint:
 
 ```
 https://unrush.org/
 ```
 
-### (Opcionális) 4. lépés: Ellenőrizze a szabályt
+### (Opcionális) 4. lépés: A szabály ellenőrzése
 
-Ellenőrizheti a szabály működését, ha hozzáad egy példa URL-t a *Példák* szakaszban a *Szabály szerkesztése* képernyőn. Például, ha beírja a `https://x.com/UN` címet, akkor az eredmény `https://unrush.org/` lesz.
+Ellenőrizheti a szabály működését egy példa URL hozzáadásával a *Szabály szerkesztése* képernyő *Példák* (Examples) szakaszában. Ha például a `https://x.com/UN` címet írja be, az eredményként a `https://unrush.org/` címet mutatja.
 
 Így kell kinéznie a szabályának most:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Példa szabály egy másik webhely megnyitására" height="460" hasRoundedCorners hasShadow />
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Egy példaszabály egy másik weboldal megnyitásához" height="460" hasRoundedCorners hasShadow />
 
-**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Töltse le a szabályt</a>**
+**<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Szabály letöltése</a>**
 
-Mostantól a Redirect Web a meditációhoz viszi, amikor hozzáfér a Twitterhez!
+Mostantól a Redirect Web elviszi a meditációhoz, amikor megnyitja a Twittert!

@@ -5,13 +5,13 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Przypadek 1: Przekierowanie do innej witryny
 
-Załóżmy, że jesteś uzależniony od Twittera i postanawiasz medytować za pomocą [Unrush](https://unrush.org), gdy przypadkowo otworzysz Twittera. Stwórzmy regułę dla tego!
+Załóżmy, że jesteś uzależniony od Twittera i aby zerwać z nałogiem, decydujesz się odwiedzać [Unrush](https://unrush.org) po motywacyjne cytaty i krótką medytację za każdym razem, gdy przypadkowo otworzysz Twittera. Stwórzmy do tego regułę!
 
-### Krok 1. Otwórz ekran "Edytuj regułę"
+### Krok 1. Otwórz ekran „Edytuj regułę”
 
-Otwórzmy ekran *Edytuj regułę*, aby rozpocząć tworzenie własnej reguły w aplikacji. Możesz to zrobić, klikając przycisk plus (+) w zakładce *Moje reguły*.
+Otwórzmy ekran *Edytuj regułę*, aby zacząć tworzyć własną regułę w aplikacji. Możesz to zrobić, klikając przycisk plus (+) w zakładce *Moje reguły*.
 
-### Krok 2. Skonfiguruj "Przekieruj z"
+### Krok 2. Skonfiguruj „Przekieruj z”
 
 Najpierw należy skonfigurować sekcję *Przekieruj z* na ekranie *Edytuj regułę* w aplikacji. Celami są adresy URL zaczynające się od `https://twitter.com/`.
 
@@ -21,9 +21,9 @@ W tym przypadku możesz określić następujący wzorzec w trybie [Wildcard](/ru
 https://twitter.com/*
 ```
 
-W trybie Wildcard, `*` oznacza, że pasuje do wszystkiego (= zero lub więcej znaków).
+W trybie Wildcard `*` oznacza, że pasuje do czegokolwiek (= zero lub więcej znaków).
 
-Jednak poczekaj. `twitter.com` został zmieniony na `x.com`. Możesz po prostu zastąpić `twitter.com` przez `x.com`, ale nikt nie wie, kiedy nowy właściciel ponownie zmieni zdanie, aby to cofnąć. Dlatego celujmy zarówno w `twitter.com`, jak i `x.com`.
+Ale chwila. `twitter.com` zmienił nazwę na `x.com`. Możesz po prostu zastąpić `twitter.com` przez `x.com`, ale nikt nie wie, kiedy nowy właściciel ponownie zmieni zdanie i to cofnie. Dlatego weźmy na celownik zarówno `twitter.com`, jak i `x.com`.
 
 Aby to zrobić, przełącz się z Wildcard na [Wyrażenie regularne](/rule-settings#url-pattern-regular-expression) i ustaw to jako wzorzec:
 
@@ -31,19 +31,19 @@ Aby to zrobić, przełącz się z Wildcard na [Wyrażenie regularne](/rule-setti
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: celuje zarówno w `twitter`, jak i `x`. (`|` nazywa się *pionową kreską*.)
-* `.*`: Jest to to samo, co `*` w Wildcard. Dokładniej, `.` oznacza *dowolny znak*, a `*` oznacza *cokolwiek przed tym symbolem powtórzone dowolną liczbę razy*, co w rezultacie oznacza, że pasuje do wszystkiego.
+* `(twitter|x)`: bierze na celownik zarówno `twitter`, jak i `x`. (`|` jest nazywane *pionową kreską* (ang. pipe)).
+* `.*`: To samo, co `*` w trybie Wildcard. Dokładniej, `.` oznacza *dowolny znak*, a `*` oznacza, że *element przed tym symbolem może być powtórzony dowolną liczbę razy*, co w rezultacie daje dopasowanie do czegokolwiek.
 
-Wyrażenia regularne są nieco skomplikowane, ale gdy się do nich przyzwyczaisz, staną się potężnym narzędziem. Zalecamy używanie [RegExr](https://regexr.com) jako placu zabaw do analizowania, jak działa Twój wzorzec wyrażeń regularnych.
+Wyrażenia regularne są nieco skomplikowane, ale gdy się do nich przyzwyczaisz, staną się potężnym narzędziem. Polecamy korzystanie z [RegExr](https://regexr.com) jako placu zabaw do analizowania działania wzorców wyrażeń regularnych.
 
 > [!TIP]
-> W wyrażeniach regularnych `.` w `(twitter|x).com` jest również traktowane jako *dowolny znak*. Dlatego `(twitter|x).com/.*` pasuje również na przykład do `twitter1com/` lub `x_com/`.
-> 
-> Aby być bardziej precyzyjnym, możesz zmienić to na `(twitter|x)\.com/.*`. `\` służy do traktowania `.` jako dosłownego znaku kropki, a nie znaku specjalnego.
-> 
-> Jednak w ogólnym środowisku internetowym nie ma takich adresów URL. Dlatego możesz pozostawić `.` jako znak specjalny, jeśli wolisz.
+> W wyrażeniach regularnych `.` w `(twitter|x).com` jest również traktowana jako *dowolny znak*. Dlatego `(twitter|x).com/.*` pasuje również na przykład do `twitter1com/` lub `x_com/`.
+>
+> Aby być bardziej precyzyjnym, możesz zmienić to na `(twitter|x)\.com/.*`. `\` służy do traktowania `.` jako dosłownej kropki, a nie znaku specjalnego.
+>
+> Jednak w ogólnym środowisku internetowym takie adresy URL nie występują. Dlatego możesz zostawić `.` jako znak specjalny, jeśli wolisz.
 
-### Krok 3: Skonfiguruj "Przekieruj do"
+### Krok 3: Skonfiguruj „Przekieruj do”
 
 Po prostu określ adres URL w następujący sposób:
 
@@ -53,12 +53,12 @@ https://unrush.org/
 
 ### (Opcjonalnie) Krok 4: Sprawdź regułę
 
-Możesz sprawdzić, jak działa reguła, dodając przykładowy adres URL w sekcji *Przykłady* na ekranie *Edytuj regułę*. Na przykład, jeśli wpiszesz `https://x.com/UN`, pokaże `https://unrush.org/` jako wynik.
+Możesz sprawdzić, jak działa reguła, dodając przykładowy adres URL w sekcji *Przykłady* na ekranie *Edytuj regułę*. Na przykład, jeśli wpiszesz `https://x.com/UN`, jako wynik zostanie wyświetlone `https://unrush.org/`.
 
-Oto jak powinna wyglądać Twoja reguła:
+Oto jak powinna teraz wyglądać Twoja reguła:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Przykładowa reguła otwierania innej witryny" height="460" hasRoundedCorners hasShadow />
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Przykładowa reguła otwierająca inną witrynę" height="460" hasRoundedCorners hasShadow />
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Pobierz regułę</a>**
 
-Teraz Redirect Web przeniesie Cię do medytacji, gdy uzyskasz dostęp do Twittera!
+Teraz Redirect Web przenosi Cię do medytacji, gdy wchodzisz na Twittera!

@@ -5,7 +5,7 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Fall 1: Omdirigera till en annan webbplats
 
-Anta att du är beroende av Twitter, och du bestämmer dig för att meditera med [Unrush](https://unrush.org) när du av misstag öppnar Twitter. Låt oss skapa en regel för det!
+Anta att du är beroende av Twitter, och för att bryta vanan bestämmer du dig för att gå till [Unrush](https://unrush.org) för motiverande citat och en kort meditation när du råkar öppna Twitter. Låt oss skapa en regel för det!
 
 ### Steg 1. Öppna skärmen "Redigera regel"
 
@@ -13,9 +13,9 @@ Låt oss öppna skärmen *Redigera regel* för att börja skapa din egen regel i
 
 ### Steg 2. Ställ in "Omdirigera från"
 
-Först bör du ställa in avsnittet *Omdirigera från* på skärmen *Redigera regel* i appen. Målen är URL:er som börjar med `https://twitter.com/`.
+Först bör du ställa in avsnittet *Omdirigera från* på skärmen *Redigera regel* i appen. Målen är webbadresser som börjar med `https://twitter.com/`.
 
-I det här fallet kan du ange följande mönster med läget [Wildcard](/rule-settings#url-pattern-wildcard):
+In det här fallet kan du ange följande mönster med läget [Wildcard](/rule-settings#url-pattern-wildcard):
 
 ```
 https://twitter.com/*
@@ -23,29 +23,29 @@ https://twitter.com/*
 
 I Wildcard-läget betyder `*` att det matchar vad som helst (= noll eller fler tecken).
 
-Men vänta. `twitter.com` döptes om till `x.com`. Du kan helt enkelt ersätta `twitter.com` med `x.com` men ingen vet när den nya ägaren kommer att ändra sig igen för att återställa det. Låt oss därför rikta in oss på både `twitter.com` och `x.com`.
+Men vänta lite. `twitter.com` har bytt namn till `x.com`. Du kan helt enkelt ersätta `twitter.com` med `x.com`, men ingen vet när den nya ägaren ändrar sig igen och återställer det. Låt oss därför rikta in oss på både `twitter.com` och `x.com`.
 
-För att göra det, byt från Wildcard till [Reguljärt uttryck](/rule-settings#url-pattern-regular-expression), och ställ in detta som mönstret:
+För att göra det, växla från Wildcard till [Reguljärt uttryck](/rule-settings#url-pattern-regular-expression) och ange detta som mönster:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: det riktar in sig på både `twitter` och `x`. (`|` kallas *ett rör*.)
-* `.*`: Det är samma som Wildcards `*`. Mer specifikt betyder `.` *valfritt tecken* och `*` betyder *vad som helst före denna symbol upprepat ett valfritt antal gånger*, vilket resulterar i att det matchar vad som helst.
+* `(twitter|x)`: det riktar in sig på både `twitter` och `x`. (`|` kallas för *ett rör (pipe)*.)
+* `.*`: Det är samma som Wildcards `*`. Mer specifikt betyder `.` *vilket tecken som helst* och `*` betyder *vad som helst före denna symbol upprepat valfritt antal gånger*, vilket resulterar i att det matchar vad som helst.
 
-Reguljära uttryck är lite komplicerade, men när du väl vänjer dig vid det kommer det att vara ett kraftfullt verktyg. Vi rekommenderar att du använder [RegExr](https://regexr.com) som en lekplats för att analysera hur ditt reguljära uttrycksmönster fungerar.
+Reguljära uttryck är lite komplicerade, men när du väl har vant dig vid dem är de ett kraftfullt verktyg. Vi rekommenderar att du använder [RegExr](https://regexr.com) som en lekplats för att analysera hur ditt mönster för reguljära uttryck fungerar.
 
 > [!TIP]
-> I reguljära uttryck behandlas `.` i `(twitter|x).com` också som *valfritt tecken*. Därför matchar `(twitter|x).com/.*` också, till exempel, `twitter1com/` eller `x_com/`.
-> 
-> För att vara mer exakt kan du ändra det till `(twitter|x)\.com/.*`. `\` används för att behandla `.` som ett bokstavligt punkttecken snarare än ett specialtecken.
-> 
-> Det finns dock inga sådana URL:er i den allmänna internetmiljön. Därför kan du lämna `.` som ett specialtecken om du föredrar.
+> I reguljära uttryck behandlas `.` i `(twitter|x).com` också som *vilket tecken som helst*. Därför matchar `(twitter|x).com/.*` även till exempel `twitter1com/` eller `x_com/`.
+>
+> För att vara mer exakt kan du ändra det till `(twitter|x)\.com/.*`. `\` används för att behandla `.` som en bokstavlig punkt istället för ett specialtecken.
+>
+> Det finns dock inga sådana webbadresser i den allmänna internetmiljön. Därför kan du lämna `.` som ett specialtecken om du föredrar det.
 
 ### Steg 3: Ställ in "Omdirigera till"
 
-Ange helt enkelt URL:en enligt följande:
+Ange helt enkelt webbadressen enligt följande:
 
 ```
 https://unrush.org/
@@ -53,12 +53,12 @@ https://unrush.org/
 
 ### (Valfritt) Steg 4: Kontrollera regeln
 
-Du kan kontrollera hur regeln fungerar genom att lägga till en exempel-URL i avsnittet *Exempel* på skärmen *Redigera regel*. Om du till exempel anger `https://x.com/UN` visas `https://unrush.org/` som resultat.
+Du kan kontrollera hur regeln fungerar genom att lägga till en exempel-URL i avsnittet *Exempel* på skärmen *Redigera regel*. Om du till exempel anger `https://x.com/UN`, visas `https://unrush.org/` som resultat.
 
-Så här ska din regel se ut nu:
+Så här bör din regel se ut nu:
 
 <Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="En exempelregel för att öppna en annan webbplats" height="460" hasRoundedCorners hasShadow />
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Ladda ner regeln</a>**
 
-Nu tar Redirect Web dig till meditationen när du besöker Twitter!
+Nu tar Redirect Web dig till meditationen när du öppnar Twitter!

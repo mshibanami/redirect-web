@@ -3,25 +3,27 @@ import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-cre
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
-# 1. gadījums: Pārvirzīšana uz citu vietni
+# 1. gadījums: pārvirzīšana uz citu tīmekļa vietni
 
-Pieņemsim, ka esat atkarīgs no Twitter un nolemjat meditēt, izmantojot [Unrush](https://unrush.org), ikreiz, kad nejauši atverat Twitter. Izveidosim tam noteikumu!
+Pieņemsim, ka jums ir atkarība no Twitter, un, lai pārtrauktu šo ieradumu, jūs nolemjat apmeklēt [Unrush](https://unrush.org), lai saņemtu motivējošus citātus un īsu meditāciju ikreiz, kad nejauši atverat Twitter. Izveidosim tam noteikumu!
 
 ### 1. solis. Atveriet ekrānu "Rediģēt noteikumu"
 
-Atvērsim *Rediģēt noteikumu* ekrānu, lai sāktu veidot savu noteikumu lietotnē. To var izdarīt, noklikšķinot uz plusa (+) pogas cilnē *Mani noteikumi*.
+Atvērsim ekrānu *Rediģēt noteikumu*, lai sāktu veidot savu noteikumu lietotnē. To var izdarīt, noklikšķinot uz plusa (+) pogas cilnē *Mani noteikumi*.
 
 ### 2. solis. Iestatiet "Pārvirzīt no"
 
-Vispirms jums jāiestata sadaļa *Pārvirzīt no* lietotnes ekrānā *Rediģēt noteikumu*. Mērķi ir URL, kas sākas ar `https://twitter.com/`.
+Vispirms lietotnes ekrānā *Rediģēt noteikumu* iestatiet sadaļu *Pārvirzīt no*. Mērķi ir URL, kas sākas ar `https://twitter.com/`.
 
-Šajā gadījumā varat norādīt šādu modeli ar [Aizstājējzīmes](/rule-settings#url-pattern-wildcard) režīmu:
+Šajā gadījumā varat norādīt šādu modeli [Aizstājējzīmes](/rule-settings#url-pattern-wildcard) režīmā:
 
 ```
 https://twitter.com/*
 ```
 
-Tomēr pagaidiet. `twitter.com` tika pārdēvēts par `x.com`. Jūs varat vienkārši aizstāt `twitter.com` ar `x.com`, taču neviens nezina, kad jaunais īpašnieks atkal mainīs savas domas, lai to atjaunotu. Tāpēc mērķēsim gan `twitter.com`, gan `x.com`.
+Aizstājējzīmes režīmā `*` nozīmē, ka tas atbilst jebkam (= nulle vai vairāk rakstzīmju).
+
+Tomēr pagaidiet. `twitter.com` tika pārdēvēts par `x.com`. Jūs varat vienkārši aizstāt `twitter.com` ar `x.com`, taču neviens nezin, kad jaunais īpašnieks atkal pārdomās un to atgriezīs. Tāpēc mērķēsim gan uz `twitter.com`, gan uz `x.com`.
 
 Lai to izdarītu, pārslēdzieties no Aizstājējzīmes uz [Regulāro izteiksmi](/rule-settings#url-pattern-regular-expression) un iestatiet šo kā modeli:
 
@@ -29,19 +31,19 @@ Lai to izdarītu, pārslēdzieties no Aizstājējzīmes uz [Regulāro izteiksmi]
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: tas mērķē gan `twitter`, gan `x`. (`|` tiek saukts par *cauruli*.)
-* `.*`: Tas ir tas pats, kas Aizstājējzīmes `*`. Precīzāk, `.` nozīmē *jebkuru rakstzīmi* un `*` nozīmē *jebko pirms šī simbola, kas atkārtojas jebkuru reižu skaitu*, kā rezultātā tas atbilst jebkam.
+* `(twitter|x)`: tas mērķē gan uz `twitter`, gan uz `x`. (`|` tiek saukts par *cauruli*.)
+* `.*`: Tas ir tas pats, kas aizstājējzīmju `*`. Konkrētāk, `.` nozīmē *jebkura rakstzīme* un `*` nozīmē *viss pirms šī simbola, kas atkārtojas jebkuru reižu skaitu*, kā rezultātā tas atbilst jebkam.
 
-Regulārā izteiksme ir nedaudz sarežģīta, taču, tiklīdz jūs pie tās pieradīsit, tā kļūs par spēcīgu rīku. Mēs iesakām izmantot [RegExr](https://regexr.com) kā rotaļu laukumu, lai analizētu, kā darbojas jūsu regulārās izteiksmes modelis.
+Regulārās izteiksmes ir nedaudz sarežģītas, taču, kad pie tām pierod, tās kļūst par spēcīgu rīku. Mēs iesakām izmantot [RegExr](https://regexr.com) kā spēļu laukumu, lai analizētu, kā darbojas jūsu regulāro izteiksmju modelis.
 
 > [!TIP]
-> Regulārajās izteiksmēs `.` `(twitter|x).com` tiek uzskatīts arī par *jebkuru rakstzīmi*. Tāpēc `(twitter|x).com/.*` atbilst arī, piemēram, `twitter1com/` vai `x_com/`.
-> 
-> Lai būtu precīzāk, varat to mainīt uz `(twitter|x)\.com/.*`. `\` tiek izmantots, lai `.` uzskatītu par burtisku punktu, nevis speciālu rakstzīmi.
-> 
-> Tomēr vispārējā interneta vidē šādu URL nav. Tāpēc, ja vēlaties, varat atstāt `.` kā speciālu rakstzīmi.
+> Regulārajās izteiksmēs `.` modelī `(twitter|x).com` arī tiek uztverts kā *jebkura rakstzīme*. Tāpēc `(twitter|x).com/.*` atbilst arī, piemēram, `twitter1com/` vai `x_com/`.
+>
+> Lai būtu precīzāk, varat to mainīt uz `(twitter|x)\.com/.*`. `\` tiek izmantots, lai uztvertu `.` kā burtisku punkta rakstzīmi, nevis īpašu rakstzīmi.
+>
+> Tomēr vispārējā interneta vidē šādu URL nav. Tāpēc varat atstāt `.` kā īpašu rakstzīmi, ja vēlaties.
 
-### 3. solis: Iestatiet "Pārvirzīt uz"
+### 3. solis: iestatiet "Pārvirzīt uz"
 
 Vienkārši norādiet URL šādi:
 
@@ -49,13 +51,13 @@ Vienkārši norādiet URL šādi:
 https://unrush.org/
 ```
 
-### (Pēc izvēles) 4. solis: Pārbaudiet noteikumu
+### (Neobligāti) 4. solis. Pārbaudiet noteikumu
 
-Varat pārbaudīt, kā noteikums darbojas, pievienojot piemēra URL sadaļā *Piemēri* ekrānā *Rediģēt noteikumu*. Piemēram, ja ievadāt `https://x.com/UN`, tas parāda `https://unrush.org/` kā rezultātu.
+Varat pārbaudīt, kā noteikums darbojas, pievienojot piemēra URL sadaļā *Piemēri* ekrānā *Rediģēt noteikumu*. Piemēram, ja ievadāt `https://x.com/UN`, tas kā rezultātu rāda `https://unrush.org/`.
 
-Lūk, kādam vajadzētu izskatīties jūsu noteikumam tagad:
+Lūk, kā jūsu noteikumam vajadzētu izskatīties tagad:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Piemēra noteikums, lai atvērtu citu vietni" height="460" hasRoundedCorners hasShadow />
+<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Noteikuma piemērs citas tīmekļa vietnes atvēršanai" height="460" hasRoundedCorners hasShadow />
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Lejupielādēt noteikumu</a>**
 

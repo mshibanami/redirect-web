@@ -5,60 +5,60 @@ import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Juhtum 1: Ümbersuunamine teisele veebisaidile
 
-Oletame, et olete Twitterist sõltuvuses ja otsustate mediteerida [Unrush](https://unrush.org)i abil iga kord, kui kogemata Twitteri avate. Loome selleks reegli!
+Oletame, et oled Twitterist sõltuvuses ja harjumuse murdmiseks otsustad minna saidile [Unrush](https://unrush.org) motivatsioonitsitaatide ja lühikese meditatsiooni saamiseks alati, kui kogemata Twitteri avad. Loome selleks reegli!
 
-### Samm 1. Avage ekraan "Muuda reeglit"
+### Samm 1. Ava ekraan "Muuda reeglit"
 
-Avame ekraani *Muuda reeglit*, et alustada oma reegli loomist rakenduses. Seda saate teha, klõpsates pluss (+) nupul vahekaardil *Minu reeglid*.
+Ava rakenduses ekraan *Muuda reeglit* (*Edit Rule*), et alustada oma reegli loomist. Saad seda teha, klõpsates vahekaardil *Minu reeglid* (*My Rules*) pluss (+) nuppu.
 
-### Samm 2. Seadistage "Suuna ümber alates"
+### Samm 2. Seadista "Suuna ümber asukohast"
 
-Kõigepealt peaksite rakenduses ekraanil *Muuda reeglit* seadistama jaotise *Suuna ümber alates*. Sihtmärgid on URL-id, mis algavad `https://twitter.com/`.
+Esmalt peaksid rakenduse ekraanil *Muuda reeglit* seadistama jaotise *Suuna ümber asukohast* (*Redirect From*). Sihtmärkideks on URL-id, mis algavad tekstiga `https://twitter.com/`.
 
-Sel juhul saate määrata järgmise mustri [metamärgi](/rule-settings#url-pattern-wildcard) režiimis:
+Selles režiimis saad määrata järgmise mustri režiimiga [Wildcard](/rule-settings#url-pattern-wildcard) (metsamärk):
 
 ```
 https://twitter.com/*
 ```
 
-Metamärgi režiimis tähendab `*`, et see vastab kõigele (= null või rohkem märki).
+Wildcard-režiimis tähendab `*`, et see sobib kõigega (= null või enam märki).
 
-Kuid oodake. `twitter.com` nimetati ümber `x.com`-iks. Saate lihtsalt asendada `twitter.com` `x.com`-iga, kuid keegi ei tea, millal uus omanik oma meelt uuesti muudab ja selle tagasi pöörab. Seepärast sihtime nii `twitter.com` kui ka `x.com`.
+Kuid oota hetk. `twitter.com` nimetati ümber saidiks `x.com`. Sa võid lihtsalt asendada `twitter.com` osaga `x.com`, kuid keegi ei tea, millal uus omanik jälle meelt muudab ja selle tagasi rullib. Seetõttu sihtigem nii `twitter.com` kui ka `x.com`.
 
-Selleks lülitage metamärgist [regulaaravaldisele](/rule-settings#url-pattern-regular-expression) ja määrake see mustriks:
+Selleks lülitu režiimilt Wildcard režiimile [Regulaaravaldis](/rule-settings#url-pattern-regular-expression) (Regular Expression) ja määra mustriks see:
 
 ```
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: see sihib nii `twitterit` kui ka `x`-i. (`|` nimetatakse *toruks*.)
-* `.*`: See on sama, mis metamärgi `*`. Täpsemalt tähendab `.` *mis tahes märki* ja `*` tähendab *kõike enne seda sümbolit, mis kordub suvalise arvu kordi*, mille tulemusena see vastab kõigele.
+* `(twitter|x)`: see sihib nii `twitterit` kui ka `x`-i. (`|` sümbolit nimetatakse *püstkriipsuks* ehk *pipe*'iks.)
+* `.*`: see on sama mis Wildcard-i `*`. Täpsemalt öeldes tähendab `.` *suvalist märki* ja `*` tähendab, et *sellele sümbolile eelnevat korratakse suvaline arv kordi*, mille tulemusena sobib see kõigega.
 
-Regulaaravaldis on veidi keeruline, kuid kui olete sellega harjunud, on see võimas tööriist. Soovitame kasutada [RegExr](https://regexr.com) mänguväljana, et analüüsida, kuidas teie regulaaravaldise muster töötab.
+Regulaaravaldis on veidi keeruline, kuid kui sellega harjud, on see võimas tööriist. Soovitame kasutada saiti [RegExr](https://regexr.com) mänguväljakuna, et analüüsida, kuidas sinu regulaaravaldise muster töötab.
 
 > [!TIP]
-> Regulaaravaldistes käsitletakse `.` kaustas `(twitter|x).com` samuti kui *mis tahes märki*. Seetõttu vastab `(twitter|x).com/.*` ka näiteks `twitter1com/` või `x_com/`.
-> 
-> Täpsemalt saate selle muuta `(twitter|x)\.com/.*`-ks. `\` kasutatakse `.` käsitlemiseks sõnasõnalise punktimärgina, mitte erimärgina.
-> 
-> Kuid üldises internetikeskkonnas selliseid URL-e ei ole. Seetõttu võite jätta `.` erimärgiks, kui eelistate.
+> Regulaaravaldistes töödeldakse punkti `.` mustris `(twitter|x).com` samuti kui *suvalist märki*. Seetõttu sobib `(twitter|x).com/.*` näiteks ka aadressidega `twitter1com/` või `x_com/`.
+>
+> Täpsemaks muutmiseks võid selle muuta mustriks `(twitter|x)\.com/.*`. Sümbolit `\` kasutatakse selleks, et käsitleda punkti `.` kui tavalist punktimärki, mitte erimärki.
+>
+> Tavapärases internetikeskkonnas selliseid URL-e siiski ei esine. Seetõttu võid soovi korral jätta punkti `.` erimärgiks.
 
-### Samm 3: Seadistage "Suuna ümber"
+### Samm 3: Seadista "Suuna ümber asukohta"
 
-Määrake URL lihtsalt järgmiselt:
+Lihtsalt määra URL jaotises *Suuna ümber asukohta* (*Redirect To*) järgmiselt:
 
 ```
 https://unrush.org/
 ```
 
-### (Valikuline) Samm 4: Kontrollige reeglit
+### (Valikuline) Samm 4: Kontrolli reeglit
 
-Saate kontrollida, kuidas reegel töötab, lisades näidis-URL-i ekraani *Muuda reeglit* jaotisesse *Näited*. Näiteks kui sisestate `https://x.com/UN`, kuvatakse tulemuseks `https://unrush.org/`.
+Saad kontrollida reegli toimimist, lisades näidis-URL-i ekraani *Muuda reeglit* jaotisesse *Näited* (*Examples*). Kui sisestad näiteks `https://x.com/UN`, kuvatakse tulemusena `https://unrush.org/`.
 
-Siin on, milline peaks teie reegel nüüd välja nägema:
+Sinu reegel peaks nüüd välja nägema selline:
 
 <Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Näidisreegel teise veebisaidi avamiseks" height="460" hasRoundedCorners hasShadow />
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Laadi reegel alla</a>**
 
-Nüüd viib Redirect Web teid Twitterile ligi pääsemisel meditatsiooni juurde!
+Nüüd viib Redirect Web sind Twitterisse minnes meditatsiooni juurde!
