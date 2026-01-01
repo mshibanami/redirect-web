@@ -41,6 +41,9 @@ const config: Config = {
     experimental_faster: true,
   },
   onBrokenLinks: 'throw',
+  customFields: {
+    redirectionBaseUrl: process.env.REDIRECTION_BASE_URL,
+  },
   i18n: {
     defaultLocale: defaultLocale,
     locales: [...SUPPORTED_LOCALES],
