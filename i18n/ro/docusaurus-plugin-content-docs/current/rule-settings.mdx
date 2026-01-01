@@ -1,6 +1,6 @@
 # Setări reguli
 
-Această pagină oferă informații detaliate despre fiecare setare din ecranul *Editare regulă* din aplicația Redirect Web.
+Această pagină oferă informații detaliate despre fiecare setare din ecranul *Editare regulă* din aplicația RedirectWeb.
 
 ## Opțiuni
 
@@ -64,11 +64,11 @@ Opțiunea **Browsere țintă** vă permite să specificați la ce browser ar tre
 
 *   Există 2 tipuri de browsere pe care le puteți alege:
     *   **Browsere pe care le puteți alege implicit**: Puteți alege Safari, Chrome, Firefox, Edge, Opera, Arc, Brave și Vivaldi implicit. Aceasta nu diferențiază variantele aceluiași browser, cum ar fi Safari și Safari Technology Preview.
-    *   **Browsere specificate de utilizator**: Atingând butonul Adăugare din popover, puteți selecta orice browser, altul decât Safari sau Safari Technology Preview, care are extensia Redirect Web instalată.
+    *   **Browsere specificate de utilizator**: Atingând butonul Adăugare din popover, puteți selecta orice browser, altul decât Safari sau Safari Technology Preview, care are extensia RedirectWeb instalată.
 *   Caseta de selectare **Toate, cu excepția celor selectate** vă permite să vizați fiecare browser, cu excepția celor pe care le-ați ales.
 
 > [!WARNING]
-> Redirect Web nu poate diferenția dacă browserul este **Safari** sau **Safari Technology Preview**, deoarece aplicația verifică procesul părinte al extensiei pentru a-l detecta, dar aceste două browsere partajează același proces părinte (`/sbin/launchd`).
+> RedirectWeb nu poate diferenția dacă browserul este **Safari** sau **Safari Technology Preview**, deoarece aplicația verifică procesul părinte al extensiei pentru a-l detecta, dar aceste două browsere partajează același proces părinte (`/sbin/launchd`).
 
 ### Redirecționare către {#redirect-to}
 
@@ -168,7 +168,7 @@ Puteți scrie comentarii în următoarele formate:
 Puteți utiliza și substituția în Joker, ceea ce înseamnă că puteți face referire la porțiuni ale URL-ului potrivit folosind `$1`, `$2`, etc. De exemplu, dacă utilizați `https://example.com/*-world-*`, și URL-ul este `https://example.com/hello-world-goodbye`, atunci `$1` ar fi „hello” și `$2` ar fi „goodbye”. `$0` este, de asemenea, disponibil pentru a face referire la întregul URL potrivit.
 
 > [!NOTE]
-> Deși substituția este o funcționalitate a expresiilor regulate, o puteți utiliza și pentru Joker, deoarece Redirect Web convertește intern Joker în expresie regulată.
+> Deși substituția este o funcționalitate a expresiilor regulate, o puteți utiliza și pentru Joker, deoarece RedirectWeb convertește intern Joker în expresie regulată.
 
 ### Expresie regulată {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Puteți utiliza și substituția în Joker, ceea ce înseamnă că puteți face 
 
 Puteți face referire la grupurile de captură în *Redirecționare către* sau *Înlocuire* utilizând `$1`, `$2`, ... sau `$0` pentru a face referire la întreaga potrivire.
 
-Redirect Web este alimentat de [motorul Regex de la Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb este alimentat de [motorul Regex de la Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Mai multe informații despre sintaxa Regex pot fi găsite în resurse precum [RegExr](https://regexr.com/).

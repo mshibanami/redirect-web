@@ -8,7 +8,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 # Odpravljanje težav
 
-Na tej strani so navedene pogoste težave in rešitve pri uporabi Redirect Web.
+Na tej strani so navedene pogoste težave in rešitve pri uporabi RedirectWeb.
 
 <TOCInline toc={toc} />
 
@@ -16,27 +16,27 @@ Na tej strani so navedene pogoste težave in rešitve pri uporabi Redirect Web.
 
 Če vaša pravila ne delujejo tako, kot pričakujete, preverite naslednje:
 
-- **Razširitev brskalnika je nameščena in omogočena za pravo stran:** Prepričajte se, da imate nameščeno razširitev Redirect Web in da je v vašem brskalniku omogočena za spletno stran, s katere želite preusmeriti. Če lahko na izvorni spletni strani odprete pojavnemu oknu razširitve, je nameščena pravilno:
-    <Image src={ExtensionPopup} alt="Pojavno okno razširitve Redirect Web" width="260" hasShadow/>
+- **Razširitev brskalnika je nameščena in omogočena za pravo stran:** Prepričajte se, da imate nameščeno razširitev RedirectWeb in da je v vašem brskalniku omogočena za spletno stran, s katere želite preusmeriti. Če lahko na izvorni spletni strani odprete pojavnemu oknu razširitve, je nameščena pravilno:
+    <Image src={ExtensionPopup} alt="Pojavno okno razširitve RedirectWeb" width="260" hasShadow/>
 
-- **Konfiguracija pravila je pravilna:** Preverite preusmeritvena pravila v namizni aplikaciji Redirect Web. Prepričajte se, da so vzorci izvornih URL-jev, ciljni URL-ji in morebitni pogoji pravilno nastavljeni. Če želite preveriti, ali je pravilo veljavno, vnesite primer URL v razdelek Examples na zaslonu za urejanje pravila. Če je pravilo veljavno, boste pod vnosom videli pričakovani ciljni URL, kot je prikazano tukaj:
+- **Konfiguracija pravila je pravilna:** Preverite preusmeritvena pravila v namizni aplikaciji RedirectWeb. Prepričajte se, da so vzorci izvornih URL-jev, ciljni URL-ji in morebitni pogoji pravilno nastavljeni. Če želite preveriti, ali je pravilo veljavno, vnesite primer URL v razdelek Examples na zaslonu za urejanje pravila. Če je pravilo veljavno, boste pod vnosom videli pričakovani ciljni URL, kot je prikazano tukaj:
     <Image src={RuleEditExampleResult} alt="Primer zaslona za urejanje pravila, ki prikazuje rezultat primernega URL-ja" width="260" hasShadow/>
 
 ## V pojavnem oknu razširitve se prikaže napaka {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Overlay napake Redirect Web" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="Overlay napake RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web app hasn't been installed or is not working properly.  
+> RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
 
-Če se ob odpiranju pojavnega okna razširitve prikaže zgornja napaka, to pomeni, da namizna aplikacija Redirect Web ni nameščena ali ne deluje pravilno.
+Če se ob odpiranju pojavnega okna razširitve prikaže zgornja napaka, to pomeni, da namizna aplikacija RedirectWeb ni nameščena ali ne deluje pravilno.
 
-Prepričajte se, da imate nameščeno najnovejšo različico Redirect Web iz [App Store](https://apps.apple.com/app/id1571283503).
+Prepričajte se, da imate nameščeno najnovejšo različico RedirectWeb iz [App Store](https://apps.apple.com/app/id1571283503).
 
 Morda boste morali po namestitvi namizne aplikacije znova zagnati brskalnik.
 
 > [!NOTE]
-> * Potrebno je namestiti namizno aplikacijo Redirect Web za uporabo razširitve brskalnika. Sama razširitev brez aplikacije ne deluje.
+> * Potrebno je namestiti namizno aplikacijo RedirectWeb za uporabo razširitve brskalnika. Sama razširitev brez aplikacije ne deluje.
 > * Uporabniki Safarija razširitve običajno ne potrebujejo namensko namestiti, saj je vključena v namizno aplikacijo.
 
 ## Izvirna stran hitro zasveti pred preusmeritvijo {#original-page-flash}
@@ -45,7 +45,7 @@ Do tega pride, kadar uporabljate preusmeritvena pravila tipa **Original**. Ta ti
 
 Odprite zaslon za urejanje pravila in spremenite **Type** v **DNR**, da se izognete tej težavi.
 
-<Image src={EditRuleDnr} alt="Pojavno okno razširitve Redirect Web" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="Pojavno okno razširitve RedirectWeb" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > V Firefoxu te težave načeloma ne bi smelo biti tudi pri tipu Original, saj uporablja API WebRequest, ki prepreči nalaganje izvorne strani.
@@ -59,7 +59,7 @@ V oknu nastavitev Safarija se lahko prikažejo sporočila o napakah, podobna nas
 > * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
 > * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
-To ne vpliva na delovanje Redirect Web. Te napake lahko varno prezrete.
+To ne vpliva na delovanje RedirectWeb. Te napake lahko varno prezrete.
 
 Te napake so posledica tega, da pojavnemu oknu razširitve poskuša naložiti stilne datoteke tako za namizne kot mobilne naprave, medtem ko lahko naloži le eno od obeh, odvisno od tega, ali uporabljate Mac ali iOS. Zaradi tega se ena od datotek vedno ne naloži, kar je pričakovano vedenje.
 

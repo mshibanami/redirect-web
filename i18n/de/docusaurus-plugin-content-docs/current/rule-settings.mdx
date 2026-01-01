@@ -1,6 +1,6 @@
 # Regeleinstellungen
 
-Diese Seite enthält detaillierte Informationen zu jeder Einstellung im Bildschirm *Regel bearbeiten* in der Redirect Web App.
+Diese Seite enthält detaillierte Informationen zu jeder Einstellung im Bildschirm *Regel bearbeiten* in der RedirectWeb App.
 
 ## Optionen
 
@@ -64,11 +64,11 @@ Die Option **Zielbrowser** ermöglicht es Ihnen, anzugeben, auf welchen Browser 
 
 * Es gibt 2 Arten von Browsern, die Sie wählen können:
     * **Standardmäßig wählbare Browser**: Sie können standardmäßig Safari, Chrome, Firefox, Edge, Opera, Arc, Brave und Vivaldi wählen. Dies unterscheidet keine Varianten desselben Browsers, wie Safari und Safari Technology Preview.
-    * **Benutzerdefinierte Browser**: Durch Tippen auf die Schaltfläche "Hinzufügen" im Popover können Sie jeden Browser außer Safari oder Safari Technology Preview auswählen, der die Redirect Web-Erweiterung installiert hat.
+    * **Benutzerdefinierte Browser**: Durch Tippen auf die Schaltfläche "Hinzufügen" im Popover können Sie jeden Browser außer Safari oder Safari Technology Preview auswählen, der die RedirectWeb-Erweiterung installiert hat.
 * Das Kontrollkästchen **Alle außer ausgewählten** ermöglicht es Ihnen, jeden Browser außer den von Ihnen ausgewählten zu verwenden.
 
 > [!WARNING]
-> Redirect Web kann nicht unterscheiden, ob der Browser **Safari** oder **Safari Technology Preview** ist, da die App den übergeordneten Prozess der Erweiterung überprüft, um dies zu erkennen, aber diese beiden Browser denselben übergeordneten Prozess (`/sbin/launchd`) teilen.
+> RedirectWeb kann nicht unterscheiden, ob der Browser **Safari** oder **Safari Technology Preview** ist, da die App den übergeordneten Prozess der Erweiterung überprüft, um dies zu erkennen, aber diese beiden Browser denselben übergeordneten Prozess (`/sbin/launchd`) teilen.
 
 ### Umleiten zu {#redirect-to}
 
@@ -168,7 +168,7 @@ Sie können Kommentare in den folgenden Formaten schreiben:
 Sie können auch Substitutionen in Wildcard verwenden, was bedeutet, dass Sie Teile der übereinstimmenden URL mit `$1`, `$2` usw. referenzieren können. Wenn Sie beispielsweise `https://example.com/*-world-*` verwenden und die URL `https://example.com/hello-world-goodbye` ist, dann wäre `$1` "hello" und `$2` "goodbye". `$0` ist auch verfügbar, um die gesamte übereinstimmende URL zu referenzieren.
 
 > [!NOTE]
-> Obwohl Substitution eine Funktion von regulären Ausdrücken ist, können Sie sie auch für Wildcard verwenden, da Redirect Web Wildcard intern in reguläre Ausdrücke umwandelt.
+> Obwohl Substitution eine Funktion von regulären Ausdrücken ist, können Sie sie auch für Wildcard verwenden, da RedirectWeb Wildcard intern in reguläre Ausdrücke umwandelt.
 
 ### Regulärer Ausdruck {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Sie können auch Substitutionen in Wildcard verwenden, was bedeutet, dass Sie Te
 
 Sie können die Erfassungsgruppen in *Umleiten zu* oder *Ersetzung* mit `$1`, `$2`, ... oder `$0` referenzieren, um den gesamten Treffer zu referenzieren.
 
-Redirect Web wird von [Apples Regex-Engine](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) betrieben.
+RedirectWeb wird von [Apples Regex-Engine](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) betrieben.
 
 Weitere Informationen zur Regex-Syntax finden Sie in Ressourcen wie [RegExr](https://regexr.com/).

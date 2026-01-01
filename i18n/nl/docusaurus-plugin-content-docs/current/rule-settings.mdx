@@ -1,6 +1,6 @@
 # Regelinstellingen
 
-Deze pagina biedt gedetailleerde informatie over elke instelling in het scherm *Regel bewerken* in de Redirect Web-app.
+Deze pagina biedt gedetailleerde informatie over elke instelling in het scherm *Regel bewerken* in de RedirectWeb-app.
 
 ## Opties
 
@@ -64,11 +64,11 @@ De optie **Doelbrowsers** stelt u in staat op te geven op welke browser de regel
 
 * Er zijn 2 soorten browsers waaruit u kunt kiezen:
     * **Browsers die u standaard kunt kiezen**: U kunt standaard kiezen uit Safari, Chrome, Firefox, Edge, Opera, Arc, Brave en Vivaldi. Dit maakt geen onderscheid tussen varianten van dezelfde browser, zoals Safari en Safari Technology Preview.
-    * **Door de gebruiker opgegeven browsers**: Door op de knop Toevoegen in de pop-over te tikken, kunt u elke browser behalve Safari of Safari Technology Preview selecteren die de Redirect Web-extensie heeft geïnstaleerd.
+    * **Door de gebruiker opgegeven browsers**: Door op de knop Toevoegen in de pop-over te tikken, kunt u elke browser behalve Safari of Safari Technology Preview selecteren die de RedirectWeb-extensie heeft geïnstaleerd.
 * Het selectievakje **Alles behalve geselecteerd** stelt u in staat elke browser te targeten behalve de browsers die u hebt gekozen.
 
 > [!WARNING]
-> Redirect Web kan geen onderscheid maken tussen **Safari** en **Safari Technology Preview**, omdat de app het bovenliggende proces van de extensie controleert om dit te detecteren, maar deze twee browsers delen hetzelfde bovenliggende proces (`/sbin/launchd`).
+> RedirectWeb kan geen onderscheid maken tussen **Safari** en **Safari Technology Preview**, omdat de app het bovenliggende proces van de extensie controleert om dit te detecteren, maar deze twee browsers delen hetzelfde bovenliggende proces (`/sbin/launchd`).
 
 ### Omleiden naar {#redirect-to}
 
@@ -168,7 +168,7 @@ U kunt opmerkingen schrijven in de volgende formaten:
 U kunt ook substitutie gebruiken in Wildcard, wat betekent dat u kunt verwijzen naar delen van de gematchte URL met `$1`, `$2`, enz. Als u bijvoorbeeld `https://example.com/*-world-*` gebruikt en de URL is `https://example.com/hello-world-goodbye`, dan zou `$1` "hello" zijn en `$2` "goodbye". `$0` is ook beschikbaar om naar de gehele gematchte URL te verwijzen.
 
 > [!NOTE]
-> Hoewel substitutie een functie van reguliere expressie is, kunt u het ook gebruiken voor Wildcard omdat Redirect Web Wildcard intern omzet naar reguliere expressie.
+> Hoewel substitutie een functie van reguliere expressie is, kunt u het ook gebruiken voor Wildcard omdat RedirectWeb Wildcard intern omzet naar reguliere expressie.
 
 ### Reguliere expressie {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ U kunt ook substitutie gebruiken in Wildcard, wat betekent dat u kunt verwijzen 
 
 U kunt verwijzen naar de vastleggende groepen in *Omleiden naar* of *Vervanging* met `$1`, `$2`, ... of `$0` om naar de gehele overeenkomst te verwijzen.
 
-Redirect Web wordt aangedreven door [Apple's Regex-engine](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb wordt aangedreven door [Apple's Regex-engine](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Meer informatie over Regex-syntaxis is te vinden in bronnen zoals [RegExr](https://regexr.com/).

@@ -1,6 +1,6 @@
 # Ustawienia reguł
 
-Ta strona zawiera szczegółowe informacje o każdym ustawieniu na ekranie *Edytuj regułę* w aplikacji Redirect Web.
+Ta strona zawiera szczegółowe informacje o każdym ustawieniu na ekranie *Edytuj regułę* w aplikacji RedirectWeb.
 
 ## Opcje
 
@@ -64,11 +64,11 @@ Opcja **Przeglądarki docelowe** pozwala określić, do której przeglądarki re
 
 * Istnieją 2 typy przeglądarek, które możesz wybrać:
     * **Przeglądarki, które możesz wybrać domyślnie**: Domyślnie możesz wybrać Safari, Chrome, Firefox, Edge, Opera, Arc, Brave i Vivaldi. Nie rozróżnia to wariantów tej samej przeglądarki, takich jak Safari i Safari Technology Preview.
-    * **Przeglądarki określone przez użytkownika**: Dotykając przycisku Dodaj w wyskakującym okienku, możesz wybrać dowolną przeglądarkę inną niż Safari lub Safari Technology Preview, która ma zainstalowane rozszerzenie Redirect Web.
+    * **Przeglądarki określone przez użytkownika**: Dotykając przycisku Dodaj w wyskakującym okienku, możesz wybrać dowolną przeglądarkę inną niż Safari lub Safari Technology Preview, która ma zainstalowane rozszerzenie RedirectWeb.
 * Pole wyboru **Wszystkie oprócz wybranych** pozwala na celowanie we wszystkie przeglądarki z wyjątkiem tych, które wybrałeś.
 
 > [!WARNING]
-> Redirect Web nie potrafi rozróżnić, czy przeglądarka to **Safari** czy **Safari Technology Preview**, ponieważ aplikacja sprawdza proces nadrzędny rozszerzenia, aby to wykryć, ale te dwie przeglądarki współdzielą ten sam proces nadrzędny (`/sbin/launchd`).
+> RedirectWeb nie potrafi rozróżnić, czy przeglądarka to **Safari** czy **Safari Technology Preview**, ponieważ aplikacja sprawdza proces nadrzędny rozszerzenia, aby to wykryć, ale te dwie przeglądarki współdzielą ten sam proces nadrzędny (`/sbin/launchd`).
 
 ### Przekieruj do {#redirect-to}
 
@@ -168,7 +168,7 @@ Możesz pisać komentarze w następujących formatach:
 Możesz również użyć podstawienia w Wildcard, co oznacza, że możesz odwołać się do części dopasowanego adresu URL za pomocą `$1`, `$2` itd. Na przykład, jeśli użyjesz `https://example.com/*-world-*`, a adresem URL jest `https://example.com/hello-world-goodbye`, to `$1` będzie "hello", a `$2` będzie "goodbye". `$0` jest również dostępne do odwołania się do całego dopasowanego adresu URL.
 
 > [!NOTE]
-> Chociaż podstawienie jest cechą wyrażeń regularnych, możesz go również użyć dla Wildcard, ponieważ Redirect Web wewnętrznie konwertuje Wildcard na wyrażenie regularne.
+> Chociaż podstawienie jest cechą wyrażeń regularnych, możesz go również użyć dla Wildcard, ponieważ RedirectWeb wewnętrznie konwertuje Wildcard na wyrażenie regularne.
 
 ### Wyrażenie regularne {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Możesz również użyć podstawienia w Wildcard, co oznacza, że możesz odwoł
 
 Możesz odwołać się do grup przechwytujących w *Przekieruj do* lub *Zastąpienie* za pomocą `$1`, `$2`, ... lub `$0`, aby odwołać się do całego dopasowania.
 
-Redirect Web jest zasilany przez [silnik Regex firmy Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb jest zasilany przez [silnik Regex firmy Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Więcej informacji na temat składni Regex można znaleźć w zasobach takich jak [RegExr](https://regexr.com/).

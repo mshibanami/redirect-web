@@ -51,7 +51,7 @@ Let's take a look step by step.
 [RegExr](https://regexr.com) may help you understand the details.
 
 > [!NOTE]
-> RegExr shows an error when you don't escape `/` with `\`. Although you can escape it, it's not required since Redirect Web uses a different engine by Apple that doesn't require escaping.
+> RegExr shows an error when you don't escape `/` with `\`. Although you can escape it, it's not required since RedirectWeb uses a different engine by Apple that doesn't require escaping.
 
 This is not a perfect solution, as it redirects `example.com/hello` to `example.com/hello?layout=desktop&`, which includes an unnecessary `&` at the end of the URL. It's not a big deal in general, but if you wish to remove it, you can use *Capturing Group Processing*.
 

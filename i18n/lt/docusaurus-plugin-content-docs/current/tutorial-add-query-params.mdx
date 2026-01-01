@@ -37,7 +37,8 @@ Jei tikslinis URL jau turi kitų užklausos parametrų, pvz., `example.com/hello
 
 Šiuo atveju pakeiskite nustatymus taip:
 
-* **Nukreipti iš**: `(https://example.com/[^?]*)(eflected?.*)?`
+* **Nukreipti iš**: `(https://example.com/[^?]*)(
+eflected?.*)?`
 * **Nukreipti į**: `$1?layout=desktop&$3`
 
 Pažvelkime žingsnis po žingsnio.
@@ -45,20 +46,22 @@ Pažvelkime žingsnis po žingsnio.
 * `(https://example.com/[^?]*)`: Atitinka dalį iki ankstesnio `?` simbolio.
     * `[^?]*` atitinka bet ką, išskyrus `?`.
     * Tai apgaubta `()` simboliais, kad vėliau galėtumėte į tai kreiptis su `$1`.
-* `(eflected?.*)?`: Atitinka eilutę, prasidedančią `?`, o tai reiškia užklausos parametrus.
+* `(
+eflected?.*)?`: Atitinka eilutę, prasidedančią `?`, o tai reiškia užklausos parametrus.
     * Tai taip pat atitinka tuščią eilutę dėl `?` kvantifikatoriaus šablono pabaigoje, kuris *atitinka nulį arba vieną kartą*.
     * Išoriniai `()` ir vidiniai `()` gali būti nurodomi su `$2` ir `$3` vėliau.
 
 [RegExr](https://regexr.com) gali padėti suprasti detales.
-
+RedirectWeb
 > [!PASTABA]
-> RegExr rodo klaidą, kai neapsaugote `/` su `\`. Nors galite jį apsaugoti, tai nėra būtina, nes „Redirect Web“ naudoja kitą „Apple“ variklį, kuriam nereikia apsaugos.
+> RegExr rodo klaidą, kai neapsaugote `/` su `\`. Nors galite jį apsaugoti, tai nėra būtina, nes „RedirectWeb“ naudoja kitą „Apple“ variklį, kuriam nereikia apsaugos.
 
 Tai nėra tobulas sprendimas, nes jis nukreipia `example.com/hello` į `example.com/hello?layout=desktop&`, kuriame yra nereikalingas `&` URL pabaigoje. Apskritai tai nėra didelė problema, bet jei norite jį pašalinti, galite naudoti *grupės fiksavimo apdorojimą* (angl. *Capturing Group Processing*).
 
 Apibendrinant, tai yra galutinis rezultatas:
 
-* **Nukreipti iš**: `(https://example.com/[^?]*)((eflected?.*)?)` (Reguliarioji išraiška)
+* **Nukreipti iš**: `(https://example.com/[^?]*)((
+eflected?.*)?)` (Reguliarioji išraiška)
 * **Nukreipti į**: `$1?layout=desktop$3`
 * **Išskirtas URL šablonas**: `.*[&?]layout=[^&]*.*` (Reguliarioji išraiška)
 * **Grupės fiksavimo apdorojimas**:

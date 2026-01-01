@@ -1,6 +1,6 @@
 # ルール設定
 
-このページでは、Redirect Webアプリの「ルール編集」画面にある各設定の詳細情報を提供します。
+このページでは、RedirectWebアプリの「ルール編集」画面にある各設定の詳細情報を提供します。
 
 ## オプション
 
@@ -64,11 +64,11 @@
 
 * 選択できるブラウザは2種類あります。
     * **デフォルトで選択できるブラウザ**: Safari、Chrome、Firefox、Edge、Opera、Arc、Brave、Vivaldiをデフォルトで選択できます。これは、SafariとSafari Technology Previewのような同じブラウザのバリアントを区別しません。
-    * **ユーザー指定のブラウザ**: ポップオーバーの追加ボタンをタップすることで、Redirect Web拡張機能がインストールされているSafariまたはSafari Technology Preview以外の任意のブラウザを選択できます。
+    * **ユーザー指定のブラウザ**: ポップオーバーの追加ボタンをタップすることで、RedirectWeb拡張機能がインストールされているSafariまたはSafari Technology Preview以外の任意のブラウザを選択できます。
 * **選択したものを除くすべて**チェックボックスは、選択したブラウザを除くすべてのブラウザをターゲットにします。
 
 > [!WARNING]
-> Redirect Webは、ブラウザが**Safari**か**Safari Technology Preview**かを区別できません。これは、アプリが拡張機能の親プロセスをチェックして検出しますが、これら2つのブラウザは同じ親プロセス（`/sbin/launchd`）を共有しているためです。
+> RedirectWebは、ブラウザが**Safari**か**Safari Technology Preview**かを区別できません。これは、アプリが拡張機能の親プロセスをチェックして検出しますが、これら2つのブラウザは同じ親プロセス（`/sbin/launchd`）を共有しているためです。
 
 ### リダイレクト先 {#redirect-to}
 
@@ -168,7 +168,7 @@
 ワイルドカードでも置換を使用できます。つまり、`$1`、`$2`などを使用して一致したURLの一部を参照できます。例えば、`https://example.com/*-world-*`を使用し、URLが`https://example.com/hello-world-goodbye`の場合、`$1`は「hello」、`$2`は「goodbye」になります。`$0`は一致したURL全体を参照するためにも利用できます。
 
 > [!NOTE]
-> 置換は正規表現の機能ですが、Redirect Webは内部的にワイルドカードを正規表現に変換するため、ワイルドカードでも使用できます。
+> 置換は正規表現の機能ですが、RedirectWebは内部的にワイルドカードを正規表現に変換するため、ワイルドカードでも使用できます。
 
 ### 正規表現 {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@
 
 「リダイレクト先」または「置換」で`$1`、`$2`、...を使用してキャプチャグループを参照したり、`$0`を使用して全体の一致を参照したりできます。
 
-Redirect Webは[Appleの正規表現エンジン](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042)を搭載しています。
+RedirectWebは[Appleの正規表現エンジン](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042)を搭載しています。
 
 正規表現の構文に関する詳細情報は、[RegExr](https://regexr.com/)などのリソースで確認できます。

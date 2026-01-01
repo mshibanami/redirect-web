@@ -1,30 +1,30 @@
 # Võrdlus teiste tööriistadega
 
-Redirect Webiga sarnase funktsionaalsusega tööriistu on mitmeid. Redirect Web ei püüa neid asendada, vaid pigem täiendada. Siin on mõned võrdlused.
+RedirectWebiga sarnase funktsionaalsusega tööriistu on mitmeid. RedirectWeb ei püüa neid asendada, vaid pigem täiendada. Siin on mõned võrdlused.
 
 > [!NOTE]
 > Need võrdlused põhinevad 2025. aasta oktoobri seisuga. Palun [võtke meiega ühendust](/contact-us), kui leiate aegunud teavet või vigu. Aitäh! 🙏
 
 ## [Redirector](https://github.com/einaregilsson/Redirector) {#redirector}
 
-Redirector on suurepärane brauserilaiendus ümbersuunamiseks. See on täiesti tasuta ja avatud lähtekoodiga ning töötab ka mitte-Apple'i platvormidel. Kuid Redirect Webil on mõned lisafunktsioonid, mis teile meeldida võivad:
+Redirector on suurepärane brauserilaiendus ümbersuunamiseks. See on täiesti tasuta ja avatud lähtekoodiga ning töötab ka mitte-Apple'i platvormidel. Kuid RedirectWebil on mõned lisafunktsioonid, mis teile meeldida võivad:
 
-* **Üksikasjalikud reegliseaded:** Toetab mitut välistamismustrit, mitut protsessi vastet ja stringi asendamise funktsioone, mis on saadaval ainult Redirect Webis.
+* **Üksikasjalikud reegliseaded:** Toetab mitut välistamismustrit, mitut protsessi vastet ja stringi asendamise funktsioone, mis on saadaval ainult RedirectWebis.
 * **Ava natiivrakendustes:** Macis saate valida, kus siht-URL avada. See kutsub otse välja käsu `open` (mitte sügavlinkimine).
 * **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) tugi:** Pakub ülikiiret ümbersuunamist.
 * **Tsentraliseeritud reeglihaldus:** Hallake kõigi brauserite reegleid ühes kohas natiivrakenduse kaudu.
-* **Manifest V3 ja V2 tugi:** Redirect Web toetab V3 Chromiumi-põhistes brauserites ja MV2 Firefoxis, võimaldades kasutada sama API-t nagu Redirector paindlikkuse ja tõhususe tagamiseks.
-* **Safari tugi:** Redirect Web toetab Safarit iOS-is ja macOS-is; Redirector seda ei tee.
+* **Manifest V3 ja V2 tugi:** RedirectWeb toetab V3 Chromiumi-põhistes brauserites ja MV2 Firefoxis, võimaldades kasutada sama API-t nagu Redirector paindlikkuse ja tõhususe tagamiseks.
+* **Safari tugi:** RedirectWeb toetab Safarit iOS-is ja macOS-is; Redirector seda ei tee.
 
 Austame Redirectorit kõrgelt ja pakume ümbersuunamisreeglite importi/eksporti, mida see samuti käsitleda saab, et saaksite nende vahel paindlikult vahetada. Vaadake lisateavet [siit](/export-or-import-rules).
 
 ## Kasutajaskriptide haldurid nagu [Tampermonkey](https://www.tampermonkey.net/) või [Greasemonkey](https://www.greasespot.net/) {#userscript-managers}
 
-Kasutajaskriptide haldurid on väga võimsad ja paindlikud. Nendega saab teha palju asju, sealhulgas ümbersuunamist. Kuid neil on Redirect Webiga võrreldes mõned puudused:
+Kasutajaskriptide haldurid on väga võimsad ja paindlikud. Nendega saab teha palju asju, sealhulgas ümbersuunamist. Kuid neil on RedirectWebiga võrreldes mõned puudused:
 
-* **Keerukus:** Skriptide kirjutamine ja hooldamine võib olla keeruline ja aeganõudev, eriti kasutajatele, kes pole programmeerimisega tuttavad. Redirect Web pakub kasutajasõbralikku liidest reeglite loomiseks ja haldamiseks ilma kodeerimiseta.
-* **Ohutus:** Kasutajaskriptide haldurid võivad tekitada jõudluse lisakulu, eriti kui skriptid on keerulised või optimeerimata. Samuti võivad need põhjustada lõputu ümbersuunamise ahela, kui neid hoolikalt ei kirjutata. Redirect Web on loodud olema tõhus ja ohutu.
-* **Uuema API tugi:** Mõnel kasutajaskriptide halduril ei pruugi olla juurdepääsu deklaratiivse võrgupäringu (DNR) API-le, mis võib pakkuda kiiremat ja tõhusamat ümbersuunamist. Redirect Web toetab DNR-i parema jõudluse tagamiseks.
+* **Keerukus:** Skriptide kirjutamine ja hooldamine võib olla keeruline ja aeganõudev, eriti kasutajatele, kes pole programmeerimisega tuttavad. RedirectWeb pakub kasutajasõbralikku liidest reeglite loomiseks ja haldamiseks ilma kodeerimiseta.
+* **Ohutus:** Kasutajaskriptide haldurid võivad tekitada jõudluse lisakulu, eriti kui skriptid on keerulised või optimeerimata. Samuti võivad need põhjustada lõputu ümbersuunamise ahela, kui neid hoolikalt ei kirjutata. RedirectWeb on loodud olema tõhus ja ohutu.
+* **Uuema API tugi:** Mõnel kasutajaskriptide halduril ei pruugi olla juurdepääsu deklaratiivse võrgupäringu (DNR) API-le, mis võib pakkuda kiiremat ja tõhusamat ümbersuunamist. RedirectWeb toetab DNR-i parema jõudluse tagamiseks.
 
 ## Apple'i [otseteed](https://support.apple.com/guide/shortcuts/welcome/ios) {#why-not-shortcuts}
 
@@ -32,18 +32,18 @@ Otseteed on Apple'i võimas automatiseerimistööriist, mis on saadaval iOS-is j
 
 ## [OpenIn](https://loshadki.app/openin4/) või [Velja](https://sindresorhus.com/velja) {#openin-or-velja}
 
-OpenIn ja Velja on mõlemad brauserivalija rakendused ning neil on ka brauserilaiendused, mis võimaldavad teil brauserist linke teises rakenduses avada. Redirect Webil on ka brauserist rakendusse ümbersuunamise võimalus. Kuid on mõned erinevused:
+OpenIn ja Velja on mõlemad brauserivalija rakendused ning neil on ka brauserilaiendused, mis võimaldavad teil brauserist linke teises rakenduses avada. RedirectWebil on ka brauserist rakendusse ümbersuunamise võimalus. Kuid on mõned erinevused:
 
-* **Automaatne ümbersuunamine:** Need nõuavad, et valiksite lingi teises rakenduses avamiseks käsitsi nende tööriistariba ikooni. Redirect Web suunab URL-id automaatselt ümber teie reeglite alusel ilma lisatoiminguteta. Need on kaks erinevat lähenemist linkide käsitlemisele.
-* **Platvormideülene tugi:** Kuigi need on loodud Maci jaoks, toetab Redirect Web kõiki peamisi brausereid Macis ja Safarit iPhone'is, iPadis ja Apple Vision Pro's.
+* **Automaatne ümbersuunamine:** Need nõuavad, et valiksite lingi teises rakenduses avamiseks käsitsi nende tööriistariba ikooni. RedirectWeb suunab URL-id automaatselt ümber teie reeglite alusel ilma lisatoiminguteta. Need on kaks erinevat lähenemist linkide käsitlemisele.
+* **Platvormideülene tugi:** Kuigi need on loodud Maci jaoks, toetab RedirectWeb kõiki peamisi brausereid Macis ja Safarit iPhone'is, iPadis ja Apple Vision Pro's.
 
 ## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {#stopthemadness}
 
-StopTheMadness on brauserilaiendus, mis pakub veebisirvimise täiustamiseks erinevaid funktsioone, sealhulgas ümbersuunamist. Kuid sellel on Redirect Webiga võrreldes mõned piirangud:
+StopTheMadness on brauserilaiendus, mis pakub veebisirvimise täiustamiseks erinevaid funktsioone, sealhulgas ümbersuunamist. Kuid sellel on RedirectWebiga võrreldes mõned piirangud:
 
-* **Reeglite paindlikkus:** StopTheMadnessil on piiratud reeglite konfigureerimise võimalused. Redirect Web pakub üksikasjalikumaid reegliseadeid, sealhulgas mitut välistamismustrit, püüdmisrühma töötlemist ja palju muud.
-* **Funktsioonide keerukus:** StopTheMadness sisaldab palju funktsioone, mis ei pruugi olla vajalikud kasutajatele, kes soovivad ainult ümbersuunamist. Redirect Web keskendub ainult ümbersuunamisele.
-* **Hind:** StopTheMadness maksab 12-15 USD ilma tasuta prooviperioodi või tasuta plaanita. Redirect Web pakub tasuta plaani põhiliste funktsioonidega ja tellimust kõigi funktsioonide tasuta prooviperioodiga ning ühekordse ostuvõimaluse kohvi hinnaga.
+* **Reeglite paindlikkus:** StopTheMadnessil on piiratud reeglite konfigureerimise võimalused. RedirectWeb pakub üksikasjalikumaid reegliseadeid, sealhulgas mitut välistamismustrit, püüdmisrühma töötlemist ja palju muud.
+* **Funktsioonide keerukus:** StopTheMadness sisaldab palju funktsioone, mis ei pruugi olla vajalikud kasutajatele, kes soovivad ainult ümbersuunamist. RedirectWeb keskendub ainult ümbersuunamisele.
+* **Hind:** StopTheMadness maksab 12-15 USD ilma tasuta prooviperioodi või tasuta plaanita. RedirectWeb pakub tasuta plaani põhiliste funktsioonidega ja tellimust kõigi funktsioonide tasuta prooviperioodiga ning ühekordse ostuvõimaluse kohvi hinnaga.
 
 ## Lõpetuseks...
 

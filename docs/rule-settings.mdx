@@ -1,6 +1,6 @@
 # Rule Settings
 
-This page provides detailed information of each setting in the *Edit Rule* screen in the Redirect Web app.
+This page provides detailed information of each setting in the *Edit Rule* screen in the RedirectWeb app.
 
 ## Options
 
@@ -64,11 +64,11 @@ The **Target Browsers** option allows you to specify which browser the rule shou
 
 * There are 2 types of browsers you can choose:
     * **Browsers you can choose by default**: You can choose Safari, Chrome, Firefox, Edge, Opera, Arc, Brave, and Vivaldi by default. This doesn't differentiate variants of the same browser, such as Safari and Safari Technology Preview.
-    * **User specified browsers**: By tapping the Add button on the popover, you can select any browser other than Safari or Safari Technology Preview that has the Redirect Web extension installed.
+    * **User specified browsers**: By tapping the Add button on the popover, you can select any browser other than Safari or Safari Technology Preview that has the RedirectWeb extension installed.
 * The **All except selected** checkbox lets you target every browser except the ones you’ve chosen.
 
 > [!WARNING]
-> Redirect Web can't differentiate whether the browser is **Safari** or **Safari Technology Preview** because the app checks the parent process of the extension to detect it but these two browsers share the same parent process (`/sbin/launchd`).
+> RedirectWeb can't differentiate whether the browser is **Safari** or **Safari Technology Preview** because the app checks the parent process of the extension to detect it but these two browsers share the same parent process (`/sbin/launchd`).
 
 ### Redirect To {#redirect-to}
 
@@ -168,7 +168,7 @@ You can write comments in the following formats:
 You can also use substitution in Wildcard as well, which means you can reference portions of the matched URL using `$1`, `$2`, etc. For example, if you use `https://example.com/*-world-*`, and the URL is `https://example.com/hello-world-goodbye`, then `$1` would be "hello" and `$2` would be "goodbye". `$0` is also available to reference the entire URL matched.
 
 > [!NOTE]
-> Although substitution is a feature of Regular Expression, you can also use it for Wildcard because Redirect Web internally converts Wildcard to Regular Expression.
+> Although substitution is a feature of Regular Expression, you can also use it for Wildcard because RedirectWeb internally converts Wildcard to Regular Expression.
 
 ### Regular Expression {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ You can also use substitution in Wildcard as well, which means you can reference
 
 You can reference the capturing groups in *Redirect To* or *Replacement* using `$1`, `$2`, ... or `$0` to reference the entire match.
 
-Redirect Web is powered by [Apple's Regex engine](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb is powered by [Apple's Regex engine](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 More information about Regex syntax can be found in resources like [RegExr](https://regexr.com/).

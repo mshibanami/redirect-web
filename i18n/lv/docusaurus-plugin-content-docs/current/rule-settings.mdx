@@ -1,6 +1,6 @@
 # Noteikumu iestatījumi
 
-Šajā lapā ir sniegta detalizēta informācija par katru iestatījumu Redirect Web lietotnes ekrānā *Rediģēt noteikumu*.
+Šajā lapā ir sniegta detalizēta informācija par katru iestatījumu RedirectWeb lietotnes ekrānā *Rediģēt noteikumu*.
 
 ## Iespējas
 
@@ -64,11 +64,11 @@ Opcija **Mērķa pārlūkprogrammas** ļauj norādīt, kurai pārlūkprogrammai 
 
 * Ir 2 pārlūkprogrammu tipi, kurus varat izvēlēties:
     * **Pārlūkprogrammas, kuras varat izvēlēties pēc noklusējuma**: Pēc noklusējuma varat izvēlēties Safari, Chrome, Firefox, Edge, Opera, Arc, Brave un Vivaldi. Tas neatšķir vienas un tās pašas pārlūkprogrammas variantus, piemēram, Safari un Safari Technology Preview.
-    * **Lietotāja norādītās pārlūkprogrammas**: Pieskaroties pogai Pievienot uznirstošajā logā, varat atlasīt jebkuru pārlūkprogrammu, izņemot Safari vai Safari Technology Preview, kurā ir instalēts Redirect Web paplašinājums.
+    * **Lietotāja norādītās pārlūkprogrammas**: Pieskaroties pogai Pievienot uznirstošajā logā, varat atlasīt jebkuru pārlūkprogrammu, izņemot Safari vai Safari Technology Preview, kurā ir instalēts RedirectWeb paplašinājums.
 * Izvēles rūtiņa **Visi, izņemot atlasītos** ļauj mērķēt uz visām pārlūkprogramām, izņemot tās, kuras esat izvēlējies.
 
 > [!WARNING]
-> Redirect Web nevar atšķirt, vai pārlūkprogramma ir **Safari** vai **Safari Technology Preview**, jo lietotne pārbauda paplašinājuma vecākprocesu, lai to noteiktu, taču šīs divas pārlūkprogrammas izmanto vienu un to pašu vecākprocesu (`/sbin/launchd`).
+> RedirectWeb nevar atšķirt, vai pārlūkprogramma ir **Safari** vai **Safari Technology Preview**, jo lietotne pārbauda paplašinājuma vecākprocesu, lai to noteiktu, taču šīs divas pārlūkprogrammas izmanto vienu un to pašu vecākprocesu (`/sbin/launchd`).
 
 ### Pārvirzīt uz {#redirect-to}
 
@@ -168,7 +168,7 @@ Jūs varat rakstīt komentārus šādos formātos:
 Varat izmantot arī aizstāšanu ar aizstājējzīmi, kas nozīmē, ka varat atsaukties uz saskaņotā URL daļām, izmantojot `$1`, `$2` utt. Piemēram, ja izmantojat `https://example.com/*-world-*` un URL ir `https://example.com/hello-world-goodbye`, tad `$1` būtu "hello" un `$2` būtu "goodbye". `$0` ir pieejams arī, lai atsauktos uz visu saskaņoto URL.
 
 > [!NOTE]
-> Lai gan aizstāšana ir regulārās izteiksmes funkcija, to var izmantot arī aizstājējzīmei, jo Redirect Web iekšēji pārvērš aizstājējzīmi par regulāro izteiksmi.
+> Lai gan aizstāšana ir regulārās izteiksmes funkcija, to var izmantot arī aizstājējzīmei, jo RedirectWeb iekšēji pārvērš aizstājējzīmi par regulāro izteiksmi.
 
 ### Regulārā izteiksme {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Varat izmantot arī aizstāšanu ar aizstājējzīmi, kas nozīmē, ka varat ats
 
 Varat atsaukties uz tveršanas grupām opcijā *Pārvirzīt uz* vai *Aizstājējs*, izmantojot `$1`, `$2`, ... vai `$0`, lai atsauktos uz visu atbilstību.
 
-Redirect Web darbina [Apple Regex dzinējs](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb darbina [Apple Regex dzinējs](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Plašāku informāciju par Regex sintaksi var atrast tādos resursos kā [RegExr](https://regexr.com/).

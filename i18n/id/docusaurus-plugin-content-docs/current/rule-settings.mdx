@@ -1,6 +1,6 @@
 # Pengaturan Aturan
 
-Halaman ini menyediakan informasi terperinci tentang setiap pengaturan di layar *Edit Aturan* di aplikasi Redirect Web.
+Halaman ini menyediakan informasi terperinci tentang setiap pengaturan di layar *Edit Aturan* di aplikasi RedirectWeb.
 
 ## Opsi
 
@@ -64,11 +64,11 @@ Opsi **Browser Target** memungkinkan Anda menentukan browser mana yang harus ata
 
 * Ada 2 jenis browser yang dapat Anda pilih:
     * **Browser yang dapat Anda pilih secara default**: Anda dapat memilih Safari, Chrome, Firefox, Edge, Opera, Arc, Brave, dan Vivaldi secara default. Ini tidak membedakan varian browser yang sama, seperti Safari dan Safari Technology Preview.
-    * **Browser yang ditentukan pengguna**: Dengan mengetuk tombol Tambah pada popover, Anda dapat memilih browser apa pun selain Safari atau Safari Technology Preview yang telah menginstal ekstensi Redirect Web.
+    * **Browser yang ditentukan pengguna**: Dengan mengetuk tombol Tambah pada popover, Anda dapat memilih browser apa pun selain Safari atau Safari Technology Preview yang telah menginstal ekstensi RedirectWeb.
 * Kotak centang **Semua kecuali yang dipilih** memungkinkan Anda menargetkan setiap browser kecuali yang telah Anda pilih.
 
 > [!PERINGATAN]
-> Redirect Web tidak dapat membedakan apakah browser tersebut adalah **Safari** atau **Safari Technology Preview** karena aplikasi memeriksa proses induk ekstensi untuk mendeteksinya tetapi kedua browser ini berbagi proses induk yang sama (`/sbin/launchd`).
+> RedirectWeb tidak dapat membedakan apakah browser tersebut adalah **Safari** atau **Safari Technology Preview** karena aplikasi memeriksa proses induk ekstensi untuk mendeteksinya tetapi kedua browser ini berbagi proses induk yang sama (`/sbin/launchd`).
 
 ### Alihkan Ke {#redirect-to}
 
@@ -168,7 +168,7 @@ Anda dapat menulis komentar dalam format berikut:
 Anda juga dapat menggunakan substitusi di Wildcard, yang berarti Anda dapat mereferensikan bagian dari URL yang cocok menggunakan `$1`, `$2`, dll. Misalnya, jika Anda menggunakan `https://example.com/*-world-*`, dan URL-nya adalah `https://example.com/hello-world-goodbye`, maka `$1` akan menjadi "hello" dan `$2` akan menjadi "goodbye". `$0` juga tersedia untuk mereferensikan seluruh URL yang cocok.
 
 > [!CATATAN]
-> Meskipun substitusi adalah fitur Ekspresi Reguler, Anda juga dapat menggunakannya untuk Wildcard karena Redirect Web secara internal mengubah Wildcard menjadi Ekspresi Reguler.
+> Meskipun substitusi adalah fitur Ekspresi Reguler, Anda juga dapat menggunakannya untuk Wildcard karena RedirectWeb secara internal mengubah Wildcard menjadi Ekspresi Reguler.
 
 ### Ekspresi Reguler {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Anda juga dapat menggunakan substitusi di Wildcard, yang berarti Anda dapat mere
 
 Anda dapat mereferensikan grup penangkapan di *Alihkan Ke* atau *Pengganti* menggunakan `$1`, `$2`, ... atau `$0` untuk mereferensikan seluruh kecocokan.
 
-Redirect Web didukung oleh [mesin Regex Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb didukung oleh [mesin Regex Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Informasi lebih lanjut tentang sintaks Regex dapat ditemukan di sumber daya seperti [RegExr](https://regexr.com/).

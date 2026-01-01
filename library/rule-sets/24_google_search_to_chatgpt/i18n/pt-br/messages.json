@@ -1,6 +1,6 @@
 {
   "rule-set.json#/redirects/0/comments": {
-    "message": "Esta regra funciona quando o Google é seu mecanismo de busca padrão. Se você iniciar uma pesquisa na barra de pesquisa com `gpt `, o Redirect Web ignora o Google e o leva diretamente ao ChatGPT com o que vier depois de `gpt `. Para usar uma palavra-gatilho diferente, basta substituir `gpt ` na regra pela sua própria.\n\nVocê pode adicionar estas opções:\n\n- `q={seu texto}`: seu prompt do ChatGPT\n- `hints=search`: ativa o modo de pesquisa do ChatGPT\n- `temporary-chat=true`: abre um chat único\n- `model={nome do modelo}`: escolhe qual modelo usar (ex: `gpt-5`, `gpt-4o`)",
+    "message": "Esta regra funciona quando o Google é seu mecanismo de busca padrão. Se você iniciar uma pesquisa na barra de pesquisa com `gpt `, o RedirectWeb ignora o Google e o leva diretamente ao ChatGPT com o que vier depois de `gpt `. Para usar uma palavra-gatilho diferente, basta substituir `gpt ` na regra pela sua própria.\n\nVocê pode adicionar estas opções:\n\n- `q={seu texto}`: seu prompt do ChatGPT\n- `hints=search`: ativa o modo de pesquisa do ChatGPT\n- `temporary-chat=true`: abre um chat único\n- `model={nome do modelo}`: escolhe qual modelo usar (ex: `gpt-5`, `gpt-4o`)",
     "description": "Os comentários da regra de redirecionamento #0"
   },
   "rule-set.json#/redirects/0/title": {

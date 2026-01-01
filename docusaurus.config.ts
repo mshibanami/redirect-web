@@ -24,7 +24,7 @@ if (process.env.BASE_PATH) {
 const localedBaseUrl = `${baseUrl}${locale == 'en' ? '' : `${locale}/`}`;
 
 const config: Config = {
-  title: 'Redirect Web',
+  title: 'RedirectWeb',
   tagline: translatedTagline(locale),
   url: 'https://mshibanami.github.io/',
   favicon: '/img/icon/favicon.ico',
@@ -72,13 +72,13 @@ const config: Config = {
           blogSidebarTitle: 'Release Notes',
           blogTitle: 'Release Notes',
           blogSidebarCount: 'ALL',
-          blogDescription: 'Release notes for Redirect Web.',
+          blogDescription: 'Release notes for RedirectWeb.',
           blogListComponent: '@site/src/components/ReleaseNotesList',
           showReadingTime: false,
           feedOptions: {
             type: ['rss', 'atom', 'json'],
-            title: 'Redirect Web Release Notes',
-            description: 'An RSS feed of changelogs for Redirect Web',
+            title: 'RedirectWeb Release Notes',
+            description: 'An RSS feed of changelogs for RedirectWeb',
             language: 'en',
           },
           onUntruncatedBlogPosts: 'ignore',
@@ -98,9 +98,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Redirect Web',
+      title: 'RedirectWeb',
       logo: {
-        alt: 'Redirect Web logo',
+        alt: 'RedirectWeb logo',
         src: 'img/logo.png',
       },
       hideOnScroll: true,
