@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "docusaurus start",
-    "build": "./scripts/build.sh",
+    "build": "docusaurus build",
+    "build:prod": "./scripts/build-prod.sh",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
