@@ -12,8 +12,15 @@ const locale = (envLocale && envLocale !== 'undefined' ? envLocale : defaultLoca
 if (!isSupportedLocale(locale)) {
   throw new Error(`Unsupported locale: ${locale}`);
 }
+
 const projectName = 'redirect-web';
-const baseUrl = `/${projectName}/`;
+let baseUrl: string;
+if (process.env.BASE_PATH) {
+  baseUrl = process.env.BASE_PATH;
+} else {
+  console.warn('BASE_PATH is not set. Using default value.');
+  baseUrl = `/${projectName}/`;
+}
 const localedBaseUrl = `${baseUrl}${locale == 'en' ? '' : `${locale}/`}`;
 
 const config: Config = {

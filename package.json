@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "docusaurus start",
     "build": "docusaurus build",
-    "build:prod": "./scripts/build-prod.sh",
+    "build:prod:github": "./scripts/build-prod.sh --environment github",
+    "build:prod:cloudflare": "./scripts/build-prod.sh --environment cloudflare",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
