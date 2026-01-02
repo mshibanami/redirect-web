@@ -1,6 +1,6 @@
 # Nastavitve pravil
 
-Ta stran ponuja podrobne informacije o vsaki nastavitvi na zaslonu *Uredi pravilo* v aplikaciji Redirect Web.
+Ta stran ponuja podrobne informacije o vsaki nastavitvi na zaslonu *Uredi pravilo* v aplikaciji RedirectWeb.
 
 ## Možnosti
 
@@ -64,11 +64,11 @@ Možnost **Ciljni brskalniki** vam omogoča določitev, za katere brskalnike naj
 
 *   Izbirate lahko med 2 vrstama brskalnikov:
     *   **Brskalniki, ki jih lahko izberete privzeto**: Privzeto lahko izberete Safari, Chrome, Firefox, Edge, Opera, Arc, Brave in Vivaldi. To ne razlikuje različic istega brskalnika, kot sta Safari in Safari Technology Preview.
-    *   **Uporabniško določeni brskalniki**: Z dotikom gumba Dodaj na pojavnem oknu, lahko izberete kateri koli brskalnik razen Safarija ali Safari Technology Preview, ki ima nameščeno razširitev Redirect Web.
+    *   **Uporabniško določeni brskalniki**: Z dotikom gumba Dodaj na pojavnem oknu, lahko izberete kateri koli brskalnik razen Safarija ali Safari Technology Preview, ki ima nameščeno razširitev RedirectWeb.
 *   Potrditveno polje **Vsi razen izbranih** vam omogoča ciljanje na vse brskalnike razen tistih, ki ste jih izbrali.
 
 > [!WARNING]
-> Redirect Web ne more razlikovati, ali je brskalnik **Safari** ali **Safari Technology Preview**, ker aplikacija preverja nadrejeni proces razširitve, da ga zazna, vendar ta dva brskalnika delita isti nadrejeni proces (`/sbin/launchd`).
+> RedirectWeb ne more razlikovati, ali je brskalnik **Safari** ali **Safari Technology Preview**, ker aplikacija preverja nadrejeni proces razširitve, da ga zazna, vendar ta dva brskalnika delita isti nadrejeni proces (`/sbin/launchd`).
 
 ### Preusmeri na {#redirect-to}
 
@@ -168,7 +168,7 @@ Komentarje lahko pišete v naslednjih formatih:
 Nadomestitev lahko uporabite tudi v nadomestnem znaku, kar pomeni, da lahko referencirate dele ujemajočega se URL-ja z `$1`, `$2`, itd. Na primer, če uporabite `https://example.com/*-world-*` in je URL `https://example.com/hello-world-goodbye`, potem bi bil `$1` "hello" in `$2` "goodbye". `$0` je na voljo tudi za referenciranje celotnega ujemajočega se URL-ja.
 
 > [!NOTE]
-> Čeprav je nadomestitev funkcija regularnega izraza, jo lahko uporabite tudi za nadomestni znak, ker Redirect Web interno pretvori nadomestni znak v regularni izraz.
+> Čeprav je nadomestitev funkcija regularnega izraza, jo lahko uporabite tudi za nadomestni znak, ker RedirectWeb interno pretvori nadomestni znak v regularni izraz.
 
 ### Regularni izraz {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Nadomestitev lahko uporabite tudi v nadomestnem znaku, kar pomeni, da lahko refe
 
 Zajete skupine lahko referencirate v *Preusmeri na* ali *Zamenjava* z `$1`, `$2`, ... ali `$0` za referenciranje celotnega ujemanja.
 
-Redirect Web poganja [Applov Regex motor](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb poganja [Applov Regex motor](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Več informacij o sintaksi Regex najdete v virih, kot je [RegExr](https://regexr.com/).

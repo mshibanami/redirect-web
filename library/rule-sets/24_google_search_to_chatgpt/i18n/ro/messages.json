@@ -1,6 +1,6 @@
 {
   "rule-set.json#/redirects/0/comments": {
-    "message": "Acestă regulă funcționează atunci când Google este motorul tău de căutare implicit. Dacă începi o căutare în bara de căutare cu `gpt `, Redirect Web omite Google și te duce direct la ChatGPT cu tot ce urmează după `gpt `. Pentru a utiliza un alt cuvânt declanșator, înlocuiește pur și simplu `gpt ` din regulă cu propriul tău cuvânt.\n\nPuteți adăuga aceste opțiuni:\n\n- `q={textul tău}`: promptul tău pentru ChatGPT\n- `hints=search`: activează modul de căutare al ChatGPT\n- `temporary-chat=true`: deschide un chat unic\n- `model={numele modelului}`: alege ce model să utilizezi (ex. `gpt-5`, `gpt-4o`)",
+    "message": "Acestă regulă funcționează atunci când Google este motorul tău de căutare implicit. Dacă începi o căutare în bara de căutare cu `gpt `, RedirectWeb omite Google și te duce direct la ChatGPT cu tot ce urmează după `gpt `. Pentru a utiliza un alt cuvânt declanșator, înlocuiește pur și simplu `gpt ` din regulă cu propriul tău cuvânt.\n\nPuteți adăuga aceste opțiuni:\n\n- `q={textul tău}`: promptul tău pentru ChatGPT\n- `hints=search`: activează modul de căutare al ChatGPT\n- `temporary-chat=true`: deschide un chat unic\n- `model={numele modelului}`: alege ce model să utilizezi (ex. `gpt-5`, `gpt-4o`)",
     "description": "The comments of redirect rule #0"
   },
   "rule-set.json#/redirects/0/title": {

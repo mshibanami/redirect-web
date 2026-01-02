@@ -1,6 +1,6 @@
 # Szabálybeállítások
 
-Ez az oldal részletes információkat tartalmaz a Redirect Web alkalmazás *Szabály szerkesztése* képernyőjének minden beállításáról.
+Ez az oldal részletes információkat tartalmaz a RedirectWeb alkalmazás *Szabály szerkesztése* képernyőjének minden beállításáról.
 
 ## Opciók
 
@@ -64,11 +64,11 @@ A **Célböngészők** opció lehetővé teszi, hogy megadja, mely böngészőkr
 
 * 2 típusú böngésző közül választhat:
     * **Alapértelmezés szerint választható böngészők**: Alapértelmezés szerint választhatja a Safarit, a Chrome-ot, a Firefoxot, az Edge-et, az Operát, az Arc-ot, a Brave-et és a Vivaldit. Ez nem különbözteti meg ugyanazon böngésző változatait, például a Safarit és a Safari Technology Preview-t.
-    * **Felhasználó által megadott böngészők**: A felugró ablakban az Hozzáadás gombra koppintva kiválaszthat bármely böngészőt a Safari vagy a Safari Technology Preview kivételével, amelyre telepítve van a Redirect Web bővítmény.
+    * **Felhasználó által megadott böngészők**: A felugró ablakban az Hozzáadás gombra koppintva kiválaszthat bármely böngészőt a Safari vagy a Safari Technology Preview kivételével, amelyre telepítve van a RedirectWeb bővítmény.
 * Az **Összes kivéve a kiválasztottat** jelölőnégyzet lehetővé teszi, hogy az összes böngészőt megcélozza, kivéve azokat, amelyeket kiválasztott.
 
 > [!WARNING]
-> A Redirect Web nem tudja megkülönböztetni, hogy a böngésző **Safari** vagy **Safari Technology Preview**, mert az alkalmazás az bővítmény szülőfolyamatát ellenőrzi annak észleléséhez, de ez a két böngésző ugyanazt a szülőfolyamatot (`/sbin/launchd`) használja.
+> A RedirectWeb nem tudja megkülönböztetni, hogy a böngésző **Safari** vagy **Safari Technology Preview**, mert az alkalmazás az bővítmény szülőfolyamatát ellenőrzi annak észleléséhez, de ez a két böngésző ugyanazt a szülőfolyamatot (`/sbin/launchd`) használja.
 
 ### Átirányítás ide {#redirect-to}
 
@@ -168,7 +168,7 @@ A **Helyettesítő karakter** egy egyszerűbb mintatípus, amely lehetővé tesz
 Helyettesítést is használhat a Helyettesítő karakterben, ami azt jelenti, hogy a matched URL részeit `$1`, `$2`, stb. használatával hivatkozhatja. Például, ha `https://example.com/*-world-*` címet használ, és az URL `https://example.com/hello-world-goodbye`, akkor `$1` "hello" és `$2` "goodbye" lenne. `$0` is elérhető a teljes matched URL hivatkozására.
 
 > [!NOTE]
-> Bár a helyettesítés a reguláris kifejezés egyik funkciója, a Helyettesítő karakterhez is használhatja, mert a Redirect Web belsőleg átalakítja a Helyettesítő karaktert reguláris kifejezéssé.
+> Bár a helyettesítés a reguláris kifejezés egyik funkciója, a Helyettesítő karakterhez is használhatja, mert a RedirectWeb belsőleg átalakítja a Helyettesítő karaktert reguláris kifejezéssé.
 
 ### Reguláris kifejezés {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ A **Reguláris kifejezés** (Regex) egy hatékony eszköz a szövegekben lévő 
 
 Hivatkozhat a rögzítőcsoportokra az *Átirányítás ide* vagy *Csere* opcióban `$1`, `$2`, ... vagy `$0` használatával a teljes egyezésre.
 
-A Redirect Web-et az [Apple Regex motorja](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) hajtja.
+A RedirectWeb-et az [Apple Regex motorja](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) hajtja.
 
 További információ a Regex szintaxisról olyan forrásokban található, mint a [RegExr](https://regexr.com/).

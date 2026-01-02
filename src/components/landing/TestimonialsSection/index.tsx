@@ -59,7 +59,7 @@ const testimonials: Testimonial[] = [
         affiliation: '🇮🇪 ' + appStoreAffiliation + ' ･ iOS',
         review: translate({
             id: 'testimonials.userReview.kieranHunt',
-            message: 'I needed an app to help curb my internet addiction. Every time my muscle memory takes me to YouTube, Hacker News or Twitter, I’ve set Redirect Web to send me to a site filled with stoic quotes. That’s enough of a kick in the behind to stop me wanting to mindlessly browse.',
+            message: 'I needed an app to help curb my internet addiction. Every time my muscle memory takes me to YouTube, Hacker News or Twitter, I’ve set RedirectWeb to send me to a site filled with stoic quotes. That’s enough of a kick in the behind to stop me wanting to mindlessly browse.',
             description: 'Testimonial review by a user'
         }),
         originalReview: enCode['testimonials.userReview.kieranHunt'].message,

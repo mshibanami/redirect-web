@@ -1,6 +1,6 @@
 # 规则设置
 
-本页提供 Redirect Web 应用中“编辑规则”屏幕中每个设置的详细信息。
+本页提供 RedirectWeb 应用中“编辑规则”屏幕中每个设置的详细信息。
 
 ## 选项
 
@@ -64,11 +64,11 @@
 
 * 您可以选择 2 种类型的浏览器：
     * **默认可选择的浏览器**：您可以默认选择 Safari、Chrome、Firefox、Edge、Opera、Arc、Brave 和 Vivaldi。这不区分同一浏览器的变体，例如 Safari 和 Safari Technology Preview。
-    * **用户指定的浏览器**：通过点击弹出窗口上的“添加”按钮，您可以选择除 Safari 或 Safari Technology Preview 之外的任何已安装 Redirect Web 扩展程序的浏览器。
+    * **用户指定的浏览器**：通过点击弹出窗口上的“添加”按钮，您可以选择除 Safari 或 Safari Technology Preview 之外的任何已安装 RedirectWeb 扩展程序的浏览器。
 * **除选定项外所有**复选框允许您定位除您选择的浏览器之外的所有浏览器。
 
 > [!WARNING]
-> Redirect Web 无法区分浏览器是 **Safari** 还是 **Safari Technology Preview**，因为应用程序通过检查扩展程序的父进程来检测它，但这两个浏览器共享相同的父进程 (`/sbin/launchd`)。
+> RedirectWeb 无法区分浏览器是 **Safari** 还是 **Safari Technology Preview**，因为应用程序通过检查扩展程序的父进程来检测它，但这两个浏览器共享相同的父进程 (`/sbin/launchd`)。
 
 ### 重定向到 {#redirect-to}
 
@@ -168,7 +168,7 @@
 您也可以在通配符中使用替换，这意味着您可以使用 `$1`、`$2` 等引用匹配 URL 的部分。例如，如果您使用 `https://example.com/*-world-*`，并且 URL 是 `https://example.com/hello-world-goodbye`，则 `$1` 将是“hello”，`$2` 将是“goodbye”。`$0` 也可用于引用整个匹配的 URL。
 
 > [!NOTE]
-> 尽管替换是正则表达式的一个功能，但您也可以将其用于通配符，因为 Redirect Web 会在内部将通配符转换为正则表达式。
+> 尽管替换是正则表达式的一个功能，但您也可以将其用于通配符，因为 RedirectWeb 会在内部将通配符转换为正则表达式。
 
 ### 正则表达式 {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@
 
 您可以使用 `$1`、`$2` 等在“重定向到”或“替换”中引用捕获组，或使用 `$0` 引用整个匹配项。
 
-Redirect Web 由 [Apple 的 Regex 引擎](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042)提供支持。
+RedirectWeb 由 [Apple 的 Regex 引擎](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042)提供支持。
 
 有关 Regex 语法的更多信息，请参阅 [RegExr](https://regexr.com/) 等资源。

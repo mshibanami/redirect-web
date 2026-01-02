@@ -1,6 +1,6 @@
-# Redirect Web - Browser Extension
+# RedirectWeb - Browser Extension
 
-This is a repository for [the support website of Redirect Web](https://mshibanami.github.io/redirect-web).
+This is a repository for [the support website of RedirectWeb](https://mshibanami.github.io/redirect-web).
 
 Download the app and the extension from the following links:
 

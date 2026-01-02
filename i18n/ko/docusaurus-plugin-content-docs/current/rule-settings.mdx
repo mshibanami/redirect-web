@@ -1,6 +1,6 @@
 # 규칙 설정
 
-이 페이지는 Redirect Web 앱의 *규칙 편집* 화면에 있는 각 설정에 대한 자세한 정보를 제공합니다.
+이 페이지는 RedirectWeb 앱의 *규칙 편집* 화면에 있는 각 설정에 대한 자세한 정보를 제공합니다.
 
 ## 옵션
 
@@ -64,11 +64,11 @@
 
 *   선택할 수 있는 브라우저 유형은 2가지입니다:
     *   **기본적으로 선택할 수 있는 브라우저**: Safari, Chrome, Firefox, Edge, Opera, Arc, Brave, Vivaldi를 기본적으로 선택할 수 있습니다. 이는 Safari와 Safari Technology Preview와 같이 동일한 브라우저의 변형을 구분하지 않습니다.
-    *   **사용자 지정 브라우저**: 팝오버에서 추가 버튼을 탭하여 Redirect Web 확장 프로그램이 설치된 Safari 또는 Safari Technology Preview를 제외한 모든 브라우저를 선택할 수 있습니다.
+    *   **사용자 지정 브라우저**: 팝오버에서 추가 버튼을 탭하여 RedirectWeb 확장 프로그램이 설치된 Safari 또는 Safari Technology Preview를 제외한 모든 브라우저를 선택할 수 있습니다.
 *   **선택된 항목 제외** 확인란을 사용하면 선택한 브라우저를 제외한 모든 브라우저를 대상으로 지정할 수 있습니다.
 
 > [!WARNING]
-> Redirect Web은 브라우저가 **Safari**인지 **Safari Technology Preview**인지 구분할 수 없습니다. 앱이 확장 프로그램의 상위 프로세스를 확인하여 이를 감지하지만 이 두 브라우저는 동일한 상위 프로세스(`/sbin/launchd`)를 공유하기 때문입니다.
+> RedirectWeb은 브라우저가 **Safari**인지 **Safari Technology Preview**인지 구분할 수 없습니다. 앱이 확장 프로그램의 상위 프로세스를 확인하여 이를 감지하지만 이 두 브라우저는 동일한 상위 프로세스(`/sbin/launchd`)를 공유하기 때문입니다.
 
 ### 리디렉션 대상 {#redirect-to}
 
@@ -168,7 +168,7 @@
 와일드카드에서도 대체 기능을 사용할 수 있습니다. 즉, `$1`, `$2` 등을 사용하여 일치하는 URL의 일부를 참조할 수 있습니다. 예를 들어, `https://example.com/*-world-*`를 사용하고 URL이 `https://example.com/hello-world-goodbye`인 경우 `$1`은 "hello"이고 `$2`는 "goodbye"가 됩니다. `$0`도 일치하는 전체 URL을 참조하는 데 사용할 수 있습니다.
 
 > [!NOTE]
-> 대체는 정규 표현식의 기능이지만, Redirect Web이 내부적으로 와일드카드를 정규 표현식으로 변환하기 때문에 와일드카드에도 사용할 수 있습니다.
+> 대체는 정규 표현식의 기능이지만, RedirectWeb이 내부적으로 와일드카드를 정규 표현식으로 변환하기 때문에 와일드카드에도 사용할 수 있습니다.
 
 ### 정규 표현식 {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@
 
 `$1`, `$2`, ...를 사용하여 *리디렉션 대상* 또는 *대체*에서 캡처 그룹을 참조하거나 `$0`를 사용하여 전체 일치를 참조할 수 있습니다.
 
-Redirect Web은 [Apple의 정규 표현식 엔진](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042)으로 구동됩니다.
+RedirectWeb은 [Apple의 정규 표현식 엔진](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042)으로 구동됩니다.
 
 정규 표현식 구문에 대한 자세한 정보는 [RegExr](https://regexr.com/)와 같은 자료에서 찾을 수 있습니다.

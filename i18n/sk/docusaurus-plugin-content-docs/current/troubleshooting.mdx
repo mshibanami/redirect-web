@@ -8,7 +8,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 # Riešenie problémov
 
-Táto stránka obsahuje bežné problémy a ich riešenia pri používaní Redirect Web.
+Táto stránka obsahuje bežné problémy a ich riešenia pri používaní RedirectWeb.
 
 <TOCInline toc={toc} />
 
@@ -16,27 +16,27 @@ Táto stránka obsahuje bežné problémy a ich riešenia pri používaní Redir
 
 Ak vaše pravidlá nefungujú podľa očakávaní, skontrolujte nasledovné:
 
-- **Rozšírenie prehliadača je nainštalované a povolené pre správnu stránku:** Uistite sa, že máte nainštalované rozšírenie Redirect Web a že je v prehliadači povolené pre webovú stránku, z ktorej chcete presmerovať. Ak na zdrojovej stránke môžete otvoriť vyskakovacie okno rozšírenia takto, rozšírenie je správne nainštalované:
-    <Image src={ExtensionPopup} alt="Vyskakovacie okno rozšírenia Redirect Web" width="260" hasShadow/>
+- **Rozšírenie prehliadača je nainštalované a povolené pre správnu stránku:** Uistite sa, že máte nainštalované rozšírenie RedirectWeb a že je v prehliadači povolené pre webovú stránku, z ktorej chcete presmerovať. Ak na zdrojovej stránke môžete otvoriť vyskakovacie okno rozšírenia takto, rozšírenie je správne nainštalované:
+    <Image src={ExtensionPopup} alt="Vyskakovacie okno rozšírenia RedirectWeb" width="260" hasShadow/>
 
-- **Konfigurácia pravidla je správna:** Dvakrát skontrolujte svoje pravidlá presmerovania v natívnej aplikácii Redirect Web. Uistite sa, že vzory zdrojových URL, cieľové URL a všetky podmienky sú správne nastavené. Na overenie platnosti pravidla vložte príklad URL do sekcie Examples na obrazovke Edit Rule. Ak je pravidlo platné, pod vaším vstupom uvidíte očakávané cieľové URL, napríklad takto:
+- **Konfigurácia pravidla je správna:** Dvakrát skontrolujte svoje pravidlá presmerovania v natívnej aplikácii RedirectWeb. Uistite sa, že vzory zdrojových URL, cieľové URL a všetky podmienky sú správne nastavené. Na overenie platnosti pravidla vložte príklad URL do sekcie Examples na obrazovke Edit Rule. Ak je pravidlo platné, pod vaším vstupom uvidíte očakávané cieľové URL, napríklad takto:
     <Image src={RuleEditExampleResult} alt="Príklad výsledku v obrazovke úpravy pravidla" width="260" hasShadow/>
 
 ## Vo vyskakovacom okne rozšírenia sa zobrazuje chyba {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Chybové prekrytie Redirect Web" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="Chybové prekrytie RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web app hasn't been installed or is not working properly.  
+> RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
 
-Ak sa pri otvorení vyskakovacieho okna rozšírenia zobrazí vyššie uvedená chyba, znamená to, že natívna aplikácia Redirect Web nie je nainštalovaná alebo nefunguje správne.
+Ak sa pri otvorení vyskakovacieho okna rozšírenia zobrazí vyššie uvedená chyba, znamená to, že natívna aplikácia RedirectWeb nie je nainštalovaná alebo nefunguje správne.
 
-Uistite sa, že máte nainštalovanú najnovšiu verziu Redirect Web z [App Store](https://apps.apple.com/app/id1571283503).
+Uistite sa, že máte nainštalovanú najnovšiu verziu RedirectWeb z [App Store](https://apps.apple.com/app/id1571283503).
 
 Po inštalácii natívnej aplikácie môže byť tiež potrebné znovu spustiť prehliadač.
 
 > [!NOTE]
-> * Na použitie rozšírenia prehliadača je potrebné nainštalovať natívnu aplikáciu Redirect Web. Samotné rozšírenie nefunguje.
+> * Na použitie rozšírenia prehliadača je potrebné nainštalovať natívnu aplikáciu RedirectWeb. Samotné rozšírenie nefunguje.
 > * Používatelia Safari nemusia rozšírenie inštalovať samostatne, pretože je súčasťou natívnej aplikácie.
 
 ## Pôvodná stránka sa krátko zobrazí pred presmerovaním {#original-page-flash}
@@ -45,7 +45,7 @@ K tomu dochádza, keď používate pravidlá presmerovania typu **Original**. Te
 
 Otvorte obrazovku Edit Rule a zmeňte **Type** na **DNR**, aby ste tomuto problému predišli.
 
-<Image src={EditRuleDnr} alt="Vyskakovacie okno rozšírenia Redirect Web" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="Vyskakovacie okno rozšírenia RedirectWeb" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > Vo Firefoxe by k tomuto problému nemalo dochádzať ani pri type Original, pretože využíva WebRequest API, ktoré zabraňuje načítaniu pôvodnej stránky.
@@ -59,7 +59,7 @@ V okne nastavení Safari sa môžu zobraziť chybové hlásenia ako nasledujúce
 > * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
 > * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
-To neovplyvňuje funkčnosť Redirect Web. Môžete ich bezpečne ignorovať.
+To neovplyvňuje funkčnosť RedirectWeb. Môžete ich bezpečne ignorovať.
 
 Tieto chyby sú spôsobené tým, že vyskakovacie okno rozšírenia sa pokúša načítať štýlové súbory pre stolné aj mobilné zariadenia, pričom je možné načítať len jeden z nich v závislosti od toho, či používate macOS alebo iOS. V dôsledku toho sa jeden zo súborov vždy nepodarí načítať, čo je očakávané správanie.
 

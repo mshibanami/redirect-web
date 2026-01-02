@@ -1,6 +1,6 @@
 # Regelinställningar
 
-Denna sida ger detaljerad information om varje inställning på skärmen *Redigera regel* i Redirect Web-appen.
+Denna sida ger detaljerad information om varje inställning på skärmen *Redigera regel* i RedirectWeb-appen.
 
 ## Alternativ
 
@@ -62,11 +62,11 @@ Alternativet **Målwebbläsare** låter dig ange vilken webbläsare regeln ska e
 
 *   Det finns 2 typer av webbläsare du kan välja:
     *   **Webbläsare du kan välja som standard**: Du kan välja Safari, Chrome, Firefox, Edge, Opera, Arc, Brave och Vivaldi som standard. Detta skiljer inte varianter av samma webbläsare, såsom Safari och Safari Technology Preview.
-    *   **Användarspecifika webbläsare**: Genom att trycka på knappen Lägg till i popup-fönstret kan du välja vilken webbläsare som helst utom Safari eller Safari Technology Preview som har Redirect Web-tillägget installerat.
+    *   **Användarspecifika webbläsare**: Genom att trycka på knappen Lägg till i popup-fönstret kan du välja vilken webbläsare som helst utom Safari eller Safari Technology Preview som har RedirectWeb-tillägget installerat.
 *   Kryssrutan **Alla utom valda** låter dig rikta in dig på alla webbläsare utom de du har valt.
 
 > [!WARNING]
-> Redirect Web kan inte skilja om webbläsaren är **Safari** eller **Safari Technology Preview** eftersom appen kontrollerar tilläggets överordnade process för att upptäcka det, men dessa två webbläsare delar samma överordnade process (`/sbin/launchd`).
+> RedirectWeb kan inte skilja om webbläsaren är **Safari** eller **Safari Technology Preview** eftersom appen kontrollerar tilläggets överordnade process för att upptäcka det, men dessa två webbläsare delar samma överordnade process (`/sbin/launchd`).
 
 ### Omdirigera till {#redirect-to}
 
@@ -166,7 +166,7 @@ Du kan skriva kommentarer i följande format:
 Du kan också använda substitution i Wildcard, vilket innebär att du kan referera till delar av den matchade URL:en med `$1`, `$2`, etc. Om du till exempel använder `https://example.com/*-world-*`, och URL:en är `https://example.com/hello-world-goodbye`, då skulle `$1` vara "hello" och `$2` skulle vara "goodbye". `$0` är också tillgängligt för att referera till hela den matchade URL:en.
 
 > [!NOTE]
-> Även om substitution är en funktion i reguljära uttryck, kan du också använda den för Wildcard eftersom Redirect Web internt konverterar Wildcard till reguljära uttryck.
+> Även om substitution är en funktion i reguljära uttryck, kan du också använda den för Wildcard eftersom RedirectWeb internt konverterar Wildcard till reguljära uttryck.
 
 ### Reguljärt uttryck {#url-pattern-regular-expression}
 
@@ -178,6 +178,6 @@ Du kan också använda substitution i Wildcard, vilket innebär att du kan refer
 
 Du kan referera till fångstgrupperna i *Omdirigera till* eller *Ersättning* med `$1`, `$2`, ... eller `$0` för att referera till hela matchningen.
 
-Redirect Web drivs av [Apples Regex-motor](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb drivs av [Apples Regex-motor](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Mer information om Regex-syntax kan hittas i resurser som [RegExr](https://regexr.com/).

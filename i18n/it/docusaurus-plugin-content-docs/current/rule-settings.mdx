@@ -1,6 +1,6 @@
 # Impostazioni Regola
 
-Questa pagina fornisce informazioni dettagliate su ogni impostazione nella schermata *Modifica Regola* nell'app Redirect Web.
+Questa pagina fornisce informazioni dettagliate su ogni impostazione nella schermata *Modifica Regola* nell'app RedirectWeb.
 
 ## Opzioni
 
@@ -64,11 +64,11 @@ L'opzione **Browser di Destinazione** ti consente di specificare a quale browser
 
 * Ci sono 2 tipi di browser che puoi scegliere:
     * **Browser che puoi scegliere per impostazione predefinita**: Puoi scegliere Safari, Chrome, Firefox, Edge, Opera, Arc, Brave e Vivaldi per impostazione predefinita. Questo non differenzia le varianti dello stesso browser, come Safari e Safari Technology Preview.
-    * **Browser specificati dall'utente**: Toccando il pulsante Aggiungi sul popover, puoi selezionare qualsiasi browser diverso da Safari o Safari Technology Preview che abbia l'estensione Redirect Web installata.
+    * **Browser specificati dall'utente**: Toccando il pulsante Aggiungi sul popover, puoi selezionare qualsiasi browser diverso da Safari o Safari Technology Preview che abbia l'estensione RedirectWeb installata.
 * La casella di controllo **Tutti tranne i selezionati** ti consente di scegliere come target ogni browser tranne quelli che hai scelto.
 
 > [!WARNING]
-> Redirect Web non può differenziare se il browser è **Safari** o **Safari Technology Preview** perché l'app controlla il processo padre dell'estensione per rilevarlo, ma questi due browser condividono lo stesso processo padre (`/sbin/launchd`).
+> RedirectWeb non può differenziare se il browser è **Safari** o **Safari Technology Preview** perché l'app controlla il processo padre dell'estensione per rilevarlo, ma questi due browser condividono lo stesso processo padre (`/sbin/launchd`).
 
 ### Reindirizza a {#redirect-to}
 
@@ -168,7 +168,7 @@ I **pattern URL** vengono utilizzati per corrispondere agli URL nelle opzioni *R
 Puoi anche usare la sostituzione in Carattere jolly, il che significa che puoi fare riferimento a porzioni dell'URL corrispondente usando `$1`, `$2`, ecc. Ad esempio, se usi `https://example.com/*-world-*`, e l'URL è `https://example.com/hello-world-goodbye`, allora `$1` sarebbe "hello" e `$2` sarebbe "goodbye". `$0` è anche disponibile per fare riferimento all'intero URL corrispondente.
 
 > [!NOTE]
-> Sebbene la sostituzione sia una funzionalità dell'Espressione regolare, puoi usarla anche per Carattere jolly perché Redirect Web converte internamente Carattere jolly in Espressione regolare.
+> Sebbene la sostituzione sia una funzionalità dell'Espressione regolare, puoi usarla anche per Carattere jolly perché RedirectWeb converte internamente Carattere jolly in Espressione regolare.
 
 ### Espressione regolare {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ L'**Espressione regolare** (Regex) è uno strumento potente per la corrispondenz
 
 Puoi fare riferimento ai gruppi di cattura in *Reindirizza a* o *Sostituzione* usando `$1`, `$2`, ... o `$0` per fare riferimento all'intera corrispondenza.
 
-Redirect Web è alimentato dal [motore Regex di Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb è alimentato dal [motore Regex di Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Maggiori informazioni sulla sintassi Regex possono essere trovate in risorse come [RegExr](https://regexr.com/).

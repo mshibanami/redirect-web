@@ -1,6 +1,6 @@
 {
   "rule-set.json#/redirects/0/comments": {
-    "message": "Toto pravidlo funguje, keď je Google vaším predvoleným vyhľadávačom. Ak začnete vyhľadávanie vo vyhľadávacom paneli s `gpt␣`, Redirect Web preskočí Google a presmeruje vás priamo na ChatGPT s tým, čo nasleduje po `gpt␣`. Ak chcete použiť iné spúšťacie slovo, stačí nahradiť `gpt␣` v pravidle vlastným.\n\nMôžete pridať tieto možnosti:\n\n- `q={váš text}`: váš prompt pre ChatGPT\n- `hints=search`: zapne režim vyhľadávania ChatGPT\n- `temporary-chat=true`: otvorí jednorazový chat\n- `model={názov modelu}`: vyberie model, ktorý sa má použiť (napr. `gpt-5`, `gpt-4o`)",
+    "message": "Toto pravidlo funguje, keď je Google vaším predvoleným vyhľadávačom. Ak začnete vyhľadávanie vo vyhľadávacom paneli s `gpt␣`, RedirectWeb preskočí Google a presmeruje vás priamo na ChatGPT s tým, čo nasleduje po `gpt␣`. Ak chcete použiť iné spúšťacie slovo, stačí nahradiť `gpt␣` v pravidle vlastným.\n\nMôžete pridať tieto možnosti:\n\n- `q={váš text}`: váš prompt pre ChatGPT\n- `hints=search`: zapne režim vyhľadávania ChatGPT\n- `temporary-chat=true`: otvorí jednorazový chat\n- `model={názov modelu}`: vyberie model, ktorý sa má použiť (napr. `gpt-5`, `gpt-4o`)",
     "description": "The comments of redirect rule #0"
   },
   "rule-set.json#/redirects/0/title": {

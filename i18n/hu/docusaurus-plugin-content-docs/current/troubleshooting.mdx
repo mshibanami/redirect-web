@@ -8,7 +8,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 # Hibaelhárítás
 
-Ez az oldal a Redirect Web használata közben előforduló gyakori problémákat és megoldásaikat sorolja fel.
+Ez az oldal a RedirectWeb használata közben előforduló gyakori problémákat és megoldásaikat sorolja fel.
 
 <TOCInline toc={toc} />
 
@@ -16,27 +16,27 @@ Ez az oldal a Redirect Web használata közben előforduló gyakori problémáka
 
 Ha az átirányítási szabályok nem a vártnak megfelelően működnek, ellenőrizze a következőket:
 
-- **A böngészőbővítmény telepítve és engedélyezve van a megfelelő oldalon:** Győződjön meg róla, hogy telepítette a Redirect Web böngészőbővítményt, és hogy a böngészőjében a forrásként szolgáló weboldalon engedélyezve van. Ha az eredeti weboldalon így meg tudja nyitni a bővítmény felugró ablakát, akkor helyesen van telepítve:
-    <Image src={ExtensionPopup} alt="A Redirect Web bővítmény felugró ablaka" width="260" hasShadow/>
+- **A böngészőbővítmény telepítve és engedélyezve van a megfelelő oldalon:** Győződjön meg róla, hogy telepítette a RedirectWeb böngészőbővítményt, és hogy a böngészőjében a forrásként szolgáló weboldalon engedélyezve van. Ha az eredeti weboldalon így meg tudja nyitni a bővítmény felugró ablakát, akkor helyesen van telepítve:
+    <Image src={ExtensionPopup} alt="A RedirectWeb bővítmény felugró ablaka" width="260" hasShadow/>
 
-- **A szabály konfigurációja helyes:** Ellenőrizze a Redirect Web natív alkalmazásban létrehozott átirányítási szabályokat. Győződjön meg róla, hogy a forrás URL-minták, a cél URL-ek és az esetleges feltételek helyesen vannak beállítva. Annak ellenőrzéséhez, hogy a szabály érvényes-e, írjon be egy például szolgáló URL-t a Szabály szerkesztése képernyő „Examples” részébe. Ha a szabály érvényes, a bevitel alatt megjelenik a várt cél URL, így:
+- **A szabály konfigurációja helyes:** Ellenőrizze a RedirectWeb natív alkalmazásban létrehozott átirányítási szabályokat. Győződjön meg róla, hogy a forrás URL-minták, a cél URL-ek és az esetleges feltételek helyesen vannak beállítva. Annak ellenőrzéséhez, hogy a szabály érvényes-e, írjon be egy például szolgáló URL-t a Szabály szerkesztése képernyő „Examples” részébe. Ha a szabály érvényes, a bevitel alatt megjelenik a várt cél URL, így:
     <Image src={RuleEditExampleResult} alt="Példa a Szabály szerkesztése képernyőre, amely a példa URL eredményét mutatja" width="260" hasShadow/>
 
 ## A bővítmény felugró ablakában hiba jelenik meg {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="A Redirect Web hibaüzenete" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="A RedirectWeb hibaüzenete" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web app hasn't been installed or is not working properly.  
+> RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
 
-Ha a fenti hibát látja a bővítmény megnyitásakor, az azt jelenti, hogy a Redirect Web natív alkalmazás nincs telepítve vagy nem fut megfelelően.
+Ha a fenti hibát látja a bővítmény megnyitásakor, az azt jelenti, hogy a RedirectWeb natív alkalmazás nincs telepítve vagy nem fut megfelelően.
 
-Győződjön meg róla, hogy telepítette a Redirect Web legfrissebb verzióját az [App Store](https://apps.apple.com/app/id1571283503)-ból.
+Győződjön meg róla, hogy telepítette a RedirectWeb legfrissebb verzióját az [App Store](https://apps.apple.com/app/id1571283503)-ból.
 
 Előfordulhat, hogy a natív alkalmazás telepítése után újra kell indítania a böngészőt.
 
 > [!NOTE]
-> * A böngészőbővítmény használatához telepítenie kell a Redirect Web natív alkalmazást. Magában a bővítmény nem működik.
+> * A böngészőbővítmény használatához telepítenie kell a RedirectWeb natív alkalmazást. Magában a bővítmény nem működik.
 > * A Safari felhasználóinak nem kell külön telepíteniük a bővítményt, mivel az a natív alkalmazás részeként érkezik.
 
 ## Az eredeti oldal röviden felvillan az átirányítás előtt {#original-page-flash}
@@ -45,7 +45,7 @@ Ez akkor fordul elő, ha az **Original** típusú átirányítási szabályokat 
 
 Nyissa meg a Szabály szerkesztése képernyőt, és állítsa a **Type** értékét **DNR**-re ennek elkerüléséhez.
 
-<Image src={EditRuleDnr} alt="A Redirect Web bővítmény felugró ablaka" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="A RedirectWeb bővítmény felugró ablaka" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > Firefoxban ez a probléma nem kellene hogy előforduljon még az Original típus használata esetén sem, mivel a WebRequest API-ra támaszkodik, amely megakadályozza az eredeti oldal betöltődését.
@@ -59,7 +59,7 @@ A Safari Beállítások ablakában a következőhöz hasonló hibaüzeneteket l�
 > * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
 > * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
-Ez nem befolyásolja a Redirect Web működését. Nyugodtan figyelmen kívül hagyhatja ezeket.
+Ez nem befolyásolja a RedirectWeb működését. Nyugodtan figyelmen kívül hagyhatja ezeket.
 
 Ez a hiba abból adódik, hogy a bővítmény felugró ablaka egyszerre próbálja betölteni az asztali és mobil eszközökre szánt stílusfájlokat, miközben csak az egyiket tudja betölteni attól függően, hogy Mac-et vagy iOS-t használ. Ennek következtében az egyik fájl mindig nem töltődik be, ami várt viselkedés.
 

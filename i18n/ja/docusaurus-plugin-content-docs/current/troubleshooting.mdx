@@ -8,7 +8,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 # トラブルシューティング
 
-このページでは、Redirect Web を使用する際によくある問題とその対処法を掲載しています。
+このページでは、RedirectWeb を使用する際によくある問題とその対処法を掲載しています。
 
 <TOCInline toc={toc} />
 
@@ -16,27 +16,27 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 ルールが期待どおりに動作しない場合、次の点を確認してください。
 
-- **ブラウザ拡張がインストールされ、該当ページで有効になっているか:** Redirect Web のブラウザ拡張をインストールし、リダイレクト元のウェブページで拡張が有効になっていることを確認してください。ソースのウェブページで拡張のポップアップをこのように開ける場合は、拡張は正しくインストールされています:
-    <Image src={ExtensionPopup} alt="Redirect Web 拡張のポップアップ" width="260" hasShadow/>
+- **ブラウザ拡張がインストールされ、該当ページで有効になっているか:** RedirectWeb のブラウザ拡張をインストールし、リダイレクト元のウェブページで拡張が有効になっていることを確認してください。ソースのウェブページで拡張のポップアップをこのように開ける場合は、拡張は正しくインストールされています:
+    <Image src={ExtensionPopup} alt="RedirectWeb 拡張のポップアップ" width="260" hasShadow/>
 
-- **ルール設定が正しいか:** Redirect Web ネイティブアプリでリダイレクトルールを再確認してください。ソース URL パターン、ターゲット URL、および条件が正しく設定されていることを確認します。ルールが有効かどうかを確認するには、編集画面の Examples セクションに例の URL を入力してください。ルールが有効であれば、入力した URL に対する期待される遷移先が以下のように表示されます:
+- **ルール設定が正しいか:** RedirectWeb ネイティブアプリでリダイレクトルールを再確認してください。ソース URL パターン、ターゲット URL、および条件が正しく設定されていることを確認します。ルールが有効かどうかを確認するには、編集画面の Examples セクションに例の URL を入力してください。ルールが有効であれば、入力した URL に対する期待される遷移先が以下のように表示されます:
     <Image src={RuleEditExampleResult} alt="編集画面の例で期待される遷移先が表示されている例" width="260" hasShadow/>
 
 ## 拡張のポップアップにエラーが表示される {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Redirect Web のエラーオーバーレイ" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="RedirectWeb のエラーオーバーレイ" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web app hasn't been installed or is not working properly.  
+> RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
 
-拡張のポップアップを開いたときに上記のエラーが表示される場合、Redirect Web ネイティブアプリがインストールされていないか、正しく動作していないことを意味します。
+拡張のポップアップを開いたときに上記のエラーが表示される場合、RedirectWeb ネイティブアプリがインストールされていないか、正しく動作していないことを意味します。
 
-最新バージョンの Redirect Web を [App Store](https://apps.apple.com/app/id1571283503) からインストールしていることを確認してください。
+最新バージョンの RedirectWeb を [App Store](https://apps.apple.com/app/id1571283503) からインストールしていることを確認してください。
 
 ネイティブアプリをインストールした後、ブラウザを再起動する必要がある場合があります。
 
 > [!NOTE]
-> * ブラウザ拡張だけでは動作しません。拡張を利用するには Redirect Web ネイティブアプリのインストールが必要です。
+> * ブラウザ拡張だけでは動作しません。拡張を利用するには RedirectWeb ネイティブアプリのインストールが必要です。
 > * Safari を使用している場合、ネイティブアプリに拡張が同梱されているため、拡張を別途インストールする必要はありません。
 
 ## リダイレクト前に元のページが一瞬表示される {#original-page-flash}
@@ -59,7 +59,7 @@ Safari の設定ウィンドウに以下のようなエラーメッセージが�
 > * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
 > * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
-これらは Redirect Web の動作には影響しません。安全に無視していただいて構いません。
+これらは RedirectWeb の動作には影響しません。安全に無視していただいて構いません。
 
 これらのエラーは、拡張のポップアップがデスクトップとモバイルの両方用のスタイルファイルを読み込もうとするために発生しますが、実際には Mac または iOS のいずれか一方でしか読み込めません。そのため、どちらか一方のファイルの読み込みに失敗するのは想定された挙動です。
 

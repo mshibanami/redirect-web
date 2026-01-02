@@ -1,6 +1,6 @@
 {
   "rule-set.json#/redirects/0/comments": {
-    "message": "To pravilo deluje, ko je Google vaš privzeti iskalnik. Če začnete iskanje v iskalni vrstici z `gpt␣`, Redirect Web preskoči Google in vas popelje naravnost na ChatGPT z vsem, kar sledi `gpt␣`. Če želite uporabiti drugo sprožilno besedo, preprosto zamenjajte `gpt␣` v pravilu s svojo.\n\nDodate lahko te možnosti:\n\n- `q={vaše besedilo}`: vaš poziv za ChatGPT\n- `hints=search`: vklopi iskalni način ChatGPT\n- `temporary-chat=true`: odpre enkratni klepet\n- `model={ime modela}`: izbere model, ki ga želite uporabiti (npr. `gpt-5`, `gpt-4o`)",
+    "message": "To pravilo deluje, ko je Google vaš privzeti iskalnik. Če začnete iskanje v iskalni vrstici z `gpt␣`, RedirectWeb preskoči Google in vas popelje naravnost na ChatGPT z vsem, kar sledi `gpt␣`. Če želite uporabiti drugo sprožilno besedo, preprosto zamenjajte `gpt␣` v pravilu s svojo.\n\nDodate lahko te možnosti:\n\n- `q={vaše besedilo}`: vaš poziv za ChatGPT\n- `hints=search`: vklopi iskalni način ChatGPT\n- `temporary-chat=true`: odpre enkratni klepet\n- `model={ime modela}`: izbere model, ki ga želite uporabiti (npr. `gpt-5`, `gpt-4o`)",
     "description": "The comments of redirect rule #0"
   },
   "rule-set.json#/redirects/0/title": {

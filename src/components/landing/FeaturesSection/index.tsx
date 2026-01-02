@@ -51,7 +51,7 @@ const FeatureList: FeatureItem[] = [
     thumbnail: '/img/landing-feature-native-ui.png',
     description: translate({
       id: 'landingPage.feature.nativeUI.description',
-      message: "Redirect Web offers a native app to provide a seamless experience on each platform.",
+      message: "RedirectWeb offers a native app to provide a seamless experience on each platform.",
       description: 'Landing page feature description for native UI'
     }),
   },
@@ -109,7 +109,7 @@ export default function FeaturesSection(): ReactNode {
         <Translate
           id="landingPage.productFeatures.title"
           description="Title for the product features section."
-          values={{ productName: 'Redirect Web' }}>
+          values={{ productName: 'RedirectWeb' }}>
           {'Why {productName}?'}
         </Translate>
       </Heading>

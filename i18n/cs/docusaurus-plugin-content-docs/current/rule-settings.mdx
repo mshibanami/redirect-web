@@ -1,6 +1,6 @@
 # Nastavení pravidel
 
-Tato stránka poskytuje podrobné informace o každém nastavení na obrazovce *Upravit pravidlo* v aplikaci Redirect Web.
+Tato stránka poskytuje podrobné informace o každém nastavení na obrazovce *Upravit pravidlo* v aplikaci RedirectWeb.
 
 ## Možnosti
 
@@ -64,11 +64,11 @@ Možnost **Cílové prohlížeče** vám umožňuje specifikovat, na který proh
 
 *   Existují 2 typy prohlížečů, které si můžete vybrat:
     *   **Prohlížeče, které si můžete vybrat ve výchozím nastavení**: Ve výchozím nastavení si můžete vybrat Safari, Chrome, Firefox, Edge, Opera, Arc, Brave a Vivaldi. Toto nerozlišuje varianty stejného prohlížeče, jako je Safari a Safari Technology Preview.
-    *   **Uživatelem specifikované prohlížeče**: Klepnutím na tlačítko Přidat v rozbalovacím okně můžete vybrat libovolný prohlížeč kromě Safari nebo Safari Technology Preview, který má nainstalované rozšíření Redirect Web.
+    *   **Uživatelem specifikované prohlížeče**: Klepnutím na tlačítko Přidat v rozbalovacím okně můžete vybrat libovolný prohlížeč kromě Safari nebo Safari Technology Preview, který má nainstalované rozšíření RedirectWeb.
 *   Zaškrtávací políčko **Vše kromě vybraných** vám umožňuje cílit na všechny prohlížeče kromě těch, které jste vybrali.
 
 > [!WARNING]
-> Redirect Web nedokáže rozlišit, zda je prohlížeč **Safari** nebo **Safari Technology Preview**, protože aplikace kontroluje nadřazený proces rozšíření, aby to detekovala, ale tyto dva prohlížeče sdílejí stejný nadřazený proces (`/sbin/launchd`).
+> RedirectWeb nedokáže rozlišit, zda je prohlížeč **Safari** nebo **Safari Technology Preview**, protože aplikace kontroluje nadřazený proces rozšíření, aby to detekovala, ale tyto dva prohlížeče sdílejí stejný nadřazený proces (`/sbin/launchd`).
 
 ### Přesměrovat na {#redirect-to}
 
@@ -168,7 +168,7 @@ Komentáře můžete psát v následujících formátech:
 Můžete také použít substituci v zástupném znaku, což znamená, že můžete odkazovat na části shodné URL pomocí `$1`, `$2` atd. Například, pokud použijete `https://example.com/*-world-*` a URL je `https://example.com/hello-world-goodbye`, pak `$1` bude "hello" a `$2` bude "goodbye". `$0` je také k dispozici pro odkazování na celou shodnou URL.
 
 > [!NOTE]
-> Ačkoli substituce je funkcí regulárního výrazu, můžete ji použít i pro zástupný znak, protože Redirect Web interně převádí zástupný znak na regulární výraz.
+> Ačkoli substituce je funkcí regulárního výrazu, můžete ji použít i pro zástupný znak, protože RedirectWeb interně převádí zástupný znak na regulární výraz.
 
 ### Regulární výraz {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Můžete také použít substituci v zástupném znaku, což znamená, že můž
 
 Můžete odkazovat na zachycené skupiny v *Přesměrovat na* nebo *Náhrada* pomocí `$1`, `$2`, ... nebo `$0` pro odkazování na celou shodu.
 
-Redirect Web je poháněn [Regex enginem Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb je poháněn [Regex enginem Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Více informací o syntaxi Regex naleznete v zdrojích jako [RegExr](https://regexr.com/).

@@ -1,6 +1,6 @@
 # Configurações de Regra
 
-Esta página fornece informações detalhadas de cada configuração na tela *Editar Regra* no aplicativo Redirect Web.
+Esta página fornece informações detalhadas de cada configuração na tela *Editar Regra* no aplicativo RedirectWeb.
 
 ## Opções
 
@@ -64,11 +64,11 @@ A opção **Navegadores Alvo** permite que você especifique a qual navegador a 
 
 *   Existem 2 tipos de navegadores que você pode escolher:
     *   **Navegadores que você pode escolher por padrão**: Você pode escolher Safari, Chrome, Firefox, Edge, Opera, Arc, Brave e Vivaldi por padrão. Isso não diferencia variantes do mesmo navegador, como Safari e Safari Technology Preview.
-    *   **Navegadores especificados pelo usuário**: Ao tocar no botão Adicionar no popover, você pode selecionar qualquer navegador diferente do Safari ou Safari Technology Preview que tenha a extensão Redirect Web instalada.
+    *   **Navegadores especificados pelo usuário**: Ao tocar no botão Adicionar no popover, você pode selecionar qualquer navegador diferente do Safari ou Safari Technology Preview que tenha a extensão RedirectWeb instalada.
 *   A caixa de seleção **Todos, exceto os selecionados** permite que você direcione todos os navegadores, exceto os que você escolheu.
 
 > [!WARNING]
-> O Redirect Web não consegue diferenciar se o navegador é **Safari** ou **Safari Technology Preview** porque o aplicativo verifica o processo pai da extensão para detectá-lo, mas esses dois navegadores compartilham o mesmo processo pai (`/sbin/launchd`).
+> O RedirectWeb não consegue diferenciar se o navegador é **Safari** ou **Safari Technology Preview** porque o aplicativo verifica o processo pai da extensão para detectá-lo, mas esses dois navegadores compartilham o mesmo processo pai (`/sbin/launchd`).
 
 ### Redirecionar Para {#redirect-to}
 
@@ -168,7 +168,7 @@ You can write comments in the following formats:
 You can also use substitution in Wildcard as well, which means you can reference portions of the matched URL using `$1`, `$2`, etc. For example, if you use `https://example.com/*-world-*`, and the URL is `https://example.com/hello-world-goodbye`, then `$1` seria "hello" e `$2` seria "goodbye". `$0` também está disponível para referenciar a URL inteira correspondida.
 
 > [!NOTE]
-> Embora a substituição seja um recurso de Expressão Regular, você também pode usá-la para Curinga porque o Redirect Web converte internamente Curinga para Expressão Regular.
+> Embora a substituição seja um recurso de Expressão Regular, você também pode usá-la para Curinga porque o RedirectWeb converte internamente Curinga para Expressão Regular.
 
 ### Expressão Regular {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ You can also use substitution in Wildcard as well, which means you can reference
 
 You can reference the capturing groups in *Redirecionar Para* ou *Substituição* using `$1`, `$2`, ... ou `$0` para referenciar a correspondência inteira.
 
-O Redirect Web é alimentado pelo [mecanismo Regex da Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+O RedirectWeb é alimentado pelo [mecanismo Regex da Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Mais informações sobre a sintaxe Regex podem ser encontradas em recursos como [RegExr](https://regexr.com/).

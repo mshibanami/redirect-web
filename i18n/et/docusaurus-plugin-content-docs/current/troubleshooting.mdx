@@ -8,7 +8,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 # Tõrkeotsing
 
-Sellel lehel on kirjas levinud probleemid ja nende lahendused Redirect Webi kasutamisel.
+Sellel lehel on kirjas levinud probleemid ja nende lahendused RedirectWebi kasutamisel.
 
 <TOCInline toc={toc} />
 
@@ -16,27 +16,27 @@ Sellel lehel on kirjas levinud probleemid ja nende lahendused Redirect Webi kasu
 
 Kui su reeglid ei tööta ootuspäraselt, kontrolli järgmist:
 
-- **Brauserilaiend on paigaldatud ja õigele lehele lubatud:** Veendu, et oled installinud Redirect Web brauserilaiendi ning et see on sinu brauseris lubatud sellel veebilehel, millelt soovid ümber suunata. Kui saad lähtelehel selliselt laiendi hüpikakna avada, on see õigesti paigaldatud:
-    <Image src={ExtensionPopup} alt="Redirect Web laiendi hüpikaken" width="260" hasShadow/>
+- **Brauserilaiend on paigaldatud ja õigele lehele lubatud:** Veendu, et oled installinud RedirectWeb brauserilaiendi ning et see on sinu brauseris lubatud sellel veebilehel, millelt soovid ümber suunata. Kui saad lähtelehel selliselt laiendi hüpikakna avada, on see õigesti paigaldatud:
+    <Image src={ExtensionPopup} alt="RedirectWeb laiendi hüpikaken" width="260" hasShadow/>
 
-- **Reegli konfiguratsioon on õige:** Kontrolli üle oma ümbersuunamise reeglid Redirect Web natiivrakenduses. Veendu, et lähte-URL-i mustrid, siht-URL-id ja võimalikud tingimused on õigesti seadistatud. Reegli kehtivuse kontrollimiseks sisesta Edit Rule ekraani Examples sektsiooni näide URL-ist. Kui reegel on kehtiv, näed ootuspärast siht-URL-i allpool oma sisestust, nagu allpool näidatud:
+- **Reegli konfiguratsioon on õige:** Kontrolli üle oma ümbersuunamise reeglid RedirectWeb natiivrakenduses. Veendu, et lähte-URL-i mustrid, siht-URL-id ja võimalikud tingimused on õigesti seadistatud. Reegli kehtivuse kontrollimiseks sisesta Edit Rule ekraani Examples sektsiooni näide URL-ist. Kui reegel on kehtiv, näed ootuspärast siht-URL-i allpool oma sisestust, nagu allpool näidatud:
     <Image src={RuleEditExampleResult} alt="Reegli redigeerimise ekraan näidates näite URL-i tulemust" width="260" hasShadow/>
 
 ## Laiendi hüpikaknas kuvatakse viga {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Redirect Web veakate" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="RedirectWeb veakate" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web app hasn't been installed or is not working properly.  
+> RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
 
-Kui näed ülaltoodud teadet laiendi hüpikakna avamisel, tähendab see, et Redirect Web natiivrakendus ei ole installitud või ei tööta korralikult.
+Kui näed ülaltoodud teadet laiendi hüpikakna avamisel, tähendab see, et RedirectWeb natiivrakendus ei ole installitud või ei tööta korralikult.
 
-Veendu, et oled installinud Redirect Web uusima versiooni [App Store'ist](https://apps.apple.com/app/id1571283503).
+Veendu, et oled installinud RedirectWeb uusima versiooni [App Store'ist](https://apps.apple.com/app/id1571283503).
 
 Pärast natiivse rakenduse installimist võib olla vaja brauser taaskäivitada.
 
 > [!NOTE]
-> * Brauserilaiendi kasutamiseks pead installima Redirect Web natiivse rakenduse. Ainult laiend ei toimi.
+> * Brauserilaiendi kasutamiseks pead installima RedirectWeb natiivse rakenduse. Ainult laiend ei toimi.
 > * Safari kasutajad ei pea laiendit eraldi installima, kuna see on natiivse rakendusega kaasas.
 
 ## Originaalleht kuvatakse lühidalt enne ümbersuunamist {#original-page-flash}
@@ -45,7 +45,7 @@ See juhtub, kui kasutad **Original** tüüpi ümbersuunamise reegleid. See tüü
 
 Ava reegli redigeerimise aken ja muuda **Type** väärtuseks **DNR**, et seda probleemi vältida.
 
-<Image src={EditRuleDnr} alt="Redirect Web reegli DNR tüübi näide" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="RedirectWeb reegli DNR tüübi näide" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > Firefoxis ei peaks see probleem Original tüübi puhul esinema, sest see kasutab WebRequest API-t, mis takistab algse lehe laadimist.
@@ -59,7 +59,7 @@ Võid näha Safari sätete aknas järgmisi veateateid:
 > * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
 > * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
-See ei mõjuta Redirect Webi funktsionaalsust. Võid need veateated ohutult eirata.
+See ei mõjuta RedirectWebi funktsionaalsust. Võid need veateated ohutult eirata.
 
 Need vead tekivad seetõttu, et laiendi hüpikaken proovib laadida stiilifaile nii lauaarvuti kui mobiilseadmete jaoks, kuid saab laadida ainult ühte sõltuvalt sellest, kas kasutad Maci või iOS-i. Selle tulemusena üks failidest ebaõnnestub alati laadida, mis on oodatud käitumine.
 

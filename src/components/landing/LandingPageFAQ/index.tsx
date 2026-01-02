@@ -15,7 +15,7 @@ const faqItems: FAQItem[] = [
     {
         question: translate({
             id: 'landingPageFAQ.otherApps.question',
-            message: 'There are other similar extensions. How is Redirect Web different?',
+            message: 'There are other similar extensions. How is RedirectWeb different?',
             description: 'FAQ question about other apps'
         }),
         answer: (
@@ -25,7 +25,7 @@ const faqItems: FAQItem[] = [
                         id="landingPageFAQ.otherApps.answer"
                         description="FAQ answer about other apps"
                     >
-                        {'Redirect Web offers unique features like detailed rule settings, useful rule library, iCloud Sync, Safari support, and more. But each tool has its own advantages. Check our comparison page to help you choose the one that best fits your needs:'}
+                        {'RedirectWeb offers unique features like detailed rule settings, useful rule library, iCloud Sync, Safari support, and more. But each tool has its own advantages. Check our comparison page to help you choose the one that best fits your needs:'}
                     </Translate>
                     {" "}
                     <Link to="/vs-other-tools">
@@ -69,7 +69,7 @@ const faqItems: FAQItem[] = [
                 <Translate
                     id="landingPageFAQ.appRequired.answer"
                     description="FAQ answer about app requirement">
-                    Yes. You need to download the Redirect Web app from the App Store regardless of which browser you use.
+                    Yes. You need to download the RedirectWeb app from the App Store regardless of which browser you use.
                     The app is required to manage your rules.
                 </Translate>
             </p>
@@ -112,7 +112,7 @@ const faqItems: FAQItem[] = [
                 <Translate
                     id="landingPageFAQ.platforms.answer"
                     description="FAQ answer about platform support">
-                    Not at this time. Currently, Redirect Web only works on Mac, iPhone, iPad, and Apple Vision Pro.
+                    Not at this time. Currently, RedirectWeb only works on Mac, iPhone, iPad, and Apple Vision Pro.
                 </Translate>
             </p>
         )
@@ -136,7 +136,7 @@ const faqItems: FAQItem[] = [
     {
         question: translate({
             id: 'landingPageFAQ.ownership.question',
-            message: 'Could Redirect Web ever be sold to someone else?',
+            message: 'Could RedirectWeb ever be sold to someone else?',
             description: 'FAQ question about ownership transfer'
         }),
         answer: (
@@ -145,7 +145,7 @@ const faqItems: FAQItem[] = [
                     id="landingPageFAQ.ownership.answer"
                     description="FAQ answer about ownership transfer">
                     100% no. Browser extensions have deep control over your browsing and data.
-                    Redirect Web will always remain in our hands, so you can browse with complete confidence.
+                    RedirectWeb will always remain in our hands, so you can browse with complete confidence.
                 </Translate>
             </p>
         )

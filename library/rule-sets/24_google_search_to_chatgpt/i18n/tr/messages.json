@@ -1,6 +1,6 @@
 {
   "rule-set.json#/redirects/0/comments": {
-    "message": "Bu kural, Google varsayılan arama motorunuz olduğunda çalışır. Bir arama çubuğu aramasını `gpt␣` ile başlatırsanız, Redirect Web Google'ı atlar ve `gpt␣`'den sonra gelen her şeyle doğrudan ChatGPT'ye yönlendirir. Farklı bir tetikleyici kelime kullanmak için kuraldaki `gpt␣`'yi kendinizinkiyle değiştirmeniz yeterlidir.\n\nŞu seçenekleri ekleyebilirsiniz:\n\n- `q={your text}`: ChatGPT isteminiz\n- `hints=search`: ChatGPT'nin arama modunu açar\n- `temporary-chat=true`: tek seferlik bir sohbet açar\n- `model={model name}`: kullanılacak modeli seçer (örn. `gpt-5`, `gpt-4o`)",
+    "message": "Bu kural, Google varsayılan arama motorunuz olduğunda çalışır. Bir arama çubuğu aramasını `gpt␣` ile başlatırsanız, RedirectWeb Google'ı atlar ve `gpt␣`'den sonra gelen her şeyle doğrudan ChatGPT'ye yönlendirir. Farklı bir tetikleyici kelime kullanmak için kuraldaki `gpt␣`'yi kendinizinkiyle değiştirmeniz yeterlidir.\n\nŞu seçenekleri ekleyebilirsiniz:\n\n- `q={your text}`: ChatGPT isteminiz\n- `hints=search`: ChatGPT'nin arama modunu açar\n- `temporary-chat=true`: tek seferlik bir sohbet açar\n- `model={model name}`: kullanılacak modeli seçer (örn. `gpt-5`, `gpt-4o`)",
     "description": "The comments of redirect rule #0"
   },
   "rule-set.json#/redirects/0/title": {

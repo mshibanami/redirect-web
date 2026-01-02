@@ -1,6 +1,6 @@
 # Configurações da Regra
 
-Esta página fornece informações detalhadas de cada configuração no ecrã *Editar Regra* na aplicação Redirect Web.
+Esta página fornece informações detalhadas de cada configuração no ecrã *Editar Regra* na aplicação RedirectWeb.
 
 ## Opções
 
@@ -64,11 +64,11 @@ A opção **Navegadores Alvo** permite-lhe especificar a qual navegador a regra 
 
 * Existem 2 tipos de navegadores que pode escolher:
     * **Navegadores que pode escolher por padrão**: Pode escolher Safari, Chrome, Firefox, Edge, Opera, Arc, Brave e Vivaldi por padrão. Isto não diferencia variantes do mesmo navegador, como Safari e Safari Technology Preview.
-    * **Navegadores especificados pelo utilizador**: Ao tocar no botão Adicionar no popover, pode selecionar qualquer navegador que não seja Safari ou Safari Technology Preview que tenha a extensão Redirect Web instalada.
+    * **Navegadores especificados pelo utilizador**: Ao tocar no botão Adicionar no popover, pode selecionar qualquer navegador que não seja Safari ou Safari Technology Preview que tenha a extensão RedirectWeb instalada.
 * A caixa de seleção **Todos, exceto os selecionados** permite-lhe direcionar todos os navegadores, exceto os que escolheu.
 
 > [!WARNING]
-> O Redirect Web não consegue diferenciar se o navegador é **Safari** ou **Safari Technology Preview** porque a aplicação verifica o processo pai da extensão para detetá-lo, mas estes dois navegadores partilham o mesmo processo pai (`/sbin/launchd`).
+> O RedirectWeb não consegue diferenciar se o navegador é **Safari** ou **Safari Technology Preview** porque a aplicação verifica o processo pai da extensão para detetá-lo, mas estes dois navegadores partilham o mesmo processo pai (`/sbin/launchd`).
 
 ### Redirecionar Para {#redirect-to}
 
@@ -168,7 +168,7 @@ Pode escrever comentários nos seguintes formatos:
 Também pode usar substituição em Curinga, o que significa que pode referenciar partes do URL correspondido usando `$1`, `$2`, etc. Por exemplo, se usar `https://example.com/*-world-*`, e o URL for `https://example.com/hello-world-goodbye`, então `$1` seria "hello" e `$2` seria "goodbye". `$0` também está disponível para referenciar a correspondência inteira do URL.
 
 > [!NOTE]
-> Embora a substituição seja uma funcionalidade da Expressão Regular, também pode usá-la para Curinga porque o Redirect Web converte internamente Curinga para Expressão Regular.
+> Embora a substituição seja uma funcionalidade da Expressão Regular, também pode usá-la para Curinga porque o RedirectWeb converte internamente Curinga para Expressão Regular.
 
 ### Expressão Regular {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Também pode usar substituição em Curinga, o que significa que pode referencia
 
 Pode referenciar os grupos de captura em *Redirecionar Para* ou *Substituição* usando `$1`, `$2`, ... ou `$0` para referenciar a correspondência inteira.
 
-O Redirect Web é alimentado pelo [motor Regex da Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+O RedirectWeb é alimentado pelo [motor Regex da Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Mais informações sobre a sintaxe Regex podem ser encontradas em recursos como [RegExr](https://regexr.com/).

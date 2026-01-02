@@ -51,7 +51,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 [RegExr](https://regexr.com)が詳細を理解するのに役立つかもしれません。
 
 > [!NOTE]
-> RegExrは、`/`を`\`でエスケープしないとエラーを表示します。エスケープすることはできますが、Redirect WebはApple製の異なるエンジンを使用しており、エスケープを必要としないため、必須ではありません。
+> RegExrは、`/`を`\`でエスケープしないとエラーを表示します。エスケープすることはできますが、RedirectWebはApple製の異なるエンジンを使用しており、エスケープを必要としないため、必須ではありません。
 
 これは完璧な解決策ではありません。`example.com/hello`を`example.com/hello?layout=desktop&`にリダイレクトし、URLの末尾に不要な`&`が含まれるためです。通常は大きな問題ではありませんが、削除したい場合は「キャプチャグループ処理」を使用できます。
 

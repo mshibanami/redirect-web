@@ -1,6 +1,6 @@
 {
   "rule-set.json#/redirects/0/comments": {
-    "message": "이 규칙은 Google이 기본 검색 엔진일 때 작동합니다. 검색창 검색을 `gpt␣`로 시작하면 Redirect Web은 Google을 건너뛰고 `gpt␣` 뒤에 오는 내용으로 바로 ChatGPT로 이동합니다. 다른 트리거 단어를 사용하려면 규칙에서 `gpt␣`를 자신의 단어로 바꾸십시오.\n\n다음 옵션을 추가할 수 있습니다:\n\n- `q={your text}`: ChatGPT 프롬프트\n- `hints=search`: ChatGPT의 검색 모드를 웁니다.\n- `temporary-chat=true`: 일회성 채팅을 엽니다.\n- `model={model name}`: 사용할 모델을 선택합니다(예: `gpt-5`, `gpt-4o`)",
+    "message": "이 규칙은 Google이 기본 검색 엔진일 때 작동합니다. 검색창 검색을 `gpt␣`로 시작하면 RedirectWeb은 Google을 건너뛰고 `gpt␣` 뒤에 오는 내용으로 바로 ChatGPT로 이동합니다. 다른 트리거 단어를 사용하려면 규칙에서 `gpt␣`를 자신의 단어로 바꾸십시오.\n\n다음 옵션을 추가할 수 있습니다:\n\n- `q={your text}`: ChatGPT 프롬프트\n- `hints=search`: ChatGPT의 검색 모드를 웁니다.\n- `temporary-chat=true`: 일회성 채팅을 엽니다.\n- `model={model name}`: 사용할 모델을 선택합니다(예: `gpt-5`, `gpt-4o`)",
     "description": "The comments of redirect rule #0"
   },
   "rule-set.json#/redirects/0/title": {

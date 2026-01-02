@@ -8,7 +8,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 # Problemen oplossen
 
-Op deze pagina staan veelvoorkomende problemen en hun oplossingen bij het gebruik van Redirect Web.
+Op deze pagina staan veelvoorkomende problemen en hun oplossingen bij het gebruik van RedirectWeb.
 
 <TOCInline toc={toc} />
 
@@ -16,27 +16,27 @@ Op deze pagina staan veelvoorkomende problemen en hun oplossingen bij het gebrui
 
 Als je regels niet werken zoals verwacht, controleer dan het volgende:
 
-- **De browserextensie is geïnstalleerd en ingeschakeld voor de juiste pagina:** Zorg ervoor dat je de Redirect Web-browserextensie hebt geïnstalleerd en dat deze in je browser is ingeschakeld voor de webpagina waarvan je wilt doorverwijzen. Als je de popup van de extensie op de bronpagina op deze manier kunt openen, is de installatie correct:
-    <Image src={ExtensionPopup} alt="Popup van de Redirect Web-extensie" width="260" hasShadow/>
+- **De browserextensie is geïnstalleerd en ingeschakeld voor de juiste pagina:** Zorg ervoor dat je de RedirectWeb-browserextensie hebt geïnstalleerd en dat deze in je browser is ingeschakeld voor de webpagina waarvan je wilt doorverwijzen. Als je de popup van de extensie op de bronpagina op deze manier kunt openen, is de installatie correct:
+    <Image src={ExtensionPopup} alt="Popup van de RedirectWeb-extensie" width="260" hasShadow/>
 
-- **Regelconfiguratie is correct:** Controleer je doorverwijsregels in de native Redirect Web-app. Zorg ervoor dat de bron-URL-patronen, doel-URL's en eventuele voorwaarden correct zijn ingesteld. Om te controleren of je regel geldig is, voer een voorbeeld-URL in bij het gedeelte Examples op het scherm Edit Rule. Als je regel geldig is, zie je onder je invoer de verwachte doel-URL, zoals hieronder:
+- **Regelconfiguratie is correct:** Controleer je doorverwijsregels in de native RedirectWeb-app. Zorg ervoor dat de bron-URL-patronen, doel-URL's en eventuele voorwaarden correct zijn ingesteld. Om te controleren of je regel geldig is, voer een voorbeeld-URL in bij het gedeelte Examples op het scherm Edit Rule. Als je regel geldig is, zie je onder je invoer de verwachte doel-URL, zoals hieronder:
     <Image src={RuleEditExampleResult} alt="Voorbeeld van het scherm 'Edit Rule' dat het resultaat van een voorbeeld-URL toont" width="260" hasShadow/>
 
 ## In de popup van de extensie wordt een fout weergegeven {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Foutoverlay van Redirect Web" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="Foutoverlay van RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
-> De Redirect Web-app is niet geïnstalleerd of werkt niet goed.  
+> De RedirectWeb-app is niet geïnstalleerd of werkt niet goed.  
 > Haal de app uit de App Store.
 
-Als je bovenstaande fout ziet bij het openen van de extensie-popup, betekent dit dat de native Redirect Web-app niet is geïnstalleerd of niet correct draait.
+Als je bovenstaande fout ziet bij het openen van de extensie-popup, betekent dit dat de native RedirectWeb-app niet is geïnstalleerd of niet correct draait.
 
-Zorg ervoor dat je de nieuwste versie van Redirect Web hebt geïnstalleerd vanuit de [App Store](https://apps.apple.com/app/id1571283503).
+Zorg ervoor dat je de nieuwste versie van RedirectWeb hebt geïnstalleerd vanuit de [App Store](https://apps.apple.com/app/id1571283503).
 
 Het kan ook nodig zijn om je browser opnieuw te starten nadat je de native app hebt geïnstalleerd.
 
 > [!NOTE]
-> * Om de browserextensie te gebruiken moet je de native Redirect Web-app installeren. Alleen de extensie is niet voldoende.
+> * Om de browserextensie te gebruiken moet je de native RedirectWeb-app installeren. Alleen de extensie is niet voldoende.
 > * Safari-gebruikers hoeven de extensie niet apart te installeren; deze wordt meegeleverd met de native app.
 
 ## De oorspronkelijke pagina flikkert kort voordat de redirect plaatsvindt {#original-page-flash}
@@ -45,7 +45,7 @@ Dit gebeurt wanneer je het **Original**-type voor doorverwijsregels gebruikt. Di
 
 Open het scherm Edit Rule en wijzig het **Type** naar **DNR** om dit probleem te voorkomen.
 
-<Image src={EditRuleDnr} alt="Popup van de Redirect Web-extensie" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="Popup van de RedirectWeb-extensie" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > In Firefox zou dit probleem niet moeten optreden, zelfs niet met het Original-type, omdat het vertrouwt op de WebRequest API die voorkomt dat de oorspronkelijke pagina wordt geladen.
@@ -59,7 +59,7 @@ Je kunt foutmeldingen zien in het Safari-venster 'Instellingen' zoals de volgend
 > * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
 > * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
-Dit heeft geen invloed op de functionaliteit van Redirect Web. Je kunt deze meldingen veilig negeren.
+Dit heeft geen invloed op de functionaliteit van RedirectWeb. Je kunt deze meldingen veilig negeren.
 
 Deze fouten worden veroorzaakt doordat de extensie-popup probeert stijlbestanden te laden voor zowel desktop als mobiele apparaten, terwijl er slechts één van beide geladen kan worden, afhankelijk van of je Mac of iOS gebruikt. Daardoor zal een van de bestanden altijd mislukken met laden; dit is verwacht gedrag.
 

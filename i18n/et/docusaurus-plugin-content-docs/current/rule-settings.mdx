@@ -1,6 +1,6 @@
 # Reegli seaded
 
-See leht annab üksikasjalikku teavet iga seade kohta Redirect Web rakenduse ekraanil *Muuda reeglit*.
+See leht annab üksikasjalikku teavet iga seade kohta RedirectWeb rakenduse ekraanil *Muuda reeglit*.
 
 ## Valikud
 
@@ -64,11 +64,11 @@ Palun kontrollige iga meetodi üksikasju [mdn veebidokumentides](https://develop
 
 * Saate valida 2 tüüpi brausereid:
     * **Vaikimisi valitavad brauserid**: Saate vaikimisi valida Safari, Chrome'i, Firefoxi, Edge'i, Opera, Arci, Brave'i ja Vivaldi. See ei erista sama brauseri variante, nagu Safari ja Safari Technology Preview.
-    * **Kasutaja määratud brauserid**: Puudutades hüpikaknas nuppu Lisa, saate valida mis tahes brauseri peale Safari või Safari Technology Preview, millel on Redirect Web laiendus installitud.
+    * **Kasutaja määratud brauserid**: Puudutades hüpikaknas nuppu Lisa, saate valida mis tahes brauseri peale Safari või Safari Technology Preview, millel on RedirectWeb laiendus installitud.
 * Märkeruut **Kõik peale valitud** võimaldab teil sihtida kõiki brausereid peale nende, mille olete valinud.
 
 > [!WARNING]
-> Redirect Web ei suuda eristada, kas brauser on **Safari** või **Safari Technology Preview**, sest rakendus kontrollib laienduse vanemprotsessi selle tuvastamiseks, kuid need kaks brauserit jagavad sama vanemprotsessi (`/sbin/launchd`).
+> RedirectWeb ei suuda eristada, kas brauser on **Safari** või **Safari Technology Preview**, sest rakendus kontrollib laienduse vanemprotsessi selle tuvastamiseks, kuid need kaks brauserit jagavad sama vanemprotsessi (`/sbin/launchd`).
 
 ### Suuna ümber {#redirect-to}
 
@@ -168,7 +168,7 @@ Saate kirjutada kommentaare järgmistes vormingutes:
 Saate kasutada ka asendust metamärgis, mis tähendab, et saate viidata vastava URL-i osadele, kasutades `$1`, `$2` jne. Näiteks kui kasutate `https://example.com/*-world-*` ja URL on `https://example.com/hello-world-goodbye`, siis `$1` oleks "hello" ja `$2` oleks "goodbye". `$0` on samuti saadaval kogu vastava URL-i viitamiseks.
 
 > [!NOTE]
-> Kuigi asendus on regulaaravaldise funktsioon, saate seda kasutada ka metamärgi jaoks, sest Redirect Web teisendab sisemiselt metamärgi regulaaravaldisesse.
+> Kuigi asendus on regulaaravaldise funktsioon, saate seda kasutada ka metamärgi jaoks, sest RedirectWeb teisendab sisemiselt metamärgi regulaaravaldisesse.
 
 ### Regulaaravaldis {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Saate kasutada ka asendust metamärgis, mis tähendab, et saate viidata vastava 
 
 Saate viidata püüdmisrühmi valikus *Suuna ümber* või *Asendus*, kasutades `$1`, `$2`, ... või `$0` kogu vastavuse viitamiseks.
 
-Redirect Web töötab [Apple'i Regex mootoriga](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb töötab [Apple'i Regex mootoriga](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Lisateavet Regexi süntaksi kohta leiate ressurssidest nagu [RegExr](https://regexr.com/).

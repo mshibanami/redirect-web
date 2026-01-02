@@ -1,6 +1,6 @@
 # Paramètres de règle
 
-Cette page fournit des informations détaillées sur chaque paramètre de l'écran *Modifier la règle* de l'application Redirect Web.
+Cette page fournit des informations détaillées sur chaque paramètre de l'écran *Modifier la règle* de l'application RedirectWeb.
 
 ## Options
 
@@ -64,11 +64,11 @@ L'option **Navigateurs cibles** vous permet de spécifier à quel navigateur la 
 
 * Il existe 2 types de navigateurs que vous pouvez choisir :
     * **Navigateurs que vous pouvez choisir par défaut** : Vous pouvez choisir Safari, Chrome, Firefox, Edge, Opera, Arc, Brave et Vivaldi par défaut. Cela ne différencie pas les variantes du même navigateur, telles que Safari et Safari Technology Preview.
-    * **Navigateurs spécifiés par l'utilisateur** : En appuyant sur le bouton Ajouter dans le popover, vous pouvez sélectionner n'importe quel navigateur autre que Safari ou Safari Technology Preview qui a l'extension Redirect Web installée.
+    * **Navigateurs spécifiés par l'utilisateur** : En appuyant sur le bouton Ajouter dans le popover, vous pouvez sélectionner n'importe quel navigateur autre que Safari ou Safari Technology Preview qui a l'extension RedirectWeb installée.
 * La case à cocher **Tout sauf la sélection** vous permet de cibler tous les navigateurs sauf ceux que vous avez choisis.
 
 > [!WARNING]
-> Redirect Web ne peut pas différencier si le navigateur est **Safari** ou **Safari Technology Preview** car l'application vérifie le processus parent de l'extension pour le détecter, mais ces deux navigateurs partagent le même processus parent (`/sbin/launchd`).
+> RedirectWeb ne peut pas différencier si le navigateur est **Safari** ou **Safari Technology Preview** car l'application vérifie le processus parent de l'extension pour le détecter, mais ces deux navigateurs partagent le même processus parent (`/sbin/launchd`).
 
 ### Rediriger vers {#redirect-to}
 
@@ -168,7 +168,7 @@ Le **Joker** est un type de modèle plus simple qui vous permet d'utiliser `*` (
 Vous pouvez également utiliser la substitution dans Joker, ce qui signifie que vous pouvez référencer des parties de l'URL correspondante en utilisant `$1`, `$2`, etc. Par exemple, si vous utilisez `https://example.com/*-world-*`, et que l'URL est `https://example.com/hello-world-goodbye`, alors `$1` serait "hello" et `$2` serait "goodbye". `$0` est également disponible pour référencer l'URL entière correspondante.
 
 > [!NOTE]
-> Bien que la substitution soit une fonctionnalité de l'expression régulière, vous pouvez également l'utiliser pour Joker car Redirect Web convertit en interne Joker en expression régulière.
+> Bien que la substitution soit une fonctionnalité de l'expression régulière, vous pouvez également l'utiliser pour Joker car RedirectWeb convertit en interne Joker en expression régulière.
 
 ### Expression régulière {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ L'**expression régulière** (Regex) est un outil puissant pour faire correspond
 
 Vous pouvez référencer les groupes de capture dans *Rediriger vers* ou *Remplacement* en utilisant `$1`, `$2`, ... ou `$0` pour référencer la correspondance entière.
 
-Redirect Web est alimenté par le [moteur Regex d'Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb est alimenté par le [moteur Regex d'Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Plus d'informations sur la syntaxe Regex peuvent être trouvées dans des ressources comme [RegExr](https://regexr.com/).

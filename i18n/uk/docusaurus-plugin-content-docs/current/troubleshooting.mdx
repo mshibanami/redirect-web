@@ -8,7 +8,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 # Усунення несправностей
 
-На цій сторінці наведено поширені проблеми та їх рішення при використанні Redirect Web.
+На цій сторінці наведено поширені проблеми та їх рішення при використанні RedirectWeb.
 
 <TOCInline toc={toc} />
 
@@ -16,27 +16,27 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 Якщо ваші правила не працюють належним чином, перевірте наступне:
 
-- **Розширення браузера встановлене та увімкнене для потрібної сторінки:** Переконайтеся, що ви встановили розширення Redirect Web для браузера та що воно увімкнене для веб‑сторінки, з якої потрібно виконати перенаправлення. Якщо ви можете відкрити спливаюче вікно розширення на початковій сторінці, це означає, що розширення встановлено правильно:
-    <Image src={ExtensionPopup} alt="Redirect Web extension popup" width="260" hasShadow/>
+- **Розширення браузера встановлене та увімкнене для потрібної сторінки:** Переконайтеся, що ви встановили розширення RedirectWeb для браузера та що воно увімкнене для веб‑сторінки, з якої потрібно виконати перенаправлення. Якщо ви можете відкрити спливаюче вікно розширення на початковій сторінці, це означає, що розширення встановлено правильно:
+    <Image src={ExtensionPopup} alt="RedirectWeb extension popup" width="260" hasShadow/>
 
-- **Конфігурація правила коректна:** Уважно перевірте ваші правила перенаправлення в нативному додатку Redirect Web. Переконайтеся, що шаблони вихідних URL, цільові URL та будь‑які умови налаштовані правильно. Щоб перевірити, чи правило дійсне, введіть приклад URL у розділі Examples на екрані редагування правила. Якщо правило дійсне, ви побачите очікуваний URL призначення під вашим введенням, як тут:
+- **Конфігурація правила коректна:** Уважно перевірте ваші правила перенаправлення в нативному додатку RedirectWeb. Переконайтеся, що шаблони вихідних URL, цільові URL та будь‑які умови налаштовані правильно. Щоб перевірити, чи правило дійсне, введіть приклад URL у розділі Examples на екрані редагування правила. Якщо правило дійсне, ви побачите очікуваний URL призначення під вашим введенням, як тут:
     <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
 
 ## У спливаючому вікні розширення відображається помилка {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Redirect Web error overlay" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="RedirectWeb error overlay" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web app hasn't been installed or is not working properly.  
+> RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
 
-Якщо ви бачите наведену вище помилку під час відкриття спливаючого вікна розширення, це означає, що нативний додаток Redirect Web не встановлено або він працює неправильно.
+Якщо ви бачите наведену вище помилку під час відкриття спливаючого вікна розширення, це означає, що нативний додаток RedirectWeb не встановлено або він працює неправильно.
 
-Переконайтеся, що ви встановили останню версію Redirect Web з [App Store](https://apps.apple.com/app/id1571283503).
+Переконайтеся, що ви встановили останню версію RedirectWeb з [App Store](https://apps.apple.com/app/id1571283503).
 
 Можливо, також знадобиться перезапустити браузер після встановлення нативного додатка.
 
 > [!NOTE]
-> * Ви повинні встановити нативний додаток Redirect Web, щоб використовувати розширення браузера. Саме розширення без додатка не працює.
+> * Ви повинні встановити нативний додаток RedirectWeb, щоб використовувати розширення браузера. Саме розширення без додатка не працює.
 > * Користувачам Safari окремо встановлювати розширення не потрібно, оскільки воно входить до складу нативного додатка.
 
 ## Початкова сторінка коротко мерехтить перед перенаправленням {#original-page-flash}
@@ -45,7 +45,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 Відкрийте екран редагування правила і змініть **Type** на **DNR**, щоб уникнути цієї проблеми.
 
-<Image src={EditRuleDnr} alt="Redirect Web extension popup" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="RedirectWeb extension popup" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > У Firefox ця проблема не повинна виникати навіть із типом Original, оскільки він покладається на API WebRequest, яке запобігає завантаженню початкової сторінки.
@@ -59,7 +59,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 > * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
 > * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
-Це не впливає на функціональність Redirect Web. Ви можете безпечно ігнорувати ці повідомлення.
+Це не впливає на функціональність RedirectWeb. Ви можете безпечно ігнорувати ці повідомлення.
 
 Ці помилки спричинені тим, що спливаюче вікно розширення намагається завантажити файли стилів як для десктопу, так і для мобільних пристроїв, тоді як може бути завантажено лише один із них залежно від того, чи ви використовуєте Mac чи iOS. Через це один із файлів завжди не вдасться завантажити — це очікувана поведінка.
 

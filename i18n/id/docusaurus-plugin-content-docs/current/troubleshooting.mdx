@@ -8,7 +8,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 # Pemecahan Masalah
 
-Halaman ini mencantumkan masalah umum dan solusinya saat menggunakan Redirect Web.
+Halaman ini mencantumkan masalah umum dan solusinya saat menggunakan RedirectWeb.
 
 <TOCInline toc={toc} />
 
@@ -16,27 +16,27 @@ Halaman ini mencantumkan masalah umum dan solusinya saat menggunakan Redirect We
 
 Jika aturan Anda tidak berfungsi seperti yang diharapkan, periksa hal berikut:
 
-- **Ekstensi browser terpasang dan diaktifkan pada halaman yang tepat:** Pastikan Anda telah menginstal ekstensi browser Redirect Web dan ekstensi tersebut diaktifkan pada halaman web sumber yang ingin Anda alihkan. Jika Anda dapat membuka popup ekstensi seperti ini pada halaman sumber, maka ekstensi terpasang dengan benar:
-    <Image src={ExtensionPopup} alt="Popup ekstensi Redirect Web" width="260" hasShadow/>
+- **Ekstensi browser terpasang dan diaktifkan pada halaman yang tepat:** Pastikan Anda telah menginstal ekstensi browser RedirectWeb dan ekstensi tersebut diaktifkan pada halaman web sumber yang ingin Anda alihkan. Jika Anda dapat membuka popup ekstensi seperti ini pada halaman sumber, maka ekstensi terpasang dengan benar:
+    <Image src={ExtensionPopup} alt="Popup ekstensi RedirectWeb" width="260" hasShadow/>
 
-- **Konfigurasi aturan benar:** Periksa kembali aturan pengalihan Anda di aplikasi native Redirect Web. Pastikan pola URL sumber, URL tujuan, dan kondisi apa pun telah dikonfigurasi dengan benar. Untuk memeriksa apakah aturan Anda valid, masukkan contoh URL di bagian Examples pada layar Edit Rule. Jika aturan valid, Anda akan melihat URL tujuan yang diharapkan di bawah input Anda, seperti ini:
+- **Konfigurasi aturan benar:** Periksa kembali aturan pengalihan Anda di aplikasi native RedirectWeb. Pastikan pola URL sumber, URL tujuan, dan kondisi apa pun telah dikonfigurasi dengan benar. Untuk memeriksa apakah aturan Anda valid, masukkan contoh URL di bagian Examples pada layar Edit Rule. Jika aturan valid, Anda akan melihat URL tujuan yang diharapkan di bawah input Anda, seperti ini:
     <Image src={RuleEditExampleResult} alt="Contoh layar edit aturan yang menunjukkan hasil dari URL contoh" width="260" hasShadow/>
 
 ## Popup ekstensi menampilkan kesalahan {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Overlay kesalahan Redirect Web" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="Overlay kesalahan RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
-> Aplikasi Redirect Web belum terpasang atau tidak berfungsi dengan benar.  
+> Aplikasi RedirectWeb belum terpasang atau tidak berfungsi dengan benar.  
 > Silakan dapatkan aplikasinya dari App Store.
 
-Jika Anda melihat kesalahan di atas saat membuka popup ekstensi, itu berarti aplikasi native Redirect Web belum terpasang atau tidak berjalan dengan semestinya.
+Jika Anda melihat kesalahan di atas saat membuka popup ekstensi, itu berarti aplikasi native RedirectWeb belum terpasang atau tidak berjalan dengan semestinya.
 
-Pastikan Anda telah menginstal versi terbaru Redirect Web dari [App Store](https://apps.apple.com/app/id1571283503).
+Pastikan Anda telah menginstal versi terbaru RedirectWeb dari [App Store](https://apps.apple.com/app/id1571283503).
 
 Anda mungkin perlu meluncurkan ulang browser setelah menginstal aplikasi native.
 
 > [!NOTE]
-> * Anda perlu menginstal aplikasi native Redirect Web untuk menggunakan ekstensi browser. Ekstensi saja tidak cukup.
+> * Anda perlu menginstal aplikasi native RedirectWeb untuk menggunakan ekstensi browser. Ekstensi saja tidak cukup.
 > * Pengguna Safari tidak perlu menginstal ekstensi secara terpisah, karena sudah disertakan dengan aplikasi native.
 
 ## Halaman asli berkedip sebentar sebelum pengalihan {#original-page-flash}
@@ -45,7 +45,7 @@ Ini terjadi ketika Anda menggunakan aturan pengalihan bertipe **Original**. Tipe
 
 Buka layar Edit Rule dan ubah **Type** menjadi **DNR** untuk menghindari masalah ini.
 
-<Image src={EditRuleDnr} alt="Popup ekstensi Redirect Web" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="Popup ekstensi RedirectWeb" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > Di Firefox, masalah ini seharusnya tidak terjadi bahkan dengan tipe Original, karena bergantung pada WebRequest API yang mencegah halaman asli dimuat.
@@ -59,7 +59,7 @@ Anda mungkin melihat pesan kesalahan di jendela Pengaturan Safari seperti beriku
 > * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
 > * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
-Ini tidak memengaruhi fungsionalitas Redirect Web. Anda dapat mengabaikannya dengan aman.
+Ini tidak memengaruhi fungsionalitas RedirectWeb. Anda dapat mengabaikannya dengan aman.
 
 Kesalahan ini disebabkan karena popup ekstensi mencoba memuat file gaya untuk desktop dan perangkat seluler sekaligus, padahal hanya salah satu yang bisa dimuat tergantung apakah Anda menggunakan Mac atau iOS. Akibatnya, salah satu file akan selalu gagal dimuat, yang merupakan perilaku yang diharapkan.
 

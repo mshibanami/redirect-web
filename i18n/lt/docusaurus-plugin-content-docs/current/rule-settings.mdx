@@ -1,6 +1,6 @@
 # Taisyklės nustatymai
 
-Šiame puslapyje pateikiama išsami informacija apie kiekvieną nustatymą „Redirect Web“ programos ekrane *Redaguoti taisyklę*.
+Šiame puslapyje pateikiama išsami informacija apie kiekvieną nustatymą „RedirectWeb“ programos ekrane *Redaguoti taisyklę*.
 
 ## Parinktys
 
@@ -64,11 +64,11 @@ Parinktis **Tikslinės naršyklės** leidžia nurodyti, kuriai naršyklei taisyk
 
 *   Galite pasirinkti 2 tipų naršykles:
     *   **Naršyklės, kurias galite pasirinkti pagal numatytuosius nustatymus**: Pagal numatytuosius nustatymus galite pasirinkti „Safari“, „Chrome“, „Firefox“, „Edge“, „Opera“, „Arc“, „Brave“ ir „Vivaldi“. Tai neskiria tos pačios naršyklės variantų, pvz., „Safari“ ir „Safari Technology Preview“.
-    *   **Vartotojo nurodytos naršyklės**: Bakstelėdami mygtuką „Pridėti“ iššokančiajame lange, galite pasirinkti bet kurią naršyklę, išskyrus „Safari“ arba „Safari Technology Preview“, kurioje įdiegta „Redirect Web“ plėtinys.
+    *   **Vartotojo nurodytos naršyklės**: Bakstelėdami mygtuką „Pridėti“ iššokančiajame lange, galite pasirinkti bet kurią naršyklę, išskyrus „Safari“ arba „Safari Technology Preview“, kurioje įdiegta „RedirectWeb“ plėtinys.
 *   Žymimasis langelis **Visi, išskyrus pasirinktus** leidžia nukreipti į visas naršykles, išskyrus tas, kurias pasirinkote.
 
 > [!WARNING]
-> „Redirect Web“ negali atskirti, ar naršyklė yra **Safari**, ar **Safari Technology Preview**, nes programa patikrina plėtinio pagrindinį procesą, kad jį aptiktų, tačiau šios dvi naršyklės dalijasi tuo pačiu pagrindiniu procesu (`/sbin/launchd`).
+> „RedirectWeb“ negali atskirti, ar naršyklė yra **Safari**, ar **Safari Technology Preview**, nes programa patikrina plėtinio pagrindinį procesą, kad jį aptiktų, tačiau šios dvi naršyklės dalijasi tuo pačiu pagrindiniu procesu (`/sbin/launchd`).
 
 ### Nukreipti į {#redirect-to}
 
@@ -168,7 +168,7 @@ Komentarus galite rašyti šiais formatais:
 Taip pat galite naudoti pakeitimą pakaitos simbolyje, o tai reiškia, kad galite nurodyti atitinkamo URL dalis naudodami `$1`, `$2` ir t. t. Pavyzdžiui, jei naudojate `https://example.com/*-world-*`, o URL yra `https://example.com/hello-world-goodbye`, tada `$1` būtų „hello“, o `$2` būtų „goodbye“. `$0` taip pat galima naudoti norint nurodyti visą atitinkamą URL.
 
 > [!NOTE]
-> Nors pakeitimas yra reguliariosios išraiškos funkcija, galite jį naudoti ir pakaitos simboliui, nes „Redirect Web“ viduje pakaitos simbolį konvertuoja į reguliariąją išraišką.
+> Nors pakeitimas yra reguliariosios išraiškos funkcija, galite jį naudoti ir pakaitos simboliui, nes „RedirectWeb“ viduje pakaitos simbolį konvertuoja į reguliariąją išraišką.
 
 ### Reguliarioji išraiška {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Taip pat galite naudoti pakeitimą pakaitos simbolyje, o tai reiškia, kad galit
 
 Galite nurodyti fiksavimo grupes parinktyje *Nukreipti į* arba *Pakeitimas* naudodami `$1`, `$2`, ... arba `$0`, kad nurodytumėte visą atitikmenį.
 
-„Redirect Web“ veikia naudojant [Apple Regex variklį](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+„RedirectWeb“ veikia naudojant [Apple Regex variklį](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Daugiau informacijos apie Regex sintaksę galima rasti tokiuose šaltiniuose kaip [RegExr](https://regexr.com/).
