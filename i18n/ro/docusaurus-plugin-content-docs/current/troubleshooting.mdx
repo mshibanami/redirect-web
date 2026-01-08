@@ -8,7 +8,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 # Depanare
 
-Această pagină listează problemele comune și soluțiile aferente atunci când folosiți Redirect Web.
+Această pagină listează problemele comune și soluțiile aferente atunci când folosiți RedirectWeb.
 
 <TOCInline toc={toc} />
 
@@ -16,27 +16,27 @@ Această pagină listează problemele comune și soluțiile aferente atunci cân
 
 Dacă regulile nu funcționează așa cum vă așteptați, verificați următoarele:
 
-- **Extensia pentru browser este instalată și activată pentru pagina corectă:** Asigurați-vă că ați instalat extensia Redirect Web pentru browser și că este activată în browser pentru pagina web de pe care doriți să redirecționați. Dacă puteți deschide popup-ul extensiei astfel pe pagina sursă, înseamnă că este instalată corect:
-    <Image src={ExtensionPopup} alt="fereastra popup a extensiei Redirect Web" width="260" hasShadow/>
+- **Extensia pentru browser este instalată și activată pentru pagina corectă:** Asigurați-vă că ați instalat extensia RedirectWeb pentru browser și că este activată în browser pentru pagina web de pe care doriți să redirecționați. Dacă puteți deschide popup-ul extensiei astfel pe pagina sursă, înseamnă că este instalată corect:
+    <Image src={ExtensionPopup} alt="fereastra popup a extensiei RedirectWeb" width="260" hasShadow/>
 
-- **Configurarea regulii este corectă:** Verificați din nou regulile de redirecționare în aplicația nativă Redirect Web. Asigurați-vă că modelele URL sursă, URL-urile țintă și orice condiții sunt configurate corect. Pentru a verifica dacă o regulă este validă sau nu, introduceți un URL de exemplu în secțiunea Examples din ecranul Edit Rule. Dacă regula este validă, veți vedea URL-ul de destinație așteptat sub câmpul de introducere, astfel:
+- **Configurarea regulii este corectă:** Verificați din nou regulile de redirecționare în aplicația nativă RedirectWeb. Asigurați-vă că modelele URL sursă, URL-urile țintă și orice condiții sunt configurate corect. Pentru a verifica dacă o regulă este validă sau nu, introduceți un URL de exemplu în secțiunea Examples din ecranul Edit Rule. Dacă regula este validă, veți vedea URL-ul de destinație așteptat sub câmpul de introducere, astfel:
     <Image src={RuleEditExampleResult} alt="Un exemplu din ecranul de editare a regulii care arată rezultatul pentru URL-ul de exemplu" width="260" hasShadow/>
 
 ## Popup-ul extensiei afișează o eroare {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="suprapunere de eroare Redirect Web" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="suprapunere de eroare RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
-> Aplicația Redirect Web nu a fost instalată sau nu funcționează corect.  
+> Aplicația RedirectWeb nu a fost instalată sau nu funcționează corect.  
 > Vă rugăm să descărcați aplicația din App Store.
 
-Dacă vedeți eroarea de mai sus la deschiderea popup-ului extensiei, înseamnă că aplicația nativă Redirect Web nu este instalată sau nu rulează corect.
+Dacă vedeți eroarea de mai sus la deschiderea popup-ului extensiei, înseamnă că aplicația nativă RedirectWeb nu este instalată sau nu rulează corect.
 
-Asigurați-vă că ați instalat cea mai recentă versiune a Redirect Web din [App Store](https://apps.apple.com/app/id1571283503).
+Asigurați-vă că ați instalat cea mai recentă versiune a RedirectWeb din [App Store](https://apps.apple.com/app/id1571283503).
 
 S-ar putea să fie necesar să reporniți browserul după instalarea aplicației native.
 
 > [!NOTE]
-> * Trebuie să instalați aplicația nativă Redirect Web pentru a folosi extensia de browser. Extensia singură nu funcționează.
+> * Trebuie să instalați aplicația nativă RedirectWeb pentru a folosi extensia de browser. Extensia singură nu funcționează.
 > * Utilizatorii Safari nu trebuie să instaleze extensia separat, deoarece este inclusă în pachet cu aplicația nativă.
 
 ## Pagina originală clipsește scurt înainte de redirecționare {#original-page-flash}
@@ -45,7 +45,7 @@ Acest lucru se întâmplă când folosiți regulile de tip **Original**. Acest t
 
 Deschideți ecranul Edit Rule și schimbați **Type** în **DNR** pentru a evita această problemă.
 
-<Image src={EditRuleDnr} alt="popup-ul extensiei Redirect Web" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="popup-ul extensiei RedirectWeb" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > În Firefox, această problemă nu ar trebui să apară chiar și cu tipul Original, deoarece se bazează pe WebRequest API, care împiedică încărcarea paginii originale.
@@ -59,7 +59,7 @@ Este posibil să vedeți mesaje de eroare în fereastra Setări a Safari similar
 > * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
 > * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
-Acest lucru nu afectează funcționalitatea Redirect Web. Puteți ignora în siguranță aceste mesaje.
+Acest lucru nu afectează funcționalitatea RedirectWeb. Puteți ignora în siguranță aceste mesaje.
 
 Aceste erori apar deoarece popup-ul extensiei încearcă să încarce fișiere de stiluri pentru desktop și mobil în același timp, în timp ce poate încărca doar unul dintre ele, în funcție de faptul dacă folosiți macOS sau iOS. Drept urmare, unul dintre fișiere va eșua întotdeauna la încărcare, ceea ce este comportament așteptat.
 

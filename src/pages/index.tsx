@@ -25,7 +25,7 @@ function LandingPageHero() {
             <div className={clsx("container", styles.heroContainer)}>
                 <Image
                     src={useBaseUrl('/img/logo.png')}
-                    alt="Redirect Web Logo"
+                    alt="RedirectWeb Logo"
                     width={100}
                     height={100}
                     margin='80px 0' />
@@ -37,7 +37,7 @@ function LandingPageHero() {
                     <Translate
                         id="landingPage.heroSubtitle"
                         description="Landing page hero subtitle"
-                        values={{ appName: <b>Redirect Web</b> }}
+                        values={{ appName: <b>RedirectWeb</b> }}
                     >
                         {'{appName} is a powerful browser extension to redirect URLs based on your custom rules.'}
                     </Translate>

@@ -1,6 +1,6 @@
 {
   "rule-set.json#/redirects/0/comments": {
-    "message": "このルールは、Googleがデフォルトの検索エンジンである場合に機能します。検索バーで`gpt␣`と入力して検索を開始すると、Redirect WebはGoogleをスキップし、`gpt␣`の後に続く内容で直接ChatGPTに移動します。別のトリガーワードを使用するには、ルール内の`gpt␣`を自分のものに置き換えるだけです。\n\n以下のオプションを追加できます。\n\n- `q={あなたのテキスト}`: あなたのChatGPTプロンプト\n- `hints=search`: ChatGPTの検索モードをオンにする\n- `temporary-chat=true`: 一時的なチャットを開く\n- `model={モデル名}`: 使用するモデルを選択する（例: `gpt-5`, `gpt-4o`）",
+    "message": "このルールは、Googleがデフォルトの検索エンジンである場合に機能します。検索バーで`gpt␣`と入力して検索を開始すると、RedirectWebはGoogleをスキップし、`gpt␣`の後に続く内容で直接ChatGPTに移動します。別のトリガーワードを使用するには、ルール内の`gpt␣`を自分のものに置き換えるだけです。\n\n以下のオプションを追加できます。\n\n- `q={あなたのテキスト}`: あなたのChatGPTプロンプト\n- `hints=search`: ChatGPTの検索モードをオンにする\n- `temporary-chat=true`: 一時的なチャットを開く\n- `model={モデル名}`: 使用するモデルを選択する（例: `gpt-5`, `gpt-4o`）",
     "description": "The comments of redirect rule #0"
   },
   "rule-set.json#/redirects/0/title": {

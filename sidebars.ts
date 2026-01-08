@@ -18,7 +18,7 @@ const sidebars: SidebarsConfig = {
       label: "How to Create Rules",
       link: {
         type: 'generated-index',
-        description: `Common use cases for creating rules in the Redirect Web app. (You can also learn the details of rule settings on the [Rule Settings](./rule-settings) page.)`,
+        description: `Common use cases for creating rules in the RedirectWeb app. (You can also learn the details of rule settings on the [Rule Settings](./rule-settings) page.)`,
         slug: '/category/how-to-create-rules',
       },
       items: [

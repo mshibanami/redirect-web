@@ -51,7 +51,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 [RegExr](https://regexr.com) 可能会帮助您理解详细信息。
 
 > [!NOTE]
-> 当您不使用 `\` 转义 `/` 时，RegExr 会显示错误。尽管您可以转义它，但这不是必需的，因为 Redirect Web 使用 Apple 的不同引擎，不需要转义。
+> 当您不使用 `\` 转义 `/` 时，RegExr 会显示错误。尽管您可以转义它，但这不是必需的，因为 RedirectWeb 使用 Apple 的不同引擎，不需要转义。
 
 这不是一个完美的解决方案，因为它将 `example.com/hello` 重定向到 `example.com/hello?layout=desktop&`，其中 URL 末尾包含一个不必要的 `&`。通常这不是什么大问题，但如果您希望删除它，可以使用*捕获组处理*。
 

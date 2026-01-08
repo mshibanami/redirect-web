@@ -8,7 +8,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 # Vianmääritys
 
-Tällä sivulla on lueteltu yleisiä ongelmia ja niiden ratkaisuja Redirect Webin käytössä.
+Tällä sivulla on lueteltu yleisiä ongelmia ja niiden ratkaisuja RedirectWebin käytössä.
 
 <TOCInline toc={toc} />
 
@@ -16,27 +16,27 @@ Tällä sivulla on lueteltu yleisiä ongelmia ja niiden ratkaisuja Redirect Webi
 
 Jos säännöt eivät toimi odotetulla tavalla, tarkista seuraavat kohdat:
 
-- **Selainlaajennus on asennettu ja otettu käyttöön oikealla sivulla:** Varmista, että olet asentanut Redirect Web -selaimen laajennuksen ja että se on otettu käyttöön selaimessasi sillä sivulla, jolta haluat ohjata. Jos voit avata laajennuksen ponnahdusikkunan lähdesivulla kuten alla, laajennus on asennettu oikein:
-    <Image src={ExtensionPopup} alt="Redirect Web -laajennuksen ponnahdusikkuna" width="260" hasShadow/>
+- **Selainlaajennus on asennettu ja otettu käyttöön oikealla sivulla:** Varmista, että olet asentanut RedirectWeb -selaimen laajennuksen ja että se on otettu käyttöön selaimessasi sillä sivulla, jolta haluat ohjata. Jos voit avata laajennuksen ponnahdusikkunan lähdesivulla kuten alla, laajennus on asennettu oikein:
+    <Image src={ExtensionPopup} alt="RedirectWeb -laajennuksen ponnahdusikkuna" width="260" hasShadow/>
 
-- **Säännön määritykset ovat oikein:** Tarkista Redirect Web -natiivisovelluksesta uudelleenohjaussääntösi. Varmista, että lähde-URL-mallit, kohde-URL-osoitteet ja mahdolliset ehdot on määritetty oikein. Tarkistaaksesi säännön kelpoisuuden syötä esimerkkiosoite Edit Rule -näytön Examples‑kohtaan. Jos sääntö on kelvollinen, näet odotetun kohdeosoitteen syötteesi alla, kuten alla:
+- **Säännön määritykset ovat oikein:** Tarkista RedirectWeb -natiivisovelluksesta uudelleenohjaussääntösi. Varmista, että lähde-URL-mallit, kohde-URL-osoitteet ja mahdolliset ehdot on määritetty oikein. Tarkistaaksesi säännön kelpoisuuden syötä esimerkkiosoite Edit Rule -näytön Examples‑kohtaan. Jos sääntö on kelvollinen, näet odotetun kohdeosoitteen syötteesi alla, kuten alla:
     <Image src={RuleEditExampleResult} alt="Esimerkki Edit Rule -näytöstä, joka näyttää esimerkkiosoitteen tuloksen" width="260" hasShadow/>
 
 ## Laajennuksen ponnahdusikkunassa näkyy virhe {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="Redirect Web -virheilmoitus" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="RedirectWeb -virheilmoitus" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web -sovellusta ei ole asennettu tai se ei toimi oikein.  
+> RedirectWeb -sovellusta ei ole asennettu tai se ei toimi oikein.  
 > Lataa sovellus App Storesta.
 
-Jos näet yllä olevan virheen avatessasi laajennuksen ponnahdusikkunan, se tarkoittaa, että Redirect Web -natiivisovellusta ei ole asennettu tai se ei toimi oikein.
+Jos näet yllä olevan virheen avatessasi laajennuksen ponnahdusikkunan, se tarkoittaa, että RedirectWeb -natiivisovellusta ei ole asennettu tai se ei toimi oikein.
 
-Varmista, että olet asentanut Redirect Webin uusimman version [App Storesta](https://apps.apple.com/app/id1571283503).
+Varmista, että olet asentanut RedirectWebin uusimman version [App Storesta](https://apps.apple.com/app/id1571283503).
 
 Saatat joutua käynnistämään selaimesi uudelleen natiivisovelluksen asentamisen jälkeen.
 
 > [!NOTE]
-> * Sinun tulee asentaa Redirect Web -natiivisovellus käyttääksesi selaimen laajennusta. Pelkkä laajennus ei riitä.
+> * Sinun tulee asentaa RedirectWeb -natiivisovellus käyttääksesi selaimen laajennusta. Pelkkä laajennus ei riitä.
 > * Safari-käyttäjien ei tarvitse asentaa laajennusta erikseen, koska se sisältyy natiivisovellukseen.
 
 ## Alkuperäinen sivu välähtää lyhyesti ennen uudelleenohjausta {#original-page-flash}
@@ -45,7 +45,7 @@ Tämä tapahtuu, kun käytät **Original**-tyyppisiä uudelleenohjaussääntöj�
 
 Avaa Edit Rule -näyttö ja muuta **Type** arvoksi **DNR** välttääksesi tämän ongelman.
 
-<Image src={EditRuleDnr} alt="Redirect Web -laajennuksen ponnahdusikkuna" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="RedirectWeb -laajennuksen ponnahdusikkuna" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > Firefoxissa tätä ongelmaa ei pitäisi esiintyä edes Original-tyypin kanssa, sillä se luottaa WebRequest-rajapintaan, joka estää alkuperäisen sivun latautumisen.
@@ -59,7 +59,7 @@ Saatat nähdä Safarin Asetukset -ikkunassa seuraavan kaltaisia virheilmoituksia
 > * Laajennuksen resursseista ei löydy tiedostoa "popup.mobile.css". Polku on virheellinen.
 > * Laajennuksen resursseista ei löydy tiedostoa "toolbar-button.mobile.css". Polku on virheellinen.
 
-Tämä ei vaikuta Redirect Webin toiminnallisuuteen. Voit turvallisesti jättää ne huomiotta.
+Tämä ei vaikuta RedirectWebin toiminnallisuuteen. Voit turvallisesti jättää ne huomiotta.
 
 Nämä virheilmoitukset johtuvat siitä, että laajennuksen ponnahdusikkuna yrittää ladata tyylitiedostoja sekä työpöytä- että mobiililaitteille, vaikka se voi ladata vain toisen niistä riippuen siitä, käytätkö Macia vai iOS:ää. Tämän seurauksena yksi tiedostoista epäonnistuu aina latautumaan, mikä on odotettua käytöstä.
 

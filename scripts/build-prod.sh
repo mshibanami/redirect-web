@@ -13,9 +13,10 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 if [ "$environment" = "github" ]; then
-  BASE_PATH="/redirect-web/"
+  basePath="/redirect-web/"
+  redirectionBaseUrl="https://redirectweb.net/"
 elif [ "$environment" = "cloudflare" ]; then
-  BASE_PATH="/"
+  basePath="/"
 else
   echo "Unknown environment: $environment"
   exit 1
@@ -23,6 +24,6 @@ fi
 
 rm -rf build
 
-BASE_PATH=$BASE_PATH pnpm run build
+BASE_PATH="$basePath" REDIRECTION_BASE_URL="$redirectionBaseUrl" pnpm run build
 
 cp -R library build/

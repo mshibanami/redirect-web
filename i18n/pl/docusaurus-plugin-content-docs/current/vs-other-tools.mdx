@@ -1,30 +1,30 @@
 # Porównanie z innymi narzędziami
 
-Istnieją różne narzędzia o podobnej funkcjonalności do Redirect Web. Redirect Web nie próbuje ich zastępować, ale stara się je uzupełniać. Oto kilka porównań.
+Istnieją różne narzędzia o podobnej funkcjonalności do RedirectWeb. RedirectWeb nie próbuje ich zastępować, ale stara się je uzupełniać. Oto kilka porównań.
 
 > [!NOTE]
 > Te porównania opierają się na stanie z października 2025 r. Skontaktuj się z nami, jeśli znajdziesz nieaktualne informacje lub błędy. Dziękujemy! 🙏
 
 ## [Redirector](https://github.com/einaregilsson/Redirector) {#redirector}
 
-Redirector to świetne rozszerzenie przeglądarki do przekierowań. Jest całkowicie darmowe i open source, a także działa na platformach innych niż Apple. Ale Redirect Web ma kilka dodatkowych funkcji, które mogą Ci się spodobać:
+Redirector to świetne rozszerzenie przeglądarki do przekierowań. Jest całkowicie darmowe i open source, a także działa na platformach innych niż Apple. Ale RedirectWeb ma kilka dodatkowych funkcji, które mogą Ci się spodobać:
 
-* **Szczegółowe ustawienia reguł:** Obsługuje wiele wzorców wykluczeń, wiele dopasowań procesów i funkcje zamiany ciągów znaków dostępne tylko w Redirect Web.
+* **Szczegółowe ustawienia reguł:** Obsługuje wiele wzorców wykluczeń, wiele dopasowań procesów i funkcje zamiany ciągów znaków dostępne tylko w RedirectWeb.
 * **Otwieranie w natywnych aplikacjach:** Na Macu możesz wybrać, gdzie otworzyć docelowy adres URL. Wywołuje polecenie `open` bezpośrednio (nie głębokie linkowanie).
 * **Obsługa [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Zapewnia błyskawiczne przekierowanie.
 * **Scentralizowane zarządzanie regułami:** Zarządzaj regułami dla wszystkich przeglądarek w jednym miejscu za pośrednictwem natywnej aplikacji.
-* **Obsługa Manifest V3 i V2:** Redirect Web obsługuje V3 w przeglądarkach opartych na Chromium i MV2 w Firefoksie, umożliwiając korzystanie z tego samego interfejsu API co Redirector dla elastyczności i wydajności.
-* **Obsługa Safari:** Redirect Web obsługuje Safari na iOS i macOS; Redirector nie.
+* **Obsługa Manifest V3 i V2:** RedirectWeb obsługuje V3 w przeglądarkach opartych na Chromium i MV2 w Firefoksie, umożliwiając korzystanie z tego samego interfejsu API co Redirector dla elastyczności i wydajności.
+* **Obsługa Safari:** RedirectWeb obsługuje Safari na iOS i macOS; Redirector nie.
 
 Bardzo szanujemy Redirector i oferujemy import/eksport reguł przekierowań, które on również może obsługiwać, dzięki czemu możesz elastycznie przełączać się między nimi. Zobacz więcej szczegółów [tutaj](/export-or-import-rules).
 
 ## Menedżery skryptów użytkownika, takie jak [Tampermonkey](https://www.tampermonkey.net/) lub [Greasemonkey](https://www.greasespot.net/) {#userscript-managers}
 
-Menedżery skryptów użytkownika są bardzo potężne i elastyczne. Możesz z nimi zrobić wiele rzeczy, w tym przekierowania. Mają jednak pewne wady w porównaniu do Redirect Web:
+Menedżery skryptów użytkownika są bardzo potężne i elastyczne. Możesz z nimi zrobić wiele rzeczy, w tym przekierowania. Mają jednak pewne wady w porównaniu do RedirectWeb:
 
-* **Złożoność:** Pisanie i utrzymywanie skryptów może być złożone i czasochłonne, zwłaszcza dla użytkowników, którzy nie są zaznajomieni z programowaniem. Redirect Web zapewnia przyjazny dla użytkownika interfejs do tworzenia i zarządzania regułami bez kodowania.
-* **Bezpieczeństwo:** Menedżery skryptów użytkownika mogą wprowadzać narzut wydajności, zwłaszcza jeśli skrypty są złożone lub nie są zoptymalizowane. Mogą również powodować nieskończoną pętlę przekierowań, jeśli nie są starannie napisane. Redirect Web został zaprojektowany tak, aby był wydajny i bezpieczny.
-* **Obsługa nowszego API:** Niektóre menedżery skryptów użytkownika mogą nie mieć dostępu do interfejsu API Declarative Net Request (DNR), który może zapewnić szybsze i bardziej wydajne przekierowanie. Redirect Web obsługuje DNR dla lepszej wydajności.
+* **Złożoność:** Pisanie i utrzymywanie skryptów może być złożone i czasochłonne, zwłaszcza dla użytkowników, którzy nie są zaznajomieni z programowaniem. RedirectWeb zapewnia przyjazny dla użytkownika interfejs do tworzenia i zarządzania regułami bez kodowania.
+* **Bezpieczeństwo:** Menedżery skryptów użytkownika mogą wprowadzać narzut wydajności, zwłaszcza jeśli skrypty są złożone lub nie są zoptymalizowane. Mogą również powodować nieskończoną pętlę przekierowań, jeśli nie są starannie napisane. RedirectWeb został zaprojektowany tak, aby był wydajny i bezpieczny.
+* **Obsługa nowszego API:** Niektóre menedżery skryptów użytkownika mogą nie mieć dostępu do interfejsu API Declarative Net Request (DNR), który może zapewnić szybsze i bardziej wydajne przekierowanie. RedirectWeb obsługuje DNR dla lepszej wydajności.
 
 ## Apple\'s [Shortcuts](https://support.apple.com/guide/shortcuts/welcome/ios) {#why-not-shortcuts}
 
@@ -32,18 +32,18 @@ Shortcuts to potężne narzędzie automatyzacji firmy Apple dostępne na iOS i m
 
 ## [OpenIn](https://loshadki.app/openin4/) lub [Velja](https://sindresorhus.com/velja) {#openin-or-velja}
 
-OpenIn i Velja to aplikacje do wyboru przeglądarki, a także mają rozszerzenia przeglądarki, które umożliwiają otwieranie linków w innej aplikacji z przeglądarki. Redirect Web również ma możliwość przekierowania z przeglądarki do aplikacji. Istnieją jednak pewne różnice:
+OpenIn i Velja to aplikacje do wyboru przeglądarki, a także mają rozszerzenia przeglądarki, które umożliwiają otwieranie linków w innej aplikacji z przeglądarki. RedirectWeb również ma możliwość przekierowania z przeglądarki do aplikacji. Istnieją jednak pewne różnice:
 
-* **Automatyczne przekierowanie:** Wymagają ręcznego wybrania ikony paska narzędzi, aby otworzyć link w innej aplikacji. Redirect Web automatycznie przekierowuje adresy URL na podstawie Twoich reguł bez dodatkowych kroków. Są to dwa różne podejścia do obsługi linków.
-* **Obsługa wielu platform:** Chociaż są przeznaczone dla komputerów Mac, Redirect Web obsługuje wszystkie główne przeglądarki na komputerach Mac oraz Safari na iPhone'ach, iPadach i Apple Vision Pro.
+* **Automatyczne przekierowanie:** Wymagają ręcznego wybrania ikony paska narzędzi, aby otworzyć link w innej aplikacji. RedirectWeb automatycznie przekierowuje adresy URL na podstawie Twoich reguł bez dodatkowych kroków. Są to dwa różne podejścia do obsługi linków.
+* **Obsługa wielu platform:** Chociaż są przeznaczone dla komputerów Mac, RedirectWeb obsługuje wszystkie główne przeglądarki na komputerach Mac oraz Safari na iPhone'ach, iPadach i Apple Vision Pro.
 
 ## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {#stopthemadness}
 
-StopTheMadness to rozszerzenie przeglądarki, które zapewnia różne funkcje poprawiające przeglądanie stron internetowych, w tym przekierowania. Ma jednak pewne ograniczenia w porównaniu do Redirect Web:
+StopTheMadness to rozszerzenie przeglądarki, które zapewnia różne funkcje poprawiające przeglądanie stron internetowych, w tym przekierowania. Ma jednak pewne ograniczenia w porównaniu do RedirectWeb:
 
-* **Elastyczność reguł:** StopTheMadness ma ograniczone opcje konfiguracji reguł. Redirect Web oferuje bardziej szczegółowe ustawienia reguł, w tym wiele wzorców wykluczeń, przetwarzanie grup przechwytujących i wiele innych.
-* **Złożoność funkcji:** StopTheMadness zawiera wiele funkcji, które mogą nie być konieczne dla użytkowników, którzy chcą tylko przekierowania. Redirect Web koncentruje się wyłącznie na przekierowaniach.
-* **Cena:** StopTheMadness kosztuje 12-15 USD bez bezpłatnego okresu próbnego lub bezpłatnego planu. Redirect Web oferuje bezpłatny plan z podstawowymi funkcjami oraz subskrypcję z bezpłatnym okresem próbnym wszystkich funkcji i opcję jednorazowego zakupu w cenie kawy.
+* **Elastyczność reguł:** StopTheMadness ma ograniczone opcje konfiguracji reguł. RedirectWeb oferuje bardziej szczegółowe ustawienia reguł, w tym wiele wzorców wykluczeń, przetwarzanie grup przechwytujących i wiele innych.
+* **Złożoność funkcji:** StopTheMadness zawiera wiele funkcji, które mogą nie być konieczne dla użytkowników, którzy chcą tylko przekierowania. RedirectWeb koncentruje się wyłącznie na przekierowaniach.
+* **Cena:** StopTheMadness kosztuje 12-15 USD bez bezpłatnego okresu próbnego lub bezpłatnego planu. RedirectWeb oferuje bezpłatny plan z podstawowymi funkcjami oraz subskrypcję z bezpłatnym okresem próbnym wszystkich funkcji i opcję jednorazowego zakupu w cenie kawy.
 
 ## Na koniec...
 

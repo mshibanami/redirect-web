@@ -1,6 +1,6 @@
 {
   "rule-set.json#/redirects/0/comments": {
-    "message": "Cette règle fonctionne lorsque Google est votre moteur de recherche par défaut. Si vous commencez une recherche dans la barre de recherche avec `gpt `, Redirect Web ignore Google et vous dirige directement vers ChatGPT avec tout ce qui suit `gpt `. Pour utiliser un mot déclencheur différent, remplacez simplement `gpt ` dans la règle par le vôtre.\n\nVous pouvez ajouter ces options :\n\n- `q={votre texte}` : votre invite ChatGPT\n- `hints=search` : active le mode de recherche de ChatGPT\n- `temporary-chat=true` : ouvre un chat unique\n- `model={nom du modèle}` : choisit le modèle à utiliser (par exemple `gpt-5`, `gpt-4o`)",
+    "message": "Cette règle fonctionne lorsque Google est votre moteur de recherche par défaut. Si vous commencez une recherche dans la barre de recherche avec `gpt `, RedirectWeb ignore Google et vous dirige directement vers ChatGPT avec tout ce qui suit `gpt `. Pour utiliser un mot déclencheur différent, remplacez simplement `gpt ` dans la règle par le vôtre.\n\nVous pouvez ajouter ces options :\n\n- `q={votre texte}` : votre invite ChatGPT\n- `hints=search` : active le mode de recherche de ChatGPT\n- `temporary-chat=true` : ouvre un chat unique\n- `model={nom du modèle}` : choisit le modèle à utiliser (par exemple `gpt-5`, `gpt-4o`)",
     "description": "The comments of redirect rule #0"
   },
   "rule-set.json#/redirects/0/title": {

@@ -1,6 +1,6 @@
 {
   "rule-set.json#/redirects/0/comments": {
-    "message": "Denne regel virker, når Google er din standard søgemaskine. Hvis du starter en søgefeltssøgning med `gpt␣`, springer Redirect Web Google over og tager dig direkte til ChatGPT med det, der følger efter `gpt␣`. For at bruge et andet udløserord skal du blot erstatte `gpt␣` i reglen med dit eget.\n\nDu kan tilføje disse muligheder:\n\n- `q={din tekst}`: din ChatGPT-prompt\n- `hints=search`: slår ChatGPT's søgetilstand til\n- `temporary-chat=true`: åbner en engangschat\n- `model={modelnavn}`: vælger hvilken model der skal bruges (f.eks. `gpt-5`, `gpt-4o`)",
+    "message": "Denne regel virker, når Google er din standard søgemaskine. Hvis du starter en søgefeltssøgning med `gpt␣`, springer RedirectWeb Google over og tager dig direkte til ChatGPT med det, der følger efter `gpt␣`. For at bruge et andet udløserord skal du blot erstatte `gpt␣` i reglen med dit eget.\n\nDu kan tilføje disse muligheder:\n\n- `q={din tekst}`: din ChatGPT-prompt\n- `hints=search`: slår ChatGPT's søgetilstand til\n- `temporary-chat=true`: åbner en engangschat\n- `model={modelnavn}`: vælger hvilken model der skal bruges (f.eks. `gpt-5`, `gpt-4o`)",
     "description": "The comments of redirect rule #0"
   },
   "rule-set.json#/redirects/0/title": {

@@ -1,6 +1,6 @@
 # Configuración de reglas
 
-Esta página proporciona información detallada de cada configuración en la pantalla *Editar regla* de la aplicación Redirect Web.
+Esta página proporciona información detallada de cada configuración en la pantalla *Editar regla* de la aplicación RedirectWeb.
 
 ## Opciones
 
@@ -64,11 +64,11 @@ La opción **Navegadores de destino** te permite especificar a qué navegador se
 
 * Hay 2 tipos de navegadores que puedes elegir:
     * **Navegadores que puedes elegir por defecto**: Puedes elegir Safari, Chrome, Firefox, Edge, Opera, Arc, Brave y Vivaldi por defecto. Esto no diferencia variantes del mismo navegador, como Safari y Safari Technology Preview.
-    * **Navegadores especificados por el usuario**: Al tocar el botón Agregar en el menú emergente, puedes seleccionar cualquier navegador que no sea Safari o Safari Technology Preview que tenga instalada la extensión Redirect Web.
+    * **Navegadores especificados por el usuario**: Al tocar el botón Agregar en el menú emergente, puedes seleccionar cualquier navegador que no sea Safari o Safari Technology Preview que tenga instalada la extensión RedirectWeb.
 * La casilla de verificación **Todo excepto lo seleccionado** te permite apuntar a todos los navegadores excepto los que hayas elegido.
 
 > [!WARNING]
-> Redirect Web no puede diferenciar si el navegador es **Safari** o **Safari Technology Preview** porque la aplicación verifica el proceso padre de la extensión para detectarlo, pero estos dos navegadores comparten el mismo proceso padre (`/sbin/launchd`).
+> RedirectWeb no puede diferenciar si el navegador es **Safari** o **Safari Technology Preview** porque la aplicación verifica el proceso padre de la extensión para detectarlo, pero estos dos navegadores comparten el mismo proceso padre (`/sbin/launchd`).
 
 ### Redirigir a {#redirect-to}
 
@@ -168,7 +168,7 @@ Los **patrones de URL** se utilizan para hacer coincidir URLs en las opciones *R
 También puedes usar sustituciones en Comodín, lo que significa que puedes hacer referencia a porciones de la URL coincidente usando `$1`, `$2`, etc. Por ejemplo, si usas `https://example.com/*-world-*`, y la URL es `https://example.com/hello-world-goodbye`, entonces `$1` sería "hello" y `$2` sería "goodbye". `$0` también está disponible para hacer referencia a toda la URL coincidente.
 
 > [!NOTE]
-> Aunque la sustitución es una característica de la Expresión Regular, también puedes usarla para Comodín porque Redirect Web convierte internamente Comodín a Expresión Regular.
+> Aunque la sustitución es una característica de la Expresión Regular, también puedes usarla para Comodín porque RedirectWeb convierte internamente Comodín a Expresión Regular.
 
 ### Expresión Regular {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ La **Expresión Regular** (Regex) es una herramienta poderosa para hacer coincid
 
 Puedes hacer referencia a los grupos de captura en *Redirigir a* o *Reemplazo* usando `$1`, `$2`, ... o `$0` para hacer referencia a toda la coincidencia.
 
-Redirect Web funciona con el [motor Regex de Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb funciona con el [motor Regex de Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Puedes encontrar más información sobre la sintaxis de Regex en recursos como [RegExr](https://regexr.com/).

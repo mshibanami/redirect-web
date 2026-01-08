@@ -8,7 +8,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 # Rozwiązywanie problemów
 
-Na tej stronie znajdują się typowe problemy i ich rozwiązania podczas korzystania z Redirect Web.
+Na tej stronie znajdują się typowe problemy i ich rozwiązania podczas korzystania z RedirectWeb.
 
 <TOCInline toc={toc} />
 
@@ -16,27 +16,27 @@ Na tej stronie znajdują się typowe problemy i ich rozwiązania podczas korzyst
 
 Jeśli reguły nie działają zgodnie z oczekiwaniami, sprawdź następujące elementy:
 
-- **Rozszerzenie przeglądarki jest zainstalowane i włączone na właściwej stronie:** Upewnij się, że masz zainstalowane rozszerzenie Redirect Web i że jest ono włączone w przeglądarce dla strony, z której chcesz przekierować. Jeśli możesz otworzyć wyskakujące okno rozszerzenia na stronie źródłowej, to oznacza, że zostało poprawnie zainstalowane:
-    <Image src={ExtensionPopup} alt="wyskakujące okno rozszerzenia Redirect Web" width="260" hasShadow/>
+- **Rozszerzenie przeglądarki jest zainstalowane i włączone na właściwej stronie:** Upewnij się, że masz zainstalowane rozszerzenie RedirectWeb i że jest ono włączone w przeglądarce dla strony, z której chcesz przekierować. Jeśli możesz otworzyć wyskakujące okno rozszerzenia na stronie źródłowej, to oznacza, że zostało poprawnie zainstalowane:
+    <Image src={ExtensionPopup} alt="wyskakujące okno rozszerzenia RedirectWeb" width="260" hasShadow/>
 
-- **Konfiguracja reguły jest poprawna:** Dokładnie sprawdź reguły przekierowań w natywnej aplikacji Redirect Web. Upewnij się, że wzorce adresów źródłowych, adresy docelowe i wszelkie warunki są poprawnie ustawione. Aby sprawdzić, czy reguła jest prawidłowa, wpisz przykładowy adres URL w sekcji `Examples` na ekranie `Edit Rule`. Jeśli reguła jest poprawna, zobaczysz oczekiwany adres docelowy pod swoim wpisem, np.:
+- **Konfiguracja reguły jest poprawna:** Dokładnie sprawdź reguły przekierowań w natywnej aplikacji RedirectWeb. Upewnij się, że wzorce adresów źródłowych, adresy docelowe i wszelkie warunki są poprawnie ustawione. Aby sprawdzić, czy reguła jest prawidłowa, wpisz przykładowy adres URL w sekcji `Examples` na ekranie `Edit Rule`. Jeśli reguła jest poprawna, zobaczysz oczekiwany adres docelowy pod swoim wpisem, np.:
     <Image src={RuleEditExampleResult} alt="Przykład ekranu edycji reguły pokazujący wynik dla przykładowego adresu URL" width="260" hasShadow/>
 
 ## Wyskakujące okno rozszerzenia wyświetla błąd {#error-shown-in-extension-popup}
 
-<Image src={ErrorOverlay} alt="nakładka błędu Redirect Web" width="260" hasShadow hasRoundedCorners/>
+<Image src={ErrorOverlay} alt="nakładka błędu RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
-> Redirect Web app hasn't been installed or is not working properly.  
+> RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
 
-Jeśli po otwarciu wyskakującego okna rozszerzenia zobaczysz powyższy komunikat, oznacza to, że natywna aplikacja Redirect Web nie jest zainstalowana lub nie działa poprawnie.
+Jeśli po otwarciu wyskakującego okna rozszerzenia zobaczysz powyższy komunikat, oznacza to, że natywna aplikacja RedirectWeb nie jest zainstalowana lub nie działa poprawnie.
 
-Upewnij się, że zainstalowałeś najnowszą wersję Redirect Web z [App Store](https://apps.apple.com/app/id1571283503).
+Upewnij się, że zainstalowałeś najnowszą wersję RedirectWeb z [App Store](https://apps.apple.com/app/id1571283503).
 
 Po zainstalowaniu natywnej aplikacji może być konieczne ponowne uruchomienie przeglądarki.
 
 > [!NOTE]
-> * Musisz zainstalować natywną aplikację Redirect Web, aby korzystać z rozszerzenia przeglądarki. Same rozszerzenie nie działa.
+> * Musisz zainstalować natywną aplikację RedirectWeb, aby korzystać z rozszerzenia przeglądarki. Same rozszerzenie nie działa.
 > * Użytkownicy Safari nie muszą instalować rozszerzenia osobno, ponieważ jest ono dołączone do natywnej aplikacji.
 
 ## Oryginalna strona mignie krótko przed przekierowaniem {#original-page-flash}
@@ -45,7 +45,7 @@ Dzieje się tak, gdy używasz reguł przekierowań typu **Original**. Ten typ of
 
 Otwórz ekran `Edit Rule` i zmień **Type** na **DNR**, aby uniknąć tego problemu.
 
-<Image src={EditRuleDnr} alt="wyskakujące okno rozszerzenia Redirect Web" height="260" hasShadow hasRoundedCorners/>
+<Image src={EditRuleDnr} alt="wyskakujące okno rozszerzenia RedirectWeb" height="260" hasShadow hasRoundedCorners/>
 
 > [!NOTE]
 > W Firefoxie ten problem nie powinien występować nawet przy typie Original, ponieważ opiera się on na `WebRequest API`, które uniemożliwia załadowanie oryginalnej strony.
@@ -59,7 +59,7 @@ Możesz zobaczyć komunikaty o błędach w oknie ustawień Safari, podobne do po
 > * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
 > * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
-Nie wpływa to na działanie Redirect Web. Możesz je bezpiecznie zignorować.
+Nie wpływa to na działanie RedirectWeb. Możesz je bezpiecznie zignorować.
 
 Te błędy są spowodowane tym, że wyskakujące okno rozszerzenia próbuje załadować pliki stylów zarówno dla komputerów, jak i urządzeń mobilnych, podczas gdy w danym środowisku może załadować tylko jeden z nich (w zależności od tego, czy używasz macOS czy iOS). W rezultacie jeden z plików zawsze nie załaduje się, co jest oczekiwanym zachowaniem.
 

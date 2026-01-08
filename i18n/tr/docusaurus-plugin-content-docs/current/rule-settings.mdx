@@ -1,6 +1,6 @@
 # Kural Ayarları
 
-Bu sayfa, Redirect Web uygulamasındaki *Kuralı Düzenle* ekranındaki her ayarın ayrıntılı bilgilerini sağlar.
+Bu sayfa, RedirectWeb uygulamasındaki *Kuralı Düzenle* ekranındaki her ayarın ayrıntılı bilgilerini sağlar.
 
 ## Seçenekler
 
@@ -64,11 +64,11 @@ Please check the details of each method in [mdn web belgelerinde](https://develo
 
 *   Seçebileceğiniz 2 tür tarayıcı vardır:
     *   **Varsayılan olarak seçebileceğiniz tarayıcılar**: Varsayılan olarak Safari, Chrome, Firefox, Edge, Opera, Arc, Brave ve Vivaldi'yi seçebilirsiniz. Bu, Safari ve Safari Technology Preview gibi aynı tarayıcının varyantlarını ayırt etmez.
-    *   **Kullanıcı tarafından belirtilen tarayıcılar**: Açılır penceredeki Ekle düğmesine dokunarak, Redirect Web uzantısı yüklü olan Safari veya Safari Technology Preview dışındaki herhangi bir tarayıcıyı seçebilirsiniz.
+    *   **Kullanıcı tarafından belirtilen tarayıcılar**: Açılır penceredeki Ekle düğmesine dokunarak, RedirectWeb uzantısı yüklü olan Safari veya Safari Technology Preview dışındaki herhangi bir tarayıcıyı seçebilirsiniz.
 *   **Seçilenler dışındaki tümü** onay kutusu, seçtiğiniz tarayıcılar dışındaki her tarayıcıyı hedeflemenizi sağlar.
 
 > [!WARNING]
-> Redirect Web, tarayıcının **Safari** mi yoksa **Safari Technology Preview** mu olduğunu ayırt edemez, çünkü uygulama bunu algılamak için uzantının üst sürecini kontrol eder, ancak bu iki tarayıcı aynı üst süreci (/sbin/launchd) paylaşır.
+> RedirectWeb, tarayıcının **Safari** mi yoksa **Safari Technology Preview** mu olduğunu ayırt edemez, çünkü uygulama bunu algılamak için uzantının üst sürecini kontrol eder, ancak bu iki tarayıcı aynı üst süreci (/sbin/launchd) paylaşır.
 
 ### Şuraya Yönlendir {#redirect-to}
 
@@ -168,7 +168,7 @@ Yorumları aşağıdaki formatlarda yazabilirsiniz:
 Joker Karakter'de de ikame kullanabilirsiniz, bu da eşleşen URL'nin bölümlerini `$1`, `$2` vb. kullanarak referans alabileceğiniz anlamına gelir. Örneğin, `https://example.com/*-world-*` kullanırsanız ve URL `https://example.com/hello-world-goodbye` ise, `$1` "hello" ve `$2` "goodbye" olacaktır. Tüm eşleşmeyi referans almak için `$0` da mevcuttur.
 
 > [!NOTE]
-> İkame, Normal İfade'nin bir özelliği olmasına rağmen, Redirect Web dahili olarak Joker Karakter'i Normal İfade'ye dönüştürdüğü için Joker Karakter için de kullanabilirsiniz.
+> İkame, Normal İfade'nin bir özelliği olmasına rağmen, RedirectWeb dahili olarak Joker Karakter'i Normal İfade'ye dönüştürdüğü için Joker Karakter için de kullanabilirsiniz.
 
 ### Normal İfade {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Joker Karakter'de de ikame kullanabilirsiniz, bu da eşleşen URL'nin bölümler
 
 *Şuraya Yönlendir* veya *Değiştirme* seçeneklerinde `$1`, `$2`, ... kullanarak yakalama gruplarını veya tüm eşleşmeyi referans almak için `$0` kullanabilirsiniz.
 
-Redirect Web, [Apple'ın Regex motoru](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) tarafından desteklenmektedir.
+RedirectWeb, [Apple'ın Regex motoru](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042) tarafından desteklenmektedir.
 
 Regex sözdizimi hakkında daha fazla bilgiyi [RegExr](https://regexr.com/) gibi kaynaklarda bulabilirsiniz.

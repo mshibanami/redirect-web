@@ -1,6 +1,6 @@
 # Sääntöasetukset
 
-Tämä sivu tarjoaa yksityiskohtaista tietoa jokaisesta asetuksesta Redirect Web -sovelluksen *Muokkaa sääntöä* -näytössä.
+Tämä sivu tarjoaa yksityiskohtaista tietoa jokaisesta asetuksesta RedirectWeb -sovelluksen *Muokkaa sääntöä* -näytössä.
 
 ## Asetukset
 
@@ -64,11 +64,11 @@ The **Kohdeselaimet**-asetuksen avulla voit määrittää, mihin selaimeen sää
 
 * Voit valita kahden tyyppisiä selaimia:
     * **Selaimet, jotka voit valita oletuksena**: Voit valita oletuksena Safarin, Chromen, Firefoxin, Edgen, Operan, Arcin, Braven ja Vivaldin. Tämä ei erottele saman selaimen variantteja, kuten Safaria ja Safari Technology Preview'ta.
-    * **Käyttäjän määrittämät selaimet**: Napauttamalla Lisää-painiketta ponnahdusikkunassa voit valita minkä tahansa muun selaimen kuin Safarin tai Safari Technology Preview'n, johon Redirect Web -laajennus on asennettu.
+    * **Käyttäjän määrittämät selaimet**: Napauttamalla Lisää-painiketta ponnahdusikkunassa voit valita minkä tahansa muun selaimen kuin Safarin tai Safari Technology Preview'n, johon RedirectWeb -laajennus on asennettu.
 * **Kaikki paitsi valitut** -valintaruudun avulla voit kohdistaa kaikkiin selaimiin paitsi valitsemiisi.
 
 > [!WARNING]
-> Redirect Web ei pysty erottamaan, onko selain **Safari** vai **Safari Technology Preview**, koska sovellus tarkistaa laajennuksen pääprosessin havaitakseen sen, mutta nämä kaksi selainta jakavat saman pääprosessin (`/sbin/launchd`).
+> RedirectWeb ei pysty erottamaan, onko selain **Safari** vai **Safari Technology Preview**, koska sovellus tarkistaa laajennuksen pääprosessin havaitakseen sen, mutta nämä kaksi selainta jakavat saman pääprosessin (`/sbin/launchd`).
 
 ### Uudelleenohjaa kohteeseen {#redirect-to}
 
@@ -168,7 +168,7 @@ You can write comments in the following formats:
 Voit käyttää myös korvausta Wildcardissa, mikä tarkoittaa, että voit viitata vastaavan URL-osoitteen osiin käyttämällä `$1`, `$2` jne. Esimerkiksi, jos käytät `https://example.com/*-world-*`, ja URL-osoite on `https://example.com/hello-world-goodbye`, niin `$1` olisi "hello" ja `$2` olisi "goodbye". `$0` on myös käytettävissä viittaamaan koko vastaavaan URL-osoitteeseen.
 
 > [!NOTE]
-> Vaikka korvaus on säännöllisen lausekkeen ominaisuus, voit käyttää sitä myös Wildcardissa, koska Redirect Web muuntaa Wildcardin sisäisesti säännölliseksi lausekkeeksi.
+> Vaikka korvaus on säännöllisen lausekkeen ominaisuus, voit käyttää sitä myös Wildcardissa, koska RedirectWeb muuntaa Wildcardin sisäisesti säännölliseksi lausekkeeksi.
 
 ### Säännöllinen lauseke {#url-pattern-regular-expression}
 
@@ -180,6 +180,6 @@ Voit käyttää myös korvausta Wildcardissa, mikä tarkoittaa, että voit viita
 
 Voit viitata sieppausryhmiin *Uudelleenohjaa kohteeseen* tai *Korvaava* -asetuksissa käyttämällä `$1`, `$2`, ... tai `$0` viittaamaan koko vastaavuuteen.
 
-Redirect Web käyttää [Applen Regex-moottoria](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb käyttää [Applen Regex-moottoria](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
 Lisätietoja Regex-syntaksista löytyy resursseista, kuten [RegExr](https://regexr.com/).

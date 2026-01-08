@@ -2,7 +2,7 @@
 
 ![Library Screenshot](/img/library-screenshot.webp)
 
-The library is shown in the Redirect Web apps and the data under this `library` folder may be used in the app.
+The library is shown in the RedirectWeb apps and the data under this `library` folder may be used in the app.
 
 ## Rule Sets
 
@@ -23,7 +23,7 @@ You can submit a pull request to add your rule to the library.
 
 ### `rule-set.json`
 
-This file defines a rule set containing one or more rules. It's essentially equivalent to the `redirectweb` file you can get by exporting your rules from the Redirect Web apps.
+This file defines a rule set containing one or more rules. It's essentially equivalent to the `redirectweb` file you can get by exporting your rules from the RedirectWeb apps.
 
 > [!NOTE]
 > The file extension is `json` because it's easier to browse on GitHub.
