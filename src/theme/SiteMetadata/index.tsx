@@ -39,19 +39,19 @@ function AlternateLangHeaders(): ReactNode {
         <link
           key={locale}
           rel="alternate"
-          href={alternatePageUtils.createUrl({
+          href={makeDestinationUrl(alternatePageUtils.createUrl({
             locale,
             fullyQualified: true,
-          })}
+          }))}
           hrefLang={htmlLang}
         />
       ))}
       <link
         rel="alternate"
-        href={alternatePageUtils.createUrl({
+        href={makeDestinationUrl(alternatePageUtils.createUrl({
           locale: defaultLocale,
           fullyQualified: true,
-        })}
+        }))}
         hrefLang="x-default"
       />
 
@@ -87,7 +87,7 @@ function useDefaultCanonicalUrl() {
     baseUrl,
   });
 
-  return siteUrl + canonicalPathname;
+  return makeDestinationUrl(siteUrl + canonicalPathname);
 }
 
 // TODO move to SiteMetadataDefaults or theme-common ?
@@ -148,4 +148,19 @@ export default function SiteMetadata(): ReactNode {
       </Head>
     </>
   );
+}
+
+function makeDestinationUrl(hostingUrl: string): string {
+  const redirectionBaseUrl = process.env.REDIRECTION_BASE_URL;
+  if (!redirectionBaseUrl) {
+    return hostingUrl;
+  }
+  const {
+    siteConfig: { url: siteUrl, baseUrl, trailingSlash },
+  } = useDocusaurusContext();
+  const sitePath = hostingUrl.slice(siteUrl.length + baseUrl.length - 1);
+  return redirectionBaseUrl.replace(/\/+$/, '') + applyTrailingSlash(sitePath, {
+    trailingSlash,
+    baseUrl,
+  });
 }
