@@ -14,20 +14,28 @@ if (!isSupportedLocale(locale)) {
   throw new Error(`Unsupported locale: ${locale}`);
 }
 
+let baseSiteUrl: string;
+if (process.env.BASE_SITE_URL) {
+  baseSiteUrl = process.env.BASE_SITE_URL;
+} else {
+  console.warn('BASE_SITE_URL is not set. Using default value.');
+  baseSiteUrl = `https://redirectweb.net`;
+}
+
 const projectName = 'redirect-web';
 let baseUrl: string;
 if (process.env.BASE_PATH) {
   baseUrl = process.env.BASE_PATH;
 } else {
   console.warn('BASE_PATH is not set. Using default value.');
-  baseUrl = `/${projectName}/`;
+  baseUrl = `/`;
 }
 const localedBaseUrl = `${baseUrl}${locale == 'en' ? '' : `${locale}/`}`;
 
 const config: Config = {
   title: 'RedirectWeb',
   tagline: translatedTagline(locale),
-  url: 'https://mshibanami.github.io/',
+  url: baseSiteUrl,
   favicon: '/img/icon/favicon.ico',
   headTags: [
     { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '96x96', href: `${localedBaseUrl}img/icon/favicon-96x96.png` } },
