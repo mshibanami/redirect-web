@@ -134,7 +134,7 @@ const config: Config = {
     },
     footer: {
       style: 'light',
-      copyright: `<a class="footer__link-item" href="https://mshibanami.github.io/">© Manabu Nakazawa</a>`,
+      copyright: `<a class="footer__link-item" href="${baseSiteUrl}">© Manabu Nakazawa</a>`,
       links: [
         {
           title: 'Download',

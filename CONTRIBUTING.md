@@ -4,7 +4,7 @@ Thank you for investing your time in contributing to our project!
 
 ## File structure
 
-All the contents hosted as [mshibanami.github.io/redirect-web](https://mshibanami.github.io/redirect-web/) are in the [docs](docs) folder.
+All the contents hosted as [redirectweb.net](https://redirectweb.net/) are in the [docs](docs) folder.
 
 Contents of the library available on the app are in [library](library). If you want to modify the contents, please check [README.md in the folder](library/README.md).
 
