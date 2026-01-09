@@ -151,13 +151,13 @@ export default function SiteMetadata(): ReactNode {
 }
 
 function makeDestinationUrl(hostingUrl: string): string {
-  const redirectionBaseUrl = process.env.REDIRECTION_BASE_URL;
-  if (!redirectionBaseUrl) {
+  const {
+    siteConfig: { url: siteUrl, baseUrl, trailingSlash, customFields },
+  } = useDocusaurusContext();
+  const redirectionBaseUrl = customFields?.redirectionBaseUrl;
+  if (typeof redirectionBaseUrl !== 'string' || !redirectionBaseUrl) {
     return hostingUrl;
   }
-  const {
-    siteConfig: { url: siteUrl, baseUrl, trailingSlash },
-  } = useDocusaurusContext();
   const sitePath = hostingUrl.slice(siteUrl.length + baseUrl.length - 1);
   return redirectionBaseUrl.replace(/\/+$/, '') + applyTrailingSlash(sitePath, {
     trailingSlash,
