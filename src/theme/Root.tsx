@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 interface Props {
@@ -17,13 +17,24 @@ interface Props {
 export default function Root({ children }: Props): ReactNode {
     const { siteConfig } = useDocusaurusContext();
     const redirectionBaseUrl = siteConfig.customFields?.redirectionBaseUrl as string | undefined;
+
+    useEffect(() => {
+        if (typeof window !== 'undefined' && redirectionBaseUrl) {
+            const basePath = siteConfig.baseUrl || '/';
+            const currentPath = window.location.pathname;
+            const normalizedPath = (
+                currentPath.startsWith(basePath)
+                    ? currentPath.slice(basePath.length - 1)
+                    : currentPath
+            );
+            const targetBase = redirectionBaseUrl.replace(/\/+$/, '');
+            const redirectUrl = `${targetBase}${normalizedPath}${window.location.search}${window.location.hash}`;
+            window.location.replace(redirectUrl);
+        }
+    }, [redirectionBaseUrl, siteConfig.baseUrl]);
+
     if (typeof window !== 'undefined' && redirectionBaseUrl) {
-        const currentPath = window.location.pathname;
-        const currentSearch = window.location.search;
-        const currentHash = window.location.hash;
-        const redirectUrl = `${redirectionBaseUrl}${currentPath}${currentSearch}${currentHash}`;
-        window.location.replace(redirectUrl);
-        return (<p>Redirecting to <a href={redirectUrl}>{redirectUrl}</a>...</p>);
+        return <p>Redirecting...</p>;
     }
     return <>{children}</>;
 }
