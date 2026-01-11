@@ -6,6 +6,7 @@ import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-di
 import remarkCjkFriendly from 'remark-cjk-friendly';
 import { ALL_BROWSERS, getExtensionStore } from './src/components/ExtensionStoreLinks/constants';
 import { SUPPORTED_LOCALES, isSupportedLocale } from './src/constants';
+import docusaurusPluginBuildRedirection from './plugins/docusaurus-plugin-build-redirection';
 
 const defaultLocale = 'en';
 const envLocale = process.env.DOCUSAURUS_CURRENT_LOCALE;
@@ -60,6 +61,7 @@ const config: Config = {
   plugins: [
     'docusaurus-plugin-sass',
     'docusaurus-plugin-image-zoom',
+    docusaurusPluginBuildRedirection,
   ],
   markdown: {
     hooks: {
