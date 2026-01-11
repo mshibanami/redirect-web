@@ -72,6 +72,9 @@ const config: Config = {
     [
       'classic',
       {
+        ...(process.env.REDIRECTION_BASE_URL
+          ? { sitemap: false }
+          : {}),
         docs: {
           routeBasePath: '',
           sidebarPath: './sidebars.ts',
