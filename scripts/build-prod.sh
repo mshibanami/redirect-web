@@ -25,6 +25,7 @@ else
 fi
 
 rm -rf build
+rm -rf .docusaurus
 
 BASE_SITE_URL="$baseSiteUrl" BASE_PATH="$basePath" REDIRECTION_BASE_URL="$redirectionBaseUrl" pnpm run build
 
