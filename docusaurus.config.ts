@@ -51,6 +51,7 @@ const config: Config = {
     experimental_faster: true,
   },
   onBrokenLinks: 'throw',
+  trailingSlash: false,
   customFields: {
     redirectionBaseUrl: process.env.REDIRECTION_BASE_URL,
   },
