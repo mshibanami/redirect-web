@@ -118,3 +118,54 @@ img.medium-zoom-image--opened {
 .medium-zoom-image--opened {
   z-index: 999;
 }
+
+/* =========================================================================
+   Sidebar Styling
+   ========================================================================= */
+
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible {
+  margin-top: 1rem;
+}
+
+.theme-doc-sidebar-item-category-level-1
+  > .menu__list-item-collapsible
+  > .menu__link,
+.theme-doc-sidebar-item-category-level-1
+  > .menu__list-item-collapsible
+  > .menu__link:hover {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-content-secondary) !important;
+  background: transparent !important;
+  text-decoration: none !important;
+  cursor: default;
+  padding-bottom: 0.25rem;
+}
+
+.menu__list-item > .menu__link {
+  border-radius: 6px;
+  margin-bottom: 0.15rem;
+}
+
+.theme-doc-sidebar-item-category-level-2 > .menu__list {
+  padding-left: 0.75rem;
+  margin-left: 0.5rem;
+  margin-top: 0.25rem;
+  border-left: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.theme-doc-sidebar-item-category-level-2
+  > .menu__list-item-collapsible
+  > .menu__link {
+  font-weight: 600;
+}
+
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible:hover,
+.theme-doc-sidebar-item-category
+  > .menu__list-item-collapsible
+  > .menu__link:hover {
+  background: transparent !important;
+  text-decoration: none !important;
+}
