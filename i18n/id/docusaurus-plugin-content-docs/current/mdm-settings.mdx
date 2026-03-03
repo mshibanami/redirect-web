@@ -1,0 +1,125 @@
+import TOCInline from '@theme/TOCInline';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Pengaturan MDM untuk Admin
+
+![Platform yang Didukung: iOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20visionOS-white)
+
+RedirectWeb mendukung Konfigurasi Aplikasi Terkelola Apple, yang memungkinkan Anda (administrator IT) untuk menerapkan dan mengelola pengaturan aplikasi secara terpusat di seluruh perangkat karyawan/siswa melalui solusi Manajemen Perangkat Seluler (MDM), seperti Jamf, Intune, Kandji, dll.
+
+Halaman ini menguraikan kunci yang dapat dikonfigurasi, perilaku aplikasi, praktik terbaik, dan batasan.
+
+<TOCInline toc={toc} />
+
+## Ringkasan
+
+Dengan mendorong konfigurasi melalui MDM Anda, Anda dapat mencapai hal-hal berikut:
+
+* **Aturan yang Dipaksakan:** Terapkan aturan pengalihan di seluruh organisasi yang tidak dapat diubah atau dihapus oleh pengguna.
+* **Distribusi Aturan Awal:** Distribusikan kumpulan aturan templat yang berfungsi sebagai standar saat aplikasi pertama kali diluncurkan.
+* **Kontrol UI:** Batasi akses ke fitur tertentu (seperti Perpustakaan) dan tunjukkan dengan jelas di dalam aplikasi bahwa aplikasi tersebut berada di bawah manajemen organisasi.
+* **Pengambilan Aturan Besar (Fallback):** Abaikan batas ukuran muatan MDM dengan mengambil aturan dari server eksternal.
+
+## Kasus Penggunaan
+
+* **Perutean yang mulus selama migrasi sistem:**
+  Saat bermigrasi dari sistem internal lama (misalnya, `legacy-crm.internal.local`) ke platform baru (misalnya, `salesforce.com`), distribusikan `enforcedRuleSet`. Meskipun karyawan menggunakan bookmark lama, mereka secara otomatis dialihkan ke sistem baru, menghilangkan tiket dukungan IT terkait tautan yang sudah usang.
+* **Bantuan Akses Intranet:**
+  Distribusikan aturan pengalihan menggunakan skema URL khusus untuk memfasilitasi akses ke sumber daya intranet melalui terowongan VPN Per-Aplikasi, seperti Omnissa Web.
+
+> [!WARNING]
+> 
+> Pendorongan konfigurasi MDM diterapkan segera **hanya jika pengguna membuka aplikasi RedirectWeb**.
+> Meskipun aplikasi menggunakan tugas latar belakang untuk mendorong pembaruan MDM ke ekstensi browser secara diam-diam, ini adalah eksekusi "upaya terbaik" yang didiktekan oleh OS. Waktu eksekusi sangat tidak dapat diprediksi, dan tugas tersebut mungkin tidak berjalan sama sekali.
+> Oleh karena itu, fitur ini **tidak** boleh diandalkan untuk respons insiden yang kritis terhadap waktu (misalnya, mencoba mengalihkan semua karyawan secara instan ke situs cadangan dalam hitungan menit setelah penghentian layanan cloud).
+
+## Demo
+
+<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="Demo Pengaturan MDM" autoPlay playsInline muted loop controls width="640px"></video>
+
+File plist yang digunakan dalam video tersedia di sini: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+
+Dalam video tersebut, MDM ManageEngine digunakan untuk menerapkan konfigurasi, tetapi konfigurasi yang sama dapat digunakan untuk solusi MDM lainnya selama mereka mendukung Konfigurasi Aplikasi Terkelola Apple.
+
+## Kunci yang Dapat Dikonfigurasi
+
+Terapkan kunci dan nilai berikut untuk Konfigurasi Aplikasi Terkelola melalui konsol MDM Anda, biasanya dalam format plist.
+
+| Nama Kunci             | Tipe                         | Deskripsi                                                                                                                                                                                                                                                                   |
+| ---------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Kumpulan aturan](#rule-set-object) | **[Aturan yang Dipaksakan]** Kumpulan aturan yang diterapkan dengan prioritas lebih tinggi daripada aturan normal. Aturan pertama dalam daftar diutamakan. Pengguna tidak dapat mengedit, menghapus, atau menyusun ulang aturan ini. Aturan ini selalu aktif, mengabaikan saklar penonaktifan global aplikasi, dan tidak disinkronkan melalui iCloud. |
+| `prefilledRuleSet`     | [Kumpulan aturan](#rule-set-object) | **[Aturan Awal]** Kumpulan aturan yang dibuat sebagai pengganti aturan contoh default saat pengguna meluncurkan aplikasi untuk pertama kalinya tanpa aturan yang ada. Setelah didistribusikan, ini bertindak sebagai aturan normal, memungkinkan modifikasi, penghapusan, dan sinkronisasi iCloud oleh pengguna.                       |
+| `organizationName`     | String                       | Menampilkan "Dikelola oleh [organizationName]" di bagian atas layar pengaturan dalam aplikasi, yang menunjukkan kepada pengguna bahwa aplikasi tersebut dikelola.                                                                                                                                            |
+| `managedConfigVersion` | String                       | String versi arbitrer untuk konfigurasi. Ditampilkan di UI, memungkinkan dukungan IT untuk memverifikasi apakah muatan MDM terbaru telah mencapai perangkat saat pemecahan masalah.                                                                                                  |
+| `showsLibrarySection`  | Boolean                      | Jika disetel ke `false`, fitur Perpustakaan Aturan disembunyikan, dan bagian tersebut diganti dengan pesan kesalahan "Dibatasi oleh organisasi Anda."                                                                                                                                   |
+| `fallback`             | [Fallback](#fallback-object) | Tentukan ini ketika konfigurasi melebihi batas muatan MDM. Aplikasi akan mengambil JSON/XML dari URL ini untuk menerapkan konfigurasi.                                                                                                                                     |
+
+Semua kunci ini bersifat opsional.
+
+### [Objek] Kumpulan Aturan {#rule-set-object}
+
+Setiap objek aturan memiliki format yang sama dengan yang dapat Anda [bagikan/ekspor melalui aplikasi](export-or-import-rules), tetapi Anda perlu mengonversinya dari JSON ke plist, seperti ini:
+
+```plist
+...
+	<key>enforcedRuleSet</key>
+	<dict>
+		<key>kind</key>
+		<string>RedirectList</string>
+		<key>bundleID</key>
+		<string>io.github.mshibanami.RedirectWebForSafari</string>
+		<key>formatVersion</key>
+		<string>5</string>
+		<key>redirects</key>
+		<array>
+			<dict>
+				<key>kind</key>
+				<string>Redirect</string>
+				<key>type</key>
+				<string>originalRedirect</string>
+				<key>title</key>
+				<string>My enforced Rule</string>
+				<key>sourceURLPattern</key>
+				<dict>
+					<key>type</key>
+					<string>wildcard</string>
+					<key>value</key>
+					<string>https://example.com/1</string>
+				</dict>
+				<key>destinationURLPattern</key>
+				<string>https://google.com/search?q=1</string>
+			</dict>
+		</array>
+	</dict>
+...
+```
+
+### [Objek] Fallback {#fallback-object}
+
+| Nama Kunci          | Tipe         | Deskripsi                                                                                                                                  |
+| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | URL titik akhir file JSON/XML yang berisi kumpulan aturan.                                                                                     |
+| `authToken`       | String       | Token otentikasi yang ditambahkan ke header HTTP saat mengambil dari `fallbackDataURL`. (Digunakan sebagai `Authorization: Bearer [authToken]`). |
+
+## Evaluasi Aturan dan Resolusi Konflik
+
+1. Jika `enforcedRuleSet` disediakan, aturannya diterapkan dengan prioritas mutlak.
+2. Jika tidak ada aturan normal tetapi `prefilledRuleSet` ada, `prefilledRuleSet` disimpan sebagai aturan normal.
+3. "Aturan pengalihan contoh" default dibuat hanya jika tidak ada aturan MDM yang dikonfigurasi dan tidak ada aturan normal.
+
+## Perilaku URL Fallback
+
+Ketika sebuah kunci ada di muatan MDM sebaris dan data yang diambil melalui `fallbackDataURL`, aplikasi menangani konflik tersebut sebagai berikut:
+
+* **Sebelum Pengambilan Selesai:** Pengaturan sebaris diprioritaskan secara ketat dan digunakan.
+* **Setelah Pengambilan Berhasil:** Data yang diambil dari `fallbackDataURL` menimpa pengaturan sebaris yang sesuai.
+* **Setelah Pengambilan Gagal:** Aplikasi terus menggunakan pengaturan sebaris.
+* Kunci independen yang hanya ada di muatan sebaris tetap dipertahankan.
+
+## Umpan Balik MDM dan Pemeriksaan Status
+
+Anda dapat memverifikasi apakah konfigurasi berhasil diterapkan melalui saluran umpan balik MDM (`com.apple.feedback.managed`) jika solusi MDM Anda mendukungnya. Setelah memproses konfigurasi (atau menyelesaikan pengambilan URL), aplikasi mengembalikan data berikut:
+
+* `managedConfigVersion`: String versi dari upaya konfigurasi.
+* `result`: Antara `success` atau `error`.
+* `messages`: Larik yang berisi pesan kesalahan atau peringatan mendetail, jika ada.

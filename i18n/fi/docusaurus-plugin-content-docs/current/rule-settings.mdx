@@ -1,90 +1,90 @@
 # Sääntöasetukset
 
-Tämä sivu tarjoaa yksityiskohtaista tietoa jokaisesta asetuksesta RedirectWeb -sovelluksen *Muokkaa sääntöä* -näytössä.
+Tällä sivulla on yksityiskohtaista tietoa jokaisesta asetuksesta RedirectWeb-sovelluksen *Muokkaa sääntöä* -näytössä.
 
-## Asetukset
+## Valinnat
 
 ### Tyyppi {#type}
 
-Määritä **Tyyppi**-asetus hallitaksesi, miten sovellus käsittelee uudelleenohjausta. Voit valita näistä:
+Määritä **Tyyppi**-valinta hallitaksesi sitä, miten sovellus käsittelee uudelleenohjausta. Voit valita seuraavista:
 
-* **Alkuperäinen** (oletus)
-    * Tämä käyttää perinteisiä Web API -rajapintoja uudelleenohjauksen hallintaan. Lisäksi se käyttää [Tabs APIa](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) vararatkaisuna.
-        * Firefoxissa se käyttää [WebRequest APIa](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) uudelleenohjauksen käsittelyyn.
-    * Voit käyttää kaikkia muita vaihtoehtoja paitsi [Resurssityypit](#resource-types) ja [Pyynnön menetelmät](#request-methods).
-    * Tämä on hitaampi kuin *Deklaratiivinen* tyyppi ja voi aiheuttaa ylimääräisiä verkkopyyntöjä.
-* **DNR** (kokeellinen Safarille):
-    * Tämä tyyppi toimii paljon nopeammin kuin alkuperäinen tyyppi, koska se ei käynnistä verkkopyyntöä lähde-URL-osoitteelle.
-    * Tämän avulla voit määrittää [Resurssityypit](#resource-types) ja [Pyynnön menetelmät](#request-methods).
-    * ⚠️ Et voi käyttää joitain vaihtoehtoja, kuten [Sieppausryhmän käsittely](#capturing-group-processing) ja [Poissuljetut URL-kuviot](#excluded-url-patterns), koska DNR API ei ole vielä tukenut niitä.
-    * ⚠️ Safarissa et voi tällä hetkellä sisällyttää putkia (`|`) säännölliseen lausekekuvioosi. [Tarkemmat tiedot](https://github.com/mshibanami/redirect-web/issues/44)
-    * ⚠️ Koska Safarin DNR API:ssa on edelleen joitain ongelmia, pidämme sitä edelleen kokeellisena ominaisuutena Safarille. Voit löytää luettelon kaikista tunnetuista ongelmista [täältä](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+* **Alkuperäinen** (Oletus)
+    * Tämä käyttää perinteisiä Web-rajapintoja (API) uudelleenohjauksen hallintaan. Lisäksi se käyttää [Tabs-rajapintaa](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) varajärjestelmänä.
+        * Firefoxissa se käyttää [WebRequest-rajapintaa](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) uudelleenohjauksen käsittelyyn.
+    * Voit käyttää kaikkia muita valintoja paitsi [Resurssityyppejä](#resource-types) ja [Pyyntömenetelmiä](#request-methods).
+    * ⚠️ Tämä on hitaampi kuin *Deklaratiivinen* tyyppi ja saattaa aiheuttaa ylimääräisiä verkkopyyntöjä.
+* **DNR** (Kokeellinen Safarille):
+    * Tämä tyyppi toimii huomattavasti nopeammin kuin Alkuperäinen tyyppi, koska se ei aloita verkkopyyntöä alkuperäiseen URL-osoitteeseen.
+    * Tämän avulla voit määrittää [Resurssityypit](#resource-types) ja [Pyyntömenetelmät](#request-methods).
+    * ⚠️ Joitakin valintoja ei voi käyttää, kuten [Sieppausryhmien käsittelyä](#capturing-group-processing) ja [Poissuljettuja URL-malleja](#excluded-url-patterns), koska DNR-rajapinta ei vielä tue niitä.
+    * ⚠️ Safarissa säännöllisen lausekkeen (Regular Expression) kuvio ei tällä hetkellä voi sisältää putkimerkkejä (`|`). [Lisätietoja](https://github.com/mshibanami/redirect-web/issues/44)
+    * ⚠️ Koska Safarin DNR-rajapinnassa on edelleen joitakin ongelmia, pidämme sitä edelleen kokeellisena ominaisuutena Safarille. Löydät listan kaikista tunnetuista ongelmista [täältä](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
 ### Uudelleenohjaa kohteesta {#redirect-from}
 
-**Uudelleenohjaa kohteesta** -asetuksen avulla voit määrittää verkkosivujen URL-kuvion, josta haluat uudelleenohjata. Voit valita joko [Wildcard](#url-pattern-wildcard) tai [Säännöllinen lauseke](#url-pattern-regular-expression).
+**Uudelleenohjaa kohteesta** -valinnan avulla voit määrittää niiden verkkosivujen URL-mallin, joilta haluat uudelleenohjata. Voit valita joko [Jokerimerkin](#url-pattern-wildcard) tai [Säännöllisen lausekkeen](#url-pattern-regular-expression).
 
-Esimerkiksi, jos määrität `https://example.com/*` Wildcardilla, se vastaa `https://example.com/` tai `https://example.com/hello`.
+Esimerkiksi, jos määrität Jokerimerkillä `https://example.com/*`, se vastaa osoitteita `https://example.com/` tai `https://example.com/hello`.
 
 > [!NOTE]
-> Uudelleenohjaa kohteeseen -asetuksessa voit viitata koko vastaavuuteen käyttämällä `$0` tai osittaisiin vastaavuuksiin käyttämällä `$1`, `$2`, ... Tarkista yksityiskohdat [URL-kuvio](#url-pattern) -osiosta tällä sivulla.
+> **Uudelleenohjaa kohteeseen** -valinnassa voit viitata koko osumaan käyttämällä `$0` tai osittaisiin osumiin käyttämällä `$1`, `$2`, ... Katso yksityiskohdat tämän sivun kohdasta [URL-malli](#url-pattern).
 
 #### Resurssityypit {#resource-types}
 
 ![Tuetut tyypit: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-The **Resurssityypit**-asetuksen avulla voit määrittää verkkopyyntöjen luokat, kuten kuvat, JavaScriptit ja tyylisivut, joihin sääntöä sovelletaan.
-Esimerkiksi, jos asetat `script`, voit uudelleenohjata verkkosivujen lataamat JavaScript-tiedostot.
+**Resurssityypit**-valinnan avulla voit määrittää verkkopyyntöjen luokat, kuten kuvat, JavaScript-tiedostot ja tyylitiedostot, joihin sääntöä sovelletaan.
+Esimerkiksi, jos asetat arvoksi `script`, voit uudelleenohjata verkkosivujen lataamat JavaScript-tiedostot.
 
-Tällä hetkellä nämä ovat saatavilla: 
+Tällä hetkellä saatavilla olevat: 
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
-The default setting is `main_frame`, which is the top-level page loaded into a tab.
+Oletusasetus on `main_frame`, joka on välilehdelle ladattu ylimmän tason sivu.
 
-Please check the details of each resource type in [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+Tarkista kunkin resurssityypin yksityiskohdat [MDN-dokumentaatiosta](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Pyynnön menetelmät {#request-methods}
+#### Pyyntömenetelmät {#request-methods}
 
 ![Tuetut tyypit: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-The **Pyynnön menetelmät** -asetuksen avulla voit määrittää lähde-URL-osoitteen HTTP-menetelmät.
+**Pyyntömenetelmät**-valinnan avulla voit asettaa lähde-URL-osoitteen kohteena olevat HTTP-menetelmät.
 
-All methods are set by default.
+Kaikki menetelmät on asetettu oletuksena.
 
-Please check the details of each method in [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+Tarkista kunkin menetelmän yksityiskohdat [MDN-dokumentaatiosta](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 > [!WARNING]
-> Safarissa tämä vaihtoehto ei välttämättä ole käytettävissä, koska Applen DNR-tyypin toteutus ei näytä käsittelevän sitä tällä hetkellä. Lähetimme palautetta Applelle FB14502272:na.
+> Safarissa tämä valinta ei välttämättä ole käytettävissä, koska Applen DNR-tyypin toteutus ei näytä tällä hetkellä käsittelevän sitä. Olemme lähettäneet tästä palautetta Applelle (tunnus FB14502272).
 
 #### Kohdeselaimet {#target-browsers}
 
 ![Tuetut alustat: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-The **Kohdeselaimet**-asetuksen avulla voit määrittää, mihin selaimeen sääntöä tulisi tai ei tulisi soveltaa.
+**Kohdeselaimet**-valinnan avulla voit määrittää, mihin selaimeen sääntöä sovelletaan tai ei sovelleta.
 
-* Voit valita kahden tyyppisiä selaimia:
-    * **Selaimet, jotka voit valita oletuksena**: Voit valita oletuksena Safarin, Chromen, Firefoxin, Edgen, Operan, Arcin, Braven ja Vivaldin. Tämä ei erottele saman selaimen variantteja, kuten Safaria ja Safari Technology Preview'ta.
-    * **Käyttäjän määrittämät selaimet**: Napauttamalla Lisää-painiketta ponnahdusikkunassa voit valita minkä tahansa muun selaimen kuin Safarin tai Safari Technology Preview'n, johon RedirectWeb -laajennus on asennettu.
-* **Kaikki paitsi valitut** -valintaruudun avulla voit kohdistaa kaikkiin selaimiin paitsi valitsemiisi.
+* Voit valita kahdentyyppisiä selaimia:
+    * **Oletuksena valittavissa olevat selaimet**: Voit valita oletuksena Safarin, Chromen, Firefoxin, Edgen, Operan, Arcin, Braven ja Vivaldin. Tämä ei erottele saman selaimen eri variantteja, kuten Safari ja Safari Technology Preview.
+    * **Käyttäjän määrittämät selaimet**: Napauttamalla Lisää-painiketta ponnahdusikkunassa voit valita minkä tahansa muun selaimen kuin Safarin tai Safari Technology Preview'n, johon RedirectWeb-laajennus on asennettu.
+* **Kaikki paitsi valitut** -valintaruutu mahdollistaa kaikkien muiden selaimien kohdentamisen paitsi niiden, jotka olet valinnut.
 
 > [!WARNING]
-> RedirectWeb ei pysty erottamaan, onko selain **Safari** vai **Safari Technology Preview**, koska sovellus tarkistaa laajennuksen pääprosessin havaitakseen sen, mutta nämä kaksi selainta jakavat saman pääprosessin (`/sbin/launchd`).
+> RedirectWeb ei pysty erottamaan, onko selain **Safari** vai **Safari Technology Preview**, koska sovellus tarkistaa laajennuksen emoprosessin tunnistaakseen sen, mutta nämä kaksi selainta jakavat saman emoprosessin (`/sbin/launchd`).
 
 ### Uudelleenohjaa kohteeseen {#redirect-to}
 
-**Uudelleenohjaa kohteeseen** -asetus määrittää kohde-URL-osoitteen, johon haluat uudelleenohjata lähde-URL-osoitteesta, joka vastaa *Uudelleenohjaa kohteesta* -asetusta. Voit myös korvata sieppausryhmät `$1`, `$2`, ... tai koko vastaavuuden `$0`:lla. Nämä auttavat sinua määrittämään kohteen dynaamisesti. Tarkista yksityiskohdat [URL-kuvio](#url-pattern) -osiosta tällä sivulla.
+**Uudelleenohjaa kohteeseen** -valinta määrittää kohde-URL-osoitteen, johon haluat uudelleenohjata *Uudelleenohjaa kohteesta* -valinnalla täsmätystä lähde-URL-osoitteesta. Voit myös korvata sieppausryhmiä tunnuksilla `$1`, `$2`, ... tai koko osuman tunnuksella `$0`. Nämä auttavat sinua määrittämään kohteen dynaamisesti. Katso yksityiskohdat tämän sivun kohdasta [URL-malli](#url-pattern).
 
 Esimerkiksi, jos asetat seuraavan säännön:
 
-* **Uudelleenohjaa kohteesta**: `https://google.com/*` (Wildcard)
+* **Uudelleenohjaa kohteesta**: `https://google.com/*` (Jokerimerkki)
 * **Uudelleenohjaa kohteeseen**: `https://apple.com/$1`
 
-ja se vastaa `https://google.com/hello`, niin kohde-URL-osoite on `https://apple.com/hello`.
+ja se täsmää osoitteeseen `https://google.com/hello`, niin kohde-URL-osoite on `https://apple.com/hello`.
 
-Lisäksi voit muokata tekstejä `$1`, `$2`, ... ennen korvausten tekemistä. Tarkista [Sieppausryhmän käsittely](#capturing-group-processing) -osio yksityiskohtia varten.
+Lisäksi voit muokata tunnusten `$1`, `$2`, ... tekstejä ennen korvauksia. Katso lisätietoja osiosta [Sieppausryhmien käsittely](#capturing-group-processing).
 
 > [!TIP]
-> Voit määrittää mukautetun URL-skeeman sovelluksen avaamiseksi. Nämä ovat esimerkkejä sovelluksista, jotka tukevat syvälinkitystä:
+> Voit määrittää mukautetun URL-mallin sovelluksen avaamiseksi. Tässä on esimerkkejä sovelluksista, jotka tukevat syvälinkitystä:
 >
 > * Figma: `figma://file/Your_Figma_ID`
 > * Firefox: `firefox://open-url?url=https://example.com/hello`
@@ -97,89 +97,95 @@ Lisäksi voit muokata tekstejä `$1`, `$2`, ... ennen korvausten tekemistä. Tar
 
 ![Tuetut tyypit: Alkuperäinen](https://img.shields.io/badge/Types-Original-blue) ![Tuetut alustat: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Jos haluat määrittää sovelluksen, johon haluat avata kohde-URL-osoitteen, käytä **Sovellus**-yhdistelmäruutua. Tämä on käytettävissä vain macOS:ssä.
+Jos haluat määrittää sovelluksen, jolla haluat avata kohde-URL-osoitteen, käytä **Sovellus**-valintalaatikkoa. Tämä on käytettävissä vain macOS:ssä.
 
 > [!WARNING]
 > Voit avata vain sovelluksen, joka tukee [App Sandboxia](https://developer.apple.com/documentation/security/app_sandbox). Varmista myös, että sovellus tukee haluamasi URL-osoitteen avaamista.
 
-### Sieppausryhmän käsittely {#capturing-group-processing}
+### Sieppausryhmien käsittely {#capturing-group-processing}
 
 ![Tuetut tyypit: Alkuperäinen](https://img.shields.io/badge/Types-Original-blue)
 
-The **Sieppausryhmän käsittely** -asetuksen avulla voit määrittää, miten käsitellään siepattuja ryhmiä, jotka voit korvata *Uudelleenohjaa kohteeseen* -asetuksessa `$1`, `$2`...
+**Sieppausryhmien käsittely** -valinnan avulla voit määrittää, miten käsitellään siepattuja ryhmiä, joita voit korvata *Uudelleenohjaa kohteeseen* -valinnassa tunnuksilla `$1`, `$2`...
 
-Näin sieppausryhmät tehdään:
+Näin teet sieppausryhmiä:
 
-* **Wildcard**: `*`:lla ja `?`:llä vastaavat tekstit siepataan automaattisesti.
-* **Säännöllinen lauseke**: Tekstit, jotka vastaavat kuvion osaa `()` sisällä, siepataan.
+* **Jokerimerkki**: Merkeillä `*` ja `?` täsmätyt tekstit siepataan automaattisesti.
+* **Säännöllinen lauseke**: Kuvion sisällä suluilla `()` täsmätyt tekstit siepataan.
 
-Voit valita yhden tai useamman seuraavista prosesseista:
+Voit valita yhden tai useamman seuraavista käsittelyistä:
 
 * **URL-koodaus/dekoodaus**: Tämä soveltaa [prosenttikoodausta](https://en.wikipedia.org/wiki/Percent-encoding) tai dekoodausta sieppausryhmään. Esimerkiksi, jos koodaat `https://example.com/hello`, se muunnetaan muotoon `https%3A%2F%2Fexample.com%2Fhello`. Dekoodaus toimii päinvastoin.
-* **Base64-koodaus/dekoodaus**: Tämä dekoodaa/koodaa tekstin [Base64](https://en.wikipedia.org/wiki/Base64) -muotoon. Esimerkiksi voit koodata `hello`:n `aGVsbG8=`:ksi ja dekoodata sen takaisin `hello`:ksi.
-* **Korvaa esiintymät**: Tämä korvaa yhden tai useamman merkin ryhmässä, joka vastaa **Kohdetta**, **Korvaavalla** merkillä. Esimerkiksi, jos *Ryhmä* on `hello` ja *Kohde* on `l` ja Korvaava on `y`, se muunnetaan muotoon `heyyo`.
+* **Base64-koodaus/dekoodaus**: Tämä dekoodaa/koodaa tekstin [Base64-muotoon](https://en.wikipedia.org/wiki/Base64). Esimerkiksi voit koodata sanan `hello` muotoon `aGVsbG8=` ja dekoodata sen takaisin sanaksi `hello`.
+* **Esiintymien korvaaminen**: Tämä korvaa yhdessä ryhmässä yhden tai useamman merkin, jotka täsmäävät **Kohteeseen**, **Korvaavalla tekstillä**. Esimerkiksi, jos *Ryhmä* on `hello`, *Kohde* on `l` ja *Korvaava teksti* on `y`, se muuttuu muotoon `heyyo`.
 
 > [!NOTE]
-> Tämä on tarkoitettu kunkin sieppausryhmän käsittelyyn, eikä se vaikuta siihen, mitkä URL-osoitteet suljetaan pois [Poissuljetut URL-kuviot](#excluded-url-patterns) -asetuksella. Esimerkiksi, oletetaan, että sinulla on tämä sääntö:
+> Tämä on kunkin sieppausryhmän käsittelyä varten, eikä se vaikuta siihen, mitkä URL-osoitteet on suljettu pois [Poissuljetut URL-mallit](#excluded-url-patterns) -asetuksella. Esimerkiksi, jos sinulla on tämä sääntö:
 >
 > * **Uudelleenohjaa kohteesta**: `https://example.com/(hello.*)`
-> * **Sieppausryhmän käsittely**: 
+> * **Sieppausryhmien käsittely**:
 >     * Ryhmä: `$1`
 >     * Kohde: `.*` (Säännöllinen lauseke)
->     * Korvaava: `hello`
-> * **Poissuljettu URL-kuvio**: `https://example.com/hello`
+>     * Korvaava teksti: `hello`
+> * **Poissuljettu URL-malli**: `https://example.com/hello`
 >
-> Tässä tapauksessa `https://example.com/hello_world` ei suljeta pois, kun taas `https://example.com/hello` suljetaan pois.
+> Tässä tapauksessa `https://example.com/hello_world` ei ole poissuljettu, kun taas `https://example.com/hello` on poissuljettu.
 
-### Poissuljetut URL-kuviot {#excluded-url-patterns}
+### Poissuljetut URL-mallit {#excluded-url-patterns}
 
 ![Tuetut tyypit: Alkuperäinen](https://img.shields.io/badge/Types-Original-blue)
 
-The **Poissuljetut URL-kuviot** -asetuksen avulla voit määrittää URL-osoitteet, joita ei uudelleenohjata. Tämä voi olla hyödyllistä uudelleenohjaussilmukoiden välttämiseksi tai tiettyjen verkkosivuston osien poissulkemiseksi uudelleenohjauksesta.
+**Poissuljetut URL-mallit** -valinnan avulla voit määrittää URL-osoitteet, joita ei uudelleenohjata. Tämä voi olla hyödyllistä uudelleenohjaussilmukoiden välttämiseksi tai verkkosivuston tiettyjen osien jättämiseksi uudelleenohjauksen ulkopuolelle.
 
-Voit määrittää poissuljetut URL-kuviot käyttämällä joko säännöllisiä lausekkeita tai Wildcard-kuviotyyppejä.
+Voit määrittää poissuljetut URL-mallit käyttämällä joko säännöllistä lauseketta tai jokerimerkkimallia.
 
 ### Esimerkit {#examples}
 
-The **Esimerkit**-asetuksen avulla voit testata uudelleenohjaussääntöäsi antamalla esimerkkisivuja. Lisäämällä esimerkkisivun voit tarkistaa, toimiiko sääntö odotetusti ennen sen todellista soveltamista.
+**Esimerkit**-valinnan avulla voit testata uudelleenohjaussääntöäsi antamalla esimerkkiosoitteita. Lisäämällä esimerkkiosoitteen voit tarkistaa, toimiiko sääntö odotetulla tavalla ennen sen varsinaista käyttöönottoa.
+
+### Lisäasetukset {#advanced-options}
+
+* **[DNR] Pääkehyksen uudelleenohjaus**: Tämä valinta on käytettävissä vain DNR-tyypille. Sen avulla voit määrittää, miten käsitellään `main_frame`-resurssityypin uudelleenohjausta. Saatavilla olevat valinnat ovat:
+    * **Raaka**: Ohjaa pääkehyksen määritettyyn URL-osoitteeseen ilman muutoksia.
+    * **Välisivun kautta**: Ohjaa pääkehyksen välisivulle, joka ohjaa sitten määritettyyn kohde-URL-osoitteeseen. Tämä on hyödyllistä sovellusten avaamiseen syvälinkityksen avulla, koska välisivu voi käsitellä monimutkaisempaa uudelleenohjauslogiikkaa.
 
 ### Kommentit {#comments}
 
-The **Kommentit**-asetuksen avulla voit lisätä muistiinpanoja tai kommentteja uudelleenohjaussääntöösi. Tämä voi olla hyödyllistä, kun haluat pitää kirjaa siitä, miksi loit tietyn säännön, tai tarjota kontekstia muille, jotka saattavat tarkastella sääntöjäsi.
+**Kommentit**-valinnan avulla voit lisätä huomautuksia tai kommentteja uudelleenohjaussäännöstäsi. Tämä voi olla hyödyllistä sen seuraamiseksi, miksi loit tietyn säännön, tai taustatiedon antamiseksi muille, jotka saattavat tarkastella sääntöjäsi.
 
-You can write comments in the following formats:
+Voit kirjoittaa kommentteja seuraavissa muodoissa:
 
-* **Pelkkä teksti** (oletus): Yksinkertainen teksti ilman muotoilua.
-* **Markdown**: Voit käyttää [GitHubin Markdown-syntakseja](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), mukaan lukien joitain laajennuksia, joita GFM ei tue. Esimerkiksi voit luoda otsikoita, luetteloita, linkkejä ja paljon muuta.
+* **Pelkkä teksti** (Oletus): Yksinkertaista tekstiä ilman muotoiluja.
+* **Markdown**: Voit käyttää [GitHubin Markdown-syntakseja](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), mukaan lukien joitakin laajennuksia, joita GFM ei tue. Voit esimerkiksi luoda otsikoita, luetteloita, linkkejä ja muuta.
 * **AsciiDoc**: Voit käyttää [AsciiDoc-syntakseja](https://asciidoc.org/) kommenttiesi muotoiluun.
 
-## URL-kuvio {#url-pattern}
+## URL-malli {#url-pattern}
 
-**URL-kuvioita** käytetään URL-osoitteiden vastaavuuteen *Uudelleenohjaa kohteesta*, *Poissuljetut URL-kuviot* ja *Sieppausryhmän käsittely* -asetuksissa. Voit määrittää ne valitsemalla joko **Wildcard** tai **Säännöllinen lauseke**.
+**URL-malleja** käytetään URL-osoitteiden täsmäämiseen *Uudelleenohjaa kohteesta*-, *Poissuljetut URL-mallit*- ja *Sieppausryhmien käsittely* -valinnoissa. Voit määrittää ne valitsemalla joko **Jokerimerkin** tai **Säännöllisen lausekkeen**.
 
-### Wildcard {#url-pattern-wildcard}
+### Jokerimerkki {#url-pattern-wildcard}
 
-**Wildcard** on yksinkertaisempi kuviotyyppi, jonka avulla voit käyttää `*` (vastaa mitä tahansa) ja `?` (vastaa mitä tahansa yksittäistä merkkiä) yleismerkkeinä. Tässä muutamia esimerkkejä:
+**Jokerimerkki** on yksinkertaisempi mallityyppi, jonka avulla voit käyttää merkkejä `*` (vastaa mitä tahansa) ja `?` (vastaa mitä tahansa yksittäistä merkkiä) jokerimerkkeinä. Tässä on joitakin esimerkkejä:
 
-* Vastaamaan `https://example.com/hello`, voit käyttää `https://example.com/*`. Tämä vastaa mitä tahansa merkkijonoa `https://example.com/` jälkeen.
-* Vastaamaan `https://example.com/search?q=hello`, voit käyttää `https://example.com/search?q=*`. Tämä vastaa mitä tahansa `q`-parametrin arvoa.
-* Vastaamaan mitä tahansa URL-osoitetta, joka sisältää sanan `blog`, voit käyttää `*blog*`.
+* Täsmäämään `https://example.com/hello`, voit käyttää `https://example.com/*`. Tämä vastaa mitä tahansa merkkijonoa osoitteen `https://example.com/` jälkeen.
+* Täsmäämään `https://example.com/search?q=hello`, voit käyttää `https://example.com/search?q=*`. Tämä vastaa mitä tahansa arvoa `q`-parametrille.
+* Täsmäämään minkä tahansa URL-osoitteen, joka sisältää sanan `blog`, voit käyttää `*blog*`.
 
-Voit käyttää myös korvausta Wildcardissa, mikä tarkoittaa, että voit viitata vastaavan URL-osoitteen osiin käyttämällä `$1`, `$2` jne. Esimerkiksi, jos käytät `https://example.com/*-world-*`, ja URL-osoite on `https://example.com/hello-world-goodbye`, niin `$1` olisi "hello" ja `$2` olisi "goodbye". `$0` on myös käytettävissä viittaamaan koko vastaavaan URL-osoitteeseen.
+Voit käyttää korvaamista myös jokerimerkkien kanssa, mikä tarkoittaa, että voit viitata täsmätyn URL-osoitteen osiin tunnuksilla `$1`, `$2` jne. Esimerkiksi, jos käytät kuviota `https://example.com/*-world-*` ja URL on `https://example.com/hello-world-goodbye`, niin `$1` olisi "hello" and `$2` olisi "goodbye". `$0` on myös käytettävissä viittaamaan koko täsmättyyn URL-osoitteeseen.
 
 > [!NOTE]
-> Vaikka korvaus on säännöllisen lausekkeen ominaisuus, voit käyttää sitä myös Wildcardissa, koska RedirectWeb muuntaa Wildcardin sisäisesti säännölliseksi lausekkeeksi.
+> Vaikka korvaaminen on säännöllisten lausekkeiden ominaisuus, voit käyttää sitä myös jokerimerkkien kanssa, koska RedirectWeb muuntaa jokerimerkit sisäisesti säännöllisiksi lausekkeiksi.
 
 ### Säännöllinen lauseke {#url-pattern-regular-expression}
 
-**Säännöllinen lauseke** (Regex) on tehokas työkalu tekstin kuvioiden vastaavuuteen, ja sitä käytetään laajalti myös ohjelmoinnissa. Sen avulla voit määrittää tietyn kuvion, joka vastaa merkkijonojen joukkoa. Tässä muutamia esimerkkejä.
+**Säännöllinen lauseke** (Regex) on tehokas työkalu tekstin kuvioiden täsmäämiseen, ja sitä käytetään laajasti myös ohjelmoinnissa. Sen avulla voit määritellä tietyn kuvion, joka vastaa joukkoa merkkijonoja. Tässä on joitakin esimerkkejä.
 
-- Vastaamaan `https://example.com/hello`, voit käyttää `https://example.com/.*`. Tämä vastaa mitä tahansa merkkijonoa `https://example.com/` jälkeen.
-- Vastaamaan `https://example.com/search?q=hello`, voit käyttää `https://example.com/search\?q=(.*)`. Tämä vastaa `q`-parametrin arvoa ja tallentaa sen sieppausryhmään. Voit sitten viitata siihen käyttämällä `$1` *Uudelleenohjaa kohteeseen* -asetuksessa.
-- Vastaamaan mitä tahansa URL-osoitetta, joka sisältää sanan `blog`, voit käyttää `.*blog.*`.
+- Täsmäämään `https://example.com/hello`, voit käyttää `https://example.com/.*`. Tämä vastaa mitä tahansa merkkijonoa osoitteen `https://example.com/` jälkeen.
+- Täsmäämään `https://example.com/search?q=hello`, voit käyttää `https://example.com/search\?q=(.*)`. Tämä vastaa `q`-parametrin arvoa ja tallentaa sen sieppausryhmään. Voit sitten viitata siihen käyttämällä `$1` *Uudelleenohjaa kohteeseen* -valinnassa.
+- Täsmäämään minkä tahansa URL-osoitteen, joka sisältää sanan `blog`, voit käyttää `.*blog.*`.
 
-Voit viitata sieppausryhmiin *Uudelleenohjaa kohteeseen* tai *Korvaava* -asetuksissa käyttämällä `$1`, `$2`, ... tai `$0` viittaamaan koko vastaavuuteen.
+Voit viitata sieppausryhmiin kohdissa *Uudelleenohjaa kohteeseen* tai *Korvaava teksti* tunnuksilla `$1`, `$2`, ... tai tunnuksella `$0` viitaten koko osumaan.
 
-RedirectWeb käyttää [Applen Regex-moottoria](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb hyödyntää [Applen Regex-moottoria](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
-Lisätietoja Regex-syntaksista löytyy resursseista, kuten [RegExr](https://regexr.com/).
+Lisätietoja Regex-syntaksista löytyy lähteistä kuten [RegExr](https://regexr.com/).

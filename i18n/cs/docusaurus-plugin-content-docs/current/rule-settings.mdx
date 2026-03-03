@@ -6,180 +6,186 @@ Tato stránka poskytuje podrobné informace o každém nastavení na obrazovce *
 
 ### Typ {#type}
 
-Zadejte možnost **Typ** pro ovládání způsobu, jakým aplikace zpracovává přesměrování. Můžete si vybrat z těchto možností:
+Nastavte volbu **Typ** pro řízení způsobu, jakým aplikace zpracovává přesměrování. Můžete si vybrat z těchto možností:
 
-*   **Původní** (výchozí)
-    *   Používá tradiční webová API k řízení přesměrování. Navíc používá [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) pro záložní řešení.
-        *   Ve Firefoxu používá [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) k zpracování přesměrování.
-    *   Můžete použít všechny možnosti kromě [Typy zdrojů](#resource-types) a [Metody požadavků](#request-methods).
-    *   Toto je pomalejší než typ *Deklarativní* a může způsobit dodatečné síťové požadavky.
-*   **DNR** (experimentální pro Safari):
-    *   Tento typ funguje mnohem rychleji než původní typ, protože nespouští síťový požadavek na zdrojovou URL.
-    *   To vám umožňuje specifikovat [Typy zdrojů](#resource-types) a [Metody požadavků](#request-methods).
-    *   ⚠️ Některé možnosti, jako například [Zpracování zachycené skupiny](#capturing-group-processing) a [Vyloučené vzory URL](#excluded-url-patterns), nelze použít, protože dosud nebyly podporovány API DNR.
-    *   ⚠️ V Safari v současné době nemůžete do vzoru regulárního výrazu zahrnout svislítka (`|`). [Podrobnosti](https://github.com/mshibanami/redirect-web/issues/44)
-    *   ⚠️ Jelikož API DNR v Safari má stále některé problémy, považujeme to stále za experimentální funkci pro Safari. Seznam všech známých problémů naleznete [zde](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+* **Původní** (Výchozí)
+    * Používá tradiční webová rozhraní API k řízení přesměrování. Dále používá [rozhraní Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) jako zálohu (fallback).
+        * Ve Firefoxu používá [rozhraní WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) pro zpracování přesměrování.
+    * Můžete použít všechny možnosti kromě [Typů prostředků](#resource-types) a [Metod požadavků](#request-methods).
+    * ⚠️ Tento typ je pomalejší než *Declarative* a může způsobovat nadbytečné síťové požadavky.
+* **DNR** (Experimentální pro Safari):
+    * Tento typ pracuje mnohem rychleji než typ Původní, protože neiniciuje síťový požadavek pro zdrojovou URL.
+    * Umožňuje specifikovat [Typy prostředků](#resource-types) a [Metody požadavků](#request-methods).
+    * ⚠️ Nemůžete použít některé možnosti, například [Zpracování zachycených skupin](#capturing-group-processing) a [Vyloučené vzory URL](#excluded-url-patterns), protože zatím nejsou podporovány rozhraním DNR API.
+    * ⚠️ V Safari v současné době nemůžete ve vzoru regulárního výrazu použít svislou čáru (`|`). [Podrobnosti](https://github.com/mshibanami/redirect-web/issues/44)
+    * ⚠️ Vzhledem k tomu, že DNR API v Safari má stále určité problémy, považujeme tuto funkci v Safari za experimentální. Seznam všech známých problémů naleznete [zde](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
 ### Přesměrovat z {#redirect-from}
 
-Možnost **Přesměrovat z** vám umožňuje specifikovat vzor URL webových stránek, ze kterých chcete přesměrovat. Můžete si vybrat buď [Zástupný znak](#url-pattern-wildcard) nebo [Regulární výraz](#url-pattern-regular-expression).
+Volba **Přesměrovat z** umožňuje specifikovat vzor URL webových stránek, ze kterých chcete přesměrovat. Můžete si vybrat buď [Wildcard](#url-pattern-wildcard), nebo [Regulární výraz](#url-pattern-regular-expression).
 
-Například, pokud zadáte `https://example.com/*` se zástupným znakem, shoduje se s `https://example.com/` nebo `https://example.com/hello`.
+Pokud například zadáte `https://example.com/*` pomocí Wildcard, bude odpovídat `https://example.com/` nebo `https://example.com/hello`.
 
 > [!NOTE]
-> V možnosti Přesměrovat na můžete odkazovat na celý shodný text pomocí `$0` nebo na částečné shody pomocí `$1`, `$2`, ... Podrobnosti naleznete v [Vzor URL](#url-pattern) na této stránce.
+> V možnosti Přesměrovat na můžete odkazovat na celou shodu pomocí `$0` nebo na části shody pomocí `$1`, `$2`, ... Podrobnosti naleznete v části [Vzor URL](#url-pattern) na této stránce.
 
-#### Typy zdrojů {#resource-types}
+#### Typy prostředků {#resource-types}
 
 ![Podporované typy: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-Možnost **Typy zdrojů** vám umožňuje specifikovat kategorie webových požadavků, jako jsou obrázky, JavaScripty a styly, na které se pravidlo vztahuje.
-Například, pokud nastavíte `script`, můžete přesměrovat soubory JavaScriptu načtené webovými stránkami.
+Volba **Typy prostředků** umožňuje specifikovat kategorie webových požadavků, jako jsou obrázky, JavaScripty a styly, na které se pravidlo vztahuje.
+Pokud například nastavíte `script`, můžete přesměrovat soubory JavaScript načítané webovými stránkami.
 
-V současné době jsou k dispozici tyto: 
+Aktuálně jsou k dispozici tyto typy: 
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
 Výchozí nastavení je `main_frame`, což je stránka nejvyšší úrovně načtená do karty.
 
-Podrobnosti o každém typu zdroje naleznete v [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
+Podrobnosti o každém typu prostředku si prosím přečtěte v [dokumentaci mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
 #### Metody požadavků {#request-methods}
 
 ![Podporované typy: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
-Možnost **Metody požadavků** vám umožňuje nastavit cílové metody HTTP zdrojové URL.
+Volba **Metody požadavků** umožňuje nastavit cílové HTTP metody zdrojové URL.
 
 Ve výchozím nastavení jsou nastaveny všechny metody.
 
-Podrobnosti o každé metodě naleznete v [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+Podrobnosti o každé metodě naleznete v [dokumentaci mdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 > [!WARNING]
-> V Safari nemusí být tato možnost k dispozici, protože implementace Apple pro typ DNR ji v současné době zřejmě nezpracovává. Odeslali jsme zpětnou vazbu společnosti Apple jako FB14502272.
+> V Safari nemusí být tato volba dostupná, protože implementace typu DNR od Applu ji v současné době pravděpodobně nezpracovává. Odeslali jsme Applu zpětnou vazbu pod označením FB14502272.
 
 #### Cílové prohlížeče {#target-browsers}
 
 ![Podporované platformy: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Možnost **Cílové prohlížeče** vám umožňuje specifikovat, na který prohlížeč by se pravidlo mělo nebo nemělo vztahovat.
+Volba **Cílové prohlížeče** umožňuje specifikovat, na který prohlížeč se má nebo nemá pravidlo aplikovat.
 
-*   Existují 2 typy prohlížečů, které si můžete vybrat:
-    *   **Prohlížeče, které si můžete vybrat ve výchozím nastavení**: Ve výchozím nastavení si můžete vybrat Safari, Chrome, Firefox, Edge, Opera, Arc, Brave a Vivaldi. Toto nerozlišuje varianty stejného prohlížeče, jako je Safari a Safari Technology Preview.
-    *   **Uživatelem specifikované prohlížeče**: Klepnutím na tlačítko Přidat v rozbalovacím okně můžete vybrat libovolný prohlížeč kromě Safari nebo Safari Technology Preview, který má nainstalované rozšíření RedirectWeb.
-*   Zaškrtávací políčko **Vše kromě vybraných** vám umožňuje cílit na všechny prohlížeče kromě těch, které jste vybrali.
+* Můžete si vybrat ze dvou typů prohlížečů:
+    * **Prohlížeče dostupné ve výchozím nastavení**: Safari, Chrome, Firefox, Edge, Opera, Arc, Brave a Vivaldi. Tato volba nerozlišuje varianty stejného prohlížeče, například Safari a Safari Technology Preview.
+    * **Uživatelem specifikované prohlížeče**: Klepnutím na tlačítko Přidat v popoveru můžete vybrat jakýkoli jiný prohlížeč kromě Safari nebo Safari Technology Preview, který má nainstalované rozšíření RedirectWeb.
+* Zaškrtávací políčko **Vše kromě vybraných** umožňuje cílit na všechny prohlížeče kromě těch, které jste zvolili.
 
 > [!WARNING]
-> RedirectWeb nedokáže rozlišit, zda je prohlížeč **Safari** nebo **Safari Technology Preview**, protože aplikace kontroluje nadřazený proces rozšíření, aby to detekovala, ale tyto dva prohlížeče sdílejí stejný nadřazený proces (`/sbin/launchd`).
+> RedirectWeb nedokáže rozlišit, zda je prohlížečem **Safari**, nebo **Safari Technology Preview**, protože aplikace pro detekci kontroluje nadřazený proces rozšíření, ale tyto dva prohlížeče sdílejí stejný nadřazený proces (`/sbin/launchd`).
 
 ### Přesměrovat na {#redirect-to}
 
-Možnost **Přesměrovat na** specifikuje cílovou URL, na kterou chcete přesměrovat ze zdrojové URL shodné s možností *Přesměrovat z*. Můžete také nahradit zachycené skupiny pomocí `$1`, `$2`, ... nebo celý shodný text pomocí `$0`. Tyto pomáhají dynamicky specifikovat cíl. Podrobnosti naleznete v [Vzor URL](#url-pattern) na této stránce.
+Volba **Přesměrovat na** specifikuje cílovou URL, na kterou chcete přesměrovat ze zdrojové URL odpovídající volbě *Přesměrovat z*. Můžete také nahrazovat zachycené skupiny pomocí `$1`, `$2`, ... nebo celou shodu pomocí `$0`. To vám pomůže dynamicky definovat cíl. Podrobnosti naleznete v části [Vzor URL](#url-pattern) na této stránce.
 
-Například, pokud nastavíte následující pravidlo:
+Pokud například nastavíte následující pravidlo:
 
-*   **Přesměrovat z**: `https://google.com/*` (Zástupný znak)
-*   **Přesměrovat na**: `https://apple.com/$1`
+* **Přesměrovat z**: `https://google.com/*` (Wildcard)
+* **Přesměrovat na**: `https://apple.com/$1`
 
-a shoduje se s `https://google.com/hello`, pak cílová URL bude `https://apple.com/hello`.
+a shoda bude `https://google.com/hello`, potom cílová URL bude `https://apple.com/hello`.
 
-Navíc můžete upravit texty `$1`, `$2`, ... před provedením náhrad. Podrobnosti naleznete v sekci [Zpracování zachycené skupiny](#capturing-group-processing).
+Kromě toho můžete texty `$1`, `$2`, ... před provedením nahrazení upravit. Podrobnosti naleznete v části [Zpracování zachycených skupin](#capturing-group-processing).
 
 > [!TIP]
-> Můžete specifikovat vlastní schéma URL pro otevření aplikace. Toto jsou příklady aplikací, které podporují deep linking:
+> Můžete zadat vlastní schéma URL pro otevření aplikace. Zde jsou příklady aplikací, které podporují deep linking:
 >
-> *   Figma: `figma://file/Your_Figma_ID`
-> *   Firefox: `firefox://open-url?url=https://example.com/hello`
-> *   Google Chrome: `googlechromes://example.com`
-> *   Microsoft Edge: `microsoft-edge://example.com`
-> *   Notion: `notion://www.notion.so/Your_Note_ID`
-> *   Slack: `slack://open`
+> * Figma: `figma://file/Vase_Figma_ID`
+> * Firefox: `firefox://open-url?url=https://example.com/hello`
+> * Google Chrome: `googlechromes://example.com`
+> * Microsoft Edge: `microsoft-edge://example.com`
+> * Notion: `notion://www.notion.so/Vase_ID_Poznamky`
+> * Slack: `slack://open`
 
 #### Aplikace {#application}
 
-![Podporované typy: Původní](https://img.shields.io/badge/Types-Original-blue) ![Podporované platformy: macOS](https://img.shields.io/badge/Platforms-macOS-white)
+![Podporované typy: Original](https://img.shields.io/badge/Types-Original-blue) ![Podporované platformy: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
-Pokud chcete specifikovat aplikaci, ve které chcete otevřít cílovou URL, použijte rozbalovací seznam **Aplikace**. Toto je k dispozici pouze na macOS.
+Chcete-li specifikovat aplikaci, ve které si přejete otevřít cílovou URL, použijte rozbalovací seznam **Aplikace**. Tato možnost je dostupná pouze v systému macOS.
 
 > [!WARNING]
-> Můžete otevřít pouze aplikaci, která podporuje [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Také se ujistěte, že aplikace podporuje otevírání URL, kterou chcete otevřít.
+> Můžete otevřít pouze aplikaci, která podporuje [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Také se ujistěte, že aplikace podporuje otevření dané URL.
 
-### Zpracování zachycené skupiny {#capturing-group-processing}
+### Zpracování zachycených skupin {#capturing-group-processing}
 
-![Podporované typy: Původní](https://img.shields.io/badge/Types-Original-blue)
+![Podporované typy: Original](https://img.shields.io/badge/Types-Original-blue)
 
-Možnost **Zpracování zachycené skupiny** vám umožňuje specifikovat, jak zpracovat zachycené skupiny, které můžete nahradit v možnosti *Přesměrovat na* pomocí `$1`, `$2`...
+Volba **Zpracování zachycených skupin** umožňuje specifikovat, jak se mají zpracovat zachycené skupiny, které můžete v možnosti *Přesměrovat na* nahradit pomocí `$1`, `$2` atd.
 
-Zde jsou způsoby, jak vytvořit zachycené skupiny:
+Zde je návod, jak vytvořit zachycené skupiny:
 
-*   **Zástupný znak**: Texty shodné s `*` a `?` jsou automaticky zachyceny.
-*   **Regulární výraz**: Texty shodné s částí vzoru uvnitř `()` jsou zachyceny.
+* **Wildcard**: Texty odpovídající `*` a `?` jsou zachyceny automaticky.
+* **Regulární výraz**: Texty odpovídající části vzoru uvnitř `()` jsou zachyceny.
 
 Můžete si vybrat jeden nebo více z následujících procesů:
 
-*   **URL Kódovat/Dekódovat**: Toto aplikuje [procentní kódování](https://cs.wikipedia.org/wiki/Procentn%C3%AD_k%C3%B3dov%C3%A1n%C3%AD) nebo dekódování na zachycenou skupinu. Například, pokud zakódujete `https://example.com/hello`, převede se na `https%3A%2F%2Fexample.com%2Fhello`. Dekódování funguje opačným způsobem.
-*   **Base64 Kódovat/Dekódovat**: Toto dekóduje/zakóduje text do [Base64](https://cs.wikipedia.org/wiki/Base64). Například, můžete zakódovat `hello` na `aGVsbG8=` a dekódovat zpět na `hello`.
-*   **Nahradit výskyty**: Toto nahrazuje jeden nebo více znaků ve skupině, shodných s **Cílem**, **Náhradou**. Například, pokud je *Skupina* `hello` a *Cíl* je `l` a Náhrada je `y`, změní se na `heyyo`.
+* **URL Encode/Decode**: Aplikuje [procentuální kódování](https://en.wikipedia.org/wiki/Percent-encoding) nebo dekódování na zachycenou skupinu. Pokud například zakódujete `https://example.com/hello`, převede se na `https%3A%2F%2Fexample.com%2Fhello`. Dekódování funguje opačně.
+* **Base64 Encode/Decode**: Zakóduje nebo dekóduje text do/z formátu [Base64](https://en.wikipedia.org/wiki/Base64). Můžete například zakódovat `hello` na `aGVsbG8=` a dekódovat jej zpět na `hello`.
+* **Nahradit výskyty**: Nahradí jeden nebo více znaků ve skupině, které odpovídají **Cíli**, **Náhradou**. Pokud je například *Skupina* `hello`, *Cíl* je `l` a *Náhrada* je `y`, změní se na `heyyo`.
 
 > [!NOTE]
-> Toto je pro zpracování každé zachycené skupiny a neovlivňuje, které URL jsou vyloučeny [Vyloučené vzory URL](#excluded-url-patterns). Například, řekněme, že máte toto pravidlo:
+> Toto slouží ke zpracování každé zachycené skupiny a neovlivňuje to, které URL jsou vyloučeny pomocí [Vyloučených vzorů URL](#excluded-url-patterns). Předpokládejme například, že máte toto pravidlo:
 >
-> *   **Přesměrovat z**: `https://example.com/(hello.*)`
-> *   **Zpracování zachycené skupiny**: 
->     *   Skupina: `$1`
->     *   Cíl: `.*` (Regulární výraz)
->     *   Náhrada: `hello`
-> *   **Vyloučený vzor URL**: `https://example.com/hello`
+> * **Přesměrovat z**: `https://example.com/(hello.*)`
+> * **Zpracování zachycených skupin**:
+>     * Skupina: `$1`
+>     * Cíl: `.*` (Regulární výraz)
+>     * Náhrada: `hello`
+> * **Vyloučený vzor URL**: `https://example.com/hello`
 >
-> V tomto případě `https://example.com/hello_world` nebude vyloučeno, zatímco `https://example.com/hello` bude vyloučeno.
+> V tomto případě `https://example.com/hello_world` nebude vyloučena, zatímco `https://example.com/hello` vyloučena bude.
 
 ### Vyloučené vzory URL {#excluded-url-patterns}
 
-![Podporované typy: Původní](https://img.shields.io/badge/Types-Original-blue)
+![Podporované typy: Original](https://img.shields.io/badge/Types-Original-blue)
 
-Možnost **Vyloučené vzory URL** vám umožňuje specifikovat URL, které nejsou přesměrovány. To může být užitečné pro zamezení smyček přesměrování nebo pro vyloučení určitých částí webové stránky z přesměrování.
+Volba **Vyloučené vzory URL** umožňuje specifikovat adresy URL, které nebudou přesměrovány. To může být užitečné pro zamezení smyčkám přesměrování nebo pro vyloučení určitých částí webu z přesměrování.
 
-Vyloučené vzory URL můžete specifikovat pomocí typů vzorů Regulární výraz nebo Zástupný znak.
+Vyloučené vzory URL můžete specifikovat pomocí typu vzoru Regulární výraz nebo Wildcard.
 
 ### Příklady {#examples}
 
-Možnost **Příklady** vám umožňuje testovat vaše pravidlo přesměrování poskytnutím vzorových URL. Přidáním vzorové URL můžete zkontrolovat, zda pravidlo funguje podle očekávání, než ho skutečně použijete.
+Volba **Příklady** umožňuje otestovat vaše pravidlo přesměrování zadáním ukázkových URL. Přidáním ukázkové URL můžete zkontrolovat, zda pravidlo funguje podle očekávání, než jej skutečně použijete.
+
+### Pokročilé {#advanced-options}
+
+* **[DNR] Přesměrování hlavního rámce (Main Frame Redirection)**: Tato možnost je dostupná pouze pro typ DNR. Umožňuje specifikovat, jak se má zpracovávat přesměrování pro typ prostředku `main_frame`. Dostupné možnosti jsou:
+    * **Raw**: Přesměruje hlavní rámec na specifikovanou URL bez jakýchkoli úprav.
+    * **Přes přechodovou stránku (Via Intermediate Page)**: Přesměruje hlavní rámec na přechodovou stránku, která následně přesměruje na specifikovanou cílovou URL. To je užitečné pro otevírání aplikací pomocí deep linking, protože přechodová stránka může zpracovávat složitější logiku přesměrování.
 
 ### Komentáře {#comments}
 
-Možnost **Komentáře** vám umožňuje přidat jakékoli poznámky nebo komentáře k vašemu pravidlu přesměrování. To může být užitečné pro sledování toho, proč jste vytvořili konkrétní pravidlo, nebo pro poskytnutí kontextu pro ostatní, kteří by si vaše pravidla mohli prohlížet.
+Volba **Komentáře** umožňuje přidávat k pravidlu přesměrování libovolné poznámky nebo komentáře. To může být užitečné pro sledování toho, proč jste konkrétní pravidlo vytvořili, nebo pro poskytnutí kontextu ostatním, kteří si mohou vaše pravidla prohlížet.
 
 Komentáře můžete psát v následujících formátech:
 
-*   **Prostý text** (výchozí): Jednoduchý text bez formátování.
-*   **Markdown**: Můžete použít [syntaxe Markdownu GitHubu](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), včetně některých rozšíření, která GFM nepodporuje. Například můžete vytvářet nadpisy, seznamy, odkazy a další.
-*   **AsciiDoc**: Můžete použít [syntaxe AsciiDoc](https://asciidoc.org/) k formátování vašich komentářů.
+* **Prostý text** (Výchozí): Jednoduchý text bez formátování.
+* **Markdown**: Můžete použít [syntaxe Markdownu od GitHubu](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), včetně některých rozšíření, která GFM nepodporuje. Můžete například vytvářet nadpisy, seznamy, odkazy a další.
+* **AsciiDoc**: Pro formátování komentářů můžete použít [syntaxi AsciiDoc](https://asciidoc.org/).
 
 ## Vzor URL {#url-pattern}
 
-**Vzory URL** se používají k porovnávání URL v možnostech *Přesměrovat z*, *Vyloučené vzory URL* a *Zpracování zachycené skupiny*. Pro jejich specifikaci si můžete vybrat buď **Zástupný znak** nebo **Regulární výraz**.
+**Vzory URL** se používají k porovnávání adres URL v možnostech *Přesměrovat z*, *Vyloučené vzory URL* a *Zpracování zachycených skupin*. K jejich zadání si můžete vybrat buď **Wildcard**, nebo **Regulární výraz**.
 
-### Zástupný znak {#url-pattern-wildcard}
+### Wildcard {#url-pattern-wildcard}
 
-**Zástupný znak** je jednodušší typ vzoru, který vám umožňuje používat `*` (shoduje se s čímkoli) a `?` (shoduje se s jakýmkoli jednotlivým znakem) jako zástupné znaky. Zde jsou některé příklady:
+**Wildcard** je jednodušší typ vzoru, který umožňuje používat `*` (odpovídá čemukoli) a `?` (odpovídá jakémukoli jednomu znaku) jako zástupné znaky. Zde je několik příkladů:
 
-*   Pro shodu s `https://example.com/hello` můžete použít `https://example.com/*`. Toto se shoduje s jakýmkoli řetězcem po `https://example.com/`.
-*   Pro shodu s `https://example.com/search?q=hello` můžete použít `https://example.com/search?q=*`. Toto se shoduje s jakoukoli hodnotou parametru `q`.
-*   Pro shodu s jakoukoli URL, která obsahuje slovo `blog`, můžete použít `*blog*`.
+* Chcete-li, aby odpovídala adresa `https://example.com/hello`, můžete použít `https://example.com/*`. To bude odpovídat jakémukoli řetězci za `https://example.com/`.
+* Chcete-li, aby odpovídala adresa `https://example.com/search?q=hello`, můžete použít `https://example.com/search?q=*`. To bude odpovídat jakékoli hodnotě parametru `q`.
+* Chcete-li, aby odpovídala jakákoli URL obsahující slovo `blog`, můžete použít `*blog*`.
 
-Můžete také použít substituci v zástupném znaku, což znamená, že můžete odkazovat na části shodné URL pomocí `$1`, `$2` atd. Například, pokud použijete `https://example.com/*-world-*` a URL je `https://example.com/hello-world-goodbye`, pak `$1` bude "hello" a `$2` bude "goodbye". `$0` je také k dispozici pro odkazování na celou shodnou URL.
+Nahrazování můžete používat i u typu Wildcard, což znamená, že můžete odkazovat na části odpovídající URL pomocí `$1`, `$2` atd. Pokud například použijete `https://example.com/*-world-*` a URL je `https://example.com/hello-world-goodbye`, pak `$1` bude „hello“ a `$2` bude „goodbye“. K dispozici je také `$0` pro odkaz na celou odpovídající URL.
 
 > [!NOTE]
-> Ačkoli substituce je funkcí regulárního výrazu, můžete ji použít i pro zástupný znak, protože RedirectWeb interně převádí zástupný znak na regulární výraz.
+> Přestože je nahrazování funkcí regulárních výrazů, můžete jej použít i pro Wildcard, protože RedirectWeb interně převádí Wildcard na regulární výraz.
 
 ### Regulární výraz {#url-pattern-regular-expression}
 
-**Regulární výraz** (Regex) je mocný nástroj pro porovnávání vzorů v textu a je také široce používán v programování. Umožňuje vám definovat specifický vzor, který se shoduje se sadou řetězců. Zde jsou některé příklady.
+**Regulární výraz** (Regex) je výkonný nástroj pro porovnávání vzorů v textu a je také široce používán v programování. Umožňuje definovat specifický vzor, který odpovídá sadě řetězců. Zde je několik příkladů.
 
--   Pro shodu s `https://example.com/hello` můžete použít `https://example.com/.*`. Toto se shoduje s jakýmkoli řetězcem po `https://example.com/`.
--   Pro shodu s `https://example.com/search?q=hello` můžete použít `https://example.com/search\?q=(.*)`. Toto se shoduje s hodnotou parametru `q` a uloží ji do zachycené skupiny. Poté na ni můžete odkazovat pomocí `$1` v možnosti *Přesměrovat na*.
--   Pro shodu s jakoukoli URL, která obsahuje slovo `blog`, můžete použít `.*blog.*`.
+- Chcete-li, aby odpovídala adresa `https://example.com/hello`, můžete použít `https://example.com/.*`. To bude odpovídat jakémukoli řetězci za `https://example.com/`.
+- Chcete-li, aby odpovídala adresa `https://example.com/search?q=hello`, můžete použít `https://example.com/search\?q=(.*)`. To zachytí hodnotu parametru `q` a uloží ji do zachycené skupiny. Poté na ni můžete odkazovat pomocí `$1` v možnosti *Přesměrovat na*.
+- Chcete-li, aby odpovídala jakákoli URL obsahující slovo `blog`, můžete použít `.*blog.*`.
 
-Můžete odkazovat na zachycené skupiny v *Přesměrovat na* nebo *Náhrada* pomocí `$1`, `$2`, ... nebo `$0` pro odkazování na celou shodu.
+Na zachycené skupiny můžete odkazovat v polích *Přesměrovat na* nebo *Náhrada* pomocí `$1`, `$2`, ... nebo `$0` pro odkaz na celou shodu.
 
-RedirectWeb je poháněn [Regex enginem Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
+RedirectWeb využívá [Regex engine od Applu](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 
-Více informací o syntaxi Regex naleznete v zdrojích jako [RegExr](https://regexr.com/).
+Více informací o syntaxi regulárních výrazů naleznete ve zdrojích, jako je [RegExr](https://regexr.com/).

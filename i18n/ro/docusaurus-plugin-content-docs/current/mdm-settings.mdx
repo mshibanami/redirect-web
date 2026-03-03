@@ -1,0 +1,125 @@
+import TOCInline from '@theme/TOCInline';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Setări MDM pentru Administratori
+
+![Platforme Suportate: iOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20visionOS-white)
+
+RedirectWeb suportă Managed App Configuration de la Apple, permițându-vă (administratorilor IT) să implementați și să gestionați setările aplicației centralizat pe dispozitivele angajaților/studenților printr-o soluție Mobile Device Management (MDM), cum ar fi Jamf, Intune, Kandji etc.
+
+Această pagină prezintă cheile configurabile, comportamentele aplicației, cele mai bune practici și limitările.
+
+<TOCInline toc={toc} />
+
+## Prezentare generală
+
+Prin trimiterea configurațiilor prin MDM, puteți realiza următoarele:
+
+* **Reguli impuse:** Aplicați reguli de redirecționare la nivel de organizație pe care utilizatorii nu le pot modifica sau șterge.
+* **Distribuirea inițială a regulilor:** Distribuiți un set de reguli șablon care servește ca implicit la prima lansare a aplicației.
+* **Control UI:** Restricționați accesul la funcții specifice (cum ar fi Biblioteca) și indicați clar în aplicație că aceasta se află sub gestionarea organizației.
+* **Preluarea regulilor mari (Fallback):** Ocoliți limitele de dimensiune ale sarcinii utile MDM prin preluarea regulilor de pe un server extern.
+
+## Cazuri de utilizare
+
+* **Direcționare fără probleme în timpul migrărilor de sistem:**
+  Când migrați de la un sistem intern vechi (de exemplu, `legacy-crm.internal.local`) la o platformă nouă (de exemplu, `salesforce.com`), distribuiți un `enforcedRuleSet`. Chiar dacă angajații folosesc marcaje vechi, aceștia sunt redirecționați automat către noul sistem, eliminând tichetele de asistență IT referitoare la linkurile învechite.
+* **Asistență pentru accesul la Intranet:**
+  Distribuiți reguli de redirecționare folosind scheme URL personalizate pentru a facilita accesul la resursele intranet prin tuneluri VPN Per-App, cum ar fi Omnissa Web.
+
+> [!AVERTISMENT]
+> 
+> Actualizările configurației MDM sunt aplicate imediat **numai dacă utilizatorul deschide aplicația RedirectWeb**.
+> Deși aplicația utilizează sarcini de fundal pentru a trimite actualizările MDM către extensia de browser în mod silențios, aceasta este o execuție „best-effort” dictată de sistemul de operare. Momentul execuției este extrem de imprevizibil, iar sarcina s-ar putea să nu ruleze deloc.
+> Prin urmare, nu ar trebui să vă bazați pe această funcție pentru răspunsuri la incidente critice din punct de vedere al timpului (de exemplu, încercarea de a redirecționa instantaneu toți angajații către un site de rezervă în câteva minute de la o întrerupere a serviciului cloud).
+
+## Demo
+
+<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM Settings Demo" autoPlay playsInline muted loop controls width="640px"></video>
+
+Fișierul plist utilizat în videoclip este disponibil aici: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+
+În videoclip, MDM-ul ManageEngine a fost utilizat pentru a implementa configurația, dar aceeași configurație poate fi utilizată pentru alte soluții MDM atâta timp cât acestea suportă Managed App Configuration de la Apple.
+
+## Chei configurabile
+
+Implementați următoarele chei și valori pentru Managed App Configuration prin consola MDM, de obicei în format plist.
+
+| Nume cheie             | Tip                          | Descriere                                                                                                                                                                                                                                                                     |
+| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Set de reguli](#rule-set-object) | **[Reguli impuse]** Un set de reguli aplicat cu o prioritate mai mare decât regulile normale. Prima regulă din listă are prioritate. Utilizatorii nu pot edita, șterge sau reordona aceste reguli. Acestea sunt întotdeauna active, ignorând comutatorul global de dezactivare al aplicației, și nu se sincronizează prin iCloud. |
+| `prefilledRuleSet`     | [Set de reguli](#rule-set-object) | **[Reguli inițiale]** Un set de reguli creat în locul regulii de exemplu implicite atunci când un utilizator lansează aplicația pentru prima dată fără reguli existente. Odată distribuite, acestea acționează ca reguli normale, permițând modificarea, ștergerea și sincronizarea iCloud de către utilizator.                       |
+| `organizationName`     | String                       | Afișează „Gestionat de [organizationName]” în partea de sus a ecranului de setări din aplicație, indicând utilizatorului că aplicația este gestionată.                                                                                                                                            |
+| `managedConfigVersion` | String                       | Un șir de versiune arbitrar pentru configurație. Afișat în interfață, permițând asistenței IT să verifice dacă cea mai recentă sarcină utilă MDM a ajuns pe dispozitiv în timpul depanării.                                                                                                  |
+| `showsLibrarySection`  | Boolean                      | Dacă este setat pe `false`, funcția Biblioteca de reguli este ascunsă, iar secțiunea este înlocuită cu un mesaj de eroare „Restricționat de organizația dvs.”.                                                                                                                                   |
+| `fallback`             | [Fallback](#fallback-object) | Specificați acest lucru atunci când configurațiile depășesc limitele sarcinii utile MDM. Aplicația va prelua JSON/XML de la acest URL pentru a aplica configurația.                                                                                                                                     |
+
+Toate aceste chei sunt opționale.
+
+### [Obiect] Set de reguli {#rule-set-object}
+
+Fiecare obiect de regulă are același format ca cel pe care îl puteți [partaja/exporta prin aplicație](export-or-import-rules), dar trebuie să îl convertiți din JSON în plist, astfel:
+
+```plist
+...
+	<key>enforcedRuleSet</key>
+	<dict>
+		<key>kind</key>
+		<string>RedirectList</string>
+		<key>bundleID</key>
+		<string>io.github.mshibanami.RedirectWebForSafari</string>
+		<key>formatVersion</key>
+		<string>5</string>
+		<key>redirects</key>
+		<array>
+			<dict>
+				<key>kind</key>
+				<string>Redirect</string>
+				<key>type</key>
+				<string>originalRedirect</string>
+				<key>title</key>
+				<string>My enforced Rule</string>
+				<key>sourceURLPattern</key>
+				<dict>
+					<key>type</key>
+					<string>wildcard</string>
+					<key>value</key>
+					<string>https://example.com/1</string>
+				</dict>
+				<key>destinationURLPattern</key>
+				<string>https://google.com/search?q=1</string>
+			</dict>
+		</array>
+	</dict>
+...
+```
+
+### [Obiect] Fallback {#fallback-object}
+
+| Nume cheie        | Tip          | Descriere                                                                                                                                    |
+| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Un URL punct final al unui fișier JSON/XML care conține seturi de reguli.                                                                                     |
+| `authToken`       | String       | Un token de autentificare adăugat la antetul HTTP atunci când se preia de la `fallbackDataURL`. (Utilizat ca `Authorization: Bearer [authToken]`). |
+
+## Evaluarea regulilor și rezolvarea conflictelor
+
+1. Dacă este furnizat un `enforcedRuleSet`, regulile sale sunt aplicate cu prioritate absolută.
+2. Dacă nu există reguli normale, dar există un `prefilledRuleSet`, `prefilledRuleSet` este salvat ca reguli normale.
+3. Regula de redirecționare de exemplu („Example redirection rule”) implicită este generată numai dacă nu sunt configurate reguli MDM și nu există reguli normale.
+
+## Comportamentul URL-ului Fallback
+
+Când o cheie există atât în sarcina utilă MDM inline, cât și în datele preluate prin `fallbackDataURL`, aplicația gestionează conflictul după cum urmează:
+
+* **Înainte de finalizarea preluării:** Setările inline sunt prioritizate strict și utilizate.
+* **După preluarea reușită:** Datele recuperate de la `fallbackDataURL` suprascriu setările inline corespunzătoare.
+* **După preluarea eșuată:** Aplicația continuă să utilizeze setările inline.
+* Cheile independente care există numai în sarcina utilă inline sunt păstrate.
+
+## Feedback MDM și verificarea stării
+
+Puteți verifica dacă configurația a fost aplicată cu succes prin canalul de feedback MDM (`com.apple.feedback.managed`), dacă soluția dvs. MDM îl suportă. După procesarea configurației (sau finalizarea preluării URL), aplicația returnează următoarele date:
+
+* `managedConfigVersion`: Șirul versiunii încercării de configurare.
+* `result`: Fie `success`, fie `error`.
+* `messages`: Un tablou care conține mesaje detaliate de eroare sau avertisment, dacă este cazul.

@@ -12,7 +12,7 @@
     * 这使用传统的 Web API 来控制重定向。此外，它还使用 [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) 作为备用。
         * 在 Firefox 中，它使用 [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) 来处理重定向。
     * 您可以使用除[资源类型](#resource-types)和[请求方法](#request-methods)之外的所有选项。
-    * 这比*声明式*类型慢，并且可能会导致额外的网络请求。
+    * ⚠️ 这比*声明式*类型慢，并且可能会导致额外的网络请求。
 * **DNR**（Safari 实验性功能）：
     * 此类型比原始类型快得多，因为它不会为源 URL 启动网络请求。
     * 这允许您指定[资源类型](#resource-types)和[请求方法](#request-methods)。
@@ -142,6 +142,12 @@
 ### 示例 {#examples}
 
 **示例**选项允许您通过提供示例 URL 来测试您的重定向规则。通过添加示例 URL，您可以在实际应用规则之前检查规则是否按预期工作。
+
+### 高级 {#advanced-options}
+
+* **[DNR] 主框架重定向**: 此选项仅适用于 DNR 类型。它允许您指定如何处理 `main_frame` 资源类型的重定向。可用选项包括：
+    * **原始 (Raw)**: 将主框架重定向到指定的 URL，不进行任何修改。
+    * **通过中间页 (Via Intermediate Page)**: 将主框架重定向到中间页面，然后再重定向到指定的目标 URL。这对于使用深层链接打开应用程序非常有用，因为中间页面可以处理更复杂的重定向逻辑。
 
 ### 评论 {#comments}
 

@@ -1,0 +1,125 @@
+import TOCInline from '@theme/TOCInline';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# MDM-asetukset ylläpitäjille
+
+![Tuetut alustat: iOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20visionOS-white)
+
+RedirectWeb tukee Applen hallittua sovelluskonfiguraatiota (Managed App Configuration), mikä mahdollistaa (IT-ylläpitäjille) sovellusasetusten keskitetyn käyttöönoton ja hallinnan työntekijöiden/opiskelijoiden laitteilla Mobile Device Management (MDM) -ratkaisun kautta, kuten Jamf, Intune, Kandji jne.
+
+Tällä sivulla esitellään konfiguroitavat avaimet, sovelluksen käyttäytyminen, parhaat käytännöt ja rajoitukset.
+
+<TOCInline toc={toc} />
+
+## Yleiskatsaus
+
+Työntämällä konfiguraatioita MDM:n kautta voit saavuttaa seuraavat asiat:
+
+* **Pakotetut säännöt:** Käytä organisaation laajuisia uudelleenohjaussääntöjä, joita käyttäjät eivät voi muokata tai poistaa.
+* **Sääntöjen alkuperäinen jakelu:** Jakele mallisääntöjoukko, joka toimii oletuksena sovelluksen ensimmäisellä käynnistyskerralla.
+* **Käyttöliittymän hallinta:** Rajoita pääsyä tiettyihin ominaisuuksiin (kuten kirjastoon) ja osoita selvästi sovelluksessa, että se on organisaation hallinnassa.
+* **Suurten sääntömäärien nouto (Fallback):** Ohita MDM-tiedon koon rajoitukset noutamalla säännöt ulkoiselta palvelimelta.
+
+## Käyttötapaukset
+
+* **Saumaton reititys järjestelmäsiirtojen aikana:**
+  Kun siirrytään vanhasta sisäisestä järjestelmästä (esim. `legacy-crm.internal.local`) uuteen alustaan (esim. `salesforce.com`), jakele `enforcedRuleSet`. Vaikka työntekijät käyttäisivät vanhoja kirjanmerkkejä, heidät ohjataan automaattisesti uuteen järjestelmään, mikä vähentää vanhentuneisiin linkkeihin liittyviä IT-tukipyyntöjä.
+* **Intranetin pääsyn helpottaminen:**
+  Jakele uudelleenohjaussääntöjä käyttäen mukautettuja URL-malleja helpottaaksesi pääsyä intranetin resursseihin Per-App VPN -tunneleiden kautta, kuten Omnissa Web.
+
+> [!WARNING]
+> 
+> MDM-konfiguraatioiden päivitykset tulevat voimaan välittömästi **vain jos käyttäjä avaa RedirectWeb-sovelluksen**.
+> Vaikka sovellus käyttää taustatehtäviä MDM-päivitysten viemiseksi selainlaajennukseen hiljaa, tämä on "parhaaseen pyrkimykseen" (best-effort) perustuva suoritus, jonka käyttöjärjestelmä määrää. Suorituksen ajoitus on erittäin arvaamaton, eikä tehtävä välttämättä suoriteta lainkaan.
+> Siksi tähän ominaisuuteen **ei** tule luottaa aikakriittisissä tilanteissa (esim. yritettäessä ohjata kaikki työntekijät välittömästi varasivustolle pilvipalvelun käyttökatkon aikana muutamassa minuutissa).
+
+## Demo
+
+<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM-asetusten demo" autoPlay playsInline muted loop controls width="640px"></video>
+
+Videolla käytetty plist-tiedosto on saatavilla täältä: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+
+Videolla käytettiin ManageEnginen MDM-ratkaisua konfiguraation käyttöönottoon, mutta samaa konfiguraatiota voidaan käyttää muissa MDM-ratkaisuissa, kunhan ne tukevat Applen hallittua sovelluskonfiguraatiota.
+
+## Konfiguroitavat avaimet
+
+Ota käyttöön seuraavat avaimet ja arvot hallittua sovelluskonfiguraatiota varten MDM-konsolisi kautta, yleensä plist-muodossa.
+
+| Avaimen nimi           | Tyyppi                       | Kuvaus                                                                                                                                                                                                                                                                         |
+| ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `enforcedRuleSet`      | [Sääntöjoukko](#rule-set-object) | **[Pakotetut säännöt]** Sääntöjoukko, jota sovelletaan korkeammalla prioriteetilla kuin tavallisia sääntöjä. Listan ensimmäinen sääntö on etusijalla. Käyttäjät eivät voi muokata, poistaa tai järjestää näitä sääntöjä uudelleen. Ne ovat aina käytössä, sovelluksen globaalista poiskytkennästä huolimatta, eivätkä ne synkronoidu iCloudin kautta. |
+| `prefilledRuleSet`     | [Sääntöjoukko](#rule-set-object) | **[Alkuperäiset säännöt]** Sääntöjoukko, joka luodaan oletusesimerkkisäännön sijaan, kun käyttäjä käynnistää sovelluksen ensimmäisen kerran ilman olemassa olevia sääntöjä. Kun ne on jaeltu, ne toimivat kuten tavalliset säännöt, sallien käyttäjän muokkaukset, poistot ja iCloud-synkronoinnin. |
+| `organizationName`     | String                       | Näyttää tekstin "Hallinnoija: [organizationName]" sovelluksen sisäisten asetusten yläreunassa, osoittaen käyttäjälle, että sovellus on hallinnoitu.                                                                                                                             |
+| `managedConfigVersion` | String                       | Vapaavalintainen versio-merkkijono konfiguraatiolle. Näytetään käyttöliittymässä, mikä mahdollistaa IT-tuelle sen tarkistamisen, onko uusin MDM-paketti saavuttanut laitteen vianmäärityksen aikana.                                                                           |
+| `showsLibrarySection`  | Boolean                      | Jos asetettu arvoon `false`, sääntökirjasto-ominaisuus piilotetaan ja osio korvataan "Organisaatiosi on rajoittanut tätä" -virheilmoituksella.                                                                                                                                |
+| `fallback`             | [Fallback](#fallback-object) | Määritä tämä, kun konfiguraatiot ylittävät MDM-paketin koon rajoitukset. Sovellus noutaa JSON/XML-tiedoston tästä URL-osoitteesta soveltaakseen konfiguraatiota.                                                                                                               |
+
+Nämä avaimet ovat kaikki valinnaisia.
+
+### [Objekti] Sääntöjoukko {#rule-set-object}
+
+Jokaisella sääntöobjektilla on sama muoto kuin sillä, jonka voit [jakaa/viedä sovelluksen kautta](export-or-import-rules), mutta sinun on muunnettava se JSON-muodosta plist-muotoon, kuten tässä:
+
+```plist
+...
+	<key>enforcedRuleSet</key>
+	<dict>
+		<key>kind</key>
+		<string>RedirectList</string>
+		<key>bundleID</key>
+		<string>io.github.mshibanami.RedirectWebForSafari</string>
+		<key>formatVersion</key>
+		<string>5</string>
+		<key>redirects</key>
+		<array>
+			<dict>
+				<key>kind</key>
+				<string>Redirect</string>
+				<key>type</key>
+				<string>originalRedirect</string>
+				<key>title</key>
+				<string>My enforced Rule</string>
+				<key>sourceURLPattern</key>
+				<dict>
+					<key>type</key>
+					<string>wildcard</string>
+					<key>value</key>
+					<string>https://example.com/1</string>
+				</dict>
+				<key>destinationURLPattern</key>
+				<string>https://google.com/search?q=1</string>
+			</dict>
+		</array>
+	</dict>
+...
+```
+
+### [Objekti] Fallback {#fallback-object}
+
+| Avaimen nimi      | Tyyppi       | Kuvaus                                                                                                                                      |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Sääntöjoukkoja sisältävän JSON/XML-tiedoston päätepisteen URL.                                                                              |
+| `authToken`       | String       | Todennustunnus, joka lisätään HTTP-otsikkoon noudettaessa osoitteesta `fallbackDataURL`. (Käytetään muodossa `Authorization: Bearer [authToken]`). |
+
+## Sääntöjen arviointi ja ristiriitojen ratkaisu
+
+1. Jos `enforcedRuleSet` on annettu, sen sääntöjä sovelletaan ehdottomalla prioriteetilla.
+2. Jos tavallisia sääntöjä ei ole, mutta `prefilledRuleSet` on olemassa, `prefilledRuleSet` tallennetaan tavallisiksi säännöiksi.
+3. Oletusarvoinen "Esimerkki uudelleenohjaussäännöstä" luodaan vain, jos MDM-sääntöjä ei ole konfiguroitu eikä tavallisia sääntöjä ole.
+
+## Fallback-URL-osoitteen käyttäytyminen
+
+Kun avain on olemassa sekä upotetussa MDM-paketissa että `fallbackDataURL`-osoitteen kautta noudetussa tiedossa, sovellus käsittelee ristiriidan seuraavasti:
+
+* **Ennen noudon valmistumista:** Upotetut asetukset ovat ensisijaisia ja niitä käytetään.
+* **Onnistuneen noudon jälkeen:** Osoitteesta `fallbackDataURL` noudetut tiedot ylikirjoittavat vastaavat upotetut asetukset.
+* **Epäonnistuneen noudon jälkeen:** Sovellus jatkaa upotettujen asetusten käyttöä.
+* Erilliset avaimet, jotka ovat vain upotetussa paketissa, säilytetään.
+
+## MDM-palaute ja tilan tarkistus
+
+Voit tarkistaa, otettiinko konfiguraatio käyttöön onnistuneesti MDM-palautekanavan kautta (`com.apple.feedback.managed`), jos MDM-ratkaisusi tukee sitä. Konfiguraation käsittelyn (tai URL-noudon valmistumisen) jälkeen sovellus palauttaa seuraavat tiedot:
+
+* `managedConfigVersion`: Konfiguraatioyrityksen version merkkijono.
+* `result`: Joko `success` tai `error`.
+* `messages`: Taulukko, joka sisältää yksityiskohtaisia virhe- tai varoitusviestejä, jos sovellettavissa.

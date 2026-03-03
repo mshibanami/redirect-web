@@ -143,6 +143,12 @@ Puedes especificar patrones de URL excluidos usando tipos de patrón de Expresi�
 
 La opción **Ejemplos** te permite probar tu regla de redirección proporcionando URLs de ejemplo. Al agregar una URL de ejemplo, puedes verificar si la regla funciona como se espera antes de aplicarla realmente.
 
+### Avanzado {#advanced-options}
+
+* **[DNR] Redirección del marco principal**: Esta opción solo está disponible para el tipo DNR. Te permite especificar cómo manejar la redirección para el tipo de recurso `main_frame`. Las opciones disponibles son:
+    * **Raw (Bruto)**: Redirige el marco principal a la URL especificada sin ninguna modificación.
+    * **Mediante página intermedia**: Redirige el marco principal a una página intermedia, que luego redirige a la URL de destino especificada. Esto es útil para abrir aplicaciones mediante enlaces profundos, ya que la página intermedia puede manejar una lógica de redirección más compleja.
+
 ### Comentarios {#comments}
 
 La opción **Comentarios** te permite agregar notas o comentarios sobre tu regla de redirección. Esto puede ser útil para llevar un registro de por qué creaste una regla específica o para proporcionar contexto a otros que puedan ver tus reglas.

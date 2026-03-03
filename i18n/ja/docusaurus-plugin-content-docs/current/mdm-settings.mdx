@@ -1,0 +1,125 @@
+import TOCInline from '@theme/TOCInline';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# 管理者向けMDM設定
+
+![サポートされているプラットフォーム: iOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20visionOS-white)
+
+RedirectWebは、AppleのManaged App Configuration（管理対象アプリの構成）をサポートしています。これにより、IT管理者は、Jamf、Intune、Kandjiなどのモバイルデバイス管理（MDM）ソリューションを介して、従業員や学生のデバイス全体でアプリの設定を一元的にデプロイおよび管理できます。
+
+このページでは、設定可能なキー、アプリの動作、ベストプラクティス、および制限事項について説明します。
+
+<TOCInline toc={toc} />
+
+## 概要
+
+MDMを介して構成をプッシュすることで、以下のことが可能になります：
+
+*   **強制ルール：** ユーザーが変更または削除できない、組織全体のリダイレクトルールを適用します。
+*   **初期ルールの配布：** アプリの初回起動時にデフォルトとして機能するテンプレートルールセットを配布します。
+*   **UI制御：** 特定の機能（ライブラリなど）へのアクセスを制限し、アプリが組織の管理下にあることをアプリ内で明確に示します。
+*   **大規模ルールの取得（フォールバック）：** 外部サーバーからルールを取得することで、MDMペイロードのサイズ制限を回避します。
+
+## ユースケース
+
+*   **システム移行中のシームレスなルーティング：**
+    レガシーな内部システム（例：`legacy-crm.internal.local`）から新しいプラットフォーム（例：`salesforce.com`）に移行する場合、`enforcedRuleSet`を配布します。従業員が古いブックマークを使用しても自動的に新しいシステムにリダイレクトされるため、古いリンクに関するITサポートへの問い合わせをなくすことができます。
+*   **イントラネットアクセスの支援：**
+    カスタムURLスキームを使用したリダイレクトルールを配布し、Omnissa WebなどのPer-App VPNトンネルを介したイントラネットリソースへのアクセスを容易にします。
+
+> [!WARNING]
+>
+> MDM構成のプッシュは、**ユーザーがRedirectWebアプリを開いた場合にのみ**即座に適用されます。
+> アプリはバックグラウンドタスクを利用してMDMの更新をブラウザ拡張機能にサイレントにプッシュしますが、これはOSによって制御される「ベストエフォート」の実行です。実行タイミングは非常に予測困難であり、タスクがまったく実行されない場合もあります。
+> したがって、この機能は時間的に重要なインシデント対応（例：クラウドサービスの停止から数分以内にすべての従業員をバックアップサイトに即座にリダイレクトしようとするなど）には**依存しないでください**。
+
+## デモ
+
+<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM設定デモ" autoPlay playsInline muted loop controls width="640px"></video>
+
+ビデオで使用されているplistファイルはこちらから入手できます：**[sample-mdm.plist](/misc/sample-mdm.plist)**
+
+ビデオではManageEngineのMDMを使用して構成をデプロイしていますが、AppleのManaged App Configurationをサポートしている限り、他のMDMソリューションでも同じ構成を使用できます。
+
+## 設定可能なキー
+
+MDMコンソールを介して、通常はplist形式で、Managed App Configurationの以下のキーと値をデプロイします。
+
+| キー名                   | 型                             | 説明                                                                                                                                                                                                                                                        |
+| ------------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`        | [ルールセット](#rule-set-object) | **[強制ルール]** 通常のルールよりも高い優先度で適用されるルールセット。リストの最初のルールが優先されます。ユーザーはこれらのルールを編集、削除、または並べ替えることはできません。これらは常にアクティブで、アプリのグローバルな無効化トグルを無視し、iCloud経由で同期されません。 |
+| `prefilledRuleSet`       | [ルールセット](#rule-set-object) | **[初期ルール]** 既存のルールがない状態でユーザーが初めてアプリを起動したときに、デフォルトの例ルールの代わりに作成されるルールセット。一度配布されると、これらは通常のルールとして機能し、ユーザーによる変更、削除、およびiCloud同期が可能です。            |
+| `organizationName`       | 文字列                         | アプリ内設定画面の上部に「[organizationName] によって管理されています」と表示され、アプリが管理されていることをユーザーに示します。                                                                                                                           |
+| `managedConfigVersion`   | 文字列                         | 構成の任意のバージョン文字列。UIに表示され、トラブルシューティング時にITサポートが最新のMDMペイロードがデバイスに届いているかどうかを確認できるようにします。                                                                                                   |
+| `showsLibrarySection`    | Boolean                        | `false`に設定すると、ルールライブラリ機能が非表示になり、そのセクションは「組織によって制限されています」というエラーメッセージに置き換わります。                                                                                                             |
+| `fallback`               | [フォールバック](#fallback-object) | 構成がMDMペイロード制限を超える場合に指定します。アプリはこのURLからJSON/XMLを取得して構成を適用します。                                                                                                                                                    |
+
+これらのキーはすべてオプションです。
+
+### [オブジェクト] ルールセット {#rule-set-object}
+
+各ルールオブジェクトは、[アプリ経由で共有/エクスポート](export-or-import-rules)できるものと同じ形式ですが、次のようにJSONからplistに変換する必要があります。
+
+```plist
+...
+	<key>enforcedRuleSet</key>
+	<dict>
+		<key>kind</key>
+		<string>RedirectList</string>
+		<key>bundleID</key>
+		<string>io.github.mshibanami.RedirectWebForSafari</string>
+		<key>formatVersion</key>
+		<string>5</string>
+		<key>redirects</key>
+		<array>
+			<dict>
+				<key>kind</key>
+				<string>Redirect</string>
+				<key>type</key>
+				<string>originalRedirect</string>
+				<key>title</key>
+				<string>My enforced Rule</string>
+				<key>sourceURLPattern</key>
+				<dict>
+					<key>type</key>
+					<string>wildcard</string>
+					<key>value</key>
+					<string>https://example.com/1</string>
+				</dict>
+				<key>destinationURLPattern</key>
+				<string>https://google.com/search?q=1</string>
+			</dict>
+		</array>
+	</dict>
+...
+```
+
+### [オブジェクト] フォールバック {#fallback-object}
+
+| キー名              | 型           | 説明                                                                                                                                                     |
+| ------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL`   | 文字列 (URL) | ルールセットを含むJSON/XMLファイルのエンドポイントURL。                                                                                                   |
+| `authToken`         | 文字列       | `fallbackDataURL`から取得するときにHTTPヘッダーに追加される認証トークン。 (`Authorization: Bearer [authToken]` として使用されます)。                        |
+
+## ルール評価と競合解決
+
+1. `enforcedRuleSet`が提供されている場合、そのルールは絶対的な優先順位で適用されます。
+2. 通常のルールがなく、`prefilledRuleSet`が存在する場合、`prefilledRuleSet`は通常のルールとして保存されます。
+3. デフォルトの「リダイレクトルールの例」は、MDMルールが構成されておらず、かつ通常のルールがない場合にのみ生成されます。
+
+## フォールバックURLの動作
+
+キーがインラインMDMペイロードと`fallbackDataURL`経由で取得されたデータの両方に存在する場合、アプリは次のように競合を処理します：
+
+*   **取得完了前：** インライン設定が厳密に優先され、使用されます。
+*   **取得成功後：** `fallbackDataURL`から取得されたデータが、対応するインライン設定を上書きします。
+*   **取得失敗後：** アプリは引き続きインライン設定を使用します。
+*   インラインペイロードにのみ存在する独立したキーは保持されます。
+
+## MDMフィードバックとステータスチェック
+
+MDMソリューションがサポートしている場合は、MDMフィードバックチャネル（`com.apple.feedback.managed`）を介して構成が正常に適用されたかどうかを確認できます。構成の処理（またはURL取得の完了）後、アプリは次のデータを返します：
+
+*   `managedConfigVersion`: 構成試行のバージョン文字列。
+*   `result`: `success` または `error`。
+*   `messages`: 該当する場合、詳細なエラーまたは警告メッセージを含む配列。
