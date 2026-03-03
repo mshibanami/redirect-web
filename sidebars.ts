@@ -12,30 +12,48 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   sidebar: [
-    "introduction",
     {
       type: "category",
-      label: "How to Create Rules",
-      link: {
-        type: 'generated-index',
-        description: `Common use cases for creating rules in the RedirectWeb app. (You can also learn the details of rule settings on the [Rule Settings](./rule-settings) page.)`,
-        slug: '/category/how-to-create-rules',
-      },
+      label: "Getting Started",
       items: [
-        "tutorial-redirect-to-another-website",
-        "tutorial-remove-query-params",
-        "tutorial-add-query-params",
-      ],
+        "introduction",
+        "vs-other-tools",
+      ]
     },
-    "rule-settings",
-    "library",
-    "export-or-import-rules",
-    "mdm-settings",
+    {
+      type: "category",
+      label: "How-To Guides",
+      items: [
+        {
+          type: "category",
+          label: "How to Create Rules",
+          link: {
+            type: 'generated-index',
+            description: `Common use cases for creating rules in the RedirectWeb app. (You can also learn the details of rule settings on the [Rule Settings](./rule-settings) page.)`,
+            slug: '/category/how-to-create-rules',
+          },
+          items: [
+            "tutorial-redirect-to-another-website",
+            "tutorial-remove-query-params",
+            "tutorial-add-query-params",
+          ],
+        },
+        "rule-settings",
+        "library",
+        "export-or-import-rules",
+      ]
+    },
+    {
+      type: "category",
+      label: "Enterprise / Admin",
+      items: [
+        "mdm-settings",
+      ]
+    },
     {
       type: 'category',
-      label: 'Help',
+      label: 'Support & Help',
       items: [
-        "vs-other-tools",
         "troubleshooting",
         "faq",
         "contact-us",
@@ -43,7 +61,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Misc.',
+      label: 'Information',
       items: [
         {
           type: 'link',
