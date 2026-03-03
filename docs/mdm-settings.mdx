@@ -93,7 +93,7 @@ Each rule object has the same format as the one you can [share/export via the ap
 | `fallbackDataURL` | String (URL) | An endpoint URL of a JSON/XML file containing rule sets.                                                                                     |
 | `authToken`       | String       | An authentication token appended to the HTTP header when fetching from the `fallbackDataURL`. (Used as `Authorization: Bearer [authToken]`). |
 
-### Rule Evaluation and Conflict Resolution
+## Rule Evaluation and Conflict Resolution
 
 1. If an `enforcedRuleSet` is provided, its rules are applied with absolute priority.
 2. If there are no normal rules but a `prefilledRuleSet` exists, the `prefilledRuleSet` is saved as normal rules.
