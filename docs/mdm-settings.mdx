@@ -1,0 +1,117 @@
+import TOCInline from '@theme/TOCInline';
+
+# MDM Settings for Admins
+
+![Supported Platforms: iOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20visionOS-white)
+
+RedirectWeb supports Apple's Managed App Configuration, allowing you (IT administrators) to deploy and manage app settings centrally across employee/student devices via a Mobile Device Management (MDM) solution.
+
+This page outlines the configurable keys, app behaviors, best practices, and limitations.
+
+<TOCInline toc={toc} />
+
+## Overview
+
+By pushing configurations through your MDM, you can achieve the following:
+
+* **Enforced Rules:** Apply organization-wide redirection rules that users cannot modify or delete.
+* **Initial Rule Distribution:** Distribute a template rule set that serves as the default upon the app's first launch.
+* **UI Control:** Restrict access to specific features (like the Library) and clearly indicate within the app that it is under organizational management.
+* **Large Rule Fetching (Fallback):** Bypass MDM payload size limits by fetching rules from an external server.
+
+## Use Cases
+
+* **Seamless routing during system migrations:**
+  When migrating from a legacy internal system (e.g., `legacy-crm.internal.local`) to a new platform (e.g., `salesforce.com`), distribute an `enforcedRuleSet`. Even if employees use old bookmarks, they are automatically redirected to the new system, eliminating IT support tickets regarding outdated links.
+* **Intranet Access Assistance:**
+  Distribute redirection rules using custom URL schemes to facilitate access to intranet resources via Per-App VPN tunnels, such as Omnissa Web.
+
+> [!WARNING]
+> 
+> MDM configuration pushes are applied immediately **only if the user opens the RedirectWeb app**.
+> While the app utilizes background tasks to push MDM updates to the browser extension silently, this is a "best-effort" execution dictated by the OS. The execution timing is highly unpredictable, and the task may not run at all.
+> Therefore, this feature should **not** be relied upon for time-critical incident response (e.g., attempting to instantly redirect all employees to a backup site within minutes of a cloud service outage).
+
+
+## Configurable Keys
+
+Deploy the following keys and values for Managed App Configuration via your MDM console, typically in the plist format.
+
+| Key Name               | Type                                | Description                                                                                                                                                                                                                                                                   |
+| ---------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Rule set](#rule-set-object)        | **[Enforced Rules]** A rule set applied with higher priority than normal rules. The first rule in the list takes precedence. Users cannot edit, delete, or reorder these rules. They are always active, ignoring the app's global disable toggle, and do not sync via iCloud. |
+| `prefilledRuleSet`     | [Rule set](#rule-set-object)        | **[Initial Rules]** A rule set created in place of the default example rule when a user launches the app for the first time without existing rules. Once distributed, these act as normal rules, allowing user modification, deletion, and iCloud sync.                       |
+| `organizationName`     | String                              | Displays "Managed by {organizationName}" at the top of the in-app settings screen, indicating to the user that the app is managed.                                                                                                                                            |
+| `managedConfigVersion` | String                              | An arbitrary version string for the configuration. Displayed in the UI, allowing IT support to verify if the latest MDM payload has reached the device when troubleshooting.                                                                                                  |
+| `showsLibrarySection`  | Boolean                             | If set to `false`, the Rule Library feature is hidden, and the section is replaced with a "Restricted by your organization." error message.                                                                                                                                   |
+| `fallback`             | [Fallback object](#fallback-object) | Specify this when the configurations exceed the MDM payload limits. The app will fetch JSON/XML from this URL to apply the configuration.                                                                                                                                     |
+
+These keys are all optional.
+
+### Rule Set Object {#rule-set-object}
+
+Each rule object has the same format as the one you can [share/export via the app](export-or-import-rules), but you need to convert it from JSON to XML, like this:
+
+```plist
+...
+	<key>enforcedRuleSet</key>
+	<dict>
+		<key>kind</key>
+		<string>RedirectList</string>
+		<key>bundleID</key>
+		<string>io.github.mshibanami.RedirectWebForSafari</string>
+		<key>formatVersion</key>
+		<string>5</string>
+		<key>redirects</key>
+		<array>
+			<dict>
+				<key>kind</key>
+				<string>Redirect</string>
+				<key>type</key>
+				<string>originalRedirect</string>
+				<key>title</key>
+				<string>My enforced Rule</string>
+				<key>sourceURLPattern</key>
+				<dict>
+					<key>type</key>
+					<string>wildcard</string>
+					<key>value</key>
+					<string>https://example.com/1</string>
+				</dict>
+				<key>destinationURLPattern</key>
+				<string>https://google.com/search?q=1</string>
+			</dict>
+		</array>
+	</dict>
+...
+```
+
+### Fallback Object {#fallback-object}
+
+| Key Name          | Type         | Description                                                                                                                                  |
+| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | An endpoint URL of a JSON/XML file containing rule sets.                                                                                     |
+| `authToken`       | String       | An authentication token appended to the HTTP header when fetching from the `fallbackDataURL`. (Used as `Authorization: Bearer [authToken]`). |
+
+### Rule Evaluation and Conflict Resolution
+
+1. If an `enforcedRuleSet` is provided, its rules are applied with absolute priority.
+2. If there are no normal rules but a `prefilledRuleSet` exists, the `prefilledRuleSet` is saved as normal rules.
+3. The default "Example redirection rule" is generated only if no MDM rules are configured and there are no normal rules.
+
+## Fallback URL Behavior
+
+When a key exists in both the inline MDM payload and the data fetched via `fallbackDataURL`, the app handles the conflict as follows:
+
+* **Before Fetch Completion:** Inline settings are strictly prioritized and used.
+* **After Successful Fetch:** Data retrieved from the `fallbackDataURL` overwrites the corresponding inline settings.
+* **After Failed Fetch:** The app continues to use the inline settings.
+* Independent keys that exist only in the inline payload are preserved.
+
+## MDM Feedback and Status Check
+
+You can verify if the configuration was applied successfully via the MDM feedback channel (`com.apple.feedback.managed`) if your MDM solution supports it. After processing the configuration (or completing the URL fetch), the app returns the following data:
+
+* `managedConfigVersion`: The version string of the configuration attempt.
+* `result`: Either `success` or `error`.
+* `messages`: An array containing detailed error or warning messages, if applicable.
