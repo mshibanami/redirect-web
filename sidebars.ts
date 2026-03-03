@@ -30,6 +30,7 @@ const sidebars: SidebarsConfig = {
     "rule-settings",
     "library",
     "export-or-import-rules",
+    "mdm-settings",
     {
       type: 'category',
       label: 'Help',

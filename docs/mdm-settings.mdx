@@ -37,18 +37,18 @@ By pushing configurations through your MDM, you can achieve the following:
 
 Deploy the following keys and values for Managed App Configuration via your MDM console, typically in the plist format.
 
-| Key Name               | Type                                | Description                                                                                                                                                                                                                                                                   |
-| ---------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Rule set](#rule-set-object)        | **[Enforced Rules]** A rule set applied with higher priority than normal rules. The first rule in the list takes precedence. Users cannot edit, delete, or reorder these rules. They are always active, ignoring the app's global disable toggle, and do not sync via iCloud. |
-| `prefilledRuleSet`     | [Rule set](#rule-set-object)        | **[Initial Rules]** A rule set created in place of the default example rule when a user launches the app for the first time without existing rules. Once distributed, these act as normal rules, allowing user modification, deletion, and iCloud sync.                       |
-| `organizationName`     | String                              | Displays "Managed by {organizationName}" at the top of the in-app settings screen, indicating to the user that the app is managed.                                                                                                                                            |
-| `managedConfigVersion` | String                              | An arbitrary version string for the configuration. Displayed in the UI, allowing IT support to verify if the latest MDM payload has reached the device when troubleshooting.                                                                                                  |
-| `showsLibrarySection`  | Boolean                             | If set to `false`, the Rule Library feature is hidden, and the section is replaced with a "Restricted by your organization." error message.                                                                                                                                   |
-| `fallback`             | [Fallback object](#fallback-object) | Specify this when the configurations exceed the MDM payload limits. The app will fetch JSON/XML from this URL to apply the configuration.                                                                                                                                     |
+| Key Name               | Type                         | Description                                                                                                                                                                                                                                                                   |
+| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Rule set](#rule-set-object) | **[Enforced Rules]** A rule set applied with higher priority than normal rules. The first rule in the list takes precedence. Users cannot edit, delete, or reorder these rules. They are always active, ignoring the app's global disable toggle, and do not sync via iCloud. |
+| `prefilledRuleSet`     | [Rule set](#rule-set-object) | **[Initial Rules]** A rule set created in place of the default example rule when a user launches the app for the first time without existing rules. Once distributed, these act as normal rules, allowing user modification, deletion, and iCloud sync.                       |
+| `organizationName`     | String                       | Displays `Managed by {organizationName}` at the top of the in-app settings screen, indicating to the user that the app is managed.                                                                                                                                            |
+| `managedConfigVersion` | String                       | An arbitrary version string for the configuration. Displayed in the UI, allowing IT support to verify if the latest MDM payload has reached the device when troubleshooting.                                                                                                  |
+| `showsLibrarySection`  | Boolean                      | If set to `false`, the Rule Library feature is hidden, and the section is replaced with a "Restricted by your organization." error message.                                                                                                                                   |
+| `fallback`             | [Fallback](#fallback-object) | Specify this when the configurations exceed the MDM payload limits. The app will fetch JSON/XML from this URL to apply the configuration.                                                                                                                                     |
 
 These keys are all optional.
 
-### Rule Set Object {#rule-set-object}
+### [Object] Rule Set {#rule-set-object}
 
 Each rule object has the same format as the one you can [share/export via the app](export-or-import-rules), but you need to convert it from JSON to XML, like this:
 
@@ -86,7 +86,7 @@ Each rule object has the same format as the one you can [share/export via the ap
 ...
 ```
 
-### Fallback Object {#fallback-object}
+### [Object] Fallback {#fallback-object}
 
 | Key Name          | Type         | Description                                                                                                                                  |
 | ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
