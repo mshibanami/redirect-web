@@ -1,9 +1,11 @@
+packages:
+  - .
+
 ignoredBuiltDependencies:
   - core-js
   - core-js-pure
 
 onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@swc/core'
   - esbuild
-
-packages:
-  - .
