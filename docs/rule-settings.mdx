@@ -12,7 +12,7 @@ Specify the **Type** option to control how the app handles redirection. You can 
     * This uses traditional Web APIs to control redirection. Additionally, it uses [the Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) for a fallback.
         * In Firefox, it uses the [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) to handle redirection.
     * You can use all the options other than [Resource Types](#resource-types) and [Request Methods](#request-methods).
-    * This is slower than the *Declarative* type and may cause extra network requests.
+    * ⚠️ This is slower than the *Declarative* type and may cause extra network requests.
 * **DNR** (Experimental for Safari):
     * This type works much faster than the Original type because it doesn't initiate a network request for the source URL.
     * This allows you to specify [Resource Types](#resource-types) and [Request Methods](#request-methods).
@@ -142,6 +142,12 @@ You can specify excluded URL patterns using either Regular Expression or Wildcar
 ### Examples {#examples}
 
 The **Examples** option allows you to test your redirect rule by providing sample URLs. By adding a sample URL, you can check if the rule works as expected before actually applying it.
+
+### Advanced {#advanced-options}
+
+* **[DNR] Main Frame Redirection**: This option is only available for the DNR type. It allows you to specify how to handle the redirection for the `main_frame` resource type. Available options are:
+    * **Raw**: Redirects the main frame to the specified URL without any modifications.
+    * **Via Intermediate Page**: Redirects the main frame to an intermediate page, which then redirects to the specified destination URL. This is useful for opening apps using deep linking since the intermediate page can handle more complex redirection logic.
 
 ### Comments {#comments}
 
