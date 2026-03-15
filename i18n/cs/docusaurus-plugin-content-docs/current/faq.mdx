@@ -3,71 +3,106 @@ import Image from "@site/src/components/Image";
 import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
 import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
 
-# Často kladené otázky
+# FAQ
 
-## Proč bych měl povolit rozšíření číst/měnit mé informace? {#why-allow-extension-to-read-change}
+## Proč moje pravidlo přesměrování nefunguje? {#redirection-not-working}
 
-Při nastavování RedirectWeb se vám může zobrazit upozornění jako toto:
+Pokud se vámi vytvořené pravidlo nespouští podle očekávání, zkontrolujte prosím následující:
+
+- **Je rozšíření povoleno?** Zkontrolujte nastavení rozšíření ve svém prohlížeči a ujistěte se, že je RedirectWeb zapnutý.
+- **Je pravidlo aktivováno?** Otevřete aplikaci RedirectWeb a ujistěte se, že přepínač u konkrétního pravidla je v poloze „Zapnuto“.
+- **Je pravidlo správné?** Otestujte pravidlo zadáním URL adresy do pole Příklady (Examples) na obrazovce Upravit pravidlo (Edit Rule).
+- **[Safari] Povolili jste rozšíření přístup ke zdrojovému webu?**: Ujistěte se, že jste povolili rozšíření přístup k webu, ze kterého chcete přesměrovat. Pokud můžete otevřít vyskakovací okno rozšíření, má rozšíření k danému webu přístup.
+    > [!TIP]
+    > Pro vaše pohodlí doporučujeme povolit přístup ke všem webům. (Jen tip!)
+
+## Proč mám rozšíření povolit čtení/změnu mých informací? {#why-allow-extension-to-read-change}
+
+Při nastavování RedirectWeb se může zobrazit upozornění podobné tomuto:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="Upozornění vyžadující povolení" width="200" margin="0 0 16px 0" hasShadow />
+    <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Toto rozšíření bude moci číst a měnit webové stránky a zobrazit vaši historii prohlížení na tomto webu. **To by mohlo zahrnovat citlivé informace, včetně hesel, telefonních čísel a kreditních karet.**
+    > Toto rozšíření bude moci číst a měnit webové stránky a vidět vaši historii prohlížení na tomto webu. **To může zahrnovat citlivé informace, včetně hesel, telefonních čísel a platebních karet.**
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="Upozornění vyžadující povolení" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Může:
+    > Může:  
     > Číst a měnit **všechna vaše data** na **všech webových stránkách**
 </IfBrowserStore>
 
-Toto rozšíření potřebuje vaše povolení k sledování navigace na stránce, aby vás přesměrovalo tam, kam chcete, a váš prohlížeč to zobrazí, když rozšíření požádá o související oprávnění. Proto, pokud to nepovolíte, toto rozšíření nemůže fungovat.
+Toto rozšíření potřebuje vaše svolení ke sledování navigace na stránce, aby vás mohlo přesměrovat tam, kam chcete přejít, a váš prohlížeč toto zobrazí, když rozšíření požádá o související oprávnění. Pokud to tedy nepovolíte, toto rozšíření nemůže fungovat.
 
-Udělená oprávnění budou použita pouze pro funkce aplikace, jako je přesměrování, v souladu s **[zásadami ochrany osobních údaj](/privacy-policy)**.
+Udělená oprávnění budou použita pouze pro funkce aplikace, jako je přesměrování, v souladu se **[zásadami ochrany osobních údajů](/privacy-policy)**.
 
-## Měl bych si stále pořídit aplikaci po instalaci rozšíření pro Chrome, Firefox nebo Edge? {#app-for-non-safari-browsers}
+## Můj nákup nebyl obnoven ani po klepnutí na „Obnovit nákup“ {#purchase-not-restored}
 
-Ano. Musíte si stáhnout [aplikaci RedirectWeb z App Store](https://apps.apple.com/app/id1571283503) bez ohledu na to, jaký prohlížeč používáte. Rozšíření si můžete nainstalovat z obchodu s rozšířeními vašeho prohlížeče, ale aplikace je nutná pro správu vašich pravidel, historie nákupů a dalších nastavení napříč zařízeními prostřednictvím iCloudu.
+Pokud tlačítko Obnovit nákup nefunguje podle očekávání, postupujte prosím podle těchto kroků k řešení problémů:
 
-## Funguje RedirectWeb na Windows, Android, Linux nebo jiných platformách? {#non-apple-platforms}
+1. Přihlaste se na [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/), abyste potvrdili, že transakce byla úspěšně dokončena a je uvedena v historii vašeho Apple ID.
+2. Ujistěte se, že Apple ID aktuálně přihlášené v **aplikaci App Store** je stejné jako to, které bylo použito pro původní nákup.
+    > [!NOTE]
+    >
+    > Účet přihlášený v aplikaci Nastavení vašeho zařízení se někdy může lišit od účtu použitého v aplikaci App Store. Právě účet v aplikaci App Store se musí shodovat s vaší historií nákupů, aby obnova fungovala správně.
+3. Pokud máte více Apple ID, odhlaste se prosím z App Store a znovu se přihlaste správným účtem, poté zkuste tlačítko Obnovit nákup znovu.
 
-V současné době ne. RedirectWeb je úzce spjat s ekosystémem Apple, včetně iCloudu a Universal Purchase. Omlouváme se za nepříjemnosti.
+Pokud se účty shodují, ale obnova stále selhává, [kontaktujte nás](/contact-us) prosím se snímkem obrazovky vašeho potvrzení o nákupu nebo historie nákupů. Záležitost pro vás dále prošetříme.
 
-## Proč toto rozšíření vyžaduje nové povolení? {#permission-alert-on-safari}
+## Mám si aplikaci pořídit i po instalaci rozšíření pro Chrome, Firefox nebo Edge? {#app-for-non-safari-browsers}
 
-Po aktualizaci RedirectWeb se vám v Safari může zobrazit toto upozornění:
+Ano. Musíte si stáhnout [aplikaci RedirectWeb z App Store](https://apps.apple.com/app/id1571283503) bez ohledu na to, jaký prohlížeč používáte. Rozšíření si můžete nainstalovat z obchodu s rozšířeními vašeho prohlížeče, ale aplikace je vyžadována ke správě vašich pravidel, historie nákupů a dalších nastavení napříč zařízeními prostřednictvím iCloudu.
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Upozornění o zakázání aplikace" width="280" />
+## Potřebuji jiné rozšíření pro Chrome, Firefox nebo Edge, pokud používám aplikaci Pro? {#different-extension-for-pro}
 
-> "RedirectWeb" byl aktualizován a požaduje další oprávnění. Pro ochranu vašeho soukromí bylo toto rozšíření vypnuto.
+Ne. Ať už na svém Macu používáte standardní aplikaci RedirectWeb nebo RedirectWeb Pro, měli byste si nainstalovat úplně stejné rozšíření z příslušného obchodu s rozšířeními vašeho prohlížeče. Rozšíření automaticky detekuje a komunikuje s tou verzí aplikace, kterou máte nainstalovanou.
+
+## Funguje RedirectWeb na Windows, Androidu, Linuxu nebo jiných platformách? {#non-apple-platforms}
+
+V současné době ne. RedirectWeb je úzce spjat s ekosystémem Apple, včetně iCloudu a univerzálních nákupů (Universal Purchase). Omlouváme se za nepříjemnosti.
+
+## Proč toto rozšíření vyžaduje nové oprávnění? {#permission-alert-on-safari}
+
+V Safari se po aktualizaci RedirectWeb může zobrazit toto upozornění:
+
+<img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
+
+> „RedirectWeb“ byl aktualizován a vyžaduje další oprávnění. Z důvodu ochrany vašeho soukromí bylo toto rozšíření vypnuto.
 >
 > Toto rozšíření můžete zapnout v sekci Rozšíření v Nastavení Safari.
 
-To je způsobeno oprávněním [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) vyžadovaným typem [DNR](/rule-settings#type) zavedeným ve verzi 7. Prosím, znovu povolte rozšíření. Omlouváme se za nepříjemnosti.
+Důvodem je oprávnění [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extensions) vyžadované typem [DNR](/rule-settings#type) uvedeným ve verzi 7. Rozšíření prosím znovu povolte. Omlouváme se za nepříjemnosti.
 
-## Stane se obsah knihovny v budoucnu placeným? {#will-library-become-paid}
+## Budou obsahy knihovny v budoucnu placené? {#will-library-become-paid}
 
-Ne, je vždy zdarma. Zdroj veškerého obsahu naleznete také [zde](https://github.com/mshibanami/redirect-web/tree/main/library).
+Ne, budou vždy zdarma. Zdroj veškerého obsahu naleznete také [zde](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Jednorázový nákup nebo roční předplatné: Co je lepší? {#one-time-or-subscription}
+## Jaký je rozdíl mezi RedirectWeb a RedirectWeb Pro? {#difference-between-standard-and-pro}
 
-Doporučujeme jednorázový nákup, protože cenový rozdíl je pouze 2,00 USD.
-Hlavním důvodem, proč nabízíme předplatné, je umožnit vám vyzkoušet všechny funkce prostřednictvím bezplatné zkušební verze. Zde je očekávaný případ použití:
+Obě verze nabízejí naprosto stejné funkce a dostávají aktualizace současně. Jediným rozdílem je platební model:
 
-1. Přihlaste se k ročnímu předplatnému.
-2. Okamžitě zrušte předplatné tak, že přejdete do aplikace Nastavení, vyhledáte "Předplatná", klepnete na tuto aplikaci a vyberete "Zrušit předplatné". To vám umožní užít si bezplatnou zkušební verzi bez jakýchkoli závazků.
-3. Užijte si plný přístup ke všem funkcím po dobu 7 dnů.
-4. Pokud se vám funkce líbí, zvolte jednorázový nákup.
+- **RedirectWeb**: Bezplatná aplikace se základními funkcemi (omezená na **1 aktivní pravidlo**), nabízející volitelný nákup v aplikaci (předplatné nebo jednorázová platba) pro odemknutí všech funkcí, včetně neomezeného počtu pravidel a synchronizace přes iCloud.
+- **RedirectWeb Pro**: Plně odemčená aplikace s platbou předem. Tato verze byla vytvořena speciálně proto, aby byla způsobilá pro **Apple Business Manager** a **Apple School Manager (VPP)**, což organizacím umožňuje hromadný nákup aplikace, který není možný u nákupů v aplikaci. Nicméně si ji může koupit kdokoli, kdo preferuje platbu předem!
 
-Samozřejmě, není nic špatného na pokračování s ročním předplatným, pokud dáváte přednost!
+## Jednorázový nákup, roční předplatné nebo verze Pro: Co je nejlepší? {#one-time-or-subscription-or-pro}
 
-## Vkládá RedirectWeb reklamy nebo jiný nesouvisející obsah do webových stránek? {#does-it-inject-ads}
+Doporučujeme buď jednorázový nákup v rámci standardní aplikace RedirectWeb, nebo zakoupení RedirectWeb Pro, protože nabízejí stejnou hodnotu.
+Hlavním důvodem, proč nabízíme předplatné, je umožnit vám vyzkoušet si všechny funkce prostřednictvím bezplatné zkušební verze. Zde je očekávaný scénář použití:
 
-Ne, nevkládá žádný takový obsah. Pouze kód, který je nezbytný k poskytování funkcí popsaných v této dokumentaci a na stránce aplikace v App Store, je vkládán do webových stránek v Safari.
+1. Předplaťte si roční předplatné ve standardní aplikaci RedirectWeb.
+2. Předplatné okamžitě zrušte v aplikaci Nastavení vyhledáním položky „Předplatná“, klepnutím na tuto aplikaci a výběrem možnosti „Zrušit předplatné“. To vám umožní užít si bezplatnou zkušební verzi bez jakéhokoli závazku.
+3. Užívejte si plný přístup ke všem funkcím po dobu 7 dní.
+4. Pokud se vám funkce líbí, rozhodněte se pro jednorázový nákup nebo si kupte verzi Pro.
 
-## Existuje nějaká šance, že by RedirectWeb mohl být někdy prodán někomu jinému? {#could-it-be-sold}
+Samozřejmě není nic špatného na pokračování v ročním předplatném, pokud mu dáváte přednost!
 
-100% ne. Rozšíření prohlížeče mají hlubokou kontrolu nad vaším prohlížením a daty a předání RedirectWeb jinému vlastníkovi by otevřelo dveře k porušení soukromí. Viděli jsme, jak rozšíření mění majitele a poté shromažďují uživatelská data nebo vkládají reklamy bez varování. To se zde nikdy nestane. Více o těchto rizicích naleznete v článku Matta Frisbieho ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) a v investigaci Briana Krebse ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+## Vkládá RedirectWeb do webových stránek reklamy nebo jiný nesouvisející obsah? {#does-it-inject-ads}
 
-RedirectWeb je založen na důvěře a odpovědnosti. Považujeme za naši povinnost udržovat vaše informace v bezpečí a odmítáme převést vlastnictví za jakýchkoli okolností. RedirectWeb vždy zůstane v našich rukou, takže můžete prohlížet s naprostou důvěrou.
+Ne, žádný takový obsah nevkládá. Do webových stránek v Safari se vkládá pouze kód, který je nezbytný k poskytování funkcí popsaných v této dokumentaci a na stránce aplikace v App Store.
+
+## Existuje nějaká šance, že by mohl být RedirectWeb někdy prodán někomu jinému? {#could-it-be-sold}
+
+100% ne. Rozšíření prohlížeče mají hlubokou kontrolu nad vaším prohlížením a daty a předání RedirectWeb jinému majiteli by otevřelo dveře k porušování soukromí. Byli jsme svědky toho, jak rozšíření změnila majitele a poté bez varování sbírala uživatelská data nebo vkládala reklamy. To se zde nikdy nestane. Více o těchto rizicích se dozvíte v článku Matta Frisbieho [„The Ugly Business of Monetizing Browser“](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) a v šetření Briana Krebse [„Is Your Browser Extension a Botnet Backdoor?“](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+
+RedirectWeb je založen na důvěře a odpovědnosti. Považujeme za svou povinnost udržovat vaše informace v bezpečí a odmítáme převést vlastnictví za jakýchkoli okolností. RedirectWeb zůstane vždy v našich rukou, takže můžete prohlížet s naprostou důvěrou.

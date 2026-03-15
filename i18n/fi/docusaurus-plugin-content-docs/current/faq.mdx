@@ -5,6 +5,17 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # UKK
 
+## Miksi uudelleenohjaussääntöni ei toimi? {#redirection-not-working}
+
+Jos luomasi sääntö ei toimi odotetulla tavalla, tarkista seuraavat asiat:
+
+- **Onko laajennus käytössä?** Tarkista selaimesi laajennusasetukset ja varmista, että RedirectWeb on päällä.
+- **Onko sääntö kytketty päälle?** Avaa RedirectWeb-sovellus ja varmista, että kyseisen säännön kytkin on "Päällä"-asennossa.
+- **Onko sääntö oikein?** Testaa sääntöä kirjoittamalla URL-osoite Esimerkit-kenttään Muokkaa sääntöä -näytössä.
+- **[Safari] Annoitko laajennukselle luvan käyttää lähdesivustoa?**: Varmista, että olet sallinut laajennuksen pääsyn verkkosivustolle, josta haluat tehdä uudelleenohjauksen. Jos voit avata laajennuksen ponnahdusikkunan, laajennuksella on pääsy lähdesivustolle.
+    > [!TIP]
+    > Suosittelemme sallimaan pääsyn kaikille verkkosivustoille käyttömukavuuden vuoksi. (Vain vinkki!)
+
 ## Miksi minun pitäisi sallia laajennuksen lukea/muuttaa tietojani? {#why-allow-extension-to-read-change}
 
 Saatat nähdä tällaisen ilmoituksen, kun asennat RedirectWebin:
@@ -26,9 +37,26 @@ Tämä laajennus tarvitsee luvan tarkkailla sivun navigointia ohjatakseen sinut 
 
 Myönnettyjä oikeuksia käytetään vain sovelluksen toimintoihin, kuten uudelleenohjaukseen, **[tietosuojakäytännön](/privacy-policy)** mukaisesti.
 
+## Ostokseni ei palaudu, vaikka napautan "Palauta osto" {#purchase-not-restored}
+
+Jos Palauta osto -painike ei toimi odotetulla tavalla, noudata näitä vianmääritysvaiheita:
+
+1. Kirjaudu sisään osoitteeseen [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) vahvistaaksesi, että tapahtuma on suoritettu onnistuneesti ja se näkyy Apple ID -historiassasi.
+2. Varmista, että **App Store -sovellukseen** tällä hetkellä kirjautunut Apple ID on sama, jota käytettiin alkuperäiseen ostokseen.
+    > [!NOTE]
+    >
+    > Laitteesi Asetukset-sovellukseen kirjautunut tili voi joskus olla eri kuin App Store -sovelluksessa käytetty tili. Juuri App Store -sovelluksen tilin on vastattava ostohistoriaasi, jotta palautus toimii oikein.
+3. Jos sinulla on useita Apple ID -tilejä, kirjaudu ulos App Storesta ja kirjaudu takaisin sisään oikealla tilillä, ja yritä sitten Palauta osto -painiketta uudelleen.
+
+Jos tilit täsmäävät, mutta palautus epäonnistuu silti, [ota meihin yhteyttä](/contact-us) ja liitä mukaan kuvakaappaus kuitistasi tai ostohistoriastasi. Tutkimme asiaa puolestasi.
+
 ## Pitäisikö minun silti hankkia sovellus asennettuani laajennuksen Chromeen, Firefoxiin tai Edgeen? {#app-for-non-safari-browsers}
 
-Kyllä. Sinun on ladattava [RedirectWeb -sovellus App Storesta](https://apps.apple.com/app/id1571283503) riippumatta siitä, mitä selainta käytät. Voit asentaa laajennuksen selaimesi laajennuskaupasta, mutta sovellus tarvitaan sääntöjen, ostohistorian ja muiden asetusten hallintaan laitteiden välillä iCloudin kautta.
+Kyllä. Sinun on ladattava [RedirectWeb-sovellus App Storesta](https://apps.apple.com/app/id1571283503) riippumatta siitä, mitä selainta käytät. Voit asentaa laajennuksen selaimesi laajennuskaupasta, mutta sovellus tarvitaan sääntöjen, ostohistorian ja muiden asetusten hallintaan laitteiden välillä iCloudin kautta.
+
+## Tarvitsenko eri laajennuksen Chromelle, Firefoxille tai Edgelle, jos käytän Pro-sovellusta? {#different-extension-for-pro}
+
+Et. Riippumatta siitä, käytätkö tavallista RedirectWeb-sovellusta vai RedirectWeb Prota Macillasi, sinun tulee asentaa täsmälleen sama laajennus selaimesi vastaavasta laajennuskaupasta. Laajennus tunnistaa automaattisesti asennetun sovellusversion ja kommunikoi sen kanssa.
 
 ## Toimiiko RedirectWeb Windowsissa, Androidissa, Linuxissa tai muilla alustoilla? {#non-apple-platforms}
 
@@ -50,15 +78,22 @@ Tämä johtuu [declarativeNetRequestWithHostAccess](https://developer.apple.com/
 
 Ei, se on aina ilmaista. Voit myös löytää kaiken sisällön lähteen [täältä](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Kertaluonteinen osto vai vuositilaus: Kumpi on parempi? {#one-time-or-subscription}
+## Mitä eroa on RedirectWebillä ja RedirectWeb Prolla? {#difference-between-standard-and-pro}
 
-Suosittelemme kertaluonteista ostoa, sillä hintaero on vain 2,00 USD.
+Molemmat versiot tarjoavat täsmälleen samat ominaisuudet ja saavat päivitykset samanaikaisesti. Ainoa ero on maksumalli:
+
+- **RedirectWeb**: Ilmainen sovellus perusominaisuuksilla (rajoitettu **yhteen aktiiviseen sääntöön**), joka tarjoaa valinnaisen sovelluksen sisäisen oston (tilaus tai kertamaksu) kaikkien ominaisuuksien, kuten rajoittamattomien sääntöjen ja iCloud-synkronoinnin, avaamiseksi.
+- **RedirectWeb Pro**: Kertaostoksena maksettava, täysin avattu sovellus. Tämä versio luotiin erityisesti **Apple Business Manageria** ja **Apple School Manageria (VPP)** varten, jolloin organisaatiot voivat ostaa sovelluksen erissä, mikä ei ole mahdollista sovelluksen sisäisillä ostoilla. Kuka tahansa kertaostoa suosiva voi kuitenkin ostaa sen!
+
+## Kertaosto, vuositilaus vai Pro-versio: Mikä on paras? {#one-time-or-subscription-or-pro}
+
+Suosittelemme joko kertaostoa tavallisessa RedirectWeb-sovelluksessa tai RedirectWeb Pron ostamista, sillä ne tarjoavat saman arvon.
 Pääsyy siihen, miksi tarjoamme tilauksen, on antaa sinun kokeilla kaikkia ominaisuuksia sen ilmaisen kokeilujakson kautta. Tässä on odotettu käyttötapaus:
 
-1. Tilaa vuositilaus.
+1. Tilaa vuositilaus tavallisessa RedirectWeb-sovelluksessa.
 2. Peruuta tilaus välittömästi menemällä Asetukset-sovellukseen, etsimällä "Tilaukset", napauttamalla tätä sovellusta ja valitsemalla "Peruuta tilaus". Tämä antaa sinun nauttia ilmaisesta kokeilujaksosta ilman sitoumuksia.
 3. Nauti täydestä pääsystä kaikkiin ominaisuuksiin 7 päivän ajan.
-4. Jos pidät ominaisuuksista, valitse kertaluonteinen osto.
+4. Jos pidät ominaisuuksista, valitse kertaosto tai osta Pro-versio.
 
 Tietysti ei ole mitään väärää jatkaa vuositilauksella, jos niin haluat!
 

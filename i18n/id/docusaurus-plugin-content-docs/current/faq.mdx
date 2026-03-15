@@ -5,6 +5,17 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # FAQ
 
+## Mengapa aturan pengalihan saya tidak berfungsi? {#redirection-not-working}
+
+Jika aturan yang Anda buat tidak berjalan seperti yang diharapkan, harap periksa hal berikut:
+
+- **Apakah ekstensi diaktifkan?** Periksa pengaturan ekstensi browser Anda untuk memastikan RedirectWeb telah dinyalakan.
+- **Apakah aturan sudah diaktifkan?** Buka aplikasi RedirectWeb dan pastikan tombol saklar aturan tertentu berada di posisi "Aktif".
+- **Apakah aturannya benar?** Uji aturan dengan mengetikkan URL di bidang Contoh di layar Edit Aturan.
+- **[Safari] Apakah Anda mengizinkan ekstensi untuk mengakses situs web sumber?**: Pastikan Anda telah mengizinkan ekstensi untuk mengakses situs web yang ingin Anda alihkan. Jika Anda dapat membuka popup ekstensi, berarti ekstensi tersebut memiliki akses ke situs web sumber.
+    > [!TIP]
+    > Untuk kenyamanan Anda, kami menyarankan untuk mengizinkan akses ke semua situs web. (Sekadar saran!)
+
 ## Mengapa saya harus mengizinkan ekstensi untuk membaca/mengubah informasi saya? {#why-allow-extension-to-read-change}
 
 Anda mungkin melihat peringatan seperti ini saat Anda mengatur RedirectWeb:
@@ -26,9 +37,26 @@ Ekstensi ini membutuhkan izin Anda untuk mengamati navigasi halaman untuk mengar
 
 Izin yang diberikan hanya akan digunakan untuk fungsi aplikasi seperti pengalihan, sesuai dengan **[kebijakan privasi](/privacy-policy)**.
 
+## Pembelian saya tidak dipulihkan bahkan setelah mengetuk "Pulihkan Pembelian" {#purchase-not-restored}
+
+Jika tombol Pulihkan Pembelian tidak berfungsi sebagaimana mestinya, harap ikuti langkah-langkah pemecahan masalah berikut:
+
+1. Masuk ke [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) untuk memastikan bahwa transaksi telah berhasil diselesaikan dan terdaftar dalam riwayat ID Apple Anda.
+2. Pastikan ID Apple yang saat ini masuk ke **aplikasi App Store** adalah ID yang sama dengan yang digunakan untuk pembelian asli.
+    > [!NOTE]
+    >
+    > Akun yang masuk ke aplikasi Pengaturan perangkat Anda terkadang bisa berbeda dengan yang digunakan di aplikasi App Store. Akun di dalam aplikasi App Store-lah yang harus sesuai dengan riwayat pembelian Anda agar fungsi pemulihan dapat berjalan dengan benar.
+3. Jika Anda memiliki beberapa ID Apple, silakan keluar dari App Store dan masuk kembali dengan akun yang benar, lalu coba tombol Pulihkan Pembelian lagi.
+
+Jika akun sudah sesuai namun pemulihan tetap gagal, silakan [hubungi kami](/contact-us) dengan melampirkan tangkapan layar tanda terima atau riwayat pembelian Anda. Kami akan menyelidiki masalah ini lebih lanjut untuk Anda.
+
 ## Haruskah saya tetap mendapatkan aplikasi setelah menginstal ekstensi untuk Chrome, Firefox, atau Edge? {#app-for-non-safari-browsers}
 
 Ya. Anda harus mengunduh [aplikasi RedirectWeb dari App Store](https://apps.apple.com/app/id1571283503) terlepas dari browser apa yang Anda gunakan. Anda dapat menginstal ekstensi dari toko ekstensi browser Anda, tetapi aplikasi diperlukan untuk mengelola aturan Anda, riwayat pembelian, dan pengaturan lainnya di seluruh perangkat melalui iCloud.
+
+## Apakah saya memerlukan ekstensi yang berbeda untuk Chrome, Firefox, atau Edge jika saya menggunakan aplikasi Pro? {#different-extension-for-pro}
+
+Tidak. Baik Anda menggunakan aplikasi RedirectWeb standar atau RedirectWeb Pro di Mac Anda, Anda harus menginstal ekstensi yang sama persis dari toko ekstensi browser masing-masing. Ekstensi akan secara otomatis mendeteksi dan berkomunikasi dengan versi aplikasi apa pun yang telah Anda instal.
 
 ## Apakah RedirectWeb berfungsi di Windows, Android, Linux, atau platform lain? {#non-apple-platforms}
 
@@ -50,15 +78,22 @@ Ini karena izin [declarativeNetRequestWithHostAccess](https://developer.apple.co
 
 Tidak, itu selalu gratis. Anda juga dapat menemukan sumber semua konten [di sini](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Pembelian Sekali Bayar atau Langganan Tahunan: Mana yang Terbaik? {#one-time-or-subscription}
+## Apa perbedaan antara RedirectWeb dan RedirectWeb Pro? {#difference-between-standard-and-pro}
 
-Kami merekomendasikan pembelian sekali bayar, karena perbedaan harga hanya US$2.00.
+Kedua versi menawarkan fitur yang sama persis dan menerima pembaruan secara bersamaan. Satu-satunya perbedaan adalah model pembayarannya:
+
+- **RedirectWeb**: Aplikasi gratis dengan fitur dasar (terbatas pada **1 aturan aktif**), menawarkan Pembelian Dalam Aplikasi opsional (langganan atau pembayaran sekali bayar) untuk membuka semua fitur, termasuk aturan tak terbatas dan sinkronisasi iCloud.
+- **RedirectWeb Pro**: Aplikasi berbayar di muka yang fiturnya sudah terbuka sepenuhnya. Versi ini dibuat khusus agar memenuhi syarat untuk **Apple Business Manager** dan **Apple School Manager (VPP)**, yang memungkinkan organisasi untuk membeli aplikasi dalam jumlah besar, yang tidak mungkin dilakukan dengan Pembelian Dalam Aplikasi. Namun, siapa pun yang lebih menyukai pembelian di muka dapat membelinya!
+
+## Pembelian Sekali Bayar, Langganan Tahunan, atau Versi Pro: Mana yang Terbaik? {#one-time-or-subscription-or-pro}
+
+Kami menyarankan salah satu antara pembelian sekali bayar di dalam aplikasi RedirectWeb standar atau membeli RedirectWeb Pro, karena keduanya menawarkan nilai yang sama.
 Alasan utama kami menawarkan langganan adalah untuk memungkinkan Anda mencoba semua fitur melalui uji coba gratisnya. Berikut adalah kasus penggunaan yang diharapkan:
 
-1. Berlangganan langganan tahunan.
+1. Berlangganan langganan tahunan di aplikasi RedirectWeb standar.
 2. Segera batalkan langganan dengan membuka aplikasi Pengaturan, mencari "Langganan", mengetuk aplikasi ini, dan memilih "Batalkan Langganan". Ini memungkinkan Anda menikmati uji coba gratis tanpa komitmen apa pun.
 3. Nikmati akses penuh ke semua fitur selama 7 hari.
-4. Jika Anda menyukai fitur-fiturnya, pilih pembelian sekali bayar.
+4. Jika Anda menyukai fitur-fiturnya, pilih pembelian sekali bayar atau beli versi Pro.
 
 Tentu saja, tidak ada salahnya untuk melanjutkan dengan langganan tahunan jika Anda mau!
 

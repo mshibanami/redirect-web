@@ -5,6 +5,17 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # Ofte stillede spørgsmål
 
+## Hvorfor virker min omdirigeringsregel ikke? {#redirection-not-working}
+
+Hvis en regel, du har oprettet, ikke udløses som forventet, skal du kontrollere følgende:
+
+- **Er udvidelsen aktiveret?** Tjek din browsers udvidelsesindstillinger for at sikre, at RedirectWeb er slået til.
+- **Er reglen slået til?** Åbn RedirectWeb-appen og sørg for, at den specifikke regels kontakt er i positionen "Til".
+- **Er reglen korrekt?** Test reglen ved at indtaste en URL i feltet Eksempler på skærmen Rediger regel.
+- **[Safari] Gav du udvidelsen tilladelse til at få adgang til kildewebstedet?**: Sørg for, at du har tilladt udvidelsen at få adgang til det websted, du vil omdirigere fra. Hvis du kan åbne udvidelsens popup, har udvidelsen adgang til kildewebstedet.
+    > [!TIP]
+    > For din bekvemmelighed anbefaler vi at tillade adgang til alle websteder. (Bare et tip!)
+
 ## Hvorfor skal jeg give udvidelsen tilladelse til at læse/ændre mine oplysninger? {#why-allow-extension-to-read-change}
 
 Du kan se en advarsel som denne, når du opsætter RedirectWeb:
@@ -26,9 +37,26 @@ Denne udvidelse har brug for din tilladelse til at observere sidenavigationen fo
 
 Tildelte tilladelser vil kun blive brugt til appfunktioner som omdirigering, i overensstemmelse med **[privatlivspolitikken](/privacy-policy)**.
 
+## Mit køb gendannes ikke, selv efter jeg har trykket på "Gendan køb" {#purchase-not-restored}
+
+Hvis knappen Gendan køb ikke virker som forventet, skal du følge disse fejlfindingstrin:
+
+1. Log ind på [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) for at bekræfte, at transaktionen blev gennemført og er anført i din Apple ID-historik.
+2. Sørg for, at det Apple ID, der i øjeblikket er logget ind på **App Store-appen**, er det samme, som blev brugt til det oprindelige køb.
+    > [!NOTE]
+    >
+    > Den konto, der er logget ind i din enheds Indstillinger-app, kan nogle gange afvige fra den, der bruges i App Store-appen. Det er kontoen i App Store-appen, der skal matche din købshistorik, for at gendannelsen kan fungere korrekt.
+3. Hvis du har flere Apple ID'er, skal du logge ud af App Store og logge ind igen med den korrekte konto og derefter prøve knappen Gendan køb igen.
+
+Hvis kontiene matcher, men gendannelsen stadig mislykkes, bedes du [kontakte os](/contact-us) med et skærmbillede af din kvittering eller købshistorik. Vi vil undersøge sagen nærmere for dig.
+
 ## Skal jeg stadig hente appen efter installation af udvidelsen til Chrome, Firefox eller Edge? {#app-for-non-safari-browsers}
 
 Ja. Du skal downloade [RedirectWeb-appen fra App Store](https://apps.apple.com/app/id1571283503), uanset hvilken browser du bruger. Du kan installere udvidelsen fra din browsers udvidelsesbutik, men appen er påkrævet for at administrere dine regler, købshistorik og andre indstillinger på tværs af enheder via iCloud.
+
+## Har jeg brug for en anden udvidelse til Chrome, Firefox eller Edge, hvis jeg bruger Pro-appen? {#different-extension-for-pro}
+
+Nej. Uanset om du bruger standard RedirectWeb-appen eller RedirectWeb Pro på din Mac, skal du installere nøjagtig den samme udvidelse fra din browsers respektive udvidelsesbutik. Udvidelsen vil automatisk registrere og kommunikere med den version af appen, du har installeret.
 
 ## Fungerer RedirectWeb på Windows, Android, Linux eller andre platforme? {#non-apple-platforms}
 
@@ -50,17 +78,24 @@ Dette skyldes tilladelsen [declarativeNetRequestWithHostAccess](https://develope
 
 Nej, det er altid gratis. Du kan også finde kilden til alt indhold [her](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Engangskøb eller årligt abonnement: Hvilket er bedst? {#one-time-or-subscription}
+## Hvad er forskellen på RedirectWeb og RedirectWeb Pro? {#difference-between-standard-and-pro}
 
-Vi anbefaler engangskøbet, da prisforskellen er kun US$2,00.
+Begge versioner tilbyder nøjagtig de samme funktioner og modtager opdateringer samtidigt. Den eneste forskel er betalingsmodellen:
+
+- **RedirectWeb**: En gratis app med grundlæggende funktioner (begrænset til **1 aktiv regel**), der tilbyder et valgfrit køb i appen (abonnement eller engangsbetaling) for at låse op for alle funktioner, inklusive ubegrænsede regler og iCloud-synkronisering.
+- **RedirectWeb Pro**: En fuldt oplåst app, der betales forud. Denne version blev oprettet specifikt for at være berettiget til **Apple Business Manager** og **Apple School Manager (VPP)**, hvilket gør det muligt for organisationer at massekøbe appen, hvilket ikke er muligt med køb i appen. Men alle, der foretrækker et forudgående køb, kan købe den!
+
+## Engangskøb, årligt abonnement eller Pro-version: Hvad er bedst? {#one-time-or-subscription-or-pro}
+
+Vi anbefaler enten engangskøbet i standard RedirectWeb-appen eller at købe RedirectWeb Pro, da de tilbyder den samme værdi.
 Hovedårsagen til, at vi tilbyder abonnementet, er at give dig mulighed for at prøve alle funktionerne gennem dets gratis prøveperiode. Her er det forventede brugsscenarie:
 
-1. Abonner på det årlige abonnement.
-2. Annuller straks abonnementet ved at gå til Indstillinger-appen, søge efter "Abonnementer", trykke på denne app, og vælge "Annuller abonnement". Dette giver dig mulighed for at nyde den gratis prøveperiode uden forpligtelser.
+1. Tilmeld dig det årlige abonnement i standard RedirectWeb-appen.
+2. Annuller straks abonnementet ved at gå til Indstillinger-appen, søge efter "Abonnementer", trykke på denne app og vælge "Annuller abonnement". Dette giver dig mulighed for at nyde den gratis prøveperiode uden nogen forpligtelse.
 3. Nyd fuld adgang til alle funktioner i 7 dage.
-4. Hvis du kan lide funktionerne, vælg engangskøbet.
+4. Hvis du kan lide funktionerne, skal du vælge engangskøbet eller købe Pro-versionen.
 
-Der er selvfølgelig intet galt i at fortsætte med det årlige abonnement, hvis du foretrækker det!
+Der er selvfølgelig ikke noget galt i at fortsætte med det årlige abonnement, hvis du foretrækker det!
 
 ## Indsprøjter RedirectWeb annoncer eller andet urelateret indhold på websteder? {#does-it-inject-ads}
 

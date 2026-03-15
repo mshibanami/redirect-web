@@ -5,6 +5,17 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # Veelgestelde vragen
 
+## Waarom werkt mijn omleidingsregel niet? {#redirection-not-working}
+
+Als een regel die u hebt gemaakt niet wordt geactiveerd zoals verwacht, controleer dan het volgende:
+
+- **Is de extensie ingeschakeld?** Controleer de extensie-instellingen van uw browser om er zeker van te zijn dat RedirectWeb is ingeschakeld.
+- **Staat de regel aan?** Open de RedirectWeb-app en zorg ervoor dat de schakelaar van de specifieke regel in de "Aan"-positie staat.
+- **Is de regel correct?** Test de regel door een URL te typen in het veld Voorbeelden in het scherm Regel bewerken.
+- **[Safari] Heeft u de extensie toegang gegeven tot de bronwebsite?**: Zorg ervoor dat u de extensie toegang heeft gegeven tot de website waarvan u wilt omleiden. Als u de pop-up van de extensie kunt openen, heeft de extensie toegang tot de bronwebsite.
+    > [!TIP]
+    > Voor uw gemak raden we aan om toegang tot alle websites toe te staan. (Zomaar een tip!)
+
 ## Waarom moet ik de extensie toestaan mijn informatie te lezen/wijzigen? {#why-allow-extension-to-read-change}
 
 Mogelijk ziet u een waarschuwing zoals deze wanneer u RedirectWeb instelt:
@@ -18,18 +29,34 @@ Mogelijk ziet u een waarschuwing zoals deze wanneer u RedirectWeb instelt:
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="Een waarschuwing die toestemming vereist" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Het kan:
+    > Het kan:  
     > Al uw gegevens lezen en wijzigen op alle websites
-
 </IfBrowserStore>
 
 Deze extensie heeft uw toestemming nodig om de paginanavigatie te observeren om om te leiden naar waar u maar wilt springen, en uw browser geeft dit weer wanneer de extensie de gerelateerde machtigingen aanvraagt. Daarom, als u het niet toestaat, kan deze extensie niet werken.
 
 Verleende machtigingen worden alleen gebruikt voor app-functies zoals omleiding, in overeenstemming met **[het privacybeleid](/privacy-policy)**.
 
+## Mijn aankoop wordt niet hersteld, zelfs niet na het tikken op "Herstel aankoop" {#purchase-not-restored}
+
+Als de knop Herstel aankoop niet werkt zoals verwacht, volg dan deze stappen voor probleemoplossing:
+
+1. Log in op [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) om te bevestigen dat de transactie succesvol is voltooid en in uw Apple ID-geschiedenis staat.
+2. Zorg ervoor dat de Apple ID die momenteel is aangemeld bij de **App Store-app** dezelfde is als die werd gebruikt voor de oorspronkelijke aankoop.
+    > [!NOTE]
+    >
+    > Het account dat is aangemeld bij de Instellingen-app van uw apparaat kan soms verschillen van het account dat in de App Store-app wordt gebruikt. Het is het account in de App Store-app dat moet overeenkomen met uw aankoopgeschiedenis om het herstel correct te laten functioneren.
+3. Als u meerdere Apple ID's heeft, log dan uit bij de App Store en log opnieuw in met het juiste account, en probeer vervolgens de knop Herstel aankoop opnieuw.
+
+Als de accounts overeenkomen maar het herstel nog steeds mislukt, neem dan [contact met ons op](/contact-us) met een screenshot van uw aankoopbewijs of aankoopgeschiedenis. We zullen het probleem verder voor u onderzoeken.
+
 ## Moet ik de app nog steeds downloaden na het installeren van de extensie voor Chrome, Firefox of Edge? {#app-for-non-safari-browsers}
 
 Ja. U moet [de RedirectWeb-app downloaden uit de App Store](https://apps.apple.com/app/id1571283503), ongeacht welke browser u gebruikt. U kunt de extensie installeren vanuit de extensiewinkel van uw browser, maar de app is vereist om uw regels, aankoopgeschiedenis en andere instellingen op verschillende apparaten via iCloud te beheren.
+
+## Heb ik een andere extensie nodig voor Chrome, Firefox of Edge als ik de Pro-app gebruik? {#different-extension-for-pro}
+
+Nee. Of u nu de standaard RedirectWeb-app of RedirectWeb Pro op uw Mac gebruikt, u moet precies dezelfde extensie installeren vanuit de respectievelijke extensiewinkel van uw browser. De extensie zal automatisch detecteren met welke versie van de app u hebt geïnstalleerd en daarmee communiceren.
 
 ## Werkt RedirectWeb op Windows, Android, Linux of andere platforms? {#non-apple-platforms}
 
@@ -47,19 +74,26 @@ Mogelijk ziet u deze waarschuwing in Safari na het bijwerken van RedirectWeb:
 
 Dit komt door de [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) machtiging die vereist is door het [DNR](/rule-settings#type) type geïntroduceerd in versie 7. Schakel de extensie opnieuw in. Excuses voor het ongemak.
 
-## Worden de inhoud van de bibliotheek in de toekomst betaald? {#will-library-become-paid}
+## Wordt de inhoud van de bibliotheek in de toekomst betaald? {#will-library-become-paid}
 
 Nee, het is altijd gratis. U kunt de bron van alle inhoud ook [hier](https://github.com/mshibanami/redirect-web/tree/main/library) vinden.
 
-## Eenmalige aankoop of jaarabonnement: wat is het beste? {#one-time-or-subscription}
+## Wat is het verschil tussen RedirectWeb en RedirectWeb Pro? {#difference-between-standard-and-pro}
 
-Wij raden de eenmalige aankoop aan, aangezien het prijsverschil slechts US$2,00 bedraagt.
+Beide versies bieden precies dezelfde functies en ontvangen tegelijkertijd updates. Het enige verschil is het betalingsmodel:
+
+- **RedirectWeb**: Een gratis app met basisfuncties (beperkt tot **1 actieve regel**), die een optionele in-app aankoop (abonnement of eenmalige betaling) biedt om alle functies te ontgrendelen, inclusief onbeperkte regels en iCloud-synchronisatie.
+- **RedirectWeb Pro**: Een app die vooraf betaald moet worden en volledig ontgrendeld is. Deze versie is specifiek gemaakt om in aanmerking te komen voor **Apple Business Manager** en **Apple School Manager (VPP)**, waardoor organisaties de app in bulk kunnen kopen, wat niet mogelijk is met in-app aankopen. Iedereen die de voorkeur geeft aan een aankoop vooraf kan deze echter kopen!
+
+## Eenmalige aankoop, jaarabonnement of Pro-versie: wat is het beste? {#one-time-or-subscription-or-pro}
+
+We raden ofwel de eenmalige aankoop binnen de standaard RedirectWeb-app aan, of de aankoop van RedirectWeb Pro, aangezien ze dezelfde waarde bieden.
 De belangrijkste reden waarom we het abonnement aanbieden, is om u de mogelijkheid te geven alle functies uit te proberen via de gratis proefperiode. Hier is het verwachte gebruiksscenario:
 
-1. Abonneer u op het jaarabonnement.
+1. Abonneer u op het jaarabonnement in de standaard RedirectWeb-app.
 2. Annuleer het abonnement onmiddellijk door naar de Instellingen-app te gaan, te zoeken naar "Abonnementen", op deze app te tikken en "Abonnement annuleren" te selecteren. Zo kunt u genieten van de gratis proefperiode zonder enige verplichting.
 3. Geniet 7 dagen lang van volledige toegang tot alle functies.
-4. Als u de functies leuk vindt, kies dan voor de eenmalige aankoop.
+4. Als u de functies leuk vindt, kies dan voor de eenmalige aankoop of koop de Pro-versie.
 
 Natuurlijk is er niets mis mee om door te gaan met het jaarabonnement als u dat liever hebt!
 

@@ -5,6 +5,17 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # Preguntas Frecuentes
 
+## ¿Por qué no funciona mi regla de redirección? {#redirection-not-working}
+
+Si una regla que creaste no se activa como esperas, comprueba lo siguiente:
+
+- **¿Está habilitada la extensión?** Comprueba la configuración de extensiones de tu navegador para asegurarte de que RedirectWeb esté activado.
+- **¿Está activada la regla?** Abre la aplicación RedirectWeb y asegúrate de que el interruptor de la regla específica esté en la posición "Activado".
+- **¿Es correcta la regla?** Prueba la regla escribiendo una URL en el campo Ejemplos de la pantalla Editar regla.
+- **[Safari] ¿Permitiste que la extensión accediera al sitio web de origen?**: Asegúrate de haber permitido que la extensión acceda al sitio web desde el que quieres redirigir. Si puedes abrir la ventana emergente de la extensión, es que esta tiene acceso al sitio web de origen.
+    > [!TIP]
+    > Para tu comodidad, recomendamos permitir el acceso a todos los sitios web. (¡Solo es un consejo!)
+
 ## ¿Por qué debo permitir que la extensión lea/cambie mi información? {#why-allow-extension-to-read-change}
 
 Es posible que veas una alerta como esta cuando configures RedirectWeb:
@@ -26,9 +37,26 @@ Esta extensión necesita tu permiso para observar la navegación de la página y
 
 Los permisos concedidos solo se utilizarán para funciones de la aplicación como la redirección, de acuerdo con la **[la política de privacidad](/privacy-policy)**.
 
+## Mi compra no se restaura incluso después de tocar "Restaurar compra" {#purchase-not-restored}
+
+Si el botón Restaurar compra no funciona como se esperaba, sigue estos pasos de solución de problemas:
+
+1. Inicia sesión en [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) para confirmar que la transacción se completó correctamente y aparece en el historial de tu ID de Apple.
+2. Asegúrate de que el ID de Apple que tiene la sesión iniciada actualmente en la **aplicación App Store** sea el mismo que se utilizó para la compra original.
+    > [!NOTE]
+    >
+    > La cuenta con la que has iniciado sesión en la aplicación Ajustes de tu dispositivo a veces puede ser diferente de la que se usa en la aplicación App Store. Es la cuenta dentro de la aplicación App Store la que debe coincidir con tu historial de compras para que la restauración funcione correctamente.
+3. Si tienes varios ID de Apple, cierra la sesión en la App Store y vuelve a iniciarla con la cuenta correcta, luego intenta pulsar de nuevo el botón Restaurar compra.
+
+Si las cuentas coinciden pero la restauración sigue fallando, [contáctanos](/contact-us) con una captura de pantalla de tu recibo o historial de compras. Investigaremos el problema más a fondo por ti.
+
 ## ¿Debo seguir obteniendo la aplicación después de instalar la extensión para Chrome, Firefox o Edge? {#app-for-non-safari-browsers}
 
 Sí. Debes descargar [la aplicación RedirectWeb desde la App Store](https://apps.apple.com/app/id1571283503) independientemente del navegador que uses. Puedes instalar la extensión desde la tienda de extensiones de tu navegador, pero la aplicación es necesaria para administrar tus reglas, historial de compras y otras configuraciones en todos los dispositivos a través de iCloud.
+
+## ¿Necesito una extensión diferente para Chrome, Firefox o Edge si uso la aplicación Pro? {#different-extension-for-pro}
+
+No. Ya sea que uses la aplicación RedirectWeb estándar o RedirectWeb Pro en tu Mac, debes instalar exactamente la misma extensión desde la tienda de extensiones respectiva de tu navegador. La extensión detectará automáticamente y se comunicará con cualquier versión de la aplicación que tengas instalada.
 
 ## ¿Funciona RedirectWeb en Windows, Android, Linux o cualquier otra plataforma? {#non-apple-platforms}
 
@@ -50,15 +78,22 @@ Esto se debe al permiso [declarativeNetRequestWithHostAccess](https://developer.
 
 No, siempre será gratis. También puedes encontrar la fuente de todo el contenido [aquí](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Compra única o suscripción anual: ¿Cuál es la mejor opción? {#one-time-or-subscription}
+## ¿Cuál es la diferencia entre RedirectWeb y RedirectWeb Pro? {#difference-between-standard-and-pro}
 
-Recomendamos la compra única, ya que la diferencia de precio es de solo US$2.00.
+Ambas versiones ofrecen exactamente las mismas funciones y reciben actualizaciones simultáneamente. La única diferencia es el modelo de pago:
+
+- **RedirectWeb**: Una aplicación gratuita con funciones básicas (limitada a **1 regla activa**), que ofrece una compra dentro de la aplicación opcional (suscripción o pago único) para desbloquear todas las funciones, incluidas reglas ilimitadas y sincronización con iCloud.
+- **RedirectWeb Pro**: Una aplicación de pago inicial, totalmente desbloqueada. Esta versión se creó específicamente para ser elegible para **Apple Business Manager** y **Apple School Manager (VPP)**, lo que permite a las organizaciones comprar la aplicación por volumen, algo que no es posible con las compras dentro de la aplicación. Sin embargo, ¡cualquiera que prefiera una compra por adelantado puede comprarla!
+
+## Compra única, suscripción anual o versión Pro: ¿Cuál es la mejor opción? {#one-time-or-subscription-or-pro}
+
+Recomendamos tanto la compra única dentro de la aplicación RedirectWeb estándar como la compra de RedirectWeb Pro, ya que ofrecen el mismo valor.
 La razón principal por la que ofrecemos la suscripción es para permitirte probar todas las funciones a través de su prueba gratuita. Aquí está el caso de uso esperado:
 
-1. Suscríbete a la suscripción anual.
-2. Cancela inmediatamente la suscripción yendo a la aplicación Configuración, buscando "Suscripciones", tocando esta aplicación y seleccionando "Cancelar suscripción". Esto te permite disfrutar de la prueba gratuita sin ningún compromiso.
+1. Suscríbete a la suscripción anual en la aplicación RedirectWeb estándar.
+2. Cancela inmediatamente la suscripción yendo a la aplicación Ajustes, buscando "Suscripciones", tocando esta aplicación y seleccionando "Cancelar suscripción". Esto te permite disfrutar de la prueba gratuita sin ningún compromiso.
 3. Disfruta de acceso completo a todas las funciones durante 7 días.
-4. Si te gustan las funciones, opta por la compra única.
+4. Si te gustan las funciones, opta por la compra única o compra la versión Pro.
 
 ¡Por supuesto, no hay nada de malo en continuar con la suscripción anual si lo prefieres!
 

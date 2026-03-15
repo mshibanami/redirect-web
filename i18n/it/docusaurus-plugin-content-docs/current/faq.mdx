@@ -5,6 +5,17 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # FAQ
 
+## Perché la mia regola di reindirizzamento non funziona? {#redirection-not-working}
+
+Se una regola che hai creato non si attiva come previsto, controlla quanto segue:
+
+- **L'estensione è abilitata?** Controlla le impostazioni delle estensioni del tuo browser per assicurarti che RedirectWeb sia attivo.
+- **La regola è attivata?** Apri l'app RedirectWeb e assicurati che l'interruttore della regola specifica sia nella posizione "On".
+- **La regola è corretta?** Test la regola inserendo un URL nel campo Esempi nella schermata Modifica regola.
+- **[Safari] Hai consentito all'estensione di accedere al sito web di origine?**: Assicurati di aver consentito all'estensione di accedere al sito web da cui vuoi reindirizzare. Se riesci ad aprire il popup dell'estensione, l'estensione ha accesso al sito web di origine.
+    > [!TIP]
+    > Per comodità, ti consigliamo di consentire l'accesso a tutti i siti web. (Solo un consiglio!)
+
 ## Perché dovrei consentire all'estensione di leggere/modificare le mie informazioni? {#why-allow-extension-to-read-change}
 
 Potresti vedere un avviso come questo quando configuri RedirectWeb:
@@ -26,9 +37,26 @@ Questa estensione necessita del tuo permesso per osservare la navigazione della 
 
 I permessi concessi verranno utilizzati solo per le funzioni dell'app come il reindirizzamento, in conformità con la **[politica sulla privacy](/privacy-policy)**.
 
+## Il mio acquisto non viene ripristinato anche dopo aver toccato "Ripristina acquisto" {#purchase-not-restored}
+
+Se il pulsante Ripristina acquisto non funziona come previsto, segui questi passaggi per la risoluzione dei problemi:
+
+1. Accedi a [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) per confermare che la transazione sia stata completata con successo e sia elencata nella cronologia del tuo ID Apple.
+2. Asscurati che l'ID Apple attualmente connesso all'**app App Store** sia lo stesso utilizzato per l'acquisto originale.
+    > [!NOTE]
+    >
+    > L'account connesso all'app Impostazioni del tuo dispositivo a volte può differire da quello utilizzato nell'app App Store. È l'account all'interno dell'app App Store che deve corrispondere alla tua cronologia degli acquisti affinché il ripristino funzioni correttamente.
+3. Se hai più ID Apple, esci dall'App Store e accedi nuovamente con l'account corretto, quindi prova di nuovo il pulsante Ripristina acquisto.
+
+Se gli account corrispondono ma il ripristino fallisce ancora, [contattaci](/contact-us) con uno screenshot della tua ricevuta o della cronologia degli acquisti. Indagheremo ulteriormente sul problema per te.
+
 ## Dovrei comunque scaricare l'app dopo aver installato l'estensione per Chrome, Firefox o Edge? {#app-for-non-safari-browsers}
 
 Sì. Devi scaricare [l'app RedirectWeb dall'App Store](https://apps.apple.com/app/id1571283503) indipendentemente dal browser che utilizzi. Puoi installare l'estensione dal negozio di estensioni del tuo browser, ma l'app è necessaria per gestire le tue regole, la cronologia degli acquisti e altre impostazioni su tutti i dispositivi tramite iCloud.
+
+## Ho bisogno di un'estensione diversa per Chrome, Firefox o Edge se uso l'app Pro? {#different-extension-for-pro}
+
+No. Sia che tu usi l'app RedirectWeb standard o RedirectWeb Pro sul tuo Mac, dovresti installare l'esatta stessa estensione dal rispettivo store delle estensioni del tuo browser. L'estensione rileverà e comunicherà automaticamente con qualsiasi versione dell'app tu abbia installato.
 
 ## RedirectWeb funziona su Windows, Android, Linux o altre piattaforme? {#non-apple-platforms}
 
@@ -50,15 +78,22 @@ Ciò è dovuto al permesso [declarativeNetRequestWithHostAccess](https://develop
 
 No, è sempre gratuito. Puoi anche trovare la fonte di tutti i contenuti [qui](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Acquisto una tantum o abbonamento annuale: qual è il migliore? {#one-time-or-subscription}
+## Qual è la differenza tra RedirectWeb e RedirectWeb Pro? {#difference-between-standard-and-pro}
 
-Consigliamo l'acquisto una tantum, poiché la differenza di prezzo è di soli US$2.00.
+Entrambe le versioni offrono esattamente le stesse funzionalità e ricevono aggiornamenti simultaneamente. L'unica differenza è il modello di pagamento:
+
+- **RedirectWeb**: Un'app gratuita con funzionalità di base (limitata a **1 regola attiva**), che offre un acquisto in-app opzionale (abbonamento o pagamento una tantum) per sbloccare tutte le funzionalità, comprese regole illimitate e sincronizzazione iCloud.
+- **RedirectWeb Pro**: Un'app a pagamento anticipato, completamente sbloccata. Questa versione è stata creata specificamente per essere idonea per **Apple Business Manager** e **Apple School Manager (VPP)**, consentendo alle organizzazioni di acquistare l'app in blocco, il che non è possibile con gli acquisti in-app. Tuttavia, chiunque preferisca un acquisto anticipato può acquistarla!
+
+## Acquisto una tantum, abbonamento annuale o versione Pro: qual è il migliore? {#one-time-or-subscription-or-pro}
+
+Consigliamo l'acquisto una tantum all'interno dell'app RedirectWeb standard o l'acquisto di RedirectWeb Pro, poiché offrono lo stesso valore.
 Il motivo principale per cui offriamo l'abbonamento è per permetterti di provare tutte le funzionalità tramite la sua prova gratuita. Ecco il caso d'uso previsto:
 
-1. Iscriviti all'abbonamento annuale.
+1. Iscriviti all'abbonamento annuale nell'app RedirectWeb standard.
 2. Annulla immediatamente l'abbonamento andando nell'app Impostazioni, cercando "Abbonamenti", toccando questa app e selezionando "Annulla abbonamento". Questo ti consente di goderti la prova gratuita senza alcun impegno.
 3. Goditi l'accesso completo a tutte le funzionalità per 7 giorni.
-4. Se ti piacciono le funzionalità, opta per l'acquisto una tantum.
+4. Se ti piacciono le funzionalità, opta per l'acquisto una tantum o acquista la versione Pro.
 
 Naturalmente, non c'è nulla di sbagliato nel continuare con l'abbonamento annuale se lo preferisci!
 
