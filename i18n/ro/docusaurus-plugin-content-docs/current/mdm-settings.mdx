@@ -45,18 +45,18 @@ Fișierul plist utilizat în videoclip este disponibil aici: **[sample-mdm.plist
 
 Implementați următoarele chei și valori pentru Managed App Configuration prin consola MDM, de obicei în format plist.
 
-| Nume cheie             | Tip                          | Descriere                                                                                                                                                                                                                                                                     |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nume cheie             | Tip                               | Descriere                                                                                                                                                                                                                                                                                                                         |
+| ---------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Set de reguli](#rule-set-object) | **[Reguli impuse]** Un set de reguli aplicat cu o prioritate mai mare decât regulile normale. Prima regulă din listă are prioritate. Utilizatorii nu pot edita, șterge sau reordona aceste reguli. Acestea sunt întotdeauna active, ignorând comutatorul global de dezactivare al aplicației, și nu se sincronizează prin iCloud. |
-| `prefilledRuleSet`     | [Set de reguli](#rule-set-object) | **[Reguli inițiale]** Un set de reguli creat în locul regulii de exemplu implicite atunci când un utilizator lansează aplicația pentru prima dată fără reguli existente. Odată distribuite, acestea acționează ca reguli normale, permițând modificarea, ștergerea și sincronizarea iCloud de către utilizator.                       |
-| `organizationName`     | String                       | Afișează „Gestionat de [organizationName]” în partea de sus a ecranului de setări din aplicație, indicând utilizatorului că aplicația este gestionată.                                                                                                                                            |
-| `managedConfigVersion` | String                       | Un șir de versiune arbitrar pentru configurație. Afișat în interfață, permițând asistenței IT să verifice dacă cea mai recentă sarcină utilă MDM a ajuns pe dispozitiv în timpul depanării.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | Dacă este setat pe `false`, funcția Biblioteca de reguli este ascunsă, iar secțiunea este înlocuită cu un mesaj de eroare „Restricționat de organizația dvs.”.                                                                                                                                   |
-| `fallback`             | [Fallback](#fallback-object) | Specificați acest lucru atunci când configurațiile depășesc limitele sarcinii utile MDM. Aplicația va prelua JSON/XML de la acest URL pentru a aplica configurația.                                                                                                                                     |
+| `prefilledRuleSet`     | [Set de reguli](#rule-set-object) | **[Reguli inițiale]** Un set de reguli creat în locul regulii de exemplu implicite atunci când un utilizator lansează aplicația pentru prima dată fără reguli existente. Odată distribuite, acestea acționează ca reguli normale, permițând modificarea, ștergerea și sincronizarea iCloud de către utilizator.                   |
+| `organizationName`     | String                            | Afișează „Gestionat de [organizationName]” în partea de sus a ecranului de setări din aplicație, indicând utilizatorului că aplicația este gestionată.                                                                                                                                                                            |
+| `managedConfigVersion` | String                            | Un șir de versiune arbitrar pentru configurație. Afișat în interfață, permițând asistenței IT să verifice dacă cea mai recentă sarcină utilă MDM a ajuns pe dispozitiv în timpul depanării.                                                                                                                                       |
+| `showsLibrarySection`  | Boolean                           | Dacă este setat pe `false`, funcția Biblioteca de reguli este ascunsă, iar secțiunea este înlocuită cu un mesaj de eroare „Restricționat de organizația dvs.”.                                                                                                                                                                    |
+| `fallback`             | [Fallback](#fallback-object)      | Specificați acest lucru atunci când configurațiile depășesc limitele sarcinii utile MDM. Aplicația va prelua JSON/XML de la acest URL pentru a aplica configurația.                                                                                                                                                               |
 
 Toate aceste chei sunt opționale.
 
-### [Obiect] Set de reguli {#rule-set-object}
+### [Obiect] Set de reguli {/* #rule-set-object */}
 
 Fiecare obiect de regulă are același format ca cel pe care îl puteți [partaja/exporta prin aplicație](export-or-import-rules), dar trebuie să îl convertiți din JSON în plist, astfel:
 
@@ -94,11 +94,11 @@ Fiecare obiect de regulă are același format ca cel pe care îl puteți [partaj
 ...
 ```
 
-### [Obiect] Fallback {#fallback-object}
+### [Obiect] Fallback {/* #fallback-object */}
 
-| Nume cheie        | Tip          | Descriere                                                                                                                                    |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | Un URL punct final al unui fișier JSON/XML care conține seturi de reguli.                                                                                     |
+| Nume cheie        | Tip          | Descriere                                                                                                                                          |
+| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Un URL punct final al unui fișier JSON/XML care conține seturi de reguli.                                                                          |
 | `authToken`       | String       | Un token de autentificare adăugat la antetul HTTP atunci când se preia de la `fallbackDataURL`. (Utilizat ca `Authorization: Bearer [authToken]`). |
 
 ## Evaluarea regulilor și rezolvarea conflictelor

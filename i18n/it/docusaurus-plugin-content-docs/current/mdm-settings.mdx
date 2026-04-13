@@ -45,18 +45,18 @@ Nel video è stato utilizzato l'MDM di ManageEngine per distribuire la configura
 
 Distribuisci le seguenti chiavi e valori per la Managed App Configuration tramite la tua console MDM, in genere nel formato plist.
 
-| Nome chiave            | Tipo                         | Descrizione                                                                                                                                                                                                                                                                   |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nome chiave            | Tipo                              | Descrizione                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Set di regole](#rule-set-object) | **[Regole forzate]** Un set di regole applicato con priorità superiore rispetto alle regole normali. La prima regola nell'elenco ha la precedenza. Gli utenti non possono modificare, eliminare o riordinare queste regole. Sono sempre attive, ignorando l'interruttore di disattivazione globale dell'app, e non vengono sincronizzate tramite iCloud. |
-| `prefilledRuleSet`     | [Set di regole](#rule-set-object) | **[Regole iniziali]** Un set di regole creato al posto della regola di esempio predefinita quando un utente avvia l'app per la prima volta senza regole esistenti. Una volta distribuite, queste agiscono come regole normali, consentendo la modifica, l'eliminazione da parte dell'utente e la sincronizzazione con iCloud.                       |
-| `organizationName`     | String                       | Visualizza "Gestito da [organizationName]" nella parte superiore della schermata delle impostazioni in-app, indicando all'utente che l'app è gestita.                                                                                                                                            |
-| `managedConfigVersion` | String                       | Una stringa di versione arbitraria per la configurazione. Visualizzata nell'interfaccia utente, consente al supporto IT di verificare se l'ultimo payload MDM ha raggiunto il dispositivo durante la risoluzione dei problemi.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | Se impostato su `false`, la funzione Libreria di regole viene nascosta e la sezione viene sostituita dal messaggio di errore "Limitato dalla tua organizzazione".                                                                                                                                   |
-| `fallback`             | [Fallback](#fallback-object) | Specifica questo parametro quando le configurazioni superano i limiti del payload MDM. L'app recupererà il file JSON/XML da questo URL per applicare la configurazione.                                                                                                                                     |
+| `prefilledRuleSet`     | [Set di regole](#rule-set-object) | **[Regole iniziali]** Un set di regole creato al posto della regola di esempio predefinita quando un utente avvia l'app per la prima volta senza regole esistenti. Una volta distribuite, queste agiscono come regole normali, consentendo la modifica, l'eliminazione da parte dell'utente e la sincronizzazione con iCloud.                            |
+| `organizationName`     | String                            | Visualizza "Gestito da [organizationName]" nella parte superiore della schermata delle impostazioni in-app, indicando all'utente che l'app è gestita.                                                                                                                                                                                                    |
+| `managedConfigVersion` | String                            | Una stringa di versione arbitraria per la configurazione. Visualizzata nell'interfaccia utente, consente al supporto IT di verificare se l'ultimo payload MDM ha raggiunto il dispositivo durante la risoluzione dei problemi.                                                                                                                           |
+| `showsLibrarySection`  | Boolean                           | Se impostato su `false`, la funzione Libreria di regole viene nascosta e la sezione viene sostituita dal messaggio di errore "Limitato dalla tua organizzazione".                                                                                                                                                                                        |
+| `fallback`             | [Fallback](#fallback-object)      | Specifica questo parametro quando le configurazioni superano i limiti del payload MDM. L'app recupererà il file JSON/XML da questo URL per applicare la configurazione.                                                                                                                                                                                  |
 
 Queste chiavi sono tutte opzionali.
 
-### [Oggetto] Set di regole {#rule-set-object}
+### [Oggetto] Set di regole {/* #rule-set-object */}
 
 Ogni oggetto regola ha lo stesso formato di quello che puoi [condividere/esportare tramite l'app](export-or-import-rules), ma devi convertirlo da JSON a plist, come questo:
 
@@ -94,11 +94,11 @@ Ogni oggetto regola ha lo stesso formato di quello che puoi [condividere/esporta
 ...
 ```
 
-### [Oggetto] Fallback {#fallback-object}
+### [Oggetto] Fallback {/* #fallback-object */}
 
-| Nome chiave       | Tipo         | Descrizione                                                                                                                                  |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | L'URL dell'endpoint di un file JSON/XML contenente set di regole.                                                                                     |
+| Nome chiave       | Tipo         | Descrizione                                                                                                                                                |
+| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | L'URL dell'endpoint di un file JSON/XML contenente set di regole.                                                                                          |
 | `authToken`       | String       | Un token di autenticazione aggiunto all'intestazione HTTP durante il recupero da `fallbackDataURL`. (Utilizzato come `Authorization: Bearer [authToken]`). |
 
 ## Valutazione delle regole e risoluzione dei conflitti

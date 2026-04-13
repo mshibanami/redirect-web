@@ -45,18 +45,18 @@ A videóban a ManageEngine MDM-jét használtuk a konfiguráció telepítéséhe
 
 Telepítse a következő kulcsokat és értékeket a felügyelt alkalmazáskonfigurációhoz az MDM-konzolon keresztül, általában plist formátumban.
 
-| Kulcs neve             | Típus                        | Leírás                                                                                                                                                                                                                                                                                                                       |
-| ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Kulcs neve             | Típus                              | Leírás                                                                                                                                                                                                                                                                                                                                                                                      |
+| ---------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Szabálykészlet](#rule-set-object) | **[Kényszerített szabályok]** Egy magasabb prioritással alkalmazott szabálykészlet, mint a normál szabályok. A listában szereplő első szabály élvez elsőbbséget. A felhasználók nem szerkeszthetik, törölhetik vagy rendezhetik át ezeket a szabályokat. Mindig aktívak, figyelmen kívül hagyva az alkalmazás globális letiltó kapcsolóját, és nem szinkronizálódnak az iCloudon keresztül. |
-| `prefilledRuleSet`     | [Szabálykészlet](#rule-set-object) | **[Kezdeti szabályok]** Egy szabálykészlet, amely az alapértelmezett példaszabály helyett jön létre, amikor a felhasználó először indítja el az alkalmazást meglévő szabályok nélkül. A terjesztés után ezek normál szabályokként működnek, lehetővé téve a felhasználói módosítást, törlést és az iCloud-szinkronizálást.                                          |
-| `organizationName`     | String                       | Megjeleníti a "Kezeli: [organizationName]" feliratot az alkalmazáson belüli beállítások képernyő tetején, jelezve a felhasználónak, hogy az alkalmazás felügyelt.                                                                                                                                                                      |
-| `managedConfigVersion` | String                       | Egy tetszőleges verziókarakterlánc a konfigurációhoz. Megjelenik a felhasználói felületen, lehetővé téve az informatikai támogatás számára, hogy hibaelhárításkor ellenőrizze, megérkezett-e a legfrissebb MDM-adatcsomag az eszközre.                                                                                                           |
-| `showsLibrarySection`  | Boolean                      | Ha `false` értékre van állítva, a Szabálykönyvtár funkció rejtett marad, és a szakasz helyén egy "A szervezet korlátozta." hibaüzenet jelenik meg.                                                                                                                                                                                           |
-| `fallback`             | [Fallback](#fallback-object) | Adja meg ezt, ha a konfigurációk meghaladják az MDM-adatcsomag korlátait. Az alkalmazás JSON/XML fájlt fog lekérni erről az URL-ről a konfiguráció alkalmazásához.                                                                                                                                                                           |
+| `prefilledRuleSet`     | [Szabálykészlet](#rule-set-object) | **[Kezdeti szabályok]** Egy szabálykészlet, amely az alapértelmezett példaszabály helyett jön létre, amikor a felhasználó először indítja el az alkalmazást meglévő szabályok nélkül. A terjesztés után ezek normál szabályokként működnek, lehetővé téve a felhasználói módosítást, törlést és az iCloud-szinkronizálást.                                                                  |
+| `organizationName`     | String                             | Megjeleníti a "Kezeli: [organizationName]" feliratot az alkalmazáson belüli beállítások képernyő tetején, jelezve a felhasználónak, hogy az alkalmazás felügyelt.                                                                                                                                                                                                                           |
+| `managedConfigVersion` | String                             | Egy tetszőleges verziókarakterlánc a konfigurációhoz. Megjelenik a felhasználói felületen, lehetővé téve az informatikai támogatás számára, hogy hibaelhárításkor ellenőrizze, megérkezett-e a legfrissebb MDM-adatcsomag az eszközre.                                                                                                                                                      |
+| `showsLibrarySection`  | Boolean                            | Ha `false` értékre van állítva, a Szabálykönyvtár funkció rejtett marad, és a szakasz helyén egy "A szervezet korlátozta." hibaüzenet jelenik meg.                                                                                                                                                                                                                                          |
+| `fallback`             | [Fallback](#fallback-object)       | Adja meg ezt, ha a konfigurációk meghaladják az MDM-adatcsomag korlátait. Az alkalmazás JSON/XML fájlt fog lekérni erről az URL-ről a konfiguráció alkalmazásához.                                                                                                                                                                                                                          |
 
 Ezek a kulcsok mind opcionálisak.
 
-### [Objektum] Szabálykészlet {#rule-set-object}
+### [Objektum] Szabálykészlet {/* #rule-set-object */}
 
 Minden szabályobjektum ugyanolyan formátumú, mint amit az [alkalmazáson keresztül megoszthat/exportálhat](export-or-import-rules), de át kell alakítania JSON-ból plist formátumba, így:
 
@@ -94,12 +94,12 @@ Minden szabályobjektum ugyanolyan formátumú, mint amit az [alkalmazáson kere
 ...
 ```
 
-### [Objektum] Fallback {#fallback-object}
+### [Objektum] Fallback {/* #fallback-object */}
 
-| Kulcs neve        | Típus         | Leírás                                                                                                                                                      |
-| ----------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL)  | Egy szabálykészleteket tartalmazó JSON/XML fájl végpontjának URL-je.                                                                                          |
-| `authToken`       | String        | Egy hitelesítési token, amely az HTTP-fejléchez lesz fűzve a `fallbackDataURL` lekérésekor. (Használata: `Authorization: Bearer [authToken]`). |
+| Kulcs neve        | Típus        | Leírás                                                                                                                                         |
+| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Egy szabálykészleteket tartalmazó JSON/XML fájl végpontjának URL-je.                                                                           |
+| `authToken`       | String       | Egy hitelesítési token, amely az HTTP-fejléchez lesz fűzve a `fallbackDataURL` lekérésekor. (Használata: `Authorization: Bearer [authToken]`). |
 
 ## Szabálykiértékelés és konfliktusfeloldás
 

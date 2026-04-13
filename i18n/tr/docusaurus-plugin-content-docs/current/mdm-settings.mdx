@@ -45,18 +45,18 @@ Videoda yapılandırmayı dağıtmak için ManageEngine'in MDM'si kullanılmış
 
 MDM konsolunuz aracılığıyla, genellikle plist formatında, Yönetilen Uygulama Yapılandırması için aşağıdaki anahtarları ve değerleri dağıtın.
 
-| Anahtar Adı             | Tür                          | Açıklama                                                                                                                                                                                                                                                                                                                       |
-| ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Anahtar Adı            | Tür                            | Açıklama                                                                                                                                                                                                                                                                                                                              |
+| ---------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Kural seti](#rule-set-object) | **[Zorunlu Kurallar]** Normal kurallardan daha yüksek öncelikle uygulanan bir kural seti. Listedeki ilk kural önceliklidir. Kullanıcılar bu kuralları düzenleyemez, silemez veya yeniden sıralayamaz. Uygulamanın genel devre dışı bırakma anahtarını yok sayarak her zaman aktiftirler ve iCloud aracılığıyla senkronize edilmezler. |
-| `prefilledRuleSet`     | [Kural seti](#rule-set-object) | **[Başlangıç Kuralları]** Bir kullanıcı uygulamayı ilk kez mevcut kuralları olmadan başlattığında, varsayılan örnek kural yerine oluşturulan kural seti. Dağıtıldıktan sonra bunlar normal kurallar gibi hareket ederek kullanıcı değişikliğine, silinmesine ve iCloud senkronizasyonuna olanak tanır.                       |
-| `organizationName`     | String                       | Uygulama içi ayarlar ekranının üst kısmında "Yöneten: [organizationName]" ifadesini görüntüleyerek kullanıcıya uygulamanın yönetildiğini belirtir.                                                                                                                                                                          |
-| `managedConfigVersion` | String                       | Yapılandırma için rastgele bir sürüm dizesi. Kullanıcı arayüzünde görüntülenerek, sorun giderme sırasında BT desteğinin en son MDM yükünün cihaza ulaşıp ulaşmadığını doğrulamasına olanak tanır.                                                                                                                               |
-| `showsLibrarySection`  | Boolean                      | `false` olarak ayarlanırsa, Kural Kütüphanesi özelliği gizlenir ve bölüm "Kuruluşunuz tarafından kısıtlanmıştır." hata mesajıyla değiştirilir.                                                                                                                                                                                 |
-| `fallback`             | [Geri Dönüş](#fallback-object) | Yapılandırmalar MDM yük sınırlarını aştığında bunu belirtin. Uygulama, yapılandırmayı uygulamak için bu URL'den JSON/XML çekecektir.                                                                                                                                                                                            |
+| `prefilledRuleSet`     | [Kural seti](#rule-set-object) | **[Başlangıç Kuralları]** Bir kullanıcı uygulamayı ilk kez mevcut kuralları olmadan başlattığında, varsayılan örnek kural yerine oluşturulan kural seti. Dağıtıldıktan sonra bunlar normal kurallar gibi hareket ederek kullanıcı değişikliğine, silinmesine ve iCloud senkronizasyonuna olanak tanır.                                |
+| `organizationName`     | String                         | Uygulama içi ayarlar ekranının üst kısmında "Yöneten: [organizationName]" ifadesini görüntüleyerek kullanıcıya uygulamanın yönetildiğini belirtir.                                                                                                                                                                                    |
+| `managedConfigVersion` | String                         | Yapılandırma için rastgele bir sürüm dizesi. Kullanıcı arayüzünde görüntülenerek, sorun giderme sırasında BT desteğinin en son MDM yükünün cihaza ulaşıp ulaşmadığını doğrulamasına olanak tanır.                                                                                                                                     |
+| `showsLibrarySection`  | Boolean                        | `false` olarak ayarlanırsa, Kural Kütüphanesi özelliği gizlenir ve bölüm "Kuruluşunuz tarafından kısıtlanmıştır." hata mesajıyla değiştirilir.                                                                                                                                                                                        |
+| `fallback`             | [Geri Dönüş](#fallback-object) | Yapılandırmalar MDM yük sınırlarını aştığında bunu belirtin. Uygulama, yapılandırmayı uygulamak için bu URL'den JSON/XML çekecektir.                                                                                                                                                                                                  |
 
 Bu anahtarların tümü isteğe bağlıdır.
 
-### [Nesne] Kural Seti {#rule-set-object}
+### [Nesne] Kural Seti {/* #rule-set-object */}
 
 Her kural nesnesi, [uygulama üzerinden paylaşabileceğiniz/dışa aktarabileceğinizle](export-or-import-rules) aynı formata sahiptir, ancak bunu şu şekilde JSON'dan plist'e dönüştürmeniz gerekir:
 
@@ -94,11 +94,11 @@ Her kural nesnesi, [uygulama üzerinden paylaşabileceğiniz/dışa aktarabilece
 ...
 ```
 
-### [Nesne] Geri Dönüş (Fallback) {#fallback-object}
+### [Nesne] Geri Dönüş (Fallback) {/* #fallback-object */}
 
-| Anahtar Adı          | Tür          | Açıklama                                                                                                                                                     |
-| ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `fallbackDataURL` | String (URL) | Kural setlerini içeren bir JSON/XML dosyasının uç nokta URL'si.                                                                                                |
+| Anahtar Adı       | Tür          | Açıklama                                                                                                                                                    |
+| ----------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Kural setlerini içeren bir JSON/XML dosyasının uç nokta URL'si.                                                                                             |
 | `authToken`       | String       | `fallbackDataURL` üzerinden veri çekilirken HTTP başlığına eklenen bir kimlik doğrulama belirteci. (`Authorization: Bearer [authToken]` olarak kullanılır). |
 
 ## Kural Değerlendirmesi ve Çakışma Çözümü

@@ -12,7 +12,7 @@ Denne side viser almindelige problemer og deres løsninger ved brug af RedirectW
 
 <TOCInline toc={toc} />
 
-## Omdirigeringsregler fungerer ikke {#rules-not-working}
+## Omdirigeringsregler fungerer ikke {/* #rules-not-working */}
 
 Hvis dine regler ikke fungerer som forventet, så tjek følgende:
 
@@ -22,7 +22,7 @@ Hvis dine regler ikke fungerer som forventet, så tjek følgende:
 - **Regelkonfigurationen er korrekt:** Dobbelttjek dine omdirigeringsregler i RedirectWeb native-appen. Sørg for, at kilde-URL-mønstre, mål-URL'er og eventuelle betingelser er sat korrekt op. For at tjekke om din regel er gyldig eller ej, indtast et eksempel-URL i Eksempler-sektionen på skærmen Rediger regel. Hvis din regel er gyldig, vil du se den forventede destinations-URL under dit input, som her:
     <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
 
-## Udvidelsens popup viser en fejl {#error-shown-in-extension-popup}
+## Udvidelsens popup viser en fejl {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="RedirectWeb error overlay" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Du kan også få brug for at genstarte din browser efter installation af native-
 > * Du skal installere RedirectWeb native-appen for at bruge browserudvidelsen. Udvidelsen alene fungerer ikke.
 > * Safari-brugere behøver ikke installere udvidelsen separat, da den er inkluderet i native-appen.
 
-## Den oprindelige side blinker kortvarigt før omdirigering {#original-page-flash}
+## Den oprindelige side blinker kortvarigt før omdirigering {/* #original-page-flash */}
 
 Dette sker, når du bruger omdirigeringstype **Original**. Denne type giver forskellige avancerede funktioner, men kan forårsage en kort blink af den oprindelige side, fordi den kan tillade den oprindelige side at indlæse, før omdirigeringen udføres.
 
@@ -50,7 +50,7 @@ Dette sker, når du bruger omdirigeringstype **Original**. Denne type giver fors
 > [!NOTE]
 > I Firefox burde dette problem ikke opstå selv med Original-typen, da den bruger WebRequest API'et, som forhindrer den oprindelige side i at blive indlæst.
 
-## Fejl vises i Safaris indstillingsvindue {#safari-style-loading-errors}
+## Fejl vises i Safaris indstillingsvindue {/* #safari-style-loading-errors */}
 
 Du kan se fejlbeskeder i Safaris indstillingsvindue som følgende:
 

@@ -12,7 +12,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 <TOCInline toc={toc} />
 
-## Pāradresācijas noteikumi nedarbojas {#rules-not-working}
+## Pāradresācijas noteikumi nedarbojas {/* #rules-not-working */}
 
 Ja jūsu noteikumi nedarbojas gaidītajā veidā, lūdzu, pārbaudiet sekojošo:
 
@@ -22,7 +22,7 @@ Ja jūsu noteikumi nedarbojas gaidītajā veidā, lūdzu, pārbaudiet sekojošo:
 - **Noteikumu konfigurācija ir pareiza:** Rūpīgi pārbaudiet savus pāradresācijas noteikumus RedirectWeb vietējā lietotnē. Pārliecinieties, ka avota URL paraugi, mērķa URL un jebkuri nosacījumi ir pareizi iestatīti. Lai pārbaudītu, vai noteikums ir derīgs, ievadiet piemēra URL sadaļā "Examples" ekrānā Edit Rule. Ja noteikums ir derīgs, jūs savā ievadā redzēsiet gaidāmo mērķa URL, piemēram šādi:
     <Image src={RuleEditExampleResult} alt="Piemērs: noteikumu rediģēšanas ekrāns, kas parāda testa URL rezultātu" width="260" hasShadow/>
 
-## Paplašinājuma uznirstošais logs rāda kļūdu {#error-shown-in-extension-popup}
+## Paplašinājuma uznirstošais logs rāda kļūdu {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="RedirectWeb kļūdu pārklājums" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Var būt nepieciešams arī pārlūkprogrammas pārlādējums (restart), pēc vi
 > * Jums nepieciešams uzstādīt RedirectWeb vietējo lietotni, lai izmantotu pārlūkprogrammas paplašinājumu. Paša paplašinājuma lietošana bez lietotnes nav iespējama.
 > * Safari lietotājiem nav nepieciešams atsevišķi instalēt paplašinājumu, jo tas ir iekļauts vietējā lietotnē.
 
-## Oriģinālā lapa īslaicīgi mirgo pirms pāradresācijas {#original-page-flash}
+## Oriģinālā lapa īslaicīgi mirgo pirms pāradresācijas {/* #original-page-flash */}
 
 Šī situācija rodas, ja izmantojat **Original** tipa pāradresācijas noteikumus. Šis tips nodrošina dažādas papildu funkcijas, taču tas var izraisīt īslaicīgu oriģinālās lapas mirgošanu, jo dažkārt oriģinālā lapa var tikt ielādēta pirms pāradresācijas veikšanas.
 
@@ -50,7 +50,7 @@ Atveriet Edit Rule ekrānu un mainiet **Type** uz **DNR**, lai izvairītos no š
 > [!NOTE]
 > Firefox gadījumā šai problēmai nevajadzētu rasties pat ar Original tipu, jo tas balstās uz WebRequest API, kas neļauj oriģinālajai lapai tikt ielādētai.
 
-## Kļūdas redzamas Safari iestatījumu logā {#safari-style-loading-errors}
+## Kļūdas redzamas Safari iestatījumu logā {/* #safari-style-loading-errors */}
 
 Jūs varat redzēt Safari iestatījumu logā sekojošas kļūdu ziņas:
 

@@ -45,18 +45,18 @@ Vaizdo įraše konfigūracijai įdiegti buvo naudojamas „ManageEngine“ MDM, 
 
 Savo MDM konsolėje įdiekite šiuos raktus ir reikšmes „Managed App Configuration“ nustatymams, paprastai plist formatu.
 
-| Rakto pavadinimas       | Tipas                        | Aprašymas                                                                                                                                                                                                                                                                   |
-| ---------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Taisyklių rinkinys](#rule-set-object) | **[Privalomos taisyklės]** Taisyklių rinkinys, taikomas su didesniu prioritetu nei įprastos taisyklės. Pirmoji sąrašo taisyklė turi viršenybę. Vartotojai negali redaguoti, trinti ar keisti šių taisyklių eiliškumo. Jos visada aktyvios, nepaisant programėlės visuotinio išjungimo jungiklio, ir nėra sinchronizuojamos per „iCloud“. |
-| `prefilledRuleSet`     | [Taisyklių rinkinys](#rule-set-object) | **[Pradinės taisyklės]** Taisyklių rinkinys, sukurtas vietoj numatytojo pavyzdžio, kai vartotojas pirmą kartą paleidžia programėlę neturėdamas esamų taisyklių. Jas išplatinus, jos veikia kaip įprastos taisyklės, leidžiant vartotojui jas keisti, trinti ir sinchronizuoti per „iCloud“. |
-| `organizationName`     | String                       | Programėlės nustatymų ekrano viršuje rodo „Valdoma [organizationName]“, nurodant vartotojui, kad programėlė yra valdoma.                                                                                                                                            |
-| `managedConfigVersion` | String                       | Savavališka konfigūracijos versijos eilutė. Rodoma vartotojo sąsajoje, leidžianti IT pagalbai patikrinti, ar įrenginį pasiekė naujausia MDM konfigūracija sprendžiant problemas.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | Jei nustatyta `false`, taisyklių bibliotekos funkcija paslepiama, o skiltis pakeičiama klaidos pranešimu „Apribota jūsų organizacijos“.                                                                                                                                   |
-| `fallback`             | [Atsarginis variantas](#fallback-object) | Nurodykite tai, kai konfigūracijos viršija MDM duomenų perdavimo apribojimus. Programėlė gaus JSON/XML iš šio URL konfigūracijai pritaikyti.                                                                                                                                     |
+| Rakto pavadinimas      | Tipas                                    | Aprašymas                                                                                                                                                                                                                                                                                                                                |
+| ---------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Taisyklių rinkinys](#rule-set-object)   | **[Privalomos taisyklės]** Taisyklių rinkinys, taikomas su didesniu prioritetu nei įprastos taisyklės. Pirmoji sąrašo taisyklė turi viršenybę. Vartotojai negali redaguoti, trinti ar keisti šių taisyklių eiliškumo. Jos visada aktyvios, nepaisant programėlės visuotinio išjungimo jungiklio, ir nėra sinchronizuojamos per „iCloud“. |
+| `prefilledRuleSet`     | [Taisyklių rinkinys](#rule-set-object)   | **[Pradinės taisyklės]** Taisyklių rinkinys, sukurtas vietoj numatytojo pavyzdžio, kai vartotojas pirmą kartą paleidžia programėlę neturėdamas esamų taisyklių. Jas išplatinus, jos veikia kaip įprastos taisyklės, leidžiant vartotojui jas keisti, trinti ir sinchronizuoti per „iCloud“.                                              |
+| `organizationName`     | String                                   | Programėlės nustatymų ekrano viršuje rodo „Valdoma [organizationName]“, nurodant vartotojui, kad programėlė yra valdoma.                                                                                                                                                                                                                 |
+| `managedConfigVersion` | String                                   | Savavališka konfigūracijos versijos eilutė. Rodoma vartotojo sąsajoje, leidžianti IT pagalbai patikrinti, ar įrenginį pasiekė naujausia MDM konfigūracija sprendžiant problemas.                                                                                                                                                         |
+| `showsLibrarySection`  | Boolean                                  | Jei nustatyta `false`, taisyklių bibliotekos funkcija paslepiama, o skiltis pakeičiama klaidos pranešimu „Apribota jūsų organizacijos“.                                                                                                                                                                                                  |
+| `fallback`             | [Atsarginis variantas](#fallback-object) | Nurodykite tai, kai konfigūracijos viršija MDM duomenų perdavimo apribojimus. Programėlė gaus JSON/XML iš šio URL konfigūracijai pritaikyti.                                                                                                                                                                                             |
 
 Visi šie raktai yra neprivalomi.
 
-### [Objektas] Taisyklių rinkinys {#rule-set-object}
+### [Objektas] Taisyklių rinkinys {/* #rule-set-object */}
 
 Kiekvienas taisyklės objektas turi tokį patį formatą, kaip ir tas, kurį galite [bendrinti/eksportuoti per programėlę](export-or-import-rules), tačiau turite jį konvertuoti iš JSON į plist, štai taip:
 
@@ -94,11 +94,11 @@ Kiekvienas taisyklės objektas turi tokį patį formatą, kaip ir tas, kurį gal
 ...
 ```
 
-### [Objektas] Atsarginis variantas {#fallback-object}
+### [Objektas] Atsarginis variantas {/* #fallback-object */}
 
-| Rakto pavadinimas | Tipas        | Aprašymas                                                                                                                                  |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | JSON/XML failo, kuriame yra taisyklių rinkiniai, pabaigos taško (endpoint) URL.                                                                                     |
+| Rakto pavadinimas | Tipas        | Aprašymas                                                                                                                                            |
+| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | JSON/XML failo, kuriame yra taisyklių rinkiniai, pabaigos taško (endpoint) URL.                                                                      |
 | `authToken`       | String       | Autentifikavimo raktas, pridedamas prie HTTP antraštės gaunant duomenis iš `fallbackDataURL`. (Naudojamas kaip `Authorization: Bearer [authToken]`). |
 
 ## Taisyklių vertinimas ir konfliktų sprendimas

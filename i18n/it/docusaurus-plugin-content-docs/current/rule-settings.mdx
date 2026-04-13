@@ -4,7 +4,7 @@ Questa pagina fornisce informazioni dettagliate su ogni impostazione nella scher
 
 ## Opzioni
 
-### Tipo {#type}
+### Tipo {/* #type */}
 
 Specifica l'opzione **Tipo** per controllare come l'app gestisce il reindirizzamento. Puoi scegliere tra questi:
 
@@ -20,7 +20,7 @@ Specifica l'opzione **Tipo** per controllare come l'app gestisce il reindirizzam
     * ⚠️ In Safari, attualmente non puoi includere barre verticali (`|`) nel tuo pattern di espressione regolare. [Dettagli](https://github.com/mshibanami/redirect-web/issues/44)
     * ⚠️ Poiché l'API DNR di Safari presenta ancora alcuni problemi, consideriamo che sia ancora una funzionalità sperimentale per Safari. Puoi trovare l'elenco di tutti i problemi noti [qui](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Reindirizza da {#redirect-from}
+### Reindirizza da {/* #redirect-from */}
 
 L'opzione **Reindirizza da** consente di specificare un pattern URL delle pagine web da cui si desidera reindirizzare. È possibile scegliere tra [Wildcard](#url-pattern-wildcard) o [Espressione regolare](#url-pattern-regular-expression).
 
@@ -29,7 +29,7 @@ Ad esempio, se si specifica `https://example.com/*` con Wildcard, corrisponde a 
 > [!NOTE]
 > Nell'opzione Reindirizza a, puoi fare riferimento all'intera corrispondenza utilizzando `$0` o a corrispondenze parziali utilizzando `$1`, `$2`, ... Controlla i dettagli in [Pattern URL](#url-pattern) in questa pagina.
 
-#### Tipi di risorsa {#resource-types}
+#### Tipi di risorsa {/* #resource-types */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -43,7 +43,7 @@ L'impostazione predefinita è `main_frame`, ovvero la pagina di primo livello ca
 
 Controlla i dettagli di ogni tipo di risorsa nei [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Metodi di richiesta {#request-methods}
+#### Metodi di richiesta {/* #request-methods */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,7 +56,7 @@ Controlla i dettagli di ogni metodo nei [mdn web docs](https://developer.mozilla
 > [!WARNING]
 > In Safari, questa opzione potrebbe non essere disponibile perché l'implementazione di Apple per il tipo DNR non sembra gestirla attualmente. Abbiamo inviato un feedback ad Apple come FB14502272.
 
-#### Browser di destinazione {#target-browsers}
+#### Browser di destinazione {/* #target-browsers */}
 
 ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -70,7 +70,7 @@ L'opzione **Browser di destinazione** consente di specificare a quale browser la
 > [!WARNING]
 > RedirectWeb non può differenziare se il browser è **Safari** o **Safari Technology Preview** perché l'app controlla il processo padre dell'estensione per rilevarlo, ma questi due browser condividono lo stesso processo padre (`/sbin/launchd`).
 
-### Reindirizza a {#redirect-to}
+### Reindirizza a {/* #redirect-to */}
 
 L'opzione **Reindirizza a** specifica un URL di destinazione a cui si desidera reindirizzare, dall'URL di origine corrispondente all'opzione *Reindirizza da*. È anche possibile sostituire i gruppi di cattura con `$1`, `$2`, ... o l'intera corrispondenza con `$0`. Questi ti aiutano a specificare dinamicamente la destinazione. Controlla i dettagli in [Pattern URL](#url-pattern) in questa pagina.
 
@@ -93,7 +93,7 @@ Inoltre, puoi modificare i testi di `$1`, `$2`, ... prima di effettuare le sosti
 > * Notion: `notion://www.notion.so/Your_Note_ID`
 > * Slack: `slack://open`
 
-#### Applicazione {#application}
+#### Applicazione {/* #application */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,7 +102,7 @@ Se desideri specificare un'app con cui aprire l'URL di destinazione, utilizza la
 > [!WARNING]
 > Puoi aprire solo un'app che supporta [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Inoltre, assicurati che l'app supporti l'apertura dell'URL che desideri aprire.
 
-### Elaborazione dei gruppi di cattura {#capturing-group-processing}
+### Elaborazione dei gruppi di cattura {/* #capturing-group-processing */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -131,7 +131,7 @@ Puoi scegliere uno o più dei seguenti processi:
 >
 > In questo caso, `https://example.com/hello_world` non sarà escluso, mentre `https://example.com/hello` sarà escluso.
 
-### Pattern URL esclusi {#excluded-url-patterns}
+### Pattern URL esclusi {/* #excluded-url-patterns */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,17 +139,17 @@ L'opzione **Pattern URL esclusi** consente di specificare gli URL che non vengon
 
 È possibile specificare i pattern URL esclusi utilizzando i tipi di pattern Espressione regolare o Wildcard.
 
-### Esempi {#examples}
+### Esempi {/* #examples */}
 
 L'opzione **Esempi** consente di testare la regola di reindirizzamento fornendo URL di esempio. Aggiungendo un URL di esempio, puoi verificare se la regola funziona come previsto prima di applicarla effettivamente.
 
-### Avanzate {#advanced-options}
+### Avanzate {/* #advanced-options */}
 
 * **[DNR] Main Frame Redirection**: Questa opzione è disponibile solo per il tipo DNR. Consente di specificare come gestire il reindirizzamento per il tipo di risorsa `main_frame`. Le opzioni disponibili sono:
     * **Raw**: Reindirizza il frame principale all'URL specificato senza alcuna modifica.
     * **Via Intermediate Page**: Reindirizza il frame principale a una pagina intermedia, che poi reindirizza all'URL di destinazione specificato. Questo è utile per aprire app utilizzando il deep linking poiché la pagina intermedia può gestire una logica di reindirizzamento più complessa.
 
-### Commenti {#comments}
+### Commenti {/* #comments */}
 
 L'opzione **Commenti** consente di aggiungere note o commenti sulla regola di reindirizzamento. Questo può essere utile per tenere traccia del motivo per cui hai creato una regola specifica o per fornire contesto ad altri che potrebbero visualizzare le tue regole.
 
@@ -159,11 +159,11 @@ Puoi scrivere commenti nei seguenti formati:
 * **Markdown**: Puoi utilizzare la [sintassi Markdown di GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), incluse alcune estensioni non supportate da GFM. Ad esempio, puoi creare intestazioni, elenchi, link e altro.
 * **AsciiDoc**: Puoi utilizzare la [sintassi AsciiDoc](https://asciidoc.org/) per formattare i tuoi commenti.
 
-## Pattern URL {#url-pattern}
+## Pattern URL {/* #url-pattern */}
 
 I **pattern URL** vengono utilizzati per far corrispondere gli URL nelle opzioni *Reindirizza da*, *Pattern URL esclusi* ed *Elaborazione dei gruppi di cattura**. Per specificarli, puoi scegliere tra **Wildcard** o **Espressione regolare**.
 
-### Wildcard {#url-pattern-wildcard}
+### Wildcard {/* #url-pattern-wildcard */}
 
 L'opzione **Wildcard** è un tipo di pattern più semplice che consente di utilizzare `*` (corrisponde a qualsiasi cosa) e `?` (corrisponde a qualsiasi carattere singolo) come jolly. Ecco alcuni esempi:
 
@@ -176,7 +176,7 @@ L'opzione **Wildcard** è un tipo di pattern più semplice che consente di utili
 > [!NOTE]
 > Sebbene la sostituzione sia una funzionalità delle espressioni regolari, puoi usarla anche per Wildcard perché RedirectWeb converte internamente Wildcard in espressione regolare.
 
-### Espressione regolare {#url-pattern-regular-expression}
+### Espressione regolare {/* #url-pattern-regular-expression */}
 
 **Espressione regolare** (Regex) è un potente strumento per far corrispondere pattern nel testo ed è ampiamente utilizzato anche nella programmazione. Consente di definire un pattern specifico che corrisponde a un insieme di stringhe. Ecco alcuni esempi.
 

@@ -4,7 +4,7 @@
 
 ## オプション
 
-### タイプ {#type}
+### タイプ {/* #type */}
 
 **タイプ**オプションを指定して、アプリがリダイレクトを処理する方法を制御します。以下から選択できます：
 
@@ -20,7 +20,7 @@
     * ⚠️ Safariでは、現在正規表現パターンにパイプ（`|`）を含めることができません。[詳細](https://github.com/mshibanami/redirect-web/issues/44)
     * ⚠️ SafariのDNR APIにはまだいくつかの問題があるため、Safariではまだ実験的な機能であると考えています。既知の問題のリストは[こちら](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari)で確認できます。
 
-### リダイレクト元 {#redirect-from}
+### リダイレクト元 {/* #redirect-from */}
 
 **リダイレクト元**オプションでは、リダイレクトしたいWebページのURLパターンを指定できます。[ワイルドカード](#url-pattern-wildcard)または[正規表現](#url-pattern-regular-expression)のいずれかを選択できます。
 
@@ -29,7 +29,7 @@
 > [!NOTE]
 > 「リダイレクト先」オプションでは、`$0` を使用してマッチ全体を、`$1`, `$2`, ... を使用して部分一致を参照できます。詳細は、このページの[URLパターン](#url-pattern)を確認してください。
 
-#### リソースタイプ {#resource-types}
+#### リソースタイプ {/* #resource-types */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -43,7 +43,7 @@
 
 各リソースタイプの詳細は、[mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType)を確認してください。
 
-#### リクエストメソッド {#request-methods}
+#### リクエストメソッド {/* #request-methods */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,7 +56,7 @@
 > [!WARNING]
 > Safariでは、AppleによるDNRタイプの実装が現在これを処理していないように見えるため、このオプションを利用できない場合があります。弊社はFB14502272としてAppleにフィードバックを送信しました。
 
-#### 対象ブラウザ {#target-browsers}
+#### 対象ブラウザ {/* #target-browsers */}
 
 ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -70,7 +70,7 @@
 > [!WARNING]
 > RedirectWebは、ブラウザが **Safari** か **Safari Technology Preview** かを判別できません。これは、アプリが拡張機能の親プロセスをチェックして検出を行いますが、これら2つのブラウザは同じ親プロセス（`/sbin/launchd`）を共有しているためです。
 
-### リダイレクト先 {#redirect-to}
+### リダイレクト先 {/* #redirect-to */}
 
 **リダイレクト先**オプションは、「リダイレクト元」オプションでマッチしたソースURLからの転送先URLを指定します。`$1`, `$2`, ... を使用してキャプチャグループを、または `$0` を使用してマッチ全体を置換することもできます。これらにより、転送先を動的に指定できます。詳細は、このページの[URLパターン](#url-pattern)を確認してください。
 
@@ -93,7 +93,7 @@
 > * Notion: `notion://www.notion.so/Your_Note_ID`
 > * Slack: `slack://open`
 
-#### アプリケーション {#application}
+#### アプリケーション {/* #application */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,7 +102,7 @@
 > [!WARNING]
 > [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox)をサポートしているアプリのみを開くことができます。また、そのアプリが、開こうとしているURLをサポートしていることを確認してください。
 
-### キャプチャグループの処理 {#capturing-group-processing}
+### キャプチャグループの処理 {/* #capturing-group-processing */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -131,7 +131,7 @@
 >
 > この場合、`https://example.com/hello_world` は除外されませんが、`https://example.com/hello` は除外されます。
 
-### 除外URLパターン {#excluded-url-patterns}
+### 除外URLパターン {/* #excluded-url-patterns */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,17 +139,17 @@
 
 正規表現またはワイルドカードのいずれかのパターンタイプを使用して、除外URLパターンを指定できます。
 
-### 例 {#examples}
+### 例 {/* #examples */}
 
 **例**オプションでは、サンプルURLを提供してリダイレクトルールをテストできます。サンプルURLを追加することで、実際に適用する前にルールが期待通りに動作するかどうかを確認できます。
 
-### 高度な設定 {#advanced-options}
+### 高度な設定 {/* #advanced-options */}
 
 * **[DNR] メインフレームのリダイレクト**: このオプションはDNRタイプでのみ利用可能です。`main_frame` リソースタイプのリダイレクトをどのように処理するかを指定できます。利用可能なオプションは以下の通りです：
     * **生（Raw）**: メインフレームを変更を加えずに指定されたURLにリダイレクトします。
     * **中間ページ経由**: メインフレームを一度中間ページにリダイレクトし、そこから指定された転送先URLにリダイレクトします。中間ページでより複雑なリダイレクトロジックを処理できるため、ディープリンクを使用したアプリの起動に役立ちます。
 
-### コメント {#comments}
+### コメント {/* #comments */}
 
 **コメント**オプションを使用すると、リダイレクトルールに関するメモやコメントを追加できます。これは、特定のルールを作成した理由を記録したり、ルールを見る他の人にコンテキストを提供したりするのに役立ちます。
 
@@ -159,11 +159,11 @@
 * **Markdown**: [GitHubのMarkdown構文](https://docs.github.com/ja/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)（GFMがサポートしていない一部の拡張機能を含む）を使用できます。例えば、見出し、リスト、リンクなどを作成できます。
 * **AsciiDoc**: [AsciiDoc構文](https://asciidoc.org/)を使用してコメントを整形できます。
 
-## URLパターン {#url-pattern}
+## URLパターン {/* #url-pattern */}
 
 **URLパターン**は、「リダイレクト元」、「除外URLパターン」、「キャプチャグループの処理」オプションでURLをマッチングするために使用されます。これらを指定するには、**ワイルドカード**または**正規表現**のいずれかを選択できます。
 
-### ワイルドカード {#url-pattern-wildcard}
+### ワイルドカード {/* #url-pattern-wildcard */}
 
 **ワイルドカード**は、`*`（任意にマッチ）と `?`（任意の1文字にマッチ）をワイルドカードとして使用できる、より単純なパターンタイプです。以下にいくつかの例を示します：
 
@@ -176,7 +176,7 @@
 > [!NOTE]
 > 置換は正規表現の機能ですが、RedirectWebは内部でワイルドカードを正規表現に変換するため、ワイルドカードでも置換を使用できます。
 
-### 正規表現 {#url-pattern-regular-expression}
+### 正規表現 {/* #url-pattern-regular-expression */}
 
 **正規表現**（Regex）は、テキストのパターンをマッチングするための強力なツールであり、プログラミングでも広く使用されています。一連の文字列にマッチする特定のパターンを定義できます。以下にいくつかの例を示します。
 

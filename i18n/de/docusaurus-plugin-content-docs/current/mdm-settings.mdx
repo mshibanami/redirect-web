@@ -45,18 +45,18 @@ Im Video wurde das MDM von ManageEngine zur Bereitstellung der Konfiguration ver
 
 Stellen Sie die folgenden Schlüssel und Werte für die Managed App Configuration über Ihre MDM-Konsole bereit, normalerweise im Plist-Format.
 
-| Schlüsselname          | Typ                          | Beschreibung                                                                                                                                                                                                                                                                                       |
-| ---------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Schlüsselname          | Typ                           | Beschreibung                                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `enforcedRuleSet`      | [Regelsatz](#rule-set-object) | **[Erzwungene Regeln]** Ein Regelsatz, der mit höherer Priorität als normale Regeln angewendet wird. Die erste Regel in der Liste hat Vorrang. Benutzer können diese Regeln nicht bearbeiten, löschen oder die Reihenfolge ändern. Sie sind immer aktiv, ignorieren den globalen Deaktivierungsschalter der App und werden nicht über iCloud synchronisiert. |
-| `prefilledRuleSet`     | [Regelsatz](#rule-set-object) | **[Initiale Regeln]** Ein Regelsatz, der anstelle der Standard-Beispielregel erstellt wird, wenn ein Benutzer die App zum ersten Mal ohne vorhandene Regeln startet. Nach der Verteilung fungieren diese als normale Regeln, die vom Benutzer geändert, gelöscht und über iCloud synchronisiert werden können. |
-| `organizationName`     | String                       | Zeigt oben im Einstellungsbildschirm der App "Verwaltet von [organizationName]" an, um dem Benutzer zu signalisieren, dass die App verwaltet wird.                                                                                                                                                  |
-| `managedConfigVersion` | String                       | Ein beliebiger Versionsstring für die Konfiguration. Wird in der UI angezeigt, damit der IT-Support bei der Fehlerbehebung überprüfen kann, ob die neueste MDM-Payload das Gerät erreicht hat.                                                                                                     |
-| `showsLibrarySection`  | Boolean                      | Wenn auf `false` gesetzt, wird die Funktion "Regelbibliothek" ausgeblendet und der Abschnitt durch die Fehlermeldung "Von Ihrer Organisation eingeschränkt" ersetzt.                                                                                                                               |
-| `fallback`             | [Fallback](#fallback-object) | Geben Sie dies an, wenn die Konfigurationen die MDM-Payload-Limits überschreiten. Die App ruft JSON/XML von dieser URL ab, um die Konfiguration anzuwenden.                                                                                                                                        |
+| `prefilledRuleSet`     | [Regelsatz](#rule-set-object) | **[Initiale Regeln]** Ein Regelsatz, der anstelle der Standard-Beispielregel erstellt wird, wenn ein Benutzer die App zum ersten Mal ohne vorhandene Regeln startet. Nach der Verteilung fungieren diese als normale Regeln, die vom Benutzer geändert, gelöscht und über iCloud synchronisiert werden können.                                               |
+| `organizationName`     | String                        | Zeigt oben im Einstellungsbildschirm der App "Verwaltet von [organizationName]" an, um dem Benutzer zu signalisieren, dass die App verwaltet wird.                                                                                                                                                                                                           |
+| `managedConfigVersion` | String                        | Ein beliebiger Versionsstring für die Konfiguration. Wird in der UI angezeigt, damit der IT-Support bei der Fehlerbehebung überprüfen kann, ob die neueste MDM-Payload das Gerät erreicht hat.                                                                                                                                                               |
+| `showsLibrarySection`  | Boolean                       | Wenn auf `false` gesetzt, wird die Funktion "Regelbibliothek" ausgeblendet und der Abschnitt durch die Fehlermeldung "Von Ihrer Organisation eingeschränkt" ersetzt.                                                                                                                                                                                         |
+| `fallback`             | [Fallback](#fallback-object)  | Geben Sie dies an, wenn die Konfigurationen die MDM-Payload-Limits überschreiten. Die App ruft JSON/XML von dieser URL ab, um die Konfiguration anzuwenden.                                                                                                                                                                                                  |
 
 Diese Schlüssel sind alle optional.
 
-### [Objekt] Regelsatz {#rule-set-object}
+### [Objekt] Regelsatz {/* #rule-set-object */}
 
 Jedes Regelobjekt hat das gleiche Format wie dasjenige, das Sie [über die App teilen/exportieren](export-or-import-rules) können, aber Sie müssen es von JSON in Plist konvertieren, wie folgt:
 
@@ -94,12 +94,12 @@ Jedes Regelobjekt hat das gleiche Format wie dasjenige, das Sie [über die App t
 ...
 ```
 
-### [Objekt] Fallback {#fallback-object}
+### [Objekt] Fallback {/* #fallback-object */}
 
-| Schlüsselname     | Typ          | Beschreibung                                                                                                                                                                 |
-| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | Eine Endpunkt-URL einer JSON/XML-Datei, die Regelsätze enthält.                                                                                                              |
-| `authToken`       | String       | Ein Authentifizierungs-Token, das beim Abrufen von der `fallbackDataURL` an den HTTP-Header angehängt wird. (Verwendet als `Authorization: Bearer [authToken]`).              |
+| Schlüsselname     | Typ          | Beschreibung                                                                                                                                                     |
+| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Eine Endpunkt-URL einer JSON/XML-Datei, die Regelsätze enthält.                                                                                                  |
+| `authToken`       | String       | Ein Authentifizierungs-Token, das beim Abrufen von der `fallbackDataURL` an den HTTP-Header angehängt wird. (Verwendet als `Authorization: Bearer [authToken]`). |
 
 ## Regelauswertung und Konfliktlösung
 

@@ -12,7 +12,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 <TOCInline toc={toc} />
 
-## Peradresavimo taisyklės neveikia {#rules-not-working}
+## Peradresavimo taisyklės neveikia {/* #rules-not-working */}
 
 Jei jūsų taisyklės neveikia taip, kaip tikitės, patikrinkite šiuos dalykus:
 
@@ -22,7 +22,7 @@ Jei jūsų taisyklės neveikia taip, kaip tikitės, patikrinkite šiuos dalykus:
 - **Taisyklių konfiguracija teisinga:** Dar kartą patikrinkite peradresavimo taisykles RedirectWeb natyvioje programoje. Įsitikinkite, kad šaltinio URL šablonai, paskirties URL ir bet kokios sąlygos yra nustatytos teisingai. Norėdami patikrinti, ar taisyklė galioja, įveskite pavyzdinį URL laukelyje "Examples" (Pavyzdžiai) taisyklės redagavimo ekrane. Jei taisyklė galioja, matysite laukiamą paskirties URL po savo įvestimi, kaip čia:
     <Image src={RuleEditExampleResult} alt="Taisyklės redagavimo ekrano pavyzdys rodantis pavyzdinio URL rezultatą" width="260" hasShadow/>
 
-## Plėtinio iššokantis langas rodo klaidą {#error-shown-in-extension-popup}
+## Plėtinio iššokantis langas rodo klaidą {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="RedirectWeb klaidos perdengimo vaizdas" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Po natyvios programos įdiegimo gali prireikti iš naujo paleisti naršyklę.
 > * Norint naudoti naršyklės plėtinį, reikia įdiegti RedirectWeb natyviąją programą. Vien tik plėtinys neveiks.
 > * Safari vartotojams plėtinio atskirai įdiegti nereikia — jis yra įtrauktas į natyviąją programą.
 
-## Pradinė puslapio versija trumpai mirksi prieš peradresavimą {#original-page-flash}
+## Pradinė puslapio versija trumpai mirksi prieš peradresavimą {/* #original-page-flash */}
 
 Tai atsitinka, kai naudojate **Original** tipo peradresavimo taisykles. Šis tipas suteikia įvairių pažangių funkcijų, tačiau jis gali sukelti trumpą pradinio puslapio mirksėjimą, nes leidžia pradiniam puslapiui pradėti krautis prieš atlikdamas peradresavimą.
 
@@ -50,7 +50,7 @@ Atidarykite taisyklės redagavimo ekraną ir pakeiskite **Type** į **DNR**, kad
 > [!NOTE]
 > In Firefox, this issue shouldn’t occur even with the Original type, since it relies on the WebRequest API, which prevents the original page from being loaded.
 
-## Safari nustatymų lange rodomos klaidos {#safari-style-loading-errors}
+## Safari nustatymų lange rodomos klaidos {/* #safari-style-loading-errors */}
 
 Nustatymų lange Safari galite matyti klaidų pranešimus, panašius į šiuos:
 

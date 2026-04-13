@@ -4,7 +4,7 @@ Ta strona zawiera szczegółowe informacje o każdym ustawieniu na ekranie *Edyt
 
 ## Opcje
 
-### Typ {#type}
+### Typ {/* #type */}
 
 Określ opcję **Typ**, aby kontrolować, w jaki sposób aplikacja obsługuje przekierowania. Możesz wybrać jedną z poniższych opcji:
 
@@ -20,7 +20,7 @@ Określ opcję **Typ**, aby kontrolować, w jaki sposób aplikacja obsługuje pr
     * ⚠️ W Safari obecnie nie można używać pionowych kresek (`|`) we wzorcach wyrażeń regularnych. [Szczegóły](https://github.com/mshibanami/redirect-web/issues/44)
     * ⚠️ Ponieważ DNR API w Safari nadal ma pewne problemy, uważamy, że jest to wciąż funkcja eksperymentalna dla tej przeglądarki. Listę wszystkich znanych problemów można znaleźć [tutaj](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Przekieruj z {#redirect-from}
+### Przekieruj z {/* #redirect-from */}
 
 Opcja **Przekieruj z** pozwala określić wzorzec adresu URL stron internetowych, z których chcesz przekierowywać. Możesz wybrać [Symbol wieloznaczny (Wildcard)](#url-pattern-wildcard) lub [Wyrażenie regularne (Regular Expression)](#url-pattern-regular-expression).
 
@@ -29,7 +29,7 @@ Na przykład, jeśli określisz `https://example.com/*` jako Wildcard, dopasuje 
 > [!NOTE]
 > W opcji Przekieruj do możesz odwoływać się do całego dopasowania za pomocą `$0` lub częściowych dopasowań za pomocą `$1`, `$2`, ... Szczegóły znajdziesz w sekcji [Wzorzec URL](#url-pattern) na tej stronie.
 
-#### Typy zasobów {#resource-types}
+#### Typy zasobów {/* #resource-types */}
 
 ![Obsługiwane typy: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -43,7 +43,7 @@ Ustawienie domyślne to `main_frame`, czyli strona najwyższego poziomu załadow
 
 Szczegółowe informacje o każdym typie zasobu znajdziesz w [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Metody żądań {#request-methods}
+#### Metody żądań {/* #request-methods */}
 
 ![Obsługiwane typy: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,7 +56,7 @@ Szczegółowe informacje o każdej metodzie znajdziesz w [mdn web docs](https://
 > [!WARNING]
 > W Safari ta opcja może być niedostępna, ponieważ implementacja Apple dla typu DNR obecnie zdaje się jej nie obsługiwać. Przesłaliśmy informację zwrotną do Apple jako FB14502272.
 
-#### Docelowe przeglądarki {#target-browsers}
+#### Docelowe przeglądarki {/* #target-browsers */}
 
 ![Obsługiwane platformy: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -70,7 +70,7 @@ Opcja **Docelowe przeglądarki** pozwala określić, w której przeglądarce reg
 > [!WARNING]
 > RedirectWeb nie może rozróżnić, czy przeglądarką jest **Safari** czy **Safari Technology Preview**, ponieważ aplikacja sprawdza proces nadrzędny rozszerzenia, aby go wykryć, a obie te przeglądarki współdzielą ten sam proces nadrzędny (`/sbin/launchd`).
 
-### Przekieruj do {#redirect-to}
+### Przekieruj do {/* #redirect-to */}
 
 Opcja **Przekieruj do** określa docelowy adres URL, na który chcesz przekierować ze źródłowego adresu URL dopasowanego za pomocą opcji *Przekieruj z*. Możesz również zastępować grupy przechwytujące za pomocą `$1`, `$2`, ... lub całe dopasowanie za pomocą `$0`. Pomaga to w dynamicznym określaniu celu. Szczegóły znajdziesz w sekcji [Wzorzec URL](#url-pattern) na tej stronie.
 
@@ -93,7 +93,7 @@ Dodatkowo możesz modyfikować teksty `$1`, `$2`, ... przed dokonaniem podstawie
 > * Notion: `notion://www.notion.so/Twój_ID_Notatki`
 > * Slack: `slack://open`
 
-#### Aplikacja {#application}
+#### Aplikacja {/* #application */}
 
 ![Obsługiwane typy: Oryginalny](https://img.shields.io/badge/Types-Original-blue) ![Obsługiwane platformy: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,7 +102,7 @@ Jeśli chcesz określić aplikację, w której chcesz otworzyć docelowy adres U
 > [!WARNING]
 > Możesz otworzyć tylko aplikację obsługującą [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Upewnij się również, że aplikacja obsługuje otwieranie adresu URL, który chcesz otworzyć.
 
-### Przetwarzanie grup przechwytujących {#capturing-group-processing}
+### Przetwarzanie grup przechwytujących {/* #capturing-group-processing */}
 
 ![Obsługiwane typy: Oryginalny](https://img.shields.io/badge/Types-Original-blue)
 
@@ -131,7 +131,7 @@ Możesz wybrać jeden lub więcej z następujących procesów:
 >
 > W takim przypadku `https://example.com/hello_world` nie zostanie wykluczone, podczas gdy `https://example.com/hello` zostanie wykluczone.
 
-### Wykluczone wzorce URL {#excluded-url-patterns}
+### Wykluczone wzorce URL {/* #excluded-url-patterns */}
 
 ![Obsługiwane typy: Oryginalny](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,17 +139,17 @@ Opcja **Wykluczone wzorce URL** pozwala określić adresy URL, które nie są pr
 
 Możesz określić wykluczone wzorce URL, używając typu wzorca Wyrażenie regularne lub Wildcard.
 
-### Przykłady {#examples}
+### Przykłady {/* #examples */}
 
 Opcja **Przykłady** pozwala przetestować regułę przekierowania poprzez podanie przykładowych adresów URL. Dodając przykładowy adres URL, możesz sprawdzić, czy reguła działa zgodnie z oczekiwaniami przed jej faktycznym zastosowaniem.
 
-### Zaawansowane {#advanced-options}
+### Zaawansowane {/* #advanced-options */}
 
 * **[DNR] Przekierowanie ramki głównej (Main Frame)**: Ta opcja jest dostępna tylko dla typu DNR. Pozwala określić, jak obsługiwać przekierowanie dla typu zasobu `main_frame`. Dostępne opcje to:
     * **Surowe (Raw)**: Przekierowuje ramkę główną na określony adres URL bez żadnych modyfikacji.
     * **Przez stronę pośrednią**: Przekierowuje ramkę główną do strony pośredniej, która następnie przekierowuje do określonego docelowego adresu URL. Jest to przydatne do otwierania aplikacji za pomocą głębokiego linkowania, ponieważ strona pośrednia może obsłużyć bardziej złożoną logikę przekierowania.
 
-### Komentarze {#comments}
+### Komentarze {/* #comments */}
 
 Opcja **Komentarze** pozwala dodawać notatki lub uwagi dotyczące reguły przekierowania. Może to być przydatne do śledzenia, dlaczego utworzono konkretną regułę, lub do zapewnienia kontekstu innym osobom, które mogą przeglądać Twoje reguły.
 
@@ -159,11 +159,11 @@ Komentarze można pisać w następujących formatach:
 * **Markdown**: Możesz używać [składni Markdown GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), w tym niektórych rozszerzeń, których GFM nie obsługuje. Możesz na przykład tworzyć nagłówki, listy, linki i inne elementy.
 * **AsciiDoc**: Do formatowania komentarzy można używać [składni AsciiDoc](https://asciidoc.org/).
 
-## Wzorzec URL {#url-pattern}
+## Wzorzec URL {/* #url-pattern */}
 
 **Wzorce URL** są używane do dopasowywania adresów URL w opcjach *Przekieruj z*, *Wykluczone wzorce URL* oraz *Przetwarzanie grup przechwytujących*. Aby je określić, możesz wybrać **Symbol wieloznaczny (Wildcard)** lub **Wyrażenie regularne (Regular Expression)**.
 
-### Symbol wieloznaczny (Wildcard) {#url-pattern-wildcard}
+### Symbol wieloznaczny (Wildcard) {/* #url-pattern-wildcard */}
 
 **Symbol wieloznaczny (Wildcard)** to prostszy typ wzorca, który pozwala na używanie `*` (dopasowuje wszystko) i `?` (dopasowuje dowolny pojedynczy znak) jako symboli wieloznacznych. Oto kilka przykładów:
 
@@ -176,7 +176,7 @@ W symbolach wieloznacznych można również używać podstawień, co oznacza, ż
 > [!NOTE]
 > Chociaż podstawianie jest funkcją wyrażeń regularnych, można go również używać w symbolach wieloznacznych, ponieważ RedirectWeb wewnętrzniej konwertuje symbole wieloznaczne na wyrażenia regularne.
 
-### Wyrażenie regularne (Regular Expression) {#url-pattern-regular-expression}
+### Wyrażenie regularne (Regular Expression) {/* #url-pattern-regular-expression */}
 
 **Wyrażenie regularne** (Regex) to potężne narzędzie do dopasowywania wzorców w tekście, szeroko stosowane w programowaniu. Pozwala na zdefiniowanie konkretnego wzorca pasującego do zestawu ciągów znaków. Oto kilka przykładów:
 

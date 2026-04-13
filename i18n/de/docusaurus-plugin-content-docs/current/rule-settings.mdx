@@ -4,7 +4,7 @@ Diese Seite bietet detaillierte Informationen zu jeder Einstellung auf dem Bilds
 
 ## Optionen
 
-### Typ {#type}
+### Typ {/* #type */}
 
 Legen Sie die Option **Typ** fest, um zu steuern, wie die App die Weiterleitung handhabt. Sie können aus folgenden wählen:
 
@@ -20,7 +20,7 @@ Legen Sie die Option **Typ** fest, um zu steuern, wie die App die Weiterleitung 
     * ⚠️ In Safari können Sie derzeit keine Pipes (`|`) in Ihrem regulären Ausdrucksmuster verwenden. [Details](https://github.com/mshibanami/redirect-web/issues/44)
     * ⚠️ Da die DNR-API von Safari noch einige Probleme aufweist, betrachten wir dies für Safari noch als experimentelle Funktion. Eine Liste aller bekannten Probleme finden Sie [hier](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Weiterleitung von {#redirect-from}
+### Weiterleitung von {/* #redirect-from */}
 
 Die Option **Weiterleitung von** ermöglicht es Ihnen, ein URL-Muster der Webseiten anzugeben, von denen Sie weiterleiten möchten. Sie können entweder [Platzhalter](#url-pattern-wildcard) oder [Reguläre Ausdrücke](#url-pattern-regular-expression) wählen.
 
@@ -29,7 +29,7 @@ Wenn Sie beispielsweise `https://example.com/*` mit Platzhalter angeben, passt d
 > [!NOTE]
 > In der Option „Weiterleitung nach“ können Sie mit `$0` auf die gesamte Übereinstimmung oder mit `$1`, `$2`, ... auf Teilübereinstimmungen verweisen. Einzelheiten finden Sie unter [URL-Muster](#url-pattern) auf dieser Seite.
 
-#### Ressourcentypen {#resource-types}
+#### Ressourcentypen {/* #resource-types */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -43,7 +43,7 @@ Die Standardeinstellung ist `main_frame`, was die in einem Tab geladene Seite de
 
 Einzelheiten zu jedem Ressourcentyp finden Sie in den [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Anfragemethoden {#request-methods}
+#### Anfragemethoden {/* #request-methods */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,7 +56,7 @@ Einzelheiten zu jeder Methode finden Sie in den [mdn web docs](https://developer
 > [!WARNING]
 > In Safari ist diese Option möglicherweise nicht verfügbar, da die Implementierung des Typs DNR von Apple sie derzeit anscheinend nicht verarbeitet. Wir haben Feedback an Apple als FB14502272 gesendet.
 
-#### Zielbrowser {#target-browsers}
+#### Zielbrowser {/* #target-browsers */}
 
 ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -70,7 +70,7 @@ Mit der Option **Zielbrowser** können Sie festlegen, auf welchen Browser die Re
 > [!WARNING]
 > RedirectWeb kann nicht unterscheiden, ob es sich bei dem Browser um **Safari** oder **Safari Technology Preview** handelt, da die App den übergeordneten Prozess der Erweiterung überprüft, um dies zu erkennen, diese beiden Browser jedoch denselben übergeordneten Prozess teilen (`/sbin/launchd`).
 
-### Weiterleitung nach {#redirect-to}
+### Weiterleitung nach {/* #redirect-to */}
 
 Die Option **Weiterleitung nach** legt eine Ziel-URL fest, zu der Sie von der Quell-URL aus weiterleiten möchten, die mit der Option *Weiterleitung von* übereinstimmt. Sie können Erfassungsgruppen auch durch `$1`, `$2`, ... oder die gesamte Übereinstimmung durch `$0` ersetzen. Dies hilft Ihnen, das Ziel dynamisch festzulegen. Einzelheiten finden Sie im Abschnitt [URL-Muster](#url-pattern) auf dieser Seite.
 
@@ -93,7 +93,7 @@ Zusätzlich können Sie die Texte von `$1`, `$2`, ... vor der Ersetzung ändern.
 > * Notion: `notion://www.notion.so/Ihre_Notiz_ID`
 > * Slack: `slack://open`
 
-#### Anwendung {#application}
+#### Anwendung {/* #application */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,7 +102,7 @@ Wenn Sie eine App angeben möchten, mit der Sie die Ziel-URL öffnen möchten, v
 > [!WARNING]
 > Sie können nur eine App öffnen, die [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox) unterstützt. Stellen Sie außerdem sicher, dass die App das Öffnen der URL unterstützt, die Sie öffnen möchten.
 
-### Verarbeitung von Erfassungsgruppen {#capturing-group-processing}
+### Verarbeitung von Erfassungsgruppen {/* #capturing-group-processing */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -131,7 +131,7 @@ Sie können einen oder mehrere der folgenden Prozesse wählen:
 >
 > In diesem Fall wird `https://example.com/hello_world` nicht ausgeschlossen, während `https://example.com/hello` ausgeschlossen wird.
 
-### Ausgeschlossene URL-Muster {#excluded-url-patterns}
+### Ausgeschlossene URL-Muster {/* #excluded-url-patterns */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,17 +139,17 @@ Die Option **Ausgeschlossene URL-Muster** ermöglicht es Ihnen, die URLs anzugeb
 
 Sie können ausgeschlossene URL-Muster entweder mit dem Typ Regulärer Ausdruck oder Platzhalter festlegen.
 
-### Beispiele {#examples}
+### Beispiele {/* #examples */}
 
 Mit der Option **Beispiele** können Sie Ihre Weiterleitungsregel testen, indem Sie Beispiel-URLs angeben. Durch Hinzufügen einer Beispiel-URL können Sie überprüfen, ob die Regel wie erwartet funktioniert, bevor Sie sie tatsächlich anwenden.
 
-### Erweitert {#advanced-options}
+### Erweitert {/* #advanced-options */}
 
 * **[DNR] Weiterleitung des Hauptrahmens**: Diese Option ist nur für den Typ DNR verfügbar. Sie ermöglicht es Ihnen festzulegen, wie die Weiterleitung für den Ressourcentyp `main_frame` gehandhabt werden soll. Verfügbare Optionen sind:
     * **Raw**: Leitet den Hauptrahmen ohne Änderungen an die angegebene URL weiter.
     * **Über Zwischenseite**: Leitet den Hauptrahmen auf eine Zwischenseite um, die dann auf die angegebene Ziel-URL weiterleitet. Dies ist nützlich für das Öffnen von Apps über Deep Linking, da die Zwischenseite eine komplexere Weiterleitungslogik verarbeiten kann.
 
-### Kommentare {#comments}
+### Kommentare {/* #comments */}
 
 Die Option **Kommentare** ermöglicht es Ihnen, beliebige Notizen oder Kommentare zu Ihrer Weiterleitungsregel hinzuzufügen. Dies kann nützlich sein, um nachzuvollziehen, warum Sie eine bestimmte Regel erstellt haben, oder um Kontext für andere bereitzustellen, die Ihre Regeln ansehen könnten.
 
@@ -159,11 +159,11 @@ Sie können Kommentare in den folgenden Formaten schreiben:
 * **Markdown**: Sie können die [Markdown-Syntax von GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) verwenden, einschließlich einiger Erweiterungen, die GFM nicht unterstützt. Sie können beispielsweise Überschriften, Listen, Links und mehr erstellen.
 * **AsciiDoc**: Sie können die [AsciiDoc-Syntax](https://asciidoc.org/) verwenden, um Ihre Kommentare zu formatieren.
 
-## URL-Muster {#url-pattern}
+## URL-Muster {/* #url-pattern */}
 
 **URL-Muster** werden zum Abgleichen von URLs in den Optionen *Weiterleitung von*, *Ausgeschlossene URL-Muster* und *Verarbeitung von Erfassungsgruppen* verwendet. Um sie anzugeben, können Sie entweder **Platzhalter** oder **Regulärer Ausdruck** wählen.
 
-### Platzhalter {#url-pattern-wildcard}
+### Platzhalter {/* #url-pattern-wildcard */}
 
 **Platzhalter** ist ein einfacherer Mustertyp, mit dem Sie `*` (entspricht beliebig vielen Zeichen) und `?` (entspricht einem einzelnen Zeichen) als Platzhalter verwenden können. Hier sind einige Beispiele:
 
@@ -176,7 +176,7 @@ Sie können die Ersetzung auch in Platzhaltern verwenden, was bedeutet, dass Sie
 > [!NOTE]
 > Obwohl die Ersetzung eine Funktion von Regulären Ausdrücken ist, können Sie sie auch für Platzhalter verwenden, da RedirectWeb Platzhalter intern in Reguläre Ausdrücke umwandelt.
 
-### Regulärer Ausdruck {#url-pattern-regular-expression}
+### Regulärer Ausdruck {/* #url-pattern-regular-expression */}
 
 Ein **Regulärer Ausdruck** (Regex) ist ein leistungsstarkes Werkzeug zum Abgleichen von Mustern in Texten und wird auch in der Programmierung häufig verwendet. Es ermöglicht Ihnen, ein spezifisches Muster zu definieren, das auf eine Menge von Zeichenfolgen passt. Hier sind einige Beispiele.
 

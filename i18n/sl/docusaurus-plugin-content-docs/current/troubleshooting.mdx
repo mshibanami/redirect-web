@@ -12,7 +12,7 @@ Na tej strani so navedene pogoste težave in rešitve pri uporabi RedirectWeb.
 
 <TOCInline toc={toc} />
 
-## Preusmeritvena pravila ne delujejo {#rules-not-working}
+## Preusmeritvena pravila ne delujejo {/* #rules-not-working */}
 
 Če vaša pravila ne delujejo tako, kot pričakujete, preverite naslednje:
 
@@ -22,7 +22,7 @@ Na tej strani so navedene pogoste težave in rešitve pri uporabi RedirectWeb.
 - **Konfiguracija pravila je pravilna:** Preverite preusmeritvena pravila v namizni aplikaciji RedirectWeb. Prepričajte se, da so vzorci izvornih URL-jev, ciljni URL-ji in morebitni pogoji pravilno nastavljeni. Če želite preveriti, ali je pravilo veljavno, vnesite primer URL v razdelek Examples na zaslonu za urejanje pravila. Če je pravilo veljavno, boste pod vnosom videli pričakovani ciljni URL, kot je prikazano tukaj:
     <Image src={RuleEditExampleResult} alt="Primer zaslona za urejanje pravila, ki prikazuje rezultat primernega URL-ja" width="260" hasShadow/>
 
-## V pojavnem oknu razširitve se prikaže napaka {#error-shown-in-extension-popup}
+## V pojavnem oknu razširitve se prikaže napaka {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="Overlay napake RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Morda boste morali po namestitvi namizne aplikacije znova zagnati brskalnik.
 > * Potrebno je namestiti namizno aplikacijo RedirectWeb za uporabo razširitve brskalnika. Sama razširitev brez aplikacije ne deluje.
 > * Uporabniki Safarija razširitve običajno ne potrebujejo namensko namestiti, saj je vključena v namizno aplikacijo.
 
-## Izvirna stran hitro zasveti pred preusmeritvijo {#original-page-flash}
+## Izvirna stran hitro zasveti pred preusmeritvijo {/* #original-page-flash */}
 
 Do tega pride, kadar uporabljate preusmeritvena pravila tipa **Original**. Ta tip ponuja več naprednih funkcij, vendar lahko povzroči kratek utrip izvorne strani, saj je včasih dovoljena nalaganje izvorne strani, preden se izvede preusmeritev.
 
@@ -50,7 +50,7 @@ Odprite zaslon za urejanje pravila in spremenite **Type** v **DNR**, da se izogn
 > [!NOTE]
 > V Firefoxu te težave načeloma ne bi smelo biti tudi pri tipu Original, saj uporablja API WebRequest, ki prepreči nalaganje izvorne strani.
 
-## V oknu nastavitev Safarija so prikazane napake {#safari-style-loading-errors}
+## V oknu nastavitev Safarija so prikazane napake {/* #safari-style-loading-errors */}
 
 V oknu nastavitev Safarija se lahko prikažejo sporočila o napakah, podobna naslednjim:
 

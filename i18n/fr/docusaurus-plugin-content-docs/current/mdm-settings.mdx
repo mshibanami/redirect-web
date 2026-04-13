@@ -45,18 +45,18 @@ Dans la vidéo, le MDM de ManageEngine a été utilisé pour déployer la config
 
 Déployez les clés et valeurs suivantes pour la configuration d'applications gérées via votre console MDM, généralement au format plist.
 
-| Nom de la clé | Type | Description |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nom de la clé          | Type                                   | Description                                                                                                                                                                                                                                                                                                                                                        |
+| ---------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `enforcedRuleSet`      | [Ensemble de règles](#rule-set-object) | **[Règles imposées]** Un ensemble de règles appliquées avec une priorité plus élevée que les règles normales. La première règle de la liste prime. Les utilisateurs ne peuvent pas modifier, supprimer ou réordonner ces règles. Elles sont toujours actives, ignorant le bouton de désactivation globale de l'application, et ne se synchronisent pas via iCloud. |
-| `prefilledRuleSet`     | [Ensemble de règles](#rule-set-object) | **[Règles initiales]** Un ensemble de règles créées à la place de la règle d'exemple par défaut lorsqu'un utilisateur lance l'application pour la première fois sans règles existantes. Une fois distribuées, celles-ci agissent comme des règles normales, permettant la modification par l'utilisateur, la suppression et la synchronisation iCloud.                       |
-| `organizationName`     | Chaîne                       | Affiche "Géré par [organizationName]" en haut de l'écran des paramètres de l'application, indiquant à l'utilisateur que l'application est gérée.                                                                                                                                            |
-| `managedConfigVersion` | Chaîne                       | Une chaîne de version arbitraire pour la configuration. Affichée dans l'interface utilisateur, permettant au support informatique de vérifier si la dernière charge utile MDM a atteint l'appareil lors du dépannage.                                                                                                  |
-| `showsLibrarySection`  | Booléen                      | Si défini sur `false`, la fonctionnalité Bibliothèque de règles est masquée et la section est remplacée par un message d'erreur "Restreint par votre organisation.".                                                                                                                                   |
-| `fallback`             | [Secours](#fallback-object) | Spécifiez ceci lorsque les configurations dépassent les limites de charge utile MDM. L'application récupérera le JSON/XML à partir de cette URL pour appliquer la configuration.                                                                                                                                     |
+| `prefilledRuleSet`     | [Ensemble de règles](#rule-set-object) | **[Règles initiales]** Un ensemble de règles créées à la place de la règle d'exemple par défaut lorsqu'un utilisateur lance l'application pour la première fois sans règles existantes. Une fois distribuées, celles-ci agissent comme des règles normales, permettant la modification par l'utilisateur, la suppression et la synchronisation iCloud.             |
+| `organizationName`     | Chaîne                                 | Affiche "Géré par [organizationName]" en haut de l'écran des paramètres de l'application, indiquant à l'utilisateur que l'application est gérée.                                                                                                                                                                                                                   |
+| `managedConfigVersion` | Chaîne                                 | Une chaîne de version arbitraire pour la configuration. Affichée dans l'interface utilisateur, permettant au support informatique de vérifier si la dernière charge utile MDM a atteint l'appareil lors du dépannage.                                                                                                                                              |
+| `showsLibrarySection`  | Booléen                                | Si défini sur `false`, la fonctionnalité Bibliothèque de règles est masquée et la section est remplacée par un message d'erreur "Restreint par votre organisation.".                                                                                                                                                                                               |
+| `fallback`             | [Secours](#fallback-object)            | Spécifiez ceci lorsque les configurations dépassent les limites de charge utile MDM. L'application récupérera le JSON/XML à partir de cette URL pour appliquer la configuration.                                                                                                                                                                                   |
 
 Ces clés sont toutes facultatives.
 
-### [Objet] Ensemble de règles {#rule-set-object}
+### [Objet] Ensemble de règles {/* #rule-set-object */}
 
 Chaque objet de règle a le même format que celui que vous pouvez [partager/exporter via l'application](export-or-import-rules), mais vous devez le convertir de JSON en plist, comme ceci :
 
@@ -94,11 +94,11 @@ Chaque objet de règle a le même format que celui que vous pouvez [partager/exp
 ...
 ```
 
-### [Objet] Secours {#fallback-object}
+### [Objet] Secours {/* #fallback-object */}
 
-| Nom de la clé | Type | Description |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | Chaîne (URL) | Une URL de point de terminaison d'un fichier JSON/XML contenant des ensembles de règles.                                                                                     |
+| Nom de la clé     | Type         | Description                                                                                                                                                        |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `fallbackDataURL` | Chaîne (URL) | Une URL de point de terminaison d'un fichier JSON/XML contenant des ensembles de règles.                                                                           |
 | `authToken`       | Chaîne       | Un jeton d'authentification ajouté à l'en-tête HTTP lors de la récupération à partir de l' `fallbackDataURL`. (Utilisé comme `Authorization: Bearer [authToken]`). |
 
 ## Évaluation des règles et résolution des conflits

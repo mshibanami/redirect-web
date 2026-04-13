@@ -4,7 +4,7 @@ See leht pakub üksikasjalikku teavet iga seade kohta RedirectWeb rakenduse *Edi
 
 ## Valikud
 
-### Tüüp {#type}
+### Tüüp {/* #type */}
 
 Määrake suvand **Tüüp**, et määrata, kuidas rakendus ümbersuunamist käsitleb. Valida saate järgmiste vahel:
 
@@ -20,7 +20,7 @@ Määrake suvand **Tüüp**, et määrata, kuidas rakendus ümbersuunamist käsi
     * ⚠️ Safaris ei saa praegu oma regulaaravaldise mustrisse lisada püstkriipse (`|`). [Detailid](https://github.com/mshibanami/redirect-web/issues/44)
     * ⚠️ Kuna Safari DNR API-l on endiselt probleeme, peame seda Safari jaoks eksperimentaalseks funktsiooniks. Kõik teadaolevad probleemid leiate [siit](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Ümbersuunamine aadressilt {#redirect-from}
+### Ümbersuunamine aadressilt {/* #redirect-from */}
 
 Suvand **Ümbersuunamine aadressilt** võimaldab teil määrata URL-mustri veebilehtede jaoks, mida soovite ümber suunata. Valida saab kas [metamärgi](#url-pattern-wildcard) või [regulaaravaldise](#url-pattern-regular-expression) vahel.
 
@@ -29,7 +29,7 @@ Näiteks kui määrate metamärgiga `https://example.com/*`, siis see vastab aad
 > [!NOTE]
 > Suvandis Ümbersuunamine aadressile saate viidata kogu vastele kasutades `$0` või osalistele vastetele kasutades `$1`, `$2`, ... Vaadake üksikasju selle lehe jaotisest [URL-muster](#url-pattern).
 
-#### Ressursitüübid {#resource-types}
+#### Ressursitüübid {/* #resource-types */}
 
 ![Toetatud tüübid: DNR](https://img.shields.io/badge/Tüübid-DNR-blue)
 
@@ -43,7 +43,7 @@ Vaikeseade on `main_frame`, ki on vahelehele laaditud kõrgeima taseme leht.
 
 Palun kontrollige iga ressursitüübi üksikasju [MDN veebidokumentatsioonist](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Päringumeetodid {#request-methods}
+#### Päringumeetodid {/* #request-methods */}
 
 ![Toetatud tüübid: DNR](https://img.shields.io/badge/Tüübid-DNR-blue)
 
@@ -56,7 +56,7 @@ Palun kontrollige iga meetodi üksikasju [MDN veebidokumentatsioonist](https://d
 > [!WARNING]
 > Safaris ei pruugi see suvand saadaval olla, kuna Apple'i DNR-tüübi rakendus ei näi seda praegu käitlevat. Saatsime Apple'ile tagasiside numbriga FB14502272.
 
-#### Sihtbrauserid {#target-browsers}
+#### Sihtbrauserid {/* #target-browsers */}
 
 ![Toetatud platvormid: macOS](https://img.shields.io/badge/Platvormid-macOS-white)
 
@@ -70,7 +70,7 @@ Suvand **Sihtbrauserid** võimaldab teil määrata, millise brauseri puhul tulek
 > [!WARNING]
 > RedirectWeb ei suuda eristada, kas brauser on **Safari** või **Safari Technology Preview**, kuna rakendus kontrollib selle tuvastamiseks laienduse ülemprotsessi, kuid need kaks brauserit jagavad sama ülemprotsessi (`/sbin/launchd`).
 
-### Ümbersuunamine aadressile {#redirect-to}
+### Ümbersuunamine aadressile {/* #redirect-to */}
 
 Suvand **Ümbersuunamine aadressile** määrab sihtkoha URL-i, kuhu soovite suunata suvandiga *Ümbersuunamine aadressilt* vastavusse viidud algsest URL-ist. Samuti saate asendada haaramisgruppe tähistega `$1`, `$2`, ... või kogu vastet tähisega `$0`. Need aitavad teil sihtkohta dünaamiliselt määrata. Vaadake üksikasju selle lehe jaotisest [URL-muster](#url-pattern).
 
@@ -93,7 +93,7 @@ Lisaks saate muuta `$1`, `$2`, ... tekste enne asenduste tegemist. Üksikasju va
 > * Notion: `notion://www.notion.so/Sinu_Note_ID`
 > * Slack: `slack://open`
 
-#### Rakendus {#application}
+#### Rakendus {/* #application */}
 
 ![Toetatud tüübid: Algne](https://img.shields.io/badge/Tüübid-Algne-blue) ![Toetatud platvormid: macOS](https://img.shields.io/badge/Platvormid-macOS-white)
 
@@ -102,7 +102,7 @@ Kui soovite määrata rakenduse, millega soovid sihtkoha URL-i avada, kasutage v
 > [!WARNING]
 > Saate avada ainult rakenduse, mis toetab [App Sandboxi](https://developer.apple.com/documentation/security/app_sandbox). Samuti veenduge, et rakendus toetaks URL-i avamist, mida soovite avada.
 
-### Haaramisgruppide töötlemine {#capturing-group-processing}
+### Haaramisgruppide töötlemine {/* #capturing-group-processing */}
 
 ![Toetatud tüübid: Algne](https://img.shields.io/badge/Tüübid-Algne-blue)
 
@@ -131,7 +131,7 @@ Saate valida ühe või mitu järgmistest protsessidest:
 >
 > Selles olukorras ei välistata aadressi `https://example.com/hello_world`, samas kui `https://example.com/hello` välistatakse.
 
-### Välistatud URL-mustrid {#excluded-url-patterns}
+### Välistatud URL-mustrid {/* #excluded-url-patterns */}
 
 ![Toetatud tüübid: Algne](https://img.shields.io/badge/Tüübid-Algne-blue)
 
@@ -139,17 +139,17 @@ Suvand **Välistatud URL-mustrid** võimaldab teil määrata URL-id, mida ei suu
 
 Välistatud URL-mustreid saate määrata, kasutades kas regulaaravaldise või metamärgi mustritüüpide abil.
 
-### Näited {#examples}
+### Näited {/* #examples */}
 
 Suvand **Näited** võimaldab teil testida oma ümbersuunamisreeglit, esitades näidis-URL-e. Lisades näidis-URL-i, saate kontrollida, kas reegel töötab ootuspäraselt, enne selle tegelikku rakendamist.
 
-### Advanced {#advanced-options}
+### Advanced {/* #advanced-options */}
 
 * **[DNR] Põhiraami ümbersuunamine**: See suvand on saadaval ainult DNR-tüübi jaoks. See võimaldab teil määrata, kuidas käidelda ressursitüübi `main_frame` ümbersuunamist. Saadaval on järgmised valikud:
     * **Toores** (Raw): Suunab põhiraami määratud URL-ile ilma muudatusteta.
     * **Vahelehe kaudu** (Via Intermediate Page): Suunab põhiraami vahelehele, mis seejärel suunab määratud sihtkoha URL-ile. See on kasulik rakenduste avamiseks süvaviidete abil, kuna vaheleht saab käsitleda keerukamat ümbersuunamisloogikat.
 
-### Kommentaarid {#comments}
+### Kommentaarid {/* #comments */}
 
 Suvand **Kommentaarid** võimaldab teil lisada märkmeid või kommentaare oma ümbersuunamisreegli kohta. See võib olla kasulik meeldetuletuseks, miks te konkreetse reegli lõite, või konteksti pakkumiseks teistele, kes võivad teie reegleid vaadata võivad.
 
@@ -159,11 +159,11 @@ Saate kirjutada kommentaare järgmistes vormingutes:
 * **Markdown**: Saate kasutada [GitHubi Markdowni süntaksit](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), sealhulgas mõningaid laiendusi, mida GFM ei toeta. Näiteks saate luua pealkirju, loendeid, linke ja palju muud.
 * **AsciiDoc**: Kommentaaride vormindamiseks saate kasutada [AsciiDoc-i süntaksit](https://asciidoc.org/).
 
-## URL-muster {#url-pattern}
+## URL-muster {/* #url-pattern */}
 
 **URL-mustreid** kasutatakse URL-ide sobitamiseks suvandites *Ümbersuunamine aadressilt*, *Välistatud URL-mustrid* ja *Haaramisgruppide töötlemine*. Nende määramiseks saate valida kas **metamärgi** või **regulaaravaldise**.
 
-### Metamärk {#url-pattern-wildcard}
+### Metamärk {/* #url-pattern-wildcard */}
 
 **Metamärk** on lihtsam mustritüüp, mis võimaldab teil kasutada metamärkidena tähiseid `*` (vastab kõigele) ja `?` (vastab mis tahes üksikule märgile). Siin on mõned näited:
 
@@ -176,7 +176,7 @@ Metamärkide puhul saate kasutada ka asendust, mis tähendab, et saate viidata s
 > [!NOTE]
 > Kuigi asendus on regulaaravaldise funktsioon, saate seda kasutada ka metamärkide puhul, kuna RedirectWeb teisendab metamärgid siseselt regulaaravaldisteks.
 
-### Regulaaravaldis {#url-pattern-regular-expression}
+### Regulaaravaldis {/* #url-pattern-regular-expression */}
 
 **Regulaaravaldis** (Regex) on võimas tööriist mustrite sobitamiseks tekstis ja seda kasutatakse laialdaselt ka programmeerimises. See võimaldab teil määratleda konkreetse mustri, mis sobitub teatud sõnede hulgaga. Siin on mõned näited.
 

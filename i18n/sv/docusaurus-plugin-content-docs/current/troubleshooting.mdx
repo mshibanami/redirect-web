@@ -12,7 +12,7 @@ Den här sidan listar vanliga problem och deras lösningar när du använder Red
 
 <TOCInline toc={toc} />
 
-## Omdirigeringsregler fungerar inte {#rules-not-working}
+## Omdirigeringsregler fungerar inte {/* #rules-not-working */}
 
 Om dina regler inte fungerar som förväntat, kontrollera följande:
 
@@ -22,7 +22,7 @@ Om dina regler inte fungerar som förväntat, kontrollera följande:
 - **Regelkonfigurationen är korrekt:** Dubbelkolla dina omdirigeringsregler i RedirectWeb-nativeappen. Säkerställ att käll-URL-mönstren, måladresserna och eventuella villkor är korrekt inställda. För att kontrollera om din regel är giltig eller inte, mata in ett exempel-URL i avsnittet Examples i redigeringsskärmen för regeln. Om regeln är giltig kommer du att se den förväntade destinationsadressen under din inmatning, så här:
     <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
 
-## Tilläggets popup visar ett fel {#error-shown-in-extension-popup}
+## Tilläggets popup visar ett fel {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="RedirectWeb error overlay" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Du kan också behöva starta om din webbläsare efter att ha installerat native-
 > * Du måste installera RedirectWeb-nativeappen för att använda webbläsartillägget. Tillägget i sig fungerar inte.
 > * Safari-användare behöver inte installera tillägget separat, eftersom det ingår i native-appen.
 
-## Den ursprungliga sidan blinkar kort innan omdirigering {#original-page-flash}
+## Den ursprungliga sidan blinkar kort innan omdirigering {/* #original-page-flash */}
 
 Detta händer när du använder omdirigeringar av typen **Original**. Denna typ erbjuder olika avancerade funktioner, men kan orsaka en kort blinkning av den ursprungliga sidan eftersom den kan tillåta att den ursprungliga sidan laddas innan omdirigeringen utförs.
 
@@ -50,7 +50,7 @@ Detta händer när du använder omdirigeringar av typen **Original**. Denna typ 
 > [!NOTE]
 > I Firefox bör detta inte uppstå även med typen Original, eftersom den förlitar sig på WebRequest API som förhindrar att den ursprungliga sidan laddas.
 
-## Fel visas i Safaris inställningsfönster {#safari-style-loading-errors}
+## Fel visas i Safaris inställningsfönster {/* #safari-style-loading-errors */}
 
 Du kan se felmeddelanden i Safaris inställningsfönster som följande:
 

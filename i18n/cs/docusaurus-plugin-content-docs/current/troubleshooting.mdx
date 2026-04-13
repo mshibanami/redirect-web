@@ -12,7 +12,7 @@ Tato stránka uvádí běžné problémy a jejich řešení při používání R
 
 <TOCInline toc={toc} />
 
-## Přesměrovací pravidla nefungují {#rules-not-working}
+## Přesměrovací pravidla nefungují {/* #rules-not-working */}
 
 Pokud vaše pravidla nefungují podle očekávání, zkontrolujte prosím následující:
 
@@ -22,7 +22,7 @@ Pokud vaše pravidla nefungují podle očekávání, zkontrolujte prosím násle
 - **Konfigurace pravidla je správná:** Pečlivě zkontrolujte svá přesměrovací pravidla v nativní aplikaci RedirectWeb. Ujistěte se, že vzory zdrojových URL, cílové URL a případné podmínky jsou správně nastavené. Chcete‑li ověřit, zda je pravidlo platné, zadejte příklad URL do sekce Examples na obrazovce Úpravy pravidla. Pokud je pravidlo platné, u svého vstupu uvidíte očekávanou cílovou URL, například takto:
     <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
 
-## Vyskakovací okno rozšíření zobrazuje chybu {#error-shown-in-extension-popup}
+## Vyskakovací okno rozšíření zobrazuje chybu {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="RedirectWeb error overlay" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Možná bude také třeba po instalaci nativní aplikace znovu spustit prohlíž
 > * K používání rozšíření prohlížeče je potřeba nainstalovat nativní aplikaci RedirectWeb. Pouze rozšíření bez aplikace nebude fungovat.
 > * Uživatelé Safari nemusí rozšíření instalovat samostatně, protože je součástí nativní aplikace.
 
-## Původní stránka se krátce zobrazí před přesměrováním {#original-page-flash}
+## Původní stránka se krátce zobrazí před přesměrováním {/* #original-page-flash */}
 
 K tomu dochází, pokud používáte přesměrovací pravidla typu **Original**. Tento typ nabízí různé pokročilé funkce, ale může způsobit krátké zobrazení původní stránky, protože může povolit načtení původní stránky před provedením přesměrování.
 
@@ -50,7 +50,7 @@ Otevřete obrazovku Úpravy pravidla a změňte **Type** na **DNR**, abyste se t
 > [!NOTE]
 > Ve Firefoxu by k tomuto problému nemělo docházet ani při typu Original, protože používá API WebRequest, které zabraňuje načtení původní stránky.
 
-## V Safari se v okně Nastavení zobrazují chyby {#safari-style-loading-errors}
+## V Safari se v okně Nastavení zobrazují chyby {/* #safari-style-loading-errors */}
 
 V okně Nastavení Safari se mohou zobrazit chybové zprávy podobné následujícím:
 

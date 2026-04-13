@@ -45,18 +45,18 @@ Videos kasutati konfiguratsiooni juurutamiseks ManageEngine'i MDM-i, kuid sama k
 
 Juurutage järgmised hallatava rakenduse konfiguratsiooni võtmed ja väärtused oma MDM-konsooli kaudu, tavaliselt plist-vormingus.
 
-| Võtme nimi             | Tüüp                         | Kirjeldus                                                                                                                                                                                                                                                                     |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Reeglistik](#rule-set-object) | **[Sunnitud reeglid]** Reeglistik, mida rakendatakse kõrgema prioriteediga kui tavalisi reegleid. Nimekirja esimesel reeglil on eelisõigus. Kasutajad ei saa neid reegleid muuta, kustutada ega ümber järjestada. Need on alati aktiivsed, eirates rakenduse üldist väljalülitamise lülitit, ja neid ei sünkroonita iCloudi kaudu. |
-| `prefilledRuleSet`     | [Reeglistik](#rule-set-object) | **[Esialgsed reeglid]** Reeglistik, mis luuakse vaikimisi näidisreegli asemel, kui kasutaja käivitab rakenduse esimest korda ilma olemasolevate reegliteta. Pärast jaotamist toimivad need tavaliste reeglitena, võimaldades kasutajal neid muuta, kustutada ja iCloudi kaudu sünkroonida.                       |
-| `organizationName`     | String                       | Kuvab rakendusesiseste seadete ekraani ülaosas teksti "Haldab [organizationName]", andes kasutajale märku, et rakendus on hallatav.                                                                                                                                            |
-| `managedConfigVersion` | String                       | Suvaline konfiguratsiooni versiooni string. Kuvatakse kasutajaliideses, võimaldades IT-toel tõrkeotsingu ajal kontrollida, kas viimane MDM-i andmepakett on seadmesse jõudnud.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | Kui seade on `false`, on reeglite teegi (Rule Library) funktsioon peidetud ja sektsioon asendatud veateatega "Teie organisatsioon on piiranud juurdepääsu".                                                                                                                                   |
-| `fallback`             | [Asenduslahendus](#fallback-object) | Määratlege see siis, kui konfiguratsioonid ületavad MDM-i andmemahu piiranguid. Rakendus hangib konfiguratsiooni rakendamiseks sellest URL-ist JSON/XML-i.                                                                                                                                     |
+| Võtme nimi             | Tüüp                                | Kirjeldus                                                                                                                                                                                                                                                                                                                          |
+| ---------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Reeglistik](#rule-set-object)      | **[Sunnitud reeglid]** Reeglistik, mida rakendatakse kõrgema prioriteediga kui tavalisi reegleid. Nimekirja esimesel reeglil on eelisõigus. Kasutajad ei saa neid reegleid muuta, kustutada ega ümber järjestada. Need on alati aktiivsed, eirates rakenduse üldist väljalülitamise lülitit, ja neid ei sünkroonita iCloudi kaudu. |
+| `prefilledRuleSet`     | [Reeglistik](#rule-set-object)      | **[Esialgsed reeglid]** Reeglistik, mis luuakse vaikimisi näidisreegli asemel, kui kasutaja käivitab rakenduse esimest korda ilma olemasolevate reegliteta. Pärast jaotamist toimivad need tavaliste reeglitena, võimaldades kasutajal neid muuta, kustutada ja iCloudi kaudu sünkroonida.                                         |
+| `organizationName`     | String                              | Kuvab rakendusesiseste seadete ekraani ülaosas teksti "Haldab [organizationName]", andes kasutajale märku, et rakendus on hallatav.                                                                                                                                                                                                |
+| `managedConfigVersion` | String                              | Suvaline konfiguratsiooni versiooni string. Kuvatakse kasutajaliideses, võimaldades IT-toel tõrkeotsingu ajal kontrollida, kas viimane MDM-i andmepakett on seadmesse jõudnud.                                                                                                                                                     |
+| `showsLibrarySection`  | Boolean                             | Kui seade on `false`, on reeglite teegi (Rule Library) funktsioon peidetud ja sektsioon asendatud veateatega "Teie organisatsioon on piiranud juurdepääsu".                                                                                                                                                                        |
+| `fallback`             | [Asenduslahendus](#fallback-object) | Määratlege see siis, kui konfiguratsioonid ületavad MDM-i andmemahu piiranguid. Rakendus hangib konfiguratsiooni rakendamiseks sellest URL-ist JSON/XML-i.                                                                                                                                                                         |
 
 Kõik need võtmed on valikulised.
 
-### [Objekt] Reeglistik {#rule-set-object}
+### [Objekt] Reeglistik {/* #rule-set-object */}
 
 Igal reegliobjektil on sama vorming, mida saate [rakenduse kaudu jagada/eksportida](export-or-import-rules), kuid peate selle JSON-ist plist-vormingusse teisendama, näiteks nii:
 
@@ -94,11 +94,11 @@ Igal reegliobjektil on sama vorming, mida saate [rakenduse kaudu jagada/eksporti
 ...
 ```
 
-### [Objekt] Asenduslahendus (Fallback) {#fallback-object}
+### [Objekt] Asenduslahendus (Fallback) {/* #fallback-object */}
 
-| Võtme nimi        | Tüüp         | Kirjeldus                                                                                                                                    |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | JSON/XML-faili lõpp-punkti URL, mis sisaldab reeglistikke.                                                                                     |
+| Võtme nimi        | Tüüp         | Kirjeldus                                                                                                                                            |
+| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | JSON/XML-faili lõpp-punkti URL, mis sisaldab reeglistikke.                                                                                           |
 | `authToken`       | String       | Autentimistõend, mis lisatakse HTTP-päisesse, kui andmeid hangitakse `fallbackDataURL`-ist. (Kasutatakse kujul `Authorization: Bearer [authToken]`). |
 
 ## Reeglite hindamine ja konfliktide lahendamine

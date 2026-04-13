@@ -4,7 +4,7 @@ Tällä sivulla on yksityiskohtaista tietoa jokaisesta asetuksesta RedirectWeb-s
 
 ## Valinnat
 
-### Tyyppi {#type}
+### Tyyppi {/* #type */}
 
 Määritä **Tyyppi**-valinta hallitaksesi sitä, miten sovellus käsittelee uudelleenohjausta. Voit valita seuraavista:
 
@@ -20,7 +20,7 @@ Määritä **Tyyppi**-valinta hallitaksesi sitä, miten sovellus käsittelee uud
     * ⚠️ Safarissa säännöllisen lausekkeen (Regular Expression) kuvio ei tällä hetkellä voi sisältää putkimerkkejä (`|`). [Lisätietoja](https://github.com/mshibanami/redirect-web/issues/44)
     * ⚠️ Koska Safarin DNR-rajapinnassa on edelleen joitakin ongelmia, pidämme sitä edelleen kokeellisena ominaisuutena Safarille. Löydät listan kaikista tunnetuista ongelmista [täältä](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Uudelleenohjaa kohteesta {#redirect-from}
+### Uudelleenohjaa kohteesta {/* #redirect-from */}
 
 **Uudelleenohjaa kohteesta** -valinnan avulla voit määrittää niiden verkkosivujen URL-mallin, joilta haluat uudelleenohjata. Voit valita joko [Jokerimerkin](#url-pattern-wildcard) tai [Säännöllisen lausekkeen](#url-pattern-regular-expression).
 
@@ -29,7 +29,7 @@ Esimerkiksi, jos määrität Jokerimerkillä `https://example.com/*`, se vastaa 
 > [!NOTE]
 > **Uudelleenohjaa kohteeseen** -valinnassa voit viitata koko osumaan käyttämällä `$0` tai osittaisiin osumiin käyttämällä `$1`, `$2`, ... Katso yksityiskohdat tämän sivun kohdasta [URL-malli](#url-pattern).
 
-#### Resurssityypit {#resource-types}
+#### Resurssityypit {/* #resource-types */}
 
 ![Tuetut tyypit: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -43,7 +43,7 @@ Oletusasetus on `main_frame`, joka on välilehdelle ladattu ylimmän tason sivu.
 
 Tarkista kunkin resurssityypin yksityiskohdat [MDN-dokumentaatiosta](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Pyyntömenetelmät {#request-methods}
+#### Pyyntömenetelmät {/* #request-methods */}
 
 ![Tuetut tyypit: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,7 +56,7 @@ Tarkista kunkin menetelmän yksityiskohdat [MDN-dokumentaatiosta](https://develo
 > [!WARNING]
 > Safarissa tämä valinta ei välttämättä ole käytettävissä, koska Applen DNR-tyypin toteutus ei näytä tällä hetkellä käsittelevän sitä. Olemme lähettäneet tästä palautetta Applelle (tunnus FB14502272).
 
-#### Kohdeselaimet {#target-browsers}
+#### Kohdeselaimet {/* #target-browsers */}
 
 ![Tuetut alustat: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -70,7 +70,7 @@ Tarkista kunkin menetelmän yksityiskohdat [MDN-dokumentaatiosta](https://develo
 > [!WARNING]
 > RedirectWeb ei pysty erottamaan, onko selain **Safari** vai **Safari Technology Preview**, koska sovellus tarkistaa laajennuksen emoprosessin tunnistaakseen sen, mutta nämä kaksi selainta jakavat saman emoprosessin (`/sbin/launchd`).
 
-### Uudelleenohjaa kohteeseen {#redirect-to}
+### Uudelleenohjaa kohteeseen {/* #redirect-to */}
 
 **Uudelleenohjaa kohteeseen** -valinta määrittää kohde-URL-osoitteen, johon haluat uudelleenohjata *Uudelleenohjaa kohteesta* -valinnalla täsmätystä lähde-URL-osoitteesta. Voit myös korvata sieppausryhmiä tunnuksilla `$1`, `$2`, ... tai koko osuman tunnuksella `$0`. Nämä auttavat sinua määrittämään kohteen dynaamisesti. Katso yksityiskohdat tämän sivun kohdasta [URL-malli](#url-pattern).
 
@@ -93,7 +93,7 @@ Lisäksi voit muokata tunnusten `$1`, `$2`, ... tekstejä ennen korvauksia. Kats
 > * Notion: `notion://www.notion.so/Your_Note_ID`
 > * Slack: `slack://open`
 
-#### Sovellus {#application}
+#### Sovellus {/* #application */}
 
 ![Tuetut tyypit: Alkuperäinen](https://img.shields.io/badge/Types-Original-blue) ![Tuetut alustat: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,7 +102,7 @@ Jos haluat määrittää sovelluksen, jolla haluat avata kohde-URL-osoitteen, k�
 > [!WARNING]
 > Voit avata vain sovelluksen, joka tukee [App Sandboxia](https://developer.apple.com/documentation/security/app_sandbox). Varmista myös, että sovellus tukee haluamasi URL-osoitteen avaamista.
 
-### Sieppausryhmien käsittely {#capturing-group-processing}
+### Sieppausryhmien käsittely {/* #capturing-group-processing */}
 
 ![Tuetut tyypit: Alkuperäinen](https://img.shields.io/badge/Types-Original-blue)
 
@@ -131,7 +131,7 @@ Voit valita yhden tai useamman seuraavista käsittelyistä:
 >
 > Tässä tapauksessa `https://example.com/hello_world` ei ole poissuljettu, kun taas `https://example.com/hello` on poissuljettu.
 
-### Poissuljetut URL-mallit {#excluded-url-patterns}
+### Poissuljetut URL-mallit {/* #excluded-url-patterns */}
 
 ![Tuetut tyypit: Alkuperäinen](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,17 +139,17 @@ Voit valita yhden tai useamman seuraavista käsittelyistä:
 
 Voit määrittää poissuljetut URL-mallit käyttämällä joko säännöllistä lauseketta tai jokerimerkkimallia.
 
-### Esimerkit {#examples}
+### Esimerkit {/* #examples */}
 
 **Esimerkit**-valinnan avulla voit testata uudelleenohjaussääntöäsi antamalla esimerkkiosoitteita. Lisäämällä esimerkkiosoitteen voit tarkistaa, toimiiko sääntö odotetulla tavalla ennen sen varsinaista käyttöönottoa.
 
-### Lisäasetukset {#advanced-options}
+### Lisäasetukset {/* #advanced-options */}
 
 * **[DNR] Pääkehyksen uudelleenohjaus**: Tämä valinta on käytettävissä vain DNR-tyypille. Sen avulla voit määrittää, miten käsitellään `main_frame`-resurssityypin uudelleenohjausta. Saatavilla olevat valinnat ovat:
     * **Raaka**: Ohjaa pääkehyksen määritettyyn URL-osoitteeseen ilman muutoksia.
     * **Välisivun kautta**: Ohjaa pääkehyksen välisivulle, joka ohjaa sitten määritettyyn kohde-URL-osoitteeseen. Tämä on hyödyllistä sovellusten avaamiseen syvälinkityksen avulla, koska välisivu voi käsitellä monimutkaisempaa uudelleenohjauslogiikkaa.
 
-### Kommentit {#comments}
+### Kommentit {/* #comments */}
 
 **Kommentit**-valinnan avulla voit lisätä huomautuksia tai kommentteja uudelleenohjaussäännöstäsi. Tämä voi olla hyödyllistä sen seuraamiseksi, miksi loit tietyn säännön, tai taustatiedon antamiseksi muille, jotka saattavat tarkastella sääntöjäsi.
 
@@ -159,11 +159,11 @@ Voit kirjoittaa kommentteja seuraavissa muodoissa:
 * **Markdown**: Voit käyttää [GitHubin Markdown-syntakseja](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), mukaan lukien joitakin laajennuksia, joita GFM ei tue. Voit esimerkiksi luoda otsikoita, luetteloita, linkkejä ja muuta.
 * **AsciiDoc**: Voit käyttää [AsciiDoc-syntakseja](https://asciidoc.org/) kommenttiesi muotoiluun.
 
-## URL-malli {#url-pattern}
+## URL-malli {/* #url-pattern */}
 
 **URL-malleja** käytetään URL-osoitteiden täsmäämiseen *Uudelleenohjaa kohteesta*-, *Poissuljetut URL-mallit*- ja *Sieppausryhmien käsittely* -valinnoissa. Voit määrittää ne valitsemalla joko **Jokerimerkin** tai **Säännöllisen lausekkeen**.
 
-### Jokerimerkki {#url-pattern-wildcard}
+### Jokerimerkki {/* #url-pattern-wildcard */}
 
 **Jokerimerkki** on yksinkertaisempi mallityyppi, jonka avulla voit käyttää merkkejä `*` (vastaa mitä tahansa) ja `?` (vastaa mitä tahansa yksittäistä merkkiä) jokerimerkkeinä. Tässä on joitakin esimerkkejä:
 
@@ -176,7 +176,7 @@ Voit käyttää korvaamista myös jokerimerkkien kanssa, mikä tarkoittaa, että
 > [!NOTE]
 > Vaikka korvaaminen on säännöllisten lausekkeiden ominaisuus, voit käyttää sitä myös jokerimerkkien kanssa, koska RedirectWeb muuntaa jokerimerkit sisäisesti säännöllisiksi lausekkeiksi.
 
-### Säännöllinen lauseke {#url-pattern-regular-expression}
+### Säännöllinen lauseke {/* #url-pattern-regular-expression */}
 
 **Säännöllinen lauseke** (Regex) on tehokas työkalu tekstin kuvioiden täsmäämiseen, ja sitä käytetään laajasti myös ohjelmoinnissa. Sen avulla voit määritellä tietyn kuvion, joka vastaa joukkoa merkkijonoja. Tässä on joitakin esimerkkejä.
 

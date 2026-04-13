@@ -12,7 +12,7 @@ Esta página lista problemas comuns e as suas soluções ao usar o RedirectWeb.
 
 <TOCInline toc={toc} />
 
-## As regras de redirecionamento não estão a funcionar {#rules-not-working}
+## As regras de redirecionamento não estão a funcionar {/* #rules-not-working */}
 
 Se as suas regras não estiverem a funcionar como esperado, verifique o seguinte:
 
@@ -22,7 +22,7 @@ Se as suas regras não estiverem a funcionar como esperado, verifique o seguinte
 - **A configuração da regra está correta:** Verifique novamente as suas regras de redirecionamento na aplicação nativa RedirectWeb. Assegure-se de que os padrões de URL de origem, as URLs de destino e quaisquer condições estão definidos corretamente. Para verificar se a sua regra é válida, introduza um URL de exemplo na secção Examples no ecrã Edit Rule. Se a sua regra for válida, verá a URL de destino esperada abaixo do seu input, como neste exemplo:
     <Image src={RuleEditExampleResult} alt="Exemplo do ecrã de edição de regras mostrando o resultado de um URL de exemplo" width="260" hasShadow/>
 
-## O popup da extensão apresenta um erro {#error-shown-in-extension-popup}
+## O popup da extensão apresenta um erro {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="sobreposição de erro do RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Pode também ser necessário reiniciar o seu browser após instalar a aplicaçã
 > * É necessário instalar a aplicação nativa RedirectWeb para usar a extensão do navegador. A extensão sozinha não funciona.
 > * Os utilizadores do Safari não precisam de instalar a extensão separadamente, uma vez que ela vem incluída com a aplicação nativa.
 
-## A página original pisca brevemente antes do redirecionamento {#original-page-flash}
+## A página original pisca brevemente antes do redirecionamento {/* #original-page-flash */}
 
 Isto acontece quando usa regras de redirecionamento do tipo **Original**. Este tipo oferece várias funcionalidades avançadas, mas pode causar um breve flash da página original porque pode permitir que a página original seja carregada antes de efetuar o redirecionamento.
 
@@ -50,7 +50,7 @@ Abra o ecrã Edit Rule e altere o **Type** para **DNR** para evitar este problem
 > [!NOTE]
 > No Firefox, este problema não deverá ocorrer mesmo com o tipo Original, pois depende da API WebRequest, que impede que a página original seja carregada.
 
-## Erros são exibidos na janela de Definições do Safari {#safari-style-loading-errors}
+## Erros são exibidos na janela de Definições do Safari {/* #safari-style-loading-errors */}
 
 Pode ver mensagens de erro na janela de Definições do Safari como as seguintes:
 

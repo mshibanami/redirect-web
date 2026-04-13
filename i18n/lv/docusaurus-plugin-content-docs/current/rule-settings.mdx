@@ -4,7 +4,7 @@
 
 ## Iespējas
 
-### Tips {#type}
+### Tips {/* #type */}
 
 Norādiet opciju **Tips**, lai kontrolētu, kā lietotne apstrādā pāradresāciju. Varat izvēlēties kādu no šiem:
 
@@ -20,7 +20,7 @@ Norādiet opciju **Tips**, lai kontrolētu, kā lietotne apstrādā pāradresāc
     * ⚠️ Safari pārlūkā pašlaik savā regulārās izteiksmes (Regular Expression) paraugā nevar iekļaut caurules (`|`). [Sīkāka informācija](https://github.com/mshibanami/redirect-web/issues/44)
     * ⚠️ Tā kā Safari DNR API joprojām ir dažas problēmas, mēs uzskatām, ka tā joprojām ir eksperimentāla funkcija Safari pārlūkam. Visu zināmo problēmu sarakstu varat atrast [šeit](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Pāradresēt no {#redirect-from}
+### Pāradresēt no {/* #redirect-from */}
 
 Opcija **Pāradresēt no** ļauj norādīt tīmekļa lapu URL paraugu, no kurām vēlaties pāradresēt. Varat izvēlēties vai nu [Wildcard](#url-pattern-wildcard), vai [Regular Expression](#url-pattern-regular-expression).
 
@@ -29,7 +29,7 @@ Piemēram, ja norādāt `https://example.com/*` ar Wildcard, tas atbilst `https:
 > [!NOTE]
 > Opcijā Pāradresēt uz varat atsaukties uz visu atbilstību, izmantojot `$0`, vai daļējām atbilstībām, izmantojot `$1`, `$2`, ... Skatiet sīkāku informāciju sadaļā [URL paraugs](#url-pattern) šajā lapā.
 
-#### Resursu tipi {#resource-types}
+#### Resursu tipi {/* #resource-types */}
 
 ![Atbalstītie tipi: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -43,7 +43,7 @@ Noklusējuma iestatījums ir `main_frame`, kas ir augstākā līmeņa lapa, kas 
 
 Lūdzu, pārbaudiet katra resursa tipa informāciju [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Pieprasījuma metodes {#request-methods}
+#### Pieprasījuma metodes {/* #request-methods */}
 
 ![Atbalstītie tipi: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,7 +56,7 @@ Lūdzu, pārbaudiet katras metodes informāciju [mdn web docs](https://developer
 > [!WARNING]
 > Safari pārlūkā šī opcija var nebūt pieejama, jo Apple DNR tipa implementācija to pašlaik neapstrādā. Mēs nosūtījām atsauksmi Apple kā FB14502272.
 
-#### Mērķa pārlūkprogrammas {#target-browsers}
+#### Mērķa pārlūkprogrammas {/* #target-browsers */}
 
 ![Atbalstītās platformas: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -70,7 +70,7 @@ Opcija **Mērķa pārlūkprogrammas** ļauj norādīt, kurai pārlūkprogrammai 
 > [!WARNING]
 > RedirectWeb nevar atšķirt, vai pārlūkprogramma ir **Safari** vai **Safari Technology Preview**, jo lietotne pārbauda paplašinājuma vecāku procesu, lai to noteiktu, taču šīm divām pārlūkprogrammām ir viens un tas pats vecāku process (`/sbin/launchd`).
 
-### Pāradresēt uz {#redirect-to}
+### Pāradresēt uz {/* #redirect-to */}
 
 Opcija **Pāradresēt uz** norāda galamērķa URL, uz kuru vēlaties pāradresēt no avota URL, kas atbilst opcijai *Pāradresēt no*. Varat arī aizstāt tveršanas grupas ar `$1`, `$2`, ... vai visu atbilstību ar `$0`. Tie palīdz dinamiski norādīt galamērķi. Skatiet sīkāku informāciju sadaļā [URL paraugs](#url-pattern) šajā lapā.
 
@@ -93,7 +93,7 @@ Turklāt pirms aizstāšanas varat modificēt `$1`, `$2`, ... tekstus. Sīkāku 
 > * Notion: `notion://www.notion.so/Your_Note_ID`
 > * Slack: `slack://open`
 
-#### Lietojumprogramma {#application}
+#### Lietojumprogramma {/* #application */}
 
 ![Atbalstītie tipi: Original](https://img.shields.io/badge/Types-Original-blue) ![Atbalstītās platformas: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,7 +102,7 @@ Ja vēlaties norādīt lietotni, ar kuru vēlaties atvērt galamērķa URL, izma
 > [!WARNING]
 > Varat atvērt tikai tādu lietotni, kas atbalsta [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Tāpat pārliecinieties, vai lietotne atbalsta tā URL atvēršanu, kuru vēlaties atvērt.
 
-### Tveršanas grupu apstrāde {#capturing-group-processing}
+### Tveršanas grupu apstrāde {/* #capturing-group-processing */}
 
 ![Atbalstītie tipi: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -131,7 +131,7 @@ Varat izvēlēties vienu vai vairākus no šiem procesiem:
 >
 > Šajā gadījumā `https://example.com/hello_world` netiks izslēgts, savukārt `https://example.com/hello` tiks izslēgts.
 
-### Izslēgtie URL paraugi {#excluded-url-patterns}
+### Izslēgtie URL paraugi {/* #excluded-url-patterns */}
 
 ![Atbalstītie tipi: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,17 +139,17 @@ Opcija **Izslēgtie URL paraugi** ļauj norādīt URL, kas netiek pāradresēti.
 
 Varat norādīt izslēgtos URL paraugus, izmantojot Regular Expression vai Wildcard paraugu veidus.
 
-### Piemēri {#examples}
+### Piemēri {/* #examples */}
 
 Opcija **Piemēri** ļauj pārbaudīt pāradresācijas noteikumu, norādot parauga URL. Pievienojot parauga URL, varat pārbaudīt, vai noteikums darbojas, kā paredzēts, pirms tā faktiskās piemērošanas.
 
-### Papildu {#advanced-options}
+### Papildu {/* #advanced-options */}
 
 * **[DNR] Galvenā rāmja pāradresācija**: Šī opcija ir pieejama tikai DNR tipam. Tā ļauj norādīt, kā apstrādāt pāradresāciju `main_frame` resursa tipam. Pieejamās opcijas ir:
     * **Raw**: Pāradresē galveno rāmi uz norādīto URL bez jebkādām modifikācijām.
     * **Via Intermediate Page**: Pāradresē galveno rāmi uz starplapu, kas pēc tam pāradresē uz norādīto galamērāa URL. Tas ir noderīgi lietotņu atvēršanai, izmantojot dziļās saites, jo starplapa var apstrādāt sarežģītāku pāradresācijas loģiku.
 
-### Komentāri {#comments}
+### Komentāri {/* #comments */}
 
 Opcija **Komentāri** ļauj pievienot jebkādas piezīmes vai komentārus par pāradresācijas noteikumu. Tas var būt noderīgi, lai sekotu līdzi tam, kāpēc izveidojāt konkrētu noteikumu, vai sniegtu kontekstu citiem, kuri varētu skatīt jūsu noteikumus.
 
@@ -159,11 +159,11 @@ Komentārus var rakstīt šādos formātos:
 * **Markdown**: Varat izmantot [GitHub Markdown sintakses](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), tostarp dažus paplašinājumus, kurus GFM neatbalsta. Piemēram, varat izveidot virsrakstus, sarakstus, saites un daudz ko citu.
 * **AsciiDoc**: Varat izmantot [AsciiDoc sintakses](https://asciidoc.org/), lai formatētu komentārus.
 
-## URL paraugs {#url-pattern}
+## URL paraugs {/* #url-pattern */}
 
 **URL paraugi** tiek izmantoti, lai saskaņotu URL opcijās *Pāradresēt no*, *Izslēgtie URL paraugi* un *Tveršanas grupu apstrāde*. Lai tos norādītu, varat izvēlēties **Wildcard** vai **Regular Expression**.
 
-### Wildcard {#url-pattern-wildcard}
+### Wildcard {/* #url-pattern-wildcard */}
 
 **Wildcard** is a simpler pattern type that allows you to use `*` (matches anything) and `?`  (matches any single character) as wildcards. Here are some examples:
 
@@ -176,7 +176,7 @@ Varat arī izmantot aizstāšanu arī Wildcard, kas nozīmē, ka varat atsauktie
 > [!NOTE]
 > Lai gan aizstāšana ir Regular Expression funkcija, varat to izmantot arī Wildcard, jo RedirectWeb iekšēji pārvērš Wildcard par Regular Expression.
 
-### Regular Expression {#url-pattern-regular-expression}
+### Regular Expression {/* #url-pattern-regular-expression */}
 
 **Regular Expression** (Regex) ir spēcīgs rīks rakstu saskaņošanai tekstā, un tas tiek plaši izmantots programmēšanā. Tas ļauj definēt konkrētu paraugu, kas atbilst virkņu kopai. Šeit ir daži piemēri.
 

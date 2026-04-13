@@ -45,18 +45,18 @@ In de video werd het MDM van ManageEngine gebruikt om de configuratie te impleme
 
 Implementeer de volgende sleutels en waarden voor Managed App Configuration via uw MDM-console, doorgaans in het plist-formaat.
 
-| Sleutelnaam            | Type                         | Beschrijving                                                                                                                                                                                                                                                                  |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sleutelnaam            | Type                         | Beschrijving                                                                                                                                                                                                                                                                                                                                         |
+| ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Regelset](#rule-set-object) | **[Afgedwongen regels]** Een regelset toegepast met een hogere prioriteit dan normale regels. De eerste regel in de lijst heeft voorrang. Gebruikers kunnen deze regels niet bewerken, verwijderen of van volgorde veranderen. Ze zijn altijd actief, negeren de globale uitschakelschakelaar van de app en worden niet gesynchroniseerd via iCloud. |
-| `prefilledRuleSet`     | [Regelset](#rule-set-object) | **[Initiële regels]** Een regelset die wordt gemaakt in plaats van de standaard voorbeeldregel wanneer een gebruiker de app voor het eerst start zonder bestaande regels. Eenmaal gedistribueerd, fungeren deze als normale regels, waardoor gebruikerswijziging, verwijdering en iCloud-synchronisatie mogelijk zijn.                       |
-| `organizationName`     | String                       | Geeft "Beheerd door [organizationName]" weer bovenaan het instellingenscherm in de app, wat de gebruiker aangeeft dat de app wordt beheerd.                                                                                                                                            |
-| `managedConfigVersion` | String                       | Een willekeurige versiestring voor de configuratie. Weergegeven in de UI, waardoor IT-ondersteuning bij het oplossen van problemen kan controleren of de nieuwste MDM-payload het apparaat heeft bereikt.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | Indien ingesteld op `false`, wordt de functie Regelbibliotheek verborgen en wordt de sectie vervangen door de foutmelding "Beperkt door uw organisatie."                                                                                                                                   |
-| `fallback`             | [Terugval](#fallback-object) | Geef dit op wanneer de configuraties de MDM-payloadlimieten overschrijden. De app haalt JSON/XML op van deze URL om de configuratie toe te passen.                                                                                                                                     |
+| `prefilledRuleSet`     | [Regelset](#rule-set-object) | **[Initiële regels]** Een regelset die wordt gemaakt in plaats van de standaard voorbeeldregel wanneer een gebruiker de app voor het eerst start zonder bestaande regels. Eenmaal gedistribueerd, fungeren deze als normale regels, waardoor gebruikerswijziging, verwijdering en iCloud-synchronisatie mogelijk zijn.                               |
+| `organizationName`     | String                       | Geeft "Beheerd door [organizationName]" weer bovenaan het instellingenscherm in de app, wat de gebruiker aangeeft dat de app wordt beheerd.                                                                                                                                                                                                          |
+| `managedConfigVersion` | String                       | Een willekeurige versiestring voor de configuratie. Weergegeven in de UI, waardoor IT-ondersteuning bij het oplossen van problemen kan controleren of de nieuwste MDM-payload het apparaat heeft bereikt.                                                                                                                                            |
+| `showsLibrarySection`  | Boolean                      | Indien ingesteld op `false`, wordt de functie Regelbibliotheek verborgen en wordt de sectie vervangen door de foutmelding "Beperkt door uw organisatie."                                                                                                                                                                                             |
+| `fallback`             | [Terugval](#fallback-object) | Geef dit op wanneer de configuraties de MDM-payloadlimieten overschrijden. De app haalt JSON/XML op van deze URL om de configuratie toe te passen.                                                                                                                                                                                                   |
 
 Deze sleutels zijn allemaal optioneel.
 
-### [Object] Regelset {#rule-set-object}
+### [Object] Regelset {/* #rule-set-object */}
 
 Elk regelobject heeft hetzelfde formaat als het object dat u kunt [delen/exporteren via de app](export-or-import-rules), maar u moet het converteren van JSON naar plist, zoals dit:
 
@@ -94,11 +94,11 @@ Elk regelobject heeft hetzelfde formaat als het object dat u kunt [delen/exporte
 ...
 ```
 
-### [Object] Terugval {#fallback-object}
+### [Object] Terugval {/* #fallback-object */}
 
-| Sleutelnaam       | Type         | Beschrijving                                                                                                                                 |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | Een eindpunt-URL van een JSON/XML-bestand met regelsets.                                                                                     |
+| Sleutelnaam       | Type         | Beschrijving                                                                                                                                                 |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `fallbackDataURL` | String (URL) | Een eindpunt-URL van een JSON/XML-bestand met regelsets.                                                                                                     |
 | `authToken`       | String       | Een authenticatietoken dat aan de HTTP-header wordt toegevoegd bij het ophalen van de `fallbackDataURL`. (Gebruikt als `Authorization: Bearer [authToken]`). |
 
 ## Regelevaluatie en conflictbeheersing

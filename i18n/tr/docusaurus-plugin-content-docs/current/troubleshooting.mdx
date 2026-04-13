@@ -12,7 +12,7 @@ Bu sayfa RedirectWeb kullanırken karşılaşılan yaygın sorunları ve çözü
 
 <TOCInline toc={toc} />
 
-## Yönlendirme kuralları çalışmıyor {#rules-not-working}
+## Yönlendirme kuralları çalışmıyor {/* #rules-not-working */}
 
 Kurallarınız beklediğiniz gibi çalışmıyorsa lütfen aşağıdakileri kontrol edin:
 
@@ -22,7 +22,7 @@ Kurallarınız beklediğiniz gibi çalışmıyorsa lütfen aşağıdakileri kont
 - **Kural yapılandırmasının doğru olduğundan emin olun:** RedirectWeb native uygulamasındaki yönlendirme kurallarınızı tekrar kontrol edin. Kaynak URL desenlerinin, hedef URL'lerin ve varsa koşulların doğru ayarlandığından emin olun. Kuralınızın geçerli olup olmadığını kontrol etmek için Edit Rule ekranındaki Examples bölümüne örnek bir URL girin. Kural geçerliyse, girişinizin altında beklenen hedef URL'yi şu şekilde görürsünüz:
     <Image src={RuleEditExampleResult} alt="Kural düzenleme ekranında örnek URL sonucunu gösteren görüntü" width="260" hasShadow/>
 
-## Uzantının açılır penceresinde hata gösteriliyor {#error-shown-in-extension-popup}
+## Uzantının açılır penceresinde hata gösteriliyor {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="RedirectWeb hata uyarısı" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Native uygulamayı yükledikten sonra tarayıcınızı yeniden başlatmanız ger
 > * Tarayıcı uzantısını kullanmak için RedirectWeb native uygulamasını yüklemeniz gerekir. Sadece uzantı tek başına çalışmaz.
 > * Safari kullanıcılarının uzantıyı ayrı olarak yüklemesine gerek yoktur; uzantı native uygulama ile birlikte gelir.
 
-## Orijinal sayfa yönlendirme öncesi kısa süre görünür {#original-page-flash}
+## Orijinal sayfa yönlendirme öncesi kısa süre görünür {/* #original-page-flash */}
 
 Bu durum **Original** türündeki yönlendirme kurallarını kullandığınızda oluşur. Bu tür çeşitli gelişmiş özellikler sağlar, ancak yönlendirmeyi gerçekleştirmeden önce orijinal sayfanın yüklenmesine izin verebileceği için orijinal sayfanın kısa bir süreliğine görüntülenmesine neden olabilir.
 
@@ -50,7 +50,7 @@ Bu sorunu önlemek için Edit Rule ekranını açın ve **Type**'ı **DNR** olar
 > [!NOTE]
 > Firefox'ta, Original türü kullanılsa bile bu sorun oluşmamalıdır; çünkü Firefox WebRequest API'sine dayanır ve bu API orijinal sayfanın yüklenmesini engeller.
 
-## Safari'nin Ayarlar penceresinde hatalar gösteriliyor {#safari-style-loading-errors}
+## Safari'nin Ayarlar penceresinde hatalar gösteriliyor {/* #safari-style-loading-errors */}
 
 Safari Ayarlar penceresinde aşağıdaki gibi hata mesajları görebilirsiniz:
 

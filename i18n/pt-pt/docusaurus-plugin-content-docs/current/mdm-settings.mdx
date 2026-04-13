@@ -45,18 +45,18 @@ No vídeo, foi utilizado o MDM da ManageEngine para implementar a configuração
 
 Implemente as seguintes chaves e valores para a Configuração de Aplicações Geridas através da sua consola de MDM, normalmente no formato plist.
 
-| Nome da Chave          | Tipo                         | Descrição                                                                                                                                                                                                                                                                                             |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nome da Chave          | Tipo                                   | Descrição                                                                                                                                                                                                                                                                                                        |
+| ---------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Conjunto de regras](#rule-set-object) | **[Regras Forçadas]** Um conjunto de regras aplicado com prioridade superior às regras normais. A primeira regra da lista tem precedência. Os utilizadores não podem editar, eliminar ou reordenar estas regras. Estão sempre ativas, ignorando o interruptor global da aplicação, e não sincronizam via iCloud. |
 | `prefilledRuleSet`     | [Conjunto de regras](#rule-set-object) | **[Regras Iniciais]** Um conjunto de regras criado em vez da regra de exemplo padrão quando um utilizador lança a aplicação pela primeira vez sem regras existentes. Uma vez distribuídas, estas funcionam como regras normais, permitindo a modificação, eliminação e sincronização via iCloud pelo utilizador. |
-| `organizationName`     | String                       | Apresenta "Gerido por [organizationName]" no topo do ecrã de definições da aplicação, indicando ao utilizador que a aplicação é gerida.                                                                                                                                                               |
-| `managedConfigVersion` | String                       | Uma string de versão arbitrária para a configuração. Apresentada na interface, permitindo que o suporte de TI verifique se o payload de MDM mais recente chegou ao dispositivo durante a resolução de problemas.                                                                                      |
-| `showsLibrarySection`  | Boolean                      | Se definido como `false`, a funcionalidade de Biblioteca de Regras é ocultada e a secção é substituída por uma mensagem de erro "Restrito pela sua organização.".                                                                                                                                     |
-| `fallback`             | [Fallback](#fallback-object) | Especifique isto quando as configurações excederem os limites de payload do MDM. A aplicação irá obter o JSON/XML deste URL para aplicar a configuração.                                                                                                                                              |
+| `organizationName`     | String                                 | Apresenta "Gerido por [organizationName]" no topo do ecrã de definições da aplicação, indicando ao utilizador que a aplicação é gerida.                                                                                                                                                                          |
+| `managedConfigVersion` | String                                 | Uma string de versão arbitrária para a configuração. Apresentada na interface, permitindo que o suporte de TI verifique se o payload de MDM mais recente chegou ao dispositivo durante a resolução de problemas.                                                                                                 |
+| `showsLibrarySection`  | Boolean                                | Se definido como `false`, a funcionalidade de Biblioteca de Regras é ocultada e a secção é substituída por uma mensagem de erro "Restrito pela sua organização.".                                                                                                                                                |
+| `fallback`             | [Fallback](#fallback-object)           | Especifique isto quando as configurações excederem os limites de payload do MDM. A aplicação irá obter o JSON/XML deste URL para aplicar a configuração.                                                                                                                                                         |
 
 Estas chaves são todas opcionais.
 
-### [Objeto] Conjunto de Regras {#rule-set-object}
+### [Objeto] Conjunto de Regras {/* #rule-set-object */}
 
 Cada objeto de regra tem o mesmo formato que o que pode [partilhar/exportar através da aplicação](export-or-import-rules), mas precisa de o converter de JSON para plist, desta forma:
 
@@ -94,11 +94,11 @@ Cada objeto de regra tem o mesmo formato que o que pode [partilhar/exportar atra
 ...
 ```
 
-### [Objeto] Fallback {#fallback-object}
+### [Objeto] Fallback {/* #fallback-object */}
 
-| Nome da Chave     | Tipo         | Descrição                                                                                                                                           |
-| ----------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | Um URL de endpoint de um ficheiro JSON/XML que contém conjuntos de regras.                                                                          |
+| Nome da Chave     | Tipo         | Descrição                                                                                                                                     |
+| ----------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Um URL de endpoint de um ficheiro JSON/XML que contém conjuntos de regras.                                                                    |
 | `authToken`       | String       | Um token de autenticação anexado ao cabeçalho HTTP ao obter dados do `fallbackDataURL`. (Utilizado como `Authorization: Bearer [authToken]`). |
 
 ## Avaliação de Regras e Resolução de Conflitos

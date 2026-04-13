@@ -4,7 +4,7 @@ Bu sayfa, RedirectWeb uygulamasındaki *Kuralı Düzenle* ekranındaki her bir a
 
 ## Seçenekler
 
-### Tür {#type}
+### Tür {/* #type */}
 
 Uygulamanın yönlendirmeyi nasıl yöneteceğini kontrol etmek için **Tür** seçeneğini belirtin. Şunlar arasından seçim yapabilirsiniz:
 
@@ -20,7 +20,7 @@ Uygulamanın yönlendirmeyi nasıl yöneteceğini kontrol etmek için **Tür** s
     * ⚠️ Safari'de, şu anda Düzenli İfade (Regular Expression) kalıbınıza dik çizgi (`|`) ekleyemezsiniz. [Ayrıntılar](https://github.com/mshibanami/redirect-web/issues/44)
     * ⚠️ Safari'nin DNR API'sinin hala bazı sorunları olduğu için bunu Safari için hala deneysel bir özellik olarak görüyoruz. Bilinen tüm sorunların listesini [burada](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari) bulabilirsiniz.
 
-### Yönlendirme Kaynağı {#redirect-from}
+### Yönlendirme Kaynağı {/* #redirect-from */}
 
 **Yönlendirme Kaynağı** seçeneği, yönlendirmek istediğiniz web sayfalarının bir URL kalıbını belirtmenize olanak tanır. [Joker Karakter (Wildcard)](#url-pattern-wildcard) veya [Düzenli İfade (Regular Expression)](#url-pattern-regular-expression) seçebilirsiniz.
 
@@ -29,7 +29,7 @@ Uygulamanın yönlendirmeyi nasıl yöneteceğini kontrol etmek için **Tür** s
 > [!NOTE]
 > Yönlendirme Hedefi seçeneğinde, eşleşmenin tamamına `$0` kullanarak veya kısmi eşleşmelere `$1`, `$2`, ... kullanarak atıfta bulunabilirsiniz. Bu sayfadaki [URL Kalıbı](#url-pattern) kısmındaki ayrıntıları kontrol edin.
 
-#### Kaynak Türleri {#resource-types}
+#### Kaynak Türleri {/* #resource-types */}
 
 ![Desteklenen Türler: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -43,7 +43,7 @@ Varsayılan ayar, bir sekmeye yüklenen en üst düzey sayfa olan `main_frame`'d
 
 Lütfen her kaynak türünün ayrıntılarını [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType) sayfasından kontrol edin.
 
-#### İstek Yöntemleri {#request-methods}
+#### İstek Yöntemleri {/* #request-methods */}
 
 ![Desteklenen Türler: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,7 +56,7 @@ Lütfen her yöntemin ayrıntılarını [mdn web docs](https://developer.mozilla
 > [!WARNING]
 > Safari'de Apple'ın DNR türü uygulaması şu anda bunu yönetmiyor gibi göründüğü için bu seçenek mevcut olmayabilir. Apple'a FB14502272 olarak geri bildirim gönderdik.
 
-#### Hedef Tarayıcılar {#target-browsers}
+#### Hedef Tarayıcılar {/* #target-browsers */}
 
 ![Desteklenen Platformlar: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -70,7 +70,7 @@ Lütfen her yöntemin ayrıntılarını [mdn web docs](https://developer.mozilla
 > [!WARNING]
 > RedirectWeb, tarayıcının **Safari** mi yoksa **Safari Technology Preview** mi olduğunu ayırt edemez çünkü uygulama bunu tespit etmek için uzantının üst sürecini kontrol eder ancak bu iki tarayıcı aynı üst süreci (`/sbin/launchd`) paylaşır.
 
-### Yönlendirme Hedefi {#redirect-to}
+### Yönlendirme Hedefi {/* #redirect-to */}
 
 **Yönlendirme Hedefi** seçeneği, *Yönlendirme Kaynağı* seçeneğiyle eşleşen kaynak URL'den yönlendirmek istediğiniz bir hedef URL'yi belirtir. Ayrıca yakalama gruplarını `$1`, `$2`, ... ile veya eşleşmenin tamamını `$0` ile değiştirebilirsiniz. Bunlar hedefi dinamik olarak belirtmenize yardımcı olur. Bu sayfadaki [URL Kalıbı](#url-pattern) kısmındaki ayrıntıları kontrol edin.
 
@@ -93,7 +93,7 @@ Ek olarak, değiştirmeleri yapmadan önce `$1`, `$2`, ... metinlerini değişti
 > * Notion: `notion://www.notion.so/Your_Note_ID`
 > * Slack: `slack://open`
 
-#### Uygulama {#application}
+#### Uygulama {/* #application */}
 
 ![Desteklenen Türler: Original](https://img.shields.io/badge/Types-Original-blue) ![Desteklenen Platformlar: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,7 +102,7 @@ Hedef URL'yi açmak istediğiniz bir uygulamayı belirtmek istiyorsanız, **Uygu
 > [!WARNING]
 > Yalnızca [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox) destekleyen bir uygulama açabilirsiniz. Ayrıca, uygulamanın açmak istediğiniz URL'yi açmayı desteklediğinden emin olun.
 
-### Yakalama Grubu İşleme {#capturing-group-processing}
+### Yakalama Grubu İşleme {/* #capturing-group-processing */}
 
 ![Desteklenen Türler: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -131,7 +131,7 @@ Aşağıdaki işlemlerden birini veya daha fazlasını seçebilirsiniz:
 >
 > Bu durumda, `https://example.com/hello_world` hariç tutulmazken `https://example.com/hello` hariç tutulacaktır.
 
-### Hariç Tutulan URL Kalıpları {#excluded-url-patterns}
+### Hariç Tutulan URL Kalıpları {/* #excluded-url-patterns */}
 
 ![Desteklenen Türler: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,17 +139,17 @@ Aşağıdaki işlemlerden birini veya daha fazlasını seçebilirsiniz:
 
 Düzenli İfade veya Joker Karakter kalıp türlerini kullanarak hariç tutulan URL kalıplarını belirtebilirsiniz.
 
-### Örnekler {#examples}
+### Örnekler {/* #examples */}
 
 **Örnekler** seçeneği, örnek URL'ler sağlayarak yönlendirme kuralınızı test etmenize olanak tanır. Bir örnek URL ekleyerek, kuralı gerçekten uygulamadan önce beklendiği gibi çalışıp çalışmadığını kontrol edebilirsiniz.
 
-### Gelişmiş {#advanced-options}
+### Gelişmiş {/* #advanced-options */}
 
 * **[DNR] Ana Çerçeve Yönlendirmesi (Main Frame Redirection)**: Bu seçenek yalnızca DNR türü için kullanılabilir. `main_frame` kaynak türü için yönlendirmenin nasıl yönetileceğini belirtmenize olanak tanır. Mevcut seçenekler şunlardır:
     * **Raw (Ham)**: Ana çerçeveyi herhangi bir değişiklik yapmadan belirtilen URL'ye yönlendirir.
     * **Via Intermediate Page (Ara Sayfa Üzerinden)**: Ana çerçeveyi bir ara sayfaya yönlendirir, o sayfa da ardından belirtilen hedef URL'ye yönlendirir. Bu, derin bağlantı kullanan uygulamaları açmak için yararlıdır çünkü ara sayfa daha karmaşık yönlendirme mantığını yönetebilir.
 
-### Yorumlar {#comments}
+### Yorumlar {/* #comments */}
 
 **Yorumlar** seçeneği, yönlendirme kuralınız hakkında herhangi bir not veya yorum eklemenize olanak tanır. Bu, belirli bir kuralı neden oluşturduğunuzu takip etmek veya kurallarınızı görüntüleyebilecek başkaları için bağlam sağlamak için yararlı olabilir.
 
@@ -159,11 +159,11 @@ Yorumları aşağıdaki formatlarda yazabilirsiniz:
 * **Markdown**: GFM'nin desteklemediği bazı uzantılar da dahil olmak üzere [GitHub'ın Markdown sözdizimlerini](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) kullanabilirsiniz. Örneğin başlıklar, listeler, bağlantılar ve daha fazlasını oluşturabilirsiniz.
 * **AsciiDoc**: Yorumlarınızı biçimlendirmek için [AsciiDoc sözdizimlerini](https://asciidoc.org/) kullanabilirsiniz.
 
-## URL Kalıbı {#url-pattern}
+## URL Kalıbı {/* #url-pattern */}
 
 **URL kalıpları**, *Yönlendirme Kaynağı*, *Hariç Tutulan URL Kalıpları* ve *Yakalama Grubu İşleme* seçeneklerinde URL'leri eşleştirmek için kullanılır. Bunları belirtmek için **Joker Karakter (Wildcard)** veya **Düzenli İfade (Regular Expression)** seçebilirsiniz.
 
-### Joker Karakter (Wildcard) {#url-pattern-wildcard}
+### Joker Karakter (Wildcard) {/* #url-pattern-wildcard */}
 
 **Joker Karakter (Wildcard)**, joker karakter olarak `*` (herhangi bir şeyle eşleşir) ve `?` (tek bir karakterle eşleşir) kullanmanıza olanak tanıyan daha basit bir kalıp türüdür. İşte bazı örnekler:
 
@@ -176,7 +176,7 @@ Joker Karakter'de de değiştirme (substitution) kullanabilirsiniz, yani `$1`, `
 > [!NOTE]
 > Değiştirme (substitution) Düzenli İfade'nin bir özelliği olsa da, RedirectWeb Joker Karakter'i dahili olarak Düzenli İfade'ye dönüştürdüğü için bunu Joker Karakter için de kullanabilirsiniz.
 
-### Düzenli İfade (Regular Expression) {#url-pattern-regular-expression}
+### Düzenli İfade (Regular Expression) {/* #url-pattern-regular-expression */}
 
 **Düzenli İfade (Regular Expression)** (Regex), metindeki kalıpları eşleştirmek için güçlü bir araçtır ve programlamada da yaygın olarak kullanılır. Bir dizi dizeyle eşleşen belirli bir kalıp tanımlamanıza olanak tanır. İşte bazı örnekler.
 

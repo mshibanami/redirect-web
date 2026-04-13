@@ -45,18 +45,18 @@ No vídeo, o MDM da ManageEngine foi usado para implantar a configuração, mas 
 
 Implante as seguintes chaves e valores para a Configuração de Aplicativos Gerenciados por meio do console do seu MDM, normalmente no formato plist.
 
-| Nome da Chave          | Tipo                         | Descrição                                                                                                                                                                                                                                                                                                                    |
-| ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nome da Chave          | Tipo                                   | Descrição                                                                                                                                                                                                                                                                                                                       |
+| ---------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Conjunto de regras](#rule-set-object) | **[Regras Forçadas]** Um conjunto de regras aplicado com prioridade mais alta do que as regras normais. A primeira regra da lista tem precedência. Os usuários não podem editar, excluir ou reordenar essas regras. Elas estão sempre ativas, ignorando o interruptor global do aplicativo, e não são sincronizadas via iCloud. |
-| `prefilledRuleSet`     | [Conjunto de regras](#rule-set-object) | **[Regras Iniciais]** Um conjunto de regras criado no lugar da regra de exemplo padrão quando um usuário abre o aplicativo pela primeira vez sem regras existentes. Uma vez distribuídas, elas funcionam como regras normais, permitindo modificação pelo usuário, exclusão e sincronização via iCloud.                       |
-| `organizationName`     | String                       | Exibe "Gerenciado por [organizationName]" na parte superior da tela de configurações no aplicativo, indicando ao usuário que o aplicativo é gerenciado.                                                                                                                                                                      |
-| `managedConfigVersion` | String                       | Uma string de versão arbitrária para a configuração. Exibida na UI, permitindo que o suporte de TI verifique se a carga útil mais recente do MDM chegou ao dispositivo ao solucionar problemas.                                                                                                                               |
-| `showsLibrarySection`  | Boolean                      | Se definido como `false`, o recurso Biblioteca de Regras é ocultado e a seção é substituída por uma mensagem de erro "Restrito pela sua organização.".                                                                                                                                                                       |
-| `fallback`             | [Fallback](#fallback-object) | Especifique isso quando as configurações excederem os limites de carga útil do MDM. O aplicativo buscará o JSON/XML desta URL para aplicar a configuração.                                                                                                                                                                   |
+| `prefilledRuleSet`     | [Conjunto de regras](#rule-set-object) | **[Regras Iniciais]** Um conjunto de regras criado no lugar da regra de exemplo padrão quando um usuário abre o aplicativo pela primeira vez sem regras existentes. Uma vez distribuídas, elas funcionam como regras normais, permitindo modificação pelo usuário, exclusão e sincronização via iCloud.                         |
+| `organizationName`     | String                                 | Exibe "Gerenciado por [organizationName]" na parte superior da tela de configurações no aplicativo, indicando ao usuário que o aplicativo é gerenciado.                                                                                                                                                                         |
+| `managedConfigVersion` | String                                 | Uma string de versão arbitrária para a configuração. Exibida na UI, permitindo que o suporte de TI verifique se a carga útil mais recente do MDM chegou ao dispositivo ao solucionar problemas.                                                                                                                                 |
+| `showsLibrarySection`  | Boolean                                | Se definido como `false`, o recurso Biblioteca de Regras é ocultado e a seção é substituída por uma mensagem de erro "Restrito pela sua organização.".                                                                                                                                                                          |
+| `fallback`             | [Fallback](#fallback-object)           | Especifique isso quando as configurações excederem os limites de carga útil do MDM. O aplicativo buscará o JSON/XML desta URL para aplicar a configuração.                                                                                                                                                                      |
 
 Essas chaves são todas opcionais.
 
-### [Objeto] Conjunto de Regras {#rule-set-object}
+### [Objeto] Conjunto de Regras {/* #rule-set-object */}
 
 Cada objeto de regra tem o mesmo formato daquele que você pode [compartilhar/exportar pelo aplicativo](export-or-import-rules), mas você precisa convertê-lo de JSON para plist, assim:
 
@@ -94,11 +94,11 @@ Cada objeto de regra tem o mesmo formato daquele que você pode [compartilhar/ex
 ...
 ```
 
-### [Objeto] Fallback {#fallback-object}
+### [Objeto] Fallback {/* #fallback-object */}
 
-| Nome da Chave     | Tipo         | Descrição                                                                                                                                                 |
-| ----------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | Uma URL de endpoint de um arquivo JSON/XML contendo conjuntos de regras.                                                                                  |
+| Nome da Chave     | Tipo         | Descrição                                                                                                                            |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `fallbackDataURL` | String (URL) | Uma URL de endpoint de um arquivo JSON/XML contendo conjuntos de regras.                                                             |
 | `authToken`       | String       | Um token de autenticação anexado ao cabeçalho HTTP ao buscar da `fallbackDataURL`. (Usado como `Authorization: Bearer [authToken]`). |
 
 ## Avaliação de Regras e Resolução de Conflitos

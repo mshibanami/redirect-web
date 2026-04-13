@@ -12,7 +12,7 @@ Halaman ini mencantumkan masalah umum dan solusinya saat menggunakan RedirectWeb
 
 <TOCInline toc={toc} />
 
-## Aturan pengalihan tidak berfungsi {#rules-not-working}
+## Aturan pengalihan tidak berfungsi {/* #rules-not-working */}
 
 Jika aturan Anda tidak berfungsi seperti yang diharapkan, periksa hal berikut:
 
@@ -22,7 +22,7 @@ Jika aturan Anda tidak berfungsi seperti yang diharapkan, periksa hal berikut:
 - **Konfigurasi aturan benar:** Periksa kembali aturan pengalihan Anda di aplikasi native RedirectWeb. Pastikan pola URL sumber, URL tujuan, dan kondisi apa pun telah dikonfigurasi dengan benar. Untuk memeriksa apakah aturan Anda valid, masukkan contoh URL di bagian Examples pada layar Edit Rule. Jika aturan valid, Anda akan melihat URL tujuan yang diharapkan di bawah input Anda, seperti ini:
     <Image src={RuleEditExampleResult} alt="Contoh layar edit aturan yang menunjukkan hasil dari URL contoh" width="260" hasShadow/>
 
-## Popup ekstensi menampilkan kesalahan {#error-shown-in-extension-popup}
+## Popup ekstensi menampilkan kesalahan {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="Overlay kesalahan RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Anda mungkin perlu meluncurkan ulang browser setelah menginstal aplikasi native.
 > * Anda perlu menginstal aplikasi native RedirectWeb untuk menggunakan ekstensi browser. Ekstensi saja tidak cukup.
 > * Pengguna Safari tidak perlu menginstal ekstensi secara terpisah, karena sudah disertakan dengan aplikasi native.
 
-## Halaman asli berkedip sebentar sebelum pengalihan {#original-page-flash}
+## Halaman asli berkedip sebentar sebelum pengalihan {/* #original-page-flash */}
 
 Ini terjadi ketika Anda menggunakan aturan pengalihan bertipe **Original**. Tipe ini menyediakan berbagai fitur lanjutan, tetapi dapat menyebabkan tampilan singkat halaman asli karena memungkinkan halaman asli dimuat sebelum pengalihan dilakukan.
 
@@ -50,7 +50,7 @@ Buka layar Edit Rule dan ubah **Type** menjadi **DNR** untuk menghindari masalah
 > [!NOTE]
 > Di Firefox, masalah ini seharusnya tidak terjadi bahkan dengan tipe Original, karena bergantung pada WebRequest API yang mencegah halaman asli dimuat.
 
-## Kesalahan muncul di jendela Pengaturan Safari {#safari-style-loading-errors}
+## Kesalahan muncul di jendela Pengaturan Safari {/* #safari-style-loading-errors */}
 
 Anda mungkin melihat pesan kesalahan di jendela Pengaturan Safari seperti berikut:
 

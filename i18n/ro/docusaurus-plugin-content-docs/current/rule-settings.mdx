@@ -4,7 +4,7 @@ Această pagină oferă informații detaliate despre fiecare setare din ecranul 
 
 ## Opțiuni
 
-### Tip {#type}
+### Tip {/* #type */}
 
 Specificați opțiunea **Tip** pentru a controla modul în care aplicația gestionează redirecționarea. Puteți alege dintre acestea:
 
@@ -20,7 +20,7 @@ Specificați opțiunea **Tip** pentru a controla modul în care aplicația gesti
     * ⚠️ În Safari, în prezent nu puteți include pipe-uri (`|`) în modelul dumneavoastră de Expresie Regulată. [Detalii](https://github.com/mshibanami/redirect-web/issues/44)
     * ⚠️ Deoarece API-ul DNR din Safari are încă unele probleme, considerăm că aceasta este încă o funcție experimentală pentru Safari. Puteți găsi lista tuturor problemelor cunoscute [aici](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Redirecționare De La {#redirect-from}
+### Redirecționare De La {/* #redirect-from */}
 
 Opțiunea **Redirecționare De La** vă permite să specificați un model URL al paginilor web de la care doriți să redirecționați. Puteți alege fie [Wildcard](#url-pattern-wildcard), fie [Expresie Regulată](#url-pattern-regular-expression).
 
@@ -29,7 +29,7 @@ De exemplu, dacă specificați `https://example.com/*` cu Wildcard, se potriveș
 > [!NOTE]
 > În opțiunea Redirecționare Către, puteți face referire la întreaga potrivire folosind `$0` sau la potriviri parțiale folosind `$1`, `$2`, ... Verificați detaliile în [Model URL](#url-pattern) pe această pagină.
 
-#### Tipuri de Resurse {#resource-types}
+#### Tipuri de Resurse {/* #resource-types */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -43,7 +43,7 @@ Setarea implicită este `main_frame`, care este pagina de nivel superior încăr
 
 Vă rugăm să verificați detaliile fiecărui tip de resursă în [documentația mdn web](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Metode de Cerere {#request-methods}
+#### Metode de Cerere {/* #request-methods */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,7 +56,7 @@ Vă rugăm să verificați detaliile fiecărei metode în [documentația mdn web
 > [!WARNING]
 > În Safari, această opțiune s-ar putea să nu fie disponibilă deoarece implementarea Apple pentru tipul DNR nu pare să o gestioneze în prezent. Am trimis feedback către Apple sub numărul FB14502272.
 
-#### Browsere Țintă {#target-browsers}
+#### Browsere Țintă {/* #target-browsers */}
 
 ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -70,7 +70,7 @@ Opțiunea **Browsere Țintă** vă permite să specificați cărui browser ar tr
 > [!WARNING]
 > RedirectWeb nu poate diferenția dacă browserul este **Safari** sau **Safari Technology Preview** deoarece aplicația verifică procesul părinte al extensiei pentru a-l detecta, dar aceste două browsere partajează același proces părinte (`/sbin/launchd`).
 
-### Redirecționare Către {#redirect-to}
+### Redirecționare Către {/* #redirect-to */}
 
 Opțiunea **Redirecționare Către** specifică un URL de destinație către care doriți să redirecționați, de la URL-ul sursă potrivit cu opțiunea *Redirecționare De La*. De asemenea, puteți înlocui grupurile de capturare cu `$1`, `$2`, ... sau întreaga potrivire cu `$0`. Acestea vă ajută să specificați dinamic destinația. Verificați detaliile în [Model URL](#url-pattern) din această pagină.
 
@@ -93,7 +93,7 @@ De exemplu, dacă setați următoarea regulă:
 > * Notion: `notion://www.notion.so/Your_Note_ID`
 > * Slack: `slack://open`
 
-#### Aplicație {#application}
+#### Aplicație {/* #application */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,7 +102,7 @@ Dacă doriți să specificați o aplicație cu care doriți să deschideți URL-
 > [!WARNING]
 > Puteți deschide doar o aplicație care suportă [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). De asemenea, asigurați-vă că aplicația suportă deschiderea URL-ului pe care doriți să îl deschideți.
 
-### Procesarea Grupurilor de Capturare {#capturing-group-processing}
+### Procesarea Grupurilor de Capturare {/* #capturing-group-processing */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -131,7 +131,7 @@ Puteți alege unul sau mai multe dintre următoarele procese:
 >
 > În acest caz, `https://example.com/hello_world` nu va fi exclus, în timp ce `https://example.com/hello` va fi exclus.
 
-### Modele URL Excluse {#excluded-url-patterns}
+### Modele URL Excluse {/* #excluded-url-patterns */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,17 +139,17 @@ Opțiunea **Modele URL Excluse** vă permite să specificați URL-urile care nu 
 
 Puteți specifica modele URL excluse folosind tipurile de modele Expresie Regulată sau Wildcard.
 
-### Exemple {#examples}
+### Exemple {/* #examples */}
 
 Opțiunea **Exemple** vă permite să vă testați regula de redirecționare furnizând exemple de URL-uri. Adăugând un URL de exemplu, puteți verifica dacă regula funcționează conform așteptărilor înainte de a o aplica efectiv.
 
-### Avansat {#advanced-options}
+### Avansat {/* #advanced-options */}
 
 * **[DNR] Redirecționare Cadru Principal**: Această opțiune este disponibilă numai pentru tipul DNR. Vă permite să specificați modul de gestionare a redirecționării pentru tipul de resursă `main_frame`. Opțiunile disponibile sunt:
     * **Raw**: Redirecționează cadrul principal către URL-ul specificat fără nicio modificare.
     * **Prin Pagină Intermediară**: Redirecționează cadrul principal către o pagină intermediară, care apoi redirecționează către URL-ul de destinație specificat. Acest lucru este util pentru deschiderea aplicațiilor folosind deep linking, deoarece pagina intermediară poate gestiona o logică de redirecționare mai complexă.
 
-### Comentarii {#comments}
+### Comentarii {/* #comments */}
 
 Opțiunea **Comentarii** vă permite să adăugați orice note sau comentarii despre regula dumneavoastră de redirecționare. Acest lucru poate fi util pentru a urmări de ce ați creat o anumită regulă sau pentru a oferi context altora care ar putea să vă vizualizeze regulile.
 
@@ -159,11 +159,11 @@ Puteți scrie comentarii în următoarele formate:
 * **Markdown**: Puteți utiliza [sintaxele Markdown de la GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), inclusiv unele extensii pe care GFM nu le suportă. De exemplu, puteți crea titluri, liste, linkuri și multe altele.
 * **AsciiDoc**: Puteți utiliza [sintaxele AsciiDoc](https://asciidoc.org/) pentru a vă forma comentariile.
 
-## Model URL {#url-pattern}
+## Model URL {/* #url-pattern */}
 
 **Modelele URL** sunt folosite pentru a potrivi URL-urile în opțiunile *Redirecționare De La*, *Modele URL Excluse* și *Procesarea Grupurilor de Capturare*. Pentru a le specifica, puteți alege fie **Wildcard**, fie **Expresie Regulată**.
 
-### Wildcard {#url-pattern-wildcard}
+### Wildcard {/* #url-pattern-wildcard */}
 
 **Wildcard** este un tip de model mai simplu care vă permite să utilizați `*` (potrivește orice) și `?` (potrivește orice caracter individual) ca metacaractere. Iată câteva exemple:
 
@@ -176,7 +176,7 @@ De asemenea, puteți utiliza înlocuirea și în Wildcard, ceea ce înseamnă c�
 > [!NOTE]
 > Deși înlocuirea este o funcție a Expresiilor Regulate, o puteți utiliza și pentru Wildcard, deoarece RedirectWeb convertește intern Wildcard în Expresie Regulată.
 
-### Expresie Regulată {#url-pattern-regular-expression}
+### Expresie Regulată {/* #url-pattern-regular-expression */}
 
 **Expresia Regulată** (Regex) este un instrument puternic pentru potrivirea modelelor în text și este, de asemenea, utilizat pe scară largă în programare. Vă permite să definiți un model specific care se potrivește cu un set de șiruri. Iată câteva exemple.
 

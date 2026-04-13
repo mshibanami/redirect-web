@@ -4,7 +4,7 @@ Táto stránka poskytuje podrobné informácie o každom nastavení na obrazovke
 
 ## Možnosti
 
-### Typ {#type}
+### Typ {/* #type */}
 
 Zadajte možnosť **Typ** na ovládanie spôsobu, akým aplikácia spracováva presmerovanie. Môžete si vybrať z týchto možností:
 
@@ -20,7 +20,7 @@ Zadajte možnosť **Typ** na ovládanie spôsobu, akým aplikácia spracováva p
     * ⚠️ V Safari momentálne nemôžete do vzoru regulárneho výrazu zahrnúť zvislé čiary (`|`). [Podrobnosti](https://github.com/mshibanami/redirect-web/issues/44)
     * ⚠️ Keďže API DNR v Safari má stále určité problémy, považujeme ho za experimentálnu funkciu pre Safari. Zoznam všetkých známych problémov nájdete [tu](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Presmerovať z {#redirect-from}
+### Presmerovať z {/* #redirect-from */}
 
 Možnosť **Presmerovať z** vám umožňuje špecifikovať vzor URL webových stránok, z ktorých chcete presmerovať. Môžete si vybrať buď [Zástupný znak (Wildcard)](#url-pattern-wildcard) alebo [Regulárny výraz (Regular Expression)](#url-pattern-regular-expression).
 
@@ -29,7 +29,7 @@ Napríklad, ak špecifikujete `https://example.com/*` so zástupným znakom, zod
 > [!NOTE]
 > V možnosti Presmerovať na sa môžete odkazovať na celú zhodu pomocou `$0` alebo na čiastočné zhody pomocou `$1`, `$2`, ... Podrobnosti nájdete v časti [Vzor URL](#url-pattern) na tejto stránke.
 
-#### Typy zdrojov {#resource-types}
+#### Typy zdrojov {/* #resource-types */}
 
 ![Podporované typy: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -43,7 +43,7 @@ Predvolené nastavenie je `main_frame`, čo je stránka najvyššej úrovne nač
 
 Podrobnosti o každom type zdroja nájdete v [dokumentácii mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Metódy požiadaviek {#request-methods}
+#### Metódy požiadaviek {/* #request-methods */}
 
 ![Podporované typy: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,7 +56,7 @@ Podrobnosti o každej metóde nájdete v [dokumentácii mdn web docs](https://de
 > [!WARNING]
 > V Safari nemusí byť táto možnosť k dispozícii, pretože implementácia Apple pre typ DNR ju momentálne zrejme nepodporuje. Odoslali sme spätnú väzbu spoločnosti Apple ako FB14502272.
 
-#### Cieľové prehliadače {#target-browsers}
+#### Cieľové prehliadače {/* #target-browsers */}
 
 ![Podporované platformy: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -70,7 +70,7 @@ Možnosť **Cieľové prehliadače** vám umožňuje špecifikovať, na ktorý p
 > [!WARNING]
 > RedirectWeb nedokáže rozlíšiť, či ide o prehliadač **Safari** alebo **Safari Technology Preview**, pretože aplikácia na detekciu kontroluje nadradený proces rozšírenia, ale tieto dva prehliadače zdieľajú rovnaký nadradený proces (`/sbin/launchd`).
 
-### Presmerovať na {#redirect-to}
+### Presmerovať na {/* #redirect-to */}
 
 Možnosť **Presmerovať na** špecifikuje cieľovú URL adresu, na ktorú chcete presmerovať zo zdrojovej URL adresy zhodnej s možnosťou *Presmerovať z*. Môžete tiež nahradiť zachytávajúce skupiny pomocou `$1`, `$2`, ... alebo celú zhodu pomocou `$0`. Tieto vám pomáhajú dynamicky špecifikovať cieľ. Podrobnosti nájdete v časti [Vzor URL](#url-pattern) na tejto stránke.
 
@@ -93,7 +93,7 @@ Okrem toho môžete pred vykonaním nahradenia upraviť texty skupín `$1`, `$2`
 > * Notion: `notion://www.notion.so/Vase_ID_Poznamky`
 > * Slack: `slack://open`
 
-#### Aplikácia {#application}
+#### Aplikácia {/* #application */}
 
 ![Podporované typy: Original](https://img.shields.io/badge/Types-Original-blue) ![Podporované platformy: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,7 +102,7 @@ Ak chcete špecifikovať aplikáciu, v ktorej chcete otvoriť cieľovú URL adre
 > [!WARNING]
 > Môžete otvoriť iba aplikáciu, ktorá podporuje [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Tiež sa uistite, že aplikácia podporuje otvorenie URL adresy, ktorú chcete otvoriť.
 
-### Spracovanie zachytávajúcich skupín {#capturing-group-processing}
+### Spracovanie zachytávajúcich skupín {/* #capturing-group-processing */}
 
 ![Podporované typy: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -131,7 +131,7 @@ Môžete si vybrať jeden alebo viacero z nasledujúcich procesov:
 >
 > V tomto prípade `https://example.com/hello_world` nebude vylúčené, zatiaľ čo `https://example.com/hello` vylúčené bude.
 
-### Vylúčené vzory URL {#excluded-url-patterns}
+### Vylúčené vzory URL {/* #excluded-url-patterns */}
 
 ![Podporované typy: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,17 +139,17 @@ Možnosť **Vylúčené vzory URL** vám umožňuje špecifikovať URL adresy, k
 
 Vylúčené vzory URL môžete špecifikovať pomocou typov vzorov Regulárny výraz alebo Zástupný znak.
 
-### Príklady {#examples}
+### Príklady {/* #examples */}
 
 Možnosť **Príklady** vám umožňuje otestovať vaše pravidlo presmerovania zadaním ukážkových URL adries. Pridaním ukážkovej URL adresy môžete skontrolovať, či pravidlo funguje podľa očakávania, skôr než ho skutočne aplikujete.
 
-### Rozšírené {#advanced-options}
+### Rozšírené {/* #advanced-options */}
 
 * **[DNR] Presmerovanie hlavného rámca (Main Frame Redirection)**: Táto možnosť je k dispozícii iba pre typ DNR. Umožňuje špecifikovať, ako spracovať presmerovanie pre typ zdroja `main_frame`. Dostupné možnosti sú:
     * **Raw (Surové)**: Presmeruje hlavný rámec na zadanú URL adresu bez akýchkoľvek úprav.
     * **Cez prechodnú stránku (Via Intermediate Page)**: Presmeruje hlavný rámec na prechodnú stránku, ktorá potom presmeruje na zadanú cieľovú URL adresu. To je užitočné na otváranie aplikácií pomocou deep linkingu, pretože prechodná stránka dokáže spracovať komplexnejšiu logiku presmerovania.
 
-### Komentáre {#comments}
+### Komentáre {/* #comments */}
 
 Možnosť **Komentáre** vám umožňuje pridať akékoľvek poznámky alebo komentáre k vášmu pravidlu presmerovania. To môže byť užitočné na sledovanie toho, prečo ste vytvorili konkrétne pravidlo, alebo na poskytnutie kontextu pre ostatných, ktorí si môžu vaše pravidlá prezerať.
 
@@ -159,11 +159,11 @@ Komentáre môžete písať v nasledujúcich formátoch:
 * **Markdown**: Môžete použiť [syntax Markdown od GitHubu](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), vrátane niektorých rozšírení, ktoré GFM nepodporuje. Môžete napríklad vytvárať nadpisy, zoznamy, odkazy a ďalšie.
 * **AsciiDoc**: Na formátovanie komentárov môžete použiť [syntax AsciiDoc](https://asciidoc.org/).
 
-## Vzor URL {#url-pattern}
+## Vzor URL {/* #url-pattern */}
 
 **Vzory URL** sa používajú na porovnávanie URL adries v možnostiach *Presmerovať z*, *Vylúčené vzory URL* a *Spracovanie zachytávajúcich skupín*. Ak ich chcete špecifikovať, môžete si vybrať buď **Zástupný znak (Wildcard)** alebo **Regulárny výraz (Regular Expression)**.
 
-### Zástupný znak (Wildcard) {#url-pattern-wildcard}
+### Zástupný znak (Wildcard) {/* #url-pattern-wildcard */}
 
 **Zástupný znak (Wildcard)** je jednoduchší typ vzoru, ktorý umožňuje používať `*` (zodpovedá čomukoľvek) a `?` (zodpovedá akémukoľvek jednému znaku) ako zástupné znaky. Tu je niekoľko príkladov:
 
@@ -176,7 +176,7 @@ Nahradenie môžete použiť aj v type Zástupný znak, čo znamená, že sa mô
 > [!NOTE]
 > Hoci je nahradenie funkciou Regulárneho výrazu, môžete ho použiť aj pre Zástupný znak, pretože RedirectWeb vnútorne konvertuje Zástupný znak na Regulárny výraz.
 
-### Regulárny výraz (Regular Expression) {#url-pattern-regular-expression}
+### Regulárny výraz (Regular Expression) {/* #url-pattern-regular-expression */}
 
 **Regulárny výraz (Regular Expression)** (Regex) je výkonný nástroj na porovnávanie vzorov v texte a je tiež široko používaný v programovaní. Umožňuje definovať špecifický vzor, ktorý zodpovedá množine reťazcov. Tu je niekoľko príkladov.
 

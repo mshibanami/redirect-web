@@ -12,7 +12,7 @@ Diese Seite listet häufige Probleme und deren Lösungen bei der Verwendung von 
 
 <TOCInline toc={toc} />
 
-## Weiterleitungsregeln funktionieren nicht {#rules-not-working}
+## Weiterleitungsregeln funktionieren nicht {/* #rules-not-working */}
 
 Wenn Ihre Regeln nicht wie erwartet funktionieren, prüfen Sie bitte Folgendes:
 
@@ -22,7 +22,7 @@ Wenn Ihre Regeln nicht wie erwartet funktionieren, prüfen Sie bitte Folgendes:
 - **Regelkonfiguration ist korrekt:** Überprüfen Sie Ihre Weiterleitungsregeln in der RedirectWeb Native-App. Stellen Sie sicher, dass die Quell-URL-Muster, Ziel-URLs und etwaige Bedingungen korrekt eingerichtet sind. Um zu prüfen, ob Ihre Regel gültig ist, geben Sie eine Beispiel-URL im Bereich "Examples" im Bildschirm "Edit Rule" ein. Wenn Ihre Regel gültig ist, sehen Sie die erwartete Ziel-URL unter Ihrer Eingabe, z. B. so:
     <Image src={RuleEditExampleResult} alt="Beispiel für die Regel-Bearbeitungsansicht, die das Ergebnis der Beispiel-URL zeigt" width="260" hasShadow/>
 
-## Im Popup der Erweiterung wird ein Fehler angezeigt {#error-shown-in-extension-popup}
+## Im Popup der Erweiterung wird ein Fehler angezeigt {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="Fehler-Overlay von RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Möglicherweise müssen Sie Ihren Browser nach der Installation der Native-App n
 > * Sie müssen die RedirectWeb Native-App installieren, um die Browser-Erweiterung zu verwenden. Die Erweiterung allein funktioniert nicht.
 > * Safari-Benutzer müssen die Erweiterung nicht separat installieren, da sie in der Native-App enthalten ist.
 
-## Die Originalseite blinkt kurz auf, bevor weitergeleitet wird {#original-page-flash}
+## Die Originalseite blinkt kurz auf, bevor weitergeleitet wird {/* #original-page-flash */}
 
 Dies tritt auf, wenn Sie Weiterleitungsregeln des Typs **Original** verwenden. Dieser Typ bietet verschiedene erweiterte Funktionen, kann jedoch dazu führen, dass die Originalseite kurz aufblinkt, da sie möglicherweise zulässt, dass die Originalseite geladen wird, bevor die Weiterleitung ausgeführt wird.
 
@@ -50,7 +50,7 @@ Dies tritt auf, wenn Sie Weiterleitungsregeln des Typs **Original** verwenden. D
 > [!NOTE]
 > In Firefox sollte dieses Problem selbst bei Verwendung des Typs Original nicht auftreten, da Firefox auf die WebRequest-API zurückgreift, die das Laden der Originalseite verhindert.
 
-## In Safaris Einstellungsfenster werden Fehler angezeigt {#safari-style-loading-errors}
+## In Safaris Einstellungsfenster werden Fehler angezeigt {/* #safari-style-loading-errors */}
 
 Möglicherweise sehen Sie Fehlermeldungen im Einstellungsfenster von Safari wie die folgenden:
 

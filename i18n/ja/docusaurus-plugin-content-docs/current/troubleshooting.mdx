@@ -12,7 +12,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 <TOCInline toc={toc} />
 
-## リダイレクトルールが機能しない {#rules-not-working}
+## リダイレクトルールが機能しない {/* #rules-not-working */}
 
 ルールが期待どおりに動作しない場合、次の点を確認してください。
 
@@ -22,7 +22,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 - **ルール設定が正しいか:** RedirectWeb ネイティブアプリでリダイレクトルールを再確認してください。ソース URL パターン、ターゲット URL、および条件が正しく設定されていることを確認します。ルールが有効かどうかを確認するには、編集画面の Examples セクションに例の URL を入力してください。ルールが有効であれば、入力した URL に対する期待される遷移先が以下のように表示されます:
     <Image src={RuleEditExampleResult} alt="編集画面の例で期待される遷移先が表示されている例" width="260" hasShadow/>
 
-## 拡張のポップアップにエラーが表示される {#error-shown-in-extension-popup}
+## 拡張のポップアップにエラーが表示される {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="RedirectWeb のエラーオーバーレイ" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 > * ブラウザ拡張だけでは動作しません。拡張を利用するには RedirectWeb ネイティブアプリのインストールが必要です。
 > * Safari を使用している場合、ネイティブアプリに拡張が同梱されているため、拡張を別途インストールする必要はありません。
 
-## リダイレクト前に元のページが一瞬表示される {#original-page-flash}
+## リダイレクト前に元のページが一瞬表示される {/* #original-page-flash */}
 
 これは **Original** タイプのリダイレクトルールを使用している場合に発生します。このタイプはさまざまな高度な機能を提供しますが、リダイレクトを実行する前に元のページが読み込まれる可能性があるため、一瞬元のページがフラッシュすることがあります。
 
@@ -50,7 +50,7 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 > [!NOTE]
 > > Firefox では WebRequest API を利用するため、Original タイプでも元のページが読み込まれることはなく、この問題は発生しないはずです。
 
-## Safari の設定ウィンドウにエラーが表示される {#safari-style-loading-errors}
+## Safari の設定ウィンドウにエラーが表示される {/* #safari-style-loading-errors */}
 
 Safari の設定ウィンドウに以下のようなエラーメッセージが表示される場合があります:
 

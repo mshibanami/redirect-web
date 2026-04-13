@@ -45,18 +45,18 @@ Dalam video tersebut, MDM ManageEngine digunakan untuk menerapkan konfigurasi, t
 
 Terapkan kunci dan nilai berikut untuk Konfigurasi Aplikasi Terkelola melalui konsol MDM Anda, biasanya dalam format plist.
 
-| Nama Kunci             | Tipe                         | Deskripsi                                                                                                                                                                                                                                                                   |
-| ---------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nama Kunci             | Tipe                                | Deskripsi                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Kumpulan aturan](#rule-set-object) | **[Aturan yang Dipaksakan]** Kumpulan aturan yang diterapkan dengan prioritas lebih tinggi daripada aturan normal. Aturan pertama dalam daftar diutamakan. Pengguna tidak dapat mengedit, menghapus, atau menyusun ulang aturan ini. Aturan ini selalu aktif, mengabaikan saklar penonaktifan global aplikasi, dan tidak disinkronkan melalui iCloud. |
-| `prefilledRuleSet`     | [Kumpulan aturan](#rule-set-object) | **[Aturan Awal]** Kumpulan aturan yang dibuat sebagai pengganti aturan contoh default saat pengguna meluncurkan aplikasi untuk pertama kalinya tanpa aturan yang ada. Setelah didistribusikan, ini bertindak sebagai aturan normal, memungkinkan modifikasi, penghapusan, dan sinkronisasi iCloud oleh pengguna.                       |
-| `organizationName`     | String                       | Menampilkan "Dikelola oleh [organizationName]" di bagian atas layar pengaturan dalam aplikasi, yang menunjukkan kepada pengguna bahwa aplikasi tersebut dikelola.                                                                                                                                            |
-| `managedConfigVersion` | String                       | String versi arbitrer untuk konfigurasi. Ditampilkan di UI, memungkinkan dukungan IT untuk memverifikasi apakah muatan MDM terbaru telah mencapai perangkat saat pemecahan masalah.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | Jika disetel ke `false`, fitur Perpustakaan Aturan disembunyikan, dan bagian tersebut diganti dengan pesan kesalahan "Dibatasi oleh organisasi Anda."                                                                                                                                   |
-| `fallback`             | [Fallback](#fallback-object) | Tentukan ini ketika konfigurasi melebihi batas muatan MDM. Aplikasi akan mengambil JSON/XML dari URL ini untuk menerapkan konfigurasi.                                                                                                                                     |
+| `prefilledRuleSet`     | [Kumpulan aturan](#rule-set-object) | **[Aturan Awal]** Kumpulan aturan yang dibuat sebagai pengganti aturan contoh default saat pengguna meluncurkan aplikasi untuk pertama kalinya tanpa aturan yang ada. Setelah didistribusikan, ini bertindak sebagai aturan normal, memungkinkan modifikasi, penghapusan, dan sinkronisasi iCloud oleh pengguna.                                      |
+| `organizationName`     | String                              | Menampilkan "Dikelola oleh [organizationName]" di bagian atas layar pengaturan dalam aplikasi, yang menunjukkan kepada pengguna bahwa aplikasi tersebut dikelola.                                                                                                                                                                                     |
+| `managedConfigVersion` | String                              | String versi arbitrer untuk konfigurasi. Ditampilkan di UI, memungkinkan dukungan IT untuk memverifikasi apakah muatan MDM terbaru telah mencapai perangkat saat pemecahan masalah.                                                                                                                                                                   |
+| `showsLibrarySection`  | Boolean                             | Jika disetel ke `false`, fitur Perpustakaan Aturan disembunyikan, dan bagian tersebut diganti dengan pesan kesalahan "Dibatasi oleh organisasi Anda."                                                                                                                                                                                                 |
+| `fallback`             | [Fallback](#fallback-object)        | Tentukan ini ketika konfigurasi melebihi batas muatan MDM. Aplikasi akan mengambil JSON/XML dari URL ini untuk menerapkan konfigurasi.                                                                                                                                                                                                                |
 
 Semua kunci ini bersifat opsional.
 
-### [Objek] Kumpulan Aturan {#rule-set-object}
+### [Objek] Kumpulan Aturan {/* #rule-set-object */}
 
 Setiap objek aturan memiliki format yang sama dengan yang dapat Anda [bagikan/ekspor melalui aplikasi](export-or-import-rules), tetapi Anda perlu mengonversinya dari JSON ke plist, seperti ini:
 
@@ -94,11 +94,11 @@ Setiap objek aturan memiliki format yang sama dengan yang dapat Anda [bagikan/ek
 ...
 ```
 
-### [Objek] Fallback {#fallback-object}
+### [Objek] Fallback {/* #fallback-object */}
 
-| Nama Kunci          | Tipe         | Deskripsi                                                                                                                                  |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | URL titik akhir file JSON/XML yang berisi kumpulan aturan.                                                                                     |
+| Nama Kunci        | Tipe         | Deskripsi                                                                                                                                        |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `fallbackDataURL` | String (URL) | URL titik akhir file JSON/XML yang berisi kumpulan aturan.                                                                                       |
 | `authToken`       | String       | Token otentikasi yang ditambahkan ke header HTTP saat mengambil dari `fallbackDataURL`. (Digunakan sebagai `Authorization: Bearer [authToken]`). |
 
 ## Evaluasi Aturan dan Resolusi Konflik

@@ -4,7 +4,7 @@ Esta página fornece informações detalhadas sobre cada definição no ecrã *E
 
 ## Opções
 
-### Tipo {#type}
+### Tipo {/* #type */}
 
 Especifique a opção **Tipo** para controlar como a aplicação lida com o redirecionamento. Pode escolher entre as seguintes:
 
@@ -20,7 +20,7 @@ Especifique a opção **Tipo** para controlar como a aplicação lida com o redi
     * ⚠️ No Safari, atualmente não pode incluir barras verticais (`|`) no seu padrão de Expressão Regular. [Detalhes](https://github.com/mshibanami/redirect-web/issues/44)
     * ⚠️ Como a API DNR do Safari ainda tem alguns problemas, consideramos que continua a ser uma funcionalidade experimental para o Safari. Pode encontrar a lista de todos os problemas conhecidos [aqui](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Redirecionar De {#redirect-from}
+### Redirecionar De {/* #redirect-from */}
 
 A opção **Redirecionar De** permite especificar um padrão de URL das páginas web que deseja redirecionar. Pode escolher entre [Wildcard](#url-pattern-wildcard) ou [Expressão Regular](#url-pattern-regular-expression).
 
@@ -29,7 +29,7 @@ Por exemplo, se especificar `https://example.com/*` com Wildcard, este correspon
 > [!NOTE]
 > Na opção Redirecionar Para, pode referenciar a correspondência total utilizando `$0` ou correspondências parciais utilizando `$1`, `$2`, ... Consulte os detalhes em [Padrão de URL](#url-pattern) nesta página.
 
-#### Tipos de Recursos {#resource-types}
+#### Tipos de Recursos {/* #resource-types */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -43,7 +43,7 @@ A definição predefinida é `main_frame`, que é a página de nível superior c
 
 Consulte os detalhes de cada tipo de recurso na [documentação mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Métodos de Pedido {#request-methods}
+#### Métodos de Pedido {/* #request-methods */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,7 +56,7 @@ Consulte os detalhes de cada método na [documentação mdn web docs](https://de
 > [!WARNING]
 > No Safari, esta opção pode não estar disponível porque a implementação da Apple para o tipo DNR parece não a suportar atualmente. Enviámos feedback à Apple como FB14502272.
 
-#### Navegadores de Destino {#target-browsers}
+#### Navegadores de Destino {/* #target-browsers */}
 
 ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -70,7 +70,7 @@ A opção **Navegadores de Destino** permite especificar a qual navegador a regr
 > [!WARNING]
 > O RedirectWeb não consegue diferenciar se o navegador é o **Safari** ou o **Safari Technology Preview** porque a aplicação verifica o processo pai da extensão para o detetar, mas estes dois navegadores partilham o mesmo processo pai (`/sbin/launchd`).
 
-### Redirecionar Para {#redirect-to}
+### Redirecionar Para {/* #redirect-to */}
 
 A opção **Redirecionar Para** especifica um URL de destino para o qual deseja redirecionar, a partir do URL de origem correspondente à opção *Redirecionar De*. Também pode substituir grupos de captura com `$1`, `$2`, ... ou a correspondência total com `$0`. Isto ajuda a especificar dinamicamente o destino. Consulte os detalhes em [Padrão de URL](#url-pattern) nesta página.
 
@@ -93,7 +93,7 @@ Adicionalmente, pode modificar os textos de `$1`, `$2`, ... antes de fazer as su
 > * Notion: `notion://www.notion.so/Your_Note_ID`
 > * Slack: `slack://open`
 
-#### Aplicação {#application}
+#### Aplicação {/* #application */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,7 +102,7 @@ Se desejar especificar uma aplicação para abrir o URL de destino, utilize a ca
 > [!WARNING]
 > Apenas pode abrir uma aplicação que suporte o [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Além disso, certifique-se de que a aplicação suporta a abertura do URL que deseja abrir.
 
-### Processamento de Grupos de Captura {#capturing-group-processing}
+### Processamento de Grupos de Captura {/* #capturing-group-processing */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -131,7 +131,7 @@ Pode escolher um ou mais dos seguintes processos:
 >
 > Neste caso, `https://example.com/hello_world` não será excluído, enquanto `https://example.com/hello` será excluído.
 
-### Padrões de URL Excluídos {#excluded-url-patterns}
+### Padrões de URL Excluídos {/* #excluded-url-patterns */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,17 +139,17 @@ A opção **Padrões de URL Excluídos** permite especificar os URLs que não s�
 
 Pode especificar padrões de URL excluídos utilizando tipos de padrão de Expressão Regular ou Wildcard.
 
-### Exemplos {#examples}
+### Exemplos {/* #examples */}
 
 A opção **Exemplos** permite testar a sua regra de redirecionamento fornecendo URLs de exemplo. Ao adicionar um URL de exemplo, pode verificar se a regra funciona como esperado antes de a aplicar efetivamente.
 
-### Avançadas {#advanced-options}
+### Avançadas {/* #advanced-options */}
 
 * **[DNR] Redirecionamento de Frame Principal**: Esta opção apenas está disponível para o tipo DNR. Permite especificar como lidar com o redirecionamento para o tipo de recurso `main_frame`. As opções disponíveis são:
     * **Raw (Bruto)**: Redireciona o frame principal para o URL especificado sem quaisquer modificações.
     * **Através de Página Intermédia**: Redireciona o frame principal para uma página intermédia, que depois redireciona para o URL de destino especificado. Isto é útil para abrir aplicações utilizando ligações diretas (deep linking), uma vez que a página intermédia pode lidar com lógica de redirecionamento mais complexa.
 
-### Comentários {#comments}
+### Comentários {/* #comments */}
 
 A opção **Comentários** permite adicionar quaisquer notas ou comentários sobre a sua regra de redirecionamento. Isto pode ser útil para manter o registo de por que criou uma regra específica ou para fornecer contexto a outros que possam visualizar as suas regras.
 
@@ -159,11 +159,11 @@ Pode escrever comentários nos seguintes formatos:
 * **Markdown**: Pode utilizar as [sintaxes Markdown do GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), incluindo algumas extensões que o GFM não suporta. Por exemplo, pode criar cabeçalhos, listas, ligações e muito mais.
 * **AsciiDoc**: Pode utilizar as [sintaxes AsciiDoc](https://asciidoc.org/) para formatar os seus comentários.
 
-## Padrão de URL {#url-pattern}
+## Padrão de URL {/* #url-pattern */}
 
 Os **Padrões de URL** são utilizados para fazer corresponder URLs nas opções *Redirecionar De*, *Padrões de URL Excluídos* e *Processamento de Grupos de Captura*. Para os especificar, pode escolher entre **Wildcard** ou **Expressão Regular**.
 
-### Wildcard {#url-pattern-wildcard}
+### Wildcard {/* #url-pattern-wildcard */}
 
 **Wildcard** é um tipo de padrão mais simples que permite utilizar `*` (corresponde a qualquer coisa) e `?` (corresponde a qualquer carácter individual) como caracteres universais. Aqui estão alguns exemplos:
 
@@ -176,7 +176,7 @@ Também pode utilizar a substituição no Wildcard, o que significa que pode ref
 > [!NOTE]
 > Embora a substituição seja uma funcionalidade da Expressão Regular, também pode utilizá-la para o Wildcard porque o RedirectWeb converte internamente o Wildcard para Expressão Regular.
 
-### Expressão Regular {#url-pattern-regular-expression}
+### Expressão Regular {/* #url-pattern-regular-expression */}
 
 A **Expressão Regular** (Regex) é uma ferramenta poderosa para corresponder padrões em texto e é também amplamente utilizada em programação. Permite definir um padrão específico que corresponde a um conjunto de strings. Aqui estão alguns exemplos:
 

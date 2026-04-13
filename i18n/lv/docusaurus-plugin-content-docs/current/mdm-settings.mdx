@@ -45,18 +45,18 @@ Video tika izmantots ManageEngine MDM, lai izvietotu konfigurāciju, taču to pa
 
 Izvietojiet sekojošās atslēgas un vērtības Managed App Configuration, izmantojot savu MDM konsoli, parasti plist formātā.
 
-| Atslēgas nosaukums     | Tips                         | Apraksts                                                                                                                                                                                                                                                                                       |
-| ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Atslēgas nosaukums     | Tips                               | Apraksts                                                                                                                                                                                                                                                                                                              |
+| ---------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Noteikumu kopa](#rule-set-object) | **[Uzspiestie noteikumi]** Noteikumu kopa, kas tiek lietota ar augstāku prioritāti nekā parastie noteikumi. Saraksta pirmajam noteikumam ir priekšroka. Lietotāji nevar rediģēt, dzēst vai mainīt šo noteikumu secību. Tie vienmēr ir aktīvi, ignorējot lietotnes globālo slēdzi, un netiek sinhronizēti caur iCloud. |
-| `prefilledRuleSet`     | [Noteikumu kopa](#rule-set-object) | **[Sākotnējie noteikumi]** Noteikumu kopa, kas tiek izveidota noklusējuma piemēra noteikuma vietā, kad lietotājs pirmo reizi palaiž lietotni bez esošiem noteikumiem. Pēc izvietošanas tie darbojas kā parastie noteikumi, ļaujot lietotājam tos modificēt, dzēst un sinhronizēt caur iCloud.           |
-| `organizationName`     | String                       | Lietotnes iestatījumu ekrāna augšdaļā parāda "Pārvalda [organizationName]", norādot lietotājam, ka lietotne tiek pārvaldīta.                                                                                                                                                                 |
-| `managedConfigVersion` | String                       | Patvaļīga konfigurācijas versijas virkne. Tiek parādīta lietotāja saskarnē, ļaujot IT atbalstam pārbaudīt, vai ierīcē ir saņemta jaunākā MDM pakotne problēmu novēršanas laikā.                                                                                                               |
-| `showsLibrarySection`  | Boolean                      | Ja iestatīts uz `false`, Noteikumu bibliotēkas funkcija tiek paslēpta, un sadaļa tiek aizstāta ar kļūdas ziņojumu "Ierobežojusi jūsu organizācija.".                                                                                                                                          |
-| `fallback`             | [Fallback](#fallback-object) | Norādiet šo, ja konfigurācijas pārsniedz MDM datu apjoma ierobežojumus. Lietotne ielādēs JSON/XML no šī URL, lai lietotu konfigurāciju.                                                                                                                                                      |
+| `prefilledRuleSet`     | [Noteikumu kopa](#rule-set-object) | **[Sākotnējie noteikumi]** Noteikumu kopa, kas tiek izveidota noklusējuma piemēra noteikuma vietā, kad lietotājs pirmo reizi palaiž lietotni bez esošiem noteikumiem. Pēc izvietošanas tie darbojas kā parastie noteikumi, ļaujot lietotājam tos modificēt, dzēst un sinhronizēt caur iCloud.                         |
+| `organizationName`     | String                             | Lietotnes iestatījumu ekrāna augšdaļā parāda "Pārvalda [organizationName]", norādot lietotājam, ka lietotne tiek pārvaldīta.                                                                                                                                                                                          |
+| `managedConfigVersion` | String                             | Patvaļīga konfigurācijas versijas virkne. Tiek parādīta lietotāja saskarnē, ļaujot IT atbalstam pārbaudīt, vai ierīcē ir saņemta jaunākā MDM pakotne problēmu novēršanas laikā.                                                                                                                                       |
+| `showsLibrarySection`  | Boolean                            | Ja iestatīts uz `false`, Noteikumu bibliotēkas funkcija tiek paslēpta, un sadaļa tiek aizstāta ar kļūdas ziņojumu "Ierobežojusi jūsu organizācija.".                                                                                                                                                                  |
+| `fallback`             | [Fallback](#fallback-object)       | Norādiet šo, ja konfigurācijas pārsniedz MDM datu apjoma ierobežojumus. Lietotne ielādēs JSON/XML no šī URL, lai lietotu konfigurāciju.                                                                                                                                                                               |
 
 Šīs atslēgas ir izvēles.
 
-### [Objekts] Noteikumu kopa {#rule-set-object}
+### [Objekts] Noteikumu kopa {/* #rule-set-object */}
 
 Katram noteikuma objektam ir tāds pats formāts kā tam, kuru varat [kopīgot/eksportēt caur lietotni](export-or-import-rules), taču jums tas ir jāpārveido no JSON uz plist, piemēram, šādi:
 
@@ -94,12 +94,12 @@ Katram noteikuma objektam ir tāds pats formāts kā tam, kuru varat [kopīgot/e
 ...
 ```
 
-### [Objekts] Fallback {#fallback-object}
+### [Objekts] Fallback {/* #fallback-object */}
 
-| Atslēgas nosaukums | Tips         | Apraksts                                                                                                                                   |
-| ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `fallbackDataURL` | String (URL) | JSON/XML faila galapunkta URL, kas satur noteikumu kopas.                                                                                   |
-| `authToken`       | String       | Autentifikācijas marķieris, kas pievienots HTTP galvenei, veicot ielādi no `fallbackDataURL`. (Tiek izmantots kā `Authorization: Bearer [authToken]`). |
+| Atslēgas nosaukums | Tips         | Apraksts                                                                                                                                               |
+| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `fallbackDataURL`  | String (URL) | JSON/XML faila galapunkta URL, kas satur noteikumu kopas.                                                                                              |
+| `authToken`        | String       | Autentifikācijas marķieris, kas pievienots HTTP galvenei, veicot ielādi no `fallbackDataURL`. (Tiek izmantots kā `Authorization: Bearer [authToken]`). |
 
 ## Noteikumu izvērtēšana un konfliktu risināšana
 

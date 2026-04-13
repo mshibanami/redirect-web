@@ -12,7 +12,7 @@ Na tej stronie znajdują się typowe problemy i ich rozwiązania podczas korzyst
 
 <TOCInline toc={toc} />
 
-## Reguły przekierowań nie działają {#rules-not-working}
+## Reguły przekierowań nie działają {/* #rules-not-working */}
 
 Jeśli reguły nie działają zgodnie z oczekiwaniami, sprawdź następujące elementy:
 
@@ -22,7 +22,7 @@ Jeśli reguły nie działają zgodnie z oczekiwaniami, sprawdź następujące el
 - **Konfiguracja reguły jest poprawna:** Dokładnie sprawdź reguły przekierowań w natywnej aplikacji RedirectWeb. Upewnij się, że wzorce adresów źródłowych, adresy docelowe i wszelkie warunki są poprawnie ustawione. Aby sprawdzić, czy reguła jest prawidłowa, wpisz przykładowy adres URL w sekcji `Examples` na ekranie `Edit Rule`. Jeśli reguła jest poprawna, zobaczysz oczekiwany adres docelowy pod swoim wpisem, np.:
     <Image src={RuleEditExampleResult} alt="Przykład ekranu edycji reguły pokazujący wynik dla przykładowego adresu URL" width="260" hasShadow/>
 
-## Wyskakujące okno rozszerzenia wyświetla błąd {#error-shown-in-extension-popup}
+## Wyskakujące okno rozszerzenia wyświetla błąd {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="nakładka błędu RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Po zainstalowaniu natywnej aplikacji może być konieczne ponowne uruchomienie p
 > * Musisz zainstalować natywną aplikację RedirectWeb, aby korzystać z rozszerzenia przeglądarki. Same rozszerzenie nie działa.
 > * Użytkownicy Safari nie muszą instalować rozszerzenia osobno, ponieważ jest ono dołączone do natywnej aplikacji.
 
-## Oryginalna strona mignie krótko przed przekierowaniem {#original-page-flash}
+## Oryginalna strona mignie krótko przed przekierowaniem {/* #original-page-flash */}
 
 Dzieje się tak, gdy używasz reguł przekierowań typu **Original**. Ten typ oferuje różne zaawansowane funkcje, ale może spowodować krótkie mignięcie oryginalnej strony, ponieważ może pozwolić na załadowanie oryginalnej strony przed wykonaniem przekierowania.
 
@@ -50,7 +50,7 @@ Otwórz ekran `Edit Rule` i zmień **Type** na **DNR**, aby uniknąć tego probl
 > [!NOTE]
 > W Firefoxie ten problem nie powinien występować nawet przy typie Original, ponieważ opiera się on na `WebRequest API`, które uniemożliwia załadowanie oryginalnej strony.
 
-## W oknie ustawień Safari pojawiają się błędy {#safari-style-loading-errors}
+## W oknie ustawień Safari pojawiają się błędy {/* #safari-style-loading-errors */}
 
 Możesz zobaczyć komunikaty o błędach w oknie ustawień Safari, podobne do poniższych:
 

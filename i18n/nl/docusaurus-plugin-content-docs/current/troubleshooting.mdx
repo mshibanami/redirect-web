@@ -12,7 +12,7 @@ Op deze pagina staan veelvoorkomende problemen en hun oplossingen bij het gebrui
 
 <TOCInline toc={toc} />
 
-## Redirect-regels werken niet {#rules-not-working}
+## Redirect-regels werken niet {/* #rules-not-working */}
 
 Als je regels niet werken zoals verwacht, controleer dan het volgende:
 
@@ -22,7 +22,7 @@ Als je regels niet werken zoals verwacht, controleer dan het volgende:
 - **Regelconfiguratie is correct:** Controleer je doorverwijsregels in de native RedirectWeb-app. Zorg ervoor dat de bron-URL-patronen, doel-URL's en eventuele voorwaarden correct zijn ingesteld. Om te controleren of je regel geldig is, voer een voorbeeld-URL in bij het gedeelte Examples op het scherm Edit Rule. Als je regel geldig is, zie je onder je invoer de verwachte doel-URL, zoals hieronder:
     <Image src={RuleEditExampleResult} alt="Voorbeeld van het scherm 'Edit Rule' dat het resultaat van een voorbeeld-URL toont" width="260" hasShadow/>
 
-## In de popup van de extensie wordt een fout weergegeven {#error-shown-in-extension-popup}
+## In de popup van de extensie wordt een fout weergegeven {/* #error-shown-in-extension-popup */}
 
 <Image src={ErrorOverlay} alt="Foutoverlay van RedirectWeb" width="260" hasShadow hasRoundedCorners/>
 
@@ -39,7 +39,7 @@ Het kan ook nodig zijn om je browser opnieuw te starten nadat je de native app h
 > * Om de browserextensie te gebruiken moet je de native RedirectWeb-app installeren. Alleen de extensie is niet voldoende.
 > * Safari-gebruikers hoeven de extensie niet apart te installeren; deze wordt meegeleverd met de native app.
 
-## De oorspronkelijke pagina flikkert kort voordat de redirect plaatsvindt {#original-page-flash}
+## De oorspronkelijke pagina flikkert kort voordat de redirect plaatsvindt {/* #original-page-flash */}
 
 Dit gebeurt wanneer je het **Original**-type voor doorverwijsregels gebruikt. Dit type biedt verschillende geavanceerde functies, maar kan een korte flits van de oorspronkelijke pagina veroorzaken omdat de oorspronkelijke pagina mogelijk wordt geladen voordat de redirect wordt uitgevoerd.
 
@@ -50,7 +50,7 @@ Open het scherm Edit Rule en wijzig het **Type** naar **DNR** om dit probleem te
 > [!NOTE]
 > In Firefox zou dit probleem niet moeten optreden, zelfs niet met het Original-type, omdat het vertrouwt op de WebRequest API die voorkomt dat de oorspronkelijke pagina wordt geladen.
 
-## Fouten worden weergegeven in het Safari-venster 'Instellingen' {#safari-style-loading-errors}
+## Fouten worden weergegeven in het Safari-venster 'Instellingen' {/* #safari-style-loading-errors */}
 
 Je kunt foutmeldingen zien in het Safari-venster 'Instellingen' zoals de volgende:
 

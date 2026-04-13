@@ -45,18 +45,18 @@ Vo videu bol na nasadenie konfigurácie použitý MDM od ManageEngine, ale rovna
 
 Nasaďte nasledujúce kľúče a hodnoty pre Managed App Configuration prostredníctvom konzoly MDM, zvyčajne vo formáte plist.
 
-| Názov kľúča            | Typ                          | Popis                                                                                                                                                                                                                                                                         |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Názov kľúča            | Typ                                | Popis                                                                                                                                                                                                                                                                                                 |
+| ---------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Sada pravidiel](#rule-set-object) | **[Vynútené pravidlá]** Sada pravidiel aplikovaná s vyššou prioritou ako bežné pravidlá. Prvé pravidlo v zozname má prednosť. Používatelia nemôžu tieto pravidlá upravovať, odstraňovať ani meniť ich poradie. Sú vždy aktívne, ignorujú globálne vypnutie aplikácie a nesynchronizujú sa cez iCloud. |
-| `prefilledRuleSet`     | [Sada pravidiel](#rule-set-object) | **[Počiatočné pravidlá]** Sada pravidiel vytvorená namiesto predvoleného vzorového pravidla, keď používateľ spustí aplikáciu prvýkrát bez existujúcich pravidiel. Po distribuovaní fungujú ako bežné pravidlá, čo umožňuje používateľovi ich úpravu, odstránenie a synchronizáciu cez iCloud. |
-| `organizationName`     | String                       | Zobrazuje „Spravované organizáciou [organizationName]“ v hornej časti obrazovky s nastaveniami v aplikácii, čo používateľovi indikuje, že aplikácia je spravovaná.                                                                                                            |
-| `managedConfigVersion` | String                       | Ľubovoľný reťazec verzie pre konfiguráciu. Zobrazuje sa v používateľskom rozhraní, čo umožňuje IT podpore pri riešení problémov overiť, či sa do zariadenia dostala najnovšia MDM konfigurácia.                                                                                |
-| `showsLibrarySection`  | Boolean                      | Ak je nastavené na `false`, funkcia Knižnica pravidiel je skrytá a sekcia je nahradená chybovým hlásením „Obmedzené vašou organizáciou“.                                                                                                                                      |
-| `fallback`             | [Fallback](#fallback-object) | Toto špecifikujte, keď konfigurácie prekračujú limity MDM dát. Aplikácia stiahne JSON/XML z tejto URL na aplikovanie konfigurácie.                                                                                                                                            |
+| `prefilledRuleSet`     | [Sada pravidiel](#rule-set-object) | **[Počiatočné pravidlá]** Sada pravidiel vytvorená namiesto predvoleného vzorového pravidla, keď používateľ spustí aplikáciu prvýkrát bez existujúcich pravidiel. Po distribuovaní fungujú ako bežné pravidlá, čo umožňuje používateľovi ich úpravu, odstránenie a synchronizáciu cez iCloud.         |
+| `organizationName`     | String                             | Zobrazuje „Spravované organizáciou [organizationName]“ v hornej časti obrazovky s nastaveniami v aplikácii, čo používateľovi indikuje, že aplikácia je spravovaná.                                                                                                                                    |
+| `managedConfigVersion` | String                             | Ľubovoľný reťazec verzie pre konfiguráciu. Zobrazuje sa v používateľskom rozhraní, čo umožňuje IT podpore pri riešení problémov overiť, či sa do zariadenia dostala najnovšia MDM konfigurácia.                                                                                                       |
+| `showsLibrarySection`  | Boolean                            | Ak je nastavené na `false`, funkcia Knižnica pravidiel je skrytá a sekcia je nahradená chybovým hlásením „Obmedzené vašou organizáciou“.                                                                                                                                                              |
+| `fallback`             | [Fallback](#fallback-object)       | Toto špecifikujte, keď konfigurácie prekračujú limity MDM dát. Aplikácia stiahne JSON/XML z tejto URL na aplikovanie konfigurácie.                                                                                                                                                                    |
 
 Všetky tieto kľúče sú voliteľné.
 
-### [Objekt] Sada pravidiel {#rule-set-object}
+### [Objekt] Sada pravidiel {/* #rule-set-object */}
 
 Každý objekt pravidla má rovnaký formát ako ten, ktorý môžete [zdieľať/exportovať prostredníctvom aplikácie](export-or-import-rules), ale musíte ho previesť z JSON do plist, takto:
 
@@ -94,11 +94,11 @@ Každý objekt pravidla má rovnaký formát ako ten, ktorý môžete [zdieľať
 ...
 ```
 
-### [Objekt] Fallback {#fallback-object}
+### [Objekt] Fallback {/* #fallback-object */}
 
-| Názov kľúča       | Typ          | Popis                                                                                                                                        |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | Koncový bod URL súboru JSON/XML obsahujúceho sady pravidiel.                                                                                 |
+| Názov kľúča       | Typ          | Popis                                                                                                                                  |
+| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Koncový bod URL súboru JSON/XML obsahujúceho sady pravidiel.                                                                           |
 | `authToken`       | String       | Autentifikačný token pridaný do hlavičky HTTP pri sťahovaní z `fallbackDataURL`. (Používa sa ako `Authorization: Bearer [authToken]`). |
 
 ## Vyhodnocovanie pravidiel a riešenie konfliktov

@@ -45,18 +45,18 @@ I videoen blev ManageEngines MDM brugt til at udrulle konfigurationen, men den s
 
 Udrul følgende nøgler og værdier for Managed App Configuration via din MDM-konsol, typisk i plist-format.
 
-| Nøglenavn              | Type                         | Beskrivelse                                                                                                                                                                                                                                                                   |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nøglenavn              | Type                         | Beskrivelse                                                                                                                                                                                                                                                                                  |
+| ---------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Rule set](#rule-set-object) | **[Håndhævede regler]** Et regelsæt anvendt med højere prioritet end normale regler. Den første regel på listen har forrang. Brugere kan ikke redigere, slette eller omrokere disse regler. De er altid aktive, ignorerer appens globale deaktiveringsknap og synkroniseres ikke via iCloud. |
-| `prefilledRuleSet`     | [Rule set](#rule-set-object) | **[Indledende regler]** Et regelsæt oprettet i stedet for standardeksempelreglen, når en bruger starter appen for første gang uden eksisterende regler. Når de er distribueret, fungerer disse som normale regler, hvilket tillader brugerændring, sletning og iCloud-synkronisering.                       |
-| `organizationName`     | String                       | Viser "Administreret af [organizationName]" øverst på indstillingsskærmen i appen, hvilket indikerer over for brugeren, at appen administreres.                                                                                                                                            |
-| `managedConfigVersion` | String                       | En vilkårlig versionsstreng for konfigurationen. Vises i brugerfladen, hvilket gør det muligt for it-support at verificere, om den seneste MDM-payload er nået frem til enheden under fejlfinding.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | Hvis denne er sat til `false`, skjules regelbiblioteksfunktionen, og sektionen erstattes med fejlmeddelelsen "Begrænset af din organisation."                                                                                                                                   |
-| `fallback`             | [Fallback](#fallback-object) | Angiv denne, når konfigurationerne overstiger MDM-payload-grænserne. Appen vil hente JSON/XML fra denne URL for at anvende konfigurationen.                                                                                                                                     |
+| `prefilledRuleSet`     | [Rule set](#rule-set-object) | **[Indledende regler]** Et regelsæt oprettet i stedet for standardeksempelreglen, når en bruger starter appen for første gang uden eksisterende regler. Når de er distribueret, fungerer disse som normale regler, hvilket tillader brugerændring, sletning og iCloud-synkronisering.        |
+| `organizationName`     | String                       | Viser "Administreret af [organizationName]" øverst på indstillingsskærmen i appen, hvilket indikerer over for brugeren, at appen administreres.                                                                                                                                              |
+| `managedConfigVersion` | String                       | En vilkårlig versionsstreng for konfigurationen. Vises i brugerfladen, hvilket gør det muligt for it-support at verificere, om den seneste MDM-payload er nået frem til enheden under fejlfinding.                                                                                           |
+| `showsLibrarySection`  | Boolean                      | Hvis denne er sat til `false`, skjules regelbiblioteksfunktionen, og sektionen erstattes med fejlmeddelelsen "Begrænset af din organisation."                                                                                                                                                |
+| `fallback`             | [Fallback](#fallback-object) | Angiv denne, når konfigurationerne overstiger MDM-payload-grænserne. Appen vil hente JSON/XML fra denne URL for at anvende konfigurationen.                                                                                                                                                  |
 
 Disse nøgler er alle valgfrie.
 
-### [Objekt] Regelsæt {#rule-set-object}
+### [Objekt] Regelsæt {/* #rule-set-object */}
 
 Hvert regelobjekt har samme format som det, du kan [dele/eksportere via appen](export-or-import-rules), men du skal konvertere det fra JSON til plist, som her:
 
@@ -94,11 +94,11 @@ Hvert regelobjekt har samme format som det, du kan [dele/eksportere via appen](e
 ...
 ```
 
-### [Objekt] Fallback {#fallback-object}
+### [Objekt] Fallback {/* #fallback-object */}
 
-| Nøglenavn         | Type         | Beskrivelse                                                                                                                                  |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | En slutpunkts-URL for en JSON/XML-fil, der indeholder regelsæt.                                                                                     |
+| Nøglenavn         | Type         | Beskrivelse                                                                                                                               |
+| ----------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | En slutpunkts-URL for en JSON/XML-fil, der indeholder regelsæt.                                                                           |
 | `authToken`       | String       | Et godkendelsestoken, der føjes til HTTP-headeren, når der hentes fra `fallbackDataURL`. (Brugt som `Authorization: Bearer [authToken]`). |
 
 ## Regelvurdering og konfliktløsning

@@ -45,18 +45,18 @@ W filmie do wdrożenia konfiguracji użyto MDM firmy ManageEngine, ale tę samą
 
 Wdróż następujące klucze i wartości dla Managed App Configuration za pośrednictwem konsoli MDM, zazwyczaj w formacie plist.
 
-| Nazwa klucza           | Typ                          | Opis                                                                                                                                                                                                                                                                                        |
-| ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nazwa klucza           | Typ                              | Opis                                                                                                                                                                                                                                                                                                                  |
+| ---------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Zestaw reguł](#rule-set-object) | **[Wymuszone reguły]** Zestaw reguł stosowany z wyższym priorytetem niż normalne reguły. Pierwsza reguła na liście ma pierwszeństwo. Użytkownicy nie mogą edytować, usuwać ani zmieniać kolejności tych reguł. Są one zawsze aktywne, ignorując globalny przełącznik aplikacji, i nie synchronizują się przez iCloud. |
-| `prefilledRuleSet`     | [Zestaw reguł](#rule-set-object) | **[Reguły wstępne]** Zestaw reguł utworzony w miejsce domyślnej przykładowej reguły, gdy użytkownik uruchamia aplikację po raz pierwszy bez istniejących reguł. Po dystrybucji działają one jako normalne reguły, umożliwiając użytkownikowi modyfikację, usuwanie i synchronizację przez iCloud. |
-| `organizationName`     | String                       | Wyświetla informację „Zarządzane przez [organizationName]” u góry ekranu ustawień w aplikacji, wskazując użytkownikowi, że aplikacja jest zarządzana.                                                                                                                                         |
-| `managedConfigVersion` | String                       | Dowolny ciąg znaków wersji dla konfiguracji. Wyświetlany w interfejsie użytkownika, umożliwiając wsparciu IT sprawdzenie podczas rozwiązywania problemów, czy najnowsze dane MDM dotarły do urządzenia.                                                                                       |
-| `showsLibrarySection`  | Boolean                      | Jeśli ustawiono na `false`, funkcja Biblioteki reguł jest ukryta, a sekcja zostaje zastąpiona komunikatem o błędzie „Ograniczone przez Twoją organizację”.                                                                                                                                   |
-| `fallback`             | [Fallback](#fallback-object) | Należy określić to, gdy konfiguracje przekraczają limity danych MDM. Aplikacja pobierze format JSON/XML z tego adresu URL, aby zastosować konfigurację.                                                                                                                                      |
+| `prefilledRuleSet`     | [Zestaw reguł](#rule-set-object) | **[Reguły wstępne]** Zestaw reguł utworzony w miejsce domyślnej przykładowej reguły, gdy użytkownik uruchamia aplikację po raz pierwszy bez istniejących reguł. Po dystrybucji działają one jako normalne reguły, umożliwiając użytkownikowi modyfikację, usuwanie i synchronizację przez iCloud.                     |
+| `organizationName`     | String                           | Wyświetla informację „Zarządzane przez [organizationName]” u góry ekranu ustawień w aplikacji, wskazując użytkownikowi, że aplikacja jest zarządzana.                                                                                                                                                                 |
+| `managedConfigVersion` | String                           | Dowolny ciąg znaków wersji dla konfiguracji. Wyświetlany w interfejsie użytkownika, umożliwiając wsparciu IT sprawdzenie podczas rozwiązywania problemów, czy najnowsze dane MDM dotarły do urządzenia.                                                                                                               |
+| `showsLibrarySection`  | Boolean                          | Jeśli ustawiono na `false`, funkcja Biblioteki reguł jest ukryta, a sekcja zostaje zastąpiona komunikatem o błędzie „Ograniczone przez Twoją organizację”.                                                                                                                                                            |
+| `fallback`             | [Fallback](#fallback-object)     | Należy określić to, gdy konfiguracje przekraczają limity danych MDM. Aplikacja pobierze format JSON/XML z tego adresu URL, aby zastosować konfigurację.                                                                                                                                                               |
 
 Te klucze są opcjonalne.
 
-### [Obiekt] Zestaw reguł {#rule-set-object}
+### [Obiekt] Zestaw reguł {/* #rule-set-object */}
 
 Każdy obiekt reguły ma taki sam format jak ten, który można [udostępnić/wyeksportować za pomocą aplikacji](export-or-import-rules), ale należy go przekonwertować z formatu JSON na plist, w ten sposób:
 
@@ -94,11 +94,11 @@ Każdy obiekt reguły ma taki sam format jak ten, który można [udostępnić/wy
 ...
 ```
 
-### [Obiekt] Fallback {#fallback-object}
+### [Obiekt] Fallback {/* #fallback-object */}
 
-| Nazwa klucza      | Typ          | Opis                                                                                                                                               |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | Adres URL punktu końcowego pliku JSON/XML zawierającego zestawy reguł.                                                                             |
+| Nazwa klucza      | Typ          | Opis                                                                                                                                                  |
+| ----------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Adres URL punktu końcowego pliku JSON/XML zawierającego zestawy reguł.                                                                                |
 | `authToken`       | String       | Token uwierzytelniający dołączany do nagłówka HTTP podczas pobierania z adresu `fallbackDataURL`. (Używany jako `Authorization: Bearer [authToken]`). |
 
 ## Ocena reguł i rozstrzyganie konfliktów
