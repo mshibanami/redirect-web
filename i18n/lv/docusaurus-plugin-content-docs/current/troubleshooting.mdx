@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -17,14 +17,31 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 Ja jūsu noteikumi nedarbojas gaidītajā veidā, lūdzu, pārbaudiet sekojošo:
 
 - **Pārlūkprogrammas paplašinājums ir uzstādīts un iespējots pareizajai lapai:** Pārliecinieties, ka esat uzstādījis RedirectWeb pārlūkprogrammas paplašinājumu un ka tas ir iespējots jūsu pārlūkā attiecīgajai izcelsmes tīmekļa lapai, no kuras vēlaties veikt pāradresāciju. Ja uz izcelsmes lapas varat atvērt paplašinājuma uznirstošo logu šādi, tas ir uzstādīts pareizi:
-    <Image src={ExtensionPopup} alt="RedirectWeb paplašinājuma uznirstošais logs" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="RedirectWeb paplašinājuma uznirstošais logs"
+    width="260"
+    hasShadow
+  />
 
 - **Noteikumu konfigurācija ir pareiza:** Rūpīgi pārbaudiet savus pāradresācijas noteikumus RedirectWeb vietējā lietotnē. Pārliecinieties, ka avota URL paraugi, mērķa URL un jebkuri nosacījumi ir pareizi iestatīti. Lai pārbaudītu, vai noteikums ir derīgs, ievadiet piemēra URL sadaļā "Examples" ekrānā Edit Rule. Ja noteikums ir derīgs, jūs savā ievadā redzēsiet gaidāmo mērķa URL, piemēram šādi:
-    <Image src={RuleEditExampleResult} alt="Piemērs: noteikumu rediģēšanas ekrāns, kas parāda testa URL rezultātu" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="Piemērs: noteikumu rediģēšanas ekrāns, kas parāda testa URL rezultātu"
+    width="260"
+    hasShadow
+  />
 
 ## Paplašinājuma uznirstošais logs rāda kļūdu {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="RedirectWeb kļūdu pārklājums" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="RedirectWeb kļūdu pārklājums"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
@@ -36,8 +53,9 @@ Lūdzu, pārliecinieties, ka esat instalējis jaunāko RedirectWeb versiju no [A
 Var būt nepieciešams arī pārlūkprogrammas pārlādējums (restart), pēc vietējās lietotnes instalēšanas.
 
 > [!NOTE]
-> * Jums nepieciešams uzstādīt RedirectWeb vietējo lietotni, lai izmantotu pārlūkprogrammas paplašinājumu. Paša paplašinājuma lietošana bez lietotnes nav iespējama.
-> * Safari lietotājiem nav nepieciešams atsevišķi instalēt paplašinājumu, jo tas ir iekļauts vietējā lietotnē.
+>
+> - Jums nepieciešams uzstādīt RedirectWeb vietējo lietotni, lai izmantotu pārlūkprogrammas paplašinājumu. Paša paplašinājuma lietošana bez lietotnes nav iespējama.
+> - Safari lietotājiem nav nepieciešams atsevišķi instalēt paplašinājumu, jo tas ir iekļauts vietējā lietotnē.
 
 ## Oriģinālā lapa īslaicīgi mirgo pirms pāradresācijas {/* #original-page-flash */}
 
@@ -45,7 +63,13 @@ Var būt nepieciešams arī pārlūkprogrammas pārlādējums (restart), pēc vi
 
 Atveriet Edit Rule ekrānu un mainiet **Type** uz **DNR**, lai izvairītos no šīs problēmas.
 
-<Image src={EditRuleDnr} alt="RedirectWeb paplašinājuma uznirstošais logs" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="RedirectWeb paplašinājuma uznirstošais logs"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
 > Firefox gadījumā šai problēmai nevajadzētu rasties pat ar Original tipu, jo tas balstās uz WebRequest API, kas neļauj oriģinālajai lapai tikt ielādētai.
@@ -54,10 +78,16 @@ Atveriet Edit Rule ekrānu un mainiet **Type** uz **DNR**, lai izvairītos no š
 
 Jūs varat redzēt Safari iestatījumu logā sekojošas kļūdu ziņas:
 
-<Image src={PopupStyleLoadingError} alt="Ekrānuzņēmums ar kļūdu ziņām Safari iestatījumu logā" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Ekrānuzņēmums ar kļūdu ziņām Safari iestatījumu logā"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
-> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
 Tam nav ietekmes uz RedirectWeb funkcionalitāti. Jūs varat droši tās ignorēt.
 

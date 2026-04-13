@@ -13,13 +13,15 @@ Es kann sein, dass Sie eine Warnung wie diese sehen, wenn Sie RedirectWeb einric
     <Image src={PermissionAlertSafari} alt="Eine Berechtigung erfordernde Warnung" width="200" margin="0 0 16px 0" hasShadow />
 
     > Diese Erweiterung kann Webseiten lesen und ändern sowie Ihren Browserverlauf auf dieser Website einsehen. **Dies könnte sensible Informationen wie Passwörter, Telefonnummern und Kreditkarten enthalten.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="Eine Berechtigung erfordernde Warnung" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Sie kann:  
+    > Sie kann:
     > **Alle Ihre Daten** auf **allen Websites** lesen und ändern
+
 </IfBrowserStore>
 
 Diese Erweiterung benötigt Ihre Erlaubnis, um die Seitennavigation zu beobachten und Sie dorthin umzuleiten, wohin Sie springen möchten. Ihr Browser zeigt dies an, wenn die Erweiterung die entsprechenden Berechtigungen anfordert. Wenn Sie dies nicht zulassen, kann diese Erweiterung nicht funktionieren.
@@ -38,7 +40,11 @@ Derzeit nicht. RedirectWeb ist eng mit dem Apple-Ökosystem verbunden, einschlie
 
 Nach dem Update von RedirectWeb wird in Safari möglicherweise diese Warnung angezeigt:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Eine Warnung zum Deaktivieren der App" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Eine Warnung zum Deaktivieren der App"
+  width="280"
+/>
 
 > "RedirectWeb" wurde aktualisiert und fordert zusätzliche Berechtigungen an. Zum Schutz Ihrer Privatsphäre wurde diese Erweiterung deaktiviert.
 >

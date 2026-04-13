@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Prípad 1: Presmerovanie na inú webovú stránku
@@ -9,11 +9,11 @@ Predpokladajme, že ste závislí na Twitteri a chcete sa zbaviť tohto zvyku. R
 
 ### Krok 1. Otvorte obrazovku „Upraviť pravidlo“
 
-Otvorme obrazovku *Upraviť pravidlo* a začnime vytvárať vlastné pravidlo v aplikácii. Môžete to urobiť kliknutím na tlačidlo plus (+) v karte *Moje pravidlá*.
+Otvorme obrazovku _Upraviť pravidlo_ a začnime vytvárať vlastné pravidlo v aplikácii. Môžete to urobiť kliknutím na tlačidlo plus (+) v karte _Moje pravidlá_.
 
 ### Krok 2. Nastavte „Presmerovať z“
 
-Najprv by ste mali nastaviť sekciu *Presmerovať z* na obrazovke *Upraviť pravidlo* v aplikácii. Cieľom sú adresy URL začínajúce na `https://twitter.com/`.
+Najprv by ste mali nastaviť sekciu _Presmerovať z_ na obrazovke _Upraviť pravidlo_ v aplikácii. Cieľom sú adresy URL začínajúce na `https://twitter.com/`.
 
 V tomto prípade môžete zadať nasledujúci vzor pomocou režimu [Zástupný znak (Wildcard)](/rule-settings#url-pattern-wildcard):
 
@@ -31,13 +31,13 @@ Ak to chcete urobiť, prepnite zo Zástupného znaku na [Regulárny výraz (Regu
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: cielia na `twitter` aj `x`. (`|` sa nazýva *zvislá čiara (pipe)*.)
-* `.*`: Je to rovnaké ako `*` v Zástupnom znaku. Konkrétnejšie, `.` znamená *akýkoľvek znak* a `*` znamená, že *čokoľvek pred týmto symbolom sa môže opakovať ľubovoľný počet krát*, čo vedie k tomu, že sa zhoduje s čímkoľvek.
+- `(twitter|x)`: cielia na `twitter` aj `x`. (`|` sa nazýva _zvislá čiara (pipe)_.)
+- `.*`: Je to rovnaké ako `*` v Zástupnom znaku. Konkrétnejšie, `.` znamená _akýkoľvek znak_ a `*` znamená, že _čokoľvek pred týmto symbolom sa môže opakovať ľubovoľný počet krát_, čo vedie k tomu, že sa zhoduje s čímkoľvek.
 
 Regulárne výrazy sú trochu komplikované, ale keď si na ne zvyknete, budú mocným nástrojom. Odporúčame použiť [RegExr](https://regexr.com) ako pieskovisko (playground) na analýzu toho, ako funguje váš vzor regulárneho výrazu.
 
 > [!TIP]
-> V regulárnych výrazoch sa `.` v `(twitter|x).com` tiež považuje za *akýkoľvek znak*. Preto `(twitter|x).com/.*` zodpovedá napríklad aj `twitter1com/` alebo `x_com/`.
+> V regulárnych výrazoch sa `.` v `(twitter|x).com` tiež považuje za _akýkoľvek znak_. Preto `(twitter|x).com/.*` zodpovedá napríklad aj `twitter1com/` alebo `x_com/`.
 >
 > Aby ste boli presnejší, môžete to zmeniť na `(twitter|x)\.com/.*`. `\` sa používa na to, aby sa s `.` zaobchádzalo ako s doslovným znakom bodky a nie ako so špeciálnym znakom.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Voliteľné) Krok 4: Skontrolujte pravidlo
 
-To, ako pravidlo funguje, môžete skontrolovať pridaním príkladu URL v sekcii *Príklady* na obrazovke *Upraviť pravidlo*. Napríklad, ak zadáte `https://x.com/UN`, zobrazí sa ako výsledok `https://unrush.org/`.
+To, ako pravidlo funguje, môžete skontrolovať pridaním príkladu URL v sekcii _Príklady_ na obrazovke _Upraviť pravidlo_. Napríklad, ak zadáte `https://x.com/UN`, zobrazí sa ako výsledok `https://unrush.org/`.
 
 Takto by malo vaše pravidlo teraz vyzerať:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Príklad pravidla na otvorenie inej webovej stránky" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Príklad pravidla na otvorenie inej webovej stránky"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Stiahnuť pravidlo</a>**
 

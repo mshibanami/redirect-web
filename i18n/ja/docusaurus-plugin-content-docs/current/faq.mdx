@@ -13,6 +13,7 @@ RedirectWebを設定する際に、次のような警告が表示されること
     <Image src={PermissionAlertSafari} alt="権限を要求する警告" width="200" margin="0 0 16px 0" hasShadow />
 
     > この拡張機能は、このウェブサイトでウェブページを読み取り、変更し、閲覧履歴を表示できます。**これには、パスワード、電話番号、クレジットカードなどの機密情報が含まれる可能性があります。**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
@@ -20,6 +21,7 @@ RedirectWebを設定する際に、次のような警告が表示されること
 
     > 次のことができます。
     > **すべてのウェブサイト**で**すべてのデータ**を読み取り、変更する
+
 </IfBrowserStore>
 
 この拡張機能は、ページナビゲーションを監視して、目的の場所にリダイレクトするためにあなたの許可を必要とします。ブラウザは、拡張機能が関連する権限を要求するとこれを表示します。したがって、許可しない場合、この拡張機能は機能しません。
@@ -38,7 +40,11 @@ RedirectWebを設定する際に、次のような警告が表示されること
 
 RedirectWebをアップデートした後、Safariでこの警告が表示されることがあります。
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="アプリを無効にする警告" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="アプリを無効にする警告"
+  width="280"
+/>
 
 > 「RedirectWeb」が更新され、追加の権限を要求しています。プライバシーを保護するため、この拡張機能はオフになっています。
 >

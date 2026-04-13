@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM-asetukset ylläpitäjille
 
@@ -15,27 +15,36 @@ Tällä sivulla esitellään konfiguroitavat avaimet, sovelluksen käyttäytymin
 
 Työntämällä konfiguraatioita MDM:n kautta voit saavuttaa seuraavat asiat:
 
-* **Pakotetut säännöt:** Käytä organisaation laajuisia uudelleenohjaussääntöjä, joita käyttäjät eivät voi muokata tai poistaa.
-* **Sääntöjen alkuperäinen jakelu:** Jakele mallisääntöjoukko, joka toimii oletuksena sovelluksen ensimmäisellä käynnistyskerralla.
-* **Käyttöliittymän hallinta:** Rajoita pääsyä tiettyihin ominaisuuksiin (kuten kirjastoon) ja osoita selvästi sovelluksessa, että se on organisaation hallinnassa.
-* **Suurten sääntömäärien nouto (Fallback):** Ohita MDM-tiedon koon rajoitukset noutamalla säännöt ulkoiselta palvelimelta.
+- **Pakotetut säännöt:** Käytä organisaation laajuisia uudelleenohjaussääntöjä, joita käyttäjät eivät voi muokata tai poistaa.
+- **Sääntöjen alkuperäinen jakelu:** Jakele mallisääntöjoukko, joka toimii oletuksena sovelluksen ensimmäisellä käynnistyskerralla.
+- **Käyttöliittymän hallinta:** Rajoita pääsyä tiettyihin ominaisuuksiin (kuten kirjastoon) ja osoita selvästi sovelluksessa, että se on organisaation hallinnassa.
+- **Suurten sääntömäärien nouto (Fallback):** Ohita MDM-tiedon koon rajoitukset noutamalla säännöt ulkoiselta palvelimelta.
 
 ## Käyttötapaukset
 
-* **Saumaton reititys järjestelmäsiirtojen aikana:**
+- **Saumaton reititys järjestelmäsiirtojen aikana:**
   Kun siirrytään vanhasta sisäisestä järjestelmästä (esim. `legacy-crm.internal.local`) uuteen alustaan (esim. `salesforce.com`), jakele `enforcedRuleSet`. Vaikka työntekijät käyttäisivät vanhoja kirjanmerkkejä, heidät ohjataan automaattisesti uuteen järjestelmään, mikä vähentää vanhentuneisiin linkkeihin liittyviä IT-tukipyyntöjä.
-* **Intranetin pääsyn helpottaminen:**
+- **Intranetin pääsyn helpottaminen:**
   Jakele uudelleenohjaussääntöjä käyttäen mukautettuja URL-malleja helpottaaksesi pääsyä intranetin resursseihin Per-App VPN -tunneleiden kautta, kuten Omnissa Web.
 
 > [!WARNING]
-> 
+>
 > MDM-konfiguraatioiden päivitykset tulevat voimaan välittömästi **vain jos käyttäjä avaa RedirectWeb-sovelluksen**.
 > Vaikka sovellus käyttää taustatehtäviä MDM-päivitysten viemiseksi selainlaajennukseen hiljaa, tämä on "parhaaseen pyrkimykseen" (best-effort) perustuva suoritus, jonka käyttöjärjestelmä määrää. Suorituksen ajoitus on erittäin arvaamaton, eikä tehtävä välttämättä suoriteta lainkaan.
 > Siksi tähän ominaisuuteen **ei** tule luottaa aikakriittisissä tilanteissa (esim. yritettäessä ohjata kaikki työntekijät välittömästi varasivustolle pilvipalvelun käyttökatkon aikana muutamassa minuutissa).
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM-asetusten demo" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM-asetusten demo"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Videolla käytetty plist-tiedosto on saatavilla täältä: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -111,15 +120,15 @@ Jokaisella sääntöobjektilla on sama muoto kuin sillä, jonka voit [jakaa/vied
 
 Kun avain on olemassa sekä upotetussa MDM-paketissa että `fallbackDataURL`-osoitteen kautta noudetussa tiedossa, sovellus käsittelee ristiriidan seuraavasti:
 
-* **Ennen noudon valmistumista:** Upotetut asetukset ovat ensisijaisia ja niitä käytetään.
-* **Onnistuneen noudon jälkeen:** Osoitteesta `fallbackDataURL` noudetut tiedot ylikirjoittavat vastaavat upotetut asetukset.
-* **Epäonnistuneen noudon jälkeen:** Sovellus jatkaa upotettujen asetusten käyttöä.
-* Erilliset avaimet, jotka ovat vain upotetussa paketissa, säilytetään.
+- **Ennen noudon valmistumista:** Upotetut asetukset ovat ensisijaisia ja niitä käytetään.
+- **Onnistuneen noudon jälkeen:** Osoitteesta `fallbackDataURL` noudetut tiedot ylikirjoittavat vastaavat upotetut asetukset.
+- **Epäonnistuneen noudon jälkeen:** Sovellus jatkaa upotettujen asetusten käyttöä.
+- Erilliset avaimet, jotka ovat vain upotetussa paketissa, säilytetään.
 
 ## MDM-palaute ja tilan tarkistus
 
 Voit tarkistaa, otettiinko konfiguraatio käyttöön onnistuneesti MDM-palautekanavan kautta (`com.apple.feedback.managed`), jos MDM-ratkaisusi tukee sitä. Konfiguraation käsittelyn (tai URL-noudon valmistumisen) jälkeen sovellus palauttaa seuraavat tiedot:
 
-* `managedConfigVersion`: Konfiguraatioyrityksen version merkkijono.
-* `result`: Joko `success` tai `error`.
-* `messages`: Taulukko, joka sisältää yksityiskohtaisia virhe- tai varoitusviestejä, jos sovellettavissa.
+- `managedConfigVersion`: Konfiguraatioyrityksen version merkkijono.
+- `result`: Joko `success` tai `error`.
+- `messages`: Taulukko, joka sisältää yksityiskohtaisia virhe- tai varoitusviestejä, jos sovellettavissa.

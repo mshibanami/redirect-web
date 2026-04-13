@@ -13,13 +13,15 @@ Du kan se en varning som denna när du ställer in RedirectWeb:
     <Image src={PermissionAlertSafari} alt="En behörighetskrävande varning" width="200" margin="0 0 16px 0" hasShadow />
 
     > Detta tillägg kommer att kunna läsa och ändra webbsidor och se din webbhistorik på denna webbplats. **Detta kan inkludera känslig information, inklusive lösenord, telefonnummer och kreditkort.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="En behörighetskrävande varning" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Det kan:  
+    > Det kan:
     > Läsa och ändra **all din data** på **alla webbplatser**
+
 </IfBrowserStore>
 
 Detta tillägg behöver din behörighet för att observera sidnavigeringen för att omdirigera till vart du vill hoppa, och din webbläsare visar detta när tillägget begär de relaterade behörigheterna. Därför, om du inte tillåter det, kan detta tillägg inte fungera.
@@ -38,7 +40,11 @@ Inte för närvarande. RedirectWeb är nära knutet till Apples ekosystem, inklu
 
 Du kan se denna varning i Safari efter att ha uppdaterat RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="En varning om att inaktivera appen" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="En varning om att inaktivera appen"
+  width="280"
+/>
 
 > "RedirectWeb" har uppdaterats och begär ytterligare behörigheter. För att skydda din integritet har detta tillägg stängts av.
 >

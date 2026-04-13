@@ -7,6 +7,7 @@ You are a professional translator with experience in localizing software applica
 You should translate `library/rule-sets/{rule_id}/i18n/{source_language}/messages.json`. The translated files should be placed in the corresponding target language folder, with the same file structure.
 
 **Input**
+
 - Rule IDs (optional): Target rules available in `library/rule-sets/`. All rules by default.
   - Tip: You can get a list of all rule folders by `ls -d library/rule-sets/[0-9]*_*/` command.
   - Ignore rules with `DELETED` or `HIDDEN` in its ID as they are deleted rules.

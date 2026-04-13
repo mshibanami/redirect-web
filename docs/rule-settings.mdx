@@ -1,6 +1,6 @@
 # Rule Settings
 
-This page provides detailed information of each setting in the *Edit Rule* screen in the RedirectWeb app.
+This page provides detailed information of each setting in the _Edit Rule_ screen in the RedirectWeb app.
 
 ## Options
 
@@ -8,17 +8,17 @@ This page provides detailed information of each setting in the *Edit Rule* scree
 
 Specify the **Type** option to control how the app handles redirection. You can choose from these:
 
-* **Original** (Default)
-    * This uses traditional Web APIs to control redirection. Additionally, it uses [the Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) for a fallback.
-        * In Firefox, it uses the [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) to handle redirection.
-    * You can use all the options other than [Resource Types](#resource-types) and [Request Methods](#request-methods).
-    * ⚠️ This is slower than the *Declarative* type and may cause extra network requests.
-* **DNR** (Experimental for Safari):
-    * This type works much faster than the Original type because it doesn't initiate a network request for the source URL.
-    * This allows you to specify [Resource Types](#resource-types) and [Request Methods](#request-methods).
-    * ⚠️ You can't use some options, such as [Capturing Group Processing](#capturing-group-processing) and [Excluded URL Patterns](#excluded-url-patterns) since they haven't been supported by the DNR API yet.
-    * ⚠️ In Safari, currently you can't include pipes (`|`) in your Regular Expression pattern. [Details](https://github.com/mshibanami/redirect-web/issues/44)
-    * ⚠️ Since Safari's DNR API still has some issues, we consider that is still an experimental feature for Safari. You can find the list of all the known issues [here](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+- **Original** (Default)
+  - This uses traditional Web APIs to control redirection. Additionally, it uses [the Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) for a fallback.
+    - In Firefox, it uses the [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) to handle redirection.
+  - You can use all the options other than [Resource Types](#resource-types) and [Request Methods](#request-methods).
+  - ⚠️ This is slower than the _Declarative_ type and may cause extra network requests.
+- **DNR** (Experimental for Safari):
+  - This type works much faster than the Original type because it doesn't initiate a network request for the source URL.
+  - This allows you to specify [Resource Types](#resource-types) and [Request Methods](#request-methods).
+  - ⚠️ You can't use some options, such as [Capturing Group Processing](#capturing-group-processing) and [Excluded URL Patterns](#excluded-url-patterns) since they haven't been supported by the DNR API yet.
+  - ⚠️ In Safari, currently you can't include pipes (`|`) in your Regular Expression pattern. [Details](https://github.com/mshibanami/redirect-web/issues/44)
+  - ⚠️ Since Safari's DNR API still has some issues, we consider that is still an experimental feature for Safari. You can find the list of all the known issues [here](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
 ### Redirect From {/* #redirect-from */}
 
@@ -36,7 +36,7 @@ For example, if you specify `https://example.com/*` with Wildcard, it matches `h
 The **Resource Types** option lets you specify the categories of web requests, such as images, JavaScripts, and style sheets, to which the rule applies.
 For example, if you set `script`, you can redirect the JavaScript files loaded by web pages.
 
-Currently, these are available: 
+Currently, these are available:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
 The default setting is `main_frame`, which is the top-level page loaded into a tab.
@@ -62,22 +62,22 @@ Please check the details of each method in [mdn web docs](https://developer.mozi
 
 The **Target Browsers** option allows you to specify which browser the rule should or shouldn't be applied to.
 
-* There are 2 types of browsers you can choose:
-    * **Browsers you can choose by default**: You can choose Safari, Chrome, Firefox, Edge, Opera, Arc, Brave, and Vivaldi by default. This doesn't differentiate variants of the same browser, such as Safari and Safari Technology Preview.
-    * **User specified browsers**: By tapping the Add button on the popover, you can select any browser other than Safari or Safari Technology Preview that has the RedirectWeb extension installed.
-* The **All except selected** checkbox lets you target every browser except the ones you’ve chosen.
+- There are 2 types of browsers you can choose:
+  - **Browsers you can choose by default**: You can choose Safari, Chrome, Firefox, Edge, Opera, Arc, Brave, and Vivaldi by default. This doesn't differentiate variants of the same browser, such as Safari and Safari Technology Preview.
+  - **User specified browsers**: By tapping the Add button on the popover, you can select any browser other than Safari or Safari Technology Preview that has the RedirectWeb extension installed.
+- The **All except selected** checkbox lets you target every browser except the ones you’ve chosen.
 
 > [!WARNING]
 > RedirectWeb can't differentiate whether the browser is **Safari** or **Safari Technology Preview** because the app checks the parent process of the extension to detect it but these two browsers share the same parent process (`/sbin/launchd`).
 
 ### Redirect To {/* #redirect-to */}
 
-The **Redirect To** option specifies a destination URL you wish to redirect to, from the source URL matched with the *Redirect From* option. You can also substitute capturing groups with `$1`, `$2`, ... or the entire match with `$0`. These help you dynamically specify the destination. Check the details in [URL Pattern](#url-pattern) in this page.
+The **Redirect To** option specifies a destination URL you wish to redirect to, from the source URL matched with the _Redirect From_ option. You can also substitute capturing groups with `$1`, `$2`, ... or the entire match with `$0`. These help you dynamically specify the destination. Check the details in [URL Pattern](#url-pattern) in this page.
 
 For example, if you set the following rule:
 
-* **Redirect From**: `https://google.com/*` (Wildcard)
-* **Redirect To**: `https://apple.com/$1`
+- **Redirect From**: `https://google.com/*` (Wildcard)
+- **Redirect To**: `https://apple.com/$1`
 
 and it matches `https://google.com/hello`, then the destination URL will be `https://apple.com/hello`.
 
@@ -86,12 +86,12 @@ Additionally, You can modify the texts of `$1`, `$2`, ... before making substitu
 > [!TIP]
 > You can specify a custom URL scheme to open an app. These are examples of apps that support deep linking:
 >
-> * Figma: `figma://file/Your_Figma_ID`
-> * Firefox: `firefox://open-url?url=https://example.com/hello`
-> * Google Chrome: `googlechromes://example.com`
-> * Microsoft Edge: `microsoft-edge://example.com`
-> * Notion: `notion://www.notion.so/Your_Note_ID`
-> * Slack: `slack://open`
+> - Figma: `figma://file/Your_Figma_ID`
+> - Firefox: `firefox://open-url?url=https://example.com/hello`
+> - Google Chrome: `googlechromes://example.com`
+> - Microsoft Edge: `microsoft-edge://example.com`
+> - Notion: `notion://www.notion.so/Your_Note_ID`
+> - Slack: `slack://open`
 
 #### Application {/* #application */}
 
@@ -106,28 +106,28 @@ If you want to specify an app you wish to open the destination URL, use the **Ap
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
-The **Capturing Group Processing** option allows you to specify how to process the captured groups you can substitute in the *Redirect To* option with `$1`, `$2`...
+The **Capturing Group Processing** option allows you to specify how to process the captured groups you can substitute in the _Redirect To_ option with `$1`, `$2`...
 
 These are how to make capturing groups:
 
-* **Wildcard**: Texts matched with `*` and `?` are automatically captured.
-* **Regular Expression**: Texts matched with part of the pattern inside `()` are captured.
+- **Wildcard**: Texts matched with `*` and `?` are automatically captured.
+- **Regular Expression**: Texts matched with part of the pattern inside `()` are captured.
 
 You can choose one or more of the following processes:
 
-* **URL Encode/Decode**: This applies [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) or decoding to a capturing group. For example, if you encode `https://example.com/hello`, it's converted to `https%3A%2F%2Fexample.com%2Fhello`. Decode works in the opposite way.
-* **Base64 Encode/Decode**: This decode/encode a text into [Base64](https://en.wikipedia.org/wiki/Base64). For example, you can encode `hello` to `aGVsbG8=`, and decode it back to `hello`.
-* **Replace Occurrences**: This replaces one or more characters in a group, matched by a **Target**, with a **Replacement**. For example, if the *Group* is `hello` and the *Target* is `l` and the Replacement is `y`, it is modified to `heyyo`.
+- **URL Encode/Decode**: This applies [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) or decoding to a capturing group. For example, if you encode `https://example.com/hello`, it's converted to `https%3A%2F%2Fexample.com%2Fhello`. Decode works in the opposite way.
+- **Base64 Encode/Decode**: This decode/encode a text into [Base64](https://en.wikipedia.org/wiki/Base64). For example, you can encode `hello` to `aGVsbG8=`, and decode it back to `hello`.
+- **Replace Occurrences**: This replaces one or more characters in a group, matched by a **Target**, with a **Replacement**. For example, if the _Group_ is `hello` and the _Target_ is `l` and the Replacement is `y`, it is modified to `heyyo`.
 
 > [!NOTE]
 > This is for processing each capturing group and it doesn't affect which URLs are excluded by the [Excluded URL Patterns](#excluded-url-patterns). For instance, let's say you have this rule:
 >
-> * **Redirect From**: `https://example.com/(hello.*)`
-> * **Capturing Group Processing**:
->     * Group: `$1`
->     * Target: `.*` (Regular Expression)
->     * Replacement: `hello`
-> * **Excluded URL Pattern**: `https://example.com/hello`
+> - **Redirect From**: `https://example.com/(hello.*)`
+> - **Capturing Group Processing**:
+>   - Group: `$1`
+>   - Target: `.*` (Regular Expression)
+>   - Replacement: `hello`
+> - **Excluded URL Pattern**: `https://example.com/hello`
 >
 > In this case, `https://example.com/hello_world` will not be excluded while `https://example.com/hello` will be excluded.
 
@@ -145,9 +145,9 @@ The **Examples** option allows you to test your redirect rule by providing sampl
 
 ### Advanced {/* #advanced-options */}
 
-* **[DNR] Main Frame Redirection**: This option is only available for the DNR type. It allows you to specify how to handle the redirection for the `main_frame` resource type. Available options are:
-    * **Raw**: Redirects the main frame to the specified URL without any modifications.
-    * **Via Intermediate Page**: Redirects the main frame to an intermediate page, which then redirects to the specified destination URL. This is useful for opening apps using deep linking since the intermediate page can handle more complex redirection logic.
+- **[DNR] Main Frame Redirection**: This option is only available for the DNR type. It allows you to specify how to handle the redirection for the `main_frame` resource type. Available options are:
+  - **Raw**: Redirects the main frame to the specified URL without any modifications.
+  - **Via Intermediate Page**: Redirects the main frame to an intermediate page, which then redirects to the specified destination URL. This is useful for opening apps using deep linking since the intermediate page can handle more complex redirection logic.
 
 ### Comments {/* #comments */}
 
@@ -155,21 +155,21 @@ The **Comments** option allows you to add any notes or comments about your redir
 
 You can write comments in the following formats:
 
-* **Plain Text** (Default): Simple text without any formatting.
-* **Markdown**: You can use [GitHub's Markdown syntaxes](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), including some extensions GFM doesn't support. For example, you can create headings, lists, links, and more.
-* **AsciiDoc**: You can use [AsciiDoc syntaxes](https://asciidoc.org/) to format your comments.
+- **Plain Text** (Default): Simple text without any formatting.
+- **Markdown**: You can use [GitHub's Markdown syntaxes](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), including some extensions GFM doesn't support. For example, you can create headings, lists, links, and more.
+- **AsciiDoc**: You can use [AsciiDoc syntaxes](https://asciidoc.org/) to format your comments.
 
 ## URL Pattern {/* #url-pattern */}
 
-**URL patterns** are used to match URLs in the *Redirect From*, *Excluded URL Patterns*, and *Capturing Group Processing* options. To specify them, you can choose either **Wildcard** or **Regular Expression**.
+**URL patterns** are used to match URLs in the _Redirect From_, _Excluded URL Patterns_, and _Capturing Group Processing_ options. To specify them, you can choose either **Wildcard** or **Regular Expression**.
 
 ### Wildcard {/* #url-pattern-wildcard */}
 
-**Wildcard** is a simpler pattern type that allows you to use `*` (matches anything) and `?`  (matches any single character) as wildcards. Here are some examples:
+**Wildcard** is a simpler pattern type that allows you to use `*` (matches anything) and `?` (matches any single character) as wildcards. Here are some examples:
 
-* To match `https://example.com/hello`, you can use `https://example.com/*`. This will match any string after `https://example.com/`.
-* To match `https://example.com/search?q=hello`, you can use `https://example.com/search?q=*`. This will match any value for the `q` parameter.
-* To match any URL that contains the word `blog`, you can use `*blog*`.
+- To match `https://example.com/hello`, you can use `https://example.com/*`. This will match any string after `https://example.com/`.
+- To match `https://example.com/search?q=hello`, you can use `https://example.com/search?q=*`. This will match any value for the `q` parameter.
+- To match any URL that contains the word `blog`, you can use `*blog*`.
 
 You can also use substitution in Wildcard as well, which means you can reference portions of the matched URL using `$1`, `$2`, etc. For example, if you use `https://example.com/*-world-*`, and the URL is `https://example.com/hello-world-goodbye`, then `$1` would be "hello" and `$2` would be "goodbye". `$0` is also available to reference the entire URL matched.
 
@@ -181,10 +181,10 @@ You can also use substitution in Wildcard as well, which means you can reference
 **Regular Expression** (Regex) is a powerful tool for matching patterns in text and is also widely used in programming. It allows you to define a specific pattern that matches a set of strings. Here are some examples.
 
 - To match `https://example.com/hello`, you can use `https://example.com/.*`. This will match any string after `https://example.com/`.
-- To match `https://example.com/search?q=hello`, you can use `https://example.com/search\?q=(.*)`. This will match the value of the `q` parameter and store it in a capturing group. You can then reference it using `$1` in the *Redirect To* option.
+- To match `https://example.com/search?q=hello`, you can use `https://example.com/search\?q=(.*)`. This will match the value of the `q` parameter and store it in a capturing group. You can then reference it using `$1` in the _Redirect To_ option.
 - To match any URL that contains the word `blog`, you can use `.*blog.*`.
 
-You can reference the capturing groups in *Redirect To* or *Replacement* using `$1`, `$2`, ... or `$0` to reference the entire match.
+You can reference the capturing groups in _Redirect To_ or _Replacement_ using `$1`, `$2`, ... or `$0` to reference the entire match.
 
 RedirectWeb is powered by [Apple's Regex engine](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 

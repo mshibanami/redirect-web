@@ -11,19 +11,13 @@ interface AwardProps {
 export default function Award({ header, main, footer }: AwardProps): React.ReactNode {
   return (
     <div className={styles.awardContainer}>
-      <img
-        src={ivyLeafLeading}
-        className={styles.ivyLeafLeading}
-      />
+      <img src={ivyLeafLeading} className={styles.ivyLeafLeading} />
       <div className={styles.awardContent}>
         <div className={styles.awardHeader}>{header}</div>
         <div className={styles.awardMain}>{main}</div>
         <div className={styles.awardFooter}>{footer}</div>
       </div>
-      <img
-        src={ivyLeafLeading}
-        className={styles.ivyLeafTrailing}
-      />
+      <img src={ivyLeafLeading} className={styles.ivyLeafTrailing} />
     </div>
   );
 }

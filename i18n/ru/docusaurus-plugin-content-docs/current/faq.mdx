@@ -13,6 +13,7 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
     <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow />
 
     > Это расширение сможет читать и изменять веб-страницы, а также просматривать вашу историю просмотров на этом веб-сайте. **Это может включать конфиденциальную информацию, включая пароли, номера телефонов и данные кредитных карт.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
@@ -20,6 +21,7 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
     > Оно может:
     > Читать и изменять **все ваши данные** на **всех веб-сайтах**
+
 </IfBrowserStore>
 
 Этому расширению требуется ваше разрешение для отслеживания навигации по страницам, чтобы перенаправлять вас туда, куда вы хотите перейти, и ваш браузер отображает это, когда расширение запрашивает соответствующие разрешения. Поэтому, если вы не разрешите это, это расширение не сможет работать.
@@ -38,7 +40,11 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 Вы можете увидеть это предупреждение в Safari после обновления RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="An alert of disabling the app"
+  width="280"
+/>
 
 > «RedirectWeb» был обновлен и запрашивает дополнительные разрешения. Для защиты вашей конфиденциальности это расширение было отключено.
 >

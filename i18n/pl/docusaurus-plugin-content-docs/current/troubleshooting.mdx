@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -17,14 +17,31 @@ Na tej stronie znajdują się typowe problemy i ich rozwiązania podczas korzyst
 Jeśli reguły nie działają zgodnie z oczekiwaniami, sprawdź następujące elementy:
 
 - **Rozszerzenie przeglądarki jest zainstalowane i włączone na właściwej stronie:** Upewnij się, że masz zainstalowane rozszerzenie RedirectWeb i że jest ono włączone w przeglądarce dla strony, z której chcesz przekierować. Jeśli możesz otworzyć wyskakujące okno rozszerzenia na stronie źródłowej, to oznacza, że zostało poprawnie zainstalowane:
-    <Image src={ExtensionPopup} alt="wyskakujące okno rozszerzenia RedirectWeb" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="wyskakujące okno rozszerzenia RedirectWeb"
+    width="260"
+    hasShadow
+  />
 
 - **Konfiguracja reguły jest poprawna:** Dokładnie sprawdź reguły przekierowań w natywnej aplikacji RedirectWeb. Upewnij się, że wzorce adresów źródłowych, adresy docelowe i wszelkie warunki są poprawnie ustawione. Aby sprawdzić, czy reguła jest prawidłowa, wpisz przykładowy adres URL w sekcji `Examples` na ekranie `Edit Rule`. Jeśli reguła jest poprawna, zobaczysz oczekiwany adres docelowy pod swoim wpisem, np.:
-    <Image src={RuleEditExampleResult} alt="Przykład ekranu edycji reguły pokazujący wynik dla przykładowego adresu URL" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="Przykład ekranu edycji reguły pokazujący wynik dla przykładowego adresu URL"
+    width="260"
+    hasShadow
+  />
 
 ## Wyskakujące okno rozszerzenia wyświetla błąd {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="nakładka błędu RedirectWeb" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="nakładka błędu RedirectWeb"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
@@ -36,8 +53,9 @@ Upewnij się, że zainstalowałeś najnowszą wersję RedirectWeb z [App Store](
 Po zainstalowaniu natywnej aplikacji może być konieczne ponowne uruchomienie przeglądarki.
 
 > [!NOTE]
-> * Musisz zainstalować natywną aplikację RedirectWeb, aby korzystać z rozszerzenia przeglądarki. Same rozszerzenie nie działa.
-> * Użytkownicy Safari nie muszą instalować rozszerzenia osobno, ponieważ jest ono dołączone do natywnej aplikacji.
+>
+> - Musisz zainstalować natywną aplikację RedirectWeb, aby korzystać z rozszerzenia przeglądarki. Same rozszerzenie nie działa.
+> - Użytkownicy Safari nie muszą instalować rozszerzenia osobno, ponieważ jest ono dołączone do natywnej aplikacji.
 
 ## Oryginalna strona mignie krótko przed przekierowaniem {/* #original-page-flash */}
 
@@ -45,7 +63,13 @@ Dzieje się tak, gdy używasz reguł przekierowań typu **Original**. Ten typ of
 
 Otwórz ekran `Edit Rule` i zmień **Type** na **DNR**, aby uniknąć tego problemu.
 
-<Image src={EditRuleDnr} alt="wyskakujące okno rozszerzenia RedirectWeb" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="wyskakujące okno rozszerzenia RedirectWeb"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
 > W Firefoxie ten problem nie powinien występować nawet przy typie Original, ponieważ opiera się on na `WebRequest API`, które uniemożliwia załadowanie oryginalnej strony.
@@ -54,10 +78,16 @@ Otwórz ekran `Edit Rule` i zmień **Type** na **DNR**, aby uniknąć tego probl
 
 Możesz zobaczyć komunikaty o błędach w oknie ustawień Safari, podobne do poniższych:
 
-<Image src={PopupStyleLoadingError} alt="Zrzut ekranu z komunikatami o błędach w oknie ustawień Safari" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Zrzut ekranu z komunikatami o błędach w oknie ustawień Safari"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
-> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
 Nie wpływa to na działanie RedirectWeb. Możesz je bezpiecznie zignorować.
 

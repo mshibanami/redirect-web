@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # 2. eset: Lekérdezési paraméterek eltávolítása az URL-ből
 
@@ -6,14 +6,14 @@ Tegyük fel, hogy van egy `source=twitter` lekérdezési paraméter az `example.
 
 Ebben az esetben a **Rögzítőcsoport-feldolgozás** opció a legegyszerűbb módja:
 
-* **Átirányítás innen**: `https://example.com/*` (Helyettesítő karakter)
-* **Átirányítás ide**: `$0`
-* **Rögzítőcsoport-feldolgozás**:
-    * **Csoport**: `$0`
-    * **Folyamat**: Előfordulások cseréje
-        * **Cél**: `&?source=[^&]*`
-        * **Csere**: *(nincs)*
-        * **Szövegminta**: Reguláris kifejezés
+- **Átirányítás innen**: `https://example.com/*` (Helyettesítő karakter)
+- **Átirányítás ide**: `$0`
+- **Rögzítőcsoport-feldolgozás**:
+  - **Csoport**: `$0`
+  - **Folyamat**: Előfordulások cseréje
+    - **Cél**: `&?source=[^&]*`
+    - **Csere**: _(nincs)_
+    - **Szövegminta**: Reguláris kifejezés
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Töltse le a szabályt</a>**
 

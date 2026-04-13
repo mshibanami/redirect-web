@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Caso 2: Remover parâmetros de consulta da URL
 
@@ -6,14 +6,14 @@ Suponha que haja um parâmetro de consulta `source=twitter` em uma URL de `examp
 
 Neste caso, a opção **Processamento de Grupo de Captura** é a maneira mais fácil:
 
-*   **Redirecionar De**: `https://example.com/*` (Curinga)
-*   **Redirecionar Para**: `$0`
-*   **Processamento de Grupo de Captura**:
-    *   **Grupo**: `$0`
-    *   **Processo**: Substituir Ocorrências
-        *   **Alvo**: `&?source=[^&]*`
-        *   **Substituição**: *(nenhum)*
-        *   **Padrão de Texto**: Expressão Regular
+- **Redirecionar De**: `https://example.com/*` (Curinga)
+- **Redirecionar Para**: `$0`
+- **Processamento de Grupo de Captura**:
+  - **Grupo**: `$0`
+  - **Processo**: Substituir Ocorrências
+    - **Alvo**: `&?source=[^&]*`
+    - **Substituição**: _(nenhum)_
+    - **Padrão de Texto**: Expressão Regular
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Baixar a Regra</a>**
 

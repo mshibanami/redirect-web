@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Fall 2: Abfrageparameter aus der URL entfernen
 
@@ -6,14 +6,14 @@ Angenommen, es gibt einen Abfrageparameter `source=twitter` in einer URL von `ex
 
 In diesem Fall ist die Option **Verarbeitung von Erfassungsgruppen** der einfachste Weg:
 
-* **Umleiten von**: `https://example.com/*` (Wildcard)
-* **Umleiten zu**: `$0`
-* **Verarbeitung von Erfassungsgruppen**:
-    * **Gruppe**: `$0`
-    * **Prozess**: Vorkommen ersetzen
-        * **Ziel**: `&?source=[^&]*`
-        * **Ersetzung**: *(keine)*
-        * **Textmuster**: Regulärer Ausdruck
+- **Umleiten von**: `https://example.com/*` (Wildcard)
+- **Umleiten zu**: `$0`
+- **Verarbeitung von Erfassungsgruppen**:
+  - **Gruppe**: `$0`
+  - **Prozess**: Vorkommen ersetzen
+    - **Ziel**: `&?source=[^&]*`
+    - **Ersetzung**: _(keine)_
+    - **Textmuster**: Regulärer Ausdruck
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Regel herunterladen</a>**
 

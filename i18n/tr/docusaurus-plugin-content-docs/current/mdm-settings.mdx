@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Yöneticiler için MDM Ayarları
 
@@ -15,27 +15,36 @@ Bu sayfa; yapılandırılabilir anahtarları, uygulama davranışlarını, en iy
 
 MDM'niz aracılığıyla yapılandırmalar göndererek aşağıdakileri sağlayabilirsiniz:
 
-* **Zorunlu Kurallar:** Kullanıcıların değiştiremeyeceği veya silemeyeceği kuruluş genelinde yönlendirme kuralları uygulayın.
-* **Başlangıç Kuralları Dağıtımı:** Uygulamanın ilk açılışında varsayılan olarak hizmet veren bir şablon kural seti dağıtın.
-* **Kullanıcı Arayüzü Kontrolü:** Belirli özelliklere (Kütüphane gibi) erişimi kısıtlayın ve uygulama içinde uygulamanın kuruluş yönetimi altında olduğunu açıkça belirtin.
-* **Büyük Kuralları Getirme (Geri Dönüş - Fallback):** Kuralları harici bir sunucudan çekerek MDM yük boyutu sınırlarını aşın.
+- **Zorunlu Kurallar:** Kullanıcıların değiştiremeyeceği veya silemeyeceği kuruluş genelinde yönlendirme kuralları uygulayın.
+- **Başlangıç Kuralları Dağıtımı:** Uygulamanın ilk açılışında varsayılan olarak hizmet veren bir şablon kural seti dağıtın.
+- **Kullanıcı Arayüzü Kontrolü:** Belirli özelliklere (Kütüphane gibi) erişimi kısıtlayın ve uygulama içinde uygulamanın kuruluş yönetimi altında olduğunu açıkça belirtin.
+- **Büyük Kuralları Getirme (Geri Dönüş - Fallback):** Kuralları harici bir sunucudan çekerek MDM yük boyutu sınırlarını aşın.
 
 ## Kullanım Durumları
 
-* **Sistem geçişleri sırasında sorunsuz yönlendirme:**
+- **Sistem geçişleri sırasında sorunsuz yönlendirme:**
   Eski bir dahili sistemden (örneğin, `legacy-crm.internal.local`) yeni bir platforma (örneğin, `salesforce.com`) geçerken bir `enforcedRuleSet` dağıtın. Çalışanlar eski yer işaretlerini kullansalar bile otomatik olarak yeni sisteme yönlendirilirler, bu da güncel olmayan bağlantılarla ilgili BT destek taleplerini ortadan kaldırır.
-* **İntranet Erişimi Yardımı:**
+- **İntranet Erişimi Yardımı:**
   Omnissa Web gibi Uygulama Başına VPN tünelleri aracılığıyla intranet kaynaklarına erişimi kolaylaştırmak için özel URL şemaları kullanan yönlendirme kuralları dağıtın.
 
 > [!WARNING]
-> 
+>
 > MDM yapılandırma gönderimleri, **yalnızca kullanıcı RedirectWeb uygulamasını açarsa** anında uygulanır.
 > Uygulama, MDM güncellemelerini tarayıcı uzantısına sessizce iletmek için arka plan görevlerini kullansa da, bu işletim sistemi tarafından dikte edilen bir "en iyi çaba" yürütmesidir. Yürütme zamanlaması son derece tahmin edilemezdir ve görev hiç çalışmayabilir.
 > Bu nedenle, bu özelliğe zaman açısından kritik olay müdahalesi (örneğin, bir bulut hizmeti kesintisinden sonraki dakikalar içinde tüm çalışanları anında yedek bir siteye yönlendirmeye çalışmak) için **güvenilmemelidir**.
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM Settings Demo" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM Settings Demo"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Videoda kullanılan plist dosyasına buradan ulaşabilirsiniz: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -111,15 +120,15 @@ Her kural nesnesi, [uygulama üzerinden paylaşabileceğiniz/dışa aktarabilece
 
 Bir anahtar hem satır içi MDM yükünde hem de `fallbackDataURL` aracılığıyla getirilen verilerde mevcut olduğunda, uygulama çakışmayı şu şekilde yönetir:
 
-* **Getirme Tamamlanmadan Önce:** Satır içi ayarlar kesinlikle önceliklidir ve kullanılır.
-* **Başarılı Getirme Sonrası:** `fallbackDataURL` adresinden alınan veriler, karşılık gelen satır içi ayarların üzerine yazılır.
-* **Başarısız Getirme Sonrası:** Uygulama satır içi ayarları kullanmaya devam eder.
-* Yalnızca satır içi yükte bulunan bağımsız anahtarlar korunur.
+- **Getirme Tamamlanmadan Önce:** Satır içi ayarlar kesinlikle önceliklidir ve kullanılır.
+- **Başarılı Getirme Sonrası:** `fallbackDataURL` adresinden alınan veriler, karşılık gelen satır içi ayarların üzerine yazılır.
+- **Başarısız Getirme Sonrası:** Uygulama satır içi ayarları kullanmaya devam eder.
+- Yalnızca satır içi yükte bulunan bağımsız anahtarlar korunur.
 
 ## MDM Geri Bildirimi ve Durum Kontrolü
 
 Yapılandırmanın başarıyla uygulanıp uygulanmadığını, MDM çözümünüz destekliyorsa MDM geri bildirim kanalı (`com.apple.feedback.managed`) aracılığıyla doğrulayabilirsiniz. Yapılandırmayı işledikten (veya URL getirmeyi tamamladıktan) sonra uygulama aşağıdaki verileri döndürür:
 
-* `managedConfigVersion`: Yapılandırma denemesinin sürüm dizesi.
-* `result`: `success` veya `error`.
-* `messages`: Varsa, ayrıntılı hata veya uyarı mesajlarını içeren bir dizi.
+- `managedConfigVersion`: Yapılandırma denemesinin sürüm dizesi.
+- `result`: `success` veya `error`.
+- `messages`: Varsa, ayrıntılı hata veya uyarı mesajlarını içeren bir dizi.

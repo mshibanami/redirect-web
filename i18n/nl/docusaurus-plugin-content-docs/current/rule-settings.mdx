@@ -1,6 +1,6 @@
 # Regelinstellingen
 
-Deze pagina biedt gedetailleerde informatie over elke instelling in het scherm *Regel bewerken* in de RedirectWeb-app.
+Deze pagina biedt gedetailleerde informatie over elke instelling in het scherm _Regel bewerken_ in de RedirectWeb-app.
 
 ## Opties
 
@@ -8,17 +8,17 @@ Deze pagina biedt gedetailleerde informatie over elke instelling in het scherm *
 
 Geef de optie **Type** op om te bepalen hoe de app omleidingen afhandelt. U kunt kiezen uit deze:
 
-* **Original** (Standaard)
-    * Dit gebruikt traditionele web-API's om omleidingen te regelen. Bovendien wordt [de Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) gebruikt als fallback.
-        * In Firefox wordt de [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) gebruikt om omleidingen af te handelen.
-    * U kunt alle opties gebruiken, behalve [Resourcetypes](#resource-types) en [Request-methoden](#request-methods).
-    * ⚠️ Dit is trager dan het *Declarative* type en kan extra netwerkverzoeken veroorzaken.
-* **DNR** (Experimenteel voor Safari):
-    * Dit type werkt veel sneller dan het Original-type omdat het geen netwerkverzoek start voor de bron-URL.
-    * Hiermee kunt u [Resourcetypes](#resource-types) en [Request-methoden](#request-methods) opgeven.
-    * ⚠️ U kunt sommige opties niet gebruiken, zoals [Verwerking van vastleggroepen](#capturing-group-processing) en [Uitgesloten URL-patronen](#excluded-url-patterns), omdat deze nog niet worden ondersteund door de DNR API.
-    * ⚠️ In Safari kunt u momenteel geen sluisjes (`|`) opnemen in uw Regular Expression-patroon. [Details](https://github.com/mshibanami/redirect-web/issues/44)
-    * ⚠️ Omdat de DNR API van Safari nog steeds enkele problemen heeft, beschouwen we dit als een experimentele functie voor Safari. U kunt de lijst met alle bekende problemen [hier](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari) vinden.
+- **Original** (Standaard)
+  - Dit gebruikt traditionele web-API's om omleidingen te regelen. Bovendien wordt [de Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) gebruikt als fallback.
+    - In Firefox wordt de [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) gebruikt om omleidingen af te handelen.
+  - U kunt alle opties gebruiken, behalve [Resourcetypes](#resource-types) en [Request-methoden](#request-methods).
+  - ⚠️ Dit is trager dan het _Declarative_ type en kan extra netwerkverzoeken veroorzaken.
+- **DNR** (Experimenteel voor Safari):
+  - Dit type werkt veel sneller dan het Original-type omdat het geen netwerkverzoek start voor de bron-URL.
+  - Hiermee kunt u [Resourcetypes](#resource-types) en [Request-methoden](#request-methods) opgeven.
+  - ⚠️ U kunt sommige opties niet gebruiken, zoals [Verwerking van vastleggroepen](#capturing-group-processing) en [Uitgesloten URL-patronen](#excluded-url-patterns), omdat deze nog niet worden ondersteund door de DNR API.
+  - ⚠️ In Safari kunt u momenteel geen sluisjes (`|`) opnemen in uw Regular Expression-patroon. [Details](https://github.com/mshibanami/redirect-web/issues/44)
+  - ⚠️ Omdat de DNR API van Safari nog steeds enkele problemen heeft, beschouwen we dit als een experimentele functie voor Safari. U kunt de lijst met alle bekende problemen [hier](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari) vinden.
 
 ### Omleiden van {/* #redirect-from */}
 
@@ -36,7 +36,7 @@ Bijvoorbeeld, als u `https://example.com/*` opgeeft met Wildcard, komt dit overe
 Met de optie **Resourcetypes** kunt u de categorieën webverzoeken opgeven, zoals afbeeldingen, JavaScripts en stylesheets, waarop de regel van toepassing is.
 Als u bijvoorbeeld `script` instelt, kunt u de JavaScript-bestanden omleiden die door webpagina's worden geladen.
 
-Momenteel zijn deze beschikbaar: 
+Momenteel zijn deze beschikbaar:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
 De standaardinstelling is `main_frame`, de pagina op het hoogste niveau die in een tabblad wordt geladen.
@@ -62,22 +62,22 @@ Bekijk de details van elke methode in [mdn web docs](https://developer.mozilla.o
 
 Met de optie **Doelbrowsers** kunt u opgeven op welke browser de regel wel of niet moet worden toegepast.
 
-* Er zijn 2 soorten browsers waaruit u kunt kiezen:
-    * **Browsers die u standaard kunt kiezen**: U kunt standaard kiezen uit Safari, Chrome, Firefox, Edge, Opera, Arc, Brave en Vivaldi. Dit maakt geen onderscheid tussen varianten van dezelfde browser, zoals Safari en Safari Technology Preview.
-    * **Door de gebruiker opgegeven browsers**: Door op de knop Toevoegen op de popover te tikken, kunt u elke andere browser dan Safari of Safari Technology Preview selecteren waarop de RedirectWeb-extensie is geïnstalleerd.
-* Met het selectievakje **Alles behalve geselecteerde** kunt u zich richten op elke browser behalve de browsers die u hebt gekozen.
+- Er zijn 2 soorten browsers waaruit u kunt kiezen:
+  - **Browsers die u standaard kunt kiezen**: U kunt standaard kiezen uit Safari, Chrome, Firefox, Edge, Opera, Arc, Brave en Vivaldi. Dit maakt geen onderscheid tussen varianten van dezelfde browser, zoals Safari en Safari Technology Preview.
+  - **Door de gebruiker opgegeven browsers**: Door op de knop Toevoegen op de popover te tikken, kunt u elke andere browser dan Safari of Safari Technology Preview selecteren waarop de RedirectWeb-extensie is geïnstalleerd.
+- Met het selectievakje **Alles behalve geselecteerde** kunt u zich richten op elke browser behalve de browsers die u hebt gekozen.
 
 > [!WARNING]
 > RedirectWeb kan geen onderscheid maken of de browser **Safari** of **Safari Technology Preview** is, omdat de app het bovenliggende proces van de extensie controleert om dit te detecteren, maar deze twee browsers delen hetzelfde bovenliggende proces (`/sbin/launchd`).
 
 ### Omleiden naar {/* #redirect-to */}
 
-De optie **Omleiden naar** specificeert een bestemmings-URL waarnaar u wilt omleiden vanaf de bron-URL die overeenkomt met de optie *Omleiden van*. U kunt ook vastleggroepen vervangen door `$1`, `$2`, ... of de volledige overeenkomst door `$0`. Hiermee kunt u de bestemming dynamisch opgeven. Bekijk de details in [URL-patroon](#url-pattern) op deze pagina.
+De optie **Omleiden naar** specificeert een bestemmings-URL waarnaar u wilt omleiden vanaf de bron-URL die overeenkomt met de optie _Omleiden van_. U kunt ook vastleggroepen vervangen door `$1`, `$2`, ... of de volledige overeenkomst door `$0`. Hiermee kunt u de bestemming dynamisch opgeven. Bekijk de details in [URL-patroon](#url-pattern) op deze pagina.
 
 Bijvoorbeeld, als u de volgende regel instelt:
 
-* **Omleiden van**: `https://google.com/*` (Wildcard)
-* **Omleiden naar**: `https://apple.com/$1`
+- **Omleiden van**: `https://google.com/*` (Wildcard)
+- **Omleiden naar**: `https://apple.com/$1`
 
 en het komt overeen met `https://google.com/hello`, dan is de bestemmings-URL `https://apple.com/hello`.
 
@@ -86,12 +86,12 @@ Bovendien kunt u de teksten van `$1`, `$2`, ... wijzigen voordat u vervangingen 
 > [!TIP]
 > U kunt een aangepast URL-schema opgeven om een app te openen. Dit zijn voorbeelden van apps die deep linking ondersteunen:
 >
-> * Figma: `figma://file/Your_Figma_ID`
-> * Firefox: `firefox://open-url?url=https://example.com/hello`
-> * Google Chrome: `googlechromes://example.com`
-> * Microsoft Edge: `microsoft-edge://example.com`
-> * Notion: `notion://www.notion.so/Your_Note_ID`
-> * Slack: `slack://open`
+> - Figma: `figma://file/Your_Figma_ID`
+> - Firefox: `firefox://open-url?url=https://example.com/hello`
+> - Google Chrome: `googlechromes://example.com`
+> - Microsoft Edge: `microsoft-edge://example.com`
+> - Notion: `notion://www.notion.so/Your_Note_ID`
+> - Slack: `slack://open`
 
 #### Applicatie {/* #application */}
 
@@ -106,28 +106,28 @@ Als u een app wilt opgeven waarmee u de bestemmings-URL wilt openen, gebruikt u 
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
-Met de optie **Verwerking van vastleggroepen** kunt u opgeven hoe de vastgelegde groepen moeten worden verwerkt die u kunt vervangen in de optie *Omleiden naar* door `$1`, `$2`...
+Met de optie **Verwerking van vastleggroepen** kunt u opgeven hoe de vastgelegde groepen moeten worden verwerkt die u kunt vervangen in de optie _Omleiden naar_ door `$1`, `$2`...
 
 Dit is hoe u vastleggroepen maakt:
 
-* **Wildcard**: Teksten die overeenkomen met `*` en `?` worden automatisch vastgelegd.
-* **Regular Expression**: Teksten die overeenkomen met een deel van het patroon binnen `()` worden vastgelegd.
+- **Wildcard**: Teksten die overeenkomen met `*` en `?` worden automatisch vastgelegd.
+- **Regular Expression**: Teksten die overeenkomen met een deel van het patroon binnen `()` worden vastgelegd.
 
 U kunt een of meer van de volgende processen kiezen:
 
-* **URL Coderen/Decoderen**: Dit past [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) of decodering toe op een vastleggroep. Als u bijvoorbeeld `https://example.com/hello` codeert, wordt het geconverteerd naar `https%3A%2F%2Fexample.com%2Fhello`. Decoderen werkt op de tegenovergestelde manier.
-* **Base64 Coderen/Decoderen**: Dit decodeert/codeert een tekst naar [Base64](https://en.wikipedia.org/wiki/Base64). U kunt bijvoorbeeld `hello` coderen naar `aGVsbG8=` en het weer decoderen naar `hello`.
-* **Voorkomens vervangen**: Dit vervangt een of meer tekens in een groep, die overeenkomen met een **Doel**, door een **Vervanging**. Bijvoorbeeld, als de *Groep* `hello` is en het *Doel* `l` is en de *Vervanging* `y` is, wordt het gewijzigd in `heyyo`.
+- **URL Coderen/Decoderen**: Dit past [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) of decodering toe op een vastleggroep. Als u bijvoorbeeld `https://example.com/hello` codeert, wordt het geconverteerd naar `https%3A%2F%2Fexample.com%2Fhello`. Decoderen werkt op de tegenovergestelde manier.
+- **Base64 Coderen/Decoderen**: Dit decodeert/codeert een tekst naar [Base64](https://en.wikipedia.org/wiki/Base64). U kunt bijvoorbeeld `hello` coderen naar `aGVsbG8=` en het weer decoderen naar `hello`.
+- **Voorkomens vervangen**: Dit vervangt een of meer tekens in een groep, die overeenkomen met een **Doel**, door een **Vervanging**. Bijvoorbeeld, als de _Groep_ `hello` is en het _Doel_ `l` is en de _Vervanging_ `y` is, wordt het gewijzigd in `heyyo`.
 
 > [!NOTE]
 > Dit is voor het verwerken van elke vastleggroep en heeft geen invloed op welke URL's worden uitgesloten door de [Uitgesloten URL-patronen](#excluded-url-patterns). Stel bijvoorbeeld dat u deze regel hebt:
 >
-> * **Omleiden van**: `https://example.com/(hello.*)`
-> * **Verwerking van vastleggroepen**:
->     * Groep: `$1`
->     * Doel: `.*` (Regular Expression)
->     * Vervanging: `hello`
-> * **Uitgesloten URL-patroon**: `https://example.com/hello`
+> - **Omleiden van**: `https://example.com/(hello.*)`
+> - **Verwerking van vastleggroepen**:
+>   - Groep: `$1`
+>   - Doel: `.*` (Regular Expression)
+>   - Vervanging: `hello`
+> - **Uitgesloten URL-patroon**: `https://example.com/hello`
 >
 > In dit geval wordt `https://example.com/hello_world` niet uitgesloten, terwijl `https://example.com/hello` wel wordt uitgesloten.
 
@@ -145,9 +145,9 @@ Met de optie **Voorbeelden** kunt u uw omleidingsregel testen door voorbeeld-URL
 
 ### Geavanceerd {/* #advanced-options */}
 
-* **[DNR] Main Frame Omleiding**: Deze optie is alleen beschikbaar voor het DNR-type. Hiermee kunt u opgeven hoe de omleiding voor het resourcetype `main_frame` moet worden afgehandeld. Beschikbare opties zijn:
-    * **Ruw**: Leid het hoofdframe om naar de opgegeven URL zonder enige wijzigingen.
-    * **Via tussenpagina**: Leid het hoofdframe om naar een tussenpagina, die vervolgens omleidt naar de opgegeven bestemmings-URL. Dit is handig voor het openen van apps met behulp van deep linking, omdat de tussenpagina complexere omleidingslogica kan afhandelen.
+- **[DNR] Main Frame Omleiding**: Deze optie is alleen beschikbaar voor het DNR-type. Hiermee kunt u opgeven hoe de omleiding voor het resourcetype `main_frame` moet worden afgehandeld. Beschikbare opties zijn:
+  - **Ruw**: Leid het hoofdframe om naar de opgegeven URL zonder enige wijzigingen.
+  - **Via tussenpagina**: Leid het hoofdframe om naar een tussenpagina, die vervolgens omleidt naar de opgegeven bestemmings-URL. Dit is handig voor het openen van apps met behulp van deep linking, omdat de tussenpagina complexere omleidingslogica kan afhandelen.
 
 ### Opmerkingen {/* #comments */}
 
@@ -155,21 +155,21 @@ Met de optie **Opmerkingen** kunt u aantekeningen of opmerkingen over uw omleidi
 
 U kunt opmerkingen in de volgende formaten schrijven:
 
-* **Platte tekst** (Standaard): Eenvoudige tekst zonder opmaak.
-* **Markdown**: U kunt [GitHub's Markdown-syntaxis](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) gebruiken, inclusief enkele uitbreidingen die GFM niet ondersteunt. U kunt bijvoorbeeld koppen, lijsten, links en meer maken.
-* **AsciiDoc**: U kunt [AsciiDoc-syntaxis](https://asciidoc.org/) gebruiken om uw opmerkingen op te maken.
+- **Platte tekst** (Standaard): Eenvoudige tekst zonder opmaak.
+- **Markdown**: U kunt [GitHub's Markdown-syntaxis](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) gebruiken, inclusief enkele uitbreidingen die GFM niet ondersteunt. U kunt bijvoorbeeld koppen, lijsten, links en meer maken.
+- **AsciiDoc**: U kunt [AsciiDoc-syntaxis](https://asciidoc.org/) gebruiken om uw opmerkingen op te maken.
 
 ## URL-patroon {/* #url-pattern */}
 
-**URL-patronen** worden gebruikt om URL's te matchen in de opties *Omleiden van*, *Uitgesloten URL-patronen* en *Verwerking van vastleggroepen*. Om ze op te geven, kunt u kiezen uit **Wildcard** of **Regular Expression**.
+**URL-patronen** worden gebruikt om URL's te matchen in de opties _Omleiden van_, _Uitgesloten URL-patronen_ en _Verwerking van vastleggroepen_. Om ze op te geven, kunt u kiezen uit **Wildcard** of **Regular Expression**.
 
 ### Wildcard {/* #url-pattern-wildcard */}
 
 **Wildcard** is een eenvoudiger patroontype waarmee u `*` (komt overeen met alles) en `?` (komt overeen met elk afzonderlijk teken) als wildcards kunt gebruiken. Hier zijn enkele voorbeelden:
 
-* Om `https://example.com/hello` te matchen, kunt u `https://example.com/*` gebruiken. Dit zal overeenkomen met elke string na `https://example.com/`.
-* Om `https://example.com/search?q=hello` te matchen, kunt u `https://example.com/search?q=*` gebruiken. Dit zal overeenkomen met elke waarde voor de parameter `q`.
-* Om elke URL te matchen die het woord `blog` bevat, kunt u `*blog*` gebruiken.
+- Om `https://example.com/hello` te matchen, kunt u `https://example.com/*` gebruiken. Dit zal overeenkomen met elke string na `https://example.com/`.
+- Om `https://example.com/search?q=hello` te matchen, kunt u `https://example.com/search?q=*` gebruiken. Dit zal overeenkomen met elke waarde voor de parameter `q`.
+- Om elke URL te matchen die het woord `blog` bevat, kunt u `*blog*` gebruiken.
 
 U kunt ook vervanging gebruiken in Wildcard, wat betekent dat u kunt verwijzen naar gedeelten van de gematchte URL met `$1`, `$2`, enz. Bijvoorbeeld, als u `https://example.com/*-world-*` gebruikt en de URL is `https://example.com/hello-world-goodbye`, dan is `$1` "hello" en `$2` "goodbye". `$0` is ook beschikbaar om te verwijzen naar de volledige gematchte URL.
 
@@ -181,10 +181,10 @@ U kunt ook vervanging gebruiken in Wildcard, wat betekent dat u kunt verwijzen n
 **Regular Expression** (Regex) is een krachtig hulpmiddel voor het matchen van patronen in tekst en wordt ook veel gebruikt in programmeren. Hiermee kunt u een specifiek patroon definiëren dat overeenkomt met een set strings. Hier zijn enkele voorbeelden.
 
 - Om `https://example.com/hello` te matchen, kunt u `https://example.com/.*` gebruiken. Dit zal overeenkomen met elke string na `https://example.com/`.
-- Om `https://example.com/search?q=hello` te matchen, kunt u `https://example.com/search\?q=(.*)`. Dit zal overeenkomen met de waarde van de parameter `q` en deze opslaan in een vastleggroep. U kunt er vervolgens naar verwijzen met `$1` in de optie *Omleiden naar*.
+- Om `https://example.com/search?q=hello` te matchen, kunt u `https://example.com/search\?q=(.*)`. Dit zal overeenkomen met de waarde van de parameter `q` en deze opslaan in een vastleggroep. U kunt er vervolgens naar verwijzen met `$1` in de optie _Omleiden naar_.
 - Om elke URL te matchen die het woord `blog` bevat, kunt u `.*blog.*` gebruiken.
 
-U kunt verwijzen naar de vastleggroepen in *Omleiden naar* of *Vervanging* met `$1`, `$2`, ... of `$0` om naar de volledige overeenkomst te verwijzen.
+U kunt verwijzen naar de vastleggroepen in _Omleiden naar_ of _Vervanging_ met `$1`, `$2`, ... of `$0` om naar de volledige overeenkomst te verwijzen.
 
 RedirectWeb wordt aangedreven door de [Regex-engine van Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 

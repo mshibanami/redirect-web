@@ -13,13 +13,15 @@ Możesz zobaczyć takie ostrzeżenie podczas konfigurowania RedirectWeb:
     <Image src={PermissionAlertSafari} alt="Ostrzeżenie wymagające pozwolenia" width="200" margin="0 0 16px 0" hasShadow />
 
     > To rozszerzenie będzie mogło czytać i zmieniać strony internetowe oraz przeglądać historię przeglądania na tej stronie. **Może to obejmować wrażliwe informacje, w tym hasła, numery telefonów i karty kredytowe.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="Ostrzeżenie wymagające pozwolenia" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Może:  
+    > Może:
     > Czytać i zmieniać **wszystkie Twoje dane** na **wszystkich stronach internetowych**
+
 </IfBrowserStore>
 
 To rozszerzenie potrzebuje Twojej zgody na obserwowanie nawigacji po stronach, aby przekierować Cię tam, gdzie chcesz, a Twoja przeglądarka wyświetla to, gdy rozszerzenie żąda powiązanych uprawnień. Dlatego, jeśli nie zezwolisz, to rozszerzenie nie będzie działać.
@@ -38,7 +40,11 @@ Obecnie nie. RedirectWeb jest ściśle związany z ekosystemem Apple, w tym z iC
 
 Możesz zobaczyć to ostrzeżenie w Safari po zaktualizowaniu RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Ostrzeżenie o wyłączeniu aplikacji" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Ostrzeżenie o wyłączeniu aplikacji"
+  width="280"
+/>
 
 > "RedirectWeb" zostało zaktualizowane i żąda dodatkowych uprawnień. Aby chronić Twoją prywatność, to rozszerzenie zostało wyłączone.
 >

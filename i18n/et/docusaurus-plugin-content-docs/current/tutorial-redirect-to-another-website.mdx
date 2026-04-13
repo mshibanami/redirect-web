@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Juhtum 1: Ümbersuunamine teisele veebisaidile
@@ -9,11 +9,11 @@ Oletame, et oled Twitterist sõltuvuses ja harjumuse murdmiseks otsustad minna s
 
 ### Samm 1. Ava ekraan "Muuda reeglit"
 
-Ava rakenduses ekraan *Muuda reeglit* (*Edit Rule*), et alustada oma reegli loomist. Saad seda teha, klõpsates vahekaardil *Minu reeglid* (*My Rules*) pluss (+) nuppu.
+Ava rakenduses ekraan _Muuda reeglit_ (_Edit Rule_), et alustada oma reegli loomist. Saad seda teha, klõpsates vahekaardil _Minu reeglid_ (_My Rules_) pluss (+) nuppu.
 
 ### Samm 2. Seadista "Suuna ümber asukohast"
 
-Esmalt peaksid rakenduse ekraanil *Muuda reeglit* seadistama jaotise *Suuna ümber asukohast* (*Redirect From*). Sihtmärkideks on URL-id, mis algavad tekstiga `https://twitter.com/`.
+Esmalt peaksid rakenduse ekraanil _Muuda reeglit_ seadistama jaotise _Suuna ümber asukohast_ (_Redirect From_). Sihtmärkideks on URL-id, mis algavad tekstiga `https://twitter.com/`.
 
 Selles režiimis saad määrata järgmise mustri režiimiga [Wildcard](/rule-settings#url-pattern-wildcard) (metsamärk):
 
@@ -31,13 +31,13 @@ Selleks lülitu režiimilt Wildcard režiimile [Regulaaravaldis](/rule-settings#
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: see sihib nii `twitterit` kui ka `x`-i. (`|` sümbolit nimetatakse *püstkriipsuks* ehk *pipe*'iks.)
-* `.*`: see on sama mis Wildcard-i `*`. Täpsemalt öeldes tähendab `.` *suvalist märki* ja `*` tähendab, et *sellele sümbolile eelnevat korratakse suvaline arv kordi*, mille tulemusena sobib see kõigega.
+- `(twitter|x)`: see sihib nii `twitterit` kui ka `x`-i. (`|` sümbolit nimetatakse _püstkriipsuks_ ehk _pipe_'iks.)
+- `.*`: see on sama mis Wildcard-i `*`. Täpsemalt öeldes tähendab `.` _suvalist märki_ ja `*` tähendab, et _sellele sümbolile eelnevat korratakse suvaline arv kordi_, mille tulemusena sobib see kõigega.
 
 Regulaaravaldis on veidi keeruline, kuid kui sellega harjud, on see võimas tööriist. Soovitame kasutada saiti [RegExr](https://regexr.com) mänguväljakuna, et analüüsida, kuidas sinu regulaaravaldise muster töötab.
 
 > [!TIP]
-> Regulaaravaldistes töödeldakse punkti `.` mustris `(twitter|x).com` samuti kui *suvalist märki*. Seetõttu sobib `(twitter|x).com/.*` näiteks ka aadressidega `twitter1com/` või `x_com/`.
+> Regulaaravaldistes töödeldakse punkti `.` mustris `(twitter|x).com` samuti kui _suvalist märki_. Seetõttu sobib `(twitter|x).com/.*` näiteks ka aadressidega `twitter1com/` või `x_com/`.
 >
 > Täpsemaks muutmiseks võid selle muuta mustriks `(twitter|x)\.com/.*`. Sümbolit `\` kasutatakse selleks, et käsitleda punkti `.` kui tavalist punktimärki, mitte erimärki.
 >
@@ -45,7 +45,7 @@ Regulaaravaldis on veidi keeruline, kuid kui sellega harjud, on see võimas tö�
 
 ### Samm 3: Seadista "Suuna ümber asukohta"
 
-Lihtsalt määra URL jaotises *Suuna ümber asukohta* (*Redirect To*) järgmiselt:
+Lihtsalt määra URL jaotises _Suuna ümber asukohta_ (_Redirect To_) järgmiselt:
 
 ```
 https://unrush.org/
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Valikuline) Samm 4: Kontrolli reeglit
 
-Saad kontrollida reegli toimimist, lisades näidis-URL-i ekraani *Muuda reeglit* jaotisesse *Näited* (*Examples*). Kui sisestad näiteks `https://x.com/UN`, kuvatakse tulemusena `https://unrush.org/`.
+Saad kontrollida reegli toimimist, lisades näidis-URL-i ekraani _Muuda reeglit_ jaotisesse _Näited_ (_Examples_). Kui sisestad näiteks `https://x.com/UN`, kuvatakse tulemusena `https://unrush.org/`.
 
 Sinu reegel peaks nüüd välja nägema selline:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Näidisreegel teise veebisaidi avamiseks" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Näidisreegel teise veebisaidi avamiseks"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Laadi reegel alla</a>**
 

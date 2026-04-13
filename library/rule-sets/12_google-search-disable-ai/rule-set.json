@@ -1,30 +1,28 @@
 {
-  "appVersion" : "5.1.1",
-  "bundleID" : "io.github.mshibanami.RedirectWebForSafari",
-  "kind" : "RedirectList",
-  "redirects" : [
+  "appVersion": "5.1.1",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "kind": "RedirectList",
+  "redirects": [
     {
-      "captureGroupProcesses" : [
-
-      ],
-      "comments" : "This rule adds a query parameter udm=14 to display the search results on the Web tab.\n\nThe Web tab disables extra features such as AI overviews, related images, quotes, the \"People also ask\" section, etc., so you can focus on the actual search results.",
-      "destinationURLPattern" : "$0&udm=14",
-      "exampleURLs" : [
+      "captureGroupProcesses": [],
+      "comments": "This rule adds a query parameter udm=14 to display the search results on the Web tab.\n\nThe Web tab disables extra features such as AI overviews, related images, quotes, the \"People also ask\" section, etc., so you can focus on the actual search results.",
+      "destinationURLPattern": "$0&udm=14",
+      "exampleURLs": [
         "https://www.google.com/search?client=safari&rls=en&q=what+is+locomotive+syndrome&ie=UTF-8&oe=UTF-8"
       ],
-      "excludeURLPatterns" : [
+      "excludeURLPatterns": [
         {
-          "type" : "regularExpression",
-          "value" : ".*[?&](tbm=|udm=).*"
+          "type": "regularExpression",
+          "value": ".*[?&](tbm=|udm=).*"
         }
       ],
-      "isEnabled" : true,
-      "kind" : "Redirect",
-      "sourceURLPattern" : {
-        "type" : "regularExpression",
-        "value" : "https?://(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/search\\?(?:.*&)?q=.*$"
+      "isEnabled": true,
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https?://(?:www\\.)?google\\.(?:com|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2})/search\\?(?:.*&)?q=.*$"
       },
-      "title" : "Google Search: Disable AI features, etc."
+      "title": "Google Search: Disable AI features, etc."
     }
   ]
 }

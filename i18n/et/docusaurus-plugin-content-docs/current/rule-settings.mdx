@@ -1,6 +1,6 @@
 # Reegli seaded
 
-See leht pakub üksikasjalikku teavet iga seade kohta RedirectWeb rakenduse *Edit Rule* (Muuda reeglit) ekraanil.
+See leht pakub üksikasjalikku teavet iga seade kohta RedirectWeb rakenduse _Edit Rule_ (Muuda reeglit) ekraanil.
 
 ## Valikud
 
@@ -8,17 +8,17 @@ See leht pakub üksikasjalikku teavet iga seade kohta RedirectWeb rakenduse *Edi
 
 Määrake suvand **Tüüp**, et määrata, kuidas rakendus ümbersuunamist käsitleb. Valida saate järgmiste vahel:
 
-* **Algne** (Original, Vaikimisi)
-    * See kasutab ümbersuunamise juhtimiseks traditsioonilisi veebi API-sid. Lisaks kasutab see [Tabs API-t](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) varulahendusena.
-        * Firefoxis kasutab see ümbersuunamise käitlemiseks [WebRequest API-t](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest).
-    * Saate kasutada kõiki suvandeid peale [Ressursitüüpide](#resource-types) ja [Päringumeetodite](#request-methods).
-    * ⚠️ See on aeglasem kui *DNR* tüüp ja võib põhjustada täiendavaid võrgupäringuid.
-* **DNR** (Eksperimentaalne Safari jaoks):
-    * See tüüp töötab palju kiiremini kui algne tüüp, kuna see ei alusta võrgupäringut algse URL-i jaoks.
-    * See võimaldab teil määrata [Ressursitüübid](#resource-types) ja [Päringumeetodid](#request-methods).
-    * ⚠️ Mõningaid suvandeid, näiteks [Haaramisgruppide töötlemist](#capturing-group-processing) ja [Välistatud URL-mustreid](#excluded-url-patterns), ei saa kasutada, kuna DNR API ei toeta neid veel.
-    * ⚠️ Safaris ei saa praegu oma regulaaravaldise mustrisse lisada püstkriipse (`|`). [Detailid](https://github.com/mshibanami/redirect-web/issues/44)
-    * ⚠️ Kuna Safari DNR API-l on endiselt probleeme, peame seda Safari jaoks eksperimentaalseks funktsiooniks. Kõik teadaolevad probleemid leiate [siit](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+- **Algne** (Original, Vaikimisi)
+  - See kasutab ümbersuunamise juhtimiseks traditsioonilisi veebi API-sid. Lisaks kasutab see [Tabs API-t](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) varulahendusena.
+    - Firefoxis kasutab see ümbersuunamise käitlemiseks [WebRequest API-t](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest).
+  - Saate kasutada kõiki suvandeid peale [Ressursitüüpide](#resource-types) ja [Päringumeetodite](#request-methods).
+  - ⚠️ See on aeglasem kui _DNR_ tüüp ja võib põhjustada täiendavaid võrgupäringuid.
+- **DNR** (Eksperimentaalne Safari jaoks):
+  - See tüüp töötab palju kiiremini kui algne tüüp, kuna see ei alusta võrgupäringut algse URL-i jaoks.
+  - See võimaldab teil määrata [Ressursitüübid](#resource-types) ja [Päringumeetodid](#request-methods).
+  - ⚠️ Mõningaid suvandeid, näiteks [Haaramisgruppide töötlemist](#capturing-group-processing) ja [Välistatud URL-mustreid](#excluded-url-patterns), ei saa kasutada, kuna DNR API ei toeta neid veel.
+  - ⚠️ Safaris ei saa praegu oma regulaaravaldise mustrisse lisada püstkriipse (`|`). [Detailid](https://github.com/mshibanami/redirect-web/issues/44)
+  - ⚠️ Kuna Safari DNR API-l on endiselt probleeme, peame seda Safari jaoks eksperimentaalseks funktsiooniks. Kõik teadaolevad probleemid leiate [siit](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
 ### Ümbersuunamine aadressilt {/* #redirect-from */}
 
@@ -62,22 +62,22 @@ Palun kontrollige iga meetodi üksikasju [MDN veebidokumentatsioonist](https://d
 
 Suvand **Sihtbrauserid** võimaldab teil määrata, millise brauseri puhul tuleks või ei tuleks reeglit rakendada.
 
-* Valida saab 2 tüüpi brausereid:
-    * **Vaikimisi valitavad brauserid**: Vaikimisi saate valida Safari, Chrome, Firefox, Edge, Opera, Arc, Brave ja Vivaldi. See ei erista sama brauseri variante, näiteks Safari ja Safari Technology Preview.
-    * **Kasutaja määratud brauserid**: Puudutades hüpikaknas nuppu Lisa, saate valida mis tahes brauseri (va Safari või Safari Technology Preview), kuhu on installitud RedirectWebi laiendus.
-* Märkeruut **Kõik peale valitute** võimaldab teil sihtida kõiki brausereid peale nende, mille olete valinud.
+- Valida saab 2 tüüpi brausereid:
+  - **Vaikimisi valitavad brauserid**: Vaikimisi saate valida Safari, Chrome, Firefox, Edge, Opera, Arc, Brave ja Vivaldi. See ei erista sama brauseri variante, näiteks Safari ja Safari Technology Preview.
+  - **Kasutaja määratud brauserid**: Puudutades hüpikaknas nuppu Lisa, saate valida mis tahes brauseri (va Safari või Safari Technology Preview), kuhu on installitud RedirectWebi laiendus.
+- Märkeruut **Kõik peale valitute** võimaldab teil sihtida kõiki brausereid peale nende, mille olete valinud.
 
 > [!WARNING]
 > RedirectWeb ei suuda eristada, kas brauser on **Safari** või **Safari Technology Preview**, kuna rakendus kontrollib selle tuvastamiseks laienduse ülemprotsessi, kuid need kaks brauserit jagavad sama ülemprotsessi (`/sbin/launchd`).
 
 ### Ümbersuunamine aadressile {/* #redirect-to */}
 
-Suvand **Ümbersuunamine aadressile** määrab sihtkoha URL-i, kuhu soovite suunata suvandiga *Ümbersuunamine aadressilt* vastavusse viidud algsest URL-ist. Samuti saate asendada haaramisgruppe tähistega `$1`, `$2`, ... või kogu vastet tähisega `$0`. Need aitavad teil sihtkohta dünaamiliselt määrata. Vaadake üksikasju selle lehe jaotisest [URL-muster](#url-pattern).
+Suvand **Ümbersuunamine aadressile** määrab sihtkoha URL-i, kuhu soovite suunata suvandiga _Ümbersuunamine aadressilt_ vastavusse viidud algsest URL-ist. Samuti saate asendada haaramisgruppe tähistega `$1`, `$2`, ... või kogu vastet tähisega `$0`. Need aitavad teil sihtkohta dünaamiliselt määrata. Vaadake üksikasju selle lehe jaotisest [URL-muster](#url-pattern).
 
 Näiteks kui seate järgmise reegli:
 
-* **Ümbersuunamine aadressilt**: `https://google.com/*` (Metamärk)
-* **Ümbersuunamine aadressile**: `https://apple.com/$1`
+- **Ümbersuunamine aadressilt**: `https://google.com/*` (Metamärk)
+- **Ümbersuunamine aadressile**: `https://apple.com/$1`
 
 ja see ühtib aadressiga `https://google.com/hello`, siis sihtkoha URL on `https://apple.com/hello`.
 
@@ -86,12 +86,12 @@ Lisaks saate muuta `$1`, `$2`, ... tekste enne asenduste tegemist. Üksikasju va
 > [!TIP]
 > Rakenduse avamiseks saate määrata kohandatud URL-skeemi. Need on näited rakendustest, mis toetavad süvaviiteid (deep linking):
 >
-> * Figma: `figma://file/Sinu_Figma_ID`
-> * Firefox: `firefox://open-url?url=https://example.com/hello`
-> * Google Chrome: `googlechromes://example.com`
-> * Microsoft Edge: `microsoft-edge://example.com`
-> * Notion: `notion://www.notion.so/Sinu_Note_ID`
-> * Slack: `slack://open`
+> - Figma: `figma://file/Sinu_Figma_ID`
+> - Firefox: `firefox://open-url?url=https://example.com/hello`
+> - Google Chrome: `googlechromes://example.com`
+> - Microsoft Edge: `microsoft-edge://example.com`
+> - Notion: `notion://www.notion.so/Sinu_Note_ID`
+> - Slack: `slack://open`
 
 #### Rakendus {/* #application */}
 
@@ -106,28 +106,28 @@ Kui soovite määrata rakenduse, millega soovid sihtkoha URL-i avada, kasutage v
 
 ![Toetatud tüübid: Algne](https://img.shields.io/badge/Tüübid-Algne-blue)
 
-Suvand **Haaramisgruppide töötlemine** võimaldab teil määrata, kuidas töödelda haaratud gruppe, mida saate asendada suvandis *Ümbersuunamine aadressile* tähistega `$1`, `$2`...
+Suvand **Haaramisgruppide töötlemine** võimaldab teil määrata, kuidas töödelda haaratud gruppe, mida saate asendada suvandis _Ümbersuunamine aadressile_ tähistega `$1`, `$2`...
 
 Haaramisgrupid luuakse järgmiselt:
 
-* **Metamärk**: Tekstid, mis ühtivad tähistega `*` ja `?`, haaratakse automaatselt.
-* **Regulaaravaldis**: Tekstid, mis ühtivad mustri osaga tähiste `()` sees, haaratakse.
+- **Metamärk**: Tekstid, mis ühtivad tähistega `*` ja `?`, haaratakse automaatselt.
+- **Regulaaravaldis**: Tekstid, mis ühtivad mustri osaga tähiste `()` sees, haaratakse.
 
 Saate valida ühe või mitu järgmistest protsessidest:
 
-* **URL-i kodeerimine/dekodeerimine**: See rakendab haaramisgrupile [protsentkodeerimist](https://en.wikipedia.org/wiki/Percent-encoding) või dekodeerimist. Näiteks kui kodeerite `https://example.com/hello`, teisendatakse see kujule `https%3A%2F%2Fexample.com%2Fhello`. Dekodeerimine toimib vastupidi.
-* **Base64 kodeerimine/dekodeerimine**: See dekodeerib/kodeerib teksti [Base64](https://en.wikipedia.org/wiki/Base64) vormingusse. Näiteks saate kodeerida `hello` kujule `aGVsbG8=` ja dekodeerida selle tagasi kujule `hello`.
-* **Esinemisjuhtude asendamine**: See asendab ühes grupis ühe või mitu märki, mis vastavad **Sihtmärgile**, **Asendusega**. Näiteks kui *Grupp* on `hello`, *Sihtmärk* on `l` ja *Asendus* on `y`, muudetakse see kujule `heyyo`.
+- **URL-i kodeerimine/dekodeerimine**: See rakendab haaramisgrupile [protsentkodeerimist](https://en.wikipedia.org/wiki/Percent-encoding) või dekodeerimist. Näiteks kui kodeerite `https://example.com/hello`, teisendatakse see kujule `https%3A%2F%2Fexample.com%2Fhello`. Dekodeerimine toimib vastupidi.
+- **Base64 kodeerimine/dekodeerimine**: See dekodeerib/kodeerib teksti [Base64](https://en.wikipedia.org/wiki/Base64) vormingusse. Näiteks saate kodeerida `hello` kujule `aGVsbG8=` ja dekodeerida selle tagasi kujule `hello`.
+- **Esinemisjuhtude asendamine**: See asendab ühes grupis ühe või mitu märki, mis vastavad **Sihtmärgile**, **Asendusega**. Näiteks kui _Grupp_ on `hello`, _Sihtmärk_ on `l` ja _Asendus_ on `y`, muudetakse see kujule `heyyo`.
 
 > [!NOTE]
 > See on mõeldud iga haaramisgrupi töötlemiseks ja see ei mõjuta seda, millised URL-id välistatakse suvandiga [Välistatud URL-mustrid](#excluded-url-patterns). Oletame näiteks, et teil on see reegel:
 >
-> * **Ümbersuunamine aadressilt**: `https://example.com/(hello.*)`
-> * **Haaramisgruppide töötlemine**:
->     * Grupp: `$1`
->     * Sihtmärk: `.*` (Regulaaravaldis)
->     * Asendus: `hello`
-> * **Välistatud URL-muster**: `https://example.com/hello`
+> - **Ümbersuunamine aadressilt**: `https://example.com/(hello.*)`
+> - **Haaramisgruppide töötlemine**:
+>   - Grupp: `$1`
+>   - Sihtmärk: `.*` (Regulaaravaldis)
+>   - Asendus: `hello`
+> - **Välistatud URL-muster**: `https://example.com/hello`
 >
 > Selles olukorras ei välistata aadressi `https://example.com/hello_world`, samas kui `https://example.com/hello` välistatakse.
 
@@ -145,9 +145,9 @@ Suvand **Näited** võimaldab teil testida oma ümbersuunamisreeglit, esitades n
 
 ### Advanced {/* #advanced-options */}
 
-* **[DNR] Põhiraami ümbersuunamine**: See suvand on saadaval ainult DNR-tüübi jaoks. See võimaldab teil määrata, kuidas käidelda ressursitüübi `main_frame` ümbersuunamist. Saadaval on järgmised valikud:
-    * **Toores** (Raw): Suunab põhiraami määratud URL-ile ilma muudatusteta.
-    * **Vahelehe kaudu** (Via Intermediate Page): Suunab põhiraami vahelehele, mis seejärel suunab määratud sihtkoha URL-ile. See on kasulik rakenduste avamiseks süvaviidete abil, kuna vaheleht saab käsitleda keerukamat ümbersuunamisloogikat.
+- **[DNR] Põhiraami ümbersuunamine**: See suvand on saadaval ainult DNR-tüübi jaoks. See võimaldab teil määrata, kuidas käidelda ressursitüübi `main_frame` ümbersuunamist. Saadaval on järgmised valikud:
+  - **Toores** (Raw): Suunab põhiraami määratud URL-ile ilma muudatusteta.
+  - **Vahelehe kaudu** (Via Intermediate Page): Suunab põhiraami vahelehele, mis seejärel suunab määratud sihtkoha URL-ile. See on kasulik rakenduste avamiseks süvaviidete abil, kuna vaheleht saab käsitleda keerukamat ümbersuunamisloogikat.
 
 ### Kommentaarid {/* #comments */}
 
@@ -155,21 +155,21 @@ Suvand **Kommentaarid** võimaldab teil lisada märkmeid või kommentaare oma ü
 
 Saate kirjutada kommentaare järgmistes vormingutes:
 
-* **Tavaline tekst** (Plain Text, Vaikimisi): Lihtne tekst ilma vorminguta.
-* **Markdown**: Saate kasutada [GitHubi Markdowni süntaksit](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), sealhulgas mõningaid laiendusi, mida GFM ei toeta. Näiteks saate luua pealkirju, loendeid, linke ja palju muud.
-* **AsciiDoc**: Kommentaaride vormindamiseks saate kasutada [AsciiDoc-i süntaksit](https://asciidoc.org/).
+- **Tavaline tekst** (Plain Text, Vaikimisi): Lihtne tekst ilma vorminguta.
+- **Markdown**: Saate kasutada [GitHubi Markdowni süntaksit](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), sealhulgas mõningaid laiendusi, mida GFM ei toeta. Näiteks saate luua pealkirju, loendeid, linke ja palju muud.
+- **AsciiDoc**: Kommentaaride vormindamiseks saate kasutada [AsciiDoc-i süntaksit](https://asciidoc.org/).
 
 ## URL-muster {/* #url-pattern */}
 
-**URL-mustreid** kasutatakse URL-ide sobitamiseks suvandites *Ümbersuunamine aadressilt*, *Välistatud URL-mustrid* ja *Haaramisgruppide töötlemine*. Nende määramiseks saate valida kas **metamärgi** või **regulaaravaldise**.
+**URL-mustreid** kasutatakse URL-ide sobitamiseks suvandites _Ümbersuunamine aadressilt_, _Välistatud URL-mustrid_ ja _Haaramisgruppide töötlemine_. Nende määramiseks saate valida kas **metamärgi** või **regulaaravaldise**.
 
 ### Metamärk {/* #url-pattern-wildcard */}
 
 **Metamärk** on lihtsam mustritüüp, mis võimaldab teil kasutada metamärkidena tähiseid `*` (vastab kõigele) ja `?` (vastab mis tahes üksikule märgile). Siin on mõned näited:
 
-* Aadressi `https://example.com/hello` sobitamiseks saate kasutada `https://example.com/*`. See vastab mis tahes sõnele pärast `https://example.com/`.
-* Aadressi `https://example.com/search?q=hello` sobitamiseks saate kasutada `https://example.com/search?q=*`. See vastab parameetri `q` mis tahes väärtusele.
-* Mis tahes sõna `blog` sisaldava URL-i sobitamiseks saate kasutada `*blog*`.
+- Aadressi `https://example.com/hello` sobitamiseks saate kasutada `https://example.com/*`. See vastab mis tahes sõnele pärast `https://example.com/`.
+- Aadressi `https://example.com/search?q=hello` sobitamiseks saate kasutada `https://example.com/search?q=*`. See vastab parameetri `q` mis tahes väärtusele.
+- Mis tahes sõna `blog` sisaldava URL-i sobitamiseks saate kasutada `*blog*`.
 
 Metamärkide puhul saate kasutada ka asendust, mis tähendab, et saate viidata sobitatud URL-i osadele, kasutades tähiseid `$1`, `$2` jne. Näiteks kui kasutate mustrit `https://example.com/*-world-*` ja URL on `https://example.com/hello-world-goodbye`, siis `$1` oleks "hello" ja `$2` oleks "goodbye". Sobitatud URL-ile tervikuna viitamiseks on saadaval ka `$0`.
 
@@ -181,10 +181,10 @@ Metamärkide puhul saate kasutada ka asendust, mis tähendab, et saate viidata s
 **Regulaaravaldis** (Regex) on võimas tööriist mustrite sobitamiseks tekstis ja seda kasutatakse laialdaselt ka programmeerimises. See võimaldab teil määratleda konkreetse mustri, mis sobitub teatud sõnede hulgaga. Siin on mõned näited.
 
 - Aadressi `https://example.com/hello` sobitamiseks saate kasutada `https://example.com/.*`. See vastab mis tahes sõnele pärast `https://example.com/`.
-- Aadressi `https://example.com/search?q=hello` sobitamiseks saate kasutada `https://example.com/search\?q=(.*)`. See sobitab parameetri `q` väärtuse ja salvestab selle haaramisgruppi. Seejärel saate sellele viidata suvandis *Ümbersuunamine aadressile*, kasutades tähist `$1`.
+- Aadressi `https://example.com/search?q=hello` sobitamiseks saate kasutada `https://example.com/search\?q=(.*)`. See sobitab parameetri `q` väärtuse ja salvestab selle haaramisgruppi. Seejärel saate sellele viidata suvandis _Ümbersuunamine aadressile_, kasutades tähist `$1`.
 - Mis tahes sõna `blog` sisaldava URL-i sobitamiseks saate kasutada `.*blog.*`.
 
-Haaramisgruppidele saate viidata suvandis *Ümbersuunamine aadressile* või *Asendus*, kasutades tähiseid `$1`, `$2`, ... või `$0` kogu vastele viitamiseks.
+Haaramisgruppidele saate viidata suvandis _Ümbersuunamine aadressile_ või _Asendus_, kasutades tähiseid `$1`, `$2`, ... või `$0` kogu vastele viitamiseks.
 
 RedirectWeb-i toiteallikaks on [Apple'i regulaaravaldiste mootor](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 

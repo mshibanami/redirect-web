@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Configurações de MDM para Administradores
 
@@ -15,27 +15,36 @@ Esta página descreve as chaves configuráveis, os comportamentos da aplicação
 
 Ao enviar configurações através do seu MDM, pode alcançar o seguinte:
 
-* **Regras Forçadas:** Aplicar regras de redirecionamento a nível organizacional que os utilizadores não podem modificar ou eliminar.
-* **Distribuição Inicial de Regras:** Distribuir um conjunto de regras predefinido que serve como padrão no primeiro lançamento da aplicação.
-* **Controlo da Interface:** Restringir o acesso a funcionalidades específicas (como a Biblioteca) e indicar claramente dentro da aplicação que esta está sob gestão organizacional.
-* **Obtenção de Regras Grandes (Fallback):** Contornar os limites de tamanho do payload do MDM obtendo as regras de um servidor externo.
+- **Regras Forçadas:** Aplicar regras de redirecionamento a nível organizacional que os utilizadores não podem modificar ou eliminar.
+- **Distribuição Inicial de Regras:** Distribuir um conjunto de regras predefinido que serve como padrão no primeiro lançamento da aplicação.
+- **Controlo da Interface:** Restringir o acesso a funcionalidades específicas (como a Biblioteca) e indicar claramente dentro da aplicação que esta está sob gestão organizacional.
+- **Obtenção de Regras Grandes (Fallback):** Contornar os limites de tamanho do payload do MDM obtendo as regras de um servidor externo.
 
 ## Casos de Uso
 
-* **Encaminhamento contínuo durante migrações de sistemas:**
+- **Encaminhamento contínuo durante migrações de sistemas:**
   Ao migrar de um sistema interno legado (ex: `legacy-crm.internal.local`) para uma nova plataforma (ex: `salesforce.com`), distribua um `enforcedRuleSet`. Mesmo que os funcionários utilizem marcadores antigos, são automaticamente redirecionados para o novo sistema, eliminando pedidos de suporte de TI sobre links desatualizados.
-* **Assistência no Acesso à Intranet:**
+- **Assistência no Acesso à Intranet:**
   Distribua regras de redirecionamento utilizando esquemas de URL personalizados para facilitar o acesso a recursos da intranet através de túneis VPN por Aplicação, como o Omnissa Web.
 
 > [!WARNING]
-> 
+>
 > Os envios de configuração de MDM são aplicados imediatamente **apenas se o utilizador abrir a aplicação RedirectWeb**.
 > Embora a aplicação utilize tarefas em segundo plano para enviar atualizações de MDM para a extensão do navegador de forma silenciosa, esta é uma execução de "melhor esforço" ditada pelo SO. O momento da execução é altamente imprevisível e a tarefa pode nem chegar a ser executada.
 > Portanto, esta funcionalidade **não** deve ser utilizada para respostas a incidentes onde o tempo é crítico (ex: tentar redirecionar instantaneamente todos os funcionários para um site de reserva poucos minutos após uma interrupção de um serviço na nuvem).
 
 ## Demonstração
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="Demonstração das Configurações de MDM" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="Demonstração das Configurações de MDM"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 O ficheiro plist utilizado no vídeo está disponível aqui: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -111,15 +120,15 @@ Cada objeto de regra tem o mesmo formato que o que pode [partilhar/exportar atra
 
 Quando uma chave existe tanto no payload de MDM em linha como nos dados obtidos através do `fallbackDataURL`, a aplicação gere o conflito da seguinte forma:
 
-* **Antes da Conclusão da Obtenção:** As definições em linha são estritamente priorizadas e utilizadas.
-* **Após Obtenção Bem-sucedida:** Os dados obtidos do `fallbackDataURL` substituem as definições em linha correspondentes.
-* **Após Falha na Obtenção:** A aplicação continua a utilizar as definições em linha.
-* As chaves independentes que existem apenas no payload em linha são preservadas.
+- **Antes da Conclusão da Obtenção:** As definições em linha são estritamente priorizadas e utilizadas.
+- **Após Obtenção Bem-sucedida:** Os dados obtidos do `fallbackDataURL` substituem as definições em linha correspondentes.
+- **Após Falha na Obtenção:** A aplicação continua a utilizar as definições em linha.
+- As chaves independentes que existem apenas no payload em linha são preservadas.
 
 ## Feedback do MDM e Verificação de Estado
 
 Pode verificar se a configuração foi aplicada com sucesso através do canal de feedback do MDM (`com.apple.feedback.managed`), se a sua solução de MDM o suportar. Após processar a configuração (ou concluir a obtenção do URL), a aplicação devolve os seguintes dados:
 
-* `managedConfigVersion`: A string de versão da tentativa de configuração.
-* `result`: `success` ou `error`.
-* `messages`: Um array contendo mensagens detalhadas de erro ou aviso, se aplicável.
+- `managedConfigVersion`: A string de versão da tentativa de configuração.
+- `result`: `success` ou `error`.
+- `messages`: Um array contendo mensagens detalhadas de erro ou aviso, se aplicável.

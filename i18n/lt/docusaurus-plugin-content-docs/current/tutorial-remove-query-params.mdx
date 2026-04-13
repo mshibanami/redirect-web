@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # 2 atvejis: Pašalinkite užklausos parametrus iš URL
 
@@ -6,14 +6,14 @@ Tarkime, kad yra užklausos parametras `source=twitter` URL adrese `example.com`
 
 Šiuo atveju, **Capturing Group Processing** parinktis yra lengviausias būdas:
 
-*   **Nukreipti iš**: `https://example.com/*` (Pakaitos simbolis)
-*   **Nukreipti į**: `$0`
-*   **Capturing Group Processing**:
-    *   **Grupė**: `$0`
-    *   **Procesas**: Pakeisti pasikartojimus
-        *   **Tikslas**: `&?source=[^&]*`
-        *   **Pakeitimas**: *(nieko)*
-        *   **Teksto šablonas**: Reguliarioji išraiška
+- **Nukreipti iš**: `https://example.com/*` (Pakaitos simbolis)
+- **Nukreipti į**: `$0`
+- **Capturing Group Processing**:
+  - **Grupė**: `$0`
+  - **Procesas**: Pakeisti pasikartojimus
+    - **Tikslas**: `&?source=[^&]*`
+    - **Pakeitimas**: _(nieko)_
+    - **Teksto šablonas**: Reguliarioji išraiška
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Atsisiųsti taisyklę</a>**
 

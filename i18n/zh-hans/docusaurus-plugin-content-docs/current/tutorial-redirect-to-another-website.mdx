@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # 案例 1：重定向到另一个网站
@@ -31,16 +31,16 @@ https://twitter.com/*
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`：它同时定位 `twitter` 和 `x`。（`|` 称为*管道*。）
-* `.*`：它与通配符的 `*` 相同。更具体地说，`.` 表示*任何字符*，`*` 表示*此符号之前重复任意次数的任何内容*，因此它匹配任何内容。
+- `(twitter|x)`：它同时定位 `twitter` 和 `x`。（`|` 称为*管道*。）
+- `.*`：它与通配符的 `*` 相同。更具体地说，`.` 表示*任何字符*，`*` 表示*此符号之前重复任意次数的任何内容*，因此它匹配任何内容。
 
 正则表达式有点复杂，但一旦您习惯了它，它将成为一个强大的工具。我们建议使用 [RegExr](https://regexr.com) 作为分析您的正则表达式模式如何工作的游乐场。
 
 > [!TIP]
 > 在正则表达式中，`(twitter|x).com` 中的 `.` 也被视为*任何字符*。因此，`(twitter|x).com/.*` 也匹配，例如，`twitter1com/` 或 `x_com/`。
-> 
+>
 > 为了更精确，您可以将其更改为 `(twitter|x)\.com/.*`。`\` 用于将 `.` 视为文字句点字符而不是特殊字符。
-> 
+>
 > 但是，在一般的互联网环境中没有这样的 URL。因此，如果您愿意，可以将 `.` 保留为特殊字符。
 
 ### 步骤 3：设置“重定向到”
@@ -57,7 +57,13 @@ https://unrush.org/
 
 您的规则现在应该如下所示：
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="一个重定向到另一个网站的示例规则" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="一个重定向到另一个网站的示例规则"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ 下载规则</a>**
 

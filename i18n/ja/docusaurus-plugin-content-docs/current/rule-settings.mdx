@@ -8,17 +8,17 @@
 
 **タイプ**オプションを指定して、アプリがリダイレクトを処理する方法を制御します。以下から選択できます：
 
-* **オリジナル**（デフォルト）
-    * これは従来のリダイレクト制御用Web APIを使用します。さらに、フォールバックとして[Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs)を使用します。
-        * Firefoxでは、リダイレクトの処理に[WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest)を使用します。
-    * [リソースタイプ](#resource-types)と[リクエストメソッド](#request-methods)以外のすべてのオプションを使用できます。
-    * ⚠️ これは「宣言的（DNR）」タイプよりも遅く、余分なネットワークリクエストが発生する可能性があります。
-* **DNR**（Safariでは実験的）:
-    * このタイプは、ソースURLに対してネットワークリクエストを開始しないため、オリジナルタイプよりもはるかに高速に動作します。
-    * これにより、[リソースタイプ](#resource-types)と[リクエストメソッド](#request-methods)を指定できます。
-    * ⚠️ [キャプチャグループの処理](#capturing-group-processing)や[除外URLパターン](#excluded-url-patterns)など、DNR APIでまだサポートされていない一部のオプションは使用できません。
-    * ⚠️ Safariでは、現在正規表現パターンにパイプ（`|`）を含めることができません。[詳細](https://github.com/mshibanami/redirect-web/issues/44)
-    * ⚠️ SafariのDNR APIにはまだいくつかの問題があるため、Safariではまだ実験的な機能であると考えています。既知の問題のリストは[こちら](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari)で確認できます。
+- **オリジナル**（デフォルト）
+  - これは従来のリダイレクト制御用Web APIを使用します。さらに、フォールバックとして[Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs)を使用します。
+    - Firefoxでは、リダイレクトの処理に[WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest)を使用します。
+  - [リソースタイプ](#resource-types)と[リクエストメソッド](#request-methods)以外のすべてのオプションを使用できます。
+  - ⚠️ これは「宣言的（DNR）」タイプよりも遅く、余分なネットワークリクエストが発生する可能性があります。
+- **DNR**（Safariでは実験的）:
+  - このタイプは、ソースURLに対してネットワークリクエストを開始しないため、オリジナルタイプよりもはるかに高速に動作します。
+  - これにより、[リソースタイプ](#resource-types)と[リクエストメソッド](#request-methods)を指定できます。
+  - ⚠️ [キャプチャグループの処理](#capturing-group-processing)や[除外URLパターン](#excluded-url-patterns)など、DNR APIでまだサポートされていない一部のオプションは使用できません。
+  - ⚠️ Safariでは、現在正規表現パターンにパイプ（`|`）を含めることができません。[詳細](https://github.com/mshibanami/redirect-web/issues/44)
+  - ⚠️ SafariのDNR APIにはまだいくつかの問題があるため、Safariではまだ実験的な機能であると考えています。既知の問題のリストは[こちら](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari)で確認できます。
 
 ### リダイレクト元 {/* #redirect-from */}
 
@@ -62,10 +62,10 @@
 
 **対象ブラウザ**オプションでは、ルールを適用する（または適用しない）ブラウザを指定できます。
 
-* 選択できるブラウザには2つのタイプがあります：
-    * **デフォルトで選択可能なブラウザ**: Safari、Chrome、Firefox、Edge、Opera、Arc、Brave、Vivaldiをデフォルトで選択できます。これは、SafariとSafari Technology Previewのような、同じブラウザのバリエーションを区別しません。
-    * **ユーザー指定のブラウザ**: ポップオーバーの追加ボタンをタップすることで、RedirectWeb拡張機能がインストールされているSafariまたはSafari Technology Preview以外の任意のブラウザを選択できます。
-* **「選択したもの以外すべて」**チェックボックスを使用すると、選択したブラウザ以外のすべてのブラウザを対象にできます。
+- 選択できるブラウザには2つのタイプがあります：
+  - **デフォルトで選択可能なブラウザ**: Safari、Chrome、Firefox、Edge、Opera、Arc、Brave、Vivaldiをデフォルトで選択できます。これは、SafariとSafari Technology Previewのような、同じブラウザのバリエーションを区別しません。
+  - **ユーザー指定のブラウザ**: ポップオーバーの追加ボタンをタップすることで、RedirectWeb拡張機能がインストールされているSafariまたはSafari Technology Preview以外の任意のブラウザを選択できます。
+- **「選択したもの以外すべて」**チェックボックスを使用すると、選択したブラウザ以外のすべてのブラウザを対象にできます。
 
 > [!WARNING]
 > RedirectWebは、ブラウザが **Safari** か **Safari Technology Preview** かを判別できません。これは、アプリが拡張機能の親プロセスをチェックして検出を行いますが、これら2つのブラウザは同じ親プロセス（`/sbin/launchd`）を共有しているためです。
@@ -76,8 +76,8 @@
 
 例えば、以下のルールを設定した場合：
 
-* **リダイレクト元**: `https://google.com/*` (ワイルドカード)
-* **リダイレクト先**: `https://apple.com/$1`
+- **リダイレクト元**: `https://google.com/*` (ワイルドカード)
+- **リダイレクト先**: `https://apple.com/$1`
 
 これに `https://google.com/hello` がマッチすると、転送先URLは `https://apple.com/hello` になります。
 
@@ -86,12 +86,12 @@
 > [!TIP]
 > カスタムURLスキームを指定してアプリを開くことができます。以下はディープリンクをサポートしているアプリの例です：
 >
-> * Figma: `figma://file/Your_Figma_ID`
-> * Firefox: `firefox://open-url?url=https://example.com/hello`
-> * Google Chrome: `googlechromes://example.com`
-> * Microsoft Edge: `microsoft-edge://example.com`
-> * Notion: `notion://www.notion.so/Your_Note_ID`
-> * Slack: `slack://open`
+> - Figma: `figma://file/Your_Figma_ID`
+> - Firefox: `firefox://open-url?url=https://example.com/hello`
+> - Google Chrome: `googlechromes://example.com`
+> - Microsoft Edge: `microsoft-edge://example.com`
+> - Notion: `notion://www.notion.so/Your_Note_ID`
+> - Slack: `slack://open`
 
 #### アプリケーション {/* #application */}
 
@@ -110,24 +110,24 @@
 
 キャプチャグループの作成方法は以下の通りです：
 
-* **ワイルドカード**: `*` や `?` にマッチしたテキストが自動的にキャプチャされます。
-* **正規表現**: `()` 内のパターンの一部にマッチしたテキストがキャプチャされます。
+- **ワイルドカード**: `*` や `?` にマッチしたテキストが自動的にキャプチャされます。
+- **正規表現**: `()` 内のパターンの一部にマッチしたテキストがキャプチャされます。
 
 以下の処理から1つ以上を選択できます：
 
-* **URLエンコード/デコード**: キャプチャグループに対して[パーセントエンコーディング](https://ja.wikipedia.org/wiki/パーセントエンコーディング)またはデコードを適用します。例えば、`https://example.com/hello` をエンコードすると、`https%3A%2F%2Fexample.com%2Fhello` に変換されます。デコードはその逆の動作をします。
-* **Base64エンコード/デコード**: テキストを[Base64](https://ja.wikipedia.org/wiki/Base64)にデコード/エンコードします。例えば、`hello` を `aGVsbG8=` にエンコードし、再び `hello` にデコードできます。
-* **出現箇所の置換**: グループ内の一致する1つ以上の文字を、**対象**から**置換後**の文字に置き換えます。例えば、グループが `hello` で、対象が `l`、置換後が `y` の場合、`heyyo` に変更されます。
+- **URLエンコード/デコード**: キャプチャグループに対して[パーセントエンコーディング](https://ja.wikipedia.org/wiki/パーセントエンコーディング)またはデコードを適用します。例えば、`https://example.com/hello` をエンコードすると、`https%3A%2F%2Fexample.com%2Fhello` に変換されます。デコードはその逆の動作をします。
+- **Base64エンコード/デコード**: テキストを[Base64](https://ja.wikipedia.org/wiki/Base64)にデコード/エンコードします。例えば、`hello` を `aGVsbG8=` にエンコードし、再び `hello` にデコードできます。
+- **出現箇所の置換**: グループ内の一致する1つ以上の文字を、**対象**から**置換後**の文字に置き換えます。例えば、グループが `hello` で、対象が `l`、置換後が `y` の場合、`heyyo` に変更されます。
 
 > [!NOTE]
 > これは各キャプチャグループを処理するためのものであり、[除外URLパターン](#excluded-url-patterns)によってどのURLが除外されるかには影響しません。例えば、次のようなルールがあるとします：
 >
-> * **リダイレクト元**: `https://example.com/(hello.*)`
-> * **キャプチャグループの処理**:
->     * グループ: `$1`
->     * 対象: `.*` (正規表現)
->     * 置換後: `hello`
-> * **除外URLパターン**: `https://example.com/hello`
+> - **リダイレクト元**: `https://example.com/(hello.*)`
+> - **キャプチャグループの処理**:
+>   - グループ: `$1`
+>   - 対象: `.*` (正規表現)
+>   - 置換後: `hello`
+> - **除外URLパターン**: `https://example.com/hello`
 >
 > この場合、`https://example.com/hello_world` は除外されませんが、`https://example.com/hello` は除外されます。
 
@@ -145,9 +145,9 @@
 
 ### 高度な設定 {/* #advanced-options */}
 
-* **[DNR] メインフレームのリダイレクト**: このオプションはDNRタイプでのみ利用可能です。`main_frame` リソースタイプのリダイレクトをどのように処理するかを指定できます。利用可能なオプションは以下の通りです：
-    * **生（Raw）**: メインフレームを変更を加えずに指定されたURLにリダイレクトします。
-    * **中間ページ経由**: メインフレームを一度中間ページにリダイレクトし、そこから指定された転送先URLにリダイレクトします。中間ページでより複雑なリダイレクトロジックを処理できるため、ディープリンクを使用したアプリの起動に役立ちます。
+- **[DNR] メインフレームのリダイレクト**: このオプションはDNRタイプでのみ利用可能です。`main_frame` リソースタイプのリダイレクトをどのように処理するかを指定できます。利用可能なオプションは以下の通りです：
+  - **生（Raw）**: メインフレームを変更を加えずに指定されたURLにリダイレクトします。
+  - **中間ページ経由**: メインフレームを一度中間ページにリダイレクトし、そこから指定された転送先URLにリダイレクトします。中間ページでより複雑なリダイレクトロジックを処理できるため、ディープリンクを使用したアプリの起動に役立ちます。
 
 ### コメント {/* #comments */}
 
@@ -155,9 +155,9 @@
 
 コメントは以下の形式で記述できます：
 
-* **プレーンテキスト**（デフォルト）: 書式のない単純なテキスト。
-* **Markdown**: [GitHubのMarkdown構文](https://docs.github.com/ja/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)（GFMがサポートしていない一部の拡張機能を含む）を使用できます。例えば、見出し、リスト、リンクなどを作成できます。
-* **AsciiDoc**: [AsciiDoc構文](https://asciidoc.org/)を使用してコメントを整形できます。
+- **プレーンテキスト**（デフォルト）: 書式のない単純なテキスト。
+- **Markdown**: [GitHubのMarkdown構文](https://docs.github.com/ja/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)（GFMがサポートしていない一部の拡張機能を含む）を使用できます。例えば、見出し、リスト、リンクなどを作成できます。
+- **AsciiDoc**: [AsciiDoc構文](https://asciidoc.org/)を使用してコメントを整形できます。
 
 ## URLパターン {/* #url-pattern */}
 
@@ -167,9 +167,9 @@
 
 **ワイルドカード**は、`*`（任意にマッチ）と `?`（任意の1文字にマッチ）をワイルドカードとして使用できる、より単純なパターンタイプです。以下にいくつかの例を示します：
 
-* `https://example.com/hello` にマッチさせるには、`https://example.com/*` を使用します。これにより、`https://example.com/` の後の任意の文字列にマッチします。
-* `https://example.com/search?q=hello` にマッチさせるには、`https://example.com/search?q=*` を使用します。これにより、`q` パラメータの任意の値をマッチさせます。
-* `blog` という単語を含む任意のURLにマッチさせるには、`*blog*` を使用します。
+- `https://example.com/hello` にマッチさせるには、`https://example.com/*` を使用します。これにより、`https://example.com/` の後の任意の文字列にマッチします。
+- `https://example.com/search?q=hello` にマッチさせるには、`https://example.com/search?q=*` を使用します。これにより、`q` パラメータの任意の値をマッチさせます。
+- `blog` という単語を含む任意のURLにマッチさせるには、`*blog*` を使用します。
 
 ワイルドカードでも置換を使用できます。つまり、`$1`, `$2` などを使用して、マッチしたURLの一部を参照できます。例えば、`https://example.com/*-world-*` を使用し、URLが `https://example.com/hello-world-goodbye` の場合、`$1` は "hello"、`$2` は "goodbye" になります。マッチしたURL全体を参照するために `$0` も利用可能です。
 

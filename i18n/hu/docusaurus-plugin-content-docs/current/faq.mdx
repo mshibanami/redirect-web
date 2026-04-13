@@ -13,13 +13,15 @@ Amikor beállítja a RedirectWeb-et, egy ilyen figyelmeztetést láthat:
     <Image src={PermissionAlertSafari} alt="Engedélyt igénylő figyelmeztetés" width="200" margin="0 0 16px 0" hasShadow />
 
     > Ez a bővítmény képes lesz olvasni és módosítani a weboldalakat, és látni a böngészési előzményeit ezen a webhelyen. **Ez érzékeny információkat is tartalmazhat, beleértve a jelszavakat, telefonszámokat és hitelkártyákat.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="Engedélyt igénylő figyelmeztetés" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Képes:  
+    > Képes:
     > Olvasni és módosítani **minden adatát** **minden webhelyen**
+
 </IfBrowserStore>
 
 Ez a bővítménynek szüksége van az engedélyére, hogy megfigyelje az oldalnavigációt, hogy átirányítsa Önt oda, ahová ugrani szeretne, és a böngészője ezt akkor jeleníti meg, amikor a bővítmény kéri a kapcsolódó engedélyeket. Ezért, ha nem engedélyezi, ez a bővítmény nem fog működni.
@@ -38,7 +40,11 @@ Jelenleg nem. A RedirectWeb szorosan kapcsolódik az Apple ökoszisztémájához
 
 Lehet, hogy ezt a figyelmeztetést látja a Safariban a RedirectWeb frissítése után:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Az alkalmazás letiltására figyelmeztető üzenet" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Az alkalmazás letiltására figyelmeztető üzenet"
+  width="280"
+/>
 
 > "RedirectWeb" frissült, és további engedélyeket kér. Az Ön adatainak védelme érdekében ez a bővítmény ki lett kapcsolva.
 >

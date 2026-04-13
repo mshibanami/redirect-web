@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Cazul 1: Redirecționare către un alt site web
@@ -9,11 +9,11 @@ Să presupunem că sunteți dependent de Twitter și, pentru a scăpa de acest o
 
 ### Pasul 1. Deschideți ecranul „Editare regulă”
 
-Să deschidem ecranul *Editare regulă* pentru a începe să vă creați propria regulă în aplicație. Puteți face acest lucru făcând clic pe butonul plus (+) din fila *Regulile mele*.
+Să deschidem ecranul _Editare regulă_ pentru a începe să vă creați propria regulă în aplicație. Puteți face acest lucru făcând clic pe butonul plus (+) din fila _Regulile mele_.
 
 ### Pasul 2. Configurați „Redirecționare de la”
 
-Mai întâi, ar trebui să configurați secțiunea *Redirecționare de la* din ecranul *Editare regulă* al aplicației. Țintele sunt URL-uri care încep cu `https://twitter.com/`.
+Mai întâi, ar trebui să configurați secțiunea _Redirecționare de la_ din ecranul _Editare regulă_ al aplicației. Țintele sunt URL-uri care încep cu `https://twitter.com/`.
 
 În acest caz, puteți specifica următorul model folosind modul [Joker](/rule-settings#url-pattern-wildcard):
 
@@ -31,13 +31,13 @@ Pentru a face acest lucru, comutați de la Joker la [Expresie regulată](/rule-s
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: vizează atât `twitter`, cât și `x`. (`|` se numește *o bară verticală*.)
-* `.*`: Este la fel ca `*` din Joker. Mai exact, `.` înseamnă *orice caracter*, iar `*` înseamnă că *orice dinaintea acestui simbol se repetă de oricâte ori*, rezultând o potrivire pentru orice șir de caractere.
+- `(twitter|x)`: vizează atât `twitter`, cât și `x`. (`|` se numește _o bară verticală_.)
+- `.*`: Este la fel ca `*` din Joker. Mai exact, `.` înseamnă _orice caracter_, iar `*` înseamnă că _orice dinaintea acestui simbol se repetă de oricâte ori_, rezultând o potrivire pentru orice șir de caractere.
 
 Expresia regulată este puțin complicată, dar odată ce vă obișnuiți cu ea, va deveni un instrument puternic. Vă recomandăm să utilizați [RegExr](https://regexr.com) ca un loc de joacă pentru a analiza cum funcționează modelul dumneavoastră de expresie regulată.
 
 > [!TIP]
-> În expresiile regulate, `.` din `(twitter|x).com` este, de asemenea, tratat ca *orice caracter*. Prin urmare, `(twitter|x).com/.*` se potrivește, de exemplu, și cu `twitter1com/` sau `x_com/`.
+> În expresiile regulate, `.` din `(twitter|x).com` este, de asemenea, tratat ca _orice caracter_. Prin urmare, `(twitter|x).com/.*` se potrivește, de exemplu, și cu `twitter1com/` sau `x_com/`.
 >
 > Pentru a fi mai precis, îl puteți schimba în `(twitter|x)\.com/.*`. `\` este folosit pentru a trata `.` ca un caracter punct literal, nu ca un caracter special.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Opțional) Pasul 4: Verificați regula
 
-Puteți verifica modul în care funcționează regula adăugând un exemplu de URL în secțiunea *Exemple* din ecranul *Editare regulă*. De exemplu, dacă introduceți `https://x.com/UN`, rezultatul afișat va fi `https://unrush.org/`.
+Puteți verifica modul în care funcționează regula adăugând un exemplu de URL în secțiunea _Exemple_ din ecranul _Editare regulă_. De exemplu, dacă introduceți `https://x.com/UN`, rezultatul afișat va fi `https://unrush.org/`.
 
 Iată cum ar trebui să arate regula dumneavoastră acum:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Un exemplu de regulă pentru a deschide un alt site web" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Un exemplu de regulă pentru a deschide un alt site web"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Descărcați regula</a>**
 

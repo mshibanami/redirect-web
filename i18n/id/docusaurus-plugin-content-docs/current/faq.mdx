@@ -13,13 +13,15 @@ Anda mungkin melihat peringatan seperti ini saat Anda mengatur RedirectWeb:
     <Image src={PermissionAlertSafari} alt="Peringatan yang membutuhkan izin" width="200" margin="0 0 16px 0" hasShadow />
 
     > Ekstensi ini akan dapat membaca dan mengubah halaman web serta melihat riwayat penjelajahan Anda di situs web ini. **Ini bisa termasuk informasi sensitif, termasuk kata sandi, nomor telepon, dan kartu kredit.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="Peringatan yang membutuhkan izin" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Ini dapat:  
+    > Ini dapat:
     > Membaca dan mengubah **semua data Anda** di **semua situs web**
+
 </IfBrowserStore>
 
 Ekstensi ini membutuhkan izin Anda untuk mengamati navigasi halaman untuk mengarahkan ke mana pun Anda ingin melompat, dan browser Anda menampilkan ini ketika ekstensi meminta izin terkait. Oleh karena itu, jika Anda tidak mengizinkannya, ekstensi ini tidak dapat berfungsi.
@@ -38,7 +40,11 @@ Saat ini tidak. RedirectWeb sangat terkait dengan ekosistem Apple, termasuk iClo
 
 Anda mungkin melihat peringatan ini di Safari setelah memperbarui RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Peringatan penonaktifan aplikasi" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Peringatan penonaktifan aplikasi"
+  width="280"
+/>
 
 > "RedirectWeb" telah diperbarui dan meminta izin tambahan. Untuk melindungi privasi Anda, ekstensi ini telah dimatikan.
 >

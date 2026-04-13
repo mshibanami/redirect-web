@@ -1,6 +1,6 @@
 # Nastavenia pravidiel
 
-Táto stránka poskytuje podrobné informácie o každom nastavení na obrazovke *Upraviť pravidlo* v aplikácii RedirectWeb.
+Táto stránka poskytuje podrobné informácie o každom nastavení na obrazovke _Upraviť pravidlo_ v aplikácii RedirectWeb.
 
 ## Možnosti
 
@@ -8,17 +8,17 @@ Táto stránka poskytuje podrobné informácie o každom nastavení na obrazovke
 
 Zadajte možnosť **Typ** na ovládanie spôsobu, akým aplikácia spracováva presmerovanie. Môžete si vybrať z týchto možností:
 
-* **Original** (Predvolené)
-    * Toto využíva tradičné webové API na ovládanie presmerovania. Okrem toho používa [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) ako zálohu.
-        * Vo Firefoxe používa [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) na spracovanie presmerovania.
-    * Môžete použiť všetky možnosti okrem [Typov zdrojov](#resource-types) a [Metód požiadaviek](#request-methods).
-    * ⚠️ Toto je pomalšie ako typ *Declarative* (DNR) a môže spôsobiť dodatočné sieťové požiadavky.
-* **DNR** (Experimentálne pre Safari):
-    * Tento typ funguje oveľa rýchlejšie ako typ Original, pretože neiniciuje sieťovú požiadavku pre zdrojovú URL adresu.
-    * Toto vám umožňuje špecifikovať [Typy zdrojov](#resource-types) a [Metódy požiadaviek](#request-methods).
-    * ⚠️ Nemôžete použiť niektoré možnosti, ako napríklad [Spracovanie zachytávajúcich skupín](#capturing-group-processing) i [Vylúčené vzory URL](#excluded-url-patterns), pretože ich API DNR zatiaľ nepodporuje.
-    * ⚠️ V Safari momentálne nemôžete do vzoru regulárneho výrazu zahrnúť zvislé čiary (`|`). [Podrobnosti](https://github.com/mshibanami/redirect-web/issues/44)
-    * ⚠️ Keďže API DNR v Safari má stále určité problémy, považujeme ho za experimentálnu funkciu pre Safari. Zoznam všetkých známych problémov nájdete [tu](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+- **Original** (Predvolené)
+  - Toto využíva tradičné webové API na ovládanie presmerovania. Okrem toho používa [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) ako zálohu.
+    - Vo Firefoxe používa [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) na spracovanie presmerovania.
+  - Môžete použiť všetky možnosti okrem [Typov zdrojov](#resource-types) a [Metód požiadaviek](#request-methods).
+  - ⚠️ Toto je pomalšie ako typ _Declarative_ (DNR) a môže spôsobiť dodatočné sieťové požiadavky.
+- **DNR** (Experimentálne pre Safari):
+  - Tento typ funguje oveľa rýchlejšie ako typ Original, pretože neiniciuje sieťovú požiadavku pre zdrojovú URL adresu.
+  - Toto vám umožňuje špecifikovať [Typy zdrojov](#resource-types) a [Metódy požiadaviek](#request-methods).
+  - ⚠️ Nemôžete použiť niektoré možnosti, ako napríklad [Spracovanie zachytávajúcich skupín](#capturing-group-processing) i [Vylúčené vzory URL](#excluded-url-patterns), pretože ich API DNR zatiaľ nepodporuje.
+  - ⚠️ V Safari momentálne nemôžete do vzoru regulárneho výrazu zahrnúť zvislé čiary (`|`). [Podrobnosti](https://github.com/mshibanami/redirect-web/issues/44)
+  - ⚠️ Keďže API DNR v Safari má stále určité problémy, považujeme ho za experimentálnu funkciu pre Safari. Zoznam všetkých známych problémov nájdete [tu](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
 ### Presmerovať z {/* #redirect-from */}
 
@@ -36,7 +36,7 @@ Napríklad, ak špecifikujete `https://example.com/*` so zástupným znakom, zod
 Možnosť **Typy zdrojov** vám umožňuje špecifikovať kategórie webových požiadaviek, ako sú obrázky, skripty JavaScript a štýly (CSS), na ktoré sa pravidlo vzťahuje.
 Napríklad, ak nastavíte `script`, môžete presmerovať súbory JavaScript načítané webovými stránkami.
 
-Momentálne sú k dispozícii tieto typy: 
+Momentálne sú k dispozícii tieto typy:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
 Predvolené nastavenie je `main_frame`, čo je stránka najvyššej úrovne načítaná v tabe.
@@ -62,22 +62,22 @@ Podrobnosti o každej metóde nájdete v [dokumentácii mdn web docs](https://de
 
 Možnosť **Cieľové prehliadače** vám umožňuje špecifikovať, na ktorý prehliadač sa má alebo nemá pravidlo vzťahovať.
 
-* Môžete si vybrať z 2 typov prehliadačov:
-    * **Prehliadače, ktoré si môžete vybrať predvolene**: Predvolene si môžete vybrať Safari, Chrome, Firefox, Edge, Opera, Arc, Brave a Vivaldi. Nerozlišuje to varianty toho istého prehliadača, ako napríklad Safari a Safari Technology Preview.
-    * **Prehliadače špecifikované používateľom**: Kliknutím na tlačidlo Pridať v popoveri môžete vybrať akýkoľvek iný prehliadač okrem Safari alebo Safari Technology Preview, ktorý má nainštalované rozšírenie RedirectWeb.
-* Zaškrtávacie políčko **Všetky okrem vybraných** vám umožňuje zacieliť na každý prehliadač okrem tých, ktoré ste vybrali.
+- Môžete si vybrať z 2 typov prehliadačov:
+  - **Prehliadače, ktoré si môžete vybrať predvolene**: Predvolene si môžete vybrať Safari, Chrome, Firefox, Edge, Opera, Arc, Brave a Vivaldi. Nerozlišuje to varianty toho istého prehliadača, ako napríklad Safari a Safari Technology Preview.
+  - **Prehliadače špecifikované používateľom**: Kliknutím na tlačidlo Pridať v popoveri môžete vybrať akýkoľvek iný prehliadač okrem Safari alebo Safari Technology Preview, ktorý má nainštalované rozšírenie RedirectWeb.
+- Zaškrtávacie políčko **Všetky okrem vybraných** vám umožňuje zacieliť na každý prehliadač okrem tých, ktoré ste vybrali.
 
 > [!WARNING]
 > RedirectWeb nedokáže rozlíšiť, či ide o prehliadač **Safari** alebo **Safari Technology Preview**, pretože aplikácia na detekciu kontroluje nadradený proces rozšírenia, ale tieto dva prehliadače zdieľajú rovnaký nadradený proces (`/sbin/launchd`).
 
 ### Presmerovať na {/* #redirect-to */}
 
-Možnosť **Presmerovať na** špecifikuje cieľovú URL adresu, na ktorú chcete presmerovať zo zdrojovej URL adresy zhodnej s možnosťou *Presmerovať z*. Môžete tiež nahradiť zachytávajúce skupiny pomocou `$1`, `$2`, ... alebo celú zhodu pomocou `$0`. Tieto vám pomáhajú dynamicky špecifikovať cieľ. Podrobnosti nájdete v časti [Vzor URL](#url-pattern) na tejto stránke.
+Možnosť **Presmerovať na** špecifikuje cieľovú URL adresu, na ktorú chcete presmerovať zo zdrojovej URL adresy zhodnej s možnosťou _Presmerovať z_. Môžete tiež nahradiť zachytávajúce skupiny pomocou `$1`, `$2`, ... alebo celú zhodu pomocou `$0`. Tieto vám pomáhajú dynamicky špecifikovať cieľ. Podrobnosti nájdete v časti [Vzor URL](#url-pattern) na tejto stránke.
 
 Napríklad, ak nastavíte nasledujúce pravidlo:
 
-* **Presmerovať z**: `https://google.com/*` (Wildcard)
-* **Presmerovať na**: `https://apple.com/$1`
+- **Presmerovať z**: `https://google.com/*` (Wildcard)
+- **Presmerovať na**: `https://apple.com/$1`
 
 a zhoduje sa s `https://google.com/hello`, potom cieľová URL bude `https://apple.com/hello`.
 
@@ -86,12 +86,12 @@ Okrem toho môžete pred vykonaním nahradenia upraviť texty skupín `$1`, `$2`
 > [!TIP]
 > Môžete zadať vlastnú schému URL na otvorenie aplikácie. Tu sú príklady aplikácií, ktoré podporujú deep linking:
 >
-> * Figma: `figma://file/Vase_Figma_ID`
-> * Firefox: `firefox://open-url?url=https://example.com/hello`
-> * Google Chrome: `googlechromes://example.com`
-> * Microsoft Edge: `microsoft-edge://example.com`
-> * Notion: `notion://www.notion.so/Vase_ID_Poznamky`
-> * Slack: `slack://open`
+> - Figma: `figma://file/Vase_Figma_ID`
+> - Firefox: `firefox://open-url?url=https://example.com/hello`
+> - Google Chrome: `googlechromes://example.com`
+> - Microsoft Edge: `microsoft-edge://example.com`
+> - Notion: `notion://www.notion.so/Vase_ID_Poznamky`
+> - Slack: `slack://open`
 
 #### Aplikácia {/* #application */}
 
@@ -106,28 +106,28 @@ Ak chcete špecifikovať aplikáciu, v ktorej chcete otvoriť cieľovú URL adre
 
 ![Podporované typy: Original](https://img.shields.io/badge/Types-Original-blue)
 
-Možnosť **Spracovanie zachytávajúcich skupín** vám umožňuje špecifikovať, ako spracovať zachytené skupiny, ktoré môžete nahradiť v možnosti *Presmerovať na* pomocou `$1`, `$2`...
+Možnosť **Spracovanie zachytávajúcich skupín** vám umožňuje špecifikovať, ako spracovať zachytené skupiny, ktoré môžete nahradiť v možnosti _Presmerovať na_ pomocou `$1`, `$2`...
 
 Takto sa vytvárajú zachytávajúce skupiny:
 
-* **Zástupný znak (Wildcard)**: Texty zhodné s `*` a `?` sa zachytávajú automaticky.
-* **Regulárny výraz (Regular Expression)**: Texty zhodné s časťou vzoru vo vnútri `()` sa zachytávajú.
+- **Zástupný znak (Wildcard)**: Texty zhodné s `*` a `?` sa zachytávajú automaticky.
+- **Regulárny výraz (Regular Expression)**: Texty zhodné s časťou vzoru vo vnútri `()` sa zachytávajú.
 
 Môžete si vybrať jeden alebo viacero z nasledujúcich procesov:
 
-* **URL Encode/Decode (Kódovanie/Dekódovanie URL)**: Toto aplikuje [percentuálne kódovanie](https://en.wikipedia.org/wiki/Percent-encoding) alebo dekódovanie na zachytávajúcu skupinu. Napríklad, ak zakódujete `https://example.com/hello`, skonvertuje sa na `https%3A%2F%2Fexample.com%2Fhello`. Dekódovanie funguje opačným spôsobom.
-* **Base64 Encode/Decode (Kódovanie/Dekódovanie Base64)**: Toto dekóduje/zakóduje text do formátu [Base64](https://en.wikipedia.org/wiki/Base64). Napríklad môžete zakódovať `hello` na `aGVsbG8=` a spätne dekódovať na `hello`.
-* **Replace Occurrences (Nahradiť výskyty)**: Toto nahradí jeden alebo viac znakov v skupine, zhodných s **Cieľom (Target)**, **Náhradou (Replacement)**. Napríklad, ak je *Skupina* `hello` a *Cieľ* je `l` a Náhrada je `y`, zmení sa na `heyyo`.
+- **URL Encode/Decode (Kódovanie/Dekódovanie URL)**: Toto aplikuje [percentuálne kódovanie](https://en.wikipedia.org/wiki/Percent-encoding) alebo dekódovanie na zachytávajúcu skupinu. Napríklad, ak zakódujete `https://example.com/hello`, skonvertuje sa na `https%3A%2F%2Fexample.com%2Fhello`. Dekódovanie funguje opačným spôsobom.
+- **Base64 Encode/Decode (Kódovanie/Dekódovanie Base64)**: Toto dekóduje/zakóduje text do formátu [Base64](https://en.wikipedia.org/wiki/Base64). Napríklad môžete zakódovať `hello` na `aGVsbG8=` a spätne dekódovať na `hello`.
+- **Replace Occurrences (Nahradiť výskyty)**: Toto nahradí jeden alebo viac znakov v skupine, zhodných s **Cieľom (Target)**, **Náhradou (Replacement)**. Napríklad, ak je _Skupina_ `hello` a _Cieľ_ je `l` a Náhrada je `y`, zmení sa na `heyyo`.
 
 > [!NOTE]
 > Toto slúži na spracovanie každej zachytávajúcej skupiny a neovplyvňuje to, ktoré URL adresy sú vylúčené pomocou [Vylúčených vzorov URL](#excluded-url-patterns). Povedzme napríklad, že máte toto pravidlo:
 >
-> * **Presmerovať z**: `https://example.com/(hello.*)`
-> * **Spracovanie zachytávajúcich skupín**:
->     * Skupina: `$1`
->     * Cieľ: `.*` (Regulárny výraz)
->     * Náhrada: `hello`
-> * **Vylúčený vzor URL**: `https://example.com/hello`
+> - **Presmerovať z**: `https://example.com/(hello.*)`
+> - **Spracovanie zachytávajúcich skupín**:
+>   - Skupina: `$1`
+>   - Cieľ: `.*` (Regulárny výraz)
+>   - Náhrada: `hello`
+> - **Vylúčený vzor URL**: `https://example.com/hello`
 >
 > V tomto prípade `https://example.com/hello_world` nebude vylúčené, zatiaľ čo `https://example.com/hello` vylúčené bude.
 
@@ -145,9 +145,9 @@ Možnosť **Príklady** vám umožňuje otestovať vaše pravidlo presmerovania 
 
 ### Rozšírené {/* #advanced-options */}
 
-* **[DNR] Presmerovanie hlavného rámca (Main Frame Redirection)**: Táto možnosť je k dispozícii iba pre typ DNR. Umožňuje špecifikovať, ako spracovať presmerovanie pre typ zdroja `main_frame`. Dostupné možnosti sú:
-    * **Raw (Surové)**: Presmeruje hlavný rámec na zadanú URL adresu bez akýchkoľvek úprav.
-    * **Cez prechodnú stránku (Via Intermediate Page)**: Presmeruje hlavný rámec na prechodnú stránku, ktorá potom presmeruje na zadanú cieľovú URL adresu. To je užitočné na otváranie aplikácií pomocou deep linkingu, pretože prechodná stránka dokáže spracovať komplexnejšiu logiku presmerovania.
+- **[DNR] Presmerovanie hlavného rámca (Main Frame Redirection)**: Táto možnosť je k dispozícii iba pre typ DNR. Umožňuje špecifikovať, ako spracovať presmerovanie pre typ zdroja `main_frame`. Dostupné možnosti sú:
+  - **Raw (Surové)**: Presmeruje hlavný rámec na zadanú URL adresu bez akýchkoľvek úprav.
+  - **Cez prechodnú stránku (Via Intermediate Page)**: Presmeruje hlavný rámec na prechodnú stránku, ktorá potom presmeruje na zadanú cieľovú URL adresu. To je užitočné na otváranie aplikácií pomocou deep linkingu, pretože prechodná stránka dokáže spracovať komplexnejšiu logiku presmerovania.
 
 ### Komentáre {/* #comments */}
 
@@ -155,21 +155,21 @@ Možnosť **Komentáre** vám umožňuje pridať akékoľvek poznámky alebo kom
 
 Komentáre môžete písať v nasledujúcich formátoch:
 
-* **Obyčajný text (Plain Text)** (Predvolené): Jednoduchý text bez akéhokoľvek formátovania.
-* **Markdown**: Môžete použiť [syntax Markdown od GitHubu](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), vrátane niektorých rozšírení, ktoré GFM nepodporuje. Môžete napríklad vytvárať nadpisy, zoznamy, odkazy a ďalšie.
-* **AsciiDoc**: Na formátovanie komentárov môžete použiť [syntax AsciiDoc](https://asciidoc.org/).
+- **Obyčajný text (Plain Text)** (Predvolené): Jednoduchý text bez akéhokoľvek formátovania.
+- **Markdown**: Môžete použiť [syntax Markdown od GitHubu](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), vrátane niektorých rozšírení, ktoré GFM nepodporuje. Môžete napríklad vytvárať nadpisy, zoznamy, odkazy a ďalšie.
+- **AsciiDoc**: Na formátovanie komentárov môžete použiť [syntax AsciiDoc](https://asciidoc.org/).
 
 ## Vzor URL {/* #url-pattern */}
 
-**Vzory URL** sa používajú na porovnávanie URL adries v možnostiach *Presmerovať z*, *Vylúčené vzory URL* a *Spracovanie zachytávajúcich skupín*. Ak ich chcete špecifikovať, môžete si vybrať buď **Zástupný znak (Wildcard)** alebo **Regulárny výraz (Regular Expression)**.
+**Vzory URL** sa používajú na porovnávanie URL adries v možnostiach _Presmerovať z_, _Vylúčené vzory URL_ a _Spracovanie zachytávajúcich skupín_. Ak ich chcete špecifikovať, môžete si vybrať buď **Zástupný znak (Wildcard)** alebo **Regulárny výraz (Regular Expression)**.
 
 ### Zástupný znak (Wildcard) {/* #url-pattern-wildcard */}
 
 **Zástupný znak (Wildcard)** je jednoduchší typ vzoru, ktorý umožňuje používať `*` (zodpovedá čomukoľvek) a `?` (zodpovedá akémukoľvek jednému znaku) ako zástupné znaky. Tu je niekoľko príkladov:
 
-* Na zhodu s `https://example.com/hello` môžete použiť `https://example.com/*`. To bude zodpovedať akémukoľvek reťazcu za `https://example.com/`.
-* Na zhodu s `https://example.com/search?q=hello` môžete použiť `https://example.com/search?q=*`. To bude zodpovedať akejkoľvek hodnote parametra `q`.
-* Na zhodu s akoukoľvek URL adresou, ktorá obsahuje slovo `blog`, môžete použiť `*blog*`.
+- Na zhodu s `https://example.com/hello` môžete použiť `https://example.com/*`. To bude zodpovedať akémukoľvek reťazcu za `https://example.com/`.
+- Na zhodu s `https://example.com/search?q=hello` môžete použiť `https://example.com/search?q=*`. To bude zodpovedať akejkoľvek hodnote parametra `q`.
+- Na zhodu s akoukoľvek URL adresou, ktorá obsahuje slovo `blog`, môžete použiť `*blog*`.
 
 Nahradenie môžete použiť aj v type Zástupný znak, čo znamená, že sa môžete odkazovať na časti zhodnej URL adresy pomocou `$1`, `$2` atď. Ak napríklad použijete `https://example.com/*-world-*` a URL je `https://example.com/hello-world-goodbye`, potom `$1` by bolo "hello" a `$2` by bolo "goodbye". `$0` je tiež k dispozícii na odkazovanie na celú zhodnú URL adresu.
 
@@ -181,10 +181,10 @@ Nahradenie môžete použiť aj v type Zástupný znak, čo znamená, že sa mô
 **Regulárny výraz (Regular Expression)** (Regex) je výkonný nástroj na porovnávanie vzorov v texte a je tiež široko používaný v programovaní. Umožňuje definovať špecifický vzor, ktorý zodpovedá množine reťazcov. Tu je niekoľko príkladov.
 
 - Na zhodu s `https://example.com/hello` môžete použiť `https://example.com/.*`. To bude zodpovedať akémukoľvek reťazcu za `https://example.com/`.
-- Na zhodu s `https://example.com/search?q=hello` môžete použiť `https://example.com/search\?q=(.*)`. To zachytí hodnotu parametra `q` a uloží ju do zachytávajúcej skupiny. Potom sa na ňu môžete odkazovať pomocou `$1` v možnosti *Presmerovať na*.
+- Na zhodu s `https://example.com/search?q=hello` môžete použiť `https://example.com/search\?q=(.*)`. To zachytí hodnotu parametra `q` a uloží ju do zachytávajúcej skupiny. Potom sa na ňu môžete odkazovať pomocou `$1` v možnosti _Presmerovať na_.
 - Na zhodu s akoukoľvek URL adresou, ktorá obsahuje slovo `blog`, môžete použiť `.*blog.*`.
 
-Na zachytávajúce skupiny v *Presmerovať na* alebo *Náhrade* sa môžete odkazovať pomocou `$1`, `$2`, ... alebo `$0` na odkazovanie na celú zhodu.
+Na zachytávajúce skupiny v _Presmerovať na_ alebo _Náhrade_ sa môžete odkazovať pomocou `$1`, `$2`, ... alebo `$0` na odkazovanie na celú zhodu.
 
 RedirectWeb využíva [Regex engine od Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 

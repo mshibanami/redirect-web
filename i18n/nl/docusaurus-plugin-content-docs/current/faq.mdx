@@ -13,6 +13,7 @@ Mogelijk ziet u een waarschuwing zoals deze wanneer u RedirectWeb instelt:
     <Image src={PermissionAlertSafari} alt="Een waarschuwing die toestemming vereist" width="200" margin="0 0 16px 0" hasShadow />
 
     > Deze extensie kan webpagina's lezen en wijzigen en uw browsegeschiedenis op deze website zien. **Dit kan gevoelige informatie bevatten, waaronder wachtwoorden, telefoonnummers en creditcards.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
@@ -39,7 +40,11 @@ Op dit moment niet. RedirectWeb is nauw verbonden met het ecosysteem van Apple, 
 
 Mogelijk ziet u deze waarschuwing in Safari na het bijwerken van RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Een waarschuwing voor het uitschakelen van de app" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Een waarschuwing voor het uitschakelen van de app"
+  width="280"
+/>
 
 > "RedirectWeb" is bijgewerkt en vraagt om aanvullende machtigingen. Om uw privacy te beschermen, is deze extensie uitgeschakeld.
 >

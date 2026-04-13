@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Paramètres MDM pour les administrateurs
 
@@ -15,27 +15,36 @@ Cette page décrit les clés configurables, les comportements de l'application, 
 
 En poussant les configurations via votre MDM, vous pouvez réaliser ce qui suit :
 
-* **Règles imposées :** Appliquez des règles de redirection à l'échelle de l'organisation que les utilisateurs ne peuvent ni modifier ni supprimer.
-* **Distribution initiale des règles :** Distribuez un ensemble de règles modèles qui sert de valeur par défaut lors du premier lancement de l'application.
-* **Contrôle de l'interface utilisateur :** Restreignez l'accès à des fonctionnalités spécifiques (comme la Bibliothèque) et indiquez clairement dans l'application qu'elle est sous gestion organisationnelle.
-* **Récupération de règles volumineuses (secours) :** Contournez les limites de taille de charge utile MDM en récupérant les règles à partir d'un serveur externe.
+- **Règles imposées :** Appliquez des règles de redirection à l'échelle de l'organisation que les utilisateurs ne peuvent ni modifier ni supprimer.
+- **Distribution initiale des règles :** Distribuez un ensemble de règles modèles qui sert de valeur par défaut lors du premier lancement de l'application.
+- **Contrôle de l'interface utilisateur :** Restreignez l'accès à des fonctionnalités spécifiques (comme la Bibliothèque) et indiquez clairement dans l'application qu'elle est sous gestion organisationnelle.
+- **Récupération de règles volumineuses (secours) :** Contournez les limites de taille de charge utile MDM en récupérant les règles à partir d'un serveur externe.
 
 ## Cas d'utilisation
 
-* **Routage transparent lors des migrations de systèmes :**
+- **Routage transparent lors des migrations de systèmes :**
   Lors de la migration d'un ancien système interne (par exemple, `legacy-crm.internal.local`) vers une nouvelle plateforme (par exemple, `salesforce.com`), distribuez un `enforcedRuleSet`. Même si les employés utilisent d'anciens favoris, ils sont automatiquement redirigés vers le nouveau système, éliminant ainsi les tickets de support informatique concernant des liens obsolètes.
-* **Aide à l'accès à l'intranet :**
+- **Aide à l'accès à l'intranet :**
   Distribuez des règles de redirection utilisant des schémas d'URL personnalisés pour faciliter l'accès aux ressources de l'intranet via des tunnels VPN par application, tels qu'Omnissa Web.
 
 > [!WARNING]
-> 
+>
 > Les poussées de configuration MDM ne sont appliquées immédiatement **que si l'utilisateur ouvre l'application RedirectWeb**.
 > Bien que l'application utilise des tâches en arrière-plan pour pousser les mises à jour MDM vers l'extension du navigateur de manière silencieuse, il s'agit d'une exécution "au mieux" dictée par le système d'exploitation. Le moment de l'exécution est hautement imprévisible et la tâche peut ne pas s'exécuter du tout.
 > Par conséquent, cette fonctionnalité ne doit **pas** être utilisée pour des réponses à des incidents critiques en termes de temps (par exemple, tenter de rediriger instantanément tous les employés vers un site de secours quelques minutes après une panne de service cloud).
 
 ## Démo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="Démo des paramètres MDM" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="Démo des paramètres MDM"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Le fichier plist utilisé dans la vidéo est disponible ici : **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -111,15 +120,15 @@ Chaque objet de règle a le même format que celui que vous pouvez [partager/exp
 
 Lorsqu'une clé existe à la fois dans la charge utile MDM en ligne et dans les données récupérées via `fallbackDataURL`, l'application gère le conflit comme suit :
 
-* **Avant la fin de la récupération :** Les paramètres en ligne sont strictement prioritaires et utilisés.
-* **Après une récupération réussie :** Les données récupérées de l' `fallbackDataURL` écrasent les paramètres en ligne correspondants.
-* **Après l'échec de la récupération :** L'application continue d'utiliser les paramètres en ligne.
-* Les clés indépendantes qui n'existent que dans la charge utile en ligne sont préservées.
+- **Avant la fin de la récupération :** Les paramètres en ligne sont strictement prioritaires et utilisés.
+- **Après une récupération réussie :** Les données récupérées de l' `fallbackDataURL` écrasent les paramètres en ligne correspondants.
+- **Après l'échec de la récupération :** L'application continue d'utiliser les paramètres en ligne.
+- Les clés indépendantes qui n'existent que dans la charge utile en ligne sont préservées.
 
 ## Retours MDM et vérification de l'état
 
 Vous pouvez vérifier si la configuration a été appliquée avec succès via le canal de retour MDM (`com.apple.feedback.managed`) si votre solution MDM le prend en charge. Après avoir traité la configuration (ou terminé la récupération de l'URL), l'application renvoie les données suivantes :
 
-* `managedConfigVersion` : La chaîne de version de la tentative de configuration.
-* `result` : Soit `success`, soit `error`.
-* `messages` : Un tableau contenant des messages d'erreur ou d'avertissement détaillés, le cas échéant.
+- `managedConfigVersion` : La chaîne de version de la tentative de configuration.
+- `result` : Soit `success`, soit `error`.
+- `messages` : Un tableau contenant des messages d'erreur ou d'avertissement détaillés, le cas échéant.

@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Kasus 2: Hapus parameter kueri dari URL
 
@@ -6,14 +6,14 @@ Misalkan ada parameter kueri `source=twitter` di URL `example.com`, dan Anda mem
 
 Dalam kasus ini, opsi **Pemrosesan Grup Penangkapan** adalah cara termudah.:
 
-* **Alihkan Dari**: `https://example.com/*` (Wildcard)
-* **Alihkan Ke**: `$0`
-* **Pemrosesan Grup Penangkapan**:
-    * **Grup**: `$0`
-    * **Proses**: Ganti Kejadian
-        * **Target**: `&?source=[^&]*`
-        * **Pengganti**: *(tidak ada)*
-        * **Pola Teks**: Ekspresi Reguler
+- **Alihkan Dari**: `https://example.com/*` (Wildcard)
+- **Alihkan Ke**: `$0`
+- **Pemrosesan Grup Penangkapan**:
+  - **Grup**: `$0`
+  - **Proses**: Ganti Kejadian
+    - **Target**: `&?source=[^&]*`
+    - **Pengganti**: _(tidak ada)_
+    - **Pola Teks**: Ekspresi Reguler
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Unduh Aturan</a>**
 

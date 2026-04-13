@@ -13,6 +13,7 @@ Este posibil să vedeți o alertă ca aceasta atunci când configurați Redirect
     <Image src={PermissionAlertSafari} alt="O alertă care necesită permisiune" width="200" margin="0 0 16px 0" hasShadow />
 
     > Această extensie va putea citi și modifica paginile web și va putea vedea istoricul dvs. de navigare pe acest site web. **Aceasta ar putea include informații sensibile, inclusiv parole, numere de telefon și carduri de credit.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
@@ -20,6 +21,7 @@ Este posibil să vedeți o alertă ca aceasta atunci când configurați Redirect
 
     > Poate:
     > Citi și modifica **toate datele dvs.** pe **toate site-urile web**
+
 </IfBrowserStore>
 
 Această extensie are nevoie de permisiunea dvs. pentru a observa navigarea paginii pentru a redirecționa oriunde doriți să săriți, iar browserul dvs. afișează acest lucru atunci când extensia solicită permisiunile aferente. Prin urmare, dacă nu o permiteți, această extensie nu poate funcționa.
@@ -38,7 +40,11 @@ Nu în acest moment. RedirectWeb este strâns legat de ecosistemul Apple, inclus
 
 Este posibil să vedeți această alertă în Safari după actualizarea RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="O alertă de dezactivare a aplicației" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="O alertă de dezactivare a aplicației"
+  width="280"
+/>
 
 > „RedirectWeb” a fost actualizat și solicită permisiuni suplimentare. Pentru a vă proteja confidențialitatea, această extensie a fost dezactivată.
 >

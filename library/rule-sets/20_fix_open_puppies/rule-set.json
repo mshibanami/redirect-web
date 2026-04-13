@@ -7,9 +7,7 @@
       "comments": "Do you know OpenPuppies (https://openpuppies.com/)? It’s a website where you can watch random short videos of puppies. However, the videos don’t load properly on mobile devices. This rule fixes that, so you can enjoy cute puppy videos on your phone or tablet!",
       "destinationURLPattern": "$1.mp4",
       "kind": "Redirect",
-      "resourceTypes": [
-        "image"
-      ],
+      "resourceTypes": ["image"],
       "sourceURLPattern": {
         "type": "regularExpression",
         "value": "(https://openpuppies\\.com/mp4/[^.]*)\\.gif"

@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # 案例 2：从 URL 中删除查询参数
 
@@ -6,14 +6,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 在这种情况下，**捕获组处理**选项是最简单的方法：
 
-* **重定向自**：`https://example.com/*`（通配符）
-* **重定向到**：`$0`
-* **捕获组处理**：
-    * **组**：`$0`
-    * **过程**：替换出现次数
-        * **目标**：`&?source=[^&]*`
-        * **替换**：*（无）*
-        * **文本模式**：正则表达式
+- **重定向自**：`https://example.com/*`（通配符）
+- **重定向到**：`$0`
+- **捕获组处理**：
+  - **组**：`$0`
+  - **过程**：替换出现次数
+    - **目标**：`&?source=[^&]*`
+    - **替换**：_（无）_
+    - **文本模式**：正则表达式
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ 下载规则</a>**
 

@@ -13,6 +13,7 @@ Iespējams, redzēsiet šādu brīdinājumu, iestatot RedirectWeb:
     <Image src={PermissionAlertSafari} alt="Brīdinājums par atļaujas pieprasīšanu" width="200" margin="0 0 16px 0" hasShadow />
 
     > Šis paplašinājums varēs lasīt un mainīt tīmekļa lapas un redzēt jūsu pārlūkošanas vēsturi šajā vietnē. **Tas var ietvert sensitīvu informāciju, tostarp paroles, tālruņa numurus un kredītkartes.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
@@ -20,6 +21,7 @@ Iespējams, redzēsiet šādu brīdinājumu, iestatot RedirectWeb:
 
     > Tas var:
     > Lasīt un mainīt **visus jūsu datus** **visās vietnēs**
+
 </IfBrowserStore>
 
 Šim paplašinājumam ir nepieciešama jūsu atļauja, lai novērotu lapas navigāciju, lai pārvirzītu uz jebkuru vietu, kur vēlaties pāriet, un jūsu pārlūkprogramma to parāda, kad paplašinājums pieprasa saistītās atļaujas. Tāpēc, ja jūs to neatļaujat, šis paplašinājums nevar darboties.
@@ -38,7 +40,11 @@ Pašlaik nē. RedirectWeb ir cieši saistīts ar Apple ekosistēmu, tostarp iClo
 
 Pēc RedirectWeb atjaunināšanas Safari varat redzēt šo brīdinājumu:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Brīdinājums par lietotnes atspējošanu" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Brīdinājums par lietotnes atspējošanu"
+  width="280"
+/>
 
 > "RedirectWeb" ir atjaunināts un pieprasa papildu atļaujas. Lai aizsargātu jūsu privātumu, šis paplašinājums ir izslēgts.
 >

@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Przypadek 2: Usuwanie parametrów zapytania z adresu URL
 
@@ -6,14 +6,14 @@ Załóżmy, że w adresie URL `example.com` znajduje się parametr zapytania `so
 
 W tym przypadku opcja **Przetwarzanie grup przechwytujących** jest najłatwiejszym sposobem:
 
-* **Przekieruj z**: `https://example.com/*` (Wildcard)
-* **Przekieruj do**: `$0`
-* **Przetwarzanie grup przechwytujących**:
-    * **Grupa**: `$0`
-    * **Proces**: Zastąp wystąpienia
-        * **Cel**: `&?source=[^&]*`
-        * **Zastąpienie**: *(brak)*
-        * **Wzorzec tekstu**: Wyrażenie regularne
+- **Przekieruj z**: `https://example.com/*` (Wildcard)
+- **Przekieruj do**: `$0`
+- **Przetwarzanie grup przechwytujących**:
+  - **Grupa**: `$0`
+  - **Proces**: Zastąp wystąpienia
+    - **Cel**: `&?source=[^&]*`
+    - **Zastąpienie**: _(brak)_
+    - **Wzorzec tekstu**: Wyrażenie regularne
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Pobierz regułę</a>**
 

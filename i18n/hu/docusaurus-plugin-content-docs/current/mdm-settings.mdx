@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM-beállítások rendszergazdák számára
 
@@ -15,27 +15,36 @@ Ez az oldal ismerteti a konfigurálható kulcsokat, az alkalmazás viselkedésé
 
 A konfigurációk MDM-en keresztül történő kiküldésével a következőket érheti el:
 
-* **Kényszerített szabályok:** Szervezeti szintű átirányítási szabályok alkalmazása, amelyeket a felhasználók nem módosíthatnak vagy törölhetnek.
-* **Kezdeti szabályok terjesztése:** Sablon szabálykészlet terjesztése, amely alapértelmezettként szolgál az alkalmazás első indításakor.
-* **UI-vezérlés:** Hozzáférés korlátozása bizonyos funkciókhoz (például a Könyvtárhoz), és az alkalmazáson belül egyértelmű jelzés, hogy az szervezeti kezelés alatt áll.
-* **Nagy szabálykészletek lekérése (Fallback):** Az MDM-adatcsomag méretkorlátjának megkerülése a szabályok külső szerverről történő lekérésével.
+- **Kényszerített szabályok:** Szervezeti szintű átirányítási szabályok alkalmazása, amelyeket a felhasználók nem módosíthatnak vagy törölhetnek.
+- **Kezdeti szabályok terjesztése:** Sablon szabálykészlet terjesztése, amely alapértelmezettként szolgál az alkalmazás első indításakor.
+- **UI-vezérlés:** Hozzáférés korlátozása bizonyos funkciókhoz (például a Könyvtárhoz), és az alkalmazáson belül egyértelmű jelzés, hogy az szervezeti kezelés alatt áll.
+- **Nagy szabálykészletek lekérése (Fallback):** Az MDM-adatcsomag méretkorlátjának megkerülése a szabályok külső szerverről történő lekérésével.
 
 ## Felhasználási esetek
 
-* **Zökkenőmentes útválasztás rendszerátállások során:**
+- **Zökkenőmentes útválasztás rendszerátállások során:**
   Amikor egy régi belső rendszerről (pl. `legacy-crm.internal.local`) egy új platformra (pl. `salesforce.com`) állnak át, terjesszen egy `enforcedRuleSet`-et. Még ha az alkalmazottak a régi könyvjelzőket használják is, automatikusan az új rendszerbe irányítják őket, kiküszöbölve az elavult hivatkozásokkal kapcsolatos IT-támogatási jegyeket.
-* **Intranet hozzáférési segítség:**
+- **Intranet hozzáférési segítség:**
   Terjesszen átirányítási szabályokat egyéni URL-sémák használatával, hogy megkönnyítse az intranet erőforrásokhoz való hozzáférést alkalmazásszintű VPN-alagutakon keresztül, mint például az Omnissa Web.
 
 > [!WARNING]
-> 
+>
 > Az MDM-konfigurációs frissítések **csak akkor kerülnek azonnal alkalmazásra, ha a felhasználó megnyitja a RedirectWeb alkalmazást**.
 > Bár az alkalmazás háttérfeladatokat használ az MDM-frissítések csendes átküldéséhez a böngészőbővítménybe, ez az operációs rendszer által diktált "legjobb erőfeszítés" alapú végrehajtás. A végrehajtás időzítése rendkívül kiszámíthatatlan, és előfordulhat, hogy a feladat egyáltalán nem fut le.
 > Ezért erre a funkcióra **nem** szabad támaszkodni időkritikus incidenskezelés esetén (pl. kísérlet az összes alkalmazott azonnali átirányítására egy tartalék webhelyre egy felhőszolgáltatás kiesését követő percekben).
 
 ## Demó
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM-beállítások demó" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM-beállítások demó"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 A videóban használt plist fájl itt érhető el: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -111,15 +120,15 @@ Minden szabályobjektum ugyanolyan formátumú, mint amit az [alkalmazáson kere
 
 Ha egy kulcs mind a beágyazott MDM-adatcsomagban, mind a `fallbackDataURL` útján lekért adatokban szerepel, az alkalmazás a következőképpen kezeli a konfliktust:
 
-* **A lekérés befejezése előtt:** A beágyazott beállítások szigorú prioritást élveznek és kerülnek felhasználásra.
-* **Sikeres lekérés után:** A `fallbackDataURL` címről lekért adatok felülírják a megfelelő beágyazott beállításokat.
-* **Sikertelen lekérés után:** Az alkalmazás továbbra is a beágyazott beállításokat használja.
-* A csak a beágyazott adatcsomagban létező független kulcsok megmaradnak.
+- **A lekérés befejezése előtt:** A beágyazott beállítások szigorú prioritást élveznek és kerülnek felhasználásra.
+- **Sikeres lekérés után:** A `fallbackDataURL` címről lekért adatok felülírják a megfelelő beágyazott beállításokat.
+- **Sikertelen lekérés után:** Az alkalmazás továbbra is a beágyazott beállításokat használja.
+- A csak a beágyazott adatcsomagban létező független kulcsok megmaradnak.
 
 ## MDM-visszajelzés és állapotellenőrzés
 
 A konfiguráció sikeres alkalmazását az MDM-visszajelzési csatornán (`com.apple.feedback.managed`) keresztül ellenőrizheti, ha az MDM-megoldása támogatja azt. A konfiguráció feldolgozása (vagy az URL-lekérés befejezése) után az alkalmazás a következő adatokat küldi vissza:
 
-* `managedConfigVersion`: A konfigurációs kísérlet verziókarakterlánca.
-* `result`: `success` vagy `error`.
-* `messages`: Egy tömb, amely részletes hiba- vagy figyelmeztető üzeneteket tartalmaz, ha vannak ilyenek.
+- `managedConfigVersion`: A konfigurációs kísérlet verziókarakterlánca.
+- `result`: `success` vagy `error`.
+- `messages`: Egy tömb, amely részletes hiba- vagy figyelmeztető üzeneteket tartalmaz, ha vannak ilyenek.

@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # 1 atvejis: nukreipimas į kitą svetainę
@@ -9,11 +9,11 @@ Tarkime, esate priklausomi nuo „Twitter“ ir, norėdami atsikratyti šio įpr
 
 ### 1 žingsnis. Atidarykite ekraną „Redaguoti taisyklę“
 
-Atidarykime ekraną *Redaguoti taisyklę*, kad pradėtumėte kurti savo taisyklę programėlėje. Tai galite padaryti spustelėdami pliuso (+) mygtuką skirtuke *Mano taisyklės*.
+Atidarykime ekraną _Redaguoti taisyklę_, kad pradėtumėte kurti savo taisyklę programėlėje. Tai galite padaryti spustelėdami pliuso (+) mygtuką skirtuke _Mano taisyklės_.
 
 ### 2 žingsnis. Sukonfigūruokite „Nukreipti iš“
 
-Pirmiausia programėlės ekrane *Redaguoti taisyklę* turėtumėte sukonfigūruoti skiltį *Nukreipti iš*. Tikslai yra URL, prasidedantys `https://twitter.com/`.
+Pirmiausia programėlės ekrane _Redaguoti taisyklę_ turėtumėte sukonfigūruoti skiltį _Nukreipti iš_. Tikslai yra URL, prasidedantys `https://twitter.com/`.
 
 Šiuo atveju galite nurodyti šį šabloną naudodami [Pakaitos simbolių (Wildcard)](/rule-settings#url-pattern-wildcard) režimą:
 
@@ -31,13 +31,13 @@ Norėdami tai padaryti, perjunkite iš „Wildcard“ į [Reguliariąsias išrai
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: jis nukreipia tiek į „twitter“, tiek į „x“. (`|` vadinamas *vertikaliu brūkšniu* arba *vamzdžiu*.)
-* `.*`: tai tas pats, kas „Wildcard“ režimo `*`. Tiksliau, `.` reiškia *bet kokį simbolį*, o `*` reiškia, kad *prieš šį simbolį esantis ženklas gali būti kartojamas bet kokį skaičių kartų*, todėl jis atitinka bet ką.
+- `(twitter|x)`: jis nukreipia tiek į „twitter“, tiek į „x“. (`|` vadinamas _vertikaliu brūkšniu_ arba _vamzdžiu_.)
+- `.*`: tai tas pats, kas „Wildcard“ režimo `*`. Tiksliau, `.` reiškia _bet kokį simbolį_, o `*` reiškia, kad _prieš šį simbolį esantis ženklas gali būti kartojamas bet kokį skaičių kartų_, todėl jis atitinka bet ką.
 
 Reguliariosios išraiškos yra šiek tiek sudėtingos, bet kai prie jų priprasite, jos taps galingu įrankiu. Rekomenduojame naudoti [RegExr](https://regexr.com) kaip bandymų aikštelę, kad išanalizuotumėte, kaip veikia jūsų reguliariosios išraiškos šablonas.
 
 > [!TIP]
-> Reguliariosiose išraiškose `.` dalyje `(twitter|x).com` taip pat traktuojamas kaip *bet koks simbolis*. Todėl `(twitter|x).com/.*` taip pat atitinka, pavyzdžiui, `twitter1com/` arba `x_com/`.
+> Reguliariosiose išraiškose `.` dalyje `(twitter|x).com` taip pat traktuojamas kaip _bet koks simbolis_. Todėl `(twitter|x).com/.*` taip pat atitinka, pavyzdžiui, `twitter1com/` arba `x_com/`.
 >
 > Kad būtų tiksliau, galite pakeisti jį į `(twitter|x)\.com/.*`. `\` naudojamas tam, kad `.` būtų traktuojamas kaip tiesioginis taško simbolis, o ne specialusis simbolis.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Nebūtina) 4 žingsnis: Patikrinkite taisyklę
 
-Galite patikrinti, kaip veikia taisyklė, pridėdami pavyzdinį URL skiltyje *Pavyzdžiai*, esančioje ekrane *Redaguoti taisyklę*. Pavyzdžiui, jei įvesite `https://x.com/UN`, bus rodomas rezultatas `https://unrush.org/`.
+Galite patikrinti, kaip veikia taisyklė, pridėdami pavyzdinį URL skiltyje _Pavyzdžiai_, esančioje ekrane _Redaguoti taisyklę_. Pavyzdžiui, jei įvesite `https://x.com/UN`, bus rodomas rezultatas `https://unrush.org/`.
 
 Štai kaip dabar turėtų atrodyti jūsų taisyklė:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Pavyzdinė taisyklė, skirta atidaryti kitą svetainę" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Pavyzdinė taisyklė, skirta atidaryti kitą svetainę"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Atsisiųsti taisyklę</a>**
 

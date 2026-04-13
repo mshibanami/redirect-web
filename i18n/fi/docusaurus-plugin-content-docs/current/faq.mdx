@@ -13,6 +13,7 @@ Saatat nähdä tällaisen ilmoituksen, kun asennat RedirectWebin:
     <Image src={PermissionAlertSafari} alt="Lupaa vaativa ilmoitus" width="200" margin="0 0 16px 0" hasShadow />
 
     > Tämä laajennus pystyy lukemaan ja muuttamaan verkkosivuja ja näkemään selaushistoriasi tällä verkkosivustolla. **Tämä voi sisältää arkaluonteisia tietoja, kuten salasanoja, puhelinnumeroita ja luottokortteja.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
@@ -20,6 +21,7 @@ Saatat nähdä tällaisen ilmoituksen, kun asennat RedirectWebin:
 
     > Se voi:
     > Lukea ja muuttaa **kaikkia tietojasi** **kaikilla verkkosivustoilla**
+
 </IfBrowserStore>
 
 Tämä laajennus tarvitsee luvan tarkkailla sivun navigointia ohjatakseen sinut haluamaasi paikkaan, ja selaimesi näyttää tämän, kun laajennus pyytää siihen liittyviä oikeuksia. Siksi, jos et salli sitä, tämä laajennus ei voi toimia.
@@ -38,7 +40,11 @@ Ei tällä hetkellä. RedirectWeb on tiiviisti sidoksissa Applen ekosysteemiin, 
 
 Saatat nähdä tämän ilmoituksen Safarissa RedirectWebin päivittämisen jälkeen:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Sovelluksen poistamisen ilmoitus" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Sovelluksen poistamisen ilmoitus"
+  width="280"
+/>
 
 > "RedirectWeb" on päivitetty ja pyytää lisäoikeuksia. Yksityisyytesi suojaamiseksi tämä laajennus on poistettu käytöstä.
 >

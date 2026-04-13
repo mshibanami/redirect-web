@@ -13,6 +13,7 @@ RedirectWeb'i kurarken şöyle bir uyarı görebilirsiniz:
     <Image src={PermissionAlertSafari} alt="İzin gerektiren bir uyarı" width="200" margin="0 0 16px 0" hasShadow />
 
     > Bu uzantı, bu web sitesindeki web sayfalarını okuyabilecek ve değiştirebilecek ve tarama geçmişinizi görebilecektir. **Bu, parolalar, telefon numaraları ve kredi kartları dahil hassas bilgiler içerebilir.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
@@ -20,6 +21,7 @@ RedirectWeb'i kurarken şöyle bir uyarı görebilirsiniz:
 
     > Şunları yapabilir:
     > **Tüm web sitelerindeki tüm verilerinizi** okuyun ve değiştirin
+
 </IfBrowserStore>
 
 Bu uzantının, sayfa gezinmesini gözlemlemek için izninize ihtiyacı vardır, böylece istediğiniz yere yönlendirme yapabilir ve tarayıcınız, uzantı ilgili izinleri istediğinde bunu görüntüler. Bu nedenle, izin vermezseniz, bu uzantı çalışamaz.
@@ -38,7 +40,11 @@ Evet. Hangi tarayıcıyı kullanırsanız kullanın [App Store'dan RedirectWeb u
 
 RedirectWeb'i güncelledikten sonra Safari'de bu uyarıyı görebilirsiniz:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Uygulamayı devre dışı bırakma uyarısı" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Uygulamayı devre dışı bırakma uyarısı"
+  width="280"
+/>
 
 > "RedirectWeb" güncellendi ve ek izinler istiyor. Gizliliğinizi korumak için bu uzantı kapatıldı.
 >

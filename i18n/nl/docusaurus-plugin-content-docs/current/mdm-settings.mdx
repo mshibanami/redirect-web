@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM-instellingen voor beheerders
 
@@ -15,27 +15,36 @@ Deze pagina beschrijft de configureerbare sleutels, het gedrag van de app, best 
 
 Door configuraties via uw MDM te pushen, kunt u het volgende bereiken:
 
-* **Afgedwongen regels:** Pas organisatiebrede omleidingsregels toe die gebruikers niet kunnen wijzigen of verwijderen.
-* **Initiële regelverdeling:** Verspreid een sjabloonregelset die als standaard dient bij de eerste start van de app.
-* **UI-controle:** Beperk de toegang tot specifieke functies (zoals de bibliotheek) en geef in de app duidelijk aan dat deze onder organisatorisch beheer valt.
-* **Grote regelophaling (terugval):** Omzeil de limieten voor de grootte van de MDM-payload door regels op te halen van een externe server.
+- **Afgedwongen regels:** Pas organisatiebrede omleidingsregels toe die gebruikers niet kunnen wijzigen of verwijderen.
+- **Initiële regelverdeling:** Verspreid een sjabloonregelset die als standaard dient bij de eerste start van de app.
+- **UI-controle:** Beperk de toegang tot specifieke functies (zoals de bibliotheek) en geef in de app duidelijk aan dat deze onder organisatorisch beheer valt.
+- **Grote regelophaling (terugval):** Omzeil de limieten voor de grootte van de MDM-payload door regels op te halen van een externe server.
 
 ## Use cases
 
-* **Naadloze routering tijdens systeemmigraties:**
+- **Naadloze routering tijdens systeemmigraties:**
   Wanneer u migreert van een legacy intern systeem (bijv. `legacy-crm.internal.local`) naar een nieuw platform (bijv. `salesforce.com`), distribueer dan een `enforcedRuleSet`. Zelfs als werknemers oude bladwijzers gebruiken, worden ze automatisch omgeleid naar het nieuwe systeem, waardoor er geen IT-ondersteuningstickets meer zijn over verouderde links.
-* **Ondersteuning bij intranet-toegang:**
+- **Ondersteuning bij intranet-toegang:**
   Distribueer omleidingsregels met aangepaste URL-schema's om toegang tot intranetbronnen via Per-App VPN-tunnels, zoals Omnissa Web, te vergemakkelijken.
 
 > [!WARNING]
-> 
+>
 > MDM-configuratiepushes worden onmiddellijk toegepast **alleen als de gebruiker de RedirectWeb-app opent**.
 > Hoewel de app achtergrondtaken gebruikt om MDM-updates geruisloos naar de browserextensie te pushen, is dit een "best-effort" uitvoering gedicteerd door het besturingssysteem. De timing van de uitvoering is zeer onvoorspelbaar en de taak wordt mogelijk helemaal niet uitgevoerd.
 > Daarom mag op deze functie **niet** worden vertrouwd voor tijdkritische incidentrespons (bijv. het onmiddellijk proberen om te leiden van alle werknemers naar een back-upsite binnen enkele minuten na een uitval van een cloudservice).
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM-instellingen demo" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM-instellingen demo"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Het plist-bestand dat in de video wordt gebruikt, is hier beschikbaar: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -111,15 +120,15 @@ Elk regelobject heeft hetzelfde formaat als het object dat u kunt [delen/exporte
 
 Wanneer een sleutel zowel in de inline MDM-payload als in de via `fallbackDataURL` opgehaalde gegevens voorkomt, handelt de app het conflict als volgt af:
 
-* **Vóór voltooiing van het ophalen:** Inline-instellingen krijgen strikte prioriteit en worden gebruikt.
-* **Na succesvol ophalen:** Gegevens opgehaald van de `fallbackDataURL` overschrijven de overeenkomstige inline-instellingen.
-* **Na mislukt ophalen:** De app blijft de inline-instellingen gebruiken.
-* Onafhankelijke sleutels die alleen in de inline-payload voorkomen, blijven behouden.
+- **Vóór voltooiing van het ophalen:** Inline-instellingen krijgen strikte prioriteit en worden gebruikt.
+- **Na succesvol ophalen:** Gegevens opgehaald van de `fallbackDataURL` overschrijven de overeenkomstige inline-instellingen.
+- **Na mislukt ophalen:** De app blijft de inline-instellingen gebruiken.
+- Onafhankelijke sleutels die alleen in de inline-payload voorkomen, blijven behouden.
 
 ## MDM-feedback en statuscontrole
 
 U kunt controleren of de configuratie succesvol is toegepast via het MDM-feedbackkanaal (`com.apple.feedback.managed`) als uw MDM-oplossing dit ondersteunt. Na het verwerken van de configuratie (of het voltooien van het ophalen van de URL), retourneert de app de volgende gegevens:
 
-* `managedConfigVersion`: De versiestring van de configuratiepoging.
-* `result`: Ofwel `success` of `error`.
-* `messages`: Een array met gedetailleerde fout- of waarschuwingsberichten, indien van toepassing.
+- `managedConfigVersion`: De versiestring van de configuratiepoging.
+- `result`: Ofwel `success` of `error`.
+- `messages`: Een array met gedetailleerde fout- of waarschuwingsberichten, indien van toepassing.

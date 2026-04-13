@@ -13,6 +13,7 @@ Võite näha sellist hoiatust, kui seadistate RedirectWebi:
     <Image src={PermissionAlertSafari} alt="Loa nõudmise hoiatus" width="200" margin="0 0 16px 0" hasShadow />
 
     > See laiendus saab lugeda ja muuta veebilehti ning näha teie sirvimisajalugu sellel veebisaidil. **See võib sisaldada tundlikku teavet, sealhulgas paroole, telefoninumbreid ja krediitkaarte.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
@@ -20,6 +21,7 @@ Võite näha sellist hoiatust, kui seadistate RedirectWebi:
 
     > See saab:
     > Lugeda ja muuta **kõiki teie andmeid** **kõigil veebisaitidel**
+
 </IfBrowserStore>
 
 See laiendus vajab teie luba lehe navigeerimise jälgimiseks, et suunata teid sinna, kuhu soovite hüpata, ja teie brauser kuvab selle, kui laiendus nõuab seotud õigusi. Seega, kui te seda ei luba, ei saa see laiendus töötada.
@@ -38,7 +40,11 @@ Praegu mitte. RedirectWeb on tihedalt seotud Apple'i ökosüsteemiga, sealhulgas
 
 Võite näha seda hoiatust Safaris pärast RedirectWebi värskendamist:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Rakenduse keelamise hoiatus" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Rakenduse keelamise hoiatus"
+  width="280"
+/>
 
 > "RedirectWeb" on värskendatud ja nõuab lisalubasid. Teie privaatsuse kaitsmiseks on see laiendus välja lülitatud.
 >

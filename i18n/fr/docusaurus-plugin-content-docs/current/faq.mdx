@@ -13,13 +13,15 @@ Vous pouvez voir une alerte comme celle-ci lorsque vous configurez RedirectWeb :
     <Image src={PermissionAlertSafari} alt="Une alerte nécessitant une autorisation" width="200" margin="0 0 16px 0" hasShadow />
 
     > Cette extension pourra lire et modifier les pages web et voir votre historique de navigation sur ce site web. **Cela pourrait inclure des informations sensibles, y compris des mots de passe, des numéros de téléphone et des cartes de crédit.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="Une alerte nécessitant une autorisation" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Elle peut :  
+    > Elle peut :
     > Lire et modifier **toutes vos données** sur **tous les sites web**
+
 </IfBrowserStore>
 
 Cette extension a besoin de votre permission pour observer la navigation des pages afin de rediriger vers où vous voulez sauter, et votre navigateur affiche cela lorsque l'extension demande les permissions associées. Par conséquent, si vous ne l'autorisez pas, cette extension ne peut pas fonctionner.
@@ -38,7 +40,11 @@ Pas pour le moment. RedirectWeb est étroitement lié à l'écosystème d'Apple,
 
 Vous pouvez voir cette alerte dans Safari après la mise à jour de RedirectWeb :
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Une alerte de désactivation de l'application" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Une alerte de désactivation de l'application"
+  width="280"
+/>
 
 > "RedirectWeb" a été mis à jour et demande des permissions supplémentaires. Pour protéger votre vie privée, cette extension a été désactivée.
 >

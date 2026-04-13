@@ -13,51 +13,42 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   sidebar: [
     {
-      type: "category",
-      label: "Getting Started",
-      items: [
-        "introduction",
-        "vs-other-tools",
-      ]
+      type: 'category',
+      label: 'Getting Started',
+      items: ['introduction', 'vs-other-tools'],
     },
     {
-      type: "category",
-      label: "How-To Guides",
+      type: 'category',
+      label: 'How-To Guides',
       items: [
         {
-          type: "category",
-          label: "How to Create Rules",
+          type: 'category',
+          label: 'How to Create Rules',
           link: {
             type: 'generated-index',
             description: `Common use cases for creating rules in the RedirectWeb app. (You can also learn the details of rule settings on the [Rule Settings](./rule-settings) page.)`,
             slug: '/category/how-to-create-rules',
           },
           items: [
-            "tutorial-redirect-to-another-website",
-            "tutorial-remove-query-params",
-            "tutorial-add-query-params",
+            'tutorial-redirect-to-another-website',
+            'tutorial-remove-query-params',
+            'tutorial-add-query-params',
           ],
         },
-        "rule-settings",
-        "library",
-        "export-or-import-rules",
-      ]
+        'rule-settings',
+        'library',
+        'export-or-import-rules',
+      ],
     },
     {
-      type: "category",
-      label: "Enterprise / Admin",
-      items: [
-        "mdm-settings",
-      ]
+      type: 'category',
+      label: 'Enterprise / Admin',
+      items: ['mdm-settings'],
     },
     {
       type: 'category',
       label: 'Support & Help',
-      items: [
-        "troubleshooting",
-        "faq",
-        "contact-us",
-      ],
+      items: ['troubleshooting', 'faq', 'contact-us'],
     },
     {
       type: 'category',
@@ -68,10 +59,10 @@ const sidebars: SidebarsConfig = {
           label: 'Release Notes',
           href: '/release-notes',
         },
-        "privacy-policy",
-        "terms-of-use",
-      ]
-    }
+        'privacy-policy',
+        'terms-of-use',
+      ],
+    },
   ],
 };
 

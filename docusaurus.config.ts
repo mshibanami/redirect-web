@@ -2,7 +2,7 @@ import 'dotenv/config';
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
+import remarkGithubAdmonitionsToDirectives from 'remark-github-admonitions-to-directives';
 import remarkCjkFriendly from 'remark-cjk-friendly';
 import { ALL_BROWSERS, getExtensionStore } from './src/components/ExtensionStoreLinks/constants';
 import { SUPPORTED_LOCALES, isSupportedLocale } from './src/constants';
@@ -10,7 +10,7 @@ import docusaurusPluginBuildRedirection from './plugins/docusaurus-plugin-build-
 
 const defaultLocale = 'en';
 const envLocale = process.env.DOCUSAURUS_CURRENT_LOCALE;
-const locale = (envLocale && envLocale !== 'undefined' ? envLocale : defaultLocale);
+const locale = envLocale && envLocale !== 'undefined' ? envLocale : defaultLocale;
 if (!isSupportedLocale(locale)) {
   throw new Error(`Unsupported locale: ${locale}`);
 }
@@ -39,9 +39,31 @@ const config: Config = {
   url: baseSiteUrl,
   favicon: '/img/icon/favicon.ico',
   headTags: [
-    { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '96x96', href: `${localedBaseUrl}img/icon/favicon-96x96.png` } },
-    { tagName: 'link', attributes: { rel: 'icon', type: 'image/svg+xml', href: `${localedBaseUrl}img/icon/favicon.svg` } },
-    { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: `${localedBaseUrl}img/icon/apple-touch-icon.png` } },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '96x96',
+        href: `${localedBaseUrl}img/icon/favicon-96x96.png`,
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: `${localedBaseUrl}img/icon/favicon.svg`,
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: `${localedBaseUrl}img/icon/apple-touch-icon.png`,
+      },
+    },
   ],
   baseUrl: baseUrl,
   organizationName: 'mshibanami',
@@ -67,15 +89,13 @@ const config: Config = {
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
-    }
+    },
   },
   presets: [
     [
       'classic',
       {
-        ...(process.env.REDIRECTION_BASE_URL
-          ? { sitemap: false }
-          : {}),
+        ...(process.env.REDIRECTION_BASE_URL ? { sitemap: false } : {}),
         docs: {
           routeBasePath: '',
           sidebarPath: './sidebars.ts',
@@ -123,18 +143,28 @@ const config: Config = {
       },
       hideOnScroll: true,
       items: [
-        { to: '/introduction', label: 'Docs', position: 'left', activeBaseRegex: `^${localedBaseUrl}(?!release-notes/?)[^/]+` },
-        { to: '/release-notes', label: 'Release Notes', position: 'left', activeBaseRegex: `^${localedBaseUrl}release-notes/?.*` },
+        {
+          to: '/introduction',
+          label: 'Docs',
+          position: 'left',
+          activeBaseRegex: `^${localedBaseUrl}(?!release-notes/?)[^/]+`,
+        },
+        {
+          to: '/release-notes',
+          label: 'Release Notes',
+          position: 'left',
+          activeBaseRegex: `^${localedBaseUrl}release-notes/?.*`,
+        },
         {
           type: 'html',
           position: 'right',
           value: `<a href="https://apps.apple.com/app/id1571283503" class="navbar__appstore_button navbar__item_force"><img src="${localedBaseUrl}img/appstore-badge.svg" alt="Go to Apple Store" /></a>`,
-          className: "navbar__item_force"
+          className: 'navbar__item_force',
         },
         {
           type: 'localeDropdown',
           position: 'right',
-          className: "navbar__item_force"
+          className: 'navbar__item_force',
         },
       ],
     },
@@ -144,14 +174,13 @@ const config: Config = {
       links: [
         {
           title: 'Download',
-          items:
-            ALL_BROWSERS.map((name) => {
-              const storeDetails = getExtensionStore({ browserName: name });
-              return {
-                label: storeDetails.storeName,
-                href: storeDetails.extensionPageUrl,
-              };
-            })
+          items: ALL_BROWSERS.map((name) => {
+            const storeDetails = getExtensionStore({ browserName: name });
+            return {
+              label: storeDetails.storeName,
+              href: storeDetails.extensionPageUrl,
+            };
+          }),
         },
         {
           title: 'Docs',
@@ -168,7 +197,7 @@ const config: Config = {
               label: 'Release Notes',
               to: '/release-notes',
             },
-          ]
+          ],
         },
         {
           title: 'Help',
@@ -182,42 +211,42 @@ const config: Config = {
               to: '/faq',
             },
             {
-              label: "Forums (GitHub)",
-              href: "https://github.com/mshibanami/redirect-web/discussions",
+              label: 'Forums (GitHub)',
+              href: 'https://github.com/mshibanami/redirect-web/discussions',
             },
             {
               label: 'Contact Us',
               to: '/contact-us',
-            }
-          ]
+            },
+          ],
         },
         {
           title: 'Social',
           items: [
             {
-              label: "GitHub",
-              href: "https://github.com/mshibanami/redirect-web/",
+              label: 'GitHub',
+              href: 'https://github.com/mshibanami/redirect-web/',
             },
             {
-              label: "LinkedIn",
-              href: "https://www.linkedin.com/company/redirect-web",
-            }
-          ]
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/redirect-web',
+            },
+          ],
         },
         {
-          title: "Legal",
+          title: 'Legal',
           items: [
             {
-              label: "Privacy Policy",
-              to: "/privacy-policy",
+              label: 'Privacy Policy',
+              to: '/privacy-policy',
             },
             {
-              label: "Terms of Use",
-              to: "/terms-of-use",
+              label: 'Terms of Use',
+              to: '/terms-of-use',
             },
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     },
     prism: {
       theme: {
@@ -243,8 +272,8 @@ const config: Config = {
       },
       config: {
         // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
-      }
-    }
+      },
+    },
   } satisfies Preset.ThemeConfig,
 };
 

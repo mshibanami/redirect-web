@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM seaded administraatoritele
 
@@ -15,27 +15,36 @@ Sellel lehel kirjeldatakse konfigureeritavaid võtmeid, rakenduse käitumist, pa
 
 Konfiguratsioonide edastamisega oma MDM-i kaudu saate saavutada järgmist:
 
-* **Sunnitud reeglid:** Rakendage organisatsiooniüleseid ümbersuunamisreegleid, mida kasutajad ei saa muuta ega kustutada.
-* **Reeglite esmane jaotamine:** Jagage reeglistiku malli, mis toimib vaikeseadena rakenduse esmakordsel käivitamisel.
-* **Kasutajaliidese juhtimine:** Piirake juurdepääsu konkreetsetele funktsioonidele (nagu teek) ja märkige rakenduses selgelt, et see on organisatsiooni halduse all.
-* **Mahukate reeglite hankimine (asenduslahendus):** Mööduge MDM-i andmemahu piirangutest, hankides reeglid välisest serverist.
+- **Sunnitud reeglid:** Rakendage organisatsiooniüleseid ümbersuunamisreegleid, mida kasutajad ei saa muuta ega kustutada.
+- **Reeglite esmane jaotamine:** Jagage reeglistiku malli, mis toimib vaikeseadena rakenduse esmakordsel käivitamisel.
+- **Kasutajaliidese juhtimine:** Piirake juurdepääsu konkreetsetele funktsioonidele (nagu teek) ja märkige rakenduses selgelt, et see on organisatsiooni halduse all.
+- **Mahukate reeglite hankimine (asenduslahendus):** Mööduge MDM-i andmemahu piirangutest, hankides reeglid välisest serverist.
 
 ## Kasutusjuhtumid
 
-* **Sujuv suunamine süsteemide rände ajal:**
+- **Sujuv suunamine süsteemide rände ajal:**
   Vana sisesüsteemi (nt `legacy-crm.internal.local`) rändel uuele platvormile (nt `salesforce.com`) levitage `enforcedRuleSet`-i. Isegi kui töötajad kasutavad vanu järjehoidjaid, suunatakse nad automaatselt uude süsteemi, vähendades aegunud linkidega seotud IT-toe pöördumisi.
-* **Siseveebi juurdepääsu abi:**
+- **Siseveebi juurdepääsu abi:**
   Levitage ümbersuunamisreegleid, kasutades kohandatud URL-skeeme, et hõlbustada juurdepääsu siseveebi ressurssidele rakendusepõhiste VPN-tunnelite kaudu, nagu Omnissa Web.
 
 > [!HOIATUS]
-> 
+>
 > MDM-i konfiguratsiooni muudatused rakenduvad kohe **ainult siis, kui kasutaja avab rakenduse RedirectWeb**.
 > Kuigi rakendus kasutab taustatoiminguid MDM-i värskenduste vaikseks edastamiseks brauseri laiendusele, on see operatsioonisüsteemi poolt dikteeritud "parima püüdluse" täitmine. Täitmise aeg on väga ettearvamatu ja toiming ei pruugi üldse käivituda.
 > Seetõttu **ei tohi** sellele funktsioonile loota ajakriitiliste intsidentide lahendamisel (nt katse suunata kõik töötajad koheselt varusaidile mõne minuti jooksul pärast pilveteenuse katkestust).
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM Settings Demo" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM Settings Demo"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Videos kasutatud plist-fail on saadaval siin: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -111,15 +120,15 @@ Igal reegliobjektil on sama vorming, mida saate [rakenduse kaudu jagada/eksporti
 
 Kui võti on olemas nii MDM-i andmepaketis kui ka `fallbackDataURL`-i kaudu hangitud andmetes, käsitleb rakendus konflikti järgmiselt:
 
-* **Enne hankimise lõpetamist:** Eelistatakse rangelt andmepaketisiseseid seadeid.
-* **Pärast edukat hankimist:** `fallbackDataURL`-ist saadud andmed kirjutavad vastavad siseseaded üle.
-* **Pärast ebaõnnestunud hankimist:** Rakendus jätkab siseseadete kasutamist.
-* Sõltumatud võtmed, mis eksisteerivad ainult siseses andmepaketis, säilitatakse.
+- **Enne hankimise lõpetamist:** Eelistatakse rangelt andmepaketisiseseid seadeid.
+- **Pärast edukat hankimist:** `fallbackDataURL`-ist saadud andmed kirjutavad vastavad siseseaded üle.
+- **Pärast ebaõnnestunud hankimist:** Rakendus jätkab siseseadete kasutamist.
+- Sõltumatud võtmed, mis eksisteerivad ainult siseses andmepaketis, säilitatakse.
 
 ## MDM-i tagasiside ja oleku kontroll
 
 Saate kontrollida, kas konfiguratsioon rakendati edukalt, MDM-i tagasisidekanali (`com.apple.feedback.managed`) kaudu, kui teie MDM-lahendus seda toetab. Pärast konfiguratsiooni töötlemist (või URL-i hankimise lõpetamist) tagastab rakendus järgmised andmed:
 
-* `managedConfigVersion`: Konfiguratsioonikatse versiooni string.
-* `result`: Kas `success` või `error`.
-* `messages`: Massiiv, mis sisaldab vajadusel üksikasjalikke vea- või hoiatusteateid.
+- `managedConfigVersion`: Konfiguratsioonikatse versiooni string.
+- `result`: Kas `success` või `error`.
+- `messages`: Massiiv, mis sisaldab vajadusel üksikasjalikke vea- või hoiatusteateid.

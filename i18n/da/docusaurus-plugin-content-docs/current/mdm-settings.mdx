@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM-indstillinger for administratorer
 
@@ -15,27 +15,36 @@ Denne side beskriver de konfigurerbare nøgler, app-adfærd, bedste praksis og b
 
 Ved at udrulle konfigurationer gennem din MDM kan du opnå følgende:
 
-* **Håndhævede regler:** Anvend organisationsdækkende omdirigeringsregler, som brugere ikke kan ændre eller slette.
-* **Indledende regeldistribution:** Distribuer et sæt af standardskabelonregler, der fungerer som standard ved appens første start.
-* **UI-kontrol:** Begræns adgangen til specifikke funktioner (som biblioteket) og angiv tydeligt i appen, at den er under organisatorisk administration.
-* **Hentning af store regelsæt (Fallback):** Omgå MDM-payload-størrelsesgrænser ved at hente regler fra en ekstern server.
+- **Håndhævede regler:** Anvend organisationsdækkende omdirigeringsregler, som brugere ikke kan ændre eller slette.
+- **Indledende regeldistribution:** Distribuer et sæt af standardskabelonregler, der fungerer som standard ved appens første start.
+- **UI-kontrol:** Begræns adgangen til specifikke funktioner (som biblioteket) og angiv tydeligt i appen, at den er under organisatorisk administration.
+- **Hentning af store regelsæt (Fallback):** Omgå MDM-payload-størrelsesgrænser ved at hente regler fra en ekstern server.
 
 ## Anvendelsesscenarier
 
-* **Sømløs routing under systemmigreringer:**
+- **Sømløs routing under systemmigreringer:**
   Når du migrerer fra et ældre internt system (f.eks. `legacy-crm.internal.local`) til en ny platform (f.eks. `salesforce.com`), kan du distribuere et `enforcedRuleSet`. Selvom medarbejdere bruger gamle bogmærker, omdirigeres de automatisk til det nye system, hvilket eliminerer it-supporthenvendelser vedrørende forældede links.
-* **Hjælp til intranetadgang:**
+- **Hjælp til intranetadgang:**
   Distribuer omdirigeringsregler ved hjælp af brugerdefinerede URL-skemaer for at lette adgangen til intranetressourcer via Per-App VPN-tunneler, såsom Omnissa Web.
 
 > [!WARNING]
-> 
+>
 > MDM-konfigurationsopdateringer anvendes kun med det samme, **hvis brugeren åbner RedirectWeb-appen**.
 > Selvom appen bruger baggrundsopgaver til lydløst at udrulle MDM-opdateringer til browserudvidelsen, er dette en "best-effort"-udførelse dikteret af operativsystemet. Tidspunktet for udførelsen er meget uforudsigeligt, og opgaven kører måske slet ikke.
 > Derfor bør denne funktion **ikke** benyttes til tidskritiske hændelsesresponser (f.eks. ved forsøg på øjeblikkeligt at omdirigere alle medarbejdere til et backupsite inden for få minutter efter et nedbrud i en cloudtjeneste).
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM Settings Demo" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM Settings Demo"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Plist-filen brugt i videoen er tilgængelig her: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -111,15 +120,15 @@ Hvert regelobjekt har samme format som det, du kan [dele/eksportere via appen](e
 
 Når en nøgle findes i både den indlejrede MDM-payload og de data, der hentes via `fallbackDataURL`, håndterer appen konflikten på følgende måde:
 
-* **Før hentning er fuldført:** Indlejrede indstillinger prioriteres strengt og bruges.
-* **Efter succesfuld hentning:** Data hentet fra `fallbackDataURL` overskriver de tilsvarende indlejrede indstillinger.
-* **Efter mislykkedes hentning:** Appen fortsætter med at bruge de indlejrede indstillinger.
-* Uafhængige nøgler, der kun findes i den indlejrede payload, bevares.
+- **Før hentning er fuldført:** Indlejrede indstillinger prioriteres strengt og bruges.
+- **Efter succesfuld hentning:** Data hentet fra `fallbackDataURL` overskriver de tilsvarende indlejrede indstillinger.
+- **Efter mislykkedes hentning:** Appen fortsætter med at bruge de indlejrede indstillinger.
+- Uafhængige nøgler, der kun findes i den indlejrede payload, bevares.
 
 ## MDM-feedback og statustjek
 
 Du kan verificere, om konfigurationen blev anvendt med succes via MDM-feedbackkanalen (`com.apple.feedback.managed`), hvis din MDM-løsning understøtter det. Efter behandling af konfigurationen (eller fuldførelse af URL-hentningen) returnerer appen følgende data:
 
-* `managedConfigVersion`: Versionsstrengen for konfigurationsforsøget.
-* `result`: Enten `success` or `error`.
-* `messages`: En matrix, der indeholder detaljerede fejl- eller advarselsmeddelelser, hvis relevant.
+- `managedConfigVersion`: Versionsstrengen for konfigurationsforsøget.
+- `result`: Enten `success` or `error`.
+- `messages`: En matrix, der indeholder detaljerede fejl- eller advarselsmeddelelser, hvis relevant.

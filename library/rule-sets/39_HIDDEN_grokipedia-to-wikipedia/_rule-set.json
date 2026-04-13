@@ -9,13 +9,9 @@
         "format": "markdown"
       },
       "destinationURLPattern": "https://en.wikipedia.org/wiki/$1",
-      "exampleURLs": [
-        "https://grokipedia.com/page/Transgender"
-      ],
+      "exampleURLs": ["https://grokipedia.com/page/Transgender"],
       "kind": "Redirect",
-      "resourceTypes": [
-        "main_frame"
-      ],
+      "resourceTypes": ["main_frame"],
       "sourceURLPattern": {
         "type": "regularExpression",
         "value": "https://grokipedia.com/page/(.*)"

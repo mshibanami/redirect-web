@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -17,14 +17,31 @@ Questa pagina elenca i problemi comuni e le loro soluzioni quando si utilizza Re
 Se le tue regole non funzionano come previsto, verifica quanto segue:
 
 - **L'estensione del browser è installata e abilitata per la pagina corretta:** Assicurati di aver installato l'estensione del browser RedirectWeb e che sia abilitata nel tuo browser per la pagina web da cui desideri reindirizzare. Se puoi aprire il popup dell'estensione in questa schermata sulla pagina di origine, è installata correttamente:
-    <Image src={ExtensionPopup} alt="Popup dell'estensione RedirectWeb" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="Popup dell'estensione RedirectWeb"
+    width="260"
+    hasShadow
+  />
 
 - **La configurazione della regola è corretta:** Ricontrolla le regole di reindirizzamento nell'app nativa RedirectWeb. Verifica che i pattern degli URL di origine, gli URL di destinazione e le eventuali condizioni siano impostati correttamente. Per verificare se la regola è valida, inserisci un URL di esempio nella sezione "Examples" nella schermata Modifica regola. Se la regola è valida, vedrai l'URL di destinazione previsto sotto il tuo input, come in questo esempio:
-    <Image src={RuleEditExampleResult} alt="Esempio della schermata di modifica della regola che mostra il risultato per un URL di esempio" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="Esempio della schermata di modifica della regola che mostra il risultato per un URL di esempio"
+    width="260"
+    hasShadow
+  />
 
 ## Il popup dell'estensione mostra un errore {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="Overlay di errore di RedirectWeb" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="Overlay di errore di RedirectWeb"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > L'app RedirectWeb non è stata installata o non funziona correttamente.  
 > Scarica l'app dall'App Store.
@@ -36,8 +53,9 @@ Assicurati di aver installato l'ultima versione di RedirectWeb dall'[App Store](
 Potrebbe essere necessario riavviare il browser dopo aver installato l'app nativa.
 
 > [!NOTE]
-> * È necessario installare l'app nativa RedirectWeb per usare l'estensione del browser. L'estensione da sola non funziona.
-> * Gli utenti Safari non devono installare l'estensione separatamente, poiché è inclusa nell'app nativa.
+>
+> - È necessario installare l'app nativa RedirectWeb per usare l'estensione del browser. L'estensione da sola non funziona.
+> - Gli utenti Safari non devono installare l'estensione separatamente, poiché è inclusa nell'app nativa.
 
 ## La pagina originale lampeggia brevemente prima del reindirizzamento {/* #original-page-flash */}
 
@@ -45,7 +63,13 @@ Questo accade quando si utilizzano regole di tipo **Original**. Questo tipo offr
 
 Apri la schermata Modifica regola e cambia il **Type** in **DNR** per evitare questo problema.
 
-<Image src={EditRuleDnr} alt="Popup dell'estensione RedirectWeb" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="Popup dell'estensione RedirectWeb"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
 > In Firefox, questo problema non dovrebbe verificarsi neanche con il tipo Original, poiché si basa sull'API WebRequest, che impedisce il caricamento della pagina originale.
@@ -54,10 +78,16 @@ Apri la schermata Modifica regola e cambia il **Type** in **DNR** per evitare qu
 
 Potresti vedere messaggi di errore nella finestra Preferenze di Safari come i seguenti:
 
-<Image src={PopupStyleLoadingError} alt="Screenshot dei messaggi di errore nella finestra Preferenze di Safari" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Screenshot dei messaggi di errore nella finestra Preferenze di Safari"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Impossibile trovare "popup.mobile.css" nelle risorse dell'estensione. È un percorso non valido.
-> * Impossibile trovare "toolbar-button.mobile.css" nelle risorse dell'estensione. È un percorso non valido.
+> - Impossibile trovare "popup.mobile.css" nelle risorse dell'estensione. È un percorso non valido.
+> - Impossibile trovare "toolbar-button.mobile.css" nelle risorse dell'estensione. È un percorso non valido.
 
 Questo non influisce sul funzionamento di RedirectWeb. Puoi ignorarli in tutta sicurezza.
 

@@ -13,6 +13,7 @@ Při nastavování RedirectWeb se vám může zobrazit upozornění jako toto:
     <Image src={PermissionAlertSafari} alt="Upozornění vyžadující povolení" width="200" margin="0 0 16px 0" hasShadow />
 
     > Toto rozšíření bude moci číst a měnit webové stránky a zobrazit vaši historii prohlížení na tomto webu. **To by mohlo zahrnovat citlivé informace, včetně hesel, telefonních čísel a kreditních karet.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
@@ -20,6 +21,7 @@ Při nastavování RedirectWeb se vám může zobrazit upozornění jako toto:
 
     > Může:
     > Číst a měnit **všechna vaše data** na **všech webových stránkách**
+
 </IfBrowserStore>
 
 Toto rozšíření potřebuje vaše povolení k sledování navigace na stránce, aby vás přesměrovalo tam, kam chcete, a váš prohlížeč to zobrazí, když rozšíření požádá o související oprávnění. Proto, pokud to nepovolíte, toto rozšíření nemůže fungovat.
@@ -38,7 +40,11 @@ V současné době ne. RedirectWeb je úzce spjat s ekosystémem Apple, včetně
 
 Po aktualizaci RedirectWeb se vám v Safari může zobrazit toto upozornění:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Upozornění o zakázání aplikace" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Upozornění o zakázání aplikace"
+  width="280"
+/>
 
 > "RedirectWeb" byl aktualizován a požaduje další oprávnění. Pro ochranu vašeho soukromí bylo toto rozšíření vypnuto.
 >

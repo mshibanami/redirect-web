@@ -11,9 +11,7 @@
         "https://m.youtube.com/shorts/ontm1vqONVY"
       ],
       "kind": "Redirect",
-      "resourceTypes": [
-        "main_frame"
-      ],
+      "resourceTypes": ["main_frame"],
       "sourceURLPattern": {
         "type": "regularExpression",
         "value": "https://((?:www)*(?:m)*)\\.youtube\\.com/shorts/([^?]+).*"

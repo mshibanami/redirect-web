@@ -13,13 +13,15 @@ Morda boste videli opozorilo, kot je to, ko nastavite RedirectWeb:
     <Image src={PermissionAlertSafari} alt="Opozorilo, ki zahteva dovoljenje" width="200" margin="0 0 16px 0" hasShadow />
 
     > Ta razširitev bo lahko brala in spreminjala spletne strani ter videla vašo zgodovino brskanja na tej spletni strani. **To lahko vključuje občutljive informacije, vključno z gesli, telefonskimi številkami in kreditnimi karticami.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="Opozorilo, ki zahteva dovoljenje" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Lahko:  
+    > Lahko:
     > Bere in spreminja **vse vaše podatke** na **vseh spletnih straneh**
+
 </IfBrowserStore>
 
 Ta razširitev potrebuje vaše dovoljenje za opazovanje navigacije po strani, da preusmeri tja, kamor želite skočiti, in vaš brskalnik to prikaže, ko razširitev zahteva povezana dovoljenja. Zato, če tega ne dovolite, ta razširitev ne more delovati.
@@ -38,7 +40,11 @@ Trenutno ne. RedirectWeb je tesno povezan z Applovim ekosistemom, vključno z iC
 
 Morda boste videli to opozorilo v Safariju po posodobitvi RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Opozorilo o onemogočanju aplikacije" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Opozorilo o onemogočanju aplikacije"
+  width="280"
+/>
 
 > "RedirectWeb" je bil posodobljen in zahteva dodatna dovoljenja. Za zaščito vaše zasebnosti je bila ta razširitev izklopljena.
 >

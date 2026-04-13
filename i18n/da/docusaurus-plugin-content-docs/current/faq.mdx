@@ -13,13 +13,15 @@ Du kan se en advarsel som denne, når du opsætter RedirectWeb:
     <Image src={PermissionAlertSafari} alt="En tilladelseskrævende advarsel" width="200" margin="0 0 16px 0" hasShadow />
 
     > Denne udvidelse vil kunne læse og ændre websider og se din browserhistorik på dette websted. **Dette kan omfatte følsomme oplysninger, herunder adgangskoder, telefonnumre og kreditkort.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="En tilladelseskrævende advarsel" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Den kan:  
+    > Den kan:
     > Læse og ændre **alle dine data** på **alle websteder**
+
 </IfBrowserStore>
 
 Denne udvidelse har brug for din tilladelse til at observere sidenavigationen for at omdirigere til, hvor du vil hen, og din browser viser dette, når udvidelsen anmoder om de relaterede tilladelser. Derfor, hvis du ikke tillader det, kan denne udvidelse ikke fungere.
@@ -38,7 +40,11 @@ Ikke på nuværende tidspunkt. RedirectWeb er tæt knyttet til Apples økosystem
 
 Du kan se denne advarsel i Safari efter opdatering af RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="En advarsel om deaktivering af appen" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="En advarsel om deaktivering af appen"
+  width="280"
+/>
 
 > "RedirectWeb" er blevet opdateret og anmoder om yderligere tilladelser. For at beskytte dit privatliv er denne udvidelse blevet slået fra.
 >

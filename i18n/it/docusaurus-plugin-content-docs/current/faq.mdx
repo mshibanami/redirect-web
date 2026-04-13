@@ -13,13 +13,15 @@ Potresti vedere un avviso come questo quando configuri RedirectWeb:
     <Image src={PermissionAlertSafari} alt="Un avviso che richiede un permesso" width="200" margin="0 0 16px 0" hasShadow />
 
     > Questa estensione sarà in grado di leggere e modificare le pagine web e vedere la tua cronologia di navigazione su questo sito web. **Ciò potrebbe includere informazioni sensibili, inclusi password, numeri di telefono e carte di credito.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="Un avviso che richiede un permesso" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Può:  
+    > Può:
     > Leggere e modificare **tutti i tuoi dati** su **tutti i siti web**
+
 </IfBrowserStore>
 
 Questa estensione necessita del tuo permesso per osservare la navigazione della pagina per reindirizzare dove vuoi saltare, e il tuo browser lo visualizza quando l'estensione richiede i permessi correlati. Pertanto, se non lo consenti, questa estensione non può funzionare.
@@ -38,7 +40,11 @@ Non al momento. RedirectWeb è strettamente legato all'ecosistema Apple, inclusi
 
 Potresti vedere questo avviso in Safari dopo aver aggiornato RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Un avviso di disabilitazione dell'app" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Un avviso di disabilitazione dell'app"
+  width="280"
+/>
 
 > "RedirectWeb" è stato aggiornato e richiede permessi aggiuntivi. Per proteggere la tua privacy, questa estensione è stata disattivata.
 >

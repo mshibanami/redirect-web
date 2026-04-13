@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # 3. gadījums: Pievienojiet URL vaicājuma parametrus
 
@@ -6,10 +6,10 @@ Pieņemsim, ka ir vietne `example.com`, kas pēc noklusējuma rāda mobilo izkā
 
 Iespējams, jūs domājat, ka to varētu definēt šādi:
 
-* **Pārvirzīt no**: `https://example.com/.*` (Regulārā izteiksme)
-* **Pārvirzīt uz**: `$0?layout=desktop`
+- **Pārvirzīt no**: `https://example.com/.*` (Regulārā izteiksme)
+- **Pārvirzīt uz**: `$0?layout=desktop`
 
-`$0` atsaucas uz mērķa URL. Ja mēģināt piekļūt `example.com/hello`, jūs tiekat pārvirzīts uz `example.com/hello?layout=desktop`. Šī funkcija tiek saukta par *aizstāšanu*.
+`$0` atsaucas uz mērķa URL. Ja mēģināt piekļūt `example.com/hello`, jūs tiekat pārvirzīts uz `example.com/hello?layout=desktop`. Šī funkcija tiek saukta par _aizstāšanu_.
 
 > [!TIP]
 > Aizstāšana ir pieejama arī aizstājējzīmes režīmam, jo tas iekšēji tiek pārveidots par regulāro izteiksmi.
@@ -26,9 +26,9 @@ Pašreizējais iestatījums rada bezgalīgu pārvirzīšanas cilpu, jo `https://
 .*[&?]layout=[^&]*.*
 ```
 
-* `.*`: Atbilst jebkam
-* `[&?]`: Atbilst `&` vai `?`
-* `[^&]*`: Atbilst jebkam, izņemot `&`
+- `.*`: Atbilst jebkam
+- `[&?]`: Atbilst `&` vai `?`
+- `[^&]*`: Atbilst jebkam, izņemot `&`
 
 ### 2. problēma: Nevar pareizi apstrādāt esošos parametrus
 
@@ -36,35 +36,35 @@ Ja mērķa URL jau ir citi vaicājuma parametri, piemēram, `example.com/hello?t
 
 Šajā gadījumā mainiet iestatījumus šādi:
 
-* **Pārvirzīt no**: `(https://example.com/[^?]*)(\?(.*))?`
-* **Pārvirzīt uz**: `$1?layout=desktop&$3`
+- **Pārvirzīt no**: `(https://example.com/[^?]*)(\?(.*))?`
+- **Pārvirzīt uz**: `$1?layout=desktop&$3`
 
 Apskatīsim soli pa solim.
 
-* `(https://example.com/[^?]*)`: Atbilst daļai līdz `?` iepriekšējai rakstzīmei.
-    * `[^?]*` atbilst jebkam, izņemot `?`.
-    * Tas ir ietverts `()`, lai vēlāk varētu uz to atsaukties ar `$1`.
-* `(\(.*))?`: Atbilst virknei, kas sākas ar `?`, kas nozīmē vaicājuma parametrus.
-    * Tas atbilst arī tukšai virknei ar `?` kvantifikatoru modeļa beigās, kas *atbilst nullei vai vienai reizei*.
-    * Ārējās `()` un iekšējās `()` var atsaukties ar `$2` un `$3` vēlāk.
+- `(https://example.com/[^?]*)`: Atbilst daļai līdz `?` iepriekšējai rakstzīmei.
+  - `[^?]*` atbilst jebkam, izņemot `?`.
+  - Tas ir ietverts `()`, lai vēlāk varētu uz to atsaukties ar `$1`.
+- `(\(.*))?`: Atbilst virknei, kas sākas ar `?`, kas nozīmē vaicājuma parametrus.
+  - Tas atbilst arī tukšai virknei ar `?` kvantifikatoru modeļa beigās, kas _atbilst nullei vai vienai reizei_.
+  - Ārējās `()` un iekšējās `()` var atsaukties ar `$2` un `$3` vēlāk.
 
 [RegExr](https://regexr.com) var palīdzēt jums saprast detaļas.
 
 > [!NOTE]
 > RegExr parāda kļūdu, ja neizbēgat `/` ar `\`. Lai gan to var izbēgt, tas nav obligāti, jo RedirectWeb izmanto citu Apple dzinēju, kas neprasa izbēgšanu.
 
-Tas nav ideāls risinājums, jo tas pārvirza `example.com/hello` uz `example.com/hello?layout=desktop&`, kas ietver nevajadzīgu `&` URL beigās. Tas parasti nav liels darījums, bet, ja vēlaties to noņemt, varat izmantot *Tveršanas grupas apstrādi*.
+Tas nav ideāls risinājums, jo tas pārvirza `example.com/hello` uz `example.com/hello?layout=desktop&`, kas ietver nevajadzīgu `&` URL beigās. Tas parasti nav liels darījums, bet, ja vēlaties to noņemt, varat izmantot _Tveršanas grupas apstrādi_.
 
 Noslēgumā, šis ir galīgais rezultāts:
 
-* **Pārvirzīt no**: `(https://example.com/[^?]*)((\(.*))?)` (Regulārā izteiksme)
-* **Pārvirzīt uz**: `$1?layout=desktop$3`
-* **Izslēgtais URL modelis**: `.*[&?]layout=[^&]*.*` (Regulārā izteiksme)
-* **Tveršanas grupas apstrāde**:
-    * **Grupa**: `$3`
-    * **Process**: Aizstāt gadījumus
-        * **Mērķis**: `\?(.*)`
-        * **Aizstājējs**: `&$1`
+- **Pārvirzīt no**: `(https://example.com/[^?]*)((\(.*))?)` (Regulārā izteiksme)
+- **Pārvirzīt uz**: `$1?layout=desktop$3`
+- **Izslēgtais URL modelis**: `.*[&?]layout=[^&]*.*` (Regulārā izteiksme)
+- **Tveršanas grupas apstrāde**:
+  - **Grupa**: `$3`
+  - **Process**: Aizstāt gadījumus
+    - **Mērķis**: `\?(.*)`
+    - **Aizstājējs**: `&$1`
 
 **<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Lejupielādēt noteikumu</a>**
 

@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Caso 1: Redirigir a otro sitio web
@@ -9,11 +9,11 @@ Supongamos que eres adicto a Twitter y, para romper el hábito, decides ir a [Un
 
 ### Paso 1. Abrir la pantalla "Editar regla"
 
-Abramos la pantalla *Editar regla* para comenzar a crear tu propia regla en la aplicación. Puedes hacerlo haciendo clic en el botón más (+) en la pestaña *Mis reglas*.
+Abramos la pantalla _Editar regla_ para comenzar a crear tu propia regla en la aplicación. Puedes hacerlo haciendo clic en el botón más (+) en la pestaña _Mis reglas_.
 
 ### Paso 2. Configurar "Redirigir desde"
 
-Primero, debes configurar la sección *Redirigir desde* en la pantalla *Editar regla* de la aplicación. Los objetivos son las URL que comienzan con `https://twitter.com/`.
+Primero, debes configurar la sección _Redirigir desde_ en la pantalla _Editar regla_ de la aplicación. Los objetivos son las URL que comienzan con `https://twitter.com/`.
 
 En este caso, puedes especificar el siguiente patrón con el modo [Comodín (Wildcard)](/rule-settings#url-pattern-wildcard):
 
@@ -31,13 +31,13 @@ Para hacer eso, cambia de Comodín a [Expresión regular](/rule-settings#url-pat
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: apunta tanto a `twitter` como a `x`. (`|` se llama *tubería* o *pipe*).
-* `.*`: Es lo mismo que el `*` de Comodín. Más específicamente, `.` significa *cualquier carácter* y `*` significa *cualquier cosa antes de este símbolo repetida cualquier número de veces*, lo que hace que coincida con cualquier cosa.
+- `(twitter|x)`: apunta tanto a `twitter` como a `x`. (`|` se llama _tubería_ o _pipe_).
+- `.*`: Es lo mismo que el `*` de Comodín. Más específicamente, `.` significa _cualquier carácter_ y `*` significa _cualquier cosa antes de este símbolo repetida cualquier número de veces_, lo que hace que coincida con cualquier cosa.
 
 La Expresión Regular es un poco complicada, pero una vez que te acostumbras a ella, será una herramienta poderosa. Recomendamos usar [RegExr](https://regexr.com) como campo de pruebas para analizar cómo funciona tu patrón de Expresión Regular.
 
 > [!TIP]
-> En las Expresiones Regulares, el `.` en `(twitter|x).com` también se trata como *cualquier carácter*. Por lo tanto, `(twitter|x).com/.*` también coincide, por ejemplo, con `twitter1com/` o `x_com/`.
+> En las Expresiones Regulares, el `.` en `(twitter|x).com` también se trata como _cualquier carácter_. Por lo tanto, `(twitter|x).com/.*` también coincide, por ejemplo, con `twitter1com/` o `x_com/`.
 >
 > Para ser más precisos, puedes cambiarlo a `(twitter|x)\.com/.*`. El `\` se utiliza para tratar el `.` como un carácter de punto literal en lugar de un carácter especial.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Opcional) Paso 4: Comprobar la regla
 
-Puedes comprobar cómo funciona la regla añadiendo una URL de ejemplo en la sección *Ejemplos* de la pantalla *Editar regla*. Por ejemplo, si introduces `https://x.com/UN`, muestra `https://unrush.org/` como resultado.
+Puedes comprobar cómo funciona la regla añadiendo una URL de ejemplo en la sección _Ejemplos_ de la pantalla _Editar regla_. Por ejemplo, si introduces `https://x.com/UN`, muestra `https://unrush.org/` como resultado.
 
 Así es como debería verse tu regla ahora:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Una regla de ejemplo para abrir otro sitio web" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Una regla de ejemplo para abrir otro sitio web"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Descargar la regla</a>**
 

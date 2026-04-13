@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -17,14 +17,31 @@ Op deze pagina staan veelvoorkomende problemen en hun oplossingen bij het gebrui
 Als je regels niet werken zoals verwacht, controleer dan het volgende:
 
 - **De browserextensie is geïnstalleerd en ingeschakeld voor de juiste pagina:** Zorg ervoor dat je de RedirectWeb-browserextensie hebt geïnstalleerd en dat deze in je browser is ingeschakeld voor de webpagina waarvan je wilt doorverwijzen. Als je de popup van de extensie op de bronpagina op deze manier kunt openen, is de installatie correct:
-    <Image src={ExtensionPopup} alt="Popup van de RedirectWeb-extensie" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="Popup van de RedirectWeb-extensie"
+    width="260"
+    hasShadow
+  />
 
 - **Regelconfiguratie is correct:** Controleer je doorverwijsregels in de native RedirectWeb-app. Zorg ervoor dat de bron-URL-patronen, doel-URL's en eventuele voorwaarden correct zijn ingesteld. Om te controleren of je regel geldig is, voer een voorbeeld-URL in bij het gedeelte Examples op het scherm Edit Rule. Als je regel geldig is, zie je onder je invoer de verwachte doel-URL, zoals hieronder:
-    <Image src={RuleEditExampleResult} alt="Voorbeeld van het scherm 'Edit Rule' dat het resultaat van een voorbeeld-URL toont" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="Voorbeeld van het scherm 'Edit Rule' dat het resultaat van een voorbeeld-URL toont"
+    width="260"
+    hasShadow
+  />
 
 ## In de popup van de extensie wordt een fout weergegeven {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="Foutoverlay van RedirectWeb" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="Foutoverlay van RedirectWeb"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > De RedirectWeb-app is niet geïnstalleerd of werkt niet goed.  
 > Haal de app uit de App Store.
@@ -36,8 +53,9 @@ Zorg ervoor dat je de nieuwste versie van RedirectWeb hebt geïnstalleerd vanuit
 Het kan ook nodig zijn om je browser opnieuw te starten nadat je de native app hebt geïnstalleerd.
 
 > [!NOTE]
-> * Om de browserextensie te gebruiken moet je de native RedirectWeb-app installeren. Alleen de extensie is niet voldoende.
-> * Safari-gebruikers hoeven de extensie niet apart te installeren; deze wordt meegeleverd met de native app.
+>
+> - Om de browserextensie te gebruiken moet je de native RedirectWeb-app installeren. Alleen de extensie is niet voldoende.
+> - Safari-gebruikers hoeven de extensie niet apart te installeren; deze wordt meegeleverd met de native app.
 
 ## De oorspronkelijke pagina flikkert kort voordat de redirect plaatsvindt {/* #original-page-flash */}
 
@@ -45,7 +63,13 @@ Dit gebeurt wanneer je het **Original**-type voor doorverwijsregels gebruikt. Di
 
 Open het scherm Edit Rule en wijzig het **Type** naar **DNR** om dit probleem te voorkomen.
 
-<Image src={EditRuleDnr} alt="Popup van de RedirectWeb-extensie" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="Popup van de RedirectWeb-extensie"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
 > In Firefox zou dit probleem niet moeten optreden, zelfs niet met het Original-type, omdat het vertrouwt op de WebRequest API die voorkomt dat de oorspronkelijke pagina wordt geladen.
@@ -54,10 +78,16 @@ Open het scherm Edit Rule en wijzig het **Type** naar **DNR** om dit probleem te
 
 Je kunt foutmeldingen zien in het Safari-venster 'Instellingen' zoals de volgende:
 
-<Image src={PopupStyleLoadingError} alt="Screenshot van foutmeldingen in het Safari-venster 'Instellingen'" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Screenshot van foutmeldingen in het Safari-venster 'Instellingen'"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
-> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
 Dit heeft geen invloed op de functionaliteit van RedirectWeb. Je kunt deze meldingen veilig negeren.
 

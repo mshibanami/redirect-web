@@ -13,6 +13,7 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
     <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow />
 
     > 此扩展程序将能够读取和更改网页，并在此网站上查看您的浏览历史记录。**这可能包括敏感信息，包括密码、电话号码和信用卡。**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
@@ -20,6 +21,7 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
     > 它可以：
     > 读取和更改**所有网站**上的**所有数据**
+
 </IfBrowserStore>
 
 此扩展程序需要您的权限才能观察页面导航以重定向到您想要跳转的任何位置，当扩展程序请求相关权限时，您的浏览器会显示此内容。因此，如果您不允许，此扩展程序将无法工作。
@@ -38,7 +40,11 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 更新 RedirectWeb 后，您可能会在 Safari 中看到此警报：
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="An alert of disabling the app"
+  width="280"
+/>
 
 > “RedirectWeb”已更新并请求额外权限。为了保护您的隐私，此扩展程序已关闭。
 >

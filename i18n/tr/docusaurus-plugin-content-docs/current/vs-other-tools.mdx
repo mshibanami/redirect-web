@@ -9,12 +9,12 @@ RedirectWeb'e benzer işlevselliğe sahip çeşitli araçlar bulunmaktadır. Red
 
 Redirector, yönlendirme için harika bir tarayıcı uzantısıdır. Tamamen ücretsiz ve açık kaynaklıdır ve Apple dışı platformlarda da çalışır. Ancak RedirectWeb'in beğenebileceğiniz bazı ek özellikleri vardır:
 
-*   **Ayrıntılı kural ayarları:** Yalnızca RedirectWeb'de bulunan birden fazla hariç tutma deseni, birden fazla işlem eşleşmesi ve dize değiştirme özelliklerini destekler.
-*   **Yerel uygulamalarda açma:** Mac'te hedef URL'yi nerede açacağınızı seçebilirsiniz. Doğrudan `open` komutunu çağırır (derin bağlantı değil).
-*   **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) desteği:** Işık hızında yönlendirme sağlar.
-*   **Merkezi kural yönetimi:** Tüm tarayıcılar için kuralları yerel uygulama aracılığıyla tek bir yerden yönetin.
-*   **Manifest V3 ve V2 desteği:** RedirectWeb, Chromium tabanlı tarayıcılarda V3'ü ve Firefox'ta MV2'yi destekleyerek esneklik ve verimlilik için Redirector ile aynı API'yi kullanmaya olanak tanır.
-*   **Safari desteği:** RedirectWeb, iOS ve macOS'ta Safari'yi destekler; Redirector desteklemez.
+- **Ayrıntılı kural ayarları:** Yalnızca RedirectWeb'de bulunan birden fazla hariç tutma deseni, birden fazla işlem eşleşmesi ve dize değiştirme özelliklerini destekler.
+- **Yerel uygulamalarda açma:** Mac'te hedef URL'yi nerede açacağınızı seçebilirsiniz. Doğrudan `open` komutunu çağırır (derin bağlantı değil).
+- **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) desteği:** Işık hızında yönlendirme sağlar.
+- **Merkezi kural yönetimi:** Tüm tarayıcılar için kuralları yerel uygulama aracılığıyla tek bir yerden yönetin.
+- **Manifest V3 ve V2 desteği:** RedirectWeb, Chromium tabanlı tarayıcılarda V3'ü ve Firefox'ta MV2'yi destekleyerek esneklik ve verimlilik için Redirector ile aynı API'yi kullanmaya olanak tanır.
+- **Safari desteği:** RedirectWeb, iOS ve macOS'ta Safari'yi destekler; Redirector desteklemez.
 
 Redirector'a büyük saygı duyuyoruz ve onun da işleyebileceği yönlendirme kurallarının içe/dışa aktarımını sunuyoruz, böylece aralarında esnek bir şekilde geçiş yapabilirsiniz. Daha fazla ayrıntı için [buraya](/export-or-import-rules) bakın.
 
@@ -22,9 +22,9 @@ Redirector'a büyük saygı duyuyoruz ve onun da işleyebileceği yönlendirme k
 
 Kullanıcı betiği yöneticileri çok güçlü ve esnektir. Yönlendirme dahil olmak üzere onlarla birçok şey yapabilirsiniz. Ancak, RedirectWeb'e kıyasla bazı dezavantajları vardır:
 
-*   **Karmaşıklık:** Betik yazmak ve sürdürmek, özellikle programlamaya aşina olmayan kullanıcılar için karmaşık ve zaman alıcı olabilir. RedirectWeb, kodlama yapmadan kural oluşturmak ve yönetmek için kullanıcı dostu bir arayüz sağlar.
-*   **Güvenlik:** Kullanıcı betiği yöneticileri, özellikle betikler karmaşık veya optimize edilmemişse performans düşüşüne neden olabilir. Ayrıca dikkatli yazılmazlarsa sonsuz bir yönlendirme döngüsüne neden olabilirler. RedirectWeb, verimli ve güvenli olacak şekilde tasarlanmıştır.
-*   **Daha yeni API desteği:** Bazı kullanıcı betiği yöneticileri, daha hızlı ve daha verimli yönlendirme sağlayabilen Declarative Net Request (DNR) API'sine erişemeyebilir. RedirectWeb, daha iyi performans için DNR'yi destekler.
+- **Karmaşıklık:** Betik yazmak ve sürdürmek, özellikle programlamaya aşina olmayan kullanıcılar için karmaşık ve zaman alıcı olabilir. RedirectWeb, kodlama yapmadan kural oluşturmak ve yönetmek için kullanıcı dostu bir arayüz sağlar.
+- **Güvenlik:** Kullanıcı betiği yöneticileri, özellikle betikler karmaşık veya optimize edilmemişse performans düşüşüne neden olabilir. Ayrıca dikkatli yazılmazlarsa sonsuz bir yönlendirme döngüsüne neden olabilirler. RedirectWeb, verimli ve güvenli olacak şekilde tasarlanmıştır.
+- **Daha yeni API desteği:** Bazı kullanıcı betiği yöneticileri, daha hızlı ve daha verimli yönlendirme sağlayabilen Declarative Net Request (DNR) API'sine erişemeyebilir. RedirectWeb, daha iyi performans için DNR'yi destekler.
 
 ## Apple'ın [Kısayollar](https://support.apple.com/guide/shortcuts/welcome/ios) {/* #why-not-shortcuts */}
 
@@ -34,16 +34,16 @@ Kısayollar, iOS ve macOS'ta bulunan Apple'ın güçlü otomasyon aracıdır. UR
 
 OpenIn ve Velja, her ikisi de tarayıcı seçici uygulamalarıdır ve ayrıca bir tarayıcıdan başka bir uygulamada bağlantıları açmanıza olanak tanıyan tarayıcı uzantılarına sahiptirler. RedirectWeb'in de tarayıcıdan uygulamaya yönlendirme yeteneği vardır. Ancak, bazı farklılıklar vardır:
 
-*   **Otomatik yönlendirme:** Bir bağlantıyı başka bir uygulamada açmak için araç çubuğu simgelerini manuel olarak seçmenizi gerektirirler. RedirectWeb, ek adımlar olmadan kurallarınıza göre URL'leri otomatik olarak yönlendirir. Bunlar, bağlantı işlemeye yönelik iki farklı yaklaşımdır.
-*   **Çapraz platform desteği:** Mac için tasarlanmış olsalar da, RedirectWeb Mac'teki tüm büyük tarayıcıları ve iPhone, iPad ve Apple Vision Pro'daki Safari'yi destekler.
+- **Otomatik yönlendirme:** Bir bağlantıyı başka bir uygulamada açmak için araç çubuğu simgelerini manuel olarak seçmenizi gerektirirler. RedirectWeb, ek adımlar olmadan kurallarınıza göre URL'leri otomatik olarak yönlendirir. Bunlar, bağlantı işlemeye yönelik iki farklı yaklaşımdır.
+- **Çapraz platform desteği:** Mac için tasarlanmış olsalar da, RedirectWeb Mac'teki tüm büyük tarayıcıları ve iPhone, iPad ve Apple Vision Pro'daki Safari'yi destekler.
 
 ## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {/* #stopthemadness */}
 
 StopTheMadness, web gezintisini geliştirmek için yönlendirme dahil çeşitli özellikler sunan bir tarayıcı uzantısıdır. Ancak, RedirectWeb'e kıyasla bazı sınırlamaları vardır:
 
-*   **Kural esnekliği:** StopTheMadness'ın sınırlı kural yapılandırma seçenekleri vardır. RedirectWeb, birden fazla hariç tutma deseni, yakalama grubu işleme ve daha fazlası dahil olmak üzere daha ayrıntılı kural ayarları sunar.
-*   **Özelliklerin karmaşıklığı:** StopTheMadness, yalnızca yönlendirme isteyen kullanıcılar için gerekli olmayabilecek birçok özellik içerir. RedirectWeb yalnızca yönlendirmeye odaklanır.
-*   **Fiyat:** StopTheMadness, ücretsiz deneme veya ücretsiz plan olmadan 12-15 USD'ye mal olur. RedirectWeb, temel özelliklere sahip ücretsiz bir plan, tüm özelliklerin ücretsiz denemesiyle bir abonelik ve bir kahve fiyatına tek seferlik satın alma seçeneği sunar.
+- **Kural esnekliği:** StopTheMadness'ın sınırlı kural yapılandırma seçenekleri vardır. RedirectWeb, birden fazla hariç tutma deseni, yakalama grubu işleme ve daha fazlası dahil olmak üzere daha ayrıntılı kural ayarları sunar.
+- **Özelliklerin karmaşıklığı:** StopTheMadness, yalnızca yönlendirme isteyen kullanıcılar için gerekli olmayabilecek birçok özellik içerir. RedirectWeb yalnızca yönlendirmeye odaklanır.
+- **Fiyat:** StopTheMadness, ücretsiz deneme veya ücretsiz plan olmadan 12-15 USD'ye mal olur. RedirectWeb, temel özelliklere sahip ücretsiz bir plan, tüm özelliklerin ücretsiz denemesiyle bir abonelik ve bir kahve fiyatına tek seferlik satın alma seçeneği sunar.
 
 ## Son olarak...
 

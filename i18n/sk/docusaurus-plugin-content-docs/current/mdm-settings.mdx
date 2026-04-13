@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Nastavenia MDM pre správcov
 
@@ -15,27 +15,36 @@ Táto stránka obsahuje prehľad konfigurovateľných kľúčov, správania apli
 
 Odoslaním konfigurácií prostredníctvom MDM môžete dosiahnuť nasledovné:
 
-* **Vynútené pravidlá:** Použite pravidlá presmerovania v rámci celej organizácie, ktoré používatelia nemôžu meniť ani odstraňovať.
-* **Počiatočná distribúcia pravidiel:** Distribuujte šablónu sady pravidiel, ktorá slúži ako predvolená pri prvom spustení aplikácie.
-* **Kontrola používateľského rozhrania:** Obmedzte prístup k špecifickým funkciám (napríklad Knižnica) a v rámci aplikácie jasne uveďte, že je pod správou organizácie.
-* **Sťahovanie veľkých pravidiel (Fallback):** Obíďte limity veľkosti MDM dát sťahovaním pravidiel z externého servera.
+- **Vynútené pravidlá:** Použite pravidlá presmerovania v rámci celej organizácie, ktoré používatelia nemôžu meniť ani odstraňovať.
+- **Počiatočná distribúcia pravidiel:** Distribuujte šablónu sady pravidiel, ktorá slúži ako predvolená pri prvom spustení aplikácie.
+- **Kontrola používateľského rozhrania:** Obmedzte prístup k špecifickým funkciám (napríklad Knižnica) a v rámci aplikácie jasne uveďte, že je pod správou organizácie.
+- **Sťahovanie veľkých pravidiel (Fallback):** Obíďte limity veľkosti MDM dát sťahovaním pravidiel z externého servera.
 
 ## Prípady použitia
 
-* **Bezproblémové smerovanie počas migrácií systémov:**
+- **Bezproblémové smerovanie počas migrácií systémov:**
   Pri migrácii zo staršieho interného systému (napr. `legacy-crm.internal.local`) na novú platformu (napr. `salesforce.com`) distribuujte `enforcedRuleSet`. Aj keď zamestnanci použijú staré záložky, budú automaticky presmerovaní na nový systém, čím sa eliminujú požiadavky na IT podporu týkajúce sa zastaraných odkazov.
-* **Pomoc pri prístupe k intranetu:**
+- **Pomoc pri prístupe k intranetu:**
   Distribuujte pravidlá presmerovania pomocou vlastných schém URL, aby ste uľahčili prístup k intranetovým zdrojom prostredníctvom VPN tunelov pre konkrétne aplikácie (Per-App VPN), ako je napríklad Omnissa Web.
 
 > [!WARNING]
-> 
+>
 > Odoslané MDM konfigurácie sa aplikujú okamžite **iba vtedy, ak používateľ otvorí aplikáciu RedirectWeb**.
 > Hoci aplikácia využíva úlohy na pozadí na tiché odosielanie aktualizácií MDM do rozšírenia prehliadača, ide o vykonanie typu „maximálne úsilie“ (best-effort) diktované operačným systémom. Načasovanie vykonania je vysoko nepredvídateľné a úloha sa nemusí spustiť vôbec.
 > Preto by sa na túto funkciu **nemalo** spoliehať pri časovo kritických reakciách na incidenty (napr. pokus o okamžité presmerovanie všetkých zamestnancov na záložnú stránku v priebehu niekoľkých minút po výpadku cloudovej služby).
 
 ## Ukážka
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM Settings Demo" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM Settings Demo"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Súbor plist použitý vo videu je k dispozícii tu: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -111,15 +120,15 @@ Každý objekt pravidla má rovnaký formát ako ten, ktorý môžete [zdieľať
 
 Keď kľúč existuje v rámci MDM dát aj v dátach získaných prostredníctvom `fallbackDataURL`, aplikácia rieši konflikt nasledovne:
 
-* **Pred dokončením sťahovania:** Priamo vložené nastavenia sú prísne uprednostňované a používané.
-* **Po úspešnom stiahnutí:** Dáta získané z `fallbackDataURL` prepíšu zodpovedajúce vložené nastavenia.
-* **Po neúspešnom stiahnutí:** Aplikácia naďalej používa vložené nastavenia.
-* Nezávislé kľúče, ktoré existujú iba vo vložených dátach, sú zachované.
+- **Pred dokončením sťahovania:** Priamo vložené nastavenia sú prísne uprednostňované a používané.
+- **Po úspešnom stiahnutí:** Dáta získané z `fallbackDataURL` prepíšu zodpovedajúce vložené nastavenia.
+- **Po neúspešnom stiahnutí:** Aplikácia naďalej používa vložené nastavenia.
+- Nezávislé kľúče, ktoré existujú iba vo vložených dátach, sú zachované.
 
 ## MDM spätná väzba a kontrola stavu
 
 Ak to vaše MDM riešenie podporuje, môžete overiť, či bola konfigurácia úspešne aplikovaná, prostredníctvom kanála spätnej väzby MDM (`com.apple.feedback.managed`). Po spracovaní konfigurácie (alebo dokončení sťahovania z URL) aplikácia vráti nasledujúce údaje:
 
-* `managedConfigVersion`: Reťazec verzie pokusu o konfiguráciu.
-* `result`: Buď `success` alebo `error`.
-* `messages`: Pole obsahujúce podrobné chybové alebo varovné správy, ak sú k dispozícii.
+- `managedConfigVersion`: Reťazec verzie pokusu o konfiguráciu.
+- `result`: Buď `success` alebo `error`.
+- `messages`: Pole obsahujúce podrobné chybové alebo varovné správy, ak sú k dispozícii.

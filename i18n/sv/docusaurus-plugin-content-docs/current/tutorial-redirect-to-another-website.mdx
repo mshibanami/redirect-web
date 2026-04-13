@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Fall 1: Omdirigera till en annan webbplats
@@ -9,11 +9,11 @@ Anta att du är beroende av Twitter, och för att bryta vanan bestämmer du dig 
 
 ### Steg 1. Öppna skärmen "Redigera regel"
 
-Låt oss öppna skärmen *Redigera regel* för att börja skapa din egen regel i appen. Du kan göra detta genom att klicka på plusknappen (+) i fliken *Mina regler*.
+Låt oss öppna skärmen _Redigera regel_ för att börja skapa din egen regel i appen. Du kan göra detta genom att klicka på plusknappen (+) i fliken _Mina regler_.
 
 ### Steg 2. Ställ in "Omdirigera från"
 
-Först bör du ställa in avsnittet *Omdirigera från* på skärmen *Redigera regel* i appen. Målen är webbadresser som börjar med `https://twitter.com/`.
+Först bör du ställa in avsnittet _Omdirigera från_ på skärmen _Redigera regel_ i appen. Målen är webbadresser som börjar med `https://twitter.com/`.
 
 In det här fallet kan du ange följande mönster med läget [Wildcard](/rule-settings#url-pattern-wildcard):
 
@@ -31,13 +31,13 @@ För att göra det, växla från Wildcard till [Reguljärt uttryck](/rule-settin
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: det riktar in sig på både `twitter` och `x`. (`|` kallas för *ett rör (pipe)*.)
-* `.*`: Det är samma som Wildcards `*`. Mer specifikt betyder `.` *vilket tecken som helst* och `*` betyder *vad som helst före denna symbol upprepat valfritt antal gånger*, vilket resulterar i att det matchar vad som helst.
+- `(twitter|x)`: det riktar in sig på både `twitter` och `x`. (`|` kallas för _ett rör (pipe)_.)
+- `.*`: Det är samma som Wildcards `*`. Mer specifikt betyder `.` _vilket tecken som helst_ och `*` betyder _vad som helst före denna symbol upprepat valfritt antal gånger_, vilket resulterar i att det matchar vad som helst.
 
 Reguljära uttryck är lite komplicerade, men när du väl har vant dig vid dem är de ett kraftfullt verktyg. Vi rekommenderar att du använder [RegExr](https://regexr.com) som en lekplats för att analysera hur ditt mönster för reguljära uttryck fungerar.
 
 > [!TIP]
-> I reguljära uttryck behandlas `.` i `(twitter|x).com` också som *vilket tecken som helst*. Därför matchar `(twitter|x).com/.*` även till exempel `twitter1com/` eller `x_com/`.
+> I reguljära uttryck behandlas `.` i `(twitter|x).com` också som _vilket tecken som helst_. Därför matchar `(twitter|x).com/.*` även till exempel `twitter1com/` eller `x_com/`.
 >
 > För att vara mer exakt kan du ändra det till `(twitter|x)\.com/.*`. `\` används för att behandla `.` som en bokstavlig punkt istället för ett specialtecken.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Valfritt) Steg 4: Kontrollera regeln
 
-Du kan kontrollera hur regeln fungerar genom att lägga till en exempel-URL i avsnittet *Exempel* på skärmen *Redigera regel*. Om du till exempel anger `https://x.com/UN`, visas `https://unrush.org/` som resultat.
+Du kan kontrollera hur regeln fungerar genom att lägga till en exempel-URL i avsnittet _Exempel_ på skärmen _Redigera regel_. Om du till exempel anger `https://x.com/UN`, visas `https://unrush.org/` som resultat.
 
 Så här bör din regel se ut nu:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="En exempelregel för att öppna en annan webbplats" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="En exempelregel för att öppna en annan webbplats"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Ladda ner regeln</a>**
 

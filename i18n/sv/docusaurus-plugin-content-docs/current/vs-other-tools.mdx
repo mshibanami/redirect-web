@@ -9,12 +9,12 @@ Det finns olika verktyg med liknande funktionalitet som RedirectWeb. RedirectWeb
 
 Redirector är ett utmärkt webbläsartillägg för omdirigering. Det är helt gratis och öppen källkod, och det fungerar även på icke-Apple-plattformar. Men RedirectWeb har några extra funktioner som du kanske gillar:
 
-* **Detaljerade regelinställningar:** Stöder flera exkluderingsmönster, flera processmatchningar och strängersättningsfunktioner som endast finns i RedirectWeb.
-* **Öppna i inbyggda appar:** På Mac kan du välja var måladressen ska öppnas. Den anropar `open`-kommandot direkt (inte djuplänkning).
-* **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) stöd:** Ger blixtsnabb omdirigering.
-* **Centraliserad regelhantering:** Hantera regler för alla webbläsare på ett ställe via den inbyggda appen.
-* **Manifest V3 & V2 stöd:** RedirectWeb stöder V3 på Chromium-baserade webbläsare och MV2 på Firefox, vilket möjliggör användning av samma API som Redirector för flexibilitet och effektivitet.
-* **Safari-stöd:** RedirectWeb stöder Safari på iOS och macOS; Redirector gör det inte.
+- **Detaljerade regelinställningar:** Stöder flera exkluderingsmönster, flera processmatchningar och strängersättningsfunktioner som endast finns i RedirectWeb.
+- **Öppna i inbyggda appar:** På Mac kan du välja var måladressen ska öppnas. Den anropar `open`-kommandot direkt (inte djuplänkning).
+- **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) stöd:** Ger blixtsnabb omdirigering.
+- **Centraliserad regelhantering:** Hantera regler för alla webbläsare på ett ställe via den inbyggda appen.
+- **Manifest V3 & V2 stöd:** RedirectWeb stöder V3 på Chromium-baserade webbläsare och MV2 på Firefox, vilket möjliggör användning av samma API som Redirector för flexibilitet och effektivitet.
+- **Safari-stöd:** RedirectWeb stöder Safari på iOS och macOS; Redirector gör det inte.
 
 Vi respekterar Redirector högt och erbjuder import/export av omdirigeringsregler som det också kan hantera, så att du flexibelt kan växla mellan dem. Se mer information [här](/export-or-import-rules).
 
@@ -22,9 +22,9 @@ Vi respekterar Redirector högt och erbjuder import/export av omdirigeringsregle
 
 Användarskriptshanterare är mycket kraftfulla och flexibla. Du kan göra så många saker med dem, inklusive omdirigering. De har dock vissa nackdelar jämfört med RedirectWeb:
 
-* **Komplexitet:** Att skriva och underhålla skript kan vara komplext och tidskrävande, särskilt för användare som inte är bekanta med programmering. RedirectWeb erbjuder ett användarvänligt gränssnitt för att skapa och hantera regler utan kodning.
-* **Säkerhet:** Användarskriptshanterare kan medföra prestandaoverhead, särskilt om skripten är komplexa eller inte optimerade. De kan också orsaka en oändlig omdirigeringsslinga om de inte skrivs noggrant. RedirectWeb är utformat för att vara effektivt och säkert.
-* **Nyare API-stöd:** Vissa användarskriptshanterare kanske inte har tillgång till Declarative Net Request (DNR) API, vilket kan ge snabbare och effektivare omdirigering. RedirectWeb stöder DNR för bättre prestanda.
+- **Komplexitet:** Att skriva och underhålla skript kan vara komplext och tidskrävande, särskilt för användare som inte är bekanta med programmering. RedirectWeb erbjuder ett användarvänligt gränssnitt för att skapa och hantera regler utan kodning.
+- **Säkerhet:** Användarskriptshanterare kan medföra prestandaoverhead, särskilt om skripten är komplexa eller inte optimerade. De kan också orsaka en oändlig omdirigeringsslinga om de inte skrivs noggrant. RedirectWeb är utformat för att vara effektivt och säkert.
+- **Nyare API-stöd:** Vissa användarskriptshanterare kanske inte har tillgång till Declarative Net Request (DNR) API, vilket kan ge snabbare och effektivare omdirigering. RedirectWeb stöder DNR för bättre prestanda.
 
 ## Apples [Genvägar](https://support.apple.com/guide/shortcuts/welcome/ios) {/* #why-not-shortcuts */}
 
@@ -34,16 +34,16 @@ Genvägar är Apples kraftfulla automatiseringsverktyg som finns tillgängligt p
 
 OpenIn och Velja är båda webbläsarväljarappar, och de har också webbläsartillägg som låter dig öppna länkar i en annan app från en webbläsare. RedirectWeb har också en webbläsare-till-app-omdirigeringsfunktion. Det finns dock vissa skillnader:
 
-* **Automatisk omdirigering:** De kräver att du manuellt väljer deras verktygsfältsikon för att öppna en länk i en annan app. RedirectWeb omdirigerar automatiskt URL:er baserat på dina regler utan extra steg. Dessa är två olika tillvägagångssätt för länkhantering.
-* **Plattformsoberoende stöd:** Medan de är utformade för Mac, stöder RedirectWeb alla större webbläsare på Mac och Safari på iPhone, iPad och Apple Vision Pro.
+- **Automatisk omdirigering:** De kräver att du manuellt väljer deras verktygsfältsikon för att öppna en länk i en annan app. RedirectWeb omdirigerar automatiskt URL:er baserat på dina regler utan extra steg. Dessa är två olika tillvägagångssätt för länkhantering.
+- **Plattformsoberoende stöd:** Medan de är utformade för Mac, stöder RedirectWeb alla större webbläsare på Mac och Safari på iPhone, iPad och Apple Vision Pro.
 
 ## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {/* #stopthemadness */}
 
 StopTheMadness är ett webbläsartillägg som erbjuder olika funktioner för att förbättra webbsurfningen, inklusive omdirigering. Det har dock vissa begränsningar jämfört med RedirectWeb:
 
-* **Regelflexibilitet:** StopTheMadness har begränsade konfigurationsalternativ för regler. RedirectWeb erbjuder mer detaljerade regelinställningar, inklusive flera exkluderingsmönster, bearbetning av fångstgrupper och mer.
-* **Funktionernas komplexitet:** StopTheMadness innehåller många funktioner som kanske inte är nödvändiga för användare som bara vill ha omdirigering. RedirectWeb fokuserar enbart på omdirigering.
-* **Pris:** StopTheMadness kostar 12-15 USD utan en gratis provperiod eller en gratis plan. RedirectWeb erbjuder en gratis plan med grundläggande funktioner, och en prenumeration med en gratis provperiod av alla funktioner, och ett engångsköp för priset av en kaffe.
+- **Regelflexibilitet:** StopTheMadness har begränsade konfigurationsalternativ för regler. RedirectWeb erbjuder mer detaljerade regelinställningar, inklusive flera exkluderingsmönster, bearbetning av fångstgrupper och mer.
+- **Funktionernas komplexitet:** StopTheMadness innehåller många funktioner som kanske inte är nödvändiga för användare som bara vill ha omdirigering. RedirectWeb fokuserar enbart på omdirigering.
+- **Pris:** StopTheMadness kostar 12-15 USD utan en gratis provperiod eller en gratis plan. RedirectWeb erbjuder en gratis plan med grundläggande funktioner, och en prenumeration med en gratis provperiod av alla funktioner, och ett engångsköp för priset av en kaffe.
 
 ## Slutligen...
 

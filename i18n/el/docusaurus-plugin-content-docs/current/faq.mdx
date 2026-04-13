@@ -13,13 +13,15 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
     <Image src={PermissionAlertSafari} alt="Μια ειδοποίηση που απαιτεί άδεια" width="200" margin="0 0 16px 0" hasShadow />
 
     > Αυτή η επέκταση θα μπορεί να διαβάζει και να τροποποιεί ιστοσελίδες και να βλέπει το ιστορικό περιήγησής σας σε αυτόν τον ιστότοπο. **Αυτό θα μπορούσε να περιλαμβάνει ευαίσθητες πληροφορίες, συμπεριλαμβανομένων κωδικών πρόσβασης, αριθμών τηλεφώνου και πιστωτικών καρτών.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="Μια ειδοποίηση που απαιτεί άδεια" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Μπορεί:  
+    > Μπορεί:
     > Να διαβάζει και να αλλάζει **όλα τα δεδομένα σας** σε **όλους τους ιστότοπους**
+
 </IfBrowserStore>
 
 Αυτή η επέκταση χρειάζεται την άδειά σας για να παρατηρεί την πλοήγηση σελίδων για να ανακατευθύνει όπου θέλετε να μεταβείτε, και το πρόγραμμα περιήγησής σας το εμφανίζει αυτό όταν η επέκταση ζητά τις σχετικές άδειες. Επομένως, αν δεν το επιτρέψετε, αυτή η επέκταση δεν μπορεί να λειτουργήσει.
@@ -38,7 +40,11 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 Ενδέχεται να δείτε αυτήν την ειδοποίηση στο Safari μετά την ενημέρωση του RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Μια ειδοποίηση απενεργοποίησης της εφαρμογής" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Μια ειδοποίηση απενεργοποίησης της εφαρμογής"
+  width="280"
+/>
 
 > Το "RedirectWeb" έχει ενημερωθεί και ζητά πρόσθετες άδειες. Για την προστασία του απορρήτου σας, αυτή η επέκταση έχει απενεργοποιηθεί.
 >

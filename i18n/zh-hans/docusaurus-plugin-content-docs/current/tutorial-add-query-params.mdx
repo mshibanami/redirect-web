@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # 案例 3：向 URL 添加查询参数
 
@@ -6,8 +6,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 也许您认为可以将其定义如下：
 
-* **重定向自**：`https://example.com/.*`（正则表达式）
-* **重定向到**：`$0?layout=desktop`
+- **重定向自**：`https://example.com/.*`（正则表达式）
+- **重定向到**：`$0?layout=desktop`
 
 `$0` 引用目标 URL。如果您尝试访问 `example.com/hello`，您将被重定向到 `example.com/hello?layout=desktop`。此功能称为*替换*。
 
@@ -26,9 +26,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 .*[&?]layout=[^&]*.*
 ```
 
-* `.*`：匹配任何内容
-* `[&?]`：匹配 `&` 或 `?`
-* `[^&]*`：匹配除 `&` 之外的任何内容
+- `.*`：匹配任何内容
+- `[&?]`：匹配 `&` 或 `?`
+- `[^&]*`：匹配除 `&` 之外的任何内容
 
 ### 问题 2：无法正确处理现有参数
 
@@ -36,17 +36,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 在这种情况下，请按如下方式更改设置：
 
-* **重定向自**：`(https://example.com/[^?]*)(\?(.*))?`
-* **重定向到**：`$1?layout=desktop&$3`
+- **重定向自**：`(https://example.com/[^?]*)(\?(.*))?`
+- **重定向到**：`$1?layout=desktop&$3`
 
 让我们一步一步地看一下。
 
-* `(https://example.com/[^?]*)`：匹配直到 `?` 前一个字符的部分。
-    * `[^?]*` 匹配除 `?` 之外的任何内容。
-    * 这用 `()` 括起来，因此您以后可以使用 `$1` 引用它。
-* `(\?(.*))?`：匹配以 `?` 开头的字符串，这意味着查询参数。
-    * 这也通过模式末尾的 `?` 量词匹配空字符串，该量词*匹配零次或一次*。
-    * 外部 `()` 和内部 `()` 以后可以使用 `$2` 和 `$3` 引用。
+- `(https://example.com/[^?]*)`：匹配直到 `?` 前一个字符的部分。
+  - `[^?]*` 匹配除 `?` 之外的任何内容。
+  - 这用 `()` 括起来，因此您以后可以使用 `$1` 引用它。
+- `(\?(.*))?`：匹配以 `?` 开头的字符串，这意味着查询参数。
+  - 这也通过模式末尾的 `?` 量词匹配空字符串，该量词*匹配零次或一次*。
+  - 外部 `()` 和内部 `()` 以后可以使用 `$2` 和 `$3` 引用。
 
 [RegExr](https://regexr.com) 可能会帮助您理解详细信息。
 
@@ -57,16 +57,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 总之，这是最终输出：
 
-* **重定向自**：`(https://example.com/[^?]*)((\?(.*))?)`（正则表达式）
-* **重定向到**：`$1?layout=desktop$3`
-* **排除的 URL 模式**：`.*[&?]layout=[^&]*.*`（正则表达式）
-* **捕获组处理**：
-    * **组**：`$3`
-    * **过程**：替换出现次数
-        * **目标**：`\?(.*)`
-        * **替换**：`&$1`
+- **重定向自**：`(https://example.com/[^?]*)((\?(.*))?)`（正则表达式）
+- **重定向到**：`$1?layout=desktop$3`
+- **排除的 URL 模式**：`.*[&?]layout=[^&]*.*`（正则表达式）
+- **捕获组处理**：
+  - **组**：`$3`
+  - **过程**：替换出现次数
+    - **目标**：`\?(.*)`
+    - **替换**：`&$1`
 
 **<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ 下载规则</a>**
-
 
 这仅仅是一个示例。您还可以创建多个规则来处理每个问题。这会简单得多。

@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Caso 1: Redirecionar para outro website
@@ -9,11 +9,11 @@ Suponha que é viciado no Twitter e, para quebrar o hábito, decide ir para o [U
 
 ### Passo 1. Abrir o ecrã "Editar Regra"
 
-Vamos abrir o ecrã *Editar Regra* para começar a criar a sua própria regra na aplicação. Pode fazê-lo clicando no botão de mais (+) no separador *As Minhas Regras*.
+Vamos abrir o ecrã _Editar Regra_ para começar a criar a sua própria regra na aplicação. Pode fazê-lo clicando no botão de mais (+) no separador _As Minhas Regras_.
 
 ### Passo 2. Configurar "Redirecionar De"
 
-Primeiro, deve configurar a secção *Redirecionar De* no ecrã *Editar Regra* na aplicação. Os alvos são URLs que começam com `https://twitter.com/`.
+Primeiro, deve configurar a secção _Redirecionar De_ no ecrã _Editar Regra_ na aplicação. Os alvos são URLs que começam com `https://twitter.com/`.
 
 Neste caso, pode especificar o seguinte padrão com o modo [Curinga](/rule-settings#url-pattern-wildcard):
 
@@ -31,13 +31,13 @@ Para fazer isso, mude de Curinga para [Expressão Regular](/rule-settings#url-pa
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: visa tanto `twitter` quanto `x`. (`|` é chamado *um pipe*.)
-* `.*`: É o mesmo que `*` do Curinga. Mais especificamente, `.` significa *qualquer caractere* e `*` significa *qualquer coisa antes deste símbolo repetida qualquer número de vezes*, resultando em corresponder a qualquer coisa.
+- `(twitter|x)`: visa tanto `twitter` quanto `x`. (`|` é chamado _um pipe_.)
+- `.*`: É o mesmo que `*` do Curinga. Mais especificamente, `.` significa _qualquer caractere_ e `*` significa _qualquer coisa antes deste símbolo repetida qualquer número de vezes_, resultando em corresponder a qualquer coisa.
 
 A Expressão Regular é um pouco complicada, mas uma vez que se habitue a ela, será uma ferramenta poderosa. Recomendamos usar [RegExr](https://regexr.com) como um playground para analisar como o seu padrão de Expressão Regular funciona.
 
 > [!TIP]
-> Em Expressões Regulares, `.` em `(twitter|x).com` também é tratado como *qualquer caractere*. Portanto, `(twitter|x).com/.*` também corresponde, por exemplo, `twitter1com/` ou `x_com/`.
+> Em Expressões Regulares, `.` em `(twitter|x).com` também é tratado como _qualquer caractere_. Portanto, `(twitter|x).com/.*` também corresponde, por exemplo, `twitter1com/` ou `x_com/`.
 >
 > Para ser mais preciso, pode alterá-lo para `(twitter|x)\.com/.*`. `\` é usado para tratar `.` como um caractere de ponto literal em vez de um caractere especial.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Opcional) Passo 4: Verificar a regra
 
-Pode verificar como a regra funciona adicionando um URL de exemplo na secção *Exemplos* no ecrã *Editar Regra*. Por exemplo, se introduzir `https://x.com/UN`, ele mostra `https://unrush.org/` como resultado.
+Pode verificar como a regra funciona adicionando um URL de exemplo na secção _Exemplos_ no ecrã _Editar Regra_. Por exemplo, se introduzir `https://x.com/UN`, ele mostra `https://unrush.org/` como resultado.
 
 Aqui está como a sua regra deve parecer agora:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Um exemplo de regra para abrir outro website" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Um exemplo de regra para abrir outro website"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Descarregar a Regra</a>**
 

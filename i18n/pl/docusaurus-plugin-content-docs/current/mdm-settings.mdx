@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Ustawienia MDM dla administratorów
 
@@ -15,27 +15,36 @@ Ta strona opisuje klucze konfiguracyjne, zachowanie aplikacji, najlepsze praktyk
 
 Wypychając konfiguracje przez MDM, można osiągnąć następujące cele:
 
-* **Wymuszone reguły:** Stosowanie ogólnofirmowych reguł przekierowań, których użytkownicy nie mogą modyfikować ani usuwać.
-* **Wstępna dystrybucja reguł:** Dystrybucja zestawu reguł szablonowych, który służy jako domyślny przy pierwszym uruchomieniu aplikacji.
-* **Kontrola interfejsu użytkownika:** Ograniczenie dostępu do określonych funkcji (takich jak Biblioteka) i wyraźne wskazanie w aplikacji, że podlega ona zarządzaniu przez organizację.
-* **Pobieranie dużych zestawów reguł (Fallback):** Obejście limitów rozmiaru danych MDM poprzez pobieranie reguł z zewnętrznego serwera.
+- **Wymuszone reguły:** Stosowanie ogólnofirmowych reguł przekierowań, których użytkownicy nie mogą modyfikować ani usuwać.
+- **Wstępna dystrybucja reguł:** Dystrybucja zestawu reguł szablonowych, który służy jako domyślny przy pierwszym uruchomieniu aplikacji.
+- **Kontrola interfejsu użytkownika:** Ograniczenie dostępu do określonych funkcji (takich jak Biblioteka) i wyraźne wskazanie w aplikacji, że podlega ona zarządzaniu przez organizację.
+- **Pobieranie dużych zestawów reguł (Fallback):** Obejście limitów rozmiaru danych MDM poprzez pobieranie reguł z zewnętrznego serwera.
 
 ## Przypadki użycia
 
-* **Bezproblemowe kierowanie podczas migracji systemów:**
+- **Bezproblemowe kierowanie podczas migracji systemów:**
   Podczas migracji ze starego systemu wewnętrznego (np. `legacy-crm.internal.local`) na nową platformę (np. `salesforce.com`), należy udostępnić `enforcedRuleSet`. Nawet jeśli pracownicy korzystają ze starych zakładek, zostaną one automatycznie przekierowane do nowego systemu, co eliminuje zgłoszenia do pomocy technicznej IT dotyczące nieaktualnych linków.
-* **Pomoc w dostępie do intranetu:**
+- **Pomoc w dostępie do intranetu:**
   Dystrybucja reguł przekierowań przy użyciu niestandardowych schematów URL w celu ułatwienia dostępu do zasobów intranetu za pośrednictwem tuneli Per-App VPN, takich jak Omnissa Web.
 
 > [!WARNING]
-> 
+>
 > Wypchnięcie konfiguracji MDM jest stosowane natychmiast **tylko wtedy, gdy użytkownik otworzy aplikację RedirectWeb**.
 > Chociaż aplikacja wykorzystuje zadania w tle do cichego przesyłania aktualizacji MDM do rozszerzenia przeglądarki, jest to wykonywane na zasadzie "najlepszych starań" podyktowanych przez system operacyjny. Czas wykonania jest wysoce nieprzewidywalny, a zadanie może w ogóle nie zostać uruchomione.
 > Dlatego nie należy polegać na tej funkcji w przypadku zdarzeń krytycznych czasowo (np. próby natychmiastowego przekierowania wszystkich pracowników do witryny zapasowej w ciągu kilku minut od awarii usługi w chmurze).
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="Demo ustawień MDM" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="Demo ustawień MDM"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Plik plist użyty w filmie jest dostępny tutaj: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -111,15 +120,15 @@ Każdy obiekt reguły ma taki sam format jak ten, który można [udostępnić/wy
 
 Gdy klucz istnieje zarówno w danych MDM, jak i w danych pobranych za pośrednictwem `fallbackDataURL`, aplikacja rozwiązuje konflikt w następujący sposób:
 
-* **Przed zakończeniem pobierania:** Ustawienia bezpośrednie mają bezwzględny priorytet i są używane.
-* **Po pomyślnym pobraniu:** Dane pobrane z `fallbackDataURL` nadpisują odpowiadające im ustawienia bezpośrednie.
-* **Po nieudanym pobraniu:** Aplikacja nadal korzysta z ustawień bezpośrednich.
-* Niezależne klucze, które istnieją tylko w danych bezpośrednich, zostają zachowane.
+- **Przed zakończeniem pobierania:** Ustawienia bezpośrednie mają bezwzględny priorytet i są używane.
+- **Po pomyślnym pobraniu:** Dane pobrane z `fallbackDataURL` nadpisują odpowiadające im ustawienia bezpośrednie.
+- **Po nieudanym pobraniu:** Aplikacja nadal korzysta z ustawień bezpośrednich.
+- Niezależne klucze, które istnieją tylko w danych bezpośrednich, zostają zachowane.
 
 ## Informacje zwrotne MDM i sprawdzanie statusu
 
 Możesz zweryfikować, czy konfiguracja została pomyślnie zastosowana, za pośrednictwem kanału informacji zwrotnych MDM (`com.apple.feedback.managed`), jeśli Twoje rozwiązanie MDM go obsługuje. Po przetworzeniu konfiguracji (lub zakończeniu pobierania z adresu URL) aplikacja zwraca następujące dane:
 
-* `managedConfigVersion`: Ciąg znaków wersji próby konfiguracji.
-* `result`: `success` (sukces) lub `error` (błąd).
-* `messages`: Tablica zawierająca szczegółowe komunikaty o błędach lub ostrzeżeniach, jeśli dotyczy.
+- `managedConfigVersion`: Ciąg znaków wersji próby konfiguracji.
+- `result`: `success` (sukces) lub `error` (błąd).
+- `messages`: Tablica zawierająca szczegółowe komunikaty o błędach lub ostrzeżeniach, jeśli dotyczy.

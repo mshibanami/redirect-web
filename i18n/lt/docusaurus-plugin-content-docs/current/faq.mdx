@@ -13,13 +13,15 @@ Nustatydami „RedirectWeb“ galite matyti tokį įspėjimą:
     <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow />
 
     > Šis plėtinys galės skaityti ir keisti tinklalapius bei matyti jūsų naršymo istoriją šioje svetainėje. **Tai gali apimti jautrią informaciją, įskaitant slaptažodžius, telefono numerius ir kredito korteles.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Jis gali:  
+    > Jis gali:
     > Skaityti ir keisti **visus jūsų duomenis** **visose svetainėse**
+
 </IfBrowserStore>
 
 Šiam plėtiniui reikalingas jūsų leidimas stebėti puslapio naršymą, kad būtų galima nukreipti ten, kur norite pereiti, o jūsų naršyklė tai parodo, kai plėtinys prašo susijusių leidimų. Todėl, jei neleisite, šis plėtinys negalės veikti.
@@ -38,7 +40,11 @@ Taip. Turite atsisiųsti [„RedirectWeb“ programėlę iš „App Store“](ht
 
 Atnaujinę „RedirectWeb“, „Safari“ naršyklėje galite matyti šį įspėjimą:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="An alert of disabling the app" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="An alert of disabling the app"
+  width="280"
+/>
 
 > „RedirectWeb“ buvo atnaujintas ir prašo papildomų leidimų. Siekiant apsaugoti jūsų privatumą, šis plėtinys buvo išjungtas.
 >

@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Caso 3: Adicionar parâmetros de consulta ao URL
 
@@ -6,13 +6,13 @@ Digamos que existe um site chamado `example.com` que mostra um layout móvel por
 
 Talvez você pense que poderia defini-lo da seguinte forma:
 
-* **Redirecionar De**: `https://example.com/.*` (Expressão Regular)
-* **Redirecionar Para**: `$0?layout=desktop`
+- **Redirecionar De**: `https://example.com/.*` (Expressão Regular)
+- **Redirecionar Para**: `$0?layout=desktop`
 
-`$0` referencia o URL de destino. Se você tentar aceder a `example.com/hello`, será redirecionado para `example.com/hello?layout=desktop`. Esta funcionalidade é chamada de *substituição*.
+`$0` referencia o URL de destino. Se você tentar aceder a `example.com/hello`, será redirecionado para `example.com/hello?layout=desktop`. Esta funcionalidade é chamada de _substituição_.
 
 > [!TIP]
-A substituição também está disponível para o modo Curinga, uma vez que é internamente convertida para Expressão Regular.
+> A substituição também está disponível para o modo Curinga, uma vez que é internamente convertida para Expressão Regular.
 
 No entanto, existem alguns problemas com estas configurações.
 
@@ -26,9 +26,9 @@ Neste caso, pode especificar um padrão de URL excluído que permite o acesso se
 .*[&?]layout=[^&]*.*
 ```
 
-* `.*`: Corresponde a qualquer coisa
-* `[&?]`: Corresponde a `&` ou `?`
-* `[^&]*`: Corresponde a qualquer coisa, exceto `&`
+- `.*`: Corresponde a qualquer coisa
+- `[&?]`: Corresponde a `&` ou `?`
+- `[^&]*`: Corresponde a qualquer coisa, exceto `&`
 
 ### Problema 2: Não consegue lidar com parâmetros existentes corretamente
 
@@ -36,37 +36,36 @@ Se o URL de destino já tiver outros parâmetros de consulta como `example.com/h
 
 Neste caso, altere as configurações assim:
 
-* **Redirecionar De**: `(https://example.com/[^?]*)(\?(.*))?`
-* **Redirecionar Para**: `$1?layout=desktop&$3`
+- **Redirecionar De**: `(https://example.com/[^?]*)(\?(.*))?`
+- **Redirecionar Para**: `$1?layout=desktop&$3`
 
 Vamos analisar passo a passo.
 
-* `(https://example.com/[^?]*)`: Corresponde à parte até o caractere anterior de `?`.
-    * `[^?]*` corresponde a qualquer coisa, exceto `?`.
-    * Isto é envolvido com `()` para que possa referenciá-lo com `$1` mais tarde.
-* `(\(.*))?`: Corresponde a uma string que começa com `?`, o que significa parâmetros de consulta.
-    * Isto também corresponde a uma string vazia pelo quantificador `?` no final do padrão, que *corresponde zero ou uma vez*.
-    * O `()` externo e o `()` interno podem ser referenciados com `$2` e `$3` mais tarde.
+- `(https://example.com/[^?]*)`: Corresponde à parte até o caractere anterior de `?`.
+  - `[^?]*` corresponde a qualquer coisa, exceto `?`.
+  - Isto é envolvido com `()` para que possa referenciá-lo com `$1` mais tarde.
+- `(\(.*))?`: Corresponde a uma string que começa com `?`, o que significa parâmetros de consulta.
+  - Isto também corresponde a uma string vazia pelo quantificador `?` no final do padrão, que _corresponde zero ou uma vez_.
+  - O `()` externo e o `()` interno podem ser referenciados com `$2` e `$3` mais tarde.
 
 [RegExr](https://regexr.com) pode ajudá-lo a entender os detalhes.
 
 > [!NOTE]
 > O RegExr mostra um erro quando você não escapa `/` com `\`. Embora possa escapá-lo, não é obrigatório, pois o RedirectWeb usa um motor diferente da Apple que não exige o escape.
 
-Esta não é uma solução perfeita, pois redireciona `example.com/hello` para `example.com/hello?layout=desktop&`, que inclui um `&` desnecessário no final do URL. Não é um grande problema em geral, mas se desejar removê-lo, pode usar o *Processamento de Grupo de Captura*.
+Esta não é uma solução perfeita, pois redireciona `example.com/hello` para `example.com/hello?layout=desktop&`, que inclui um `&` desnecessário no final do URL. Não é um grande problema em geral, mas se desejar removê-lo, pode usar o _Processamento de Grupo de Captura_.
 
 Em conclusão, esta é a saída final:
 
-* **Redirecionar De**: `(https://example.com/[^?]*)((\(.*))?)` (Expressão Regular)
-* **Redirecionar Para**: `$1?layout=desktop$3`
-* **Padrão de URL Excluído**: `.*[&?]layout=[^&]*.*` (Expressão Regular)
-* **Processamento de Grupo de Captura**: 
-    * **Grupo**: `$3`
-    * **Processo**: Substituir Ocorrências
-        * **Alvo**: `\?(.*)`
-        * **Substituição**: `&$1`
+- **Redirecionar De**: `(https://example.com/[^?]*)((\(.*))?)` (Expressão Regular)
+- **Redirecionar Para**: `$1?layout=desktop$3`
+- **Padrão de URL Excluído**: `.*[&?]layout=[^&]*.*` (Expressão Regular)
+- **Processamento de Grupo de Captura**:
+  - **Grupo**: `$3`
+  - **Processo**: Substituir Ocorrências
+    - **Alvo**: `\?(.*)`
+    - **Substituição**: `&$1`
 
 **<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Descarregar a Regra</a>**
-
 
 Isto é meramente um exemplo. Também pode criar várias regras para lidar com cada problema. Pode ser muito mais simples.

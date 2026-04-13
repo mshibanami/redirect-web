@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Setări MDM pentru Administratori
 
@@ -15,27 +15,36 @@ Această pagină prezintă cheile configurabile, comportamentele aplicației, ce
 
 Prin trimiterea configurațiilor prin MDM, puteți realiza următoarele:
 
-* **Reguli impuse:** Aplicați reguli de redirecționare la nivel de organizație pe care utilizatorii nu le pot modifica sau șterge.
-* **Distribuirea inițială a regulilor:** Distribuiți un set de reguli șablon care servește ca implicit la prima lansare a aplicației.
-* **Control UI:** Restricționați accesul la funcții specifice (cum ar fi Biblioteca) și indicați clar în aplicație că aceasta se află sub gestionarea organizației.
-* **Preluarea regulilor mari (Fallback):** Ocoliți limitele de dimensiune ale sarcinii utile MDM prin preluarea regulilor de pe un server extern.
+- **Reguli impuse:** Aplicați reguli de redirecționare la nivel de organizație pe care utilizatorii nu le pot modifica sau șterge.
+- **Distribuirea inițială a regulilor:** Distribuiți un set de reguli șablon care servește ca implicit la prima lansare a aplicației.
+- **Control UI:** Restricționați accesul la funcții specifice (cum ar fi Biblioteca) și indicați clar în aplicație că aceasta se află sub gestionarea organizației.
+- **Preluarea regulilor mari (Fallback):** Ocoliți limitele de dimensiune ale sarcinii utile MDM prin preluarea regulilor de pe un server extern.
 
 ## Cazuri de utilizare
 
-* **Direcționare fără probleme în timpul migrărilor de sistem:**
+- **Direcționare fără probleme în timpul migrărilor de sistem:**
   Când migrați de la un sistem intern vechi (de exemplu, `legacy-crm.internal.local`) la o platformă nouă (de exemplu, `salesforce.com`), distribuiți un `enforcedRuleSet`. Chiar dacă angajații folosesc marcaje vechi, aceștia sunt redirecționați automat către noul sistem, eliminând tichetele de asistență IT referitoare la linkurile învechite.
-* **Asistență pentru accesul la Intranet:**
+- **Asistență pentru accesul la Intranet:**
   Distribuiți reguli de redirecționare folosind scheme URL personalizate pentru a facilita accesul la resursele intranet prin tuneluri VPN Per-App, cum ar fi Omnissa Web.
 
 > [!AVERTISMENT]
-> 
+>
 > Actualizările configurației MDM sunt aplicate imediat **numai dacă utilizatorul deschide aplicația RedirectWeb**.
 > Deși aplicația utilizează sarcini de fundal pentru a trimite actualizările MDM către extensia de browser în mod silențios, aceasta este o execuție „best-effort” dictată de sistemul de operare. Momentul execuției este extrem de imprevizibil, iar sarcina s-ar putea să nu ruleze deloc.
 > Prin urmare, nu ar trebui să vă bazați pe această funcție pentru răspunsuri la incidente critice din punct de vedere al timpului (de exemplu, încercarea de a redirecționa instantaneu toți angajații către un site de rezervă în câteva minute de la o întrerupere a serviciului cloud).
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM Settings Demo" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM Settings Demo"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Fișierul plist utilizat în videoclip este disponibil aici: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -111,15 +120,15 @@ Fiecare obiect de regulă are același format ca cel pe care îl puteți [partaj
 
 Când o cheie există atât în sarcina utilă MDM inline, cât și în datele preluate prin `fallbackDataURL`, aplicația gestionează conflictul după cum urmează:
 
-* **Înainte de finalizarea preluării:** Setările inline sunt prioritizate strict și utilizate.
-* **După preluarea reușită:** Datele recuperate de la `fallbackDataURL` suprascriu setările inline corespunzătoare.
-* **După preluarea eșuată:** Aplicația continuă să utilizeze setările inline.
-* Cheile independente care există numai în sarcina utilă inline sunt păstrate.
+- **Înainte de finalizarea preluării:** Setările inline sunt prioritizate strict și utilizate.
+- **După preluarea reușită:** Datele recuperate de la `fallbackDataURL` suprascriu setările inline corespunzătoare.
+- **După preluarea eșuată:** Aplicația continuă să utilizeze setările inline.
+- Cheile independente care există numai în sarcina utilă inline sunt păstrate.
 
 ## Feedback MDM și verificarea stării
 
 Puteți verifica dacă configurația a fost aplicată cu succes prin canalul de feedback MDM (`com.apple.feedback.managed`), dacă soluția dvs. MDM îl suportă. După procesarea configurației (sau finalizarea preluării URL), aplicația returnează următoarele date:
 
-* `managedConfigVersion`: Șirul versiunii încercării de configurare.
-* `result`: Fie `success`, fie `error`.
-* `messages`: Un tablou care conține mesaje detaliate de eroare sau avertisment, dacă este cazul.
+- `managedConfigVersion`: Șirul versiunii încercării de configurare.
+- `result`: Fie `success`, fie `error`.
+- `messages`: Un tablou care conține mesaje detaliate de eroare sau avertisment, dacă este cazul.
