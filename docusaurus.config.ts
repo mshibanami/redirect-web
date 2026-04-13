@@ -48,7 +48,7 @@ const config: Config = {
   projectName: projectName,
   future: {
     v4: true,
-    experimental_faster: true,
+    faster: true,
   },
   onBrokenLinks: 'throw',
   trailingSlash: false,
