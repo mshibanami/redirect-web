@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Prípad 2: Odstránenie parametrov dotazu z URL
 
@@ -6,14 +6,14 @@ Predpokladajme, že v URL `example.com` je parameter dotazu `source=twitter` a v
 
 V tomto prípade je najjednoduchší spôsob možnosť **Spracovanie zachytávacej skupiny**:
 
-* **Presmerovať z**: `https://example.com/*` (Zástupný znak)
-* **Presmerovať na**: `$0`
-* **Spracovanie zachytávacej skupiny**:
-    * **Skupina**: `$0`
-    * **Proces**: Nahradiť výskyty
-        * **Cieľ**: `&?source=[^&]*`
-        * **Náhrada**: *(žiadna)*
-        * **Vzor textu**: Regulárny výraz
+- **Presmerovať z**: `https://example.com/*` (Zástupný znak)
+- **Presmerovať na**: `$0`
+- **Spracovanie zachytávacej skupiny**:
+  - **Skupina**: `$0`
+  - **Proces**: Nahradiť výskyty
+    - **Cieľ**: `&?source=[^&]*`
+    - **Náhrada**: _(žiadna)_
+    - **Vzor textu**: Regulárny výraz
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Stiahnuť pravidlo</a>**
 

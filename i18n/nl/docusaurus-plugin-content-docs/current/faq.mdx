@@ -3,106 +3,112 @@ import Image from "@site/src/components/Image";
 import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
 import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
 
-# Veelgestelde vragen
+# FAQ
 
-## Waarom werkt mijn omleidingsregel niet? {#redirection-not-working}
+## Waarom werkt mijn omleidingsregel niet? {/* #redirection-not-working */}
 
-Als een regel die u hebt gemaakt niet wordt geactiveerd zoals verwacht, controleer dan het volgende:
+Als een regel die u hebt gemaakt niet werkt zoals verwacht, controleer dan het volgende:
 
 - **Is de extensie ingeschakeld?** Controleer de extensie-instellingen van uw browser om er zeker van te zijn dat RedirectWeb is ingeschakeld.
-- **Staat de regel aan?** Open de RedirectWeb-app en zorg ervoor dat de schakelaar van de specifieke regel in de "Aan"-positie staat.
+- **Staat de regel aan?** Open de RedirectWeb-app en zorg ervoor dat de schakelaar van de specifieke regel in de stand "Aan" staat.
 - **Is de regel correct?** Test de regel door een URL te typen in het veld Voorbeelden in het scherm Regel bewerken.
-- **[Safari] Heeft u de extensie toegang gegeven tot de bronwebsite?**: Zorg ervoor dat u de extensie toegang heeft gegeven tot de website waarvan u wilt omleiden. Als u de pop-up van de extensie kunt openen, heeft de extensie toegang tot de bronwebsite.
-    > [!TIP]
-    > Voor uw gemak raden we aan om toegang tot alle websites toe te staan. (Zomaar een tip!)
+- **[Safari] Hebt u de extensie toegang gegeven tot de bronwebsite?**: Zorg ervoor dat u de extensie toegang hebt gegeven tot de website waarvan u wilt omleiden. Als u de pop-up van de extensie kunt openen, heeft de extensie toegang tot de bronwebsite.
+  > [!TIP]
+  > Voor uw gemak raden we aan om toegang tot alle websites toe te staan. (Zomaar een tip!)
 
-## Waarom moet ik de extensie toestaan mijn informatie te lezen/wijzigen? {#why-allow-extension-to-read-change}
+## Waarom moet ik de extensie toestaan mijn informatie te lezen/wijzigen? {/* #why-allow-extension-to-read-change */}
 
-Mogelijk ziet u een waarschuwing zoals deze wanneer u RedirectWeb instelt:
+U kunt een melding zoals deze zien wanneer u RedirectWeb instelt:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="Een waarschuwing die toestemming vereist" width="200" margin="0 0 16px 0" hasShadow />
+    <Image src={PermissionAlertSafari} alt="Een melding over vereiste machtigingen" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Deze extensie kan webpagina's lezen en wijzigen en uw browsegeschiedenis op deze website zien. **Dit kan gevoelige informatie bevatten, waaronder wachtwoorden, telefoonnummers en creditcards.**
+    > Deze extensie kan webpagina's lezen en wijzigen en uw browsegeschiedenis op deze website bekijken. **Dit kan gevoelige informatie bevatten, waaronder wachtwoorden, telefoonnummers en creditcards.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="Een waarschuwing die toestemming vereist" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="Een melding over vereiste machtigingen" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Het kan:  
-    > Al uw gegevens lezen en wijzigen op alle websites
+    > Het kan:
+    > **Al uw gegevens** op **alle websites** lezen en wijzigen
+
 </IfBrowserStore>
 
-Deze extensie heeft uw toestemming nodig om de paginanavigatie te observeren om om te leiden naar waar u maar wilt springen, en uw browser geeft dit weer wanneer de extensie de gerelateerde machtigingen aanvraagt. Daarom, als u het niet toestaat, kan deze extensie niet werken.
+Deze extensie heeft uw toestemming nodig om de paginanavigatie te observeren om om te leiden naar waar u maar wilt, en uw browser geeft dit weer wanneer de extensie de gerelateerde machtigingen aanvraagt. Als u dit niet toestaat, kan deze extensie dus niet werken.
 
-Verleende machtigingen worden alleen gebruikt voor app-functies zoals omleiding, in overeenstemming met **[het privacybeleid](/privacy-policy)**.
+Verleende machtigingen worden alleen gebruikt voor app-functies zoals omleiding, in overeenstemming met het **[privacybeleid](/privacy-policy)**.
 
-## Mijn aankoop wordt niet hersteld, zelfs niet na het tikken op "Herstel aankoop" {#purchase-not-restored}
+## Mijn aankoop wordt niet hersteld, zelfs niet na het tikken op "Herstel aankoop" {/* #purchase-not-restored */}
 
 Als de knop Herstel aankoop niet werkt zoals verwacht, volg dan deze stappen voor probleemoplossing:
 
-1. Log in op [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) om te bevestigen dat de transactie succesvol is voltooid en in uw Apple ID-geschiedenis staat.
+1. Log in op [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) om te bevestigen dat de transactie succesvol is voltooid en in uw Apple ID-geschiedenis staat vermeld.
 2. Zorg ervoor dat de Apple ID die momenteel is aangemeld bij de **App Store-app** dezelfde is als die werd gebruikt voor de oorspronkelijke aankoop.
-    > [!NOTE]
-    >
-    > Het account dat is aangemeld bij de Instellingen-app van uw apparaat kan soms verschillen van het account dat in de App Store-app wordt gebruikt. Het is het account in de App Store-app dat moet overeenkomen met uw aankoopgeschiedenis om het herstel correct te laten functioneren.
-3. Als u meerdere Apple ID's heeft, log dan uit bij de App Store en log opnieuw in met het juiste account, en probeer vervolgens de knop Herstel aankoop opnieuw.
+   > [!NOTE]
+   >
+   > Het account dat is aangemeld bij de Instellingen-app van uw apparaat kan soms verschillen van het account dat in de App Store-app wordt gebruikt. Het is het account in de App Store-app dat moet overeenkomen met uw aankoopgeschiedenis om het herstellen correct te laten werken.
+3. Als u meerdere Apple ID's hebt, log dan uit bij de App Store en log opnieuw in met het juiste account. Probeer daarna de knop Herstel aankoop opnieuw.
 
-Als de accounts overeenkomen maar het herstel nog steeds mislukt, neem dan [contact met ons op](/contact-us) met een screenshot van uw aankoopbewijs of aankoopgeschiedenis. We zullen het probleem verder voor u onderzoeken.
+Als de accounts overeenkomen maar het herstellen nog steeds mislukt, [neem dan contact met ons op](/contact-us) met een screenshot van uw kwitantie of aankoopgeschiedenis. We zullen het probleem dan verder voor u onderzoeken.
 
-## Moet ik de app nog steeds downloaden na het installeren van de extensie voor Chrome, Firefox of Edge? {#app-for-non-safari-browsers}
+## Moet ik de app nog steeds downloaden nadat ik de extensie voor Chrome, Firefox of Edge heb geïnstalleerd? {/* #app-for-non-safari-browsers */}
 
-Ja. U moet [de RedirectWeb-app downloaden uit de App Store](https://apps.apple.com/app/id1571283503), ongeacht welke browser u gebruikt. U kunt de extensie installeren vanuit de extensiewinkel van uw browser, maar de app is vereist om uw regels, aankoopgeschiedenis en andere instellingen op verschillende apparaten via iCloud te beheren.
+Ja. U moet de [RedirectWeb-app downloaden uit de App Store](https://apps.apple.com/app/id1571283503), ongeacht welke browser u gebruikt. U kunt de extensie installeren via de extensiewinkel van uw browser, maar de app is vereist om uw regels, aankoopgeschiedenis en andere instellingen via iCloud op verschillende apparaten te beheren.
 
-## Heb ik een andere extensie nodig voor Chrome, Firefox of Edge als ik de Pro-app gebruik? {#different-extension-for-pro}
+## Heb ik een andere extensie nodig voor Chrome, Firefox of Edge als ik de Pro-app gebruik? {/* #different-extension-for-pro */}
 
 Nee. Of u nu de standaard RedirectWeb-app of RedirectWeb Pro op uw Mac gebruikt, u moet precies dezelfde extensie installeren vanuit de respectievelijke extensiewinkel van uw browser. De extensie zal automatisch detecteren met welke versie van de app u hebt geïnstalleerd en daarmee communiceren.
 
-## Werkt RedirectWeb op Windows, Android, Linux of andere platforms? {#non-apple-platforms}
+## Werkt RedirectWeb op Windows, Android, Linux of andere platforms? {/* #non-apple-platforms */}
 
-Op dit moment niet. RedirectWeb is nauw verbonden met het ecosysteem van Apple, inclusief iCloud en Universal Purchase. Excuses voor het ongemak.
+Momenteel niet. RedirectWeb is nauw verbonden met het ecosysteem van Apple, inclusief iCloud en Universele aankoop. Excuses voor het ongemak.
 
-## Waarom vereist deze extensie een nieuwe toestemming? {#permission-alert-on-safari}
+## Waarom vereist deze extensie een nieuwe machtiging? {/* #permission-alert-on-safari */}
 
-Mogelijk ziet u deze waarschuwing in Safari na het bijwerken van RedirectWeb:
+U kunt deze melding in Safari zien na het bijwerken van RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Een waarschuwing voor het uitschakelen van de app" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Een melding over het uitschakelen van de app"
+  width="280"
+/>
 
 > "RedirectWeb" is bijgewerkt en vraagt om aanvullende machtigingen. Om uw privacy te beschermen, is deze extensie uitgeschakeld.
 >
-> U kunt deze extensie inschakelen in de sectie Extensies van de Safari-instellingen.
+> U kunt deze extensie weer inschakelen in het gedeelte Extensies van de Safari-instellingen.
 
-Dit komt door de [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) machtiging die vereist is door het [DNR](/rule-settings#type) type geïntroduceerd in versie 7. Schakel de extensie opnieuw in. Excuses voor het ongemak.
+Dit komt door de machtiging [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) die vereist is voor het [DNR-type](/rule-settings#type) dat is geïntroduceerd in versie 7. Schakel de extensie opnieuw in. Excuses voor het ongemak.
 
-## Wordt de inhoud van de bibliotheek in de toekomst betaald? {#will-library-become-paid}
+## Wordt de inhoud van de bibliotheek in de toekomst betaald? {/* #will-library-become-paid */}
 
 Nee, het is altijd gratis. U kunt de bron van alle inhoud ook [hier](https://github.com/mshibanami/redirect-web/tree/main/library) vinden.
 
-## Wat is het verschil tussen RedirectWeb en RedirectWeb Pro? {#difference-between-standard-and-pro}
+## Wat is het verschil tussen RedirectWeb en RedirectWeb Pro? {/* #difference-between-standard-and-pro */}
 
-Beide versies bieden precies dezelfde functies en ontvangen tegelijkertijd updates. Het enige verschil is het betalingsmodel:
+Beide versies bieden exact dezelfde functies en ontvangen tegelijkertijd updates. Het enige verschil is het betalingsmodel:
 
-- **RedirectWeb**: Een gratis app met basisfuncties (beperkt tot **1 actieve regel**), die een optionele in-app aankoop (abonnement of eenmalige betaling) biedt om alle functies te ontgrendelen, inclusief onbeperkte regels en iCloud-synchronisatie.
-- **RedirectWeb Pro**: Een app die vooraf betaald moet worden en volledig ontgrendeld is. Deze versie is specifiek gemaakt om in aanmerking te komen voor **Apple Business Manager** en **Apple School Manager (VPP)**, waardoor organisaties de app in bulk kunnen kopen, wat niet mogelijk is met in-app aankopen. Iedereen die de voorkeur geeft aan een aankoop vooraf kan deze echter kopen!
+- **RedirectWeb**: Een gratis app met basisfuncties (beperkt tot **1 actieve regel**), met een optionele in-app aankoop (abonnement of eenmalige betaling) om alle functies te ontgrendelen, inclusief onbeperkte regels en iCloud-synchronisatie.
+- **RedirectWeb Pro**: Een app die vooraf wordt betaald en volledig is ontgrendeld. Deze versie is specifiek gemaakt om in aanmerking te komen voor **Apple Business Manager** en **Apple School Manager (VPP)**, waardoor organisaties de app in bulk kunnen inkopen, wat niet mogelijk is met in-app aankopen. Iedereen die de voorkeur geeft aan een eenmalige betaling vooraf, kan deze echter kopen!
 
-## Eenmalige aankoop, jaarabonnement of Pro-versie: wat is het beste? {#one-time-or-subscription-or-pro}
+## Eenmalige aankoop, jaarabonnement of Pro-versie: wat is het beste? {/* #one-time-or-subscription-or-pro */}
 
-We raden ofwel de eenmalige aankoop binnen de standaard RedirectWeb-app aan, of de aankoop van RedirectWeb Pro, aangezien ze dezelfde waarde bieden.
-De belangrijkste reden waarom we het abonnement aanbieden, is om u de mogelijkheid te geven alle functies uit te proberen via de gratis proefperiode. Hier is het verwachte gebruiksscenario:
+We raden ofwel de eenmalige aankoop binnen de standaard RedirectWeb-app aan, of het kopen van RedirectWeb Pro, aangezien ze dezelfde waarde bieden.
+De belangrijkste reden waarom we het abonnement aanbieden, is om u alle functies te laten proberen via de gratis proefperiode. Dit is het verwachte gebruiksscenario:
 
-1. Abonneer u op het jaarabonnement in de standaard RedirectWeb-app.
-2. Annuleer het abonnement onmiddellijk door naar de Instellingen-app te gaan, te zoeken naar "Abonnementen", op deze app te tikken en "Abonnement annuleren" te selecteren. Zo kunt u genieten van de gratis proefperiode zonder enige verplichting.
+1. Neem een jaarabonnement in de standaard RedirectWeb-app.
+2. Zeg het abonnement onmiddellijk op door naar de Instellingen-app te gaan, naar "Abonnementen" te zoeken, op deze app te tikken en "Annuleer abonnement" te selecteren. Hiermee kunt u genieten van de gratis proefperiode zonder enige verplichting.
 3. Geniet 7 dagen lang van volledige toegang tot alle functies.
-4. Als u de functies leuk vindt, kies dan voor de eenmalige aankoop of koop de Pro-versie.
+4. Als de functies u bevallen, kies dan voor de eenmalige aankoop of koop de Pro-versie.
 
 Natuurlijk is er niets mis mee om door te gaan met het jaarabonnement als u dat liever hebt!
 
-## Injecteert RedirectWeb advertenties of andere niet-gerelateerde inhoud in websites? {#does-it-inject-ads}
+## Voegt RedirectWeb advertenties of andere niet-gerelateerde inhoud toe aan websites? {/* #does-it-inject-ads */}
 
-Nee, het injecteert geen dergelijke inhoud. Alleen code die nodig is om de functies te bieden die in deze documentatie en op de app-pagina in de App Store worden beschreven, wordt geïnjecteerd in websites op Safari.
+Nee, het voegt geen dergelijke inhoud toe. Alleen code die nodig is om de functies te bieden die in deze documentatie en op de app-pagina in de App Store worden beschreven, wordt in websites in Safari geïnjecteerd.
 
-## Is er een kans dat RedirectWeb ooit aan iemand anders wordt verkocht? {#could-it-be-sold}
+## Is er een kans dat RedirectWeb ooit aan iemand anders wordt verkocht? {/* #could-it-be-sold */}
 
-100% nee. Browserextensies hebben diepgaande controle over uw browsegedrag en gegevens, en het overdragen van RedirectWeb aan een andere eigenaar zou de deur openen voor privacyschendingen. We hebben gezien dat extensies van eigenaar wisselden en vervolgens gebruikersgegevens verzamelden of advertenties injecteerden zonder waarschuwing. Dat zal hier nooit gebeuren. Voor meer informatie over deze risico's, zie het artikel van Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) en het onderzoek van Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100% nee. Browser-extensies hebben diepgaande controle over uw browsegedrag en gegevens, en het overdragen van RedirectWeb aan een andere eigenaar zou de deur openzetten voor privacyschendingen. We hebben gezien dat extensies van eigenaar veranderen en vervolgens zonder waarschuwing gebruikersgegevens verzamelen of advertenties injecteren. Dat zal hier nooit gebeuren. Voor meer informatie over deze risico's, zie het artikel van Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) en het onderzoek van Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-RedirectWeb is gebaseerd op vertrouwen en verantwoordelijkheid. Wij beschouwen het als onze plicht om uw informatie veilig te houden, en we weigeren onder geen enkele omstandigheid het eigendom over te dragen. RedirectWeb blijft altijd in onze handen, zodat u met volledig vertrouwen kunt browsen.
+RedirectWeb is gebaseerd op vertrouwen en verantwoordelijkheid. Wij beschouwen het als onze plicht om uw informatie veilig te houden en we weigeren onder alle omstandigheden het eigendom over te dragen. RedirectWeb zal altijd in onze handen blijven, zodat u met volledig vertrouwen kunt browsen.

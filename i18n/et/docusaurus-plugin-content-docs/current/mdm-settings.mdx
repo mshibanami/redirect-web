@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM seaded administraatoritele
 
@@ -15,27 +15,36 @@ Sellel lehel kirjeldatakse konfigureeritavaid võtmeid, rakenduse käitumist, pa
 
 Konfiguratsioonide edastamisega oma MDM-i kaudu saate saavutada järgmist:
 
-* **Sunnitud reeglid:** Rakendage organisatsiooniüleseid ümbersuunamisreegleid, mida kasutajad ei saa muuta ega kustutada.
-* **Reeglite esmane jaotamine:** Jagage reeglistiku malli, mis toimib vaikeseadena rakenduse esmakordsel käivitamisel.
-* **Kasutajaliidese juhtimine:** Piirake juurdepääsu konkreetsetele funktsioonidele (nagu teek) ja märkige rakenduses selgelt, et see on organisatsiooni halduse all.
-* **Mahukate reeglite hankimine (asenduslahendus):** Mööduge MDM-i andmemahu piirangutest, hankides reeglid välisest serverist.
+- **Sunnitud reeglid:** Rakendage organisatsiooniüleseid ümbersuunamisreegleid, mida kasutajad ei saa muuta ega kustutada.
+- **Reeglite esmane jaotamine:** Jagage reeglistiku malli, mis toimib vaikeseadena rakenduse esmakordsel käivitamisel.
+- **Kasutajaliidese juhtimine:** Piirake juurdepääsu konkreetsetele funktsioonidele (nagu teek) ja märkige rakenduses selgelt, et see on organisatsiooni halduse all.
+- **Mahukate reeglite hankimine (asenduslahendus):** Mööduge MDM-i andmemahu piirangutest, hankides reeglid välisest serverist.
 
 ## Kasutusjuhtumid
 
-* **Sujuv suunamine süsteemide rände ajal:**
+- **Sujuv suunamine süsteemide rände ajal:**
   Vana sisesüsteemi (nt `legacy-crm.internal.local`) rändel uuele platvormile (nt `salesforce.com`) levitage `enforcedRuleSet`-i. Isegi kui töötajad kasutavad vanu järjehoidjaid, suunatakse nad automaatselt uude süsteemi, vähendades aegunud linkidega seotud IT-toe pöördumisi.
-* **Siseveebi juurdepääsu abi:**
+- **Siseveebi juurdepääsu abi:**
   Levitage ümbersuunamisreegleid, kasutades kohandatud URL-skeeme, et hõlbustada juurdepääsu siseveebi ressurssidele rakendusepõhiste VPN-tunnelite kaudu, nagu Omnissa Web.
 
 > [!HOIATUS]
-> 
+>
 > MDM-i konfiguratsiooni muudatused rakenduvad kohe **ainult siis, kui kasutaja avab rakenduse RedirectWeb**.
 > Kuigi rakendus kasutab taustatoiminguid MDM-i värskenduste vaikseks edastamiseks brauseri laiendusele, on see operatsioonisüsteemi poolt dikteeritud "parima püüdluse" täitmine. Täitmise aeg on väga ettearvamatu ja toiming ei pruugi üldse käivituda.
 > Seetõttu **ei tohi** sellele funktsioonile loota ajakriitiliste intsidentide lahendamisel (nt katse suunata kõik töötajad koheselt varusaidile mõne minuti jooksul pärast pilveteenuse katkestust).
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM Settings Demo" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM Settings Demo"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Videos kasutatud plist-fail on saadaval siin: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -45,18 +54,18 @@ Videos kasutati konfiguratsiooni juurutamiseks ManageEngine'i MDM-i, kuid sama k
 
 Juurutage järgmised hallatava rakenduse konfiguratsiooni võtmed ja väärtused oma MDM-konsooli kaudu, tavaliselt plist-vormingus.
 
-| Võtme nimi             | Tüüp                         | Kirjeldus                                                                                                                                                                                                                                                                     |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Reeglistik](#rule-set-object) | **[Sunnitud reeglid]** Reeglistik, mida rakendatakse kõrgema prioriteediga kui tavalisi reegleid. Nimekirja esimesel reeglil on eelisõigus. Kasutajad ei saa neid reegleid muuta, kustutada ega ümber järjestada. Need on alati aktiivsed, eirates rakenduse üldist väljalülitamise lülitit, ja neid ei sünkroonita iCloudi kaudu. |
-| `prefilledRuleSet`     | [Reeglistik](#rule-set-object) | **[Esialgsed reeglid]** Reeglistik, mis luuakse vaikimisi näidisreegli asemel, kui kasutaja käivitab rakenduse esimest korda ilma olemasolevate reegliteta. Pärast jaotamist toimivad need tavaliste reeglitena, võimaldades kasutajal neid muuta, kustutada ja iCloudi kaudu sünkroonida.                       |
-| `organizationName`     | String                       | Kuvab rakendusesiseste seadete ekraani ülaosas teksti "Haldab [organizationName]", andes kasutajale märku, et rakendus on hallatav.                                                                                                                                            |
-| `managedConfigVersion` | String                       | Suvaline konfiguratsiooni versiooni string. Kuvatakse kasutajaliideses, võimaldades IT-toel tõrkeotsingu ajal kontrollida, kas viimane MDM-i andmepakett on seadmesse jõudnud.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | Kui seade on `false`, on reeglite teegi (Rule Library) funktsioon peidetud ja sektsioon asendatud veateatega "Teie organisatsioon on piiranud juurdepääsu".                                                                                                                                   |
-| `fallback`             | [Asenduslahendus](#fallback-object) | Määratlege see siis, kui konfiguratsioonid ületavad MDM-i andmemahu piiranguid. Rakendus hangib konfiguratsiooni rakendamiseks sellest URL-ist JSON/XML-i.                                                                                                                                     |
+| Võtme nimi             | Tüüp                                | Kirjeldus                                                                                                                                                                                                                                                                                                                          |
+| ---------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Reeglistik](#rule-set-object)      | **[Sunnitud reeglid]** Reeglistik, mida rakendatakse kõrgema prioriteediga kui tavalisi reegleid. Nimekirja esimesel reeglil on eelisõigus. Kasutajad ei saa neid reegleid muuta, kustutada ega ümber järjestada. Need on alati aktiivsed, eirates rakenduse üldist väljalülitamise lülitit, ja neid ei sünkroonita iCloudi kaudu. |
+| `prefilledRuleSet`     | [Reeglistik](#rule-set-object)      | **[Esialgsed reeglid]** Reeglistik, mis luuakse vaikimisi näidisreegli asemel, kui kasutaja käivitab rakenduse esimest korda ilma olemasolevate reegliteta. Pärast jaotamist toimivad need tavaliste reeglitena, võimaldades kasutajal neid muuta, kustutada ja iCloudi kaudu sünkroonida.                                         |
+| `organizationName`     | String                              | Kuvab rakendusesiseste seadete ekraani ülaosas teksti "Haldab [organizationName]", andes kasutajale märku, et rakendus on hallatav.                                                                                                                                                                                                |
+| `managedConfigVersion` | String                              | Suvaline konfiguratsiooni versiooni string. Kuvatakse kasutajaliideses, võimaldades IT-toel tõrkeotsingu ajal kontrollida, kas viimane MDM-i andmepakett on seadmesse jõudnud.                                                                                                                                                     |
+| `showsLibrarySection`  | Boolean                             | Kui seade on `false`, on reeglite teegi (Rule Library) funktsioon peidetud ja sektsioon asendatud veateatega "Teie organisatsioon on piiranud juurdepääsu".                                                                                                                                                                        |
+| `fallback`             | [Asenduslahendus](#fallback-object) | Määratlege see siis, kui konfiguratsioonid ületavad MDM-i andmemahu piiranguid. Rakendus hangib konfiguratsiooni rakendamiseks sellest URL-ist JSON/XML-i.                                                                                                                                                                         |
 
 Kõik need võtmed on valikulised.
 
-### [Objekt] Reeglistik {#rule-set-object}
+### [Objekt] Reeglistik {/* #rule-set-object */}
 
 Igal reegliobjektil on sama vorming, mida saate [rakenduse kaudu jagada/eksportida](export-or-import-rules), kuid peate selle JSON-ist plist-vormingusse teisendama, näiteks nii:
 
@@ -94,11 +103,11 @@ Igal reegliobjektil on sama vorming, mida saate [rakenduse kaudu jagada/eksporti
 ...
 ```
 
-### [Objekt] Asenduslahendus (Fallback) {#fallback-object}
+### [Objekt] Asenduslahendus (Fallback) {/* #fallback-object */}
 
-| Võtme nimi        | Tüüp         | Kirjeldus                                                                                                                                    |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | JSON/XML-faili lõpp-punkti URL, mis sisaldab reeglistikke.                                                                                     |
+| Võtme nimi        | Tüüp         | Kirjeldus                                                                                                                                            |
+| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | JSON/XML-faili lõpp-punkti URL, mis sisaldab reeglistikke.                                                                                           |
 | `authToken`       | String       | Autentimistõend, mis lisatakse HTTP-päisesse, kui andmeid hangitakse `fallbackDataURL`-ist. (Kasutatakse kujul `Authorization: Bearer [authToken]`). |
 
 ## Reeglite hindamine ja konfliktide lahendamine
@@ -111,15 +120,15 @@ Igal reegliobjektil on sama vorming, mida saate [rakenduse kaudu jagada/eksporti
 
 Kui võti on olemas nii MDM-i andmepaketis kui ka `fallbackDataURL`-i kaudu hangitud andmetes, käsitleb rakendus konflikti järgmiselt:
 
-* **Enne hankimise lõpetamist:** Eelistatakse rangelt andmepaketisiseseid seadeid.
-* **Pärast edukat hankimist:** `fallbackDataURL`-ist saadud andmed kirjutavad vastavad siseseaded üle.
-* **Pärast ebaõnnestunud hankimist:** Rakendus jätkab siseseadete kasutamist.
-* Sõltumatud võtmed, mis eksisteerivad ainult siseses andmepaketis, säilitatakse.
+- **Enne hankimise lõpetamist:** Eelistatakse rangelt andmepaketisiseseid seadeid.
+- **Pärast edukat hankimist:** `fallbackDataURL`-ist saadud andmed kirjutavad vastavad siseseaded üle.
+- **Pärast ebaõnnestunud hankimist:** Rakendus jätkab siseseadete kasutamist.
+- Sõltumatud võtmed, mis eksisteerivad ainult siseses andmepaketis, säilitatakse.
 
 ## MDM-i tagasiside ja oleku kontroll
 
 Saate kontrollida, kas konfiguratsioon rakendati edukalt, MDM-i tagasisidekanali (`com.apple.feedback.managed`) kaudu, kui teie MDM-lahendus seda toetab. Pärast konfiguratsiooni töötlemist (või URL-i hankimise lõpetamist) tagastab rakendus järgmised andmed:
 
-* `managedConfigVersion`: Konfiguratsioonikatse versiooni string.
-* `result`: Kas `success` või `error`.
-* `messages`: Massiiv, mis sisaldab vajadusel üksikasjalikke vea- või hoiatusteateid.
+- `managedConfigVersion`: Konfiguratsioonikatse versiooni string.
+- `result`: Kas `success` või `error`.
+- `messages`: Massiiv, mis sisaldab vajadusel üksikasjalikke vea- või hoiatusteateid.

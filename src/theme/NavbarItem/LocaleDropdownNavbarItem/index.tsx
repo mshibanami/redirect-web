@@ -1,12 +1,12 @@
-import React, {type ReactNode} from 'react';
+import React, { type ReactNode } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import {useAlternatePageUtils} from '@docusaurus/theme-common/internal';
-import {translate} from '@docusaurus/Translate';
-import {useLocation} from '@docusaurus/router';
+import { useAlternatePageUtils } from '@docusaurus/theme-common/internal';
+import { translate } from '@docusaurus/Translate';
+import { useLocation } from '@docusaurus/router';
 import DropdownNavbarItem from '@theme/NavbarItem/DropdownNavbarItem';
 import IconLanguage from '@theme/Icon/Language';
-import type {LinkLikeNavbarItemProps} from '@theme/NavbarItem';
-import type {Props} from '@theme/NavbarItem/LocaleDropdownNavbarItem';
+import type { LinkLikeNavbarItemProps } from '@theme/NavbarItem';
+import type { Props } from '@theme/NavbarItem/LocaleDropdownNavbarItem';
 
 import styles from './styles.module.css';
 
@@ -18,10 +18,10 @@ export default function LocaleDropdownNavbarItem({
   ...props
 }: Props): ReactNode {
   const {
-    i18n: {currentLocale, locales, localeConfigs},
+    i18n: { currentLocale, locales, localeConfigs },
   } = useDocusaurusContext();
   const alternatePageUtils = useAlternatePageUtils();
-  const {search, hash} = useLocation();
+  const { search, hash } = useLocation();
 
   const localeItems = locales.map((locale): LinkLikeNavbarItemProps => {
     const baseTo = `pathname://${alternatePageUtils.createUrl({
@@ -67,9 +67,7 @@ export default function LocaleDropdownNavbarItem({
       label={
         <>
           <IconLanguage className={styles.iconLanguage} />
-          <div className={styles.dropdownLabel}>
-            {dropdownLabel}
-          </div>
+          <div className={styles.dropdownLabel}>{dropdownLabel}</div>
         </>
       }
       items={items}

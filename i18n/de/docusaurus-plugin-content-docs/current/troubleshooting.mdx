@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -12,19 +12,36 @@ Diese Seite listet häufige Probleme und deren Lösungen bei der Verwendung von 
 
 <TOCInline toc={toc} />
 
-## Weiterleitungsregeln funktionieren nicht {#rules-not-working}
+## Weiterleitungsregeln funktionieren nicht {/* #rules-not-working */}
 
 Wenn Ihre Regeln nicht wie erwartet funktionieren, prüfen Sie bitte Folgendes:
 
 - **Die Browser-Erweiterung ist installiert und für die richtige Seite aktiviert:** Stellen Sie sicher, dass Sie die RedirectWeb-Browsererweiterung installiert haben und dass sie in Ihrem Browser für die Webseite, von der Sie weiterleiten möchten, aktiviert ist. Wenn Sie das Popup der Erweiterung auf der Quellseite wie folgt öffnen können, ist sie korrekt installiert:
-    <Image src={ExtensionPopup} alt="Popup der RedirectWeb-Erweiterung" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="Popup der RedirectWeb-Erweiterung"
+    width="260"
+    hasShadow
+  />
 
 - **Regelkonfiguration ist korrekt:** Überprüfen Sie Ihre Weiterleitungsregeln in der RedirectWeb Native-App. Stellen Sie sicher, dass die Quell-URL-Muster, Ziel-URLs und etwaige Bedingungen korrekt eingerichtet sind. Um zu prüfen, ob Ihre Regel gültig ist, geben Sie eine Beispiel-URL im Bereich "Examples" im Bildschirm "Edit Rule" ein. Wenn Ihre Regel gültig ist, sehen Sie die erwartete Ziel-URL unter Ihrer Eingabe, z. B. so:
-    <Image src={RuleEditExampleResult} alt="Beispiel für die Regel-Bearbeitungsansicht, die das Ergebnis der Beispiel-URL zeigt" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="Beispiel für die Regel-Bearbeitungsansicht, die das Ergebnis der Beispiel-URL zeigt"
+    width="260"
+    hasShadow
+  />
 
-## Im Popup der Erweiterung wird ein Fehler angezeigt {#error-shown-in-extension-popup}
+## Im Popup der Erweiterung wird ein Fehler angezeigt {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="Fehler-Overlay von RedirectWeb" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="Fehler-Overlay von RedirectWeb"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
@@ -36,28 +53,41 @@ Bitte stellen Sie sicher, dass Sie die aktuelle Version von RedirectWeb aus dem 
 Möglicherweise müssen Sie Ihren Browser nach der Installation der Native-App neu starten.
 
 > [!NOTE]
-> * Sie müssen die RedirectWeb Native-App installieren, um die Browser-Erweiterung zu verwenden. Die Erweiterung allein funktioniert nicht.
-> * Safari-Benutzer müssen die Erweiterung nicht separat installieren, da sie in der Native-App enthalten ist.
+>
+> - Sie müssen die RedirectWeb Native-App installieren, um die Browser-Erweiterung zu verwenden. Die Erweiterung allein funktioniert nicht.
+> - Safari-Benutzer müssen die Erweiterung nicht separat installieren, da sie in der Native-App enthalten ist.
 
-## Die Originalseite blinkt kurz auf, bevor weitergeleitet wird {#original-page-flash}
+## Die Originalseite blinkt kurz auf, bevor weitergeleitet wird {/* #original-page-flash */}
 
 Dies tritt auf, wenn Sie Weiterleitungsregeln des Typs **Original** verwenden. Dieser Typ bietet verschiedene erweiterte Funktionen, kann jedoch dazu führen, dass die Originalseite kurz aufblinkt, da sie möglicherweise zulässt, dass die Originalseite geladen wird, bevor die Weiterleitung ausgeführt wird.
 
 Öffnen Sie den Bildschirm "Edit Rule" und ändern Sie den **Type** auf **DNR**, um dieses Problem zu vermeiden.
 
-<Image src={EditRuleDnr} alt="Popup der RedirectWeb-Erweiterung" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="Popup der RedirectWeb-Erweiterung"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
 > In Firefox sollte dieses Problem selbst bei Verwendung des Typs Original nicht auftreten, da Firefox auf die WebRequest-API zurückgreift, die das Laden der Originalseite verhindert.
 
-## In Safaris Einstellungsfenster werden Fehler angezeigt {#safari-style-loading-errors}
+## In Safaris Einstellungsfenster werden Fehler angezeigt {/* #safari-style-loading-errors */}
 
 Möglicherweise sehen Sie Fehlermeldungen im Einstellungsfenster von Safari wie die folgenden:
 
-<Image src={PopupStyleLoadingError} alt="Screenshot der Fehlermeldungen im Einstellungsfenster von Safari" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Screenshot der Fehlermeldungen im Einstellungsfenster von Safari"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
-> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
 Dies wirkt sich nicht auf die Funktionalität von RedirectWeb aus. Sie können diese Meldungen bedenkenlos ignorieren.
 

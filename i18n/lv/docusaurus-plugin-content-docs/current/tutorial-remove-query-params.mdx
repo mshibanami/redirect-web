@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # 2. gadījums: Noņemiet vaicājuma parametrus no URL
 
@@ -6,14 +6,14 @@ Pieņemsim, ka `example.com` URL ir vaicājuma parametrs `source=twitter`, un j�
 
 Šajā gadījumā **Tveršanas grupas apstrādes** opcija ir vienkāršākais veids:
 
-* **Pārvirzīt no**: `https://example.com/*` (Aizstājējzīme)
-* **Pārvirzīt uz**: `$0`
-* **Tveršanas grupas apstrāde**:
-    * **Grupa**: `$0`
-    * **Process**: Aizstāt gadījumus
-        * **Mērķis**: `&?source=[^&]*`
-        * **Aizstājējs**: *(nav)*
-        * **Teksta modelis**: Regulārā izteiksme
+- **Pārvirzīt no**: `https://example.com/*` (Aizstājējzīme)
+- **Pārvirzīt uz**: `$0`
+- **Tveršanas grupas apstrāde**:
+  - **Grupa**: `$0`
+  - **Process**: Aizstāt gadījumus
+    - **Mērķis**: `&?source=[^&]*`
+    - **Aizstājējs**: _(nav)_
+    - **Teksta modelis**: Regulārā izteiksme
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Lejupielādēt noteikumu</a>**
 

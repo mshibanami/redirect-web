@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Primer 2: Odstranjevanje parametrov poizvedbe iz URL-ja
 
@@ -6,14 +6,14 @@ Recimo, da je v URL-ju `example.com` parameter poizvedbe `source=twitter` in ste
 
 V tem primeru je možnost **Obdelava zajetih skupin** najlažji način:
 
-*   **Preusmeri iz**: `https://example.com/*` (Nadomestni znak)
-*   **Preusmeri na**: `$0`
-*   **Obdelava zajetih skupin**:
-    *   **Skupina**: `$0`
-    *   **Postopek**: Zamenjaj pojavitve
-        *   **Cilj**: `&?source=[^&]*`
-        *   **Zamenjava**: *(nič)*
-        *   **Vzorec besedila**: Regularni izraz
+- **Preusmeri iz**: `https://example.com/*` (Nadomestni znak)
+- **Preusmeri na**: `$0`
+- **Obdelava zajetih skupin**:
+  - **Skupina**: `$0`
+  - **Postopek**: Zamenjaj pojavitve
+    - **Cilj**: `&?source=[^&]*`
+    - **Zamenjava**: _(nič)_
+    - **Vzorec besedila**: Regularni izraz
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Prenesite pravilo</a>**
 

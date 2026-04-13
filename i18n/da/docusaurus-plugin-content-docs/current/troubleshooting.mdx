@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -12,19 +12,36 @@ Denne side viser almindelige problemer og deres løsninger ved brug af RedirectW
 
 <TOCInline toc={toc} />
 
-## Omdirigeringsregler fungerer ikke {#rules-not-working}
+## Omdirigeringsregler fungerer ikke {/* #rules-not-working */}
 
 Hvis dine regler ikke fungerer som forventet, så tjek følgende:
 
 - **Browserudvidelsen er installeret og aktiveret for den korrekte side:** Sørg for, at du har installeret RedirectWeb-browserudvidelsen, og at den er aktiveret i din browser for den webside, du vil omdirigere fra. Hvis du kan åbne udvidelsens popup sådan her på kildesiden, er den installeret korrekt:
-    <Image src={ExtensionPopup} alt="RedirectWeb extension popup" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="RedirectWeb extension popup"
+    width="260"
+    hasShadow
+  />
 
 - **Regelkonfigurationen er korrekt:** Dobbelttjek dine omdirigeringsregler i RedirectWeb native-appen. Sørg for, at kilde-URL-mønstre, mål-URL'er og eventuelle betingelser er sat korrekt op. For at tjekke om din regel er gyldig eller ej, indtast et eksempel-URL i Eksempler-sektionen på skærmen Rediger regel. Hvis din regel er gyldig, vil du se den forventede destinations-URL under dit input, som her:
-    <Image src={RuleEditExampleResult} alt="An example of rule edit screen showing the result of example URL" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="An example of rule edit screen showing the result of example URL"
+    width="260"
+    hasShadow
+  />
 
-## Udvidelsens popup viser en fejl {#error-shown-in-extension-popup}
+## Udvidelsens popup viser en fejl {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="RedirectWeb error overlay" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="RedirectWeb error overlay"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > RedirectWeb-appen er ikke installeret eller fungerer ikke korrekt.  
 > Hent venligst appen fra App Store.
@@ -36,28 +53,41 @@ Sørg for, at du har installeret den nyeste version af RedirectWeb fra [App Stor
 Du kan også få brug for at genstarte din browser efter installation af native-appen.
 
 > [!NOTE]
-> * Du skal installere RedirectWeb native-appen for at bruge browserudvidelsen. Udvidelsen alene fungerer ikke.
-> * Safari-brugere behøver ikke installere udvidelsen separat, da den er inkluderet i native-appen.
+>
+> - Du skal installere RedirectWeb native-appen for at bruge browserudvidelsen. Udvidelsen alene fungerer ikke.
+> - Safari-brugere behøver ikke installere udvidelsen separat, da den er inkluderet i native-appen.
 
-## Den oprindelige side blinker kortvarigt før omdirigering {#original-page-flash}
+## Den oprindelige side blinker kortvarigt før omdirigering {/* #original-page-flash */}
 
 Dette sker, når du bruger omdirigeringstype **Original**. Denne type giver forskellige avancerede funktioner, men kan forårsage en kort blink af den oprindelige side, fordi den kan tillade den oprindelige side at indlæse, før omdirigeringen udføres.
 
 Åbn Rediger regel-skærmen og skift **Type** til **DNR** for at undgå dette problem.
 
-<Image src={EditRuleDnr} alt="RedirectWeb extension popup" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="RedirectWeb extension popup"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
 > I Firefox burde dette problem ikke opstå selv med Original-typen, da den bruger WebRequest API'et, som forhindrer den oprindelige side i at blive indlæst.
 
-## Fejl vises i Safaris indstillingsvindue {#safari-style-loading-errors}
+## Fejl vises i Safaris indstillingsvindue {/* #safari-style-loading-errors */}
 
 Du kan se fejlbeskeder i Safaris indstillingsvindue som følgende:
 
-<Image src={PopupStyleLoadingError} alt="Screenshot of error messages in Safari's Settings window" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Screenshot of error messages in Safari's Settings window"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Kunne ikke finde "popup.mobile.css" i udvidelsens ressourcer. Det er en ugyldig sti.
-> * Kunne ikke finde "toolbar-button.mobile.css" i udvidelsens ressourcer. Det er en ugyldig sti.
+> - Kunne ikke finde "popup.mobile.css" i udvidelsens ressourcer. Det er en ugyldig sti.
+> - Kunne ikke finde "toolbar-button.mobile.css" i udvidelsens ressourcer. Det er en ugyldig sti.
 
 Dette påvirker ikke RedirectWeb's funktionalitet. Du kan trygt ignorere dem.
 

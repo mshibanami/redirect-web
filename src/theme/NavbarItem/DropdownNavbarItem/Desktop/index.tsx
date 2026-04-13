@@ -1,8 +1,8 @@
-import React, {useState, useRef, useEffect, type ReactNode} from 'react';
+import React, { useState, useRef, useEffect, type ReactNode } from 'react';
 import clsx from 'clsx';
 import NavbarNavLink from '@theme/NavbarItem/NavbarNavLink';
 import NavbarItem from '@theme/NavbarItem';
-import type {Props} from '@theme/NavbarItem/DropdownNavbarItem/Desktop';
+import type { Props } from '@theme/NavbarItem/DropdownNavbarItem/Desktop';
 
 export default function DropdownNavbarItemDesktop({
   items,
@@ -15,13 +15,8 @@ export default function DropdownNavbarItemDesktop({
   const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
-    const handleClickOutside = (
-      event: MouseEvent | TouchEvent | FocusEvent,
-    ) => {
-      if (
-        !dropdownRef.current ||
-        dropdownRef.current.contains(event.target as Node)
-      ) {
+    const handleClickOutside = (event: MouseEvent | TouchEvent | FocusEvent) => {
+      if (!dropdownRef.current || dropdownRef.current.contains(event.target as Node)) {
         return;
       }
       setShowDropdown(false);
@@ -41,12 +36,17 @@ export default function DropdownNavbarItemDesktop({
   return (
     <div
       ref={dropdownRef}
-      className={clsx('navbar__item', 'dropdown', 'dropdown--hoverable', {
-        'dropdown--right': position === 'right',
-        'dropdown--show': showDropdown,
-      },
-        className
-      )}>
+      className={clsx(
+        'navbar__item',
+        'dropdown',
+        'dropdown--hoverable',
+        {
+          'dropdown--right': position === 'right',
+          'dropdown--show': showDropdown,
+        },
+        className,
+      )}
+    >
       <NavbarNavLink
         aria-haspopup="true"
         aria-expanded={showDropdown}
@@ -55,7 +55,7 @@ export default function DropdownNavbarItemDesktop({
         // See https://github.com/facebook/docusaurus/pull/6003
         // There's probably a better solution though...
         href={props.to ? undefined : '#'}
-        className='navbar__link'
+        className="navbar__link"
         {...props}
         onClick={props.to ? undefined : (e) => e.preventDefault()}
         onKeyDown={(e) => {
@@ -63,7 +63,8 @@ export default function DropdownNavbarItemDesktop({
             e.preventDefault();
             setShowDropdown(!showDropdown);
           }
-        }}>
+        }}
+      >
         {props.children ?? props.label}
       </NavbarNavLink>
       <ul className="dropdown__menu">

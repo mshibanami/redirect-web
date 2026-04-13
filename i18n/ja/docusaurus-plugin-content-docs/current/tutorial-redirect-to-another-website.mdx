@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # ケース1：別のウェブサイトへリダイレクトする
@@ -31,16 +31,16 @@ https://twitter.com/*
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: `twitter`と`x`の両方をターゲットにします。（`|`は*パイプ*と呼ばれます。）
-* `.*`: ワイルドカードの`*`と同じです。より具体的には、`.`は*任意の文字*を意味し、`*`はこの記号の前のものが*任意の回数繰り返される*ことを意味し、結果として何でも一致します。
+- `(twitter|x)`: `twitter`と`x`の両方をターゲットにします。（`|`は*パイプ*と呼ばれます。）
+- `.*`: ワイルドカードの`*`と同じです。より具体的には、`.`は*任意の文字*を意味し、`*`はこの記号の前のものが*任意の回数繰り返される*ことを意味し、結果として何でも一致します。
 
 正規表現は少し複雑ですが、慣れてしまえば強力なツールになります。正規表現パターンがどのように機能するかを分析するためのプレイグラウンドとして、[RegExr](https://regexr.com)を使用することをお勧めします。
 
 > [!TIP]
 > 正規表現では、`(twitter|x).com`の`.`も*任意の文字*として扱われます。したがって、`(twitter|x).com/.*`は、例えば`twitter1com/`や`x_com/`にも一致します。
-> 
+>
 > より正確にするには、`(twitter|x)\.com/.*`に変更できます。`\`は、`.`を特殊文字ではなくリテラルのピリオド文字として扱うために使用されます。
-> 
+>
 > しかし、一般的なインターネット環境ではそのようなURLは存在しません。したがって、`.`を特殊文字のままにしておくこともできます。
 
 ### ステップ3：「リダイレクト先」を設定する
@@ -57,7 +57,13 @@ https://unrush.org/
 
 現在のルールは次のようになります。
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="別のウェブサイトを開くためのルール例" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="別のウェブサイトを開くためのルール例"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ ルールをダウンロード</a>**
 

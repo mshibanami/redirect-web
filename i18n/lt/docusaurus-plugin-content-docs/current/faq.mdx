@@ -5,104 +5,110 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # DUK
 
-## Kodėl neveikia mano nukreipimo taisyklė? {#redirection-not-working}
+## Kodėl mano nukreipimo taisyklė neveikia? {/* #redirection-not-working */}
 
-Jei sukurta taisyklė neveikia taip, kaip tikėtasi, patikrinkite šiuos dalykus:
+Jei jūsų sukurta taisyklė neveikia taip, kaip tikėtasi, patikrinkite šiuos dalykus:
 
 - **Ar plėtinys įjungtas?** Patikrinkite naršyklės plėtinių nustatymus ir įsitikinkite, kad „RedirectWeb“ yra įjungtas.
 - **Ar taisyklė įjungta?** Atidarykite „RedirectWeb“ programėlę ir įsitikinkite, kad konkrečios taisyklės jungiklis yra padėtyje „Įjungta“.
-- **Ar taisyklė teisinga?** Išbandykite taisyklę įvesdami URL adresą taisyklės redagavimo ekrano laukelyje „Pavyzdžiai“ (Examples).
-- **[Safari] Ar leidote plėtiniui pasiekti šaltinio svetainę?**: Įsitikinkite, kad leidote plėtiniui pasiekti svetainę, iš kurios norite nukreipti. Jei galite atidaryti plėtinio iššokantįjį langą, vadinasi, plėtinys turi prieigą prie šaltinio svetainės.
-    > [!TIP]
-    > Jūsų patogumui rekomenduojame leisti prieigą prie visų svetainių. (Tik patarimas!)
+- **Ar taisyklė teisinga?** Išbandykite taisyklę įvesdami URL lauke „Pavyzdžiai“ (angl. Examples), esančiame taisyklės redagavimo lange.
+- **[Safari] Ar leidote plėtiniui pasiekti šaltinio svetainę?**: Įsitikinkite, kad leidote plėtiniui pasiekti svetainę, iš kurios norite nukreipti. Jei galite atidaryti plėtinio iškylantįjį langą, vadinasi, plėtinys turi prieigą prie šaltinio svetainės.
+  > [!TIP]
+  > Jūsų patogumui rekomenduojame leisti prieigą prie visų svetainių. (Tik patarimas!)
 
-## Kodėl turėčiau leisti plėtiniui skaityti / keisti mano informaciją? {#why-allow-extension-to-read-change}
+## Kodėl turėčiau leisti plėtiniui skaityti / keisti mano informaciją? {/* #why-allow-extension-to-read-change */}
 
-Nustatydami „RedirectWeb“, galite pamatyti tokį įspėjimą:
+Nustatydami „RedirectWeb“ galite pamatyti tokį įspėjimą:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="Leidimo prašantis įspėjimas" width="200" margin="0 0 16px 0" hasShadow />
+    <Image src={PermissionAlertSafari} alt="Įspėjimas dėl leidimo reikalavimo" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Šis plėtinys galės skaityti ir keisti tinklalapius bei matyti jūsų naršymo istoriją šioje svetainėje. **Tai gali apimti neskelbtiną informaciją, įskaitant slaptažodžius, telefonų numerius ir kredito korteles.**
+    > Šis plėtinys galės skaityti ir keisti tinklalapius bei matyti jūsų naršymo istoriją šioje svetainėje. **Tai gali apimti jautrią informaciją, įskaitant slaptažodžius, telefonų numerius ir kredito korteles.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="Leidimo prašantis įspėjimas" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="Įspėjimas dėl leidimo reikalavimo" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Jis gali:  
+    > Jis gali:
     > Skaityti ir keisti **visus jūsų duomenis** **visose svetainėse**
+
 </IfBrowserStore>
 
-Šiam plėtiniui reikia jūsų leidimo stebėti puslapio navigaciją, kad jis galėtų nukreipti ten, kur norite patekti, o jūsų naršyklė tai parodo, kai plėtinys paprašo susijusių leidimų. Todėl, jei to neleisite, šis plėtinys negalės veikti.
+Šiam plėtiniui reikia jūsų leidimo stebėti puslapio navigaciją, kad jis galėtų nukreipti jus ten, kur norite, o jūsų naršyklė tai rodo, kai plėtinys paprašo susijusių leidimų. Todėl, jei to neleisite, šis plėtinys negalės veikti.
 
 Suteikti leidimai bus naudojami tik programėlės funkcijoms, tokioms kaip nukreipimas, laikantis **[privatumo politikos](/privacy-policy)**.
 
-## Mano pirkinys neatkuriamas net spustelėjus „Atkurti pirkinius“ {#purchase-not-restored}
+## Mano pirkinys neatkuriamas net spustelėjus „Atkurti pirkinį“ {/* #purchase-not-restored */}
 
-Jei mygtukas „Atkurti pirkinius“ (Restore Purchase) neveikia taip, kaip tikėtasi, atlikite šiuos trikčių šalinimo veiksmus:
+Jei mygtukas „Atkurti pirkinį“ (angl. Restore Purchase) neveikia taip, kaip tikėtasi, atlikite šiuos trikčių šalinimo veiksmus:
 
-1. Prisijunkite prie [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) ir patvirtinkite, kad transakcija buvo sėkmingai užbaigta ir yra įtraukta į jūsų „Apple ID“ istoriją.
-2. Įsitikinkite, kad „Apple ID“, kuriuo šiuo metu esate prisijungę **„App Store“ programėlėje**, yra tas pats, kuris buvo naudojamas pradiniam pirkiniui.
-    > [!NOTE]
-    >
-    > Paskyra, kuria esate prisijungę įrenginio nustatymų programėlėje, kartais gali skirtis nuo tos, kuri naudojama „App Store“ programėlėje. Būtent „App Store“ programėlėje naudojama paskyra turi sutapti su jūsų pirkinių istorija, kad atkūrimas veiktų teisingai.
-3. Jei turite kelis „Apple ID“, atsijunkite nuo „App Store“ ir vėl prisijunkite naudodami teisingą paskyrą, tada vėl pabandykite spustelėti mygtuką „Atkurti pirkinius“.
+1. Prisijunkite prie [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) ir įsitikinkite, kad operacija buvo sėkmingai atlikta ir yra įtraukta į jūsų Apple ID istoriją.
+2. Įsitikinkite, kad Apple ID, kuriuo šiuo metu esate prisijungę prie **„App Store“ programėlės**, yra tas pats, kuris buvo naudojamas pradiniam pirkiniui.
+   > [!NOTE]
+   >
+   > Paskyra, kuria prisijungta jūsų įrenginio nustatymų programėlėje, kartais gali skirtis nuo tos, kuri naudojama „App Store“ programėlėje. Būtent „App Store“ programėlės paskyra turi sutapti su jūsų pirkimo istorija, kad atkūrimas veiktų teisingai.
+3. Jei turite kelis Apple ID, atsijunkite nuo „App Store“ ir vėl prisijunkite naudodami teisingą paskyrą, tada vėl išbandykite mygtuką „Atkurti pirkinį“.
 
-Jei paskyros sutampa, bet atkūrimas vis tiek nepavyksta, susisiekite su mumis **[susisiekite su mumis](/contact-us)** pridėdami kvito arba pirkinių istorijos ekrano kopiją. Mes toliau tirsime šią problemą.
+Jei paskyros sutampa, bet atkurti vis tiek nepavyksta, prašome [susisiekti su mumis](/contact-us) ir pridėti kvito arba pirkimo istorijos ekrano kopiją. Mes toliau tirsime šią problemą.
 
-## Ar man vis tiek reikia programėlės įdiegus plėtinį „Chrome“, „Firefox“ ar „Edge“? {#app-for-non-safari-browsers}
+## Ar vis tiek turėčiau atsisiųsti programėlę įsidiegęs „Chrome“, „Firefox“ ar „Edge“ plėtinį? {/* #app-for-non-safari-browsers */}
 
-Taip. Privalote atsisiųsti **[„RedirectWeb“ programėlę iš „App Store“](https://apps.apple.com/app/id1571283503)**, nepriklausomai nuo to, kokią naršyklę naudojate. Galite įdiegti plėtinio iš savo naršyklės plėtinių parduotuvės, tačiau programėlė reikalinga taisyklėms, pirkimų istorijai ir kitiems nustatymams valdyti visuose įrenginiuose per „iCloud“.
+Taip. Turite atsisiųsti [„RedirectWeb“ programėlę iš „App Store“](https://apps.apple.com/app/id1571283503), nepriklausomai nuo to, kokią naršyklę naudojate. Galite įsidiegti plėtinį iš savo naršyklės plėtinių parduotuvės, tačiau programėlė yra būtina norint valdyti taisykles, pirkimo istoriją ir kitus nustatymus visuose įrenginiuose per iCloud.
 
-## Ar man reikia kitokio plėtinio naršyklėms „Chrome“, „Firefox“ ar „Edge“, jei naudoju „Pro“ programėlę? {#different-extension-for-pro}
+## Ar man reikia kito „Chrome“, „Firefox“ ar „Edge“ plėtinio, jei naudoju Pro programėlę? {/* #different-extension-for-pro */}
 
-Ne. Nesvarbu, ar naudojate standartinę „RedirectWeb“ programėlę, ar „RedirectWeb Pro“ savo „Mac“ kompiuteryje, turėtumėte įdiegti tą patį plėtinį iš atitinkamos naršyklės plėtinių parduotuvės. Plėtinys automatiškai aptiks ir susisieks su bet kuria įdiegta programėlės versija.
+Ne. Nesvarbu, ar savo Mac kompiuteryje naudojate standartinę „RedirectWeb“ programėlę, ar „RedirectWeb Pro“, turėtumėte įsidiegti tą patį plėtinį iš atitinkamos naršyklės plėtinių parduotuvės. Plėtinys automatiškai atpažins ir susisieks su ta programėlės versija, kurią esate įsidiegę.
 
-## Ar „RedirectWeb“ veikia „Windows“, „Android“, „Linux“ ar kitose platformose? {#non-apple-platforms}
+## Ar „RedirectWeb“ veikia Windows, Android, Linux ar kitose platformose? {/* #non-apple-platforms */}
 
-Šiuo metu ne. „RedirectWeb“ yra glaudžiai susietas su „Apple“ ekosistema, įskaitant „iCloud“ ir „Universal Purchase“. Atsiprašome už nepatogumus.
+Šiuo metu ne. „RedirectWeb“ yra glaudžiai susietas su Apple ekosistema, įskaitant iCloud ir Universal Purchase. Atsiprašome už nepatogumus.
 
-## Kodėl šiam plėtiniui reikia naujo leidimo? {#permission-alert-on-safari}
+## Kodėl šiam plėtiniui reikia naujo leidimo? {/* #permission-alert-on-safari */}
 
-Atnaujinę „RedirectWeb“, „Safari“ naršyklėje galite pamatyti šį įspėjimą:
+Atnaujinę „RedirectWeb“, Safari naršyklėje galite pamatyti šį įspėjimą:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Programėlės išjungimo įspėjimas" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Įspėjimas apie programėlės išjungimą"
+  width="280"
+/>
 
 > „RedirectWeb“ buvo atnaujintas ir prašo papildomų leidimų. Siekiant apsaugoti jūsų privatumą, šis plėtinys buvo išjungtas.
 >
-> Šį plėtinį galite įjungti „Safari“ nustatymų skiltyje „Plėtiniai“.
+> Galite įjungti šį plėtinį Safari nustatymų skiltyje „Plėtiniai“.
 
-Taip yra dėl [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) leidimo, kurio reikalauja [DNR](/rule-settings#type) tipas, įdiegtas 7 versijoje. Prašome vėl įjungti plėtinį. Atsiprašome už nepatogumus.
+Taip yra dėl [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) leidimo, kurio reikalauja [DNR](/rule-settings#type) tipas, pristatytas 7 versijoje. Prašome vėl įjungti plėtinį. Atsiprašome už nepatogumus.
 
-## Ar bibliotekos turinys ateityje taps mokamas? {#will-library-become-paid}
+## Ar bibliotekos turinys ateityje taps mokamas? {/* #will-library-become-paid */}
 
-Ne, jis visada bus nemokamas. Visą turinio šaltinį taip pat galite rasti **[čia](https://github.com/mshibanami/redirect-web/tree/main/library)**.
+Ne, jis visada nemokamas. Viso turinio šaltinį taip pat galite rasti [čia](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Kuo skiriasi „RedirectWeb“ ir „RedirectWeb Pro“? {#difference-between-standard-and-pro}
+## Koks skirtumas tarp „RedirectWeb“ ir „RedirectWeb Pro“? {/* #difference-between-standard-and-pro */}
 
-Abiejose versijose siūlomos tos pačios funkcijos ir vienu metu gaunami atnaujinimai. Vienintelis skirtumas yra mokėjimo modelis:
+Abi versijos siūlo lygiai tas pačias funkcijas ir atnaujinimus gauna vienu metu. Vienintelis skirtumas yra mokėjimo modelis:
 
-- **RedirectWeb**: Nemokama programėlė su pagrindinėmis funkcijomis (ribojama iki **1 aktyvios taisyklės**), siūlanti pasirenkamą pirkinį programėlėje (prenumeratą arba vienkartinį mokėjimą), kad būtų atrakintos visos funkcijos, įskaitant neribotas taisykles ir „iCloud“ sinchronizavimą.
-- **RedirectWeb Pro**: Iš anksto apmokama, visiškai atrakinta programėlė. Ši versija buvo sukurta specialiai tam, kad ją būtų galima naudoti su **„Apple Business Manager“** ir **„Apple School Manager“ (VPP)**, leidžiant organizacijoms pirkti programėlę urmu, o tai neįmanoma naudojant pirkinius programėlėje. Tačiau visi, kurie pirmenybę teikia pirkimui iš anksto, gali ją įsigyti!
+- **RedirectWeb**: nemokama programėlė su pagrindinėmis funkcijomis (apsiribojama **1 aktyvia taisykle**), siūlanti pasirenkamą pirkinį programėlėje (prenumeratą arba vienkartinį mokėjimą), kad būtų atrakintos visos funkcijos, įskaitant neribotą taisyklių skaičių ir iCloud sinchronizavimą.
+- **RedirectWeb Pro**: iš anksto apmokėta, visiškai atrakinta programėlė. Ši versija buvo sukurta specialiai tam, kad atitiktų **„Apple Business Manager“** ir **„Apple School Manager“ (VPP)** reikalavimus, leidžiančius organizacijoms pirkti programėlę urmu, ko neįmanoma padaryti naudojant pirkinius programėlėje. Tačiau visi, kurie pirmenybę teikia išankstiniam pirkimui, gali ją įsigyti!
 
-## Vienkartinis pirkimas, metinė prenumerata ar „Pro“ versija: kas geriausia? {#one-time-or-subscription-or-pro}
+## Vienkartinis pirkimas, metinė prenumerata ar Pro versija: kas geriausia? {/* #one-time-or-subscription-or-pro */}
 
-Rekomenduojame arba vienkartinį pirkimą standartinėje „RedirectWeb“ programėlėje, arba „RedirectWeb Pro“ įsigijimą, nes abi parinktys suteikia tą pačią vertę.
-Pagrindinė priežastis, kodėl siūlome prenumeratą, yra galimybė išbandyti visas funkcijas per nemokamą bandomąjį laikotarpį. Štai rekomenduojamas naudojimo pavyzdys:
+Rekomenduojame rinktis vienkartinį pirkimą standartinėje „RedirectWeb“ programėlėje arba pirkti „RedirectWeb Pro“, nes jie siūlo tą pačią vertę.
+Pagrindinė priežastis, kodėl siūlome prenumeratą, yra leisti jums išbandyti visas funkcijas per nemokamą bandomąjį laikotarpį. Štai numatytas naudojimo atvejis:
 
 1. Užsisakykite metinę prenumeratą standartinėje „RedirectWeb“ programėlėje.
-2. Nedelsdami atšaukite prenumeratą nuėję į „Nustatymų“ programėlę, ieškodami „Prenumeratos“ (Subscriptions), bakstelėdami šią programėlę ir pasirinkdami „Atšaukti prenumeratą“ (Cancel Subscription). Tai leis jums mėgautis nemokamu bandomuoju laikotarpiu be jokių įsipareigojimų.
+2. Nedelsdami atšaukite prenumeratą nuėję į nustatymų programėlę, paieškoje įvedę „Prenumeratos“ (angl. Subscriptions), spustelėję šią programėlę ir pasirinkę „Atšaukti prenumeratą“. Tai leis jums mėgautis nemokamu bandomuoju laikotarpiu be jokių įsipareigojimų.
 3. 7 dienas mėgaukitės visomis funkcijomis.
-4. Jei funkcijos jums patinka, rinkitės vienkartinį pirkimą arba įsigykite „Pro“ versiją.
+4. Jei funkcijos patinka, rinkitės vienkartinį pirkimą arba įsigykite Pro versiją.
 
-Žinoma, nieko blogo tęsti metinę prenumeratą, jei jums patogiau!
+Žinoma, nėra nieko blogo tęsti metinę prenumeratą, jei taip pageidaujate!
 
-## Ar „RedirectWeb“ į svetaines įterpia reklamų ar kitą nesusijusį turinį? {#does-it-inject-ads}
+## Ar „RedirectWeb“ į svetaines įterpia reklamų ar kito nesusijusio turinio? {/* #does-it-inject-ads */}
 
-Ne, jokio tokio turinio neįterpia. Tik kodas, kuris yra būtinas šioje dokumentacijoje ir programėlės puslapyje „App Store“ aprašytoms funkcijoms teikti, yra įterpiamas į svetaines „Safari“ naršyklėje.
+Ne, jokio tokio turinio neįterpia. Į svetaines Safari naršyklėje įterpiamas tik tas kodas, kuris yra būtinas funkcijoms, aprašytoms šioje dokumentacijoje ir programėlės puslapyje „App Store“, užtikrinti.
 
-## Ar yra kokia nors galimybė, kad „RedirectWeb“ kada nors bus parduotas kam nors kitam? {#could-it-be-sold}
+## Ar yra kokia nors tikimybė, kad „RedirectWeb“ kada nors bus parduotas kam nors kitam? {/* #could-it-be-sold */}
 
-100 % ne. Naršyklės plėtiniai turi didelę jūsų naršymo ir duomenų kontrolę, o „RedirectWeb“ perdavimas kitam savininkui atvertų duris privatumo pažeidimams. Matėme, kaip plėtiniai keičia savininkus, o tada renka vartotojų duomenis arba įterpia reklamas be įspėjimo. Čia tai niekada neįvyks. Daugiau apie šią riziką skaitykite Matto Frisbie straipsnyje **[„The Ugly Business of Monetizing Browser“](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser)** ir Briano Krebso tyrime **[„Is Your Browser Extension a Botnet Backdoor?“](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)**.
+100 % ne. Naršyklės plėtiniai turi didelę jūsų naršymo ir duomenų kontrolę, o „RedirectWeb“ perdavimas kitam savininkui atvertų duris privatumo pažeidimams. Matėme, kaip plėtiniai pereina į kitas rankas, o tada be įspėjimo renka naudotojų duomenis arba įterpia reklamas. Čia tai niekada neįvyks. Norėdami sužinoti daugiau apie šią riziką, skaitykite Matto Frisbie straipsnį [„The Ugly Business of Monetizing Browser“](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) ir Briano Krebso tyrimą [„Is Your Browser Extension a Botnet Backdoor?“](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-„RedirectWeb“ yra pagrįstas pasitikėjimu ir atsakomybe. Manome, kad mūsų pareiga yra saugoti jūsų informaciją, todėl atsisakome perduoti nuosavybės teises bet kokiomis aplinkybėmis. „RedirectWeb“ visada liks mūsų rankose, todėl galite naršyti visiškai pasitikėdami.
+„RedirectWeb“ yra pagrįstas pasitikėjimu ir atsakomybe. Mes laikome savo pareiga saugoti jūsų informaciją ir atsisakome perduoti nuosavybę bet kokiomis aplinkybėmis. „RedirectWeb“ visada liks mūsų rankose, todėl galite naršyti visiškai užtikrintai.

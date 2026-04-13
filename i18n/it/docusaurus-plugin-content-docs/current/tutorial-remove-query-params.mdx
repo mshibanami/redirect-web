@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Caso 2: Rimuovere i parametri di query dall'URL
 
@@ -6,14 +6,14 @@ Supponiamo che ci sia un parametro di query `source=twitter` in un URL di `examp
 
 In questo caso, l'opzione **Elaborazione Gruppo di Cattura** è il modo più semplice:
 
-* **Reindirizza da**: `https://example.com/*` (Carattere jolly)
-* **Reindirizza a**: `$0`
-* **Elaborazione Gruppo di Cattura**:
-    * **Gruppo**: `$0`
-    * **Processo**: Sostituisci Occorrenze
-        * **Target**: `&?source=[^&]*`
-        * **Sostituzione**: *(nessuno)*
-        * **Pattern Testo**: Espressione regolare
+- **Reindirizza da**: `https://example.com/*` (Carattere jolly)
+- **Reindirizza a**: `$0`
+- **Elaborazione Gruppo di Cattura**:
+  - **Gruppo**: `$0`
+  - **Processo**: Sostituisci Occorrenze
+    - **Target**: `&?source=[^&]*`
+    - **Sostituzione**: _(nessuno)_
+    - **Pattern Testo**: Espressione regolare
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Scarica la regola</a>**
 

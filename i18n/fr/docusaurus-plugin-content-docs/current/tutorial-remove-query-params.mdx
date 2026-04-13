@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Cas 2 : Supprimer les paramètres de requête de l'URL
 
@@ -6,14 +6,14 @@ Supposons qu'il y ait un paramètre de requête `source=twitter` dans une URL de
 
 Dans ce cas, l'option **Traitement des groupes de capture** est le moyen le plus simple :
 
-* **Rediriger depuis** : `https://example.com/*` (Joker)
-* **Rediriger vers** : `$0`
-* **Traitement des groupes de capture** :
-    * **Groupe** : `$0`
-    * **Processus** : Remplacer les occurrences
-        * **Cible** : `&?source=[^&]*`
-        * **Remplacement** : *(aucun)*
-        * **Modèle de texte** : Expression régulière
+- **Rediriger depuis** : `https://example.com/*` (Joker)
+- **Rediriger vers** : `$0`
+- **Traitement des groupes de capture** :
+  - **Groupe** : `$0`
+  - **Processus** : Remplacer les occurrences
+    - **Cible** : `&?source=[^&]*`
+    - **Remplacement** : _(aucun)_
+    - **Modèle de texte** : Expression régulière
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Télécharger la règle</a>**
 

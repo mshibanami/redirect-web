@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Cazul 3: Adăugați parametri de interogare la URL
 
@@ -6,10 +6,10 @@ Să presupunem că există un site web numit `example.com` care afișează un as
 
 Poate credeți că ați putea defini astfel:
 
-*   **Redirecționare de la**: `https://example.com/.*` (Expresie regulată)
-*   **Redirecționare către**: `$0?layout=desktop`
+- **Redirecționare de la**: `https://example.com/.*` (Expresie regulată)
+- **Redirecționare către**: `$0?layout=desktop`
 
-`$0` face referire la URL-ul țintă. Dacă încercați să accesați `example.com/hello`, sunteți redirecționat către `example.com/hello?layout=desktop`. Această funcționalitate se numește *substituție*.
+`$0` face referire la URL-ul țintă. Dacă încercați să accesați `example.com/hello`, sunteți redirecționat către `example.com/hello?layout=desktop`. Această funcționalitate se numește _substituție_.
 
 > [!TIP]
 > Substituția este disponibilă și pentru modul Joker, deoarece este convertită intern în Expresie regulată.
@@ -26,9 +26,9 @@ Setarea curentă creează o buclă de redirecționare infinită, deoarece `https
 .*[&?]layout=[^&]*.*
 ```
 
-*   `.*`: Se potrivește cu orice
-*   `[&?]`: Se potrivește fie cu `&`, fie cu `?`
-*   `[^&]*`: Se potrivește cu orice, cu excepția lui `&`
+- `.*`: Se potrivește cu orice
+- `[&?]`: Se potrivește fie cu `&`, fie cu `?`
+- `[^&]*`: Se potrivește cu orice, cu excepția lui `&`
 
 ### Problema 2: Nu poate gestiona corect parametrii existenți
 
@@ -36,37 +36,36 @@ Dacă URL-ul țintă are deja alți parametri de interogare, cum ar fi `example.
 
 În acest caz, modificați setările astfel:
 
-*   **Redirecționare de la**: `(https://example.com/[^?]*)(\?(.*))?`
-*   **Redirecționare către**: `$1?layout=desktop&$3`
+- **Redirecționare de la**: `(https://example.com/[^?]*)(\?(.*))?`
+- **Redirecționare către**: `$1?layout=desktop&$3`
 
 Să aruncăm o privire pas cu pas.
 
-*   `(https://example.com/[^?]*)`: Se potrivește cu partea până la caracterul anterior lui `?`.
-    *   `[^?]*` se potrivește cu orice, cu excepția lui `?`.
-    *   Acesta este încadrat cu `()` astfel încât să îl puteți referenția cu `$1` mai târziu.
-*   `(\?(.*))?`: Se potrivește cu un șir care începe cu `?`, ceea ce înseamnă parametri de interogare.
-    *   Acesta se potrivește și cu un șir gol prin cuantificatorul `?` de la sfârșitul modelului, care *se potrivește de zero sau o dată*.
-    *   `()` exterior și `()` interior pot fi referențiate cu `$2` și `$3` mai târziu.
+- `(https://example.com/[^?]*)`: Se potrivește cu partea până la caracterul anterior lui `?`.
+  - `[^?]*` se potrivește cu orice, cu excepția lui `?`.
+  - Acesta este încadrat cu `()` astfel încât să îl puteți referenția cu `$1` mai târziu.
+- `(\?(.*))?`: Se potrivește cu un șir care începe cu `?`, ceea ce înseamnă parametri de interogare.
+  - Acesta se potrivește și cu un șir gol prin cuantificatorul `?` de la sfârșitul modelului, care _se potrivește de zero sau o dată_.
+  - `()` exterior și `()` interior pot fi referențiate cu `$2` și `$3` mai târziu.
 
 [RegExr](https://regexr.com) vă poate ajuta să înțelegeți detaliile.
 
 > [!NOTE]
 > RegExr afișează o eroare atunci când nu evadați `/` cu `\`. Deși o puteți evada, nu este necesar, deoarece RedirectWeb utilizează un motor diferit de la Apple care nu necesită evadare.
 
-Aceasta nu este o soluție perfectă, deoarece redirecționează `example.com/hello` către `example.com/hello?layout=desktop&`, care include un `&` inutil la sfârșitul URL-ului. Nu este o problemă mare în general, dar dacă doriți să-l eliminați, puteți utiliza *Procesarea grupurilor de captură*.
+Aceasta nu este o soluție perfectă, deoarece redirecționează `example.com/hello` către `example.com/hello?layout=desktop&`, care include un `&` inutil la sfârșitul URL-ului. Nu este o problemă mare în general, dar dacă doriți să-l eliminați, puteți utiliza _Procesarea grupurilor de captură_.
 
 În concluzie, acesta este rezultatul final:
 
-*   **Redirecționare de la**: `(https://example.com/[^?]*)((\?(.*))?)` (Expresie regulată)
-*   **Redirecționare către**: `$1?layout=desktop$3`
-*   **Model URL exclus**: `.*[&?]layout=[^&]*.*` (Expresie regulată)
-*   **Procesarea grupurilor de captură**: 
-    *   **Grup**: `$3`
-    *   **Proces**: Înlocuire apariții
-        *   **Țintă**: `\?(.*)`
-        *   **Înlocuire**: `&$1`
+- **Redirecționare de la**: `(https://example.com/[^?]*)((\?(.*))?)` (Expresie regulată)
+- **Redirecționare către**: `$1?layout=desktop$3`
+- **Model URL exclus**: `.*[&?]layout=[^&]*.*` (Expresie regulată)
+- **Procesarea grupurilor de captură**:
+  - **Grup**: `$3`
+  - **Proces**: Înlocuire apariții
+    - **Țintă**: `\?(.*)`
+    - **Înlocuire**: `&$1`
 
 **<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Descărcați regula</a>**
 
 Acesta este doar un exemplu. Puteți crea și mai multe reguli pentru a gestiona fiecare problemă. Poate fi mult mai simplu.
-

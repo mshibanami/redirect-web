@@ -5,104 +5,110 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # FAQ
 
-## Mengapa aturan pengalihan saya tidak berfungsi? {#redirection-not-working}
+## Mengapa aturan pengalihan saya tidak berfungsi? {/* #redirection-not-working */}
 
-Jika aturan yang Anda buat tidak berjalan seperti yang diharapkan, harap periksa hal berikut:
+Jika aturan yang Anda buat tidak berjalan sesuai harapan, harap periksa hal-hal berikut:
 
-- **Apakah ekstensi diaktifkan?** Periksa pengaturan ekstensi browser Anda untuk memastikan RedirectWeb telah dinyalakan.
-- **Apakah aturan sudah diaktifkan?** Buka aplikasi RedirectWeb dan pastikan tombol saklar aturan tertentu berada di posisi "Aktif".
-- **Apakah aturannya benar?** Uji aturan dengan mengetikkan URL di bidang Contoh di layar Edit Aturan.
-- **[Safari] Apakah Anda mengizinkan ekstensi untuk mengakses situs web sumber?**: Pastikan Anda telah mengizinkan ekstensi untuk mengakses situs web yang ingin Anda alihkan. Jika Anda dapat membuka popup ekstensi, berarti ekstensi tersebut memiliki akses ke situs web sumber.
-    > [!TIP]
-    > Untuk kenyamanan Anda, kami menyarankan untuk mengizinkan akses ke semua situs web. (Sekadar saran!)
+- **Apakah ekstensi sudah diaktifkan?** Periksa pengaturan ekstensi browser Anda untuk memastikan RedirectWeb telah dinyalakan.
+- **Apakah aturan sudah diaktifkan?** Buka aplikasi RedirectWeb dan pastikan sakelar aturan tertentu berada dalam posisi "On".
+- **Apakah aturan sudah benar?** Uji aturan dengan mengetikkan URL di kolom Contoh di layar Edit Aturan.
+- **[Safari] Apakah Anda sudah mengizinkan ekstensi untuk mengakses situs web sumber?**: Pastikan Anda telah mengizinkan ekstensi untuk mengakses situs web yang ingin Anda alihkan. Jika Anda dapat membuka popup ekstensi, berarti ekstensi tersebut memiliki akses ke situs web sumber.
+  > [!TIP]
+  > Untuk kenyamanan Anda, kami menyarankan untuk mengizinkan akses ke semua situs web. (Sekadar saran!)
 
-## Mengapa saya harus mengizinkan ekstensi untuk membaca/mengubah informasi saya? {#why-allow-extension-to-read-change}
+## Mengapa saya harus mengizinkan ekstensi untuk membaca/mengubah informasi saya? {/* #why-allow-extension-to-read-change */}
 
-Anda mungkin melihat peringatan seperti ini saat Anda mengatur RedirectWeb:
+Anda mungkin melihat peringatan seperti ini saat menyiapkan RedirectWeb:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="Peringatan yang membutuhkan izin" width="200" margin="0 0 16px 0" hasShadow />
+    <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Ekstensi ini akan dapat membaca dan mengubah halaman web serta melihat riwayat penjelajahan Anda di situs web ini. **Ini bisa termasuk informasi sensitif, termasuk kata sandi, nomor telepon, dan kartu kredit.**
+    > Ekstensi ini akan dapat membaca dan mengubah halaman web serta melihat riwayat penjelajahan Anda di situs web ini. **Ini dapat mencakup informasi sensitif, termasuk kata sandi, nomor telepon, dan kartu kredit.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="Peringatan yang membutuhkan izin" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Ini dapat:  
+    > Ekstensi dapat:
     > Membaca dan mengubah **semua data Anda** di **semua situs web**
+
 </IfBrowserStore>
 
-Ekstensi ini membutuhkan izin Anda untuk mengamati navigasi halaman untuk mengarahkan ke mana pun Anda ingin melompat, dan browser Anda menampilkan ini ketika ekstensi meminta izin terkait. Oleh karena itu, jika Anda tidak mengizinkannya, ekstensi ini tidak dapat berfungsi.
+Ekstensi ini memerlukan izin Anda untuk memantau navigasi halaman guna mengalihkan ke mana pun Anda ingin melompat, dan browser Anda menampilkan ini saat ekstensi meminta izin terkait. Oleh karena itu, jika Anda tidak mengizinkannya, ekstensi ini tidak dapat berfungsi.
 
 Izin yang diberikan hanya akan digunakan untuk fungsi aplikasi seperti pengalihan, sesuai dengan **[kebijakan privasi](/privacy-policy)**.
 
-## Pembelian saya tidak dipulihkan bahkan setelah mengetuk "Pulihkan Pembelian" {#purchase-not-restored}
+## Pembelian saya tidak dipulihkan bahkan setelah mengetuk "Restore Purchase" {/* #purchase-not-restored */}
 
-Jika tombol Pulihkan Pembelian tidak berfungsi sebagaimana mestinya, harap ikuti langkah-langkah pemecahan masalah berikut:
+Jika tombol Restore Purchase tidak berfungsi seperti yang diharapkan, silakan ikuti langkah-langkah pemecahan masalah berikut:
 
-1. Masuk ke [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) untuk memastikan bahwa transaksi telah berhasil diselesaikan dan terdaftar dalam riwayat ID Apple Anda.
-2. Pastikan ID Apple yang saat ini masuk ke **aplikasi App Store** adalah ID yang sama dengan yang digunakan untuk pembelian asli.
-    > [!NOTE]
-    >
-    > Akun yang masuk ke aplikasi Pengaturan perangkat Anda terkadang bisa berbeda dengan yang digunakan di aplikasi App Store. Akun di dalam aplikasi App Store-lah yang harus sesuai dengan riwayat pembelian Anda agar fungsi pemulihan dapat berjalan dengan benar.
-3. Jika Anda memiliki beberapa ID Apple, silakan keluar dari App Store dan masuk kembali dengan akun yang benar, lalu coba tombol Pulihkan Pembelian lagi.
+1. Masuk ke [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) untuk mengonfirmasi bahwa transaksi telah berhasil diselesaikan dan terdaftar dalam riwayat ID Apple Anda.
+2. Pastikan ID Apple yang saat ini masuk ke **aplikasi App Store** adalah ID yang sama yang digunakan untuk pembelian asli.
+   > [!NOTE]
+   >
+   > Akun yang masuk ke aplikasi Pengaturan perangkat Anda terkadang berbeda dengan akun yang digunakan di aplikasi App Store. Akun di dalam aplikasi App Store-lah yang harus sesuai dengan riwayat pembelian Anda agar pemulihan dapat berfungsi dengan benar.
+3. Jika Anda memiliki beberapa ID Apple, silakan keluar dari App Store dan masuk kembali dengan akun yang benar, lalu coba tombol Restore Purchase lagi.
 
-Jika akun sudah sesuai namun pemulihan tetap gagal, silakan [hubungi kami](/contact-us) dengan melampirkan tangkapan layar tanda terima atau riwayat pembelian Anda. Kami akan menyelidiki masalah ini lebih lanjut untuk Anda.
+Jika akun cocok tetapi pemulihan tetap gagal, silakan [hubungi kami](/contact-us) dengan menyertakan tangkapan layar tanda terima atau riwayat pembelian Anda. Kami akan menyelidiki masalah ini lebih lanjut untuk Anda.
 
-## Haruskah saya tetap mendapatkan aplikasi setelah menginstal ekstensi untuk Chrome, Firefox, atau Edge? {#app-for-non-safari-browsers}
+## Apakah saya masih perlu mengunduh aplikasi setelah menginstal ekstensi untuk Chrome, Firefox, atau Edge? {/* #app-for-non-safari-browsers */}
 
-Ya. Anda harus mengunduh [aplikasi RedirectWeb dari App Store](https://apps.apple.com/app/id1571283503) terlepas dari browser apa yang Anda gunakan. Anda dapat menginstal ekstensi dari toko ekstensi browser Anda, tetapi aplikasi diperlukan untuk mengelola aturan Anda, riwayat pembelian, dan pengaturan lainnya di seluruh perangkat melalui iCloud.
+Ya. Anda harus mengunduh [aplikasi RedirectWeb dari App Store](https://apps.apple.com/app/id1571283503) terlepas dari browser mana pun yang Anda gunakan. Anda dapat menginstal ekstensi dari toko ekstensi browser Anda, tetapi aplikasi diperlukan untuk mengelola aturan, riwayat pembelian, dan pengaturan lainnya di seluruh perangkat melalui iCloud.
 
-## Apakah saya memerlukan ekstensi yang berbeda untuk Chrome, Firefox, atau Edge jika saya menggunakan aplikasi Pro? {#different-extension-for-pro}
+## Apakah saya memerlukan ekstensi yang berbeda untuk Chrome, Firefox, atau Edge jika saya menggunakan aplikasi Pro? {/* #different-extension-for-pro */}
 
-Tidak. Baik Anda menggunakan aplikasi RedirectWeb standar atau RedirectWeb Pro di Mac Anda, Anda harus menginstal ekstensi yang sama persis dari toko ekstensi browser masing-masing. Ekstensi akan secara otomatis mendeteksi dan berkomunikasi dengan versi aplikasi apa pun yang telah Anda instal.
+Tidak. Baik Anda menggunakan aplikasi RedirectWeb standar atau RedirectWeb Pro di Mac Anda, Anda harus menginstal ekstensi yang sama persis dari toko ekstensi masing-masing browser. Ekstensi tersebut akan secara otomatis mendeteksi dan berkomunikasi dengan versi aplikasi apa pun yang telah Anda instal.
 
-## Apakah RedirectWeb berfungsi di Windows, Android, Linux, atau platform lain? {#non-apple-platforms}
+## Apakah RedirectWeb berfungsi di Windows, Android, Linux, atau platform lainnya? {/* #non-apple-platforms */}
 
-Saat ini tidak. RedirectWeb sangat terkait dengan ekosistem Apple, termasuk iCloud dan Pembelian Universal. Maaf atas ketidaknyamanannya.
+Tidak untuk saat ini. RedirectWeb sangat terikat dengan ekosistem Apple, termasuk iCloud dan Universal Purchase. Maaf atas ketidaknyamanan ini.
 
-## Mengapa ekstensi ini membutuhkan izin baru? {#permission-alert-on-safari}
+## Mengapa ekstensi ini memerlukan izin baru? {/* #permission-alert-on-safari */}
 
 Anda mungkin melihat peringatan ini di Safari setelah memperbarui RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Peringatan penonaktifan aplikasi" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="An alert of disabling the app"
+  width="280"
+/>
 
 > "RedirectWeb" telah diperbarui dan meminta izin tambahan. Untuk melindungi privasi Anda, ekstensi ini telah dimatikan.
 >
-> Anda dapat mengaktifkan ekstensi ini di bagian Ekstensi di Pengaturan Safari.
+> Anda dapat mengaktifkan kembali ekstensi ini di bagian Ekstensi pada Pengaturan Safari.
 
-Ini karena izin [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) yang diperlukan oleh jenis [DNR](/rule-settings#type) yang diperkenalkan di versi 7. Harap aktifkan kembali ekstensi. Maaf atas ketidaknyamanannya.
+Hal ini disebabkan oleh izin [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) yang diperlukan oleh tipe [DNR](/rule-settings#type) yang diperkenalkan pada versi 7. Harap aktifkan kembali ekstensi tersebut. Maaf atas ketidaknyamanan ini.
 
-## Akankah konten perpustakaan menjadi berbayar di masa mendatang? {#will-library-become-paid}
+## Apakah konten perpustakaan akan menjadi berbayar di masa mendatang? {/* #will-library-become-paid */}
 
-Tidak, itu selalu gratis. Anda juga dapat menemukan sumber semua konten [di sini](https://github.com/mshibanami/redirect-web/tree/main/library).
+Tidak, kontennya akan selalu gratis. Anda juga dapat menemukan sumber dari semua konten [di sini](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Apa perbedaan antara RedirectWeb dan RedirectWeb Pro? {#difference-between-standard-and-pro}
+## Apa perbedaan antara RedirectWeb dan RedirectWeb Pro? {/* #difference-between-standard-and-pro */}
 
 Kedua versi menawarkan fitur yang sama persis dan menerima pembaruan secara bersamaan. Satu-satunya perbedaan adalah model pembayarannya:
 
-- **RedirectWeb**: Aplikasi gratis dengan fitur dasar (terbatas pada **1 aturan aktif**), menawarkan Pembelian Dalam Aplikasi opsional (langganan atau pembayaran sekali bayar) untuk membuka semua fitur, termasuk aturan tak terbatas dan sinkronisasi iCloud.
-- **RedirectWeb Pro**: Aplikasi berbayar di muka yang fiturnya sudah terbuka sepenuhnya. Versi ini dibuat khusus agar memenuhi syarat untuk **Apple Business Manager** dan **Apple School Manager (VPP)**, yang memungkinkan organisasi untuk membeli aplikasi dalam jumlah besar, yang tidak mungkin dilakukan dengan Pembelian Dalam Aplikasi. Namun, siapa pun yang lebih menyukai pembelian di muka dapat membelinya!
+- **RedirectWeb**: Aplikasi gratis dengan fitur dasar (terbatas pada **1 aturan aktif**), menawarkan Pembelian Dalam Aplikasi opsional (langganan atau pembayaran satu kali) untuk membuka semua fitur, termasuk aturan tak terbatas dan sinkronisasi iCloud.
+- **RedirectWeb Pro**: Aplikasi berbayar di muka yang sudah terbuka sepenuhnya. Versi ini dibuat khusus agar memenuhi syarat untuk **Apple Business Manager** dan **Apple School Manager (VPP)**, yang memungkinkan organisasi membeli aplikasi dalam jumlah banyak, yang tidak mungkin dilakukan dengan Pembelian Dalam Aplikasi. Namun, siapa pun yang lebih menyukai pembelian di muka dapat membelinya!
 
-## Pembelian Sekali Bayar, Langganan Tahunan, atau Versi Pro: Mana yang Terbaik? {#one-time-or-subscription-or-pro}
+## Pembelian Satu Kali, Langganan Tahunan, atau Versi Pro: Mana yang Terbaik? {/* #one-time-or-subscription-or-pro */}
 
-Kami menyarankan salah satu antara pembelian sekali bayar di dalam aplikasi RedirectWeb standar atau membeli RedirectWeb Pro, karena keduanya menawarkan nilai yang sama.
-Alasan utama kami menawarkan langganan adalah untuk memungkinkan Anda mencoba semua fitur melalui uji coba gratisnya. Berikut adalah kasus penggunaan yang diharapkan:
+Kami merekomendasikan pembelian satu kali di dalam aplikasi RedirectWeb standar atau membeli RedirectWeb Pro, karena keduanya menawarkan nilai yang sama.
+Alasan utama kami menawarkan langganan adalah agar Anda dapat mencoba semua fitur melalui uji coba gratisnya. Berikut adalah skenario penggunaan yang diharapkan:
 
-1. Berlangganan langganan tahunan di aplikasi RedirectWeb standar.
-2. Segera batalkan langganan dengan membuka aplikasi Pengaturan, mencari "Langganan", mengetuk aplikasi ini, dan memilih "Batalkan Langganan". Ini memungkinkan Anda menikmati uji coba gratis tanpa komitmen apa pun.
+1. Berlangganan ke langganan tahunan di aplikasi RedirectWeb standar.
+2. Segera batalkan langganan dengan masuk ke aplikasi Pengaturan, mencari "Langganan", mengetuk aplikasi ini, dan memilih "Batalkan Langganan". Ini memungkinkan Anda menikmati uji coba gratis tanpa komitmen apa pun.
 3. Nikmati akses penuh ke semua fitur selama 7 hari.
-4. Jika Anda menyukai fitur-fiturnya, pilih pembelian sekali bayar atau beli versi Pro.
+4. Jika Anda menyukai fiturnya, pilih pembelian satu kali atau beli versi Pro.
 
-Tentu saja, tidak ada salahnya untuk melanjutkan dengan langganan tahunan jika Anda mau!
+Tentu saja, tidak ada salahnya untuk melanjutkan langganan tahunan jika Anda lebih menyukainya!
 
-## Apakah RedirectWeb menyuntikkan iklan atau konten lain yang tidak terkait ke situs web? {#does-it-inject-ads}
+## Apakah RedirectWeb menyisipkan iklan atau konten tidak terkait lainnya ke dalam situs web? {/* #does-it-inject-ads */}
 
-Tidak, itu tidak menyuntikkan konten semacam itu. Hanya kode yang diperlukan untuk menyediakan fitur-fitur yang dijelaskan dalam dokumentasi ini dan di halaman aplikasi di App Store yang disuntikkan ke situs web di Safari.
+Tidak, aplikasi ini tidak menyisipkan konten semacam itu. Hanya kode yang diperlukan untuk menyediakan fitur-fitur yang dijelaskan dalam dokumentasi ini dan di halaman aplikasi di App Store yang disisipkan ke dalam situs web di Safari.
 
-## Apakah ada kemungkinan RedirectWeb akan dijual kepada orang lain? {#could-it-be-sold}
+## Apakah ada kemungkinan RedirectWeb akan dijual kepada orang lain? {/* #could-it-be-sold */}
 
-100% tidak. Ekstensi browser memiliki kontrol mendalam atas penjelajahan dan data Anda, dan menyerahkan RedirectWeb kepada pemilik lain akan membuka pintu bagi pelanggaran privasi. Kami telah melihat ekstensi berpindah tangan dan kemudian mengumpulkan data pengguna atau menyuntikkan iklan tanpa peringatan. Itu tidak akan pernah terjadi di sini. Untuk lebih lanjut tentang risiko ini, lihat artikel Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) dan investigasi Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100% tidak. Ekstensi browser memiliki kendali mendalam atas penjelajahan dan data Anda, dan menyerahkan RedirectWeb kepada pemilik lain akan membuka pintu bagi pelanggaran privasi. Kami telah melihat ekstensi berpindah tangan dan kemudian memanen data pengguna atau menyisipkan iklan tanpa peringatan. Hal itu tidak akan pernah terjadi di sini. Untuk informasi lebih lanjut tentang risiko ini, lihat artikel Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) dan investigasi Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-RedirectWeb didirikan atas dasar kepercayaan dan tanggung jawab. Kami menganggapnya sebagai tugas kami untuk menjaga keamanan informasi Anda, dan kami menolak untuk mengalihkan kepemilikan dalam keadaan apa pun. RedirectWeb akan selalu tetap di tangan kami, sehingga Anda dapat menjelajah dengan keyakinan penuh.
+RedirectWeb didirikan atas dasar kepercayaan dan tanggung jawab. Kami menganggap sebagai kewajiban kami untuk menjaga keamanan informasi Anda, dan kami menolak untuk mengalihkan kepemilikan dalam kondisi apa pun. RedirectWeb akan selalu berada di tangan kami, sehingga Anda dapat menjelajah dengan penuh percaya diri.

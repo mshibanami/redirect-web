@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Tapaus 2: Poista kyselyparametrit URL-osoitteesta
 
@@ -6,14 +6,14 @@ Oletetaan, että URL-osoitteessa `example.com` on kyselyparametri `source=twitte
 
 Tässä tapauksessa **Sieppausryhmän käsittely** -vaihtoehto on helpoin tapa:
 
-* **Uudelleenohjaa kohteesta**: `https://example.com/*` (Wildcard)
-* **Uudelleenohjaa kohteeseen**: `$0`
-* **Sieppausryhmän käsittely**:
-    * **Ryhmä**: `$0`
-    * **Prosessi**: Korvaa esiintymät
-        * **Kohde**: `&?source=[^&]*`
-        * **Korvaava**: *(ei mitään)*
-        * **Tekstikuvio**: Säännöllinen lauseke
+- **Uudelleenohjaa kohteesta**: `https://example.com/*` (Wildcard)
+- **Uudelleenohjaa kohteeseen**: `$0`
+- **Sieppausryhmän käsittely**:
+  - **Ryhmä**: `$0`
+  - **Prosessi**: Korvaa esiintymät
+    - **Kohde**: `&?source=[^&]*`
+    - **Korvaava**: _(ei mitään)_
+    - **Tekstikuvio**: Säännöllinen lauseke
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Lataa sääntö</a>**
 

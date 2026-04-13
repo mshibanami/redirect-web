@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Fall 2: Ta bort frågeparametrar från URL
 
@@ -6,14 +6,14 @@ Anta att det finns en frågeparameter `source=twitter` i en URL på `example.com
 
 I det här fallet är alternativet **Bearbetning av fångstgrupper** det enklaste sättet:
 
-*   **Omdirigera från**: `https://example.com/*` (Wildcard)
-*   **Omdirigera till**: `$0`
-*   **Bearbetning av fångstgrupper**:
-    *   **Grupp**: `$0`
-    *   **Process**: Ersätt förekomster
-        *   **Mål**: `&?source=[^&]*`
-        *   **Ersättning**: *(ingen)*
-        *   **Textmönster**: Reguljärt uttryck
+- **Omdirigera från**: `https://example.com/*` (Wildcard)
+- **Omdirigera till**: `$0`
+- **Bearbetning av fångstgrupper**:
+  - **Grupp**: `$0`
+  - **Process**: Ersätt förekomster
+    - **Mål**: `&?source=[^&]*`
+    - **Ersättning**: _(ingen)_
+    - **Textmönster**: Reguljärt uttryck
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Ladda ner regeln</a>**
 

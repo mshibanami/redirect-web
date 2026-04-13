@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Primer 3: Dodajanje parametrov poizvedbe v URL
 
@@ -6,10 +6,10 @@ Recimo, da obstaja spletno mesto `example.com`, ki privzeto prikazuje mobilno po
 
 Morda mislite, da bi ga lahko definirali takole:
 
-*   **Preusmeri iz**: `https://example.com/.*` (Regularni izraz)
-*   **Preusmeri na**: `$0?layout=desktop`
+- **Preusmeri iz**: `https://example.com/.*` (Regularni izraz)
+- **Preusmeri na**: `$0?layout=desktop`
 
-`$0` se nanaša na ciljni URL. Če poskusite dostopiti do `example.com/hello`, boste preusmerjeni na `example.com/hello?layout=desktop`. Ta funkcija se imenuje *nadomestitev*.
+`$0` se nanaša na ciljni URL. Če poskusite dostopiti do `example.com/hello`, boste preusmerjeni na `example.com/hello?layout=desktop`. Ta funkcija se imenuje _nadomestitev_.
 
 > [!TIP]
 > Nadomestitev je na voljo tudi za način nadomestnih znakov, saj se interno pretvori v regularni izraz.
@@ -26,9 +26,9 @@ V tem primeru lahko določite izključen vzorec URL-ja, ki vam omogoča dostop b
 .*[&?]layout=[^&]*.*
 ```
 
-*   `.*`: Ujema se s čimer koli
-*   `[&?]`: Ujema se z `&` ali `?`
-*   `[^&]*`: Ujema se s čimer koli razen z `&`
+- `.*`: Ujema se s čimer koli
+- `[&?]`: Ujema se z `&` ali `?`
+- `[^&]*`: Ujema se s čimer koli razen z `&`
 
 ### Problem 2: Ne more pravilno obravnavati obstoječih parametrov
 
@@ -36,37 +36,36 @@ V tem primeru lahko določite izključen vzorec URL-ja, ki vam omogoča dostop b
 
 V tem primeru spremenite nastavitve takole:
 
-*   **Preusmeri iz**: `(https://example.com/[^?]*)(\?(.*))?`
-*   **Preusmeri na**: `$1?layout=desktop&$3`
+- **Preusmeri iz**: `(https://example.com/[^?]*)(\?(.*))?`
+- **Preusmeri na**: `$1?layout=desktop&$3`
 
 Poglejmo korak za korakom.
 
-*   `(https://example.com/[^?]*)`: Ujema se z delom do prejšnjega znaka `?`.
-    *   `[^?]*` se ujema s čimer koli razen z `?`.
-    *   To je ovito z `()` tako, da ga lahko kasneje referencirate z `$1`.
-*   `(\(.*))?`: Ujema se z nizom, ki se začne z `?`, kar pomeni parametre poizvedbe.
-    *   To se ujema tudi s praznim nizom z `?` kvantifikatorjem na koncu vzorca, ki *se ujema ničkrat ali enkrat*.
-    *   Zunanji `()` in notranji `()` se lahko kasneje referencirata z `$2` in `$3`.
+- `(https://example.com/[^?]*)`: Ujema se z delom do prejšnjega znaka `?`.
+  - `[^?]*` se ujema s čimer koli razen z `?`.
+  - To je ovito z `()` tako, da ga lahko kasneje referencirate z `$1`.
+- `(\(.*))?`: Ujema se z nizom, ki se začne z `?`, kar pomeni parametre poizvedbe.
+  - To se ujema tudi s praznim nizom z `?` kvantifikatorjem na koncu vzorca, ki _se ujema ničkrat ali enkrat_.
+  - Zunanji `()` in notranji `()` se lahko kasneje referencirata z `$2` in `$3`.
 
 [RegExr](https://regexr.com) vam lahko pomaga razumeti podrobnosti.
 
 > [!NOTE]
 > RegExr prikaže napako, ko ne pobegnete `/` z `\`. Čeprav ga lahko pobegnete, to ni potrebno, saj RedirectWeb uporablja drug motor podjetja Apple, ki ne zahteva pobega.
 
-To ni popolna rešitev, saj preusmeri `example.com/hello` na `example.com/hello?layout=desktop&`, kar vključuje nepotreben `&` na koncu URL-ja. To ni velika težava na splošno, če pa ga želite odstraniti, lahko uporabite *Obdelavo zajetih skupin*.
+To ni popolna rešitev, saj preusmeri `example.com/hello` na `example.com/hello?layout=desktop&`, kar vključuje nepotreben `&` na koncu URL-ja. To ni velika težava na splošno, če pa ga želite odstraniti, lahko uporabite _Obdelavo zajetih skupin_.
 
 Skratka, to je končni rezultat:
 
-*   **Preusmeri iz**: `(https://example.com/[^?]*)((\(.*))?)` (Regularni izraz)
-*   **Preusmeri na**: `$1?layout=desktop$3`
-*   **Izključen vzorec URL-ja**: `.*[&?]layout=[^&]*.*` (Regularni izraz)
-*   **Obdelava zajetih skupin**:
-    *   **Skupina**: `$3`
-    *   **Postopek**: Zamenjaj pojavitve
-        *   **Cilj**: `\?(.*)`
-        *   **Zamenjava**: `&$1`
+- **Preusmeri iz**: `(https://example.com/[^?]*)((\(.*))?)` (Regularni izraz)
+- **Preusmeri na**: `$1?layout=desktop$3`
+- **Izključen vzorec URL-ja**: `.*[&?]layout=[^&]*.*` (Regularni izraz)
+- **Obdelava zajetih skupin**:
+  - **Skupina**: `$3`
+  - **Postopek**: Zamenjaj pojavitve
+    - **Cilj**: `\?(.*)`
+    - **Zamenjava**: `&$1`
 
 **<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Prenesite pravilo</a>**
-
 
 To je zgolj primer. Lahko ustvarite tudi več pravil za reševanje vsakega problema. Lahko je veliko enostavneje.

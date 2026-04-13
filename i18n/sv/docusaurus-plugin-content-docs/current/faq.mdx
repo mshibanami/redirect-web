@@ -5,104 +5,110 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # FAQ
 
-## Varför fungerar inte min omdirigeringsregel? {#redirection-not-working}
+## Varför fungerar inte min omdirigeringsregel? {/* #redirection-not-working */}
 
 Om en regel du skapat inte aktiveras som förväntat, kontrollera följande:
 
-- **Är tillägget aktiverat?** Kontrollera webbläsarens tilläggsinställningar för att säkerställa att RedirectWeb är påslaget.
+- **Är tillägget aktiverat?** Kontrollera webbläsarens tilläggsinställningar för att se till att RedirectWeb är påslaget.
 - **Är regeln aktiverad?** Öppna RedirectWeb-appen och se till att den specifika regelns strömbrytare är i läget "På".
 - **Är regeln korrekt?** Testa regeln genom att skriva in en URL i fältet Exempel på skärmen Redigera regel.
-- **[Safari] Har du tillåtit tillägget att komma åt källwebbplatsen?**: Se till att du har tillåtit tillägget att komma åt den webbplats du vill omdirigera från. Om du kan öppna tilläggets popup-fönster har tillägget åtkomst till källwebbplatsen.
-    > [!TIP]
-    > För din bekvämlighet rekommenderar vi att du tillåter åtkomst till alla webbplatser. (Bara ett tips!)
+- **[Safari] Tillät du tillägget att komma åt källwebbplatsen?**: Se till att du har tillåtit tillägget att komma åt webbplatsen du vill omdirigera från. Om du kan öppna tilläggets popup-fönster har tillägget åtkomst till källwebbplatsen.
+  > [!TIP]
+  > För din bekvmlighet rekommenderar vi att du tillåter åtkomst till alla webbplatser. (Bara ett tips!)
 
-## Varför ska jag tillåta tillägget att läsa/ändra min information? {#why-allow-extension-to-read-change}
+## Varför ska jag tillåta tillägget att läsa/ändra min information? {/* #why-allow-extension-to-read-change */}
 
 Du kan se en varning som denna när du ställer in RedirectWeb:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="En behörighetskrävande varning" width="200" margin="0 0 16px 0" hasShadow />
+    <Image src={PermissionAlertSafari} alt="En varning om behörighet" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Detta tillägg kommer att kunna läsa och ändra webbsidor och se din webbhistorik på denna webbplats. **Detta kan inkludera känslig information, inklusive lösenord, telefonnummer och kreditkort.**
+    > Det här tillägget kommer att kunna läsa och ändra webbsidor och se din webbhistorik på den här webbplatsen. **Detta kan inkludera känslig information, inklusive lösenord, telefonnummer och kreditkort.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="En behörighetskrävande varning" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="En varning om behörighet" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Det kan:  
-    > Läsa och ändra **all din data** på **alla webbplatser**
+    > Det kan:
+    > Läsa och ändra **alla dina data** på **alla webbplatser**
+
 </IfBrowserStore>
 
-Detta tillägg behöver din behörighet för att observera sidnavigeringen för att omdirigera till vart du vill hoppa, och din webbläsare visar detta när tillägget begär de relaterade behörigheterna. Därför, om du inte tillåter det, kan detta tillägg inte fungera.
+Detta tillägg behöver din tillåtelse för att observera sidnavigeringen för att omdirigera till dit du vill hoppa, och din webbläsare visar detta när tillägget begär de relaterade behörigheterna. Därför, om du inte tillåter det, kan detta tillägg inte fungera.
 
 Beviljade behörigheter kommer endast att användas för appfunktioner som omdirigering, i enlighet med **[integritetspolicyn](/privacy-policy)**.
 
-## Mitt köp återställs inte ens efter att ha tryckt på "Återställ köp" {#purchase-not-restored}
+## Mitt köp återställs inte ens efter att ha tryckt på "Återställ köp" {/* #purchase-not-restored */}
 
 Om knappen Återställ köp inte fungerar som förväntat, följ dessa felsökningssteg:
 
-1. Logga in på [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) för att bekräfta att transaktionen genomfördes framgångsfullt och finns med i din Apple-ID-historik.
+1. Logga in på [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) för att bekräfta att transaktionen slutfördes framgångsrikt och finns med i din Apple-ID-historik.
 2. Se till att det Apple-ID som för närvarande är inloggat i **App Store-appen** är detsamma som användes för det ursprungliga köpet.
-    > [!NOTE]
-    >
-    > Kontot som är inloggat i din enhets app Inställningar kan ibland skilja sig från det som används i App Store-appen. Det är kontot i App Store-appen som måste matcha din köphistorik för att återställningen ska fungera korrekt.
-3. Om du har flera Apple-ID:n, logga ut från App Store och logga in igen med rätt konto, och försök sedan med knappen Återställ köp igen.
+   > [!NOTE]
+   >
+   > Kontot som är inloggat i din enhets Inställningar-app kan ibland skilja sig från det som används i App Store-appen. Det är kontot i App Store-appen som måste matcha din köphistorik för att återställningen ska fungera korrekt.
+3. Om du har flera Apple-ID:n, logga ut från App Store och logga in igen med rätt konto, och försök sedan trycka på knappen Återställ köp igen.
 
-Om kontona stämmer men återställningen fortfarande misslyckas, vänligen [kontakta oss](/contact-us) med en skärmdump på ditt kvitto eller din köphistorik. Vi kommer att undersöka ärendet vidare åt dig.
+Om kontona matchar men återställningen fortfarande misslyckas, [kontakta oss](/contact-us) med en skärmdump av ditt kvitto eller din köphistorik. Vi kommer att undersöka problemet vidare åt dig.
 
-## Ska jag fortfarande skaffa appen efter att ha installerat tillägget för Chrome, Firefox eller Edge? {#app-for-non-safari-browsers}
+## Ska jag fortfarande skaffa appen efter att ha installerat tillägget för Chrome, Firefox eller Edge? {/* #app-for-non-safari-browsers */}
 
-Ja. Du måste ladda ner [RedirectWeb-appen från App Store](https://apps.apple.com/app/id1571283503) oavsett vilken webbläsare du använder. Du kan installera tillägget från din webbläsares tilläggsbutik, men appen krävs för att hantera dina regler, köphistorik och andra inställningar över enheter via iCloud.
+Ja. Du måste ladda ner [RedirectWeb-appen från App Store](https://apps.apple.com/app/id1571283503) oavsett vilken webbläsare du använder. Du kan installera tillägget från din webbläsares tilläggsbutik, men appen krävs för att hantera dina regler, köphistorik och andra inställningar på tvärs av enheter via iCloud.
 
-## Behöver jag ett annat tillägg för Chrome, Firefox eller Edge om jag använder Pro-appen? {#different-extension-for-pro}
+## Behöver jag ett annat tillägg för Chrome, Firefox eller Edge om jag använder Pro-appen? {/* #different-extension-for-pro */}
 
 Nej. Oavsett om du använder standardappen RedirectWeb eller RedirectWeb Pro på din Mac, bör du installera exakt samma tillägg från din webbläsares respektive tilläggsbutik. Tillägget kommer automatiskt att upptäcka och kommunicera med den version av appen du har installerad.
 
-## Fungerar RedirectWeb på Windows, Android, Linux eller andra plattformar? {#non-apple-platforms}
+## Fungerar RedirectWeb på Windows, Android, Linux eller några andra plattformar? {/* #non-apple-platforms */}
 
-Inte för närvarande. RedirectWeb är nära knutet till Apples ekosystem, inklusive iCloud och Universal Purchase. Ursäkta besväret.
+Inte för tillfället. RedirectWeb är tätt knutet till Apples ekosystem, inklusive iCloud och Universellt köp. Ursäkta besväret.
 
-## Varför kräver detta tillägg en ny behörighet? {#permission-alert-on-safari}
+## Varför kräver det här tillägget en ny behörighet? {/* #permission-alert-on-safari */}
 
 Du kan se denna varning i Safari efter att ha uppdaterat RedirectWeb:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="En varning om att inaktivera appen" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="En varning om att appen inaktiveras"
+  width="280"
+/>
 
 > "RedirectWeb" har uppdaterats och begär ytterligare behörigheter. För att skydda din integritet har detta tillägg stängts av.
 >
-> Du kan aktivera detta tillägg i avsnittet Tillägg i Safari-inställningarna.
+> Du kan slå på det här tillägget i avsnittet Tillägg i Safari-inställningarna.
 
 Detta beror på behörigheten [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) som krävs av [DNR](/rule-settings#type)-typen som introducerades i version 7. Aktivera tillägget igen. Ursäkta besväret.
 
-## Kommer bibliotekets innehåll att bli avgiftsbelagt i framtiden? {#will-library-become-paid}
+## Kommer bibliotekets innehåll att bli betalt i framtiden? {/* #will-library-become-paid */}
 
 Nej, det är alltid gratis. Du kan också hitta källan till allt innehåll [här](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Vad är skillnaden mellan RedirectWeb och RedirectWeb Pro? {#difference-between-standard-and-pro}
+## Vad är skillnaden mellan RedirectWeb och RedirectWeb Pro? {/* #difference-between-standard-and-pro */}
 
 Båda versionerna erbjuder exakt samma funktioner och får uppdateringar samtidigt. Den enda skillnaden är betalningsmodellen:
 
-- **RedirectWeb**: En gratisapp med grundläggande funktioner (begränsad till **1 aktiv regel**), som erbjuder ett valfritt köp inuti appen (prenumeration eller engångsbetalning) för att låsa upp alla funktioner, inklusive obegränsat antal regler och iCloud-synkronisering.
-- **RedirectWeb Pro**: En app som betalas i förskott och är helt upplåst. Denna version skapades specifikt för att vara berättigad till **Apple Business Manager** och **Apple School Manager (VPP)**, vilket gör det möjligt för organisationer att masinköpa appen, vilket inte är möjligt med köp inuti appen. Men vem som helst som föredrar ett förskottsköp kan köpa den!
+- **RedirectWeb**: En gratisapp med grundläggande funktioner (begränsad till **1 aktiv regel**), som erbjuder ett valfritt köp inuti appen (prenumeration eller engångsbetalning) för att låsa upp alla funktioner, inklusive obegränsade regler och iCloud-synkronisering.
+- **RedirectWeb Pro**: En app som betalas i förväg och är helt upplåst. Denna version skapades specifikt för att vara berättigad till **Apple Business Manager** och **Apple School Manager (VPP)**, vilket gör det möjligt för organisationer att köpa appen i bulk, vilket inte är möjligt med köp inuti appen. Men alla som föredrar ett köp i förväg kan köpa den!
 
-## Engångsköp, årsabonnemang eller Pro-versionen: Vilket är bäst? {#one-time-or-subscription-or-pro}
+## Engångsköp, årsprenumeration eller Pro-version: Vilket är bäst? {/* #one-time-or-subscription-or-pro */}
 
-Vi rekommenderar antingen engångsköpet i standardappen RedirectWeb eller att köpa RedirectWeb Pro, eftersom de erbjuder samma värde.
-Huvudanledningen till att vi erbjuder prenumerationen är att du ska kunna prova alla funktioner genom dess gratis provperiod. Här är det förväntade användningsfallet:
+Vi rekommenderar antingen engångsköpet inom standardappen RedirectWeb eller att köpa RedirectWeb Pro, eftersom de erbjuder samma värde.
+Huvudorsaken till att vi erbjuder prenumerationen är att låta dig prova alla funktioner genom dess gratis provperiod. Här är det förväntade användningsfallet:
 
-1. Prenumerera på årsabonnemanget i standardappen RedirectWeb.
-2. Avbryt omedelbart prenumerationen genom att gå till appen Inställningar, söka efter "Prenumerationer", trycka på denna app och välja "Avbryt prenumeration". Detta låter dig njuta av den kostnadsfria provperioden utan några åtaganden.
+1. Prenumerera på årsprenumerationen i standardappen RedirectWeb.
+2. Avbryt prenumerationen omedelbart genom att gå till appen Inställningar, söka efter "Prenumerationer", trycka på den här appen och välja "Avbryt prenumeration". Detta låter dig njuta av den kostnadsfria provperioden utan några åtaganden.
 3. Njut av full tillgång till alla funktioner i 7 dagar.
 4. Om du gillar funktionerna, välj engångsköpet eller köp Pro-versionen.
 
-Naturligtvis är det inget fel med att fortsätta med årsabonnemanget om du föredrar det!
+Självklart är det inget fel med att fortsätta med årsprenumerationen om du föredrar det!
 
-## Injicerar RedirectWeb annonser eller annat orelaterat innehåll på webbplatser? {#does-it-inject-ads}
+## Injicerar RedirectWeb annonser eller annat obefogat innehåll på webbplatser? {/* #does-it-inject-ads */}
 
-Nej, det injicerar inget sådant innehåll. Endast kod som är nödvändig för att tillhandahålla de funktioner som beskrivs i denna dokumentation och på appsidan i App Store injiceras på webbplatser i Safari.
+Nej, det injicerar inget sådant innehåll. Endast kod som är nödvändig för att tillhandahålla funktionerna som beskrivs i denna dokumentation och på appsidan i App Store injiceras på webbplatser i Safari.
 
-## Finns det någon chans att RedirectWeb någonsin skulle kunna säljas till någon annan? {#could-it-be-sold}
+## Finns det någon risk att RedirectWeb någonsin skulle kunna säljas till någon annan? {/* #could-it-be-sold */}
 
-100 % nej. Webbläsartillägg har djup kontroll över din surfning och data, och att överlämna RedirectWeb till en annan ägare skulle öppna dörren för integritetskränkningar. Vi har sett tillägg byta ägare och sedan skörda användardata eller injicera annonser utan förvarning. Det kommer aldrig att hända här. För mer om dessa risker, se Matt Frisbies artikel ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) och Brian Krebs utredning ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100 % nej. Webbläsartillägg har stor kontroll över ditt surfande och dina data, och att lämna över RedirectWeb till en annan ägare skulle öppna dörren för integritetskränkningar. Vi har sett tillägg byta ägare och sedan samla in användardata eller injicera annonser utan varning. Det kommer aldrig att hända här. För mer om dessa risker, se Matt Frisbies artikel ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) och Brian Krebs undersökning ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-RedirectWeb bygger på förtroende och ansvar. Vi anser det vara vår plikt att hålla din information säker, och vi vägrar att överföra äganderätten under några omständigheter. RedirectWeb kommer alltid att förbli i våra händer, så du kan surfa med fullt förtroende.
+RedirectWeb grundas på förtroende och ansvar. Vi anser det vara vår plikt att hålla din information säker, och vi vägrar att överföra äganderätten under några omständigheter. RedirectWeb kommer alltid att förbli i våra händer, så att du kan surfa med fullt förtroende.

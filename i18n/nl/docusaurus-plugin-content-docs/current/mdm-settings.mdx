@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM-instellingen voor beheerders
 
@@ -15,27 +15,36 @@ Deze pagina beschrijft de configureerbare sleutels, het gedrag van de app, best 
 
 Door configuraties via uw MDM te pushen, kunt u het volgende bereiken:
 
-* **Afgedwongen regels:** Pas organisatiebrede omleidingsregels toe die gebruikers niet kunnen wijzigen of verwijderen.
-* **Initiële regelverdeling:** Verspreid een sjabloonregelset die als standaard dient bij de eerste start van de app.
-* **UI-controle:** Beperk de toegang tot specifieke functies (zoals de bibliotheek) en geef in de app duidelijk aan dat deze onder organisatorisch beheer valt.
-* **Grote regelophaling (terugval):** Omzeil de limieten voor de grootte van de MDM-payload door regels op te halen van een externe server.
+- **Afgedwongen regels:** Pas organisatiebrede omleidingsregels toe die gebruikers niet kunnen wijzigen of verwijderen.
+- **Initiële regelverdeling:** Verspreid een sjabloonregelset die als standaard dient bij de eerste start van de app.
+- **UI-controle:** Beperk de toegang tot specifieke functies (zoals de bibliotheek) en geef in de app duidelijk aan dat deze onder organisatorisch beheer valt.
+- **Grote regelophaling (terugval):** Omzeil de limieten voor de grootte van de MDM-payload door regels op te halen van een externe server.
 
 ## Use cases
 
-* **Naadloze routering tijdens systeemmigraties:**
+- **Naadloze routering tijdens systeemmigraties:**
   Wanneer u migreert van een legacy intern systeem (bijv. `legacy-crm.internal.local`) naar een nieuw platform (bijv. `salesforce.com`), distribueer dan een `enforcedRuleSet`. Zelfs als werknemers oude bladwijzers gebruiken, worden ze automatisch omgeleid naar het nieuwe systeem, waardoor er geen IT-ondersteuningstickets meer zijn over verouderde links.
-* **Ondersteuning bij intranet-toegang:**
+- **Ondersteuning bij intranet-toegang:**
   Distribueer omleidingsregels met aangepaste URL-schema's om toegang tot intranetbronnen via Per-App VPN-tunnels, zoals Omnissa Web, te vergemakkelijken.
 
 > [!WARNING]
-> 
+>
 > MDM-configuratiepushes worden onmiddellijk toegepast **alleen als de gebruiker de RedirectWeb-app opent**.
 > Hoewel de app achtergrondtaken gebruikt om MDM-updates geruisloos naar de browserextensie te pushen, is dit een "best-effort" uitvoering gedicteerd door het besturingssysteem. De timing van de uitvoering is zeer onvoorspelbaar en de taak wordt mogelijk helemaal niet uitgevoerd.
 > Daarom mag op deze functie **niet** worden vertrouwd voor tijdkritische incidentrespons (bijv. het onmiddellijk proberen om te leiden van alle werknemers naar een back-upsite binnen enkele minuten na een uitval van een cloudservice).
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM-instellingen demo" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM-instellingen demo"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Het plist-bestand dat in de video wordt gebruikt, is hier beschikbaar: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -45,18 +54,18 @@ In de video werd het MDM van ManageEngine gebruikt om de configuratie te impleme
 
 Implementeer de volgende sleutels en waarden voor Managed App Configuration via uw MDM-console, doorgaans in het plist-formaat.
 
-| Sleutelnaam            | Type                         | Beschrijving                                                                                                                                                                                                                                                                  |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sleutelnaam            | Type                         | Beschrijving                                                                                                                                                                                                                                                                                                                                         |
+| ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Regelset](#rule-set-object) | **[Afgedwongen regels]** Een regelset toegepast met een hogere prioriteit dan normale regels. De eerste regel in de lijst heeft voorrang. Gebruikers kunnen deze regels niet bewerken, verwijderen of van volgorde veranderen. Ze zijn altijd actief, negeren de globale uitschakelschakelaar van de app en worden niet gesynchroniseerd via iCloud. |
-| `prefilledRuleSet`     | [Regelset](#rule-set-object) | **[Initiële regels]** Een regelset die wordt gemaakt in plaats van de standaard voorbeeldregel wanneer een gebruiker de app voor het eerst start zonder bestaande regels. Eenmaal gedistribueerd, fungeren deze als normale regels, waardoor gebruikerswijziging, verwijdering en iCloud-synchronisatie mogelijk zijn.                       |
-| `organizationName`     | String                       | Geeft "Beheerd door [organizationName]" weer bovenaan het instellingenscherm in de app, wat de gebruiker aangeeft dat de app wordt beheerd.                                                                                                                                            |
-| `managedConfigVersion` | String                       | Een willekeurige versiestring voor de configuratie. Weergegeven in de UI, waardoor IT-ondersteuning bij het oplossen van problemen kan controleren of de nieuwste MDM-payload het apparaat heeft bereikt.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | Indien ingesteld op `false`, wordt de functie Regelbibliotheek verborgen en wordt de sectie vervangen door de foutmelding "Beperkt door uw organisatie."                                                                                                                                   |
-| `fallback`             | [Terugval](#fallback-object) | Geef dit op wanneer de configuraties de MDM-payloadlimieten overschrijden. De app haalt JSON/XML op van deze URL om de configuratie toe te passen.                                                                                                                                     |
+| `prefilledRuleSet`     | [Regelset](#rule-set-object) | **[Initiële regels]** Een regelset die wordt gemaakt in plaats van de standaard voorbeeldregel wanneer een gebruiker de app voor het eerst start zonder bestaande regels. Eenmaal gedistribueerd, fungeren deze als normale regels, waardoor gebruikerswijziging, verwijdering en iCloud-synchronisatie mogelijk zijn.                               |
+| `organizationName`     | String                       | Geeft "Beheerd door [organizationName]" weer bovenaan het instellingenscherm in de app, wat de gebruiker aangeeft dat de app wordt beheerd.                                                                                                                                                                                                          |
+| `managedConfigVersion` | String                       | Een willekeurige versiestring voor de configuratie. Weergegeven in de UI, waardoor IT-ondersteuning bij het oplossen van problemen kan controleren of de nieuwste MDM-payload het apparaat heeft bereikt.                                                                                                                                            |
+| `showsLibrarySection`  | Boolean                      | Indien ingesteld op `false`, wordt de functie Regelbibliotheek verborgen en wordt de sectie vervangen door de foutmelding "Beperkt door uw organisatie."                                                                                                                                                                                             |
+| `fallback`             | [Terugval](#fallback-object) | Geef dit op wanneer de configuraties de MDM-payloadlimieten overschrijden. De app haalt JSON/XML op van deze URL om de configuratie toe te passen.                                                                                                                                                                                                   |
 
 Deze sleutels zijn allemaal optioneel.
 
-### [Object] Regelset {#rule-set-object}
+### [Object] Regelset {/* #rule-set-object */}
 
 Elk regelobject heeft hetzelfde formaat als het object dat u kunt [delen/exporteren via de app](export-or-import-rules), maar u moet het converteren van JSON naar plist, zoals dit:
 
@@ -94,11 +103,11 @@ Elk regelobject heeft hetzelfde formaat als het object dat u kunt [delen/exporte
 ...
 ```
 
-### [Object] Terugval {#fallback-object}
+### [Object] Terugval {/* #fallback-object */}
 
-| Sleutelnaam       | Type         | Beschrijving                                                                                                                                 |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | Een eindpunt-URL van een JSON/XML-bestand met regelsets.                                                                                     |
+| Sleutelnaam       | Type         | Beschrijving                                                                                                                                                 |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `fallbackDataURL` | String (URL) | Een eindpunt-URL van een JSON/XML-bestand met regelsets.                                                                                                     |
 | `authToken`       | String       | Een authenticatietoken dat aan de HTTP-header wordt toegevoegd bij het ophalen van de `fallbackDataURL`. (Gebruikt als `Authorization: Bearer [authToken]`). |
 
 ## Regelevaluatie en conflictbeheersing
@@ -111,15 +120,15 @@ Elk regelobject heeft hetzelfde formaat als het object dat u kunt [delen/exporte
 
 Wanneer een sleutel zowel in de inline MDM-payload als in de via `fallbackDataURL` opgehaalde gegevens voorkomt, handelt de app het conflict als volgt af:
 
-* **Vóór voltooiing van het ophalen:** Inline-instellingen krijgen strikte prioriteit en worden gebruikt.
-* **Na succesvol ophalen:** Gegevens opgehaald van de `fallbackDataURL` overschrijven de overeenkomstige inline-instellingen.
-* **Na mislukt ophalen:** De app blijft de inline-instellingen gebruiken.
-* Onafhankelijke sleutels die alleen in de inline-payload voorkomen, blijven behouden.
+- **Vóór voltooiing van het ophalen:** Inline-instellingen krijgen strikte prioriteit en worden gebruikt.
+- **Na succesvol ophalen:** Gegevens opgehaald van de `fallbackDataURL` overschrijven de overeenkomstige inline-instellingen.
+- **Na mislukt ophalen:** De app blijft de inline-instellingen gebruiken.
+- Onafhankelijke sleutels die alleen in de inline-payload voorkomen, blijven behouden.
 
 ## MDM-feedback en statuscontrole
 
 U kunt controleren of de configuratie succesvol is toegepast via het MDM-feedbackkanaal (`com.apple.feedback.managed`) als uw MDM-oplossing dit ondersteunt. Na het verwerken van de configuratie (of het voltooien van het ophalen van de URL), retourneert de app de volgende gegevens:
 
-* `managedConfigVersion`: De versiestring van de configuratiepoging.
-* `result`: Ofwel `success` of `error`.
-* `messages`: Een array met gedetailleerde fout- of waarschuwingsberichten, indien van toepassing.
+- `managedConfigVersion`: De versiestring van de configuratiepoging.
+- `result`: Ofwel `success` of `error`.
+- `messages`: Een array met gedetailleerde fout- of waarschuwingsberichten, indien van toepassing.

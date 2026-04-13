@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Cazul 2: Eliminați parametrii de interogare din URL
 
@@ -6,14 +6,14 @@ Să presupunem că există un parametru de interogare `source=twitter` într-un 
 
 În acest caz, opțiunea **Procesarea grupurilor de captură** este cea mai ușoară modalitate:
 
-*   **Redirecționare de la**: `https://example.com/*` (Joker)
-*   **Redirecționare către**: `$0`
-*   **Procesarea grupurilor de captură**:
-    *   **Grup**: `$0`
-    *   **Proces**: Înlocuire apariții
-        *   **Țintă**: `&?source=[^&]*`
-        *   **Înlocuire**: *(niciunul)*
-        *   **Model text**: Expresie regulată
+- **Redirecționare de la**: `https://example.com/*` (Joker)
+- **Redirecționare către**: `$0`
+- **Procesarea grupurilor de captură**:
+  - **Grup**: `$0`
+  - **Proces**: Înlocuire apariții
+    - **Țintă**: `&?source=[^&]*`
+    - **Înlocuire**: _(niciunul)_
+    - **Model text**: Expresie regulată
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Descărcați regula</a>**
 

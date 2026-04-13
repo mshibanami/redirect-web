@@ -3,106 +3,112 @@ import Image from "@site/src/components/Image";
 import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
 import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
 
-# FAQ
+# Biežāk uzdotie jautājumi
 
-## Kāpēc mans pāradresācijas noteikums nedarbojas? {#redirection-not-working}
+## Kāpēc mans pāradresācijas noteikums nedarbojas? {/* #redirection-not-working */}
 
-Ja jūsu izveidotais noteikums nedarbojas, kā paredzēts, lūdzu, pārbaudiet sekojošo:
+Ja jūsu izveidotais noteikums nedarbojas, kā gaidīts, lūdzu, pārbaudiet sekojošo:
 
 - **Vai paplašinājums ir iespējots?** Pārbaudiet pārlūkprogrammas paplašinājumu iestatījumus, lai pārliecinātos, ka RedirectWeb ir ieslēgts.
-- **Vai noteikums ir ieslēgts?** Atveriet RedirectWeb lietotni un pārliecinieties, ka konkrētā noteikuma slēdzis ir pozīcijā "On" (Ieslēgts).
-- **Vai noteikums ir pareizs?** Pārbaudiet noteikumu, ierakstot URL laukā Examples (Piemēri) ekrānā Edit Rule (Rediģēt noteikumu).
-- **[Safari] Vai atļāvāt paplašinājumam piekļūt avota tīmekļa vietnei?**: Pārliecinieties, ka esat atļāvis paplašinājumam piekļūt tīmekļa vietnei, no kuras vēlaties pāradresēt. Ja varat atvērt paplašinājuma uznirstošo logu, paplašinājumam ir piekļuve avota tīmekļa vietnei.
-    > [!TIP]
-    > Jūsu ērtībām mēs iesakām atļaut piekļuvi visām tīmekļa vietnēm. (Tikai ieteikums!)
+- **Vai noteikums ir ieslēgts?** Atveriet lietotni RedirectWeb un pārliecinieties, ka konkrētā noteikuma slēdzis ir pozīcijā "Ieslēgts".
+- **Vai noteikums ir pareizs?** Pārbaudiet noteikumu, ievadot URL laukā "Piemēri" ekrānā "Rediģēt noteikumu".
+- **[Safari] Vai atļāvāt paplašinājumam piekļūt avota tīmekļa vietnei?**: Pārliecinieties, vai esat atļāvis paplašinājumam piekļūt tīmekļa vietnei, no kuras vēlaties pāradresēt. Ja varat atvērt paplašinājuma uznirstošo logu, paplašinājumam ir piekļuve avota tīmekļa vietnei.
+  > [!TIP]
+  > Jūsu ērtībai iesakām atļaut piekļuvi visām tīmekļa vietnēm. (Tikai padoms!)
 
-## Kāpēc man vajadzētu atļaut paplašinājumam lasīt/mainīt manu informāciju? {#why-allow-extension-to-read-change}
+## Kāpēc man būtu jāļauj paplašinājumam lasīt/mainīt manu informāciju? {/* #why-allow-extension-to-read-change */}
 
 Iestatot RedirectWeb, jūs varat redzēt šādu brīdinājumu:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="Brīdinājums par piekļuves atļauju" width="200" margin="0 0 16px 0" hasShadow />
+    <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow />
 
     > Šis paplašinājums varēs lasīt un mainīt tīmekļa lapas un redzēt jūsu pārlūkošanas vēsturi šajā tīmekļa vietnē. **Tas var ietvert sensitīvu informāciju, tostarp paroles, tālruņa numurus un kredītkartes.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="Brīdinājums par piekļuves atļauju" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Tas var:  
+    > Tas var:
     > Lasīt un mainīt **visus jūsu datus** **visās tīmekļa vietnēs**
+
 </IfBrowserStore>
 
-Šim paplašinājumam ir nepieciešama jūsu atļauja, lai novērotu lapu navigāciju un pāradresētu jūs uz jebkuru vietu, kur vēlaties nokļūt, un jūsu pārlūkprogramma to parāda, kad paplašinājums pieprasa attiecīgās atļaujas. Tāpēc, ja jūs to neatļaujat, šis paplašinājums nevar darboties.
+Šim paplašinājumam ir nepieciešama jūsu atļauja, lai novērotu lapas navigāciju un pāradresētu uz vietu, kur vēlaties nokļūt, un jūsu pārlūkprogramma to parāda, kad paplašinājums pieprasa saistītās atļaujas. Tāpēc, ja jūs to neatļaujat, šis paplašinājums nevar darboties.
 
 Piešķirtās atļaujas tiks izmantotas tikai lietotnes funkcijām, piemēram, pāradresācijai, saskaņā ar **[privātuma politiku](/privacy-policy)**.
 
-## Mans pirkums netiek atjaunots pat pēc pieskaršanās "Restore Purchase" (Atjaunot pirkumu) {#purchase-not-restored}
+## Mans pirkums netiek atjaunots pat pēc pieskaršanās pie "Atjaunot pirkumu" {/* #purchase-not-restored */}
 
-Ja poga Restore Purchase nedarbojas, kā paredzēts, lūdzu, izpildiet šos traucējummeklēšanas soļus:
+Ja poga "Atjaunot pirkumu" nedarbojas, kā paredzēts, lūdzu, veiciet šīs problēmu novēršanas darbības:
 
-1. Piesakieties vietnē [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/), lai apstiprinātu, ka darījums tika veiksmīgi pabeigts un ir iekļauts jūsu Apple ID vēsturē.
-2. Pārliecinieties, ka Apple ID, kas pašlaik ir pieteicies **lietotnē App Store**, ir tas pats, kas tika izmantots sākotnējam pirkumam.
-    > [!NOTE]
-    >
-    > Konts, kas ir pieteicies jūsu ierīces lietotnē Settings (Iestatījumi), dažkārt var atšķirties no tā, kas tiek izmantots lietotnē App Store. Tieši kontam lietotnē App Store ir jāsakrīt ar jūsu pirkumu vēsturi, lai atjaunošana darbotos pareizi.
-3. Ja jums ir vairāki Apple ID, lūdzu, izrakstieties no App Store un pierakstieties atpakaļ ar pareizo kontu, pēc tam vēlreiz mēģiniet nospiest pogu Restore Purchase.
+1. Piesakieties vietnē [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/), lai apstiprinātu, ka darījums tika veiksmīgi pabeigts un ir norādīts jūsu Apple ID vēsturē.
+2. Pārliecinieties, ka Apple ID, kas pašlaik ir pierakstījies lietotnē **App Store**, ir tas pats, kas tika izmantots sākotnējam pirkumam.
+   > [!NOTE]
+   >
+   > Konts, kurā esat pierakstījies ierīces lietotnē "Iestatījumi", dažreiz var atšķirties no tā, kas tiek izmantots lietotnē "App Store". Tieši kontam lietotnē "App Store" ir jāatbilst jūsu pirkumu vēsturei, lai atjaunošana darbotos pareizi.
+3. Ja jums ir vairāki Apple ID, lūdzu, izrakstieties no App Store un pierakstieties vēlreiz ar pareizo kontu, pēc tam vēlreiz mēģiniet pogu "Atjaunot pirkumu".
 
-Ja konti sakrīt, bet atjaunošana joprojām neizdodas, lūdzu, [sazinieties ar mums](/contact-us), pievienojot kvīts vai pirkumu vēstures ekrānuzņēmumu. Mēs tālāk izpētīsim šo problēmu.
+Ja konti sakrīt, bet atjaunošana joprojām neizdodas, lūdzu, [sazinieties ar mums](/contact-us), pievienojot kvīts vai pirkumu vēstures ekrānuzņēmumu. Mēs izpētīsim šo jautājumu tālāk.
 
-## Vai man joprojām ir jāiegūst lietotne pēc paplašinājuma instalēšanas pārlūkprogrammai Chrome, Firefox vai Edge? {#app-for-non-safari-browsers}
+## Vai man joprojām ir jāiegūst lietotne pēc paplašinājuma instalēšanas Chrome, Firefox vai Edge? {/* #app-for-non-safari-browsers */}
 
-Jā. Jums ir jālejupielādē [RedirectWeb lietotne no App Store](https://apps.apple.com/app/id1571283503) neatkarīgi no tā, kuru pārlūkprogrammu izmantojat. Paplašinājumu varat instalēt no savas pārlūkprogrammas paplašinājumu veikala, taču lietotne ir nepieciešama, lai pārvaldītu noteikumus, pirkumu vēsturi un citus iestatījumus visās ierīcēs, izmantojot iCloud.
+Jā. Jums ir jālejupielādē [RedirectWeb lietotne no App Store](https://apps.apple.com/app/id1571283503) neatkarīgi no tā, kuru pārlūkprogrammu izmantojat. Varat instalēt paplašinājumu no pārlūkprogrammas paplašinājumu veikala, taču lietotne ir nepieciešama, lai pārvaldītu jūsu noteikumus, pirkumu vēsturi un citus iestatījumus dažādās ierīcēs, izmantojot iCloud.
 
-## Vai man ir nepieciešams cits paplašinājums pārlūkprogrammai Chrome, Firefox vai Edge, ja izmantoju Pro lietotni? {#different-extension-for-pro}
+## Vai man ir nepieciešams cits paplašinājums Chrome, Firefox vai Edge, ja izmantoju Pro lietotni? {/* #different-extension-for-pro */}
 
-Nē. Neatkarīgi no tā, vai savā Mac datorā izmantojat standarta RedirectWeb lietotni vai RedirectWeb Pro, jums ir jāinstalē tas pats paplašinājums no attiecīgā pārlūkprogrammas paplašinājumu veikala. Paplašinājums automātiski noteiks un sazināsies ar jebkuru instalēto lietotnes versiju.
+Nē. Neatkarīgi no tā, vai savā Mac datorā izmantojat standarta RedirectWeb lietotni vai RedirectWeb Pro, jums ir jāinstalē tieši tas pats paplašinājums no attiecīgā pārlūkprogrammas paplašinājumu veikala. Paplašinājums automātiski noteiks un sazināsies ar to lietotnes versiju, kuru esat instalējis.
 
-## Vai RedirectWeb darbojas operētājsistēmās Windows, Android, Linux vai jebkurā citā platformā? {#non-apple-platforms}
+## Vai RedirectWeb darbojas Windows, Android, Linux vai citās platformās? {/* #non-apple-platforms */}
 
 Šobrīd nē. RedirectWeb ir cieši saistīts ar Apple ekosistēmu, tostarp iCloud un Universal Purchase. Atvainojamies par sagādātajām neērtībām.
 
-## Kāpēc šim paplašinājumam ir nepieciešama jauna atļauja? {#permission-alert-on-safari}
+## Kāpēc šim paplašinājumam ir nepieciešama jauna atļauja? {/* #permission-alert-on-safari */}
 
 Pēc RedirectWeb atjaunināšanas Safari varat redzēt šādu brīdinājumu:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Brīdinājums par lietotnes atspējošanu" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="An alert of disabling the app"
+  width="280"
+/>
 
 > "RedirectWeb" ir atjaunināts un pieprasa papildu atļaujas. Lai aizsargātu jūsu privātumu, šis paplašinājums ir izslēgts.
 >
-> Šo paplašinājumu varat ieslēgt Safari iestatījumu sadaļā Extensions (Paplašinājumi).
+> Varat ieslēgt šo paplašinājumu Safari iestatījumu sadaļā Paplašinājumi.
 
-Tas ir saistīts ar [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) atļauju, kas nepieciešama [DNR](/rule-settings#type) tipam, kurš tika ieviests 7. versijā. Lūdzu, vēlreiz iespējojiet paplašinājumu. Atvainojamies par sagādātajām neērtībām.
+Tas ir saistīts ar [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) atļauju, kas nepieciešama [DNR](/rule-settings#type) tipam, kurš tika ieviests 7. versijā. Lūdzu, atkārtoti iespējojiet paplašinājumu. Atvainojamies par sagādātajām neērtībām.
 
-## Vai bibliotēkas saturs nākotnē kļūs maksas? {#will-library-become-paid}
+## Vai bibliotēkas saturs nākotnē kļūs maksas? {/* #will-library-become-paid */}
 
 Nē, tas vienmēr ir bezmaksas. Visu saturu avotu varat atrast arī [šeit](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Kāda ir atšķirība starp RedirectWeb un RedirectWeb Pro? {#difference-between-standard-and-pro}
+## Kāda ir atšķirība starp RedirectWeb un RedirectWeb Pro? {/* #difference-between-standard-and-pro */}
 
-Abas versijas piedāvā tieši tās pašas funkcijas un saņem atjauninājumus vienlaicīgi. Vienīgā atšķirība ir apmaksas modelis:
+Abas versijas piedāvā tieši tādas pašas funkcijas un saņem atjauninājumus vienlaicīgi. Vienīgā atšķirība ir maksājumu modelis:
 
-- **RedirectWeb**: bezmaksas lietotne ar pamatfunkcijām (ierobežota līdz **1 aktīvam noteikumam**), piedāvājot izvēles pirkumu lietotnē (abonementu vai vienreizēju maksājumu), lai atbloķētu visas funkcijas, tostarp neierobežotu noteikumu skaitu un iCloud sinhronizāciju.
-- **RedirectWeb Pro**: Lietotne ar vienreizēju maksu, kurā visas funkcijas ir atbloķētas. Šī versija tika izveidota īpaši, lai tā būtu piemērota **Apple Business Manager** un **Apple School Manager (VPP)**, ļaujot organizācijām iegādāties lietotni vairumā, kas nav iespējams ar pirkumiem lietotnē. Tomēr to var iegādāties ikviens, kurš dod priekšroku vienreizējam maksājumam!
+- **RedirectWeb**: Bezmaksas lietotne ar pamatfunkcijām (ierobežota līdz **1 aktīvam noteikumam**), piedāvājot izvēles pirkumu lietotnē (abonementu vai vienreizēju maksājumu), lai atbloķētu visas funkcijas, tostarp neierobežotu noteikumu skaitu un iCloud sinhronizāciju.
+- **RedirectWeb Pro**: Maksas lietotne, pilnībā atbloķēta. Šī versija tika izveidota īpaši tam, lai tā būtu piemērota **Apple Business Manager** un **Apple School Manager (VPP)**, ļaujot organizācijām iepirkt lietotni lielos apjomos, kas nav iespējams ar pirkumiem lietotnē. Tomēr ikviens, kurš dod priekšroku vienreizējam pirkumam, var to iegādāties!
 
-## Vienreizējs pirkums, gada abonements vai Pro versija: kura ir vislabākā? {#one-time-or-subscription-or-pro}
+## Vienreizējs pirkums, gada abonements vai Pro versija: kura ir labākā? {/* #one-time-or-subscription-or-pro */}
 
 Mēs iesakām vai nu vienreizēju pirkumu standarta RedirectWeb lietotnē, vai RedirectWeb Pro iegādi, jo tie piedāvā vienādu vērtību.
-Galvenais iemesls, kāpēc mēs piedāvājam abonementu, ir ļaut jums izmēģināt visas funkcijas, izmantojot bezmaksas izmēģinājuma versiju. Šeit ir paredzētais izmantošanas gadījums:
+Galvenais iemesls, kāpēc mēs piedāvājam abonementu, ir ļaut jums izmēģināt visas funkcijas, izmantojot bezmaksas izmēģinājuma versiju. Šeit ir paredzētais lietošanas gadījums:
 
 1. Abonējiet gada abonementu standarta RedirectWeb lietotnē.
-2. Nekavējoties atceliet abonementu, dodoties uz lietotni Settings (Iestatījumi), meklējot "Subscriptions" (Abonementi), pieskaroties šai lietotnei un atlasot "Cancel Subscription" (Atcelt abonementu). Tas ļauj izbaudīt bezmaksas izmēģinājumu bez jebkādām saistībām.
+2. Nekavējoties atceliet abonementu, dodoties uz lietotni "Iestatījumi", meklējot "Abonementi", pieskaroties šai lietotnei un izvēloties "Atcelt abonementu". Tas ļauj izbaudīt bezmaksas izmēģinājumu bez jebkādām saistībām.
 3. Izbaudiet pilnu piekļuvi visām funkcijām 7 dienas.
-4. Ja jums patīk funkcijas, izvēlieties vienreizēju pirkumu vai iegādājieties Pro versiju.
+4. Ja jums patīk šīs funkcijas, izvēlieties vienreizēju pirkumu vai iegādājieties Pro versiju.
 
-Protams, nav nekas nepareizs turpināt lietot gada abonementu, ja vēlaties!
+Protams, nav nekas nepareizs turpināt ar gada abonementu, ja vēlaties!
 
-## Vai RedirectWeb ievieto reklāmas vai citu nesaistītu saturu tīmekļa vietnēs? {#does-it-inject-ads}
+## Vai RedirectWeb tīmekļa vietnēs ievieto reklāmas vai citu nesaistītu saturu? {/* #does-it-inject-ads */}
 
-Nē, tas neievieto šādu saturu. Safari tīmekļa vietnēs tiek ievietots tikai kods, kas nepieciešams, lai nodrošinātu šajā dokumentācijā un App Store lietotnes lapā aprakstītās funkcijas.
+Nē, tas neievieto šādu saturu. Safari tīmekļa vietnēs tiek ievietots tikai kods, kas nepieciešams, lai nodrošinātu šajā dokumentācijā un lietotnes lapā App Store aprakstītās funkcijas.
 
-## Vai pastāv kāda iespēja, ka RedirectWeb kādreiz tiks pārdots kādam citam? {#could-it-be-sold}
+## Vai pastāv kāda iespēja, ka RedirectWeb kādreiz varētu tikt pārdots kādam citam? {/* #could-it-be-sold */}
 
-100% nē. Pārlūkprogrammu paplašinājumiem ir liela kontrole pār jūsu pārlūkošanu un datiem, un RedirectWeb nodošana citam īpašniekam pavērtu durvis privātuma pārkāpumiem. Esam redzējuši, ka paplašinājumi maina īpašniekus un pēc tam bez brīdinājuma vāc lietotāju datus vai ievieto reklāmas. Šeit tas nekad nenotiks. Vairāk par šiem riskiem lasiet Meta Frisbija (Matt Frisbie) rakstā ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) un Braiena Krebsa (Brian Krebs) pētījumā ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100% nē. Pārlūkprogrammu paplašinājumiem ir liela kontrole pār jūsu pārlūkošanu un datiem, un RedirectWeb nodošana citam īpašniekam pavērtu durvis privātuma pārkāpumiem. Mēs esam redzējuši, kā paplašinājumi maina īpašniekus un pēc tam bez brīdinājuma vāc lietotāju datus vai ievieto reklāmas. Šeit tas nekad nenotiks. Vairāk par šiem riskiem lasiet Meta Frisbija rakstā ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) un Braiena Krebsa pētījumā ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-RedirectWeb pamatā ir uzticēšanās un atbildība. Mēs uzskatām par savu pienākumu sargāt jūsu informāciju un atsakāmies nodot īpašumtiesības jebkādos apstākļos. RedirectWeb vienmēr paliks mūsu rokās, lai jūs varētu pārlūkot internetu ar pilnīgu pārliecību.
+RedirectWeb pamatā ir uzticēšanās un atbildība. Mēs uzskatām par savu pienākumu glabāt jūsu informāciju drošībā un atsakāmies nodot īpašumtiesības jebkādos apstākļos. RedirectWeb vienmēr paliks mūsu rokās, lai jūs varētu pārlūkot vietnes ar pilnīgu pārliecību.

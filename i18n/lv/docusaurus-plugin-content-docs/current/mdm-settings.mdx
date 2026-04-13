@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM iestatījumi administratoriem
 
@@ -15,27 +15,36 @@ RedirectWeb atbalsta Apple Managed App Configuration, ļaujot jums (IT administr
 
 Nosūtot konfigurācijas caur jūsu MDM, jūs varat panākt sekojošo:
 
-* **Uzspiestie noteikumi:** Lietojiet organizācijas mēroga pāradresācijas noteikumus, kurus lietotāji nevar modificēt vai dzēst.
-* **Sākotnējā noteikumu izplatīšana:** Izplatiet veidnes noteikumu kopu, kas kalpo kā noklusējums pēc lietotnes pirmās palaišanas.
-* **UI kontrole:** Ierobežojiet piekļuvi konkrētām funkcijām (piemēram, bibliotēkai) un skaidri norādiet lietotnē, ka tā atrodas organizācijas pārvaldībā.
-* **Apjomīgu noteikumu ielāde (Fallback):** Apiet MDM datu apjoma ierobežojumus, ielādējot noteikumus no ārēja servera.
+- **Uzspiestie noteikumi:** Lietojiet organizācijas mēroga pāradresācijas noteikumus, kurus lietotāji nevar modificēt vai dzēst.
+- **Sākotnējā noteikumu izplatīšana:** Izplatiet veidnes noteikumu kopu, kas kalpo kā noklusējums pēc lietotnes pirmās palaišanas.
+- **UI kontrole:** Ierobežojiet piekļuvi konkrētām funkcijām (piemēram, bibliotēkai) un skaidri norādiet lietotnē, ka tā atrodas organizācijas pārvaldībā.
+- **Apjomīgu noteikumu ielāde (Fallback):** Apiet MDM datu apjoma ierobežojumus, ielādējot noteikumus no ārēja servera.
 
 ## Lietošanas gadījumi
 
-* **Nevainojama maršrutēšana sistēmu migrācijas laikā:**
+- **Nevainojama maršrutēšana sistēmu migrācijas laikā:**
   Migrējot no mantotās iekšējās sistēmas (piemēram, `legacy-crm.internal.local`) uz jaunu platformu (piemēram, `salesforce.com`), izplatiet `enforcedRuleSet`. Pat ja darbinieki izmanto vecās grāmatzīmes, viņi tiek automātiski pāradresēti uz jauno sistēmu, tādējādi novēršot IT atbalsta pieteikumus par novecojušām saitēm.
-* **Palīdzība piekļuvei iekštīklam:**
+- **Palīdzība piekļuvei iekštīklam:**
   Izplatiet pāradresācijas noteikumus, izmantojot pielāgotas URL shēmas, lai atvieglotu piekļuvi iekštīkla resursiem, izmantojot Per-App VPN tuneļus, piemēram, Omnissa Web.
 
 > [!WARNING]
-> 
+>
 > MDM konfigurācijas atjauninājumi tiek lietoti nekavējoties **tikai tad, ja lietotājs atver lietotni RedirectWeb**.
 > Lai gan lietotne izmanto fona uzdevumus, lai klusi nosūtītu MDM atjauninājumus pārlūkprogrammas paplašinājumam, tā ir "labākā centiena" izpilde, ko nosaka operētājsistēma. Izpildes laiks ir ļoti neparedzams, un uzdevums var netikt izpildīts vispār.
 > Tāpēc uz šo funkciju **nevajadzētu** paļauties laika ziņā kritiskās situācijās (piemēram, mēģinot acumirklī pāradresēt visus darbiniekus uz rezerves vietni dažu minūšu laikā pēc mākoņpakalpojuma pārtraukuma).
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM Settings Demo" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM Settings Demo"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Video izmantotais plist fails ir pieejams šeit: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -45,18 +54,18 @@ Video tika izmantots ManageEngine MDM, lai izvietotu konfigurāciju, taču to pa
 
 Izvietojiet sekojošās atslēgas un vērtības Managed App Configuration, izmantojot savu MDM konsoli, parasti plist formātā.
 
-| Atslēgas nosaukums     | Tips                         | Apraksts                                                                                                                                                                                                                                                                                       |
-| ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Atslēgas nosaukums     | Tips                               | Apraksts                                                                                                                                                                                                                                                                                                              |
+| ---------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Noteikumu kopa](#rule-set-object) | **[Uzspiestie noteikumi]** Noteikumu kopa, kas tiek lietota ar augstāku prioritāti nekā parastie noteikumi. Saraksta pirmajam noteikumam ir priekšroka. Lietotāji nevar rediģēt, dzēst vai mainīt šo noteikumu secību. Tie vienmēr ir aktīvi, ignorējot lietotnes globālo slēdzi, un netiek sinhronizēti caur iCloud. |
-| `prefilledRuleSet`     | [Noteikumu kopa](#rule-set-object) | **[Sākotnējie noteikumi]** Noteikumu kopa, kas tiek izveidota noklusējuma piemēra noteikuma vietā, kad lietotājs pirmo reizi palaiž lietotni bez esošiem noteikumiem. Pēc izvietošanas tie darbojas kā parastie noteikumi, ļaujot lietotājam tos modificēt, dzēst un sinhronizēt caur iCloud.           |
-| `organizationName`     | String                       | Lietotnes iestatījumu ekrāna augšdaļā parāda "Pārvalda [organizationName]", norādot lietotājam, ka lietotne tiek pārvaldīta.                                                                                                                                                                 |
-| `managedConfigVersion` | String                       | Patvaļīga konfigurācijas versijas virkne. Tiek parādīta lietotāja saskarnē, ļaujot IT atbalstam pārbaudīt, vai ierīcē ir saņemta jaunākā MDM pakotne problēmu novēršanas laikā.                                                                                                               |
-| `showsLibrarySection`  | Boolean                      | Ja iestatīts uz `false`, Noteikumu bibliotēkas funkcija tiek paslēpta, un sadaļa tiek aizstāta ar kļūdas ziņojumu "Ierobežojusi jūsu organizācija.".                                                                                                                                          |
-| `fallback`             | [Fallback](#fallback-object) | Norādiet šo, ja konfigurācijas pārsniedz MDM datu apjoma ierobežojumus. Lietotne ielādēs JSON/XML no šī URL, lai lietotu konfigurāciju.                                                                                                                                                      |
+| `prefilledRuleSet`     | [Noteikumu kopa](#rule-set-object) | **[Sākotnējie noteikumi]** Noteikumu kopa, kas tiek izveidota noklusējuma piemēra noteikuma vietā, kad lietotājs pirmo reizi palaiž lietotni bez esošiem noteikumiem. Pēc izvietošanas tie darbojas kā parastie noteikumi, ļaujot lietotājam tos modificēt, dzēst un sinhronizēt caur iCloud.                         |
+| `organizationName`     | String                             | Lietotnes iestatījumu ekrāna augšdaļā parāda "Pārvalda [organizationName]", norādot lietotājam, ka lietotne tiek pārvaldīta.                                                                                                                                                                                          |
+| `managedConfigVersion` | String                             | Patvaļīga konfigurācijas versijas virkne. Tiek parādīta lietotāja saskarnē, ļaujot IT atbalstam pārbaudīt, vai ierīcē ir saņemta jaunākā MDM pakotne problēmu novēršanas laikā.                                                                                                                                       |
+| `showsLibrarySection`  | Boolean                            | Ja iestatīts uz `false`, Noteikumu bibliotēkas funkcija tiek paslēpta, un sadaļa tiek aizstāta ar kļūdas ziņojumu "Ierobežojusi jūsu organizācija.".                                                                                                                                                                  |
+| `fallback`             | [Fallback](#fallback-object)       | Norādiet šo, ja konfigurācijas pārsniedz MDM datu apjoma ierobežojumus. Lietotne ielādēs JSON/XML no šī URL, lai lietotu konfigurāciju.                                                                                                                                                                               |
 
 Šīs atslēgas ir izvēles.
 
-### [Objekts] Noteikumu kopa {#rule-set-object}
+### [Objekts] Noteikumu kopa {/* #rule-set-object */}
 
 Katram noteikuma objektam ir tāds pats formāts kā tam, kuru varat [kopīgot/eksportēt caur lietotni](export-or-import-rules), taču jums tas ir jāpārveido no JSON uz plist, piemēram, šādi:
 
@@ -94,12 +103,12 @@ Katram noteikuma objektam ir tāds pats formāts kā tam, kuru varat [kopīgot/e
 ...
 ```
 
-### [Objekts] Fallback {#fallback-object}
+### [Objekts] Fallback {/* #fallback-object */}
 
-| Atslēgas nosaukums | Tips         | Apraksts                                                                                                                                   |
-| ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `fallbackDataURL` | String (URL) | JSON/XML faila galapunkta URL, kas satur noteikumu kopas.                                                                                   |
-| `authToken`       | String       | Autentifikācijas marķieris, kas pievienots HTTP galvenei, veicot ielādi no `fallbackDataURL`. (Tiek izmantots kā `Authorization: Bearer [authToken]`). |
+| Atslēgas nosaukums | Tips         | Apraksts                                                                                                                                               |
+| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `fallbackDataURL`  | String (URL) | JSON/XML faila galapunkta URL, kas satur noteikumu kopas.                                                                                              |
+| `authToken`        | String       | Autentifikācijas marķieris, kas pievienots HTTP galvenei, veicot ielādi no `fallbackDataURL`. (Tiek izmantots kā `Authorization: Bearer [authToken]`). |
 
 ## Noteikumu izvērtēšana un konfliktu risināšana
 
@@ -111,15 +120,15 @@ Katram noteikuma objektam ir tāds pats formāts kā tam, kuru varat [kopīgot/e
 
 Ja atslēga eksistē gan tiešajā MDM pakotnē, gan datos, kas ielādēti caur `fallbackDataURL`, lietotne risina konfliktu šādi:
 
-* **Pirms ielādes pabeigšanas:** Tiešie iestatījumi tiek stingri prioritizēti un izmantoti.
-* **Pēc veiksmīgas ielādes:** Dati, kas saņemti no `fallbackDataURL`, pārraksta atbilstošos tiešos iestatījumus.
-* **Pēc neveiksmīgas ielādes:** Lietotne turpina izmantot tiešos iestatījumus.
-* Neatkarīgās atslēgas, kas eksistē tikai tiešajā pakotnē, tiek saglabātas.
+- **Pirms ielādes pabeigšanas:** Tiešie iestatījumi tiek stingri prioritizēti un izmantoti.
+- **Pēc veiksmīgas ielādes:** Dati, kas saņemti no `fallbackDataURL`, pārraksta atbilstošos tiešos iestatījumus.
+- **Pēc neveiksmīgas ielādes:** Lietotne turpina izmantot tiešos iestatījumus.
+- Neatkarīgās atslēgas, kas eksistē tikai tiešajā pakotnē, tiek saglabātas.
 
 ## MDM atgriezeniskā saite un statusa pārbaude
 
 Jūs varat pārbaudīt, vai konfigurācija tika sekmīgi lietota, izmantojot MDM atgriezeniskās saites kanālu (`com.apple.feedback.managed`), ja jūsu MDM risinājums to atbalsta. Pēc konfigurācijas apstrādes (vai URL ielādes pabeigšanas) lietotne atgriež šādus datus:
 
-* `managedConfigVersion`: Konfigurācijas mēģinājuma versijas virkne.
-* `result`: Vai nu `success`, vai `error`.
-* `messages`: Masīvs, kas satur detalizētus kļūdu vai brīdinājuma ziņojumus, ja tādi ir.
+- `managedConfigVersion`: Konfigurācijas mēģinājuma versijas virkne.
+- `result`: Vai nu `success`, vai `error`.
+- `messages`: Masīvs, kas satur detalizētus kļūdu vai brīdinājuma ziņojumus, ja tādi ir.

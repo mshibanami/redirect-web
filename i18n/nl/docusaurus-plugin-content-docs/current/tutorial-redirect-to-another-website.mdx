@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Geval 1: Omleiden naar een andere website
@@ -9,11 +9,11 @@ Stel dat u verslaafd bent aan Twitter, en om de gewoonte te doorbreken, besluit 
 
 ### Stap 1. Open het scherm "Regel bewerken"
 
-Laten we het scherm *Regel bewerken* openen om te beginnen met het maken van uw eigen regel in de app. U kunt dit doen door op de plusknop (+) te klikken in het tabblad *Mijn regels*.
+Laten we het scherm _Regel bewerken_ openen om te beginnen met het maken van uw eigen regel in de app. U kunt dit doen door op de plusknop (+) te klikken in het tabblad _Mijn regels_.
 
 ### Stap 2. Stel "Omleiden van" in
 
-Eerst moet u de sectie *Omleiden van* instellen in het scherm *Regel bewerken* in de app. De doelen zijn URL's die beginnen met `https://twitter.com/`.
+Eerst moet u de sectie _Omleiden van_ instellen in het scherm _Regel bewerken_ in de app. De doelen zijn URL's die beginnen met `https://twitter.com/`.
 
 In dit geval kunt u het volgende patroon opgeven met de [Wildcard](/rule-settings#url-pattern-wildcard)-modus:
 
@@ -31,13 +31,13 @@ Om dat te doen, schakelt u over van Wildcard naar [Reguliere expressie](/rule-se
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: het richt zich op zowel `twitter` als `x`. (`|` wordt een *pipe* genoemd.)
-* `.*`: Het is hetzelfde als de `*` van Wildcard. Specifiek betekent `.` *elk teken* en `*` betekent *alles vóór dit symbool dat een willekeurig aantal keren wordt herhaald*, waardoor het met alles overeenkomt.
+- `(twitter|x)`: het richt zich op zowel `twitter` als `x`. (`|` wordt een _pipe_ genoemd.)
+- `.*`: Het is hetzelfde als de `*` van Wildcard. Specifiek betekent `.` _elk teken_ en `*` betekent _alles vóór dit symbool dat een willekeurig aantal keren wordt herhaald_, waardoor het met alles overeenkomt.
 
 Reguliere expressie is een beetje ingewikkeld, maar zodra u er aan gewend bent, is het een krachtig hulpmiddel. We raden aan om [RegExr](https://regexr.com) te gebruiken als proeftuin om te analyseren hoe uw reguliere expressie-patroon werkt.
 
 > [!TIP]
-> In reguliere expressies wordt `.` in `(twitter|x).com` ook behandeld als *elk teken*. Daarom komt `(twitter|x).com/.*` bijvoorbeeld ook overeen met `twitter1com/` of `x_com/`.
+> In reguliere expressies wordt `.` in `(twitter|x).com` ook behandeld als _elk teken_. Daarom komt `(twitter|x).com/.*` bijvoorbeeld ook overeen met `twitter1com/` of `x_com/`.
 >
 > Om preciezer te zijn, kunt u het veranderen in `(twitter|x)\.com/.*`. `\` wordt gebruikt om `.` te behandelen als een letterlijke punt in plaats van als een speciaal teken.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Optioneel) Stap 4: Controleer de regel
 
-U kunt controleren hoe de regel werkt door een voorbeeld-URL toe te voegen in de sectie *Voorbeelden* in het scherm *Regel bewerken*. Als u bijvoorbeeld `https://x.com/UN` invoert, wordt `https://unrush.org/` als resultaat getoond.
+U kunt controleren hoe de regel werkt door een voorbeeld-URL toe te voegen in de sectie _Voorbeelden_ in het scherm _Regel bewerken_. Als u bijvoorbeeld `https://x.com/UN` invoert, wordt `https://unrush.org/` als resultaat getoond.
 
 Dit is hoe uw regel er nu uit zou moeten zien:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Een voorbeeldregel om een andere website te openen" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Een voorbeeldregel om een andere website te openen"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Download de regel</a>**
 

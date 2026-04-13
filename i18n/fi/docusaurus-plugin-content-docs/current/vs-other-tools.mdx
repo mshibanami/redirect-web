@@ -5,45 +5,45 @@ RedirectWeb -työkalulla on useita samankaltaisia toimintoja kuin muilla työkal
 > [!NOTE]
 > Nämä vertailut perustuvat tilanteeseen lokakuussa 2025. Ole hyvä ja [ota meihin yhteyttä](/contact-us), jos löydät vanhentunutta tietoa tai virheitä. Kiitos! 🙏
 
-## [Redirector](https://github.com/einaregilsson/Redirector) {#redirector}
+## [Redirector](https://github.com/einaregilsson/Redirector) {/* #redirector */}
 
 Redirector on erinomainen selainlaajennus uudelleenohjaukseen. Se on täysin ilmainen ja avoimen lähdekoodin, ja se toimii myös muilla kuin Applen alustoilla. Mutta RedirectWebissä on joitakin lisäominaisuuksia, joista saatat pitää:
 
-* **Yksityiskohtaiset sääntöasetukset:** Tukee useita poissulkemismalleja, useita prosessin vastaavuuksia ja merkkijonon korvausominaisuuksia, jotka ovat saatavilla vain RedirectWebissä.
-* **Avaa natiivisovelluksissa:** Macissa voit valita, mihin kohde-URL avataan. Se kutsuu `open`-komentoa suoraan (ei syvälinkitystä).
-* **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) tuki:** Tarjoaa erittäin nopean uudelleenohjauksen.
-* **Keskitetty sääntöjen hallinta:** Hallitse sääntöjä kaikille selaimille yhdessä paikassa natiivisovelluksen kautta.
-* **Manifest V3 & V2 tuki:** RedirectWeb tukee V3:a Chromium-pohjaisissa selaimissa ja MV2:ta Firefoxissa, mikä mahdollistaa saman API:n käytön kuin Redirectorissa joustavuuden ja tehokkuuden vuoksi.
-* **Safari-tuki:** RedirectWeb tukee Safaria iOS:ssä ja macOS:ssä; Redirector ei.
+- **Yksityiskohtaiset sääntöasetukset:** Tukee useita poissulkemismalleja, useita prosessin vastaavuuksia ja merkkijonon korvausominaisuuksia, jotka ovat saatavilla vain RedirectWebissä.
+- **Avaa natiivisovelluksissa:** Macissa voit valita, mihin kohde-URL avataan. Se kutsuu `open`-komentoa suoraan (ei syvälinkitystä).
+- **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) tuki:** Tarjoaa erittäin nopean uudelleenohjauksen.
+- **Keskitetty sääntöjen hallinta:** Hallitse sääntöjä kaikille selaimille yhdessä paikassa natiivisovelluksen kautta.
+- **Manifest V3 & V2 tuki:** RedirectWeb tukee V3:a Chromium-pohjaisissa selaimissa ja MV2:ta Firefoxissa, mikä mahdollistaa saman API:n käytön kuin Redirectorissa joustavuuden ja tehokkuuden vuoksi.
+- **Safari-tuki:** RedirectWeb tukee Safaria iOS:ssä ja macOS:ssä; Redirector ei.
 
 Kunnioitamme suuresti Redirectoria ja tarjoamme uudelleenohjaussääntöjen tuontia/vientiä, joita sekin voi käsitellä, joten voit vaihtaa niiden välillä joustavasti. Katso lisätietoja [täältä](/export-or-import-rules).
 
-## Käyttäjäskriptien hallintaohjelmat, kuten [Tampermonkey](https://www.tampermonkey.net/) tai [Greasemonkey](https://www.greasespot.net/) {#userscript-managers}
+## Käyttäjäskriptien hallintaohjelmat, kuten [Tampermonkey](https://www.tampermonkey.net/) tai [Greasemonkey](https://www.greasespot.net/) {/* #userscript-managers */}
 
 Käyttäjäskriptien hallintaohjelmat ovat erittäin tehokkaita ja joustavia. Niillä voi tehdä monia asioita, mukaan lukien uudelleenohjauksen. Niillä on kuitenkin joitakin haittoja verrattuna RedirectWebiin:
 
-* **Monimutkaisuus:** Skriptien kirjoittaminen ja ylläpito voi olla monimutkaista ja aikaa vievää, erityisesti käyttäjille, jotka eivät tunne ohjelmointia. RedirectWeb tarjoaa käyttäjäystävällisen käyttöliittymän sääntöjen luomiseen ja hallintaan ilman koodausta.
-* **Turvallisuus:** Käyttäjäskriptien hallintaohjelmat voivat aiheuttaa suorituskyvyn heikkenemistä, erityisesti jos skriptit ovat monimutkaisia tai niitä ei ole optimoitu. Ne voivat myös aiheuttaa äärettömän uudelleenohjaussilmukan, jos niitä ei ole kirjoitettu huolellisesti. RedirectWeb on suunniteltu tehokkaaksi ja turvalliseksi.
-* **Uudemman API:n tuki:** Jotkut käyttäjäskriptien hallintaohjelmat eivät välttämättä pääse käsiksi Declarative Net Request (DNR) API:in, joka voi tarjota nopeamman ja tehokkaamman uudelleenohjauksen. RedirectWeb tukee DNR:ää paremman suorituskyvyn saavuttamiseksi.
+- **Monimutkaisuus:** Skriptien kirjoittaminen ja ylläpito voi olla monimutkaista ja aikaa vievää, erityisesti käyttäjille, jotka eivät tunne ohjelmointia. RedirectWeb tarjoaa käyttäjäystävällisen käyttöliittymän sääntöjen luomiseen ja hallintaan ilman koodausta.
+- **Turvallisuus:** Käyttäjäskriptien hallintaohjelmat voivat aiheuttaa suorituskyvyn heikkenemistä, erityisesti jos skriptit ovat monimutkaisia tai niitä ei ole optimoitu. Ne voivat myös aiheuttaa äärettömän uudelleenohjaussilmukan, jos niitä ei ole kirjoitettu huolellisesti. RedirectWeb on suunniteltu tehokkaaksi ja turvalliseksi.
+- **Uudemman API:n tuki:** Jotkut käyttäjäskriptien hallintaohjelmat eivät välttämättä pääse käsiksi Declarative Net Request (DNR) API:in, joka voi tarjota nopeamman ja tehokkaamman uudelleenohjauksen. RedirectWeb tukee DNR:ää paremman suorituskyvyn saavuttamiseksi.
 
-## Applen [Shortcuts](https://support.apple.com/guide/shortcuts/welcome/ios) {#why-not-shortcuts}
+## Applen [Shortcuts](https://support.apple.com/guide/shortcuts/welcome/ios) {/* #why-not-shortcuts */}
 
 Shortcuts on Applen tehokas automaatiotyökalu, joka on saatavilla iOS:ssä ja macOS:ssä. Voit luoda pikakuvakkeita suorittamaan erilaisia tehtäviä, mukaan lukien URL-osoitteiden avaamisen. Se kuitenkin käynnistetään manuaalisesti, eikä sitä ole suunniteltu saumattomaan verkkoselailuun.
 
-## [OpenIn](https://loshadki.app/openin4/) tai [Velja](https://sindresorhus.com/velja) {#openin-or-velja}
+## [OpenIn](https://loshadki.app/openin4/) tai [Velja](https://sindresorhus.com/velja) {/* #openin-or-velja */}
 
 OpenIn ja Velja ovat molemmat selainvalitsinsovelluksia, ja niillä on myös selainlaajennuksia, joiden avulla voit avata linkkejä toisessa sovelluksessa selaimesta. RedirectWebillä on myös selain-sovellus-uudelleenohjausominaisuus. Eroja kuitenkin on:
 
-* **Automaattinen uudelleenohjaus:** Ne edellyttävät, että valitset manuaalisesti niiden työkalupalkin kuvakkeen avataksesi linkin toisessa sovelluksessa. RedirectWeb ohjaa URL-osoitteet automaattisesti sääntöjesi perusteella ilman lisävaiheita. Nämä ovat kaksi erilaista lähestymistapaa linkkien käsittelyyn.
-* **Monialustainen tuki:** Vaikka ne on suunniteltu Macille, RedirectWeb tukee kaikkia tärkeimpiä selaimia Macissa ja Safaria iPhonessa, iPadissa ja Apple Vision Prossa.
+- **Automaattinen uudelleenohjaus:** Ne edellyttävät, että valitset manuaalisesti niiden työkalupalkin kuvakkeen avataksesi linkin toisessa sovelluksessa. RedirectWeb ohjaa URL-osoitteet automaattisesti sääntöjesi perusteella ilman lisävaiheita. Nämä ovat kaksi erilaista lähestymistapaa linkkien käsittelyyn.
+- **Monialustainen tuki:** Vaikka ne on suunniteltu Macille, RedirectWeb tukee kaikkia tärkeimpiä selaimia Macissa ja Safaria iPhonessa, iPadissa ja Apple Vision Prossa.
 
-## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {#stopthemadness}
+## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {/* #stopthemadness */}
 
 StopTheMadness on selainlaajennus, joka tarjoaa erilaisia ominaisuuksia verkkoselailun parantamiseen, mukaan lukien uudelleenohjauksen. Sillä on kuitenkin joitakin rajoituksia verrattuna RedirectWebiin:
 
-* **Sääntöjen joustavuus:** StopTheMadnessilla on rajoitetut sääntöjen määritysvaihtoehdot. RedirectWeb tarjoaa yksityiskohtaisempia sääntöasetuksia, mukaan lukien useita poissulkemismalleja, sieppausryhmän käsittelyn ja paljon muuta.
-* **Ominaisuuksien monimutkaisuus:** StopTheMadness sisältää monia ominaisuuksia, jotka eivät välttämättä ole tarpeellisia käyttäjille, jotka haluavat vain uudelleenohjauksen. RedirectWeb keskittyy yksinomaan uudelleenohjaukseen.
-* **Hinta:** StopTheMadness maksaa 12-15 USD ilman ilmaista kokeilua tai ilmaista suunnitelmaa. RedirectWeb tarjoaa ilmaisen suunnitelman perusominaisuuksilla ja tilauksen, jossa on ilmainen kokeilu kaikista ominaisuuksista, sekä kertaluonteisen osto-vaihtoehdon kahvin hinnalla.
+- **Sääntöjen joustavuus:** StopTheMadnessilla on rajoitetut sääntöjen määritysvaihtoehdot. RedirectWeb tarjoaa yksityiskohtaisempia sääntöasetuksia, mukaan lukien useita poissulkemismalleja, sieppausryhmän käsittelyn ja paljon muuta.
+- **Ominaisuuksien monimutkaisuus:** StopTheMadness sisältää monia ominaisuuksia, jotka eivät välttämättä ole tarpeellisia käyttäjille, jotka haluavat vain uudelleenohjauksen. RedirectWeb keskittyy yksinomaan uudelleenohjaukseen.
+- **Hinta:** StopTheMadness maksaa 12-15 USD ilman ilmaista kokeilua tai ilmaista suunnitelmaa. RedirectWeb tarjoaa ilmaisen suunnitelman perusominaisuuksilla ja tilauksen, jossa on ilmainen kokeilu kaikista ominaisuuksista, sekä kertaluonteisen osto-vaihtoehdon kahvin hinnalla.
 
 ## Lopuksi...
 

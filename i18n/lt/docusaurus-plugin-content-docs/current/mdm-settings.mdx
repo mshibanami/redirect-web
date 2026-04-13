@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM nustatymai administratoriams
 
@@ -15,27 +15,36 @@ RedirectWeb palaiko Apple „Managed App Configuration“, leidžiančią jums (
 
 Perduodami konfigūracijas per savo MDM, galite pasiekti šiuos tikslus:
 
-* **Privalomos taisyklės:** Taikyti visos organizacijos mastu galiojančias peradresavimo taisykles, kurių vartotojai negali keisti ar ištrinti.
-* **Pradinis taisyklių platinimas:** Išplatinti šabloninį taisyklių rinkinį, kuris tarnauja kaip numatytasis pirmą kartą paleidus programėlę.
-* **Vartotojo sąsajos valdymas:** Apriboti prieigą prie tam tikrų funkcijų (pvz., bibliotekos) ir aiškiai nurodyti programėlėje, kad ji yra valdoma organizacijos.
-* **Didelių taisyklių rinkinių gavimas (atsarginis variantas):** Apeiti MDM duomenų dydžio apribojimus, gaunant taisykles iš išorinio serverio.
+- **Privalomos taisyklės:** Taikyti visos organizacijos mastu galiojančias peradresavimo taisykles, kurių vartotojai negali keisti ar ištrinti.
+- **Pradinis taisyklių platinimas:** Išplatinti šabloninį taisyklių rinkinį, kuris tarnauja kaip numatytasis pirmą kartą paleidus programėlę.
+- **Vartotojo sąsajos valdymas:** Apriboti prieigą prie tam tikrų funkcijų (pvz., bibliotekos) ir aiškiai nurodyti programėlėje, kad ji yra valdoma organizacijos.
+- **Didelių taisyklių rinkinių gavimas (atsarginis variantas):** Apeiti MDM duomenų dydžio apribojimus, gaunant taisykles iš išorinio serverio.
 
 ## Naudojimo atvejai
 
-* **Slandus nukreipimas sistemų migracijos metu:**
+- **Slandus nukreipimas sistemų migracijos metu:**
   Migruojant iš senos vidinės sistemos (pvz., `legacy-crm.internal.local`) į naują platformą (pvz., `salesforce.com`), išplatinkite `enforcedRuleSet`. Net jei darbuotojai naudoja senas žymes, jie automatiškai peradresuojami į naują sistemą, taip išvengiant IT pagalbos užklausų dėl nebegaliojančių nuorodų.
-* **Pagalba pasiekiant intranetą:**
+- **Pagalba pasiekiant intranetą:**
   Išplatinkite peradresavimo taisykles naudodami pasirinktines URL schemas, kad palengvintumėte prieigą prie intraneto išteklių per „Per-App VPN“ tunelius, tokius kaip „Omnissa Web“.
 
 > [!WARNING]
-> 
+>
 > MDM konfigūracijos pakeitimai pritaikomi nedelsiant **tik jei vartotojas atidaro „RedirectWeb“ programėlę**.
 > Nors programėlė naudoja fonines užduotis, kad tyliai perduotų MDM atnaujinimus naršyklės plėtiniui, tai yra „geriausių pastangų“ vykdymas, kurį diktuoja operacinė sistema. Vykdymo laikas yra labai nenuspėjamas, o užduotis gali būti išvis neįvykdyta.
 > Todėl šia funkcija **nereikėtų** pasikliauti kritinių incidentų valdymui (pvz., bandant akimirksniu peradresuoti visus darbuotojus į atsarginę svetainę per kelias minutes po debesijos paslaugų sutrikimo).
 
 ## Demonstravimas
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM nustatymų demonstravimas" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM nustatymų demonstravimas"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Vaizdo įraše naudojamas plist failas pasiekiamas čia: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -45,18 +54,18 @@ Vaizdo įraše konfigūracijai įdiegti buvo naudojamas „ManageEngine“ MDM, 
 
 Savo MDM konsolėje įdiekite šiuos raktus ir reikšmes „Managed App Configuration“ nustatymams, paprastai plist formatu.
 
-| Rakto pavadinimas       | Tipas                        | Aprašymas                                                                                                                                                                                                                                                                   |
-| ---------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Taisyklių rinkinys](#rule-set-object) | **[Privalomos taisyklės]** Taisyklių rinkinys, taikomas su didesniu prioritetu nei įprastos taisyklės. Pirmoji sąrašo taisyklė turi viršenybę. Vartotojai negali redaguoti, trinti ar keisti šių taisyklių eiliškumo. Jos visada aktyvios, nepaisant programėlės visuotinio išjungimo jungiklio, ir nėra sinchronizuojamos per „iCloud“. |
-| `prefilledRuleSet`     | [Taisyklių rinkinys](#rule-set-object) | **[Pradinės taisyklės]** Taisyklių rinkinys, sukurtas vietoj numatytojo pavyzdžio, kai vartotojas pirmą kartą paleidžia programėlę neturėdamas esamų taisyklių. Jas išplatinus, jos veikia kaip įprastos taisyklės, leidžiant vartotojui jas keisti, trinti ir sinchronizuoti per „iCloud“. |
-| `organizationName`     | String                       | Programėlės nustatymų ekrano viršuje rodo „Valdoma [organizationName]“, nurodant vartotojui, kad programėlė yra valdoma.                                                                                                                                            |
-| `managedConfigVersion` | String                       | Savavališka konfigūracijos versijos eilutė. Rodoma vartotojo sąsajoje, leidžianti IT pagalbai patikrinti, ar įrenginį pasiekė naujausia MDM konfigūracija sprendžiant problemas.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | Jei nustatyta `false`, taisyklių bibliotekos funkcija paslepiama, o skiltis pakeičiama klaidos pranešimu „Apribota jūsų organizacijos“.                                                                                                                                   |
-| `fallback`             | [Atsarginis variantas](#fallback-object) | Nurodykite tai, kai konfigūracijos viršija MDM duomenų perdavimo apribojimus. Programėlė gaus JSON/XML iš šio URL konfigūracijai pritaikyti.                                                                                                                                     |
+| Rakto pavadinimas      | Tipas                                    | Aprašymas                                                                                                                                                                                                                                                                                                                                |
+| ---------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Taisyklių rinkinys](#rule-set-object)   | **[Privalomos taisyklės]** Taisyklių rinkinys, taikomas su didesniu prioritetu nei įprastos taisyklės. Pirmoji sąrašo taisyklė turi viršenybę. Vartotojai negali redaguoti, trinti ar keisti šių taisyklių eiliškumo. Jos visada aktyvios, nepaisant programėlės visuotinio išjungimo jungiklio, ir nėra sinchronizuojamos per „iCloud“. |
+| `prefilledRuleSet`     | [Taisyklių rinkinys](#rule-set-object)   | **[Pradinės taisyklės]** Taisyklių rinkinys, sukurtas vietoj numatytojo pavyzdžio, kai vartotojas pirmą kartą paleidžia programėlę neturėdamas esamų taisyklių. Jas išplatinus, jos veikia kaip įprastos taisyklės, leidžiant vartotojui jas keisti, trinti ir sinchronizuoti per „iCloud“.                                              |
+| `organizationName`     | String                                   | Programėlės nustatymų ekrano viršuje rodo „Valdoma [organizationName]“, nurodant vartotojui, kad programėlė yra valdoma.                                                                                                                                                                                                                 |
+| `managedConfigVersion` | String                                   | Savavališka konfigūracijos versijos eilutė. Rodoma vartotojo sąsajoje, leidžianti IT pagalbai patikrinti, ar įrenginį pasiekė naujausia MDM konfigūracija sprendžiant problemas.                                                                                                                                                         |
+| `showsLibrarySection`  | Boolean                                  | Jei nustatyta `false`, taisyklių bibliotekos funkcija paslepiama, o skiltis pakeičiama klaidos pranešimu „Apribota jūsų organizacijos“.                                                                                                                                                                                                  |
+| `fallback`             | [Atsarginis variantas](#fallback-object) | Nurodykite tai, kai konfigūracijos viršija MDM duomenų perdavimo apribojimus. Programėlė gaus JSON/XML iš šio URL konfigūracijai pritaikyti.                                                                                                                                                                                             |
 
 Visi šie raktai yra neprivalomi.
 
-### [Objektas] Taisyklių rinkinys {#rule-set-object}
+### [Objektas] Taisyklių rinkinys {/* #rule-set-object */}
 
 Kiekvienas taisyklės objektas turi tokį patį formatą, kaip ir tas, kurį galite [bendrinti/eksportuoti per programėlę](export-or-import-rules), tačiau turite jį konvertuoti iš JSON į plist, štai taip:
 
@@ -94,11 +103,11 @@ Kiekvienas taisyklės objektas turi tokį patį formatą, kaip ir tas, kurį gal
 ...
 ```
 
-### [Objektas] Atsarginis variantas {#fallback-object}
+### [Objektas] Atsarginis variantas {/* #fallback-object */}
 
-| Rakto pavadinimas | Tipas        | Aprašymas                                                                                                                                  |
-| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | JSON/XML failo, kuriame yra taisyklių rinkiniai, pabaigos taško (endpoint) URL.                                                                                     |
+| Rakto pavadinimas | Tipas        | Aprašymas                                                                                                                                            |
+| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | JSON/XML failo, kuriame yra taisyklių rinkiniai, pabaigos taško (endpoint) URL.                                                                      |
 | `authToken`       | String       | Autentifikavimo raktas, pridedamas prie HTTP antraštės gaunant duomenis iš `fallbackDataURL`. (Naudojamas kaip `Authorization: Bearer [authToken]`). |
 
 ## Taisyklių vertinimas ir konfliktų sprendimas
@@ -111,15 +120,15 @@ Kiekvienas taisyklės objektas turi tokį patį formatą, kaip ir tas, kurį gal
 
 Kai raktas egzistuoja tiek tiesioginėje MDM konfigūracijoje, tiek duomenyse, gautuose per `fallbackDataURL`, programėlė konfliktą sprendžia taip:
 
-* **Prieš pabaigiant gavimą:** Tiesioginiai nustatymai turi griežtą prioritetą ir yra naudojami.
-* **Sėkmingai gavus duomenis:** Iš `fallbackDataURL` gauti duomenys perrašo atitinkamus tiesioginius nustatymus.
-* **Nepavykus gauti duomenų:** Programėlė toliau naudoja tiesioginius nustatymus.
-* Nepriklausomi raktai, kurie egzistuoja tik tiesioginėje konfigūracijoje, išlieka.
+- **Prieš pabaigiant gavimą:** Tiesioginiai nustatymai turi griežtą prioritetą ir yra naudojami.
+- **Sėkmingai gavus duomenis:** Iš `fallbackDataURL` gauti duomenys perrašo atitinkamus tiesioginius nustatymus.
+- **Nepavykus gauti duomenų:** Programėlė toliau naudoja tiesioginius nustatymus.
+- Nepriklausomi raktai, kurie egzistuoja tik tiesioginėje konfigūracijoje, išlieka.
 
 ## MDM grįžtamasis ryšys ir būsenos patikra
 
 Galite patikrinti, ar konfigūracija buvo sėkmingai pritaikyta per MDM grįžtamojo ryšio kanalą (`com.apple.feedback.managed`), jei jūsų MDM sprendimas tai palaiko. Apdorojusi konfigūraciją (arba pabaigusi URL gavimą), programėlė grąžina šiuos duomenis:
 
-* `managedConfigVersion`: Konfigūracijos bandymo versijos eilutė.
-* `result`: Arba `success` (sėkmė), arba `error` (klaida).
-* `messages`: Masyvas, kuriame yra išsamūs klaidų ar įspėjimų pranešimai, jei jų yra.
+- `managedConfigVersion`: Konfigūracijos bandymo versijos eilutė.
+- `result`: Arba `success` (sėkmė), arba `error` (klaida).
+- `messages`: Masyvas, kuriame yra išsamūs klaidų ar įspėjimų pranešimai, jei jų yra.

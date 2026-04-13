@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Cas 1 : Rediriger vers un autre site web
@@ -9,11 +9,11 @@ Supposons que vous soyez accro à Twitter, et pour briser cette habitude, vous d
 
 ### Étape 1. Ouvrez l'écran "Modifier la règle"
 
-Ouvrons l'écran *Modifier la règle* pour commencer à créer votre propre règle dans l'application. Vous pouvez le faire en cliquant sur le bouton plus (+) dans l'onglet *Mes règles*.
+Ouvrons l'écran _Modifier la règle_ pour commencer à créer votre propre règle dans l'application. Vous pouvez le faire en cliquant sur le bouton plus (+) dans l'onglet _Mes règles_.
 
 ### Étape 2. Configurez "Rediriger depuis"
 
-Tout d'abord, vous devez configurer la section *Rediriger depuis* dans l'écran *Modifier la règle* de l'application. Les cibles sont les URL commençant par `https://twitter.com/`.
+Tout d'abord, vous devez configurer la section _Rediriger depuis_ dans l'écran _Modifier la règle_ de l'application. Les cibles sont les URL commençant par `https://twitter.com/`.
 
 Dans ce cas, vous pouvez spécifier le modèle suivant avec le mode [Joker](/rule-settings#url-pattern-wildcard) :
 
@@ -31,13 +31,13 @@ Pour ce faire, passez du mode Joker à [Expression régulière](/rule-settings#u
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)` : il cible à la fois `twitter` et `x`. (`|` est appelé *un pipe*.)
-* `.*` : C'est la même chose que `*` du mode Joker. Plus précisément, `.` signifie *n'importe quel caractère* et `*` signifie *n'importe quoi avant ce symbole répété un nombre quelconque de fois*, ce qui fait qu'il correspond à n'importe quoi.
+- `(twitter|x)` : il cible à la fois `twitter` et `x`. (`|` est appelé _un pipe_.)
+- `.*` : C'est la même chose que `*` du mode Joker. Plus précisément, `.` signifie _n'importe quel caractère_ et `*` signifie _n'importe quoi avant ce symbole répété un nombre quelconque de fois_, ce qui fait qu'il correspond à n'importe quoi.
 
 L'expression régulière est un peu compliquée, mais une fois que vous vous y serez habitué, ce sera un outil puissant. Nous vous recommandons d'utiliser [RegExr](https://regexr.com) comme terrain de jeu pour analyser le fonctionnement de votre modèle d'expression régulière.
 
 > [!TIP]
-> Dans les expressions régulières, `.` dans `(twitter|x).com` est également traité comme *n'importe quel caractère*. Par conséquent, `(twitter|x).com/.*` correspond également, par exemple, à `twitter1com/` ou `x_com/`.
+> Dans les expressions régulières, `.` dans `(twitter|x).com` est également traité comme _n'importe quel caractère_. Par conséquent, `(twitter|x).com/.*` correspond également, par exemple, à `twitter1com/` ou `x_com/`.
 >
 > Pour être plus précis, vous pouvez le changer en `(twitter|x)\.com/.*`. `\` est utilisé pour traiter `.` comme un caractère de point littéral plutôt que comme un caractère spécial.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Facultatif) Étape 4 : Vérifiez la règle
 
-Vous pouvez vérifier le fonctionnement de la règle en ajoutant une URL d'exemple dans la section *Exemples* de l'écran *Modifier la règle*. Par exemple, si vous entrez `https://x.com/UN`, il affiche `https://unrush.org/` comme résultat.
+Vous pouvez vérifier le fonctionnement de la règle en ajoutant une URL d'exemple dans la section _Exemples_ de l'écran _Modifier la règle_. Par exemple, si vous entrez `https://x.com/UN`, il affiche `https://unrush.org/` comme résultat.
 
 Voici à quoi devrait ressembler votre règle maintenant :
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Un exemple de règle pour ouvrir un autre site web" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Un exemple de règle pour ouvrir un autre site web"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Télécharger la règle</a>**
 

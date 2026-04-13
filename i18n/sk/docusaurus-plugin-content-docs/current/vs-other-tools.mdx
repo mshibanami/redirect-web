@@ -5,45 +5,45 @@ Existujú rôzne nástroje s podobnou funkcionalitou ako RedirectWeb. RedirectWe
 > [!NOTE]
 > Tieto porovnania sú založené na stave k októbru 2025. Ak nájdete akékoľvek zastarané informácie alebo chyby, [kontaktujte nás](/contact-us). Ďakujeme! 🙏
 
-## [Redirector](https://github.com/einaregilsson/Redirector) {#redirector}
+## [Redirector](https://github.com/einaregilsson/Redirector) {/* #redirector */}
 
 Redirector je skvelé rozšírenie prehliadača pre presmerovanie. Je úplne zadarmo a s otvoreným zdrojovým kódom a funguje aj na platformách iných ako Apple. RedirectWeb však má niektoré ďalšie funkcie, ktoré by sa vám mohli páčiť:
 
-*   **Podrobné nastavenia pravidiel:** Podporuje viacero vzorov vylúčenia, viacero spracovaní zhôd a funkcie nahradenia reťazcov dostupné iba v RedirectWeb.
-*   **Otvoriť v natívnych aplikáciách:** Na Macu si môžete vybrať, kde sa má otvoriť cieľová URL. Priamo volá príkaz `open` (nie hlboké prepojenie).
-*   **Podpora [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Poskytuje bleskovo rýchle presmerovanie.
-*   **Centralizovaná správa pravidiel:** Spravujte pravidlá pre všetky prehliadače na jednom mieste prostredníctvom natívnej aplikácie.
-*   **Podpora Manifest V3 a V2:** RedirectWeb podporuje V3 v prehliadačoch založených na Chromiu a MV2 vo Firefoxe, čo umožňuje použitie rovnakého API ako Redirector pre flexibilitu a efektivitu.
-*   **Podpora Safari:** RedirectWeb podporuje Safari na iOS a macOS; Redirector nie.
+- **Podrobné nastavenia pravidiel:** Podporuje viacero vzorov vylúčenia, viacero spracovaní zhôd a funkcie nahradenia reťazcov dostupné iba v RedirectWeb.
+- **Otvoriť v natívnych aplikáciách:** Na Macu si môžete vybrať, kde sa má otvoriť cieľová URL. Priamo volá príkaz `open` (nie hlboké prepojenie).
+- **Podpora [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Poskytuje bleskovo rýchle presmerovanie.
+- **Centralizovaná správa pravidiel:** Spravujte pravidlá pre všetky prehliadače na jednom mieste prostredníctvom natívnej aplikácie.
+- **Podpora Manifest V3 a V2:** RedirectWeb podporuje V3 v prehliadačoch založených na Chromiu a MV2 vo Firefoxe, čo umožňuje použitie rovnakého API ako Redirector pre flexibilitu a efektivitu.
+- **Podpora Safari:** RedirectWeb podporuje Safari na iOS a macOS; Redirector nie.
 
 Veľmi si vážime Redirector a ponúkame import/export pravidiel presmerovania, ktoré dokáže spracovať aj on, takže medzi nimi môžete flexibilne prepínať. Viac podrobností nájdete [tu](/export-or-import-rules).
 
-## Správcovia používateľských skriptov ako [Tampermonkey](https://www.tampermonkey.net/) alebo [Greasemonkey](https://www.greasespot.net/) {#userscript-managers}
+## Správcovia používateľských skriptov ako [Tampermonkey](https://www.tampermonkey.net/) alebo [Greasemonkey](https://www.greasespot.net/) {/* #userscript-managers */}
 
 Správcovia používateľských skriptov sú veľmi výkonní a flexibilní. Môžete s nimi robiť mnoho vecí, vrátane presmerovania. V porovnaní s RedirectWeb však majú niektoré nevýhody:
 
-*   **Zložitosť:** Písanie a údržba skriptov môže byť zložitá a časovo náročná, najmä pre používateľov, ktorí nie sú oboznámení s programovaním. RedirectWeb poskytuje užívateľsky prívetivé rozhranie na vytváranie a správu pravidiel bez kódovania.
-*   **Bezpečnosť:** Správcovia používateľských skriptov môžu zaviesť výkonnostnú réžiu, najmä ak sú skripty zložité alebo nie sú optimalizované. Môžu tiež spôsobiť nekonečnú slučku presmerovania, ak nie sú starostlivo napísané. RedirectWeb je navrhnutý tak, aby bol efektívny a bezpečný.
-*   **Podpora novších API:** Niektorí správcovia používateľských skriptov nemusia mať prístup k API Declarative Net Request (DNR), ktoré môže poskytnúť rýchlejšie a efektívnejšie presmerovanie. RedirectWeb podporuje DNR pre lepší výkon.
+- **Zložitosť:** Písanie a údržba skriptov môže byť zložitá a časovo náročná, najmä pre používateľov, ktorí nie sú oboznámení s programovaním. RedirectWeb poskytuje užívateľsky prívetivé rozhranie na vytváranie a správu pravidiel bez kódovania.
+- **Bezpečnosť:** Správcovia používateľských skriptov môžu zaviesť výkonnostnú réžiu, najmä ak sú skripty zložité alebo nie sú optimalizované. Môžu tiež spôsobiť nekonečnú slučku presmerovania, ak nie sú starostlivo napísané. RedirectWeb je navrhnutý tak, aby bol efektívny a bezpečný.
+- **Podpora novších API:** Niektorí správcovia používateľských skriptov nemusia mať prístup k API Declarative Net Request (DNR), ktoré môže poskytnúť rýchlejšie a efektívnejšie presmerovanie. RedirectWeb podporuje DNR pre lepší výkon.
 
-## Apple [Skratky](https://support.apple.com/guide/shortcuts/welcome/ios) {#why-not-shortcuts}
+## Apple [Skratky](https://support.apple.com/guide/shortcuts/welcome/ios) {/* #why-not-shortcuts */}
 
 Skratky sú výkonný automatizačný nástroj spoločnosti Apple dostupný na iOS a macOS. Môžete vytvárať skratky na vykonávanie rôznych úloh, vrátane otvárania URL adries. Spúšťa sa však manuálne a nie je navrhnutý pre bezproblémové prehliadanie webu.
 
-## [OpenIn](https://loshadki.app/openin4/) alebo [Velja](https://sindresorhus.com/velja) {#openin-or-velja}
+## [OpenIn](https://loshadki.app/openin4/) alebo [Velja](https://sindresorhus.com/velja) {/* #openin-or-velja */}
 
 OpenIn a Velja sú obe aplikácie na výber prehliadača a majú aj rozšírenia prehliadača, ktoré vám umožňujú otvárať odkazy v inej aplikácii z prehliadača. RedirectWeb má tiež možnosť presmerovania z prehliadača do aplikácie. Existujú však určité rozdiely:
 
-*   **Automatické presmerovanie:** Vyžadujú, aby ste ručne vybrali ikonu na paneli nástrojov, aby ste otvorili odkaz v inej aplikácii. RedirectWeb automaticky presmeruje URL adresy na základe vašich pravidiel bez ďalších krokov. Ide o dva rôzne prístupy k spracovaniu odkazov.
-*   **Podpora viacerých platforiem:** Zatiaľ čo sú navrhnuté pre Mac, RedirectWeb podporuje všetky hlavné prehliadače na Macu a Safari na iPhone, iPade a Apple Vision Pro.
+- **Automatické presmerovanie:** Vyžadujú, aby ste ručne vybrali ikonu na paneli nástrojov, aby ste otvorili odkaz v inej aplikácii. RedirectWeb automaticky presmeruje URL adresy na základe vašich pravidiel bez ďalších krokov. Ide o dva rôzne prístupy k spracovaniu odkazov.
+- **Podpora viacerých platforiem:** Zatiaľ čo sú navrhnuté pre Mac, RedirectWeb podporuje všetky hlavné prehliadače na Macu a Safari na iPhone, iPade a Apple Vision Pro.
 
-## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {#stopthemadness}
+## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {/* #stopthemadness */}
 
 StopTheMadness je rozšírenie prehliadača, ktoré poskytuje rôzne funkcie na zlepšenie prehliadania webu, vrátane presmerovania. V porovnaní s RedirectWeb má však určité obmedzenia:
 
-*   **Flexibilita pravidiel:** StopTheMadness má obmedzené možnosti konfigurácie pravidiel. RedirectWeb ponúka podrobnejšie nastavenia pravidiel, vrátane viacerých vzorov vylúčenia, spracovania zachytávacích skupín a ďalších.
-*   **Zložitosť funkcií:** StopTheMadness obsahuje mnoho funkcií, ktoré nemusia byť potrebné pre používateľov, ktorí chcú iba presmerovanie. RedirectWeb sa zameriava výlučne na presmerovanie.
-*   **Cena:** StopTheMadness stojí 12-15 USD bez bezplatnej skúšobnej verzie alebo bezplatného plánu. RedirectWeb ponúka bezplatný plán so základnými funkciami a predplatné s bezplatnou skúšobnou verziou všetkých funkcií a možnosťou jednorazového nákupu za cenu kávy.
+- **Flexibilita pravidiel:** StopTheMadness má obmedzené možnosti konfigurácie pravidiel. RedirectWeb ponúka podrobnejšie nastavenia pravidiel, vrátane viacerých vzorov vylúčenia, spracovania zachytávacích skupín a ďalších.
+- **Zložitosť funkcií:** StopTheMadness obsahuje mnoho funkcií, ktoré nemusia byť potrebné pre používateľov, ktorí chcú iba presmerovanie. RedirectWeb sa zameriava výlučne na presmerovanie.
+- **Cena:** StopTheMadness stojí 12-15 USD bez bezplatnej skúšobnej verzie alebo bezplatného plánu. RedirectWeb ponúka bezplatný plán so základnými funkciami a predplatné s bezplatnou skúšobnou verziou všetkých funkcií a možnosťou jednorazového nákupu za cenu kávy.
 
 ## Nakoniec...
 

@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Tapaus 1: Uudelleenohjaus toiselle verkkosivustolle
@@ -9,11 +9,11 @@ Oletetaan, että olet koukussa Twitteriin, ja katkaistaksesi tavan päätät men
 
 ### Vaihe 1. Avaa "Muokkaa sääntöä" -näyttö
 
-Avataan *Muokkaa sääntöä* -näyttö aloittaaksesi oman säännön luomisen sovelluksessa. Voit tehdä tämän napsauttamalla pluspainiketta (+) *Omat säännöt* -välilehdellä.
+Avataan _Muokkaa sääntöä_ -näyttö aloittaaksesi oman säännön luomisen sovelluksessa. Voit tehdä tämän napsauttamalla pluspainiketta (+) _Omat säännöt_ -välilehdellä.
 
 ### Vaihe 2. Määritä "Uudelleenohjaus kohteesta"
 
-Ensin sinun tulee määrittää sovelluksen *Muokkaa sääntöä* -näytön *Uudelleenohjaus kohteesta* -osio. Kohteina ovat URL-osoitteet, jotka alkavat merkkijonolla `https://twitter.com/`.
+Ensin sinun tulee määrittää sovelluksen _Muokkaa sääntöä_ -näytön _Uudelleenohjaus kohteesta_ -osio. Kohteina ovat URL-osoitteet, jotka alkavat merkkijonolla `https://twitter.com/`.
 
 Tässä tapauksessa voit määrittää seuraavan kuvion [Wildcard](/rule-settings#url-pattern-wildcard)-tilassa:
 
@@ -31,13 +31,13 @@ Tehdäksesi tämän vaihda Wildcard-tilasta [säännöllisiin lausekkeisiin](/ru
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: se kohdistuu sekä merkkijonoon `twitter` että `x`. (Merkkiä `|` kutsutaan *putkimerkiksi*.)
-* `.*`: Se on sama kuin Wildcard-tilan `*`. Tarkemmin sanottuna `.` tarkoittaa *mitä tahansa merkkiä* ja `*` tarkoittaa *mitä tahansa tätä symbolia edeltävää merkkiä toistettuna minkä tahansa määrän kertoja*, jolloin se vastaa mitä tahansa.
+- `(twitter|x)`: se kohdistuu sekä merkkijonoon `twitter` että `x`. (Merkkiä `|` kutsutaan _putkimerkiksi_.)
+- `.*`: Se on sama kuin Wildcard-tilan `*`. Tarkemmin sanottuna `.` tarkoittaa _mitä tahansa merkkiä_ ja `*` tarkoittaa _mitä tahansa tätä symbolia edeltävää merkkiä toistettuna minkä tahansa määrän kertoja_, jolloin se vastaa mitä tahansa.
 
 Säännölliset lausekkeet ovat hieman monimutkaisia, mutta kunhan totut niihin, ne ovat tehokas työkalu. Suosittelemme käyttämään [RegExr](https://regexr.com) -sivustoa kokeilualueena analysoidaksesi, miten säännöllinen lausekkeesi toimii.
 
 > [!TIP]
-> Säännöllisissä lausekkeissa merkkiä `.` kohdassa `(twitter|x).com` käsitellään myös *minä tahansa merkkinä*. Siksi `(twitter|x).com/.*` vastaa esimerkiksi myös merkkijonoja `twitter1com/` tai `x_com/`.
+> Säännöllisissä lausekkeissa merkkiä `.` kohdassa `(twitter|x).com` käsitellään myös _minä tahansa merkkinä_. Siksi `(twitter|x).com/.*` vastaa esimerkiksi myös merkkijonoja `twitter1com/` tai `x_com/`.
 >
 > Ollaksesi tarkempi voit muuttaa sen muotoon `(twitter|x)\.com/.*`. Merkkiä `\` käytetään käsittelemään merkkiä `.` kirjaimellisena pisteenä erikoismerkin sijaan.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Valinnainen) Vaihe 4: Tarkista sääntö
 
-Voit tarkistaa säännön toiminnan lisäämällä esimerkkiosoitteen *Muokkaa sääntöä* -näytön *Esimerkit*-osioon. Jos esimerkiksi syötät osoitteen `https://x.com/UN`, tuloksena näkyy `https://unrush.org/`.
+Voit tarkistaa säännön toiminnan lisäämällä esimerkkiosoitteen _Muokkaa sääntöä_ -näytön _Esimerkit_-osioon. Jos esimerkiksi syötät osoitteen `https://x.com/UN`, tuloksena näkyy `https://unrush.org/`.
 
 Tältä sääntösi pitäisi nyt näyttää:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Esimerkkisääntö toisen verkkosivuston avaamiseksi" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Esimerkkisääntö toisen verkkosivuston avaamiseksi"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Lataa sääntö</a>**
 

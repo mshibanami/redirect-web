@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -12,19 +12,36 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 <TOCInline toc={toc} />
 
-## リダイレクトルールが機能しない {#rules-not-working}
+## リダイレクトルールが機能しない {/* #rules-not-working */}
 
 ルールが期待どおりに動作しない場合、次の点を確認してください。
 
 - **ブラウザ拡張がインストールされ、該当ページで有効になっているか:** RedirectWeb のブラウザ拡張をインストールし、リダイレクト元のウェブページで拡張が有効になっていることを確認してください。ソースのウェブページで拡張のポップアップをこのように開ける場合は、拡張は正しくインストールされています:
-    <Image src={ExtensionPopup} alt="RedirectWeb 拡張のポップアップ" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="RedirectWeb 拡張のポップアップ"
+    width="260"
+    hasShadow
+  />
 
 - **ルール設定が正しいか:** RedirectWeb ネイティブアプリでリダイレクトルールを再確認してください。ソース URL パターン、ターゲット URL、および条件が正しく設定されていることを確認します。ルールが有効かどうかを確認するには、編集画面の Examples セクションに例の URL を入力してください。ルールが有効であれば、入力した URL に対する期待される遷移先が以下のように表示されます:
-    <Image src={RuleEditExampleResult} alt="編集画面の例で期待される遷移先が表示されている例" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="編集画面の例で期待される遷移先が表示されている例"
+    width="260"
+    hasShadow
+  />
 
-## 拡張のポップアップにエラーが表示される {#error-shown-in-extension-popup}
+## 拡張のポップアップにエラーが表示される {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="RedirectWeb のエラーオーバーレイ" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="RedirectWeb のエラーオーバーレイ"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
@@ -36,28 +53,42 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 ネイティブアプリをインストールした後、ブラウザを再起動する必要がある場合があります。
 
 > [!NOTE]
-> * ブラウザ拡張だけでは動作しません。拡張を利用するには RedirectWeb ネイティブアプリのインストールが必要です。
-> * Safari を使用している場合、ネイティブアプリに拡張が同梱されているため、拡張を別途インストールする必要はありません。
+>
+> - ブラウザ拡張だけでは動作しません。拡張を利用するには RedirectWeb ネイティブアプリのインストールが必要です。
+> - Safari を使用している場合、ネイティブアプリに拡張が同梱されているため、拡張を別途インストールする必要はありません。
 
-## リダイレクト前に元のページが一瞬表示される {#original-page-flash}
+## リダイレクト前に元のページが一瞬表示される {/* #original-page-flash */}
 
 これは **Original** タイプのリダイレクトルールを使用している場合に発生します。このタイプはさまざまな高度な機能を提供しますが、リダイレクトを実行する前に元のページが読み込まれる可能性があるため、一瞬元のページがフラッシュすることがあります。
 
 編集画面で **Type** を **DNR** に変更すると、この問題を回避できます。
 
-<Image src={EditRuleDnr} alt="DNR タイプに設定した編集画面の例" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="DNR タイプに設定した編集画面の例"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
+>
 > > Firefox では WebRequest API を利用するため、Original タイプでも元のページが読み込まれることはなく、この問題は発生しないはずです。
 
-## Safari の設定ウィンドウにエラーが表示される {#safari-style-loading-errors}
+## Safari の設定ウィンドウにエラーが表示される {/* #safari-style-loading-errors */}
 
 Safari の設定ウィンドウに以下のようなエラーメッセージが表示される場合があります:
 
-<Image src={PopupStyleLoadingError} alt="Safari の設定ウィンドウに表示されるエラーメッセージのスクリーンショット" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Safari の設定ウィンドウに表示されるエラーメッセージのスクリーンショット"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
-> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
 これらは RedirectWeb の動作には影響しません。安全に無視していただいて構いません。
 

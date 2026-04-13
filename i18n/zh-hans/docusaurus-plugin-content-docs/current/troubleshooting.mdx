@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -12,19 +12,36 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 
 <TOCInline toc={toc} />
 
-## 重定向规则未生效 {#rules-not-working}
+## 重定向规则未生效 {/* #rules-not-working */}
 
 如果规则没有按预期工作，请检查以下几项：
 
 - **浏览器扩展是否已为正确页面安装并启用：** 请确保已安装 RedirectWeb 浏览器扩展程序，并且在你要从其重定向的网页上启用了该扩展。如果你能在源网页打开如下扩展弹出窗口，则说明已正确安装：
-    <Image src={ExtensionPopup} alt="RedirectWeb 扩展弹出窗口" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="RedirectWeb 扩展弹出窗口"
+    width="260"
+    hasShadow
+  />
 
 - **规则配置是否正确：** 在 RedirectWeb 原生应用中再次检查你的重定向规则。确保源 URL 模式、目标 URL 以及任何条件都已正确设置。要检查规则是否有效，可在“编辑规则”界面的“示例”部分输入一个示例 URL。如果规则有效，你将在输入下方看到预期的目标 URL，如下所示：
-    <Image src={RuleEditExampleResult} alt="在规则编辑界面显示示例 URL 结果的示例" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="在规则编辑界面显示示例 URL 结果的示例"
+    width="260"
+    hasShadow
+  />
 
-## 扩展弹出窗口显示错误 {#error-shown-in-extension-popup}
+## 扩展弹出窗口显示错误 {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="RedirectWeb 错误提示覆盖层" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="RedirectWeb 错误提示覆盖层"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > RedirectWeb 应用尚未安装或无法正常运行。  
 > 请从 App Store 获取该应用。
@@ -36,28 +53,41 @@ import PopupStyleLoadingError from "@site/static/img/popup-style-loading-error@2
 安装原生应用后，可能还需重新启动浏览器。
 
 > [!NOTE]
-> * 要使用 RedirectWeb 浏览器扩展，需要安装 RedirectWeb 原生应用。仅安装扩展不足以工作。
-> * Safari 用户无需单独安装扩展，因为扩展已随原生应用捆绑。
+>
+> - 要使用 RedirectWeb 浏览器扩展，需要安装 RedirectWeb 原生应用。仅安装扩展不足以工作。
+> - Safari 用户无需单独安装扩展，因为扩展已随原生应用捆绑。
 
-## 原始页面在重定向前短暂闪烁 {#original-page-flash}
+## 原始页面在重定向前短暂闪烁 {/* #original-page-flash */}
 
 当你使用 **Original** 类型的重定向规则时，可能会发生这种情况。此类型提供多种高级功能，但它可能会在执行重定向前允许原始页面加载，从而导致原始页面短暂闪烁。
 
 打开“编辑规则”界面并将 **Type** 更改为 **DNR** 以避免此问题。
 
-<Image src={EditRuleDnr} alt="RedirectWeb 扩展弹出窗口" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="RedirectWeb 扩展弹出窗口"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
 > 在 Firefox 中，即使使用 Original 类型，也不应出现此问题，因为它依赖于 WebRequest API，该 API 可阻止原始页面被加载。
 
-## Safari 的设置窗口显示错误 {#safari-style-loading-errors}
+## Safari 的设置窗口显示错误 {/* #safari-style-loading-errors */}
 
 你可能会在 Safari 的设置窗口中看到如下错误信息：
 
-<Image src={PopupStyleLoadingError} alt="Safari 设置窗口中错误信息的截图" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Safari 设置窗口中错误信息的截图"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
-> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
 这些不会影响 RedirectWeb 的功能，可安全忽略。
 

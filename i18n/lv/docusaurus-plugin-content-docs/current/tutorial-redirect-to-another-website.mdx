@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # 1. gadījums: pārvirzīšana uz citu tīmekļa vietni
@@ -9,11 +9,11 @@ Pieņemsim, ka jums ir atkarība no Twitter, un, lai pārtrauktu šo ieradumu, j
 
 ### 1. solis. Atveriet ekrānu "Rediģēt noteikumu"
 
-Atvērsim ekrānu *Rediģēt noteikumu*, lai sāktu veidot savu noteikumu lietotnē. To var izdarīt, noklikšķinot uz plusa (+) pogas cilnē *Mani noteikumi*.
+Atvērsim ekrānu _Rediģēt noteikumu_, lai sāktu veidot savu noteikumu lietotnē. To var izdarīt, noklikšķinot uz plusa (+) pogas cilnē _Mani noteikumi_.
 
 ### 2. solis. Iestatiet "Pārvirzīt no"
 
-Vispirms lietotnes ekrānā *Rediģēt noteikumu* iestatiet sadaļu *Pārvirzīt no*. Mērķi ir URL, kas sākas ar `https://twitter.com/`.
+Vispirms lietotnes ekrānā _Rediģēt noteikumu_ iestatiet sadaļu _Pārvirzīt no_. Mērķi ir URL, kas sākas ar `https://twitter.com/`.
 
 Šajā gadījumā varat norādīt šādu modeli [Aizstājējzīmes](/rule-settings#url-pattern-wildcard) režīmā:
 
@@ -31,13 +31,13 @@ Lai to izdarītu, pārslēdzieties no Aizstājējzīmes uz [Regulāro izteiksmi]
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: tas mērķē gan uz `twitter`, gan uz `x`. (`|` tiek saukts par *cauruli*.)
-* `.*`: Tas ir tas pats, kas aizstājējzīmju `*`. Konkrētāk, `.` nozīmē *jebkura rakstzīme* un `*` nozīmē *viss pirms šī simbola, kas atkārtojas jebkuru reižu skaitu*, kā rezultātā tas atbilst jebkam.
+- `(twitter|x)`: tas mērķē gan uz `twitter`, gan uz `x`. (`|` tiek saukts par _cauruli_.)
+- `.*`: Tas ir tas pats, kas aizstājējzīmju `*`. Konkrētāk, `.` nozīmē _jebkura rakstzīme_ un `*` nozīmē _viss pirms šī simbola, kas atkārtojas jebkuru reižu skaitu_, kā rezultātā tas atbilst jebkam.
 
 Regulārās izteiksmes ir nedaudz sarežģītas, taču, kad pie tām pierod, tās kļūst par spēcīgu rīku. Mēs iesakām izmantot [RegExr](https://regexr.com) kā spēļu laukumu, lai analizētu, kā darbojas jūsu regulāro izteiksmju modelis.
 
 > [!TIP]
-> Regulārajās izteiksmēs `.` modelī `(twitter|x).com` arī tiek uztverts kā *jebkura rakstzīme*. Tāpēc `(twitter|x).com/.*` atbilst arī, piemēram, `twitter1com/` vai `x_com/`.
+> Regulārajās izteiksmēs `.` modelī `(twitter|x).com` arī tiek uztverts kā _jebkura rakstzīme_. Tāpēc `(twitter|x).com/.*` atbilst arī, piemēram, `twitter1com/` vai `x_com/`.
 >
 > Lai būtu precīzāk, varat to mainīt uz `(twitter|x)\.com/.*`. `\` tiek izmantots, lai uztvertu `.` kā burtisku punkta rakstzīmi, nevis īpašu rakstzīmi.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Neobligāti) 4. solis. Pārbaudiet noteikumu
 
-Varat pārbaudīt, kā noteikums darbojas, pievienojot piemēra URL sadaļā *Piemēri* ekrānā *Rediģēt noteikumu*. Piemēram, ja ievadāt `https://x.com/UN`, tas kā rezultātu rāda `https://unrush.org/`.
+Varat pārbaudīt, kā noteikums darbojas, pievienojot piemēra URL sadaļā _Piemēri_ ekrānā _Rediģēt noteikumu_. Piemēram, ja ievadāt `https://x.com/UN`, tas kā rezultātu rāda `https://unrush.org/`.
 
 Lūk, kā jūsu noteikumam vajadzētu izskatīties tagad:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Noteikuma piemērs citas tīmekļa vietnes atvēršanai" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Noteikuma piemērs citas tīmekļa vietnes atvēršanai"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Lejupielādēt noteikumu</a>**
 

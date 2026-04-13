@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -12,19 +12,36 @@ Bu sayfa RedirectWeb kullanırken karşılaşılan yaygın sorunları ve çözü
 
 <TOCInline toc={toc} />
 
-## Yönlendirme kuralları çalışmıyor {#rules-not-working}
+## Yönlendirme kuralları çalışmıyor {/* #rules-not-working */}
 
 Kurallarınız beklediğiniz gibi çalışmıyorsa lütfen aşağıdakileri kontrol edin:
 
 - **Tarayıcı uzantısının yüklü ve doğru sayfa için etkin olduğundan emin olun:** RedirectWeb tarayıcı uzantısını yüklediğinizden ve yönlendirmek istediğiniz web sayfası için tarayıcınızda etkinleştirildiğinden emin olun. Eğer kaynak web sayfasında uzantının açılır penceresini şu şekilde açabiliyorsanız, doğru şekilde kurulmuştur:
-    <Image src={ExtensionPopup} alt="RedirectWeb uzantı açılır penceresi" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="RedirectWeb uzantı açılır penceresi"
+    width="260"
+    hasShadow
+  />
 
 - **Kural yapılandırmasının doğru olduğundan emin olun:** RedirectWeb native uygulamasındaki yönlendirme kurallarınızı tekrar kontrol edin. Kaynak URL desenlerinin, hedef URL'lerin ve varsa koşulların doğru ayarlandığından emin olun. Kuralınızın geçerli olup olmadığını kontrol etmek için Edit Rule ekranındaki Examples bölümüne örnek bir URL girin. Kural geçerliyse, girişinizin altında beklenen hedef URL'yi şu şekilde görürsünüz:
-    <Image src={RuleEditExampleResult} alt="Kural düzenleme ekranında örnek URL sonucunu gösteren görüntü" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="Kural düzenleme ekranında örnek URL sonucunu gösteren görüntü"
+    width="260"
+    hasShadow
+  />
 
-## Uzantının açılır penceresinde hata gösteriliyor {#error-shown-in-extension-popup}
+## Uzantının açılır penceresinde hata gösteriliyor {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="RedirectWeb hata uyarısı" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="RedirectWeb hata uyarısı"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > RedirectWeb app hasn't been installed or is not working properly.  
 > Please get the app from the App Store.
@@ -36,28 +53,41 @@ Lütfen [App Store](https://apps.apple.com/app/id1571283503) üzerinden Redirect
 Native uygulamayı yükledikten sonra tarayıcınızı yeniden başlatmanız gerekebilir.
 
 > [!NOTE]
-> * Tarayıcı uzantısını kullanmak için RedirectWeb native uygulamasını yüklemeniz gerekir. Sadece uzantı tek başına çalışmaz.
-> * Safari kullanıcılarının uzantıyı ayrı olarak yüklemesine gerek yoktur; uzantı native uygulama ile birlikte gelir.
+>
+> - Tarayıcı uzantısını kullanmak için RedirectWeb native uygulamasını yüklemeniz gerekir. Sadece uzantı tek başına çalışmaz.
+> - Safari kullanıcılarının uzantıyı ayrı olarak yüklemesine gerek yoktur; uzantı native uygulama ile birlikte gelir.
 
-## Orijinal sayfa yönlendirme öncesi kısa süre görünür {#original-page-flash}
+## Orijinal sayfa yönlendirme öncesi kısa süre görünür {/* #original-page-flash */}
 
 Bu durum **Original** türündeki yönlendirme kurallarını kullandığınızda oluşur. Bu tür çeşitli gelişmiş özellikler sağlar, ancak yönlendirmeyi gerçekleştirmeden önce orijinal sayfanın yüklenmesine izin verebileceği için orijinal sayfanın kısa bir süreliğine görüntülenmesine neden olabilir.
 
 Bu sorunu önlemek için Edit Rule ekranını açın ve **Type**'ı **DNR** olarak değiştirin.
 
-<Image src={EditRuleDnr} alt="RedirectWeb uzantı açılır penceresi" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="RedirectWeb uzantı açılır penceresi"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
 > Firefox'ta, Original türü kullanılsa bile bu sorun oluşmamalıdır; çünkü Firefox WebRequest API'sine dayanır ve bu API orijinal sayfanın yüklenmesini engeller.
 
-## Safari'nin Ayarlar penceresinde hatalar gösteriliyor {#safari-style-loading-errors}
+## Safari'nin Ayarlar penceresinde hatalar gösteriliyor {/* #safari-style-loading-errors */}
 
 Safari Ayarlar penceresinde aşağıdaki gibi hata mesajları görebilirsiniz:
 
-<Image src={PopupStyleLoadingError} alt="Safari Ayarlar penceresindeki hata mesajlarının ekran görüntüsü" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Safari Ayarlar penceresindeki hata mesajlarının ekran görüntüsü"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
-> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
 Bu hatalar RedirectWeb'in işlevselliğini etkilemez. Güvenle yok sayabilirsiniz.
 

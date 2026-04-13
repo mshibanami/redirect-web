@@ -7,7 +7,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import ExtensionStoreLinks from '@site/src/components/ExtensionStoreLinks';
 import LandingPageBackground from '@site/src/components/landing/LandingPageBackground';
-import Image from "@site/src/components/Image";
+import Image from '@site/src/components/Image';
 import AwardSection from '@site/src/components/landing/AwardSection';
 import FeaturesSection from '@site/src/components/landing/FeaturesSection';
 import LearnMoreSection from '@site/src/components/landing/LearnMoreSection';
@@ -19,188 +19,198 @@ import Translate, { translate } from '@docusaurus/Translate';
 import Head from '@docusaurus/Head';
 
 function LandingPageHero() {
-    const { siteConfig } = useDocusaurusContext();
-    return (
-        <header className={clsx('hero', styles.heroBanner)}>
-            <div className={clsx("container", styles.heroContainer)}>
-                <Image
-                    src={useBaseUrl('/img/logo.png')}
-                    alt="RedirectWeb Logo"
-                    width={100}
-                    height={100}
-                    margin='80px 0' />
+  const { siteConfig } = useDocusaurusContext();
+  return (
+    <header className={clsx('hero', styles.heroBanner)}>
+      <div className={clsx('container', styles.heroContainer)}>
+        <Image
+          src={useBaseUrl('/img/logo.png')}
+          alt="RedirectWeb Logo"
+          width={100}
+          height={100}
+          margin="80px 0"
+        />
 
-                <Heading as="h1" className="hero__title">
-                    {siteConfig.tagline}
-                </Heading>
-                <p className="hero__subtitle margin-bottom--xl">
-                    <Translate
-                        id="landingPage.heroSubtitle"
-                        description="Landing page hero subtitle"
-                        values={{ appName: <b>RedirectWeb</b> }}
-                    >
-                        {'{appName} is a powerful browser extension to redirect URLs based on your custom rules.'}
-                    </Translate>
-                </p>
-                <div className="margin-vert--xl">
-                    <ExtensionStoreLinks />
-                </div>
-                <Heading as='h4'>
-                    <Translate
-                        id="landingPage.demoVideoPrompt"
-                        description="Landing page demo video prompt">
-                        👇️ Click to Watch Demo
-                    </Translate>
-                </Heading>
-                <div className={styles.heroVideoContainer}>
-                    <video
-                        className={styles.heroVideo}
-                        src={useBaseUrl('/videos/landing-demo.mov')}
-                        controls
-                        playsInline
-                        preload="metadata"
-                        aria-label="Demo video"
-                        muted
-                    >
-                        Your browser does not support the video tag. You can
-                        <a href={useBaseUrl('/videos/landing-demo.mov')} target="_blank" rel="noreferrer">
-                            download the video
-                        </a>.
-                    </video>
-                </div>
-            </div>
-        </header>
-    );
+        <Heading as="h1" className="hero__title">
+          {siteConfig.tagline}
+        </Heading>
+        <p className="hero__subtitle margin-bottom--xl">
+          <Translate
+            id="landingPage.heroSubtitle"
+            description="Landing page hero subtitle"
+            values={{ appName: <b>RedirectWeb</b> }}
+          >
+            {
+              '{appName} is a powerful browser extension to redirect URLs based on your custom rules.'
+            }
+          </Translate>
+        </p>
+        <div className="margin-vert--xl">
+          <ExtensionStoreLinks />
+        </div>
+        <Heading as="h4">
+          <Translate id="landingPage.demoVideoPrompt" description="Landing page demo video prompt">
+            👇️ Click to Watch Demo
+          </Translate>
+        </Heading>
+        <div className={styles.heroVideoContainer}>
+          <video
+            className={styles.heroVideo}
+            src={useBaseUrl('/videos/landing-demo.mov')}
+            controls
+            playsInline
+            preload="metadata"
+            aria-label="Demo video"
+            muted
+          >
+            Your browser does not support the video tag. You can
+            <a href={useBaseUrl('/videos/landing-demo.mov')} target="_blank" rel="noreferrer">
+              download the video
+            </a>
+            .
+          </video>
+        </div>
+      </div>
+    </header>
+  );
 }
 
 function useScrollAnimation() {
-    const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
-                    setIsVisible(true);
-                    if (entry.target) {
-                        observer.unobserve(entry.target);
-                    }
-                }
-            },
-            {
-                threshold: 0,
-                rootMargin: '0px 0px -80px 0px'
-            }
-        );
-
-        const currentRef = ref.current;
-        if (currentRef) {
-            observer.observe(currentRef);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+          setIsVisible(true);
+          if (entry.target) {
+            observer.unobserve(entry.target);
+          }
         }
+      },
+      {
+        threshold: 0,
+        rootMargin: '0px 0px -80px 0px',
+      },
+    );
 
-        return () => {
-            if (currentRef) {
-                observer.unobserve(currentRef);
-            }
-        };
-    }, []);
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
-    return { ref, isVisible };
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
+  return { ref, isVisible };
 }
 
 export default function Home(): ReactNode {
-    const { siteConfig } = useDocusaurusContext();
-    const headerAnimation = useScrollAnimation();
-    const awardAnimation = useScrollAnimation();
-    const featuresAnimation = useScrollAnimation();
-    const useCasesAnimation = useScrollAnimation();
-    const testimonialsAnimation = useScrollAnimation();
-    const learnMoreAnimation = useScrollAnimation();
-    const taglineAnimation = useScrollAnimation();
-    const titleDescription = translate({
-        id: "landingPage.metadataTitleDescription",
-        description: "Short description of the app for the landing page metadata",
-        message: "A Browser Extension to Auto-Redirect Pages You Specify"
-    })
-    const appName = siteConfig.title;
-    const title = `${appName} – ${titleDescription}`;
-    const description = translate(
-        {
-            id: "landingPage.heroSubtitle",
-            description: "Landing page hero subtitle",
-            message: '{appName} is a powerful browser extension to redirect URLs based on your custom rules.'
-        },
-        { appName }
-    );
+  const { siteConfig } = useDocusaurusContext();
+  const headerAnimation = useScrollAnimation();
+  const awardAnimation = useScrollAnimation();
+  const featuresAnimation = useScrollAnimation();
+  const useCasesAnimation = useScrollAnimation();
+  const testimonialsAnimation = useScrollAnimation();
+  const learnMoreAnimation = useScrollAnimation();
+  const taglineAnimation = useScrollAnimation();
+  const titleDescription = translate({
+    id: 'landingPage.metadataTitleDescription',
+    description: 'Short description of the app for the landing page metadata',
+    message: 'A Browser Extension to Auto-Redirect Pages You Specify',
+  });
+  const appName = siteConfig.title;
+  const title = `${appName} – ${titleDescription}`;
+  const description = translate(
+    {
+      id: 'landingPage.heroSubtitle',
+      description: 'Landing page hero subtitle',
+      message:
+        '{appName} is a powerful browser extension to redirect URLs based on your custom rules.',
+    },
+    { appName },
+  );
 
-    return (
-        <div className='indexPage'>
-            <Layout
-                title={title}
-                description={description}>
-                <main>
-                    <LandingPageBackground style={{ height: "600px", width: "100%" }} />
-                    <div ref={headerAnimation.ref} className={clsx(styles.animatedSection, {
-                        [styles.visible]: headerAnimation.isVisible
-                    })}>
-                        <LandingPageHero />
-                    </div>
+  return (
+    <div className="indexPage">
+      <Layout title={title} description={description}>
+        <main>
+          <LandingPageBackground style={{ height: '600px', width: '100%' }} />
+          <div
+            ref={headerAnimation.ref}
+            className={clsx(styles.animatedSection, {
+              [styles.visible]: headerAnimation.isVisible,
+            })}
+          >
+            <LandingPageHero />
+          </div>
 
-                    <div
-                        ref={awardAnimation.ref}
-                        className={clsx('container', 'margin-vert--xl', styles.animatedSection, {
-                            [styles.visible]: awardAnimation.isVisible
-                        })}>
-                        <AwardSection />
-                    </div>
+          <div
+            ref={awardAnimation.ref}
+            className={clsx('container', 'margin-vert--xl', styles.animatedSection, {
+              [styles.visible]: awardAnimation.isVisible,
+            })}
+          >
+            <AwardSection />
+          </div>
 
-                    <div
-                        ref={featuresAnimation.ref}
-                        className={clsx('container', styles.animatedSection, {
-                            [styles.visible]: featuresAnimation.isVisible
-                        })}>
-                        <FeaturesSection />
-                    </div>
+          <div
+            ref={featuresAnimation.ref}
+            className={clsx('container', styles.animatedSection, {
+              [styles.visible]: featuresAnimation.isVisible,
+            })}
+          >
+            <FeaturesSection />
+          </div>
 
-                    <div
-                        ref={useCasesAnimation.ref}
-                        className={clsx('container', styles.animatedSection, {
-                            [styles.visible]: useCasesAnimation.isVisible
-                        })}>
-                        <UseCasesSection />
-                    </div>
+          <div
+            ref={useCasesAnimation.ref}
+            className={clsx('container', styles.animatedSection, {
+              [styles.visible]: useCasesAnimation.isVisible,
+            })}
+          >
+            <UseCasesSection />
+          </div>
 
-                    <div
-                        ref={testimonialsAnimation.ref}
-                        className={clsx('container', styles.animatedSection, {
-                            [styles.visible]: testimonialsAnimation.isVisible
-                        })}>
-                        <TestimonialsSection />
-                    </div>
+          <div
+            ref={testimonialsAnimation.ref}
+            className={clsx('container', styles.animatedSection, {
+              [styles.visible]: testimonialsAnimation.isVisible,
+            })}
+          >
+            <TestimonialsSection />
+          </div>
 
-                    <div
-                        ref={learnMoreAnimation.ref}
-                        className={clsx('container', styles.animatedSection, {
-                            [styles.visible]: learnMoreAnimation.isVisible
-                        })}>
-                        <LearnMoreSection />
-                    </div>
+          <div
+            ref={learnMoreAnimation.ref}
+            className={clsx('container', styles.animatedSection, {
+              [styles.visible]: learnMoreAnimation.isVisible,
+            })}
+          >
+            <LearnMoreSection />
+          </div>
 
-                    <div
-                        ref={taglineAnimation.ref}
-                        className={clsx('container', 'margin-bottom--xl', styles.animatedSection, {
-                            [styles.visible]: taglineAnimation.isVisible
-                        })}>
-                        <TaglineSection />
-                    </div>
-                </main>
-            </Layout>
+          <div
+            ref={taglineAnimation.ref}
+            className={clsx('container', 'margin-bottom--xl', styles.animatedSection, {
+              [styles.visible]: taglineAnimation.isVisible,
+            })}
+          >
+            <TaglineSection />
+          </div>
+        </main>
+      </Layout>
 
-            <Head titleTemplate="%s">
-                <title>{title}</title>
-                <meta property="og:title" content={title} />
-                <meta property="og:description" content={description} />
-            </Head>
-        </div>
-    );
+      <Head titleTemplate="%s">
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+      </Head>
+    </div>
+  );
 }

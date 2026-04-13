@@ -1,26 +1,26 @@
 # Nastavitve pravil
 
-Ta stran podaja podrobne informacije o vsaki nastavitvi na zaslonu *Uredi pravilo* v aplikaciji RedirectWeb.
+Ta stran podaja podrobne informacije o vsaki nastavitvi na zaslonu _Uredi pravilo_ v aplikaciji RedirectWeb.
 
 ## Možnosti
 
-### Vrsta {#type}
+### Vrsta {/* #type */}
 
 Določite možnost **Vrsta**, da nadzirate, kako aplikacija obravnava preusmeritev. Izbirate lahko med naslednjimi:
 
-* **Izvirno** (privzeto)
-    * To uporablja tradicionalne spletne API-je za nadzor preusmeritve. Poleg tega uporablja [API Tabs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) kot rezervno možnost.
-        * V brskalniku Firefox uporablja [API WebRequest](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) za obravnavo preusmeritve.
-    * Uporabite lahko vse možnosti razen [Vrst virov](#resource-types) in [Metod zahtev](#request-methods).
-    * ⚠️ To je počasnejše od vrste *Deklarativno* in lahko povzroči dodatne omrežne zahteve.
-* **DNR** (eksperimentalno za Safari):
-    * Ta vrsta deluje veliko hitreje kot vrsta Izvirno, ker ne sproži omrežne zahteve za izvorni URL.
-    * To vam omogoča, da določite [Vrste virov](#resource-types) in [Metode zahtev](#request-methods).
-    * ⚠️ Nekaterih možnosti, kot sta [Obdelava zajetih skupin](#capturing-group-processing) in [Izključeni vzorci URL-jev](#excluded-url-patterns), ni mogoče uporabiti, saj jih API DNR še ne podpira.
-    * ⚠️ V Safariju trenutno v vzorec regularnega izraza ne morete vključiti navpičnic (`|`). [Podrobnosti](https://github.com/mshibanami/redirect-web/issues/44)
-    * ⚠️ Ker ima Safarijev API DNR še vedno nekatere težave, menimo, da je to še vedno eksperimentalna funkcija za Safari. Seznam vseh znanih težav najdete [tukaj](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+- **Izvirno** (privzeto)
+  - To uporablja tradicionalne spletne API-je za nadzor preusmeritve. Poleg tega uporablja [API Tabs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) kot rezervno možnost.
+    - V brskalniku Firefox uporablja [API WebRequest](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) za obravnavo preusmeritve.
+  - Uporabite lahko vse možnosti razen [Vrst virov](#resource-types) in [Metod zahtev](#request-methods).
+  - ⚠️ To je počasnejše od vrste _Deklarativno_ in lahko povzroči dodatne omrežne zahteve.
+- **DNR** (eksperimentalno za Safari):
+  - Ta vrsta deluje veliko hitreje kot vrsta Izvirno, ker ne sproži omrežne zahteve za izvorni URL.
+  - To vam omogoča, da določite [Vrste virov](#resource-types) in [Metode zahtev](#request-methods).
+  - ⚠️ Nekaterih možnosti, kot sta [Obdelava zajetih skupin](#capturing-group-processing) in [Izključeni vzorci URL-jev](#excluded-url-patterns), ni mogoče uporabiti, saj jih API DNR še ne podpira.
+  - ⚠️ V Safariju trenutno v vzorec regularnega izraza ne morete vključiti navpičnic (`|`). [Podrobnosti](https://github.com/mshibanami/redirect-web/issues/44)
+  - ⚠️ Ker ima Safarijev API DNR še vedno nekatere težave, menimo, da je to še vedno eksperimentalna funkcija za Safari. Seznam vseh znanih težav najdete [tukaj](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Preusmeri iz {#redirect-from}
+### Preusmeri iz {/* #redirect-from */}
 
 Možnost **Preusmeri iz** vam omogoča, da določite vzorec URL spletnih strani, s katerih želite preusmeriti. Izbirate lahko med [nadomestnim znakom](#url-pattern-wildcard) ali [regularnim izrazom](#url-pattern-regular-expression).
 
@@ -29,21 +29,21 @@ Na primer, če z nadomestnim znakom določite `https://example.com/*`, se to uje
 > [!NOTE]
 > V možnosti Preusmeri na se lahko sklicujete na celotno ujemanje z uporabo `$0` ali delna ujemanja z uporabo `$1`, `$2`, ... Preverite podrobnosti v [Vzorec URL](#url-pattern) na tej strani.
 
-#### Vrste virov {#resource-types}
+#### Vrste virov {/* #resource-types */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
 Možnost **Vrste virov** vam omogoča, da določite kategorije spletnih zahtev, kot so slike, JavaScripti in slogovne predloge, za katere velja pravilo.
 Na primer, če nastavite `script`, lahko preusmerite datoteke JavaScript, ki jih naložijo spletne strani.
 
-Trenutno so na voljo: 
+Trenutno so na voljo:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
 Privzeta nastavitev je `main_frame`, kar je stran najvišje ravni, naložena v zavihek.
 
 Preverite podrobnosti o vsaki vrsti vira v [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Metode zahtev {#request-methods}
+#### Metode zahtev {/* #request-methods */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,28 +56,28 @@ Preverite podrobnosti o vsaki metodi v [mdn web docs](https://developer.mozilla.
 > [!WARNING]
 > V Safariju ta možnost morda ni na voljo, ker se zdi, da Applova implementacija za vrsto DNR tega trenutno ne obravnava. Podjetju Apple smo poslali povratne informacije kot FB14502272.
 
-#### Ciljni brskalniki {#target-browsers}
+#### Ciljni brskalniki {/* #target-browsers */}
 
 ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
 Možnost **Ciljni brskalniki** vam omogoča, da določite, za kateri brskalnik naj se pravilo uporabi ali ne.
 
-* Izbirate lahko med 2 vrstama brskalnikov:
-    * **Brskalniki, ki jih lahko izberete privzeto**: Privzeto lahko izbirate med Safari, Chrome, Firefox, Edge, Opera, Arc, Brave in Vivaldi. To ne razlikuje različic istega brskalnika, kot sta Safari in Safari Technology Preview.
-    * **Brskalniki, ki jih določi uporabnik**: S pritiskom na gumb Dodaj v pojavnem oknu lahko izberete kateri koli brskalnik razen Safari ali Safari Technology Preview, ki ima nameščeno razširitev RedirectWeb.
-* Potrditveno polje **Vsi razen izbranih** vam omogoča ciljanje na vse brskalnike razen tistih, ki ste jih izbrali.
+- Izbirate lahko med 2 vrstama brskalnikov:
+  - **Brskalniki, ki jih lahko izberete privzeto**: Privzeto lahko izbirate med Safari, Chrome, Firefox, Edge, Opera, Arc, Brave in Vivaldi. To ne razlikuje različic istega brskalnika, kot sta Safari in Safari Technology Preview.
+  - **Brskalniki, ki jih določi uporabnik**: S pritiskom na gumb Dodaj v pojavnem oknu lahko izberete kateri koli brskalnik razen Safari ali Safari Technology Preview, ki ima nameščeno razširitev RedirectWeb.
+- Potrditveno polje **Vsi razen izbranih** vam omogoča ciljanje na vse brskalnike razen tistih, ki ste jih izbrali.
 
 > [!WARNING]
 > RedirectWeb ne more razlikovati, ali je brskalnik **Safari** ali **Safari Technology Preview**, ker aplikacija za zaznavanje preveri starševski proces razširitve, vendar si ta dva brskalnika delita isti starševski proces (`/sbin/launchd`).
 
-### Preusmeri na {#redirect-to}
+### Preusmeri na {/* #redirect-to */}
 
-Možnost **Preusmeri na** določa ciljni URL, na katerega želite preusmeriti z izvornega URL-ja, ujetega z možnostjo *Preusmeri iz*. Zajete skupine lahko nadomestite tudi z `$1`, `$2`, ... ali celotno ujemanje z `$0`. Ti vam pomagajo dinamično določiti cilj. Preverite podrobnosti v [Vzorec URL](#url-pattern) na tej strani.
+Možnost **Preusmeri na** določa ciljni URL, na katerega želite preusmeriti z izvornega URL-ja, ujetega z možnostjo _Preusmeri iz_. Zajete skupine lahko nadomestite tudi z `$1`, `$2`, ... ali celotno ujemanje z `$0`. Ti vam pomagajo dinamično določiti cilj. Preverite podrobnosti v [Vzorec URL](#url-pattern) na tej strani.
 
 Na primer, če nastavite naslednje pravilo:
 
-* **Preusmeri iz**: `https://google.com/*` (Nadomestni znak)
-* **Preusmeri na**: `https://apple.com/$1`
+- **Preusmeri iz**: `https://google.com/*` (Nadomestni znak)
+- **Preusmeri na**: `https://apple.com/$1`
 
 in se ujema s `https://google.com/hello`, bo ciljni URL `https://apple.com/hello`.
 
@@ -86,14 +86,14 @@ Poleg tega lahko spremenite besedila `$1`, `$2`, ... pred izvedbo zamenjav. Za p
 > [!TIP]
 > Možete določiti shemo URL po meri za odpiranje aplikacije. Tukaj je nekaj primerov aplikacij, ki podpirajo globoko povezovanje (deep linking):
 >
-> * Figma: `figma://file/Your_Figma_ID`
-> * Firefox: `firefox://open-url?url=https://example.com/hello`
-> * Google Chrome: `googlechromes://example.com`
-> * Microsoft Edge: `microsoft-edge://example.com`
-> * Notion: `notion://www.notion.so/Your_Note_ID`
-> * Slack: `slack://open`
+> - Figma: `figma://file/Your_Figma_ID`
+> - Firefox: `firefox://open-url?url=https://example.com/hello`
+> - Google Chrome: `googlechromes://example.com`
+> - Microsoft Edge: `microsoft-edge://example.com`
+> - Notion: `notion://www.notion.so/Your_Note_ID`
+> - Slack: `slack://open`
 
-#### Aplikacija {#application}
+#### Aplikacija {/* #application */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,36 +102,36 @@ Poleg tega lahko spremenite besedila `$1`, `$2`, ... pred izvedbo zamenjav. Za p
 > [!WARNING]
 > Odprete lahko samo aplikacijo, ki podpira [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Prav tako se prepričajte, da aplikacija podpira odpiranje URL-ja, ki ga želite odpreti.
 
-### Obdelava zajetih skupin {#capturing-group-processing}
+### Obdelava zajetih skupin {/* #capturing-group-processing */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
-Možnost **Obdelava zajetih skupin** vam omogoča, da določite, kako obdelati zajete skupine, ki jih lahko nadomestite v možnosti *Preusmeri na* z `$1`, `$2` ...
+Možnost **Obdelava zajetih skupin** vam omogoča, da določite, kako obdelati zajete skupine, ki jih lahko nadomestite v možnosti _Preusmeri na_ z `$1`, `$2` ...
 
 Takole ustvarite zajete skupine:
 
-* **Nadomestni znak**: Besedila, ujeta z `*` in `?`, se samodejno zajamejo.
-* **Regularni izraz**: Besedila, ujeta z delom vzorca znotraj `()`, se zajamejo.
+- **Nadomestni znak**: Besedila, ujeta z `*` in `?`, se samodejno zajamejo.
+- **Regularni izraz**: Besedila, ujeta z delom vzorca znotraj `()`, se zajamejo.
 
 Izberete lahko enega ali več naslednjih postopkov:
 
-* **URL kodiranje/dekodiranje**: To uporabi [odstotno kodiranje](https://en.wikipedia.org/wiki/Percent-encoding) (percent-encoding) ali dekodiranje na zajeti skupini. Na primer, če kodirate `https://example.com/hello`, se pretvori v `https%3A%2F%2Fexample.com%2Fhello`. Dekodiranje deluje obratno.
-* **Base64 kodiranje/dekodiranje**: To dekodira/kodira besedilo v [Base64](https://en.wikipedia.org/wiki/Base64). Na primer, `hello` lahko kodirate v `aGVsbG8=`, in ga dekodirate nazaj v `hello`.
-* **Zamenjaj pojavitve**: To zamenja enega ali več znakov v skupini, ujetih s **Ciljem**, z **Zamenjavo**. Na primer, če je *Skupina* `hello`, *Cilj* `l` in *Zamenjava* `y`, se spremeni v `heyyo`.
+- **URL kodiranje/dekodiranje**: To uporabi [odstotno kodiranje](https://en.wikipedia.org/wiki/Percent-encoding) (percent-encoding) ali dekodiranje na zajeti skupini. Na primer, če kodirate `https://example.com/hello`, se pretvori v `https%3A%2F%2Fexample.com%2Fhello`. Dekodiranje deluje obratno.
+- **Base64 kodiranje/dekodiranje**: To dekodira/kodira besedilo v [Base64](https://en.wikipedia.org/wiki/Base64). Na primer, `hello` lahko kodirate v `aGVsbG8=`, in ga dekodirate nazaj v `hello`.
+- **Zamenjaj pojavitve**: To zamenja enega ali več znakov v skupini, ujetih s **Ciljem**, z **Zamenjavo**. Na primer, če je _Skupina_ `hello`, _Cilj_ `l` in _Zamenjava_ `y`, se spremeni v `heyyo`.
 
 > [!NOTE]
 > To je za obdelavo vsake zajete skupine in ne vpliva na to, kateri URL-ji so izključeni z [Izključenimi vzorci URL-jev](#excluded-url-patterns). Na primer, recimo, da imate to pravilo:
 >
-> * **Preusmeri iz**: `https://example.com/(hello.*)`
-> * **Obdelava zajetih skupin**:
->     * Skupina: `$1`
->     * Cilj: `.*` (Regularni izraz)
->     * Zamenjava: `hello`
-> * **Izključen vzorec URL**: `https://example.com/hello`
+> - **Preusmeri iz**: `https://example.com/(hello.*)`
+> - **Obdelava zajetih skupin**:
+>   - Skupina: `$1`
+>   - Cilj: `.*` (Regularni izraz)
+>   - Zamenjava: `hello`
+> - **Izključen vzorec URL**: `https://example.com/hello`
 >
 > V tem primeru `https://example.com/hello_world` ne bo izključen, medtem ko bo `https://example.com/hello` izključen.
 
-### Izključeni vzorci URL-jev {#excluded-url-patterns}
+### Izključeni vzorci URL-jev {/* #excluded-url-patterns */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,52 +139,52 @@ Možnost **Izključeni vzorci URL-jev** vam omogoča, da določite URL-je, ki ni
 
 Izključene vzorce URL-jev lahko določite z uporabo regularnega izraza ali nadomestnega znaka.
 
-### Primeri {#examples}
+### Primeri {/* #examples */}
 
 Možnost **Primeri** vam omogoča, da preizkusite svoje pravilo preusmeritve tako, da podate vzorčne URL-je. Z dodajanjem vzorčnega URL-ja lahko preverite, ali pravilo deluje po pričakovanjih, preden ga dejansko uporabite.
 
-### Napredno {#advanced-options}
+### Napredno {/* #advanced-options */}
 
-* **[DNR] Preusmeritev glavnega okvirja**: Ta možnost je na voljo samo za vrsto DNR. Omogoča vam, da določite, kako obravnavati preusmeritev za vrsto vira `main_frame`. Na voljo so naslednje možnosti:
-    * **Surovo**: Preusmeri glavni okvir na določen URL brez kakršnih koli sprememb.
-    * **Preko vmesne strani**: Preusmeri glavni okvir na vmesno stran, ki nato preusmeri na določen ciljni URL. To je uporabno za odpiranje aplikacij z uporabo globokega povezovanja, saj vmesna stran lahko obravnava bolj zapleteno logiko preusmerjanja.
+- **[DNR] Preusmeritev glavnega okvirja**: Ta možnost je na voljo samo za vrsto DNR. Omogoča vam, da določite, kako obravnavati preusmeritev za vrsto vira `main_frame`. Na voljo so naslednje možnosti:
+  - **Surovo**: Preusmeri glavni okvir na določen URL brez kakršnih koli sprememb.
+  - **Preko vmesne strani**: Preusmeri glavni okvir na vmesno stran, ki nato preusmeri na določen ciljni URL. To je uporabno za odpiranje aplikacij z uporabo globokega povezovanja, saj vmesna stran lahko obravnava bolj zapleteno logiko preusmerjanja.
 
-### Komentarji {#comments}
+### Komentarji {/* #comments */}
 
 Možnost **Komentarji** vam omogoča dodajanje poljubnih opomb ali komentarjev o vašem pravilu preusmeritve. To je lahko koristno za sledenje temu, zakaj ste ustvarili določeno pravilo, ali za zagotavljanje konteksta drugim, ki bi si morda ogledali vaša pravila.
 
 Izberete lahko pisanje komentarjev v naslednjih oblikah:
 
-* **Navadno besedilo** (privzeto): Preprosto besedilo brez oblikovanja.
-* **Markdown**: Uporabite lahko [GitHubove sintakse Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), vključno z nekaterimi razširitvami, ki jih GFM ne podpira. Ustvarite lahko na primer naslove, sezname, povezave in drugo.
-* **AsciiDoc**: Za oblikovanje komentarjev lahko uporabite [sintakse AsciiDoc](https://asciidoc.org/).
+- **Navadno besedilo** (privzeto): Preprosto besedilo brez oblikovanja.
+- **Markdown**: Uporabite lahko [GitHubove sintakse Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), vključno z nekaterimi razširitvami, ki jih GFM ne podpira. Ustvarite lahko na primer naslove, sezname, povezave in drugo.
+- **AsciiDoc**: Za oblikovanje komentarjev lahko uporabite [sintakse AsciiDoc](https://asciidoc.org/).
 
-## Vzorec URL {#url-pattern}
+## Vzorec URL {/* #url-pattern */}
 
-**Vzorci URL** se uporabljajo za ujemanje URL-jev v možnostih *Preusmeri iz*, *Izključeni vzorci URL-jev* in *Obdelava zajetih skupin*. Za njihovo določitev lahko izberete **nadomestni znak** ali **regularni izraz**.
+**Vzorci URL** se uporabljajo za ujemanje URL-jev v možnostih _Preusmeri iz_, _Izključeni vzorci URL-jev_ in _Obdelava zajetih skupin_. Za njihovo določitev lahko izberete **nadomestni znak** ali **regularni izraz**.
 
-### Nadomestni znak {#url-pattern-wildcard}
+### Nadomestni znak {/* #url-pattern-wildcard */}
 
 **Nadomestni znak** je preprostejša vrsta vzorca, ki vam omogoča uporabo `*` (ujema se z vsem) in `?` (ujema se s katerim koli posameznim znakom). Tukaj je nekaj primerov:
 
-* Če se želite ujemati s `https://example.com/hello`, lahko uporabite `https://example.com/*`. To se bo ujemalo s katerim koli nizom za `https://example.com/`.
-* Če se želite ujemati s `https://example.com/search?q=hello`, lahko uporabite `https://example.com/search?q=*`. To se bo ujemalo s katero koli vrednostjo parametra `q`.
-* Če se želite ujemati s katerim koli URL-jem, ki vsebuje besedo `blog`, lahko uporabite `*blog*`.
+- Če se želite ujemati s `https://example.com/hello`, lahko uporabite `https://example.com/*`. To se bo ujemalo s katerim koli nizom za `https://example.com/`.
+- Če se želite ujemati s `https://example.com/search?q=hello`, lahko uporabite `https://example.com/search?q=*`. To se bo ujemalo s katero koli vrednostjo parametra `q`.
+- Če se želite ujemati s katerim koli URL-jem, ki vsebuje besedo `blog`, lahko uporabite `*blog*`.
 
 Substitution lahko uporabite tudi pri nadomestnem znaku, kar pomeni, da se lahko sklicujete na dele ujetega URL-ja z uporabo `$1`, `$2` itd. Na primer, če uporabite `https://example.com/*-world-*` in je URL `https://example.com/hello-world-goodbye`, bi bil `$1` "hello" in `$2` bi bil "goodbye". `$0` je prav tako na voljo za sklicevanje na celoten ujeti URL.
 
 > [!NOTE]
 > Čeprav je substitution (zamenjava) funkcija regularnega izraza, jo lahko uporabite tudi za nadomestni znak, ker RedirectWeb interno pretvori nadomestni znak v regularni izraz.
 
-### Regularni izraz {#url-pattern-regular-expression}
+### Regularni izraz {/* #url-pattern-regular-expression */}
 
 **Regularni izraz** (Regex) je močno orodje za ujemanje vzorcev v besedilu in se pogosto uporablja tudi v programiranju. Omogoča vam definiranje specifičnega vzorca, ki se ujema z naborom nizov. Tukaj je nekaj primerov.
 
 - Če se želite ujemati s `https://example.com/hello`, lahko uporabite `https://example.com/.*`. To se bo ujemalo s katerim koli nizom za `https://example.com/`.
-- Če se želite ujemati s `https://example.com/search?q=hello`, lahko uporabite `https://example.com/search\?q=(.*)`. To bo ujemalo vrednost parametra `q` in jo shranilo v zajeto skupino. Nato se lahko nanjo sklicujete z uporabo `$1` v možnosti *Preusmeri na*.
+- Če se želite ujemati s `https://example.com/search?q=hello`, lahko uporabite `https://example.com/search\?q=(.*)`. To bo ujemalo vrednost parametra `q` in jo shranilo v zajeto skupino. Nato se lahko nanjo sklicujete z uporabo `$1` v možnosti _Preusmeri na_.
 - Če se želite ujemati s katerim koli URL-jem, ki vsebuje besedo `blog`, lahko uporabite `.*blog.*`.
 
-Na zajete skupine se lahko sklicujete v *Preusmeri na* ali *Zamenjava* z uporabo `$1`, `$2`, ... ali `$0` za sklicevanje na celotno ujemanje.
+Na zajete skupine se lahko sklicujete v _Preusmeri na_ ali _Zamenjava_ z uporabo `$1`, `$2`, ... ali `$0` za sklicevanje na celotno ujemanje.
 
 RedirectWeb poganja [Applov mehanizem Regex](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 

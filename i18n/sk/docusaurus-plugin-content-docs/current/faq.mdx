@@ -5,104 +5,110 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # FAQ
 
-## Prečo moje pravidlo presmerovania nefunguje? {#redirection-not-working}
+## Prečo moje pravidlo presmerovania nefunguje? {/* #redirection-not-working */}
 
-Ak sa pravidlo, ktoré ste vytvorili, nespúšťa podľa očakávania, skontrolujte prosím nasledovné:
+Ak sa pravidlo, ktoré ste vytvorili, nespúšťa podľa očakávania, skontrolujte nasledujúce body:
 
 - **Je rozšírenie povolené?** Skontrolujte nastavenia rozšírení vo vašom prehliadači a uistite sa, že je RedirectWeb zapnutý.
-- **Je pravidlo aktívne?** Otvorte aplikáciu RedirectWeb a uistite sa, že prepínač konkrétneho pravidla je v polohe „Zapnuté“ (On).
-- **Je pravidlo správne?** Otestujte pravidlo zadaním adresy URL do poľa Príklady (Examples) na obrazovke Upraviť pravidlo (Edit Rule).
+- **Je pravidlo zapnuté?** Otvorte aplikáciu RedirectWeb a uistite sa, že prepínač konkrétneho pravidla je v polohe „Zapnuté“.
+- **Je pravidlo správne?** Otestujte pravidlo zadaním URL adresy do poľa Príklady na obrazovke Upraviť pravidlo.
 - **[Safari] Povolili ste rozšíreniu prístup k zdrojovej webovej stránke?**: Uistite sa, že ste rozšíreniu povolili prístup k webovej stránke, z ktorej chcete presmerovať. Ak môžete otvoriť vyskakovacie okno rozšírenia, rozšírenie má prístup k zdrojovej webovej stránke.
-    > [!TIP]
-    > Pre vaše pohodlie odporúčame povoliť prístup ku všetkým webovým stránkam. (Len tip!)
+  > [!TIP]
+  > Pre vaše pohodlie odporúčame povoliť prístup ku všetkým webovým stránkam. (Len tip!)
 
-## Prečo mám povoliť rozšíreniu čítať/meniť moje informácie? {#why-allow-extension-to-read-change}
+## Prečo by som mal rozšíreniu povoliť čítať/meniť moje informácie? {/* #why-allow-extension-to-read-change */}
 
-Pri nastavovaní RedirectWeb sa môže zobraziť upozornenie podobné tomuto:
+Pri nastavovaní RedirectWeb sa vám môže zobraziť upozornenie ako toto:
 
 <IfBrowserStore stores='appStore'>
     <Image src={PermissionAlertSafari} alt="Upozornenie vyžadujúce povolenie" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Toto rozšírenie bude môcť čítať a meniť webové stránky a vidieť vašu históriu prehliadania na tejto webovej stránke. **To by mohlo zahŕňať citlivé informácie vrátane hesiel, telefónnych čísel a kreditných kariet.**
+    > Toto rozšírenie bude môcť čítať a meniť webové stránky a vidieť vašu históriu prehliadania na tejto webovej stránke. **To by mohlo zahŕňať citlivé informácie vrátane hesiel, telefónnych čísiel a kreditných kariet.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
     <Image src={PermissionAlertChrome} alt="Upozornenie vyžadujúce povolenie" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Môže:  
+    > Môže:
     > Čítať a meniť **všetky vaše údaje** na **všetkých webových stránkach**
+
 </IfBrowserStore>
 
-Toto rozšírenie potrebuje vaše povolenie na sledovanie navigácie na stránke, aby vás mohlo presmerovať tam, kam chcete, a váš prehliadač to zobrazí, keď rozšírenie požiada o súvisiace povolenia. Ak to teda nepovolíte, toto rozšírenie nemôže fungovať.
+Toto rozšírenie potrebuje vaše povolenie na sledovanie navigácie na stránke, aby vás mohlo presmerovať tam, kam chcete skočiť, a váš prehliadač to zobrazí, keď rozšírenie požiada o súvisiace povolenia. Preto, ak to nepovolíte, toto rozšírenie nemôže fungovať.
 
 Udelené povolenia budú použité iba pre funkcie aplikácie, ako je presmerovanie, v súlade so **[zásadami ochrany osobných údajov](/privacy-policy)**.
 
-## Môj nákup sa neobnovil ani po kliknutí na „Obnoviť nákup“ {#purchase-not-restored}
+## Môj nákup nie je obnovený ani po klepnutí na „Obnoviť nákup“ {/* #purchase-not-restored */}
 
 Ak tlačidlo Obnoviť nákup nefunguje podľa očakávania, postupujte podľa týchto krokov na riešenie problémov:
 
-1. Prihláste sa na stránku [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) a potvrďte, že transakcia bola úspešne dokončená a je uvedená v histórii vášho Apple ID.
-2. Uistite sa, že Apple ID momentálne prihlásené v **aplikácii App Store** je rovnaké, aké bolo použité pri pôvodnom nákupe.
-    > [!NOTE]
-    >
-    > Účet prihlásený v aplikácii Nastavenia vášho zariadenia sa niekedy môže líšiť od účtu použitého v aplikácii App Store. Práve účet v aplikácii App Store sa musí zhodovať s vašou históriou nákupov, aby obnova fungovala správne.
+1. Prihláste sa na [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/), aby ste potvrdili, že transakcia bola úspešne dokončená a je uvedená v histórii vášho Apple ID.
+2. Uistite sa, že Apple ID aktuálne prihlásené v **aplikácii App Store** je to isté, ktoré bolo použité pri pôvodnom nákupe.
+   > [!NOTE]
+   >
+   > Účet prihlásený v aplikácii Nastavenia vášho zariadenia sa niekedy môže líšiť od účtu použitého v aplikácii App Store. Práve účet v aplikácii App Store sa musí zhodovať s vašou históriou nákupov, aby obnova fungovala správne.
 3. Ak máte viacero Apple ID, odhláste sa z App Store a znova sa prihláste so správnym účtom, potom skúste znova tlačidlo Obnoviť nákup.
 
-Ak sa účty zhodujú, ale obnova stále zlyháva, [kontaktujte nás](/contact-us) so snímkou obrazovky vášho potvrdenia o nákupe alebo histórie nákupov. Problém pre vás ďalej prešetríme.
+Ak sa účty zhodujú, ale obnova stále zlyháva, [kontaktujte nás](/contact-us) so snímkou obrazovky vášho potvrdenia alebo histórie nákupov. Problém pre vás ďalej prešetríme.
 
-## Mám si aplikáciu stiahnuť aj po inštalácii rozšírenia pre Chrome, Firefox alebo Edge? {#app-for-non-safari-browsers}
+## Mám si aplikáciu stále stiahnuť aj po inštalácii rozšírenia pre Chrome, Firefox alebo Edge? {/* #app-for-non-safari-browsers */}
 
-Áno. Musíte si stiahnuť [aplikáciu RedirectWeb z App Store](https://apps.apple.com/app/id1571283503) bez ohľadu na to, ktorý prehliadač používate. Rozšírenie si môžete nainštalovať z obchodu s rozšíreniami vášho prehliadača, ale aplikácia je potrebná na správu vašich pravidiel, histórie nákupov a ďalších nastavení naprieč zariadeniami cez iCloud.
+Áno. Musíte si stiahnuť [aplikáciu RedirectWeb z App Store](https://apps.apple.com/app/id1571283503) bez ohľadu na to, ktorý prehliadač používate. Rozšírenie si môžete nainštalovať z obchodu s rozšíreniami vášho prehliadača, ale aplikácia je potrebná na správu vašich pravidiel, histórie nákupov a ďalších nastavení v rámci zariadení cez iCloud.
 
-## Potrebujem iné rozšírenie pre Chrome, Firefox alebo Edge, ak používam aplikáciu Pro? {#different-extension-for-pro}
+## Potrebujem iné rozšírenie pre Chrome, Firefox alebo Edge, ak používam aplikáciu Pro? {/* #different-extension-for-pro */}
 
-Nie. Či už používate štandardnú aplikáciu RedirectWeb alebo RedirectWeb Pro na svojom Macu, mali by ste si nainštalovať úplne rovnaké rozšírenie z príslušného obchodu s rozšíreniami vášho prehliadača. Rozšírenie automaticky rozpozná verziu aplikácie, ktorú máte nainštalovanú, a bude s ňou komunikovať.
+Nie. Či už používate štandardnú aplikáciu RedirectWeb alebo RedirectWeb Pro na svojom Macu, mali by ste si nainštalovať úplne rovnaké rozšírenie z príslušného obchodu s rozšíreniami vášho prehliadača. Rozšírenie automaticky rozpozná a bude komunikovať s tou verziou aplikácie, ktorú máte nainštalovanú.
 
-## Funguje RedirectWeb na Windows, Android, Linux alebo iných platformách? {#non-apple-platforms}
+## Funguje RedirectWeb na systémoch Windows, Android, Linux alebo iných platformách? {/* #non-apple-platforms */}
 
-V súčasnosti nie. RedirectWeb je úzko spätý s ekosystémom Apple, vrátane iCloudu a univerzálneho nákupu (Universal Purchase). Ospravedlňujeme sa za nepríjemnosti.
+V súčasnosti nie. RedirectWeb je úzko spätý s ekosystémom Apple, vrátane iCloud a Universal Purchase. Ospravedlňujeme sa za nepríjemnosti.
 
-## Prečo toto rozšírenie vyžaduje nové povolenie? {#permission-alert-on-safari}
+## Prečo toto rozšírenie vyžaduje nové povolenie? {/* #permission-alert-on-safari */}
 
-Po aktualizácii RedirectWeb sa v Safari môže zobraziť toto upozornenie:
+Po aktualizácii RedirectWeb sa vám v Safari môže zobraziť toto upozornenie:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Upozornenie o vypnutí aplikácie" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Upozornenie o deaktivácii aplikácie"
+  width="280"
+/>
 
-> „RedirectWeb“ bol aktualizovaný a vyžaduje ďalšie povolenia. Z dôvodu ochrany vášho súkromia bolo toto rozšírenie vypnuté.
+> „RedirectWeb“ bol aktualizovaný a vyžaduje dodatočné povolenia. Z dôvodu ochrany vášho súkromia bolo toto rozšírenie vypnuté.
 >
-> Toto rozšírenie môžete zapnúť v sekcii Rozšírenia v Nastaveniach Safari.
+> Toto rozšírenie môžete zapnúť v sekcii Rozšírenia v nastaveniach Safari.
 
-Je to kvôli povoleniu [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) vyžadovanému typom [DNR](/rule-settings#type) zavedeným vo verzii 7. Prosím, znova povoľte rozšírenie. Ospravedlňujeme sa za nepríjemnosti.
+Je to kvôli povoleniu [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension), ktoré vyžaduje typ [DNR](/rule-settings#type) predstavený vo verzii 7. Rozšírenie znova povoľte. Ospravedlňujeme sa za nepríjemnosti.
 
-## Budú obsahy knižnice v budúcnosti spoplatnené? {#will-library-become-paid}
+## Budú obsahy knižnice v budúcnosti spoplatnené? {/* #will-library-become-paid */}
 
-Nie, sú vždy zadarmo. Zdroj všetkých obsahov nájdete aj [tu](https://github.com/mshibanami/redirect-web/tree/main/library).
+Nie, je to vždy zadarmo. Zdroj všetkých obsahov nájdete aj [tu](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Aký je rozdiel medzi RedirectWeb a RedirectWeb Pro? {#difference-between-standard-and-pro}
+## Aký je rozdiel medzi RedirectWeb a RedirectWeb Pro? {/* #difference-between-standard-and-pro */}
 
-Obe verzie ponúkajú úplne rovnaké funkcie a dostávajú aktualizácie súčasne. Jediným rozdielom je model platby:
+Obe verzie ponúkajú úplne rovnaké funkcie a dostávajú aktualizácie súčasne. Jediným rozdielom je platobný model:
 
-- **RedirectWeb**: Bezplatná aplikácia so základnými funkciami (obmedzená na **1 aktívne pravidlo**), ktorá ponúka voliteľný nákup v aplikácii (predplatné alebo jednorazová platba) na odomknutie všetkých funkcií, vrátane neobmedzených pravidiel a synchronizácie cez iCloud.
-- **RedirectWeb Pro**: Jednorazovo platená aplikácia s plne odomknutými funkciami. Táto verzia bola vytvorená špeciálne pre potreby **Apple Business Manager** a **Apple School Manager (VPP)**, čo umožňuje organizáciám hromadný nákup aplikácie, čo nie je možné pri nákupoch v aplikácii. Kúpiť si ju však môže každý, kto uprednostňuje platbu vopred!
+- **RedirectWeb**: Bezplatná aplikácia so základnými funkciami (obmedzená na **1 aktívne pravidlo**), ponúkajúca voliteľný nákup v aplikácii (predplatné alebo jednorazová platba) na odomknutie všetkých funkcií, vrátane neobmedzených pravidiel a synchronizácie iCloud.
+- **RedirectWeb Pro**: Jednorazovo platená, plne odomknutá aplikácia. Táto verzia bola vytvorená špeciálne preto, aby bola spôsobilá pre **Apple Business Manager** a **Apple School Manager (VPP)**, čo umožňuje organizáciám hromadný nákup aplikácie, čo nie je možné pri nákupoch v aplikácii. Kúpiť si ju však môže každý, kto uprednostňuje jednorazovú platbu vopred!
 
-## Jednorazový nákup, ročné predplatné alebo verzia Pro: Čo je najlepšie? {#one-time-or-subscription-or-pro}
+## Jednorazový nákup, ročné predplatné alebo verzia Pro: Čo je najlepšie? {/* #one-time-or-subscription-or-pro */}
 
 Odporúčame buď jednorazový nákup v rámci štandardnej aplikácie RedirectWeb, alebo kúpu RedirectWeb Pro, pretože ponúkajú rovnakú hodnotu.
-Hlavným dôvodom, prečo ponúkame predplatné, je umožniť vám vyskúšať si všetky funkcie prostredníctvom bezplatnej skúšobnej verzie. Tu je očakávaný postup použitia:
+Hlavným dôvodom, prečo ponúkame predplatné, je umožniť vám vyskúšať si všetky funkcie prostredníctvom jeho bezplatnej skúšobnej verzie. Tu je očakávaný prípad použitia:
 
 1. Predplaťte si ročné predplatné v štandardnej aplikácii RedirectWeb.
-2. Okamžite zrušte predplatné tak, že prejdete do aplikácie Nastavenia, vyhľadáte „Predplatné“, kliknete na túto aplikáciu a vyberiete „Zrušiť predplatné“. To vám umožní užívať si bezplatnú skúšobnú verziu bez akýchkoľvek záväzkov.
-3. Vychutnajte si plný prístup ku všetkým funkciám po dobu 7 dní.
+2. Predplatné okamžite zrušte tak, že prejdete do aplikácie Nastavenia, vyhľadáte „Predplatné“, klepnete na túto aplikáciu a vyberiete „Zrušiť predplatné“. To vám umožní užívať si bezplatnú skúšobnú verziu bez akýchkoľvek záväzkov.
+3. Užívajte si plný prístup ku všetkým funkciám po dobu 7 dní.
 4. Ak sa vám funkcie páčia, rozhodnite sa pre jednorazový nákup alebo si kúpte verziu Pro.
 
-Samozrejme, nie je nič zlé na pokračovaní v ročnom predplatnom, ak vám to viac vyhovuje!
+Samozrejme, nie je nič zlé na pokračovaní v ročnom predplatnom, ak vám to vyhovuje viac!
 
-## Vkladá RedirectWeb do webových stránok reklamy alebo iný nesúvisiaci obsah? {#does-it-inject-ads}
+## Vkladá RedirectWeb do webových stránok reklamy alebo iný nesúvisiaci obsah? {/* #does-it-inject-ads */}
 
-Nie, nevkladá žiadny takýto obsah. Do webových stránok v Safari sa vkladá iba kód, ktorý je nevyhnutný na poskytovanie funkcií popísaných v tejto dokumentácii a na stránke aplikácie v App Store.
+Nie, nevkladá žiadny takýto obsah. Do webových stránok v Safari sa vkladá iba kód, ktorý je nevyhnutný na poskytovanie funkcií opísaných v tejto dokumentácii a na stránke aplikácie v App Store.
 
-## Existuje nejaká šanca, že by RedirectWeb mohol byť niekedy predaný niekomu inému? {#could-it-be-sold}
+## Existuje šanca, že by mohol byť RedirectWeb niekedy predaný niekomu inému? {/* #could-it-be-sold */}
 
-Na 100 % nie. Rozšírenia prehliadača majú hlbokú kontrolu nad vaším prehliadaním a údajmi a odovzdanie RedirectWeb inému vlastníkovi by otvorilo dvere k porušovaniu súkromia. Boli sme svedkami toho, ako rozšírenia zmenili majiteľa a potom bez varovania zbierali údaje používateľov alebo vkladali reklamy. To sa tu nikdy nestane. Viac o týchto rizikách sa dočítate v článku Matta Frisbieho [„The Ugly Business of Monetizing Browser“](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) a vo vyšetrovaní Briana Krebsa [„Is Your Browser Extension a Botnet Backdoor?“](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100 % nie. Rozšírenia prehliadača majú hlbokú kontrolu nad vaším prehliadaním a údajmi a odovzdanie RedirectWeb inému majiteľovi by otvorilo dvere k porušovaniu súkromia. Boli sme svedkami toho, ako rozšírenia zmenili majiteľa a potom bez varovania zbierali údaje používateľov alebo vkladali reklamy. To sa tu nikdy nestane. Viac o týchto rizikách nájdete v článku Matta Frisbieho ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) a vo vyšetrovaní Briana Krebsa ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-RedirectWeb je založený na dôvere a zodpovednosti. Považujeme za svoju povinnosť uchovávať vaše informácie v bezpečí a odmietame previesť vlastníctvo za akýchkoľvek okolností. RedirectWeb zostane vždy v našich rukách, takže môžete prehliadať s úplnou dôverou.
+RedirectWeb je založený na dôvere a zodpovednosti. Považujeme za svoju povinnosť udržiavať vaše informácie v bezpečí a odmietame previesť vlastníctvo za akýchkoľvek okolností. RedirectWeb zostane vždy v našich rukách, takže môžete prehliadať s úplnou dôverou.

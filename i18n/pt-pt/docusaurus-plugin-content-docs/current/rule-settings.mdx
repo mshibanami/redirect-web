@@ -1,26 +1,26 @@
 # Definições de Regras
 
-Esta página fornece informações detalhadas sobre cada definição no ecrã *Editar Regra* na aplicação RedirectWeb.
+Esta página fornece informações detalhadas sobre cada definição no ecrã _Editar Regra_ na aplicação RedirectWeb.
 
 ## Opções
 
-### Tipo {#type}
+### Tipo {/* #type */}
 
 Especifique a opção **Tipo** para controlar como a aplicação lida com o redirecionamento. Pode escolher entre as seguintes:
 
-* **Original** (Predefinição)
-    * Utiliza as APIs Web tradicionais para controlar o redirecionamento. Adicionalmente, utiliza [a API de Separadores (Tabs API)](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) como recurso.
-        * No Firefox, utiliza a [API WebRequest](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) para lidar com o redirecionamento.
-    * Pode utilizar todas as opções exceto os [Tipos de Recursos](#resource-types) e os [Métodos de Pedido](#request-methods).
-    * ⚠️ Este é mais lento que o tipo *Declarativo* e pode causar pedidos de rede extra.
-* **DNR** (Experimental para o Safari):
-    * Este tipo funciona de forma muito mais rápida que o tipo Original porque não inicia um pedido de rede para o URL de origem.
-    * Isto permite especificar [Tipos de Recursos](#resource-types) e [Métodos de Pedido](#request-methods).
-    * ⚠️ Não pode utilizar algumas opções, como o [Processamento de Grupos de Captura](#capturing-group-processing) e [Padrões de URL Excluídos](#excluded-url-patterns), uma vez que ainda não são suportados pela API DNR.
-    * ⚠️ No Safari, atualmente não pode incluir barras verticais (`|`) no seu padrão de Expressão Regular. [Detalhes](https://github.com/mshibanami/redirect-web/issues/44)
-    * ⚠️ Como a API DNR do Safari ainda tem alguns problemas, consideramos que continua a ser uma funcionalidade experimental para o Safari. Pode encontrar a lista de todos os problemas conhecidos [aqui](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+- **Original** (Predefinição)
+  - Utiliza as APIs Web tradicionais para controlar o redirecionamento. Adicionalmente, utiliza [a API de Separadores (Tabs API)](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) como recurso.
+    - No Firefox, utiliza a [API WebRequest](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) para lidar com o redirecionamento.
+  - Pode utilizar todas as opções exceto os [Tipos de Recursos](#resource-types) e os [Métodos de Pedido](#request-methods).
+  - ⚠️ Este é mais lento que o tipo _Declarativo_ e pode causar pedidos de rede extra.
+- **DNR** (Experimental para o Safari):
+  - Este tipo funciona de forma muito mais rápida que o tipo Original porque não inicia um pedido de rede para o URL de origem.
+  - Isto permite especificar [Tipos de Recursos](#resource-types) e [Métodos de Pedido](#request-methods).
+  - ⚠️ Não pode utilizar algumas opções, como o [Processamento de Grupos de Captura](#capturing-group-processing) e [Padrões de URL Excluídos](#excluded-url-patterns), uma vez que ainda não são suportados pela API DNR.
+  - ⚠️ No Safari, atualmente não pode incluir barras verticais (`|`) no seu padrão de Expressão Regular. [Detalhes](https://github.com/mshibanami/redirect-web/issues/44)
+  - ⚠️ Como a API DNR do Safari ainda tem alguns problemas, consideramos que continua a ser uma funcionalidade experimental para o Safari. Pode encontrar a lista de todos os problemas conhecidos [aqui](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Redirecionar De {#redirect-from}
+### Redirecionar De {/* #redirect-from */}
 
 A opção **Redirecionar De** permite especificar um padrão de URL das páginas web que deseja redirecionar. Pode escolher entre [Wildcard](#url-pattern-wildcard) ou [Expressão Regular](#url-pattern-regular-expression).
 
@@ -29,21 +29,21 @@ Por exemplo, se especificar `https://example.com/*` com Wildcard, este correspon
 > [!NOTE]
 > Na opção Redirecionar Para, pode referenciar a correspondência total utilizando `$0` ou correspondências parciais utilizando `$1`, `$2`, ... Consulte os detalhes em [Padrão de URL](#url-pattern) nesta página.
 
-#### Tipos de Recursos {#resource-types}
+#### Tipos de Recursos {/* #resource-types */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
 A opção **Tipos de Recursos** permite especificar as categorias de pedidos web, como imagens, JavaScripts e folhas de estilo, às quais a regra se aplica.
 Por exemplo, se definir `script`, pode redirecionar os ficheiros JavaScript carregados pelas páginas web.
 
-Atualmente, estão disponíveis os seguintes: 
+Atualmente, estão disponíveis os seguintes:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
 A definição predefinida é `main_frame`, que é a página de nível superior carregada num separador.
 
 Consulte os detalhes de cada tipo de recurso na [documentação mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Métodos de Pedido {#request-methods}
+#### Métodos de Pedido {/* #request-methods */}
 
 ![Supported Types: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,28 +56,28 @@ Consulte os detalhes de cada método na [documentação mdn web docs](https://de
 > [!WARNING]
 > No Safari, esta opção pode não estar disponível porque a implementação da Apple para o tipo DNR parece não a suportar atualmente. Enviámos feedback à Apple como FB14502272.
 
-#### Navegadores de Destino {#target-browsers}
+#### Navegadores de Destino {/* #target-browsers */}
 
 ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
 A opção **Navegadores de Destino** permite especificar a qual navegador a regra deve ou não ser aplicada.
 
-* Existem 2 tipos de navegadores que pode escolher:
-    * **Navegadores que pode escolher por predefinição**: Pode escolher Safari, Chrome, Firefox, Edge, Opera, Arc, Brave e Vivaldi por predefinição. Isto não diferencia variantes do mesmo navegador, como o Safari e o Safari Technology Preview.
-    * **Navegadores especificados pelo utilizador**: Ao tocar no botão Adicionar no popover, pode selecionar qualquer navegador, exceto o Safari ou Safari Technology Preview, que tenha a extensão RedirectWeb instalada.
-* A caixa de seleção **Todos exceto selecionados** permite segmentar todos os navegadores, exceto os que escolheu.
+- Existem 2 tipos de navegadores que pode escolher:
+  - **Navegadores que pode escolher por predefinição**: Pode escolher Safari, Chrome, Firefox, Edge, Opera, Arc, Brave e Vivaldi por predefinição. Isto não diferencia variantes do mesmo navegador, como o Safari e o Safari Technology Preview.
+  - **Navegadores especificados pelo utilizador**: Ao tocar no botão Adicionar no popover, pode selecionar qualquer navegador, exceto o Safari ou Safari Technology Preview, que tenha a extensão RedirectWeb instalada.
+- A caixa de seleção **Todos exceto selecionados** permite segmentar todos os navegadores, exceto os que escolheu.
 
 > [!WARNING]
 > O RedirectWeb não consegue diferenciar se o navegador é o **Safari** ou o **Safari Technology Preview** porque a aplicação verifica o processo pai da extensão para o detetar, mas estes dois navegadores partilham o mesmo processo pai (`/sbin/launchd`).
 
-### Redirecionar Para {#redirect-to}
+### Redirecionar Para {/* #redirect-to */}
 
-A opção **Redirecionar Para** especifica um URL de destino para o qual deseja redirecionar, a partir do URL de origem correspondente à opção *Redirecionar De*. Também pode substituir grupos de captura com `$1`, `$2`, ... ou a correspondência total com `$0`. Isto ajuda a especificar dinamicamente o destino. Consulte os detalhes em [Padrão de URL](#url-pattern) nesta página.
+A opção **Redirecionar Para** especifica um URL de destino para o qual deseja redirecionar, a partir do URL de origem correspondente à opção _Redirecionar De_. Também pode substituir grupos de captura com `$1`, `$2`, ... ou a correspondência total com `$0`. Isto ajuda a especificar dinamicamente o destino. Consulte os detalhes em [Padrão de URL](#url-pattern) nesta página.
 
 Por exemplo, se definir a seguinte regra:
 
-* **Redirecionar De**: `https://google.com/*` (Wildcard)
-* **Redirecionar Para**: `https://apple.com/$1`
+- **Redirecionar De**: `https://google.com/*` (Wildcard)
+- **Redirecionar Para**: `https://apple.com/$1`
 
 e esta corresponder a `https://google.com/hello`, então o URL de destino será `https://apple.com/hello`.
 
@@ -86,14 +86,14 @@ Adicionalmente, pode modificar os textos de `$1`, `$2`, ... antes de fazer as su
 > [!TIP]
 > Pode especificar um esquema de URL personalizado para abrir uma aplicação. Estes são exemplos de aplicações que suportam ligações diretas (deep linking):
 >
-> * Figma: `figma://file/Your_Figma_ID`
-> * Firefox: `firefox://open-url?url=https://example.com/hello`
-> * Google Chrome: `googlechromes://example.com`
-> * Microsoft Edge: `microsoft-edge://example.com`
-> * Notion: `notion://www.notion.so/Your_Note_ID`
-> * Slack: `slack://open`
+> - Figma: `figma://file/Your_Figma_ID`
+> - Firefox: `firefox://open-url?url=https://example.com/hello`
+> - Google Chrome: `googlechromes://example.com`
+> - Microsoft Edge: `microsoft-edge://example.com`
+> - Notion: `notion://www.notion.so/Your_Note_ID`
+> - Slack: `slack://open`
 
-#### Aplicação {#application}
+#### Aplicação {/* #application */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue) ![Supported Platforms: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,36 +102,36 @@ Se desejar especificar uma aplicação para abrir o URL de destino, utilize a ca
 > [!WARNING]
 > Apenas pode abrir uma aplicação que suporte o [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Além disso, certifique-se de que a aplicação suporta a abertura do URL que deseja abrir.
 
-### Processamento de Grupos de Captura {#capturing-group-processing}
+### Processamento de Grupos de Captura {/* #capturing-group-processing */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
-A opção **Processamento de Grupos de Captura** permite especificar como processar os grupos capturados que pode substituir na opção *Redirecionar Para* com `$1`, `$2`...
+A opção **Processamento de Grupos de Captura** permite especificar como processar os grupos capturados que pode substituir na opção _Redirecionar Para_ com `$1`, `$2`...
 
 Estas são as formas de criar grupos de captura:
 
-* **Wildcard**: Os textos correspondentes a `*` e `?` são capturados automaticamente.
-* **Expressão Regular**: Os textos correspondentes a parte do padrão dentro de `()` são capturados.
+- **Wildcard**: Os textos correspondentes a `*` e `?` são capturados automaticamente.
+- **Expressão Regular**: Os textos correspondentes a parte do padrão dentro de `()` são capturados.
 
 Pode escolher um ou mais dos seguintes processos:
 
-* **Codificar/Descodificar URL**: Aplica [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) ou descodificação a um grupo de captura. Por exemplo, se codificar `https://example.com/hello`, este é convertido para `https%3A%2F%2Fexample.com%2Fhello`. A descodificação funciona de forma oposta.
-* **Codificar/Descodificar Base64**: Descodifica/codifica um texto em [Base64](https://en.wikipedia.org/wiki/Base64). Por exemplo, pode codificar `hello` para `aGVsbG8=` e descodificá-lo de volta para `hello`.
-* **Substituir Ocorrências**: Substitui um ou mais caracteres num grupo, correspondidos por um **Alvo**, por uma **Substituição**. Por exemplo, se o *Grupo* for `hello` e o *Alvo* for `l` e a Substituição for `y`, este é modificado para `heyyo`.
+- **Codificar/Descodificar URL**: Aplica [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) ou descodificação a um grupo de captura. Por exemplo, se codificar `https://example.com/hello`, este é convertido para `https%3A%2F%2Fexample.com%2Fhello`. A descodificação funciona de forma oposta.
+- **Codificar/Descodificar Base64**: Descodifica/codifica um texto em [Base64](https://en.wikipedia.org/wiki/Base64). Por exemplo, pode codificar `hello` para `aGVsbG8=` e descodificá-lo de volta para `hello`.
+- **Substituir Ocorrências**: Substitui um ou mais caracteres num grupo, correspondidos por um **Alvo**, por uma **Substituição**. Por exemplo, se o _Grupo_ for `hello` e o _Alvo_ for `l` e a Substituição for `y`, este é modificado para `heyyo`.
 
 > [!NOTE]
 > Isto serve para processar cada grupo de captura e não afeta quais os URLs que são excluídos pelos [Padrões de URL Excluídos](#excluded-url-patterns). Por exemplo, suponha que tem esta regra:
 >
-> * **Redirecionar De**: `https://example.com/(hello.*)`
-> * **Processamento de Grupos de Captura**:
->     * Grupo: `$1`
->     * Alvo: `.*` (Expressão Regular)
->     * Substituição: `hello`
-> * **Padrão de URL Excluído**: `https://example.com/hello`
+> - **Redirecionar De**: `https://example.com/(hello.*)`
+> - **Processamento de Grupos de Captura**:
+>   - Grupo: `$1`
+>   - Alvo: `.*` (Expressão Regular)
+>   - Substituição: `hello`
+> - **Padrão de URL Excluído**: `https://example.com/hello`
 >
 > Neste caso, `https://example.com/hello_world` não será excluído, enquanto `https://example.com/hello` será excluído.
 
-### Padrões de URL Excluídos {#excluded-url-patterns}
+### Padrões de URL Excluídos {/* #excluded-url-patterns */}
 
 ![Supported Types: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,52 +139,52 @@ A opção **Padrões de URL Excluídos** permite especificar os URLs que não s�
 
 Pode especificar padrões de URL excluídos utilizando tipos de padrão de Expressão Regular ou Wildcard.
 
-### Exemplos {#examples}
+### Exemplos {/* #examples */}
 
 A opção **Exemplos** permite testar a sua regra de redirecionamento fornecendo URLs de exemplo. Ao adicionar um URL de exemplo, pode verificar se a regra funciona como esperado antes de a aplicar efetivamente.
 
-### Avançadas {#advanced-options}
+### Avançadas {/* #advanced-options */}
 
-* **[DNR] Redirecionamento de Frame Principal**: Esta opção apenas está disponível para o tipo DNR. Permite especificar como lidar com o redirecionamento para o tipo de recurso `main_frame`. As opções disponíveis são:
-    * **Raw (Bruto)**: Redireciona o frame principal para o URL especificado sem quaisquer modificações.
-    * **Através de Página Intermédia**: Redireciona o frame principal para uma página intermédia, que depois redireciona para o URL de destino especificado. Isto é útil para abrir aplicações utilizando ligações diretas (deep linking), uma vez que a página intermédia pode lidar com lógica de redirecionamento mais complexa.
+- **[DNR] Redirecionamento de Frame Principal**: Esta opção apenas está disponível para o tipo DNR. Permite especificar como lidar com o redirecionamento para o tipo de recurso `main_frame`. As opções disponíveis são:
+  - **Raw (Bruto)**: Redireciona o frame principal para o URL especificado sem quaisquer modificações.
+  - **Através de Página Intermédia**: Redireciona o frame principal para uma página intermédia, que depois redireciona para o URL de destino especificado. Isto é útil para abrir aplicações utilizando ligações diretas (deep linking), uma vez que a página intermédia pode lidar com lógica de redirecionamento mais complexa.
 
-### Comentários {#comments}
+### Comentários {/* #comments */}
 
 A opção **Comentários** permite adicionar quaisquer notas ou comentários sobre a sua regra de redirecionamento. Isto pode ser útil para manter o registo de por que criou uma regra específica ou para fornecer contexto a outros que possam visualizar as suas regras.
 
 Pode escrever comentários nos seguintes formatos:
 
-* **Texto Simples** (Predefinição): Texto simples sem qualquer formatação.
-* **Markdown**: Pode utilizar as [sintaxes Markdown do GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), incluindo algumas extensões que o GFM não suporta. Por exemplo, pode criar cabeçalhos, listas, ligações e muito mais.
-* **AsciiDoc**: Pode utilizar as [sintaxes AsciiDoc](https://asciidoc.org/) para formatar os seus comentários.
+- **Texto Simples** (Predefinição): Texto simples sem qualquer formatação.
+- **Markdown**: Pode utilizar as [sintaxes Markdown do GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), incluindo algumas extensões que o GFM não suporta. Por exemplo, pode criar cabeçalhos, listas, ligações e muito mais.
+- **AsciiDoc**: Pode utilizar as [sintaxes AsciiDoc](https://asciidoc.org/) para formatar os seus comentários.
 
-## Padrão de URL {#url-pattern}
+## Padrão de URL {/* #url-pattern */}
 
-Os **Padrões de URL** são utilizados para fazer corresponder URLs nas opções *Redirecionar De*, *Padrões de URL Excluídos* e *Processamento de Grupos de Captura*. Para os especificar, pode escolher entre **Wildcard** ou **Expressão Regular**.
+Os **Padrões de URL** são utilizados para fazer corresponder URLs nas opções _Redirecionar De_, _Padrões de URL Excluídos_ e _Processamento de Grupos de Captura_. Para os especificar, pode escolher entre **Wildcard** ou **Expressão Regular**.
 
-### Wildcard {#url-pattern-wildcard}
+### Wildcard {/* #url-pattern-wildcard */}
 
 **Wildcard** é um tipo de padrão mais simples que permite utilizar `*` (corresponde a qualquer coisa) e `?` (corresponde a qualquer carácter individual) como caracteres universais. Aqui estão alguns exemplos:
 
-* Para corresponder a `https://example.com/hello`, pode utilizar `https://example.com/*`. Isto corresponderá a qualquer string após `https://example.com/`.
-* Para corresponder a `https://example.com/search?q=hello`, pode utilizar `https://example.com/search?q=*`. Isto corresponderá a qualquer valor para o parâmetro `q`.
-* Para corresponder a qualquer URL que contenha a palavra `blog`, pode utilizar `*blog*`.
+- Para corresponder a `https://example.com/hello`, pode utilizar `https://example.com/*`. Isto corresponderá a qualquer string após `https://example.com/`.
+- Para corresponder a `https://example.com/search?q=hello`, pode utilizar `https://example.com/search?q=*`. Isto corresponderá a qualquer valor para o parâmetro `q`.
+- Para corresponder a qualquer URL que contenha a palavra `blog`, pode utilizar `*blog*`.
 
 Também pode utilizar a substituição no Wildcard, o que significa que pode referenciar partes do URL correspondido utilizando `$1`, `$2`, etc. Por exemplo, se utilizar `https://example.com/*-world-*`, e o URL for `https://example.com/hello-world-goodbye`, então `$1` seria "hello" e `$2` seria "goodbye". `$0` também está disponível para referenciar o URL total correspondido.
 
 > [!NOTE]
 > Embora a substituição seja uma funcionalidade da Expressão Regular, também pode utilizá-la para o Wildcard porque o RedirectWeb converte internamente o Wildcard para Expressão Regular.
 
-### Expressão Regular {#url-pattern-regular-expression}
+### Expressão Regular {/* #url-pattern-regular-expression */}
 
 A **Expressão Regular** (Regex) é uma ferramenta poderosa para corresponder padrões em texto e é também amplamente utilizada em programação. Permite definir um padrão específico que corresponde a um conjunto de strings. Aqui estão alguns exemplos:
 
 - Para corresponder a `https://example.com/hello`, pode utilizar `https://example.com/.*`. Isto corresponderá a qualquer string após `https://example.com/`.
-- Para corresponder a `https://example.com/search?q=hello`, pode utilizar `https://example.com/search\?q=(.*)`. Isto corresponderá ao valor do parâmetro `q` e guardá-lo-á num grupo de captura. Pode depois referenciá-lo utilizando `$1` na opção *Redirecionar Para*.
+- Para corresponder a `https://example.com/search?q=hello`, pode utilizar `https://example.com/search\?q=(.*)`. Isto corresponderá ao valor do parâmetro `q` e guardá-lo-á num grupo de captura. Pode depois referenciá-lo utilizando `$1` na opção _Redirecionar Para_.
 - Para corresponder a qualquer URL que contenha a palavra `blog`, pode utilizar `.*blog.*`.
 
-Pode referenciar os grupos de captura em *Redirecionar Para* ou *Substituição* utilizando `$1`, `$2`, ... ou `$0` para referenciar a correspondência total.
+Pode referenciar os grupos de captura em _Redirecionar Para_ ou _Substituição_ utilizando `$1`, `$2`, ... ou `$0` para referenciar a correspondência total.
 
 O RedirectWeb é alimentado pelo [motor de Regex da Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 

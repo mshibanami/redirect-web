@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Primer 1: Preusmeritev na drugo spletno stran
@@ -9,11 +9,11 @@ Recimo, da ste zasvojeni s Twitterjem in se želite znebiti te navade, zato se o
 
 ### Korak 1. Odprite zaslon "Uredi pravilo"
 
-Odprimo zaslon *Uredi pravilo*, da začnete ustvarjati svoje pravilo v aplikaciji. To storite tako, da kliknete gumb plus (+) na zavihku *Moja pravila*.
+Odprimo zaslon _Uredi pravilo_, da začnete ustvarjati svoje pravilo v aplikaciji. To storite tako, da kliknete gumb plus (+) na zavihku _Moja pravila_.
 
 ### Korak 2. Nastavite "Preusmeri iz"
 
-Najprej morate nastaviti razdelek *Preusmeri iz* na zaslonu *Uredi pravilo* v aplikaciji. Cilji so URL-ji, ki se začnejo z `https://twitter.com/`.
+Najprej morate nastaviti razdelek _Preusmeri iz_ na zaslonu _Uredi pravilo_ v aplikaciji. Cilji so URL-ji, ki se začnejo z `https://twitter.com/`.
 
 V tem primeru lahko določite naslednji vzorec z načinom [Nadomestni znak](/rule-settings#url-pattern-wildcard):
 
@@ -31,16 +31,16 @@ Vendar počakajte. `twitter.com` je bil preimenovan v `x.com`. Preprosto lahko z
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: cilja na oba, `twitter` in `x`. (`|` se imenuje *cev*.)
-* `.*`: Enako je kot `*` pri nadomestnem znaku. Natančneje, `.` pomeni *kateri koli znak* in `*` pomeni *karkoli pred tem simbolom, ponovljeno poljubno število krat*, kar povzroči ujemanje s čimer koli.
+- `(twitter|x)`: cilja na oba, `twitter` in `x`. (`|` se imenuje _cev_.)
+- `.*`: Enako je kot `*` pri nadomestnem znaku. Natančneje, `.` pomeni _kateri koli znak_ in `*` pomeni _karkoli pred tem simbolom, ponovljeno poljubno število krat_, kar povzroči ujemanje s čimer koli.
 
 Regularni izraz je nekoliko zapleten, a ko se ga navadite, bo močno orodje. Priporočamo uporabo [RegExr](https://regexr.com) kot igrišča za analizo delovanja vašega vzorca regularnega izraza.
 
 > [!TIP]
-> V regularnih izrazih se `.` v `(twitter|x).com` prav tako obravnava kot *kateri koli znak*. Zato se `(twitter|x).com/.*` ujema tudi z, na primer, `twitter1com/` ali `x_com/`.
-> 
+> V regularnih izrazih se `.` v `(twitter|x).com` prav tako obravnava kot _kateri koli znak_. Zato se `(twitter|x).com/.*` ujema tudi z, na primer, `twitter1com/` ali `x_com/`.
+>
 > Za večjo natančnost ga lahko spremenite v `(twitter|x)\.com/.*`. `\` se uporablja za obravnavo `.` kot dobesednega znaka pike in ne kot posebnega znaka.
-> 
+>
 > Vendar takšnih URL-jev v splošnem internetnem okolju ni. Zato lahko pustite `.` kot poseben znak, če želite.
 
 ### Korak 3: Nastavite "Preusmeri na"
@@ -53,13 +53,18 @@ https://unrush.org/
 
 ### (Neobvezno) Korak 4: Preverite pravilo
 
-Delovanje pravila lahko preverite tako, da dodate primer URL-ja v razdelek *Primeri* na zaslonu *Uredi pravilo*. Na primer, če vnesete `https://x.com/UN`, se kot rezultat prikaže `https://unrush.org/`.
+Delovanje pravila lahko preverite tako, da dodate primer URL-ja v razdelek _Primeri_ na zaslonu _Uredi pravilo_. Na primer, če vnesete `https://x.com/UN`, se kot rezultat prikaže `https://unrush.org/`.
 
 Tukaj je prikazano, kako bi moralo biti vaše pravilo videti zdaj:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Primer pravila za odpiranje druge spletne strani" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Primer pravila za odpiranje druge spletne strani"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Prenesite pravilo</a>**
 
 Zdaj vas RedirectWeb pripelje do meditacije, ko dostopate do Twitterja!
-

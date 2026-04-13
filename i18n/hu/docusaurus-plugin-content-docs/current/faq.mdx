@@ -5,104 +5,110 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # GYIK
 
-## Miért nem működik az átirányítási szabályom? {#redirection-not-working}
+## Miért nem működik az átirányítási szabályom? {/* #redirection-not-working */}
 
-Ha egy általad létrehozott szabály nem aktiválódik az elvárásoknak megfelelően, ellenőrizd a következőket:
+Ha egy létrehozott szabály nem aktiválódik az elvárásoknak megfelelően, kérjük, ellenőrizze a következőket:
 
-- **Engedélyezve van a bővítmény?** Ellenőrizd a böngésződ bővítménybeállításait, hogy megbizonyosodj róla, a RedirectWeb be van kapcsolva.
-- **Be van kapcsolva a szabály?** Nyisd meg a RedirectWeb alkalmazást, és győződj meg róla, hogy az adott szabály kapcsolója "Be" állásban van.
-- **Helyes a szabály?** Teszteld a szabályt úgy, hogy beírsz egy URL-t a "Példák" (Examples) mezőbe a szabályszerkesztő képernyőn.
-- **[Safari] Engedélyezted a bővítménynek a forráswebhelyhez való hozzáférést?**: Győződj meg róla, hogy engedélyezted a bővítménynek az elérését ahhoz a webhelyhez, amelyről át szeretnél irányítani. Ha meg tudod nyitni a bővítmény felugró ablakát (popup), akkor a bővítménynek van hozzáférése a forráswebhelyhez.
-    > [!TIP]
-    > A kényelem érdekében javasoljuk, hogy engedélyezd a hozzáférést az összes webhelyhez. (Csak egy tipp!)
+- **Be van kapcsolva a bővítmény?** Ellenőrizze a böngésző bővítménybeállításait, hogy megbizonyosodjon arról, hogy a RedirectWeb be van kapcsolva.
+- **Be van kapcsolva a szabály?** Nyissa meg a RedirectWeb alkalmazást, és győződjön meg arról, hogy az adott szabály kapcsolója "Be" állásban van.
+- **Helyes a szabály?** Tesztelje a szabályt úgy, hogy beír egy URL-t a Példák mezőbe a Szabály szerkesztése képernyőn.
+- **[Safari] Engedélyezte a bővítménynek a forráswebhely elérését?**: Győződjön meg arról, hogy engedélyezte a bővítmény számára annak a webhelynek az elérését, amelyről át szeretne irányítani. Ha meg tudja nyitni a bővítmény felugró ablakát, akkor a bővítmény hozzáfér a forráswebhelyhez.
+  > [!TIP]
+  > Az Ön kényelme érdekében javasoljuk, hogy engedélyezze a hozzáférést az összes webhelyhez. (Csak egy tipp!)
 
-## Miért kellene engedélyeznem a bővítménynek az adataim olvasását/módosítását? {#why-allow-extension-to-read-change}
+## Miért kellene engedélyeznem a bővítménynek, hogy olvassa/módosítsa az adataimat? {/* #why-allow-extension-to-read-change */}
 
-A RedirectWeb beállításakor ehhez hasonló figyelmeztetést láthatsz:
+A RedirectWeb beállításakor ehhez hasonló figyelmeztetést láthat:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="Engedélykérő figyelmeztetés" width="200" margin="0 0 16px 0" hasShadow />
+    <Image src={PermissionAlertSafari} alt="Engedélyt kérő figyelmeztetés" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Ez a bővítmény képes lesz olvasni és módosítani a weboldalakat, valamint láthatja a böngészési előzményeidet ezen a webhelyen. **Ez érzékeny információkat is tartalmazhat, beleértve jelszavakat, telefonszámokat és hitelkártyaadatokat.**
+    > Ez a bővítmény képes lesz olvasni és módosítani a weboldalakat, valamint láthatja a böngészési előzményeit ezen a webhelyen. **Ez érzékeny információkat is tartalmazhat, beleértve jelszavakat, telefonszámokat és hitelkártyákat.**
+
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="Engedélykérő figyelmeztetés" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="Engedélyt kérő figyelmeztetés" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > Képes a következőkre:  
-    > Az **összes adatod** olvasása és módosítása az **összes webhelyen**
+    > Képes a következőkre:
+    > Olvashatja és módosíthatja **az összes adatát** az **összes webhelyen**
+
 </IfBrowserStore>
 
-Ennek a bővítménynek szüksége van az engedélyedre az oldalnavigáció megfigyeléséhez, hogy átirányíthasson oda, ahová ugrani szeretnél, és a böngésződ ezt akkor jeleníti meg, amikor a bővítmény kéri a kapcsolódó engedélyeket. Ezért ha nem engedélyezed, ez a bővítmény nem tud működni.
+Ennek a bővítménynek szüksége van az Ön engedélyére az oldalnavigáció megfigyeléséhez, hogy átirányíthassa oda, ahová ugrani szeretne, és a böngészője ezt jeleníti meg, amikor a bővítmény kéri a kapcsolódó engedélyeket. Ezért ha nem engedélyezi, a bővítmény nem tud működni.
 
-A megadott engedélyek kizárólag az alkalmazás funkcióihoz, például az átirányításhoz lesznek felhasználva, összhangban az **[adatvédelmi szabályzattal](/privacy-policy)**.
+A megadott engedélyeket csak az alkalmazás funkcióihoz, például az átirányításhoz használjuk, az **[adatvédelmi szabályzatnak](/privacy-policy)** megfelelően.
 
-## A vásárlásom nem állt helyre még a "Vásárlás visszaállítása" gombra koppintás után sem {#purchase-not-restored}
+## A vásárlásom nem állt helyre a "Vásárlás visszaállítása" gombra koppintás után sem {/* #purchase-not-restored */}
 
-Ha a "Vásárlás visszaállítása" (Restore Purchase) gomb nem működik az elvárásoknak megfelelően, kövesd az alábbi hibaelhárítási lépéseket:
+Ha a Vásárlás visszaállítása gomb nem működik az elvárásoknak megfelelően, kérjük, kövesse ezeket a hibaelhárítási lépéseket:
 
-1. Jelentkezz be a [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) oldalon, hogy megerősítsd, a tranzakció sikeresen befejeződött, és szerepel az Apple ID előzményeidben.
-2. Győződj meg róla, hogy az **App Store alkalmazásba** bejelentkezett Apple ID megegyezik azzal, amelyet az eredeti vásárláshoz használtál.
-    > [!NOTE]
-    >
-    > A készüléked Beállítások alkalmazásába bejelentkezett fiók néha eltérhet az App Store alkalmazásban használt fióktól. Az App Store alkalmazáson belüli fióknak kell megegyeznie a vásárlási előzményeiddel a visszaállítás megfelelő működéséhez.
-3. Ha több Apple ID-val rendelkezel, jelentkezz ki az App Store-ból, majd jelentkezz be újra a megfelelő fiókkal, és próbáld meg ismét a "Vásárlás visszaállítása" gombot.
+1. Jelentkezzen be a [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) oldalra, hogy megbizonyosodjon arról, hogy a tranzakció sikeresen befejeződött, és szerepel az Apple ID előzményeiben.
+2. Győződjön meg arról, hogy az **App Store alkalmazásba** bejelentkezett Apple ID megegyezik az eredeti vásárláshoz használt azonosítóval.
+   > [!NOTE]
+   >
+   > Az eszköz Beállítások alkalmazásába bejelentkezett fiók néha eltérhet az App Store alkalmazásban használttól. Az App Store alkalmazáson belüli fióknak kell megegyeznie a vásárlási előzményeivel ahhoz, hogy a visszaállítás megfelelően működjön.
+3. Ha több Apple ID-val rendelkezik, kérjük, jelentkezzen ki az App Store-ból, és jelentkezzen be újra a megfelelő fiókkal, majd próbálja meg ismét a Vásárlás visszaállítása gombot.
 
-Ha a fiókok megegyeznek, de a visszaállítás továbbra is sikertelen, kérjük, [lépj kapcsolatba velünk](/contact-us) a nyugtáról vagy a vásárlási előzményekről készült képernyőfotóval. Továbbra is kivizsgáljuk a problémát.
+Ha a fiókok megegyeznek, de a visszaállítás továbbra is sikertelen, kérjük, [vegye fel velünk a kapcsolatot](/contact-us) a nyugta vagy a vásárlási előzmények képernyőképével. Továbbra is kivizsgáljuk a problémát.
 
-## Szükségem van-e az alkalmazásra a Chrome, Firefox vagy Edge bővítmény telepítése után is? {#app-for-non-safari-browsers}
+## Szükségem van még az alkalmazásra, ha telepítettem a bővítményt Chrome-hoz, Firefox-hoz vagy Edge-hez? {/* #app-for-non-safari-browsers */}
 
-Igen. Let kell töltened a [RedirectWeb alkalmazást az App Store-ból](https://apps.apple.com/app/id1571283503), függetlenül attól, hogy melyik böngészőt használod. A bővítményt telepítheted a böngésződ bővítményáruházából, de az alkalmazás szükséges a szabályok, a vásárlási előzmények és egyéb beállítások kezeléséhez az eszközök között az iCloudon keresztül.
+Igen. Le kell töltenie a [RedirectWeb alkalmazást az App Store-ból](https://apps.apple.com/app/id1571283503), függetlenül attól, hogy melyik böngészőt használja. A bővítményt telepítheti a böngészője bővítményáruházából, de az alkalmazásra szükség van a szabályok, a vásárlási előzmények és egyéb beállítások kezeléséhez az eszközök között az iCloud segítségével.
 
-## Szükségem van-e más bővítményre Chrome, Firefox vagy Edge böngészőhöz, ha a Pro alkalmazást használom? {#different-extension-for-pro}
+## Szükségem van más bővítményre Chrome-hoz, Firefox-hoz vagy Edge-hez, ha a Pro alkalmazást használom? {/* #different-extension-for-pro */}
 
-Nem. Akár a standard RedirectWeb alkalmazást, akár a RedirectWeb Pro-t használod Mac-en, pontosan ugyanazt a bővítményt kell telepítened a böngésződ megfelelő bővítményáruházából. A bővítmény automatikusan felismeri és kommunikál az alkalmazás bármelyik verziójával, amely telepítve van.
+Nem. Akár a standard RedirectWeb alkalmazást, akár a RedirectWeb Pro-t használja Mac gépén, pontosan ugyanazt a bővítményt kell telepítenie a böngészője megfelelő bővítményáruházából. A bővítmény automatikusan észleli és kommunikál az alkalmazás bármely telepített verziójával.
 
-## Működik-e a RedirectWeb Windowson, Androidon, Linuxon vagy bármilyen más platformon? {#non-apple-platforms}
+## Működik a RedirectWeb Windowson, Androidon, Linuxon vagy bármely más platformon? {/* #non-apple-platforms */}
 
-Jelenleg nem. A RedirectWeb szorosan kötődik az Apple ökoszisztémájához, beleértve az iCloudot és az univerzális vásárlást (Universal Purchase). Elnézést a kellemetlenségért.
+Jelenleg nem. A RedirectWeb szorosan kötődik az Apple ökoszisztémájához, beleértve az iCloudot és az univerzális vásárlást. Elnézést a kellemetlenségért.
 
-## Miért kér a bővítmény új engedélyt? {#permission-alert-on-safari}
+## Miért igényel új engedélyt ez a bővítmény? {/* #permission-alert-on-safari */}
 
-A RedirectWeb frissítése után ezt a figyelmeztetést láthatod a Safariban:
+A RedirectWeb frissítése után ezt a figyelmeztetést láthatja a Safariban:
 
-<img src={require("/img/safari-additional-permission-alert.webp").default} alt="Figyelmeztetés az alkalmazás kikapcsolásáról" width="280" />
+<img
+  src={require("/img/safari-additional-permission-alert.webp").default}
+  alt="Figyelmeztetés az alkalmazás letiltásáról"
+  width="280"
+/>
 
-> A "RedirectWeb" frissült, és további engedélyeket kér. Az adataid védelme érdekében ez a bővítmény ki lett kapcsolva.
+> A "RedirectWeb" frissítve lett, és további engedélyeket kér. Az Ön adatainak védelme érdekében ez a bővítmény ki lett kapcsolva.
 >
-> Ezt a bővítményt a Safari Beállítások Bővítmények szakaszában kapcsolhatod be.
+> Ezt a bővítményt a Safari Beállítások Bővítmények szakaszában kapcsolhatja be.
 
-Ez a 7-es verzióban bevezetett [DNR](/rule-settings#type) típushoz szükséges [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) engedély miatt van. Kérjük, engedélyezd újra a bővítményt. Elnézést a kellemetlenségért.
+Ez a 7-es verzióban bevezetett [DNR](/rule-settings#type) típushoz szükséges [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) engedélynek köszönhető. Kérjük, engedélyezze újra a bővítményt. Elnézést a kellemetlenségért.
 
-## Fizetőssé válik-e a könyvtár tartalma a jövőben? {#will-library-become-paid}
+## Fizetőssé válnak a könyvtár tartalmai a jövőben? {/* #will-library-become-paid */}
 
-Nem, mindig ingyenes marad. Az összes tartalom forrását megtalálod [itt](https://github.com/mshibanami/redirect-web/tree/main/library).
+Nem, mindig ingyenes marad. Az összes tartalom forrását [itt](https://github.com/mshibanami/redirect-web/tree/main/library) is megtalálja.
 
-## Mi a különbség a RedirectWeb és a RedirectWeb Pro között? {#difference-between-standard-and-pro}
+## Mi a különbség a RedirectWeb és a RedirectWeb Pro között? {/* #difference-between-standard-and-pro */}
 
 Mindkét verzió pontosan ugyanazokat a funkciókat kínálja, és egyszerre kapják meg a frissítéseket. Az egyetlen különbség a fizetési modell:
 
-- **RedirectWeb**: Egy ingyenes alkalmazás alapfunkciókkal (korlátozva **1 aktív szabályra**), amely opcionális alkalmazáson belüli vásárlást (előfizetést vagy egyszeri fizetést) kínál az összes funkció feloldásához, beleértve a korlátlan szabályokat és az iCloud-szinkronizálást.
-- **RedirectWeb Pro**: Egy előre fizetős, teljesen feloldott alkalmazás. Ez a verzió kifejezetten azért jött létre, hogy jogosult legyen az **Apple Business Manager** és az **Apple School Manager (VPP)** programokra, lehetővé téve a szervezetek számára az alkalmazás tömeges megvásárlását, ami az alkalmazáson belüli vásárlásokkal nem lehetséges. Azonban bárki megvásárolhatja, aki az előre történő fizetést preferálja!
+- **RedirectWeb**: Egy ingyenes alkalmazás alapvető funkciókkal (legfeljebb **1 aktív szabályra** korlátozva), amely opcionális alkalmazáson belüli vásárlást (előfizetést vagy egyszeri fizetést) kínál az összes funkció feloldásához, beleértve a korlátlan szabályokat és az iCloud-szinkronizálást.
+- **RedirectWeb Pro**: Egy előre fizetős, teljesen feloldott alkalmazás. Ez a verzió kifejezetten azért jött létre, hogy jogosult legyen az **Apple Business Manager** és az **Apple School Manager (VPP)** szolgáltatásokra, lehetővé téve a szervezetek számára az alkalmazás tömeges megvásárlását, ami az alkalmazáson belüli vásárlásokkal nem lehetséges. Azonban bárki megvásárolhatja, aki az előre történő vásárlást preferálja!
 
-## Egyszeri vásárlás, éves előfizetés vagy Pro verzió: Melyik a legjobb? {#one-time-or-subscription-or-pro}
+## Egyszeri vásárlás, éves előfizetés vagy Pro verzió: melyik a legjobb? {/* #one-time-or-subscription-or-pro */}
 
-Javasoljuk vagy az egyszeri vásárlást a standard RedirectWeb alkalmazáson belül, vagy a RedirectWeb Pro megvásárlását, mivel ugyanazt az értéket kínálják.
-Az előfizetést főként azért kínáljuk, hogy az ingyenes próbaidőszakon keresztül kipróbálhasd az összes funkciót. Íme a javasolt használati mód:
+Javasoljuk vagy a standard RedirectWeb alkalmazáson belüli egyszeri vásárlást, vagy a RedirectWeb Pro megvásárlását, mivel ugyanazt az értéket kínálják.
+Az előfizetést főként azért kínáljuk, hogy lehetővé tegyük az összes funkció kipróbálását az ingyenes próbaidőszakon keresztül. Íme a javasolt használati mód:
 
-1. Fizess elő az éves előfizetésre a standard RedirectWeb alkalmazásban.
-2. Azonnal mondd le az előfizetést a Beállítások alkalmazásban: keress rá az "Előfizetések" menüpontra, koppints erre az alkalmazásra, és válaszd az "Előfizetés lemondása" lehetőséget. Ez lehetővé teszi, hogy kötelezettségvállalás nélkül élvezhesd az ingyenes próbaidőszakot.
-3. Élvezd a teljes hozzáférést az összes funkcióhoz 7 napig.
-4. Ha tetszenek a funkciók, válaszd az egyszeri vásárlást vagy vedd meg a Pro verziót.
+1. Fizessen elő az éves előfizetésre a standard RedirectWeb alkalmazásban.
+2. Azonnal mondja le az előfizetést a Beállítások alkalmazásban: keresse meg az "Előfizetések" menüpontot, koppintson erre az alkalmazásra, és válassza az "Előfizetés lemondása" lehetőséget. Ez lehetővé teszi, hogy kötelezettségvállalás nélkül élvezze az ingyenes próbaidőszakot.
+3. Élvezze a teljes hozzáférést az összes funkcióhoz 7 napig.
+4. Ha tetszenek a funkciók, válassza az egyszeri vásárlást, vagy vásárolja meg a Pro verziót.
 
-Természetesen semmi gond nincs azzal sem, ha az éves előfizetést folytatod, ha úgy preferálod!
+Természetesen semmi baj nincs azzal, ha az éves előfizetést folytatja, ha azt preferálja!
 
-## Injektál-e a RedirectWeb hirdetéseket vagy más nem kapcsolódó tartalmakat a webhelyekre? {#does-it-inject-ads}
+## A RedirectWeb beszúr hirdetéseket vagy más nem kapcsolódó tartalmakat a weboldalakba? {/* #does-it-inject-ads */}
 
-Nem, nem injektál semmilyen ilyen tartalmat. Csak azokat a kódokat injektálja a webhelyekre a Safariban, amelyek szükségesek a dokumentációban és az App Store-ban leírt funkciók biztosításához.
+Nem, nem szúr be ilyen tartalmakat. Csak az ebben a dokumentációban és az App Store alkalmazásoldalán leírt funkciók biztosításához szükséges kód kerül beszúrásra a webhelyekbe a Safariban.
 
-## Van-e esély arra, hogy a RedirectWeb-et valaha is eladják másnak? {#could-it-be-sold}
+## Van rá esély, hogy a RedirectWebet valaha eladják másnak? {/* #could-it-be-sold */}
 
-100% nem. A böngészőbővítmények mélyreható kontrollal rendelkeznek a böngészésed és az adataid felett, és a RedirectWeb átadása egy másik tulajdonosnak megnyitná az utat az adatvédelmi jogsértések előtt. Láttunk már olyan bővítményeket, amelyek gazdát cseréltek, majd figyelmeztetés nélkül felhasználói adatokat gyűjtöttek vagy hirdetéseket injektáltak. Ez itt soha nem fog megtörténni. További információkért ezekről a kockázatokról lásd Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) című cikkét és Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/) című nyomozását.
+100% nem. A böngészőbővítmények mélyreható ellenőrzést gyakorolnak a böngészés és az adatok felett, és a RedirectWeb átadása egy másik tulajdonosnak utat nyitna az adatvédelmi incidensek előtt. Láttunk már olyan bővítményeket, amelyek gazdát cseréltek, majd figyelmeztetés nélkül gyűjtötték a felhasználói adatokat vagy hirdetéseket szúrtak be. Ez itt soha nem fog megtörténni. További információkért ezekről a kockázatokról olvassa el Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) című cikkét és Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/) című nyomozását.
 
-A RedirectWeb a bizalomra és a felelősségre épül. Kötelességünknek tekintjük az adataid biztonságban tartását, és semmilyen körülmények között nem adjuk át a tulajdonjogot. A RedirectWeb mindig a mi kezünkben marad, így teljes bizalommal böngészhetsz.
+A RedirectWeb a bizalomra és a felelősségre épül. Kötelességünknek tekintjük az Ön adatainak biztonságát, és semmilyen körülmények között nem adjuk át a tulajdonjogot. A RedirectWeb mindig a mi kezünkben marad, így Ön teljes bizalommal böngészhet.

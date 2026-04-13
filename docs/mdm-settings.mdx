@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM Settings for Admins
 
@@ -12,33 +12,42 @@ This page outlines the configurable keys, app behaviors, best practices, and lim
 ## Overview
 
 > [!IMPORTANT]
-> 
+>
 > **For Apple Business Manager / Apple School Manager (VPP) Deployments:**
 > The standard RedirectWeb app uses a freemium In-App Purchase model, which is not eligible for VPP volume purchasing. To deploy the fully unlocked app to your organization, please purchase the **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)** app, which is a pay-upfront version designed specifically for MDM/VPP distribution.
 
 By pushing configurations through your MDM, you can achieve the following:
 
-* **Enforced Rules:** Apply organization-wide redirection rules that users cannot modify or delete.
-* **Initial Rule Distribution:** Distribute a template rule set that serves as the default upon the app's first launch.
-* **UI Control:** Restrict access to specific features (like the Library) and clearly indicate within the app that it is under organizational management.
-* **Large Rule Fetching (Fallback):** Bypass MDM payload size limits by fetching rules from an external server.
+- **Enforced Rules:** Apply organization-wide redirection rules that users cannot modify or delete.
+- **Initial Rule Distribution:** Distribute a template rule set that serves as the default upon the app's first launch.
+- **UI Control:** Restrict access to specific features (like the Library) and clearly indicate within the app that it is under organizational management.
+- **Large Rule Fetching (Fallback):** Bypass MDM payload size limits by fetching rules from an external server.
 
 ## Use Cases
 
-* **Seamless routing during system migrations:**
+- **Seamless routing during system migrations:**
   When migrating from a legacy internal system (e.g., `legacy-crm.internal.local`) to a new platform (e.g., `salesforce.com`), distribute an `enforcedRuleSet`. Even if employees use old bookmarks, they are automatically redirected to the new system, eliminating IT support tickets regarding outdated links.
-* **Intranet Access Assistance:**
+- **Intranet Access Assistance:**
   Distribute redirection rules using custom URL schemes to facilitate access to intranet resources via Per-App VPN tunnels, such as Omnissa Web.
 
 > [!WARNING]
-> 
+>
 > MDM configuration pushes are applied immediately **only if the user opens the RedirectWeb app**.
 > While the app utilizes background tasks to push MDM updates to the browser extension silently, this is a "best-effort" execution dictated by the OS. The execution timing is highly unpredictable, and the task may not run at all.
 > Therefore, this feature should **not** be relied upon for time-critical incident response (e.g., attempting to instantly redirect all employees to a backup site within minutes of a cloud service outage).
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="MDM Settings Demo" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="MDM Settings Demo"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 The plist file used in the video is available here: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -59,7 +68,7 @@ Deploy the following keys and values for Managed App Configuration via your MDM 
 
 These keys are all optional.
 
-### [Object] Rule Set {#rule-set-object}
+### [Object] Rule Set {/* #rule-set-object */}
 
 Each rule object has the same format as the one you can [share/export via the app](export-or-import-rules), but you need to convert it from JSON to plist, like this:
 
@@ -97,7 +106,7 @@ Each rule object has the same format as the one you can [share/export via the ap
 ...
 ```
 
-### [Object] Fallback {#fallback-object}
+### [Object] Fallback {/* #fallback-object */}
 
 | Key Name          | Type         | Description                                                                                                                                  |
 | ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -114,15 +123,15 @@ Each rule object has the same format as the one you can [share/export via the ap
 
 When a key exists in both the inline MDM payload and the data fetched via `fallbackDataURL`, the app handles the conflict as follows:
 
-* **Before Fetch Completion:** Inline settings are strictly prioritized and used.
-* **After Successful Fetch:** Data retrieved from the `fallbackDataURL` overwrites the corresponding inline settings.
-* **After Failed Fetch:** The app continues to use the inline settings.
-* Independent keys that exist only in the inline payload are preserved.
+- **Before Fetch Completion:** Inline settings are strictly prioritized and used.
+- **After Successful Fetch:** Data retrieved from the `fallbackDataURL` overwrites the corresponding inline settings.
+- **After Failed Fetch:** The app continues to use the inline settings.
+- Independent keys that exist only in the inline payload are preserved.
 
 ## MDM Feedback and Status Check
 
 You can verify if the configuration was applied successfully via the MDM feedback channel (`com.apple.feedback.managed`) if your MDM solution supports it. After processing the configuration (or completing the URL fetch), the app returns the following data:
 
-* `managedConfigVersion`: The version string of the configuration attempt.
-* `result`: Either `success` or `error`.
-* `messages`: An array containing detailed error or warning messages, if applicable.
+- `managedConfigVersion`: The version string of the configuration attempt.
+- `result`: Either `success` or `error`.
+- `messages`: An array containing detailed error or warning messages, if applicable.

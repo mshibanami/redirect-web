@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -12,19 +12,36 @@ Halaman ini mencantumkan masalah umum dan solusinya saat menggunakan RedirectWeb
 
 <TOCInline toc={toc} />
 
-## Aturan pengalihan tidak berfungsi {#rules-not-working}
+## Aturan pengalihan tidak berfungsi {/* #rules-not-working */}
 
 Jika aturan Anda tidak berfungsi seperti yang diharapkan, periksa hal berikut:
 
 - **Ekstensi browser terpasang dan diaktifkan pada halaman yang tepat:** Pastikan Anda telah menginstal ekstensi browser RedirectWeb dan ekstensi tersebut diaktifkan pada halaman web sumber yang ingin Anda alihkan. Jika Anda dapat membuka popup ekstensi seperti ini pada halaman sumber, maka ekstensi terpasang dengan benar:
-    <Image src={ExtensionPopup} alt="Popup ekstensi RedirectWeb" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="Popup ekstensi RedirectWeb"
+    width="260"
+    hasShadow
+  />
 
 - **Konfigurasi aturan benar:** Periksa kembali aturan pengalihan Anda di aplikasi native RedirectWeb. Pastikan pola URL sumber, URL tujuan, dan kondisi apa pun telah dikonfigurasi dengan benar. Untuk memeriksa apakah aturan Anda valid, masukkan contoh URL di bagian Examples pada layar Edit Rule. Jika aturan valid, Anda akan melihat URL tujuan yang diharapkan di bawah input Anda, seperti ini:
-    <Image src={RuleEditExampleResult} alt="Contoh layar edit aturan yang menunjukkan hasil dari URL contoh" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="Contoh layar edit aturan yang menunjukkan hasil dari URL contoh"
+    width="260"
+    hasShadow
+  />
 
-## Popup ekstensi menampilkan kesalahan {#error-shown-in-extension-popup}
+## Popup ekstensi menampilkan kesalahan {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="Overlay kesalahan RedirectWeb" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="Overlay kesalahan RedirectWeb"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > Aplikasi RedirectWeb belum terpasang atau tidak berfungsi dengan benar.  
 > Silakan dapatkan aplikasinya dari App Store.
@@ -36,28 +53,41 @@ Pastikan Anda telah menginstal versi terbaru RedirectWeb dari [App Store](https:
 Anda mungkin perlu meluncurkan ulang browser setelah menginstal aplikasi native.
 
 > [!NOTE]
-> * Anda perlu menginstal aplikasi native RedirectWeb untuk menggunakan ekstensi browser. Ekstensi saja tidak cukup.
-> * Pengguna Safari tidak perlu menginstal ekstensi secara terpisah, karena sudah disertakan dengan aplikasi native.
+>
+> - Anda perlu menginstal aplikasi native RedirectWeb untuk menggunakan ekstensi browser. Ekstensi saja tidak cukup.
+> - Pengguna Safari tidak perlu menginstal ekstensi secara terpisah, karena sudah disertakan dengan aplikasi native.
 
-## Halaman asli berkedip sebentar sebelum pengalihan {#original-page-flash}
+## Halaman asli berkedip sebentar sebelum pengalihan {/* #original-page-flash */}
 
 Ini terjadi ketika Anda menggunakan aturan pengalihan bertipe **Original**. Tipe ini menyediakan berbagai fitur lanjutan, tetapi dapat menyebabkan tampilan singkat halaman asli karena memungkinkan halaman asli dimuat sebelum pengalihan dilakukan.
 
 Buka layar Edit Rule dan ubah **Type** menjadi **DNR** untuk menghindari masalah ini.
 
-<Image src={EditRuleDnr} alt="Popup ekstensi RedirectWeb" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="Popup ekstensi RedirectWeb"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
 > Di Firefox, masalah ini seharusnya tidak terjadi bahkan dengan tipe Original, karena bergantung pada WebRequest API yang mencegah halaman asli dimuat.
 
-## Kesalahan muncul di jendela Pengaturan Safari {#safari-style-loading-errors}
+## Kesalahan muncul di jendela Pengaturan Safari {/* #safari-style-loading-errors */}
 
 Anda mungkin melihat pesan kesalahan di jendela Pengaturan Safari seperti berikut:
 
-<Image src={PopupStyleLoadingError} alt="Cuplikan layar pesan kesalahan di jendela Pengaturan Safari" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Cuplikan layar pesan kesalahan di jendela Pengaturan Safari"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
-> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
 Ini tidak memengaruhi fungsionalitas RedirectWeb. Anda dapat mengabaikannya dengan aman.
 

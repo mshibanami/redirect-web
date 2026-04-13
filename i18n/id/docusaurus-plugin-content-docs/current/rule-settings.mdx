@@ -1,26 +1,26 @@
 # Pengaturan Aturan
 
-Halaman ini memberikan informasi terperinci tentang setiap pengaturan di layar *Edit Aturan* di aplikasi RedirectWeb.
+Halaman ini memberikan informasi terperinci tentang setiap pengaturan di layar _Edit Aturan_ di aplikasi RedirectWeb.
 
 ## Opsi
 
-### Tipe {#type}
+### Tipe {/* #type */}
 
 Tentukan opsi **Tipe** untuk mengontrol bagaimana aplikasi menangani pengalihan. Anda dapat memilih dari opsi berikut:
 
-* **Original** (Default)
-    * Ini menggunakan API Web tradisional untuk mengontrol pengalihan. Selain itu, ini menggunakan [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) untuk cadangan (fallback).
-        * Di Firefox, ini menggunakan [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) untuk menangani pengalihan.
-    * Anda dapat menggunakan semua opsi selain [Tipe Sumber Daya](#resource-types) dan [Metode Permintaan](#request-methods).
-    * ⚠️ Ini lebih lambat daripada tipe *Declarative* dan dapat menyebabkan permintaan jaringan tambahan.
-* **DNR** (Eksperimental untuk Safari):
-    * Tipe ini bekerja jauh lebih cepat daripada tipe Original karena tidak memulai permintaan jaringan untuk URL sumber.
-    * Ini memungkinkan Anda menentukan [Tipe Sumber Daya](#resource-types) dan [Metode Permintaan](#request-methods).
-    * ⚠️ Anda tidak dapat menggunakan beberapa opsi, seperti [Pemrosesan Grup Pengambilan](#capturing-group-processing) dan [Pola URL yang Dikecualikan](#excluded-url-patterns) karena belum didukung oleh DNR API.
-    * ⚠️ Di Safari, saat ini Anda tidak dapat menyertakan pipe (`|`) dalam pola Ekspresi Reguler Anda. [Detail](https://github.com/mshibanami/redirect-web/issues/44)
-    * ⚠️ Karena DNR API Safari masih memiliki beberapa masalah, kami menganggap fitur tersebut masih merupakan fitur eksperimental untuk Safari. Anda dapat menemukan daftar semua masalah yang diketahui [di sini](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
+- **Original** (Default)
+  - Ini menggunakan API Web tradisional untuk mengontrol pengalihan. Selain itu, ini menggunakan [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) untuk cadangan (fallback).
+    - Di Firefox, ini menggunakan [WebRequest API](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) untuk menangani pengalihan.
+  - Anda dapat menggunakan semua opsi selain [Tipe Sumber Daya](#resource-types) dan [Metode Permintaan](#request-methods).
+  - ⚠️ Ini lebih lambat daripada tipe _Declarative_ dan dapat menyebabkan permintaan jaringan tambahan.
+- **DNR** (Eksperimental untuk Safari):
+  - Tipe ini bekerja jauh lebih cepat daripada tipe Original karena tidak memulai permintaan jaringan untuk URL sumber.
+  - Ini memungkinkan Anda menentukan [Tipe Sumber Daya](#resource-types) dan [Metode Permintaan](#request-methods).
+  - ⚠️ Anda tidak dapat menggunakan beberapa opsi, seperti [Pemrosesan Grup Pengambilan](#capturing-group-processing) dan [Pola URL yang Dikecualikan](#excluded-url-patterns) karena belum didukung oleh DNR API.
+  - ⚠️ Di Safari, saat ini Anda tidak dapat menyertakan pipe (`|`) dalam pola Ekspresi Reguler Anda. [Detail](https://github.com/mshibanami/redirect-web/issues/44)
+  - ⚠️ Karena DNR API Safari masih memiliki beberapa masalah, kami menganggap fitur tersebut masih merupakan fitur eksperimental untuk Safari. Anda dapat menemukan daftar semua masalah yang diketahui [di sini](https://github.com/mshibanami/redirect-web/issues?q=state%3Aopen%20label%3ADNR%20label%3ASafari).
 
-### Alihkan Dari {#redirect-from}
+### Alihkan Dari {/* #redirect-from */}
 
 Opsi **Alihkan Dari** memungkinkan Anda menentukan pola URL halaman web yang ingin Anda alihkan. Anda dapat memilih [Wildcard](#url-pattern-wildcard) atau [Ekspresi Reguler](#url-pattern-regular-expression).
 
@@ -29,21 +29,21 @@ Misalnya, jika Anda menentukan `https://example.com/*` dengan Wildcard, ini akan
 > [!NOTE]
 > Di opsi Alihkan Ke, Anda dapat mereferensikan seluruh kecocokan menggunakan `$0` atau kecocokan sebagian menggunakan `$1`, `$2`, ... Periksa detailnya di [Pola URL](#url-pattern) di halaman ini.
 
-#### Tipe Sumber Daya {#resource-types}
+#### Tipe Sumber Daya {/* #resource-types */}
 
 ![Tipe yang Didukung: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
 Opsi **Tipe Sumber Daya** memungkinkan Anda menentukan kategori permintaan web, seperti gambar, JavaScript, dan lembar gaya (style sheets), yang menerapkan aturan tersebut.
 Misalnya, jika Anda menyetel `script`, Anda dapat mengalihkan file JavaScript yang dimuat oleh halaman web.
 
-Saat ini, tipe berikut tersedia: 
+Saat ini, tipe berikut tersedia:
 `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`
 
 Pengaturan default-nya adalah `main_frame`, yang merupakan halaman tingkat atas yang dimuat ke dalam tab.
 
 Silakan periksa detail dari setiap tipe sumber daya di [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ResourceType).
 
-#### Metode Permintaan {#request-methods}
+#### Metode Permintaan {/* #request-methods */}
 
 ![Tipe yang Didukung: DNR](https://img.shields.io/badge/Types-DNR-blue)
 
@@ -56,28 +56,28 @@ Silakan periksa detail dari setiap metode di [mdn web docs](https://developer.mo
 > [!WARNING]
 > Di Safari, opsi ini mungkin tidak tersedia karena implementasi Apple for the DNR type doesn't seem to handle it currently. Kami telah mengirimkan umpan balik ke Apple sebagai FB14502272.
 
-#### Browser Target {#target-browsers}
+#### Browser Target {/* #target-browsers */}
 
 ![Platform yang Didukung: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
 Opsi **Browser Target** memungkinkan Anda menentukan browser mana yang aturannya harus atau tidak harus diterapkan.
 
-* Ada 2 jenis browser yang dapat Anda pilih:
-    * **Browser yang dapat Anda pilih secara default**: Anda dapat memilih Safari, Chrome, Firefox, Edge, Opera, Arc, Brave, dan Vivaldi secara default. Ini tidak membedakan varian dari browser yang sama, seperti Safari dan Safari Technology Preview.
-    * **Browser yang ditentukan pengguna**: Dengan mengetuk tombol Tambah pada popover, Anda dapat memilih browser apa pun selain Safari atau Safari Technology Preview yang memiliki ekstensi RedirectWeb yang terinstal.
-* Kotak centang **Semua kecuali yang dipilih** memungkinkan Anda menargetkan setiap browser kecuali yang telah Anda pilih.
+- Ada 2 jenis browser yang dapat Anda pilih:
+  - **Browser yang dapat Anda pilih secara default**: Anda dapat memilih Safari, Chrome, Firefox, Edge, Opera, Arc, Brave, dan Vivaldi secara default. Ini tidak membedakan varian dari browser yang sama, seperti Safari dan Safari Technology Preview.
+  - **Browser yang ditentukan pengguna**: Dengan mengetuk tombol Tambah pada popover, Anda dapat memilih browser apa pun selain Safari atau Safari Technology Preview yang memiliki ekstensi RedirectWeb yang terinstal.
+- Kotak centang **Semua kecuali yang dipilih** memungkinkan Anda menargetkan setiap browser kecuali yang telah Anda pilih.
 
 > [!WARNING]
 > RedirectWeb tidak dapat membedakan apakah browsernya adalah **Safari** atau **Safari Technology Preview** karena aplikasi memeriksa proses induk dari ekstensi tersebut untuk mendeteksinya, tetapi kedua browser ini berbagi proses induk yang sama (`/sbin/launchd`).
 
-### Alihkan Ke {#redirect-to}
+### Alihkan Ke {/* #redirect-to */}
 
-Opsi **Alihkan Ke** menentukan URL tujuan yang ingin Anda tuju, dari URL sumber yang cocok dengan opsi *Alihkan Dari*. Anda juga dapat mengganti grup pengambilan dengan `$1`, `$2`, ... atau seluruh kecocokan dengan `$0`. Ini membantu Anda menentukan tujuan secara dinamis. Periksa detailnya di [Pola URL](#url-pattern) di halaman ini.
+Opsi **Alihkan Ke** menentukan URL tujuan yang ingin Anda tuju, dari URL sumber yang cocok dengan opsi _Alihkan Dari_. Anda juga dapat mengganti grup pengambilan dengan `$1`, `$2`, ... atau seluruh kecocokan dengan `$0`. Ini membantu Anda menentukan tujuan secara dinamis. Periksa detailnya di [Pola URL](#url-pattern) di halaman ini.
 
 Misalnya, jika Anda menyetel aturan berikut:
 
-* **Alihkan Dari**: `https://google.com/*` (Wildcard)
-* **Alihkan Ke**: `https://apple.com/$1`
+- **Alihkan Dari**: `https://google.com/*` (Wildcard)
+- **Alihkan Ke**: `https://apple.com/$1`
 
 dan jika cocok dengan `https://google.com/hello`, maka URL tujuannya adalah `https://apple.com/hello`.
 
@@ -86,14 +86,14 @@ Selain itu, Anda dapat memodifikasi teks `$1`, `$2`, ... sebelum melakukan pengg
 > [!TIP]
 > Anda dapat menentukan skema URL khusus untuk membuka aplikasi. Berikut adalah contoh aplikasi yang mendukung deep linking:
 >
-> * Figma: `figma://file/Your_Figma_ID`
-> * Firefox: `firefox://open-url?url=https://example.com/hello`
-> * Google Chrome: `googlechromes://example.com`
-> * Microsoft Edge: `microsoft-edge://example.com`
-> * Notion: `notion://www.notion.so/Your_Note_ID`
-> * Slack: `slack://open`
+> - Figma: `figma://file/Your_Figma_ID`
+> - Firefox: `firefox://open-url?url=https://example.com/hello`
+> - Google Chrome: `googlechromes://example.com`
+> - Microsoft Edge: `microsoft-edge://example.com`
+> - Notion: `notion://www.notion.so/Your_Note_ID`
+> - Slack: `slack://open`
 
-#### Aplikasi {#application}
+#### Aplikasi {/* #application */}
 
 ![Tipe yang Didukung: Original](https://img.shields.io/badge/Types-Original-blue) ![Platform yang Didukung: macOS](https://img.shields.io/badge/Platforms-macOS-white)
 
@@ -102,36 +102,36 @@ Jika Anda ingin menentukan aplikasi yang ingin Anda gunakan untuk membuka URL tu
 > [!WARNING]
 > Anda hanya dapat membuka aplikasi yang mendukung [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox). Selain itu, pastikan aplikasi tersebut mendukung pembukaan URL yang ingin Anda buka.
 
-### Pemrosesan Grup Pengambilan {#capturing-group-processing}
+### Pemrosesan Grup Pengambilan {/* #capturing-group-processing */}
 
 ![Tipe yang Didukung: Original](https://img.shields.io/badge/Types-Original-blue)
 
-Opsi **Pemrosesan Grup Pengambilan** memungkinkan Anda menentukan cara memproses grup yang ditangkap yang dapat Anda ganti di opsi *Alihkan Ke* dengan `$1`, `$2`...
+Opsi **Pemrosesan Grup Pengambilan** memungkinkan Anda menentukan cara memproses grup yang ditangkap yang dapat Anda ganti di opsi _Alihkan Ke_ dengan `$1`, `$2`...
 
 Berikut adalah cara membuat grup pengambilan:
 
-* **Wildcard**: Teks yang cocok dengan `*` dan `?` secara otomatis ditangkap.
-* **Ekspresi Reguler**: Teks yang cocok dengan bagian dari pola di dalam `()` ditangkap.
+- **Wildcard**: Teks yang cocok dengan `*` dan `?` secara otomatis ditangkap.
+- **Ekspresi Reguler**: Teks yang cocok dengan bagian dari pola di dalam `()` ditangkap.
 
 Anda dapat memilih satu atau beberapa proses berikut:
 
-* **URL Encode/Decode**: Ini menerapkan [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) atau decoding pada grup pengambilan. Misalnya, jika Anda meng-encode `https://example.com/hello`, itu dikonversi menjadi `https%3A%2F%2Fexample.com%2Fhello`. Decode bekerja sebaliknya.
-* **Base64 Encode/Decode**: Ini mendecode/mengencode teks ke dalam [Base64](https://en.wikipedia.org/wiki/Base64). Misalnya, Anda dapat mengencode `hello` menjadi `aGVsbG8=`, dan mendecodenya kembali menjadi `hello`.
-* **Ganti Kejadian**: Ini mengganti satu atau lebih karakter dalam grup, yang cocok dengan **Target**, dengan **Pengganti**. Misalnya, jika *Grup* adalah `hello` and the *Target* is `l` and the Replacement is `y`, it is modified to `heyyo`.
+- **URL Encode/Decode**: Ini menerapkan [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) atau decoding pada grup pengambilan. Misalnya, jika Anda meng-encode `https://example.com/hello`, itu dikonversi menjadi `https%3A%2F%2Fexample.com%2Fhello`. Decode bekerja sebaliknya.
+- **Base64 Encode/Decode**: Ini mendecode/mengencode teks ke dalam [Base64](https://en.wikipedia.org/wiki/Base64). Misalnya, Anda dapat mengencode `hello` menjadi `aGVsbG8=`, dan mendecodenya kembali menjadi `hello`.
+- **Ganti Kejadian**: Ini mengganti satu atau lebih karakter dalam grup, yang cocok dengan **Target**, dengan **Pengganti**. Misalnya, jika _Grup_ adalah `hello` and the _Target_ is `l` and the Replacement is `y`, it is modified to `heyyo`.
 
 > [!NOTE]
 > Ini untuk memproses setiap grup pengambilan dan tidak mempengaruhi URL mana yang dikecualikan oleh [Pola URL yang Dikecualikan](#excluded-url-patterns). Misalnya, katakanlah Anda memiliki aturan ini:
 >
-> * **Alihkan Dari**: `https://example.com/(hello.*)`
-> * **Pemrosesan Grup Pengambilan**:
->     * Grup: `$1`
->     * Target: `.*` (Ekspresi Reguler)
->     * Pengganti: `hello`
-> * **Pola URL yang Dikecualikan**: `https://example.com/hello`
+> - **Alihkan Dari**: `https://example.com/(hello.*)`
+> - **Pemrosesan Grup Pengambilan**:
+>   - Grup: `$1`
+>   - Target: `.*` (Ekspresi Reguler)
+>   - Pengganti: `hello`
+> - **Pola URL yang Dikecualikan**: `https://example.com/hello`
 >
 > Dalam hal ini, `https://example.com/hello_world` tidak akan dikecualikan, sedangkan `https://example.com/hello` akan dikecualikan.
 
-### Pola URL yang Dikecualikan {#excluded-url-patterns}
+### Pola URL yang Dikecualikan {/* #excluded-url-patterns */}
 
 ![Tipe yang Didukung: Original](https://img.shields.io/badge/Types-Original-blue)
 
@@ -139,52 +139,52 @@ Opsi **Pola URL yang Dikecualikan** memungkinkan Anda menentukan URL yang tidak 
 
 Anda dapat menentukan pola URL yang dikecualikan menggunakan tipe pola Ekspresi Reguler atau Wildcard.
 
-### Contoh {#examples}
+### Contoh {/* #examples */}
 
 Opsi **Contoh** memungkinkan Anda menguji aturan pengalihan Anda dengan memberikan contoh URL. Dengan menambahkan contoh URL, Anda dapat memeriksa apakah aturan tersebut berfungsi seperti yang diharapkan sebelum benar-benar menerapkannya.
 
-### Lanjutan {#advanced-options}
+### Lanjutan {/* #advanced-options */}
 
-* **[DNR] Pengalihan Frame Utama**: Opsi ini hanya tersedia untuk tipe DNR. Opsi ini memungkinkan Anda menentukan cara menangani pengalihan untuk tipe sumber daya `main_frame`. Opsi yang tersedia adalah:
-    * **Raw**: Mengalihkan frame utama ke URL yang ditentukan tanpa modifikasi apa pun.
-    * **Melalui Halaman Perantara**: Mengalihkan frame utama ke halaman perantara, yang kemudian dialihkan ke URL tujuan yang ditentukan. Ini berguna untuk membuka aplikasi menggunakan deep linking karena halaman perantara dapat menangani logika pengalihan yang lebih kompleks.
+- **[DNR] Pengalihan Frame Utama**: Opsi ini hanya tersedia untuk tipe DNR. Opsi ini memungkinkan Anda menentukan cara menangani pengalihan untuk tipe sumber daya `main_frame`. Opsi yang tersedia adalah:
+  - **Raw**: Mengalihkan frame utama ke URL yang ditentukan tanpa modifikasi apa pun.
+  - **Melalui Halaman Perantara**: Mengalihkan frame utama ke halaman perantara, yang kemudian dialihkan ke URL tujuan yang ditentukan. Ini berguna untuk membuka aplikasi menggunakan deep linking karena halaman perantara dapat menangani logika pengalihan yang lebih kompleks.
 
-### Komentar {#comments}
+### Komentar {/* #comments */}
 
 Opsi **Komentar** memungkinkan Anda menambahkan catatan atau komentar apa pun tentang aturan pengalihan Anda. Ini dapat berguna untuk melacak alasan Anda membuat aturan tertentu atau untuk memberikan konteks bagi orang lain yang mungkin melihat aturan Anda.
 
 Anda dapat menulis komentar dalam format berikut:
 
-* **Teks Biasa** (Default): Teks sederhana tanpa format apa pun.
-* **Markdown**: Anda dapat menggunakan [sintaks Markdown GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), termasuk beberapa ekstensi yang tidak didukung GFM. Misalnya, Anda dapat membuat judul, daftar, tautan, dan lainnya.
-* **AsciiDoc**: Anda dapat menggunakan [sintaks AsciiDoc](https://asciidoc.org/) untuk memformat komentar Anda.
+- **Teks Biasa** (Default): Teks sederhana tanpa format apa pun.
+- **Markdown**: Anda dapat menggunakan [sintaks Markdown GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), termasuk beberapa ekstensi yang tidak didukung GFM. Misalnya, Anda dapat membuat judul, daftar, tautan, dan lainnya.
+- **AsciiDoc**: Anda dapat menggunakan [sintaks AsciiDoc](https://asciidoc.org/) untuk memformat komentar Anda.
 
-## Pola URL {#url-pattern}
+## Pola URL {/* #url-pattern */}
 
-**Pola URL** digunakan untuk mencocokkan URL di opsi *Alihkan Dari*, *Pola URL yang Dikecualikan*, dan *Pemrosesan Grup Pengambilan*. Untuk menentukannya, Anda dapat memilih **Wildcard** atau **Ekspresi Reguler**.
+**Pola URL** digunakan untuk mencocokkan URL di opsi _Alihkan Dari_, _Pola URL yang Dikecualikan_, dan _Pemrosesan Grup Pengambilan_. Untuk menentukannya, Anda dapat memilih **Wildcard** atau **Ekspresi Reguler**.
 
-### Wildcard {#url-pattern-wildcard}
+### Wildcard {/* #url-pattern-wildcard */}
 
 **Wildcard** adalah tipe pola yang lebih sederhana yang memungkinkan Anda menggunakan `*` (cocok dengan apa pun) dan `?` (cocok dengan karakter tunggal apa pun) sebagai wildcard. Berikut adalah beberapa contoh:
 
-* Untuk mencocokkan `https://example.com/hello`, Anda dapat menggunakan `https://example.com/*`. Ini akan mencocokkan string apa pun setelah `https://example.com/`.
-* Untuk mencocokkan `https://example.com/search?q=hello`, Anda dapat menggunakan `https://example.com/search?q=*`. Ini akan mencocokkan nilai apa pun untuk parameter `q`.
-* Untuk mencocokkan URL apa pun yang mengandung kata `blog`, Anda dapat menggunakan `*blog*`.
+- Untuk mencocokkan `https://example.com/hello`, Anda dapat menggunakan `https://example.com/*`. Ini akan mencocokkan string apa pun setelah `https://example.com/`.
+- Untuk mencocokkan `https://example.com/search?q=hello`, Anda dapat menggunakan `https://example.com/search?q=*`. Ini akan mencocokkan nilai apa pun untuk parameter `q`.
+- Untuk mencocokkan URL apa pun yang mengandung kata `blog`, Anda dapat menggunakan `*blog*`.
 
 Anda juga dapat menggunakan substitusi dalam Wildcard juga, yang berarti Anda dapat mereferensikan bagian dari URL yang cocok menggunakan `$1`, `$2`, dll. Misalnya, jika Anda menggunakan `https://example.com/*-world-*`, dan URL-nya adalah `https://example.com/hello-world-goodbye`, maka `$1` adalah "hello" dan `$2` adalah "goodbye". `$0` juga tersedia untuk mereferensikan seluruh URL yang cocok.
 
 > [!NOTE]
 > Meskipun substitusi adalah fitur Ekspresi Reguler, Anda juga dapat menggunakannya untuk Wildcard karena RedirectWeb secara internal mengubah Wildcard menjadi Ekspresi Reguler.
 
-### Ekspresi Reguler {#url-pattern-regular-expression}
+### Ekspresi Reguler {/* #url-pattern-regular-expression */}
 
 **Ekspresi Reguler** (Regex) adalah alat yang ampuh untuk mencocokkan pola dalam teks dan juga banyak digunakan dalam pemrograman. Ini memungkinkan Anda untuk menentukan pola tertentu yang cocok dengan sekumpulan string. Berikut adalah beberapa contoh.
 
 - Untuk mencocokkan `https://example.com/hello`, Anda dapat menggunakan `https://example.com/.*`. Ini akan mencocokkan string apa pun setelah `https://example.com/`.
-- Untuk mencocokkan `https://example.com/search?q=hello`, Anda dapat menggunakan `https://example.com/search\?q=(.*)`. Ini akan mencocokkan nilai parameter `q` dan menyimpannya dalam grup pengambilan. Anda kemudian dapat mereferensikannya menggunakan `$1` di opsi *Alihkan Ke*.
+- Untuk mencocokkan `https://example.com/search?q=hello`, Anda dapat menggunakan `https://example.com/search\?q=(.*)`. Ini akan mencocokkan nilai parameter `q` dan menyimpannya dalam grup pengambilan. Anda kemudian dapat mereferensikannya menggunakan `$1` di opsi _Alihkan Ke_.
 - Untuk mencocokkan URL apa pun yang mengandung kata `blog`, Anda dapat menggunakan `.*blog.*`.
 
-Anda dapat mereferensikan grup pengambilan di *Alihkan Ke* atau *Pengganti* menggunakan `$1`, `$2`, ... atau `$0` untuk mereferensikan seluruh kecocokan.
+Anda dapat mereferensikan grup pengambilan di _Alihkan Ke_ atau _Pengganti_ menggunakan `$1`, `$2`, ... atau `$0` untuk mereferensikan seluruh kecocokan.
 
 RedirectWeb didukung oleh [mesin Regex Apple](https://developer.apple.com/documentation/foundation/nsregularexpression#1661042).
 

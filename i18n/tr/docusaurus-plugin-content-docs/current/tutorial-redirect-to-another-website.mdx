@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # Durum 1: Başka bir web sitesine yönlendirme
@@ -9,11 +9,11 @@ Diyelim ki Twitter bağımlısısınız ve bu alışkanlığı kırmak için, ya
 
 ### Adım 1. "Kuralı Düzenle" ekranını açın
 
-Uygulamada kendi kuralınızı oluşturmaya başlamak için *Kuralı Düzenle* ekranını açalım. Bunu *Kurallarım* sekmesindeki artı (+) düğmesine tıklayarak yapabilirsiniz.
+Uygulamada kendi kuralınızı oluşturmaya başlamak için _Kuralı Düzenle_ ekranını açalım. Bunu _Kurallarım_ sekmesindeki artı (+) düğmesine tıklayarak yapabilirsiniz.
 
 ### Adım 2. "Şuradan Yönlendir"i ayarlayın
 
-İlk olarak, uygulamadaki *Kuralı Düzenle* ekranında *Şuradan Yönlendir* bölümünü ayarlamalısınız. Hedefler `https://twitter.com/` ile başlayan URL'lerdir.
+İlk olarak, uygulamadaki _Kuralı Düzenle_ ekranında _Şuradan Yönlendir_ bölümünü ayarlamalısınız. Hedefler `https://twitter.com/` ile başlayan URL'lerdir.
 
 Bu durumda, [Joker Karakter](/rule-settings#url-pattern-wildcard) moduyla aşağıdaki deseni belirtebilirsiniz:
 
@@ -31,13 +31,13 @@ Bunu yapmak için, Joker Karakter'den [Normal İfade](/rule-settings#url-pattern
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: hem `twitter` hem de `x`'i hedefler. (`|` *boru* (pipe) olarak adlandırılır.)
-* `.*`: Joker Karakter'deki `*` ile aynıdır. Daha spesifik olarak, `.` *herhangi bir karakter* anlamına gelir ve `*` *bu sembolden önce gelen karakterin herhangi bir sayıda tekrarlanması* anlamına gelir, bu da her şeyle eşleşmesiyle sonuçlanır.
+- `(twitter|x)`: hem `twitter` hem de `x`'i hedefler. (`|` _boru_ (pipe) olarak adlandırılır.)
+- `.*`: Joker Karakter'deki `*` ile aynıdır. Daha spesifik olarak, `.` _herhangi bir karakter_ anlamına gelir ve `*` _bu sembolden önce gelen karakterin herhangi bir sayıda tekrarlanması_ anlamına gelir, bu da her şeyle eşleşmesiyle sonuçlanır.
 
 Normal İfade biraz karmaşıktır, ancak bir kez alıştığınızda güçlü bir araç olacaktır. Normal İfade deseninizin nasıl çalıştığını analiz etmek için [RegExr](https://regexr.com)'ı bir oyun alanı olarak kullanmanızı öneririz.
 
 > [!TIP]
-> Normal İfadelerde, `(twitter|x).com` içindeki `.` da *herhangi bir karakter* olarak kabul edilir. Bu nedenle, `(twitter|x).com/.*` örneğin `twitter1com/` veya `x_com/` ile de eşleşir.
+> Normal İfadelerde, `(twitter|x).com` içindeki `.` da _herhangi bir karakter_ olarak kabul edilir. Bu nedenle, `(twitter|x).com/.*` örneğin `twitter1com/` veya `x_com/` ile de eşleşir.
 >
 > Daha kesin olmak için, bunu `(twitter|x)\.com/.*` olarak değiştirebilirsiniz. `\` karakteri, `.`'ı özel bir karakter yerine gerçek bir nokta karakteri olarak ele almak için kullanılır.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (İsteğe Bağlı) Adım 4: Kuralı kontrol edin
 
-Uygulamadaki *Kuralı Düzenle* ekranındaki *Örnekler* bölümüne bir örnek URL ekleyerek kuralın nasıl çalıştığını kontrol edebilirsiniz. Örneğin, `https://x.com/UN` girerseniz, sonuç olarak `https://unrush.org/` gösterilir.
+Uygulamadaki _Kuralı Düzenle_ ekranındaki _Örnekler_ bölümüne bir örnek URL ekleyerek kuralın nasıl çalıştığını kontrol edebilirsiniz. Örneğin, `https://x.com/UN` girerseniz, sonuç olarak `https://unrush.org/` gösterilir.
 
 Kuralınız şimdi şöyle görünmelidir:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Başka bir web sitesini açmak için örnek bir kural" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Başka bir web sitesini açmak için örnek bir kural"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Kuralı İndir</a>**
 

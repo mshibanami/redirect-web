@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Case 2: Fjern forespørgselsparametre fra URL
 
@@ -6,14 +6,14 @@ Antag, at der er en forespørgselsparameter `source=twitter` i en URL på `examp
 
 I dette tilfælde er **Behandling af fangstgrupper** den nemmeste måde:
 
-*   **Omdiriger fra**: `https://example.com/*` (Jokertegn)
-*   **Omdiriger til**: `$0`
-*   **Behandling af fangstgrupper**:
-    *   **Gruppe**: `$0`
-    *   **Proces**: Erstat forekomster
-        *   **Mål**: `&?source=[^&]*`
-        *   **Erstatning**: *(ingen)*
-        *   **Tekstmønster**: Regulært udtryk
+- **Omdiriger fra**: `https://example.com/*` (Jokertegn)
+- **Omdiriger til**: `$0`
+- **Behandling af fangstgrupper**:
+  - **Gruppe**: `$0`
+  - **Proces**: Erstat forekomster
+    - **Mål**: `&?source=[^&]*`
+    - **Erstatning**: _(ingen)_
+    - **Tekstmønster**: Regulært udtryk
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Download reglen</a>**
 

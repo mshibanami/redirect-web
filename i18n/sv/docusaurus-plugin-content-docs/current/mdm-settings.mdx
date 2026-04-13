@@ -1,5 +1,5 @@
-import TOCInline from '@theme/TOCInline';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import TOCInline from "@theme/TOCInline";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM-inställningar för administratörer
 
@@ -15,27 +15,36 @@ Den här sidan beskriver konfigurerbara nycklar, appbeteenden, bästa praxis och
 
 Genom att skicka ut konfigurationer via din MDM kan du uppnå följande:
 
-* **Tvingande regler:** Tillämpa organisationsövergripande omdirigeringsregler som användare inte kan ändra eller ta bort.
-* **Initial regeldistribution:** Distribuera en uppsättning mallregler som fungerar som standard när appen startas för första gången.
-* **Gränssnittskontroll:** Begränsa åtkomst till specifika funktioner (som biblioteket) och tydligt indikera i appen att den hanteras av organisationen.
-* **Hämtning av stora regelmängder (Fallback):** Gå runt MDM-nyttolastbegränsningar genom att hämta regler från en extern server.
+- **Tvingande regler:** Tillämpa organisationsövergripande omdirigeringsregler som användare inte kan ändra eller ta bort.
+- **Initial regeldistribution:** Distribuera en uppsättning mallregler som fungerar som standard när appen startas för första gången.
+- **Gränssnittskontroll:** Begränsa åtkomst till specifika funktioner (som biblioteket) och tydligt indikera i appen att den hanteras av organisationen.
+- **Hämtning av stora regelmängder (Fallback):** Gå runt MDM-nyttolastbegränsningar genom att hämta regler från en extern server.
 
 ## Användningsområden
 
-* **Sömlös dirigering vid systemmigreringar:**
+- **Sömlös dirigering vid systemmigreringar:**
   Vid migrering från ett äldre internt system (t.ex. `legacy-crm.internal.local`) till en ny plattform (t.ex. `salesforce.com`), distribuera en `enforcedRuleSet`. Även om anställda använder gamla bokmärken omdirigeras de automatiskt till det nya systemet, vilket eliminerar IT-supportärenden gällande utdaterade länkar.
-* **Hjälp med åtkomst till intranät:**
+- **Hjälp med åtkomst till intranät:**
   Distribuera omdirigeringsregler med anpassade URL-scheman för att underlätta åtkomst till intranätresurser via Per-App VPN-tunnlar, såsom Omnissa Web.
 
 > [!WARNING]
-> 
+>
 > MDM-konfigurationer tillämpas omedelbart **endast om användaren öppnar RedirectWeb-appen**.
 > Även om appen använder bakgrundsuppgifter för att tyst skicka MDM-uppdateringar till webbläsartillägget, är detta ett försök efter "bästa förmåga" styrt av operativsystemet. Tidpunkten för utförandet är högst oförutsägbar och uppgiften kanske inte körs alls.
 > Därför bör denna funktion **inte** användas för tidskritiska incidentresponser (t.ex. försök att omedelbart omdirigera alla anställda till en backupsida inom några minuter efter ett avbrott i en molntjänst).
 
 ## Demo
 
-<video src={useBaseUrl('/videos/mdm-settings-demo.mov')} title="Demo av MDM-inställningar" autoPlay playsInline muted loop controls width="640px"></video>
+<video
+  src={useBaseUrl("/videos/mdm-settings-demo.mov")}
+  title="Demo av MDM-inställningar"
+  autoPlay
+  playsInline
+  muted
+  loop
+  controls
+  width="640px"
+></video>
 
 Plist-filen som används i videon finns tillgänglig här: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
@@ -45,18 +54,18 @@ I videon användes ManageEngine's MDM för att distribuera konfigurationen, men 
 
 Distribuera följande nycklar och värden för Managed App Configuration via din MDM-konsol, vanligtvis i plist-format.
 
-| Nyckelnamn             | Typ                          | Beskrivning                                                                                                                                                                                                                                                                   |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nyckelnamn             | Typ                          | Beskrivning                                                                                                                                                                                                                                                                                                            |
+| ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enforcedRuleSet`      | [Rule set](#rule-set-object) | **[Tvingande regler]** En regeluppsättning som tillämpas med högre prioritet än vanliga regler. Den första regeln i listan har företräde. Användare kan inte redigera, ta bort eller ändra ordning på dessa regler. De är alltid aktiva, ignorerar appens globala avstängningsknapp och synkroniseras inte via iCloud. |
-| `prefilledRuleSet`     | [Rule set](#rule-set-object) | **[Initiala regler]** En regeluppsättning som skapas i stället för standardexempelregeln när en användare startar appen för första gången utan befintliga regler. När de väl har distribuerats fungerar dessa som vanliga regler, vilket tillåter användarändring, radering och iCloud-synkronisering. |
-| `organizationName`     | String                       | Visar "Hanteras av [organizationName]" högst upp på inställningsskärmen i appen, vilket indikerar för användaren att appen hanteras.                                                                                                                                            |
-| `managedConfigVersion` | String                       | En godtycklig versionssträng för konfigurationen. Visas i gränssnittet, vilket gör att IT-support kan verifiera om den senaste MDM-nyttolasten har nått enheten vid felsökning.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | Om inställd på `false` döljs funktionen Regelbibliotek, och avsnittet ersätts med felmeddelandet "Begränsad av din organisation."                                                                                                                                   |
-| `fallback`             | [Fallback](#fallback-object) | Ange detta när konfigurationerna överskrider MDM-nyttolastbegränsningarna. Appen hämtar JSON/XML från denna URL för att tillämpa konfigurationen.                                                                                                                                     |
+| `prefilledRuleSet`     | [Rule set](#rule-set-object) | **[Initiala regler]** En regeluppsättning som skapas i stället för standardexempelregeln när en användare startar appen för första gången utan befintliga regler. När de väl har distribuerats fungerar dessa som vanliga regler, vilket tillåter användarändring, radering och iCloud-synkronisering.                 |
+| `organizationName`     | String                       | Visar "Hanteras av [organizationName]" högst upp på inställningsskärmen i appen, vilket indikerar för användaren att appen hanteras.                                                                                                                                                                                   |
+| `managedConfigVersion` | String                       | En godtycklig versionssträng för konfigurationen. Visas i gränssnittet, vilket gör att IT-support kan verifiera om den senaste MDM-nyttolasten har nått enheten vid felsökning.                                                                                                                                        |
+| `showsLibrarySection`  | Boolean                      | Om inställd på `false` döljs funktionen Regelbibliotek, och avsnittet ersätts med felmeddelandet "Begränsad av din organisation."                                                                                                                                                                                      |
+| `fallback`             | [Fallback](#fallback-object) | Ange detta när konfigurationerna överskrider MDM-nyttolastbegränsningarna. Appen hämtar JSON/XML från denna URL för att tillämpa konfigurationen.                                                                                                                                                                      |
 
 Dessa nycklar är alla valfria.
 
-### [Objekt] Rule Set {#rule-set-object}
+### [Objekt] Rule Set {/* #rule-set-object */}
 
 Varje regelobjekt har samma format som det du kan [dela/exportera via appen](export-or-import-rules), men du behöver konvertera det från JSON till plist, så här:
 
@@ -94,11 +103,11 @@ Varje regelobjekt har samma format som det du kan [dela/exportera via appen](exp
 ...
 ```
 
-### [Objekt] Fallback {#fallback-object}
+### [Objekt] Fallback {/* #fallback-object */}
 
 | Nyckelnamn        | Typ          | Beskrivning                                                                                                                                  |
 | ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | En slutpunkts-URL för en JSON/XML-fil som innehåller regeluppsättningar.                                                                                     |
+| `fallbackDataURL` | String (URL) | En slutpunkts-URL för en JSON/XML-fil som innehåller regeluppsättningar.                                                                     |
 | `authToken`       | String       | En autentiseringstoken som läggs till i HTTP-huvudet vid hämtning från `fallbackDataURL`. (Används som `Authorization: Bearer [authToken]`). |
 
 ## Regelutvärdering och konflikthantering
@@ -111,15 +120,15 @@ Varje regelobjekt har samma format som det du kan [dela/exportera via appen](exp
 
 När en nyckel finns i både den inbäddade MDM-nyttolasten och data som hämtas via `fallbackDataURL`, hanterar appen konflikten enligt följande:
 
-* **Innan hämtningen är klar:** Inbäddade inställningar prioriteras strikt och används.
-* **Efter lyckad hämtning:** Data som hämtas från `fallbackDataURL` skriver över motsvarande inbäddade inställningar.
-* **Efter misslyckad hämtning:** Appen fortsätter att använda de inbäddade inställningarna.
-* Oberoende nycklar som endast finns i den inbäddade nyttolasten bevaras.
+- **Innan hämtningen är klar:** Inbäddade inställningar prioriteras strikt och används.
+- **Efter lyckad hämtning:** Data som hämtas från `fallbackDataURL` skriver över motsvarande inbäddade inställningar.
+- **Efter misslyckad hämtning:** Appen fortsätter att använda de inbäddade inställningarna.
+- Oberoende nycklar som endast finns i den inbäddade nyttolasten bevaras.
 
 ## MDM-feedback och statuskontroll
 
 Du kan verifiera om konfigurationen tillämpades framgångsrikt via MDM-feedbackkanalen (`com.apple.feedback.managed`) om din MDM-lösning stöder det. Efter att ha bearbetat konfigurationen (eller slutfört URL-hämtningen) returnerar appen följande data:
 
-* `managedConfigVersion`: Versionssträngen för konfigurationsförsöket.
-* `result`: Antingen `success` eller `error`.
-* `messages`: En array som innehåller detaljerade fel- eller varningsmeddelanden, om tillämpligt.
+- `managedConfigVersion`: Versionssträngen för konfigurationsförsöket.
+- `result`: Antingen `success` eller `error`.
+- `messages`: En array som innehåller detaljerade fel- eller varningsmeddelanden, om tillämpligt.

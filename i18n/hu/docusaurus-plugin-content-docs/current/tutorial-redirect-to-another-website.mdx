@@ -1,6 +1,6 @@
 import Image from "@site/src/components/Image";
 import RuleCreationOpenAnotherWebsiteRulePreview from "@site/static/img/rule-creation-open-another-website-rule-preview.jpg";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DeviceAwareTabs from "@site/src/components/DeviceAwareTabs";
 
 # 1. eset: Átirányítás egy másik weboldalra
@@ -9,11 +9,11 @@ Tegyük fel, hogy Ön Twitter-függő, és a szokás megtörése érdekében úg
 
 ### 1. lépés: A „Szabály szerkesztése” képernyő megnyitása
 
-Nyissa meg a *Szabály szerkesztése* (Edit Rule) képernyőt a szabály létrehozásának megkezdéséhez az alkalmazásban. Ezt a *Saját szabályok* (My Rules) lapon található plusz (+) gombra kattintva teheti meg.
+Nyissa meg a _Szabály szerkesztése_ (Edit Rule) képernyőt a szabály létrehozásának megkezdéséhez az alkalmazásban. Ezt a _Saját szabályok_ (My Rules) lapon található plusz (+) gombra kattintva teheti meg.
 
 ### 2. lépés: Az „Átirányítás innen” beállítása
 
-Először állítsa be az *Átirányítás innen* (Redirect From) szakaszt az alkalmazás *Szabály szerkesztése* képernyőjén. A célpontok a `https://twitter.com/` címmel kezdődő URL-ek.
+Először állítsa be az _Átirányítás innen_ (Redirect From) szakaszt az alkalmazás _Szabály szerkesztése_ képernyőjén. A célpontok a `https://twitter.com/` címmel kezdődő URL-ek.
 
 Ebben az esetben a következő mintát adhatja meg a [Helyettesítő karakter](/rule-settings#url-pattern-wildcard) (Wildcard) módban:
 
@@ -31,13 +31,13 @@ Ehhez váltson Helyettesítő karakterről [Reguláris kifejezésre](/rule-setti
 https://(twitter|x).com/.*
 ```
 
-* `(twitter|x)`: mind a `twitter`, mind az `x` kifejezést célba veszi. (A `|` jelet *pipe*-nak nevezik.)
-* `.*`: Ugyanaz, mint a Helyettesítő karakter `*` jelzése. Pontosabban a `.` *bármilyen karaktert* jelent, a `*` pedig azt, hogy *a szimbólum előtti bármi tetszőleges számú alkalommal ismétlődik*, így bármire illeszkedik.
+- `(twitter|x)`: mind a `twitter`, mind az `x` kifejezést célba veszi. (A `|` jelet _pipe_-nak nevezik.)
+- `.*`: Ugyanaz, mint a Helyettesítő karakter `*` jelzése. Pontosabban a `.` _bármilyen karaktert_ jelent, a `*` pedig azt, hogy _a szimbólum előtti bármi tetszőleges számú alkalommal ismétlődik_, így bármire illeszkedik.
 
 A reguláris kifejezések kicsit bonyolultak, de ha egyszer hozzászokik, hatékony eszköz lesz a kezében. Javasoljuk a [RegExr](https://regexr.com) használatát gyakorlóterepként, ahol elemezheti, hogyan működik a reguláris kifejezés mintája.
 
 > [!TIP]
-> A reguláris kifejezésekben a `.` a `(twitter|x).com` részben is *bármilyen karakterként* kezelendő. Ezért a `(twitter|x).com/.*` illeszkedik például a `twitter1com/` vagy az `x_com/` címekre is.
+> A reguláris kifejezésekben a `.` a `(twitter|x).com` részben is _bármilyen karakterként_ kezelendő. Ezért a `(twitter|x).com/.*` illeszkedik például a `twitter1com/` vagy az `x_com/` címekre is.
 >
 > A pontosabb meghatározás érdekében módosíthatja erre: `(twitter|x)\.com/.*`. A `\` karaktert arra használjuk, hogy a `.` jelet valódi pontként kezeljük, ne pedig speciális karakterként.
 >
@@ -53,11 +53,17 @@ https://unrush.org/
 
 ### (Opcionális) 4. lépés: A szabály ellenőrzése
 
-Ellenőrizheti a szabály működését egy példa URL hozzáadásával a *Szabály szerkesztése* képernyő *Példák* (Examples) szakaszában. Ha például a `https://x.com/UN` címet írja be, az eredményként a `https://unrush.org/` címet mutatja.
+Ellenőrizheti a szabály működését egy példa URL hozzáadásával a _Szabály szerkesztése_ képernyő _Példák_ (Examples) szakaszában. Ha például a `https://x.com/UN` címet írja be, az eredményként a `https://unrush.org/` címet mutatja.
 
 Így kell kinéznie a szabályának most:
 
-<Image src={RuleCreationOpenAnotherWebsiteRulePreview} alt="Egy példaszabály egy másik weboldal megnyitásához" height="460" hasRoundedCorners hasShadow />
+<Image
+  src={RuleCreationOpenAnotherWebsiteRulePreview}
+  alt="Egy példaszabály egy másik weboldal megnyitásához"
+  height="460"
+  hasRoundedCorners
+  hasShadow
+/>
 
 **<a href={useBaseUrl('rules/reduce-twitter-addiction.redirectweb')} download>⬇️ Szabály letöltése</a>**
 

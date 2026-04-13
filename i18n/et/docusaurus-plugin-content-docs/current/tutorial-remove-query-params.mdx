@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Juhtum 2: Eemalda URL-ist päringuparameetrid
 
@@ -6,14 +6,14 @@ Oletame, et URL-is `example.com` on päringuparameeter `source=twitter` ja otsus
 
 Sel juhul on **püüdmisrühma töötlemise** valik kõige lihtsam viis:
 
-* **Suuna ümber alates**: `https://example.com/*` (metamärk)
-* **Suuna ümber**: `$0`
-* **Püüdmisrühma töötlemine**:
-    * **Rühm**: `$0`
-    * **Protsess**: Asendada esinemised
-        * **Sihtmärk**: `&?source=[^&]*`
-        * **Asendus**: *(puudub)*
-        * **Tekstimuster**: regulaaravaldis
+- **Suuna ümber alates**: `https://example.com/*` (metamärk)
+- **Suuna ümber**: `$0`
+- **Püüdmisrühma töötlemine**:
+  - **Rühm**: `$0`
+  - **Protsess**: Asendada esinemised
+    - **Sihtmärk**: `&?source=[^&]*`
+    - **Asendus**: _(puudub)_
+    - **Tekstimuster**: regulaaravaldis
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ Laadi reegel alla</a>**
 

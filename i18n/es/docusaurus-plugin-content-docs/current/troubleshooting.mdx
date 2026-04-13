@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -12,19 +12,36 @@ Esta página enumera problemas comunes y sus soluciones al usar RedirectWeb.
 
 <TOCInline toc={toc} />
 
-## Las reglas de redirección no funcionan {#rules-not-working}
+## Las reglas de redirección no funcionan {/* #rules-not-working */}
 
 Si tus reglas no funcionan como esperas, por favor verifica lo siguiente:
 
 - **La extensión del navegador está instalada y habilitada para la página correcta:** Asegúrate de haber instalado la extensión de RedirectWeb y de que esté habilitada en tu navegador para la página web desde la que quieres redirigir. Si puedes abrir el popup de la extensión como se muestra aquí en la página de origen, está instalada correctamente:
-    <Image src={ExtensionPopup} alt="Popup de la extensión RedirectWeb" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="Popup de la extensión RedirectWeb"
+    width="260"
+    hasShadow
+  />
 
 - **La configuración de la regla es correcta:** Revisa tus reglas de redirección en la aplicación nativa de RedirectWeb. Asegúrate de que los patrones de URL de origen, las URLs de destino y las condiciones estén configurados correctamente. Para comprobar si tu regla es válida, ingresa una URL de ejemplo en la sección Examples en la pantalla Edit Rule. Si la regla es válida, verás la URL de destino esperada debajo de tu entrada, como en esta imagen:
-    <Image src={RuleEditExampleResult} alt="Ejemplo de la pantalla de edición de reglas mostrando el resultado de una URL de ejemplo" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="Ejemplo de la pantalla de edición de reglas mostrando el resultado de una URL de ejemplo"
+    width="260"
+    hasShadow
+  />
 
-## El popup de la extensión muestra un error {#error-shown-in-extension-popup}
+## El popup de la extensión muestra un error {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="Superposición de error de RedirectWeb" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="Superposición de error de RedirectWeb"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > La aplicación RedirectWeb no se ha instalado o no funciona correctamente.  
 > Por favor, obtén la aplicación desde el App Store.
@@ -36,28 +53,41 @@ Asegúrate de haber instalado la última versión de RedirectWeb desde el [App S
 También puede que necesites reiniciar tu navegador después de instalar la aplicación nativa.
 
 > [!NOTE]
-> * Necesitas instalar la aplicación nativa de RedirectWeb para usar la extensión del navegador. La extensión por sí sola no funciona.
-> * Los usuarios de Safari no necesitan instalar la extensión por separado, ya que viene incluida con la aplicación nativa.
+>
+> - Necesitas instalar la aplicación nativa de RedirectWeb para usar la extensión del navegador. La extensión por sí sola no funciona.
+> - Los usuarios de Safari no necesitan instalar la extensión por separado, ya que viene incluida con la aplicación nativa.
 
-## La página original parpadea brevemente antes de la redirección {#original-page-flash}
+## La página original parpadea brevemente antes de la redirección {/* #original-page-flash */}
 
 Esto ocurre cuando usas reglas de redirección de tipo **Original**. Este tipo ofrece varias funciones avanzadas, pero puede provocar un breve parpadeo de la página original porque puede permitir que la página original se cargue antes de realizar la redirección.
 
 Abre la pantalla Edit Rule y cambia el **Type** a **DNR** para evitar este problema.
 
-<Image src={EditRuleDnr} alt="Popup de la extensión de RedirectWeb" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="Popup de la extensión de RedirectWeb"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
 > En Firefox, este problema no debería ocurrir incluso con el tipo Original, ya que se basa en la API WebRequest, que impide que la página original se cargue.
 
-## Se muestran errores en la ventana de Preferencias de Safari {#safari-style-loading-errors}
+## Se muestran errores en la ventana de Preferencias de Safari {/* #safari-style-loading-errors */}
 
 Puede que veas mensajes de error en la ventana de Preferencias de Safari como los siguientes:
 
-<Image src={PopupStyleLoadingError} alt="Captura de pantalla de mensajes de error en la ventana de Preferencias de Safari" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Captura de pantalla de mensajes de error en la ventana de Preferencias de Safari"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
-> * Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "popup.mobile.css" in the extension’s resources. It is an invalid path.
+> - Unable to find "toolbar-button.mobile.css" in the extension’s resources. It is an invalid path.
 
 Esto no afecta la funcionalidad de RedirectWeb. Puedes ignorarlos con seguridad.
 

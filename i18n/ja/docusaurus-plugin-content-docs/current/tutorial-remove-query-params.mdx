@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # ケース2：URLからクエリパラメータを削除する
 
@@ -6,14 +6,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 この場合、**キャプチャグループ処理**オプションが最も簡単な方法です。
 
-* **リダイレクト元**: `https://example.com/*` (ワイルドカード)
-* **リダイレクト先**: `$0`
-* **キャプチャグループ処理**:
-    * **グループ**: `$0`
-    * **処理**: 出現箇所の置換
-        * **ターゲット**: `&?source=[^&]*`
-        * **置換**: *(なし)*
-        * **テキストパターン**: 正規表現
+- **リダイレクト元**: `https://example.com/*` (ワイルドカード)
+- **リダイレクト先**: `$0`
+- **キャプチャグループ処理**:
+  - **グループ**: `$0`
+  - **処理**: 出現箇所の置換
+    - **ターゲット**: `&?source=[^&]*`
+    - **置換**: _(なし)_
+    - **テキストパターン**: 正規表現
 
 **<a href={useBaseUrl('rules/remove-parameters.redirectweb')} download>⬇️ ルールをダウンロード</a>**
 

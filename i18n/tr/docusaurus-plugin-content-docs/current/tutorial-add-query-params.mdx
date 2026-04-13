@@ -1,4 +1,4 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Durum 3: URL'ye sorgu parametreleri ekleme
 
@@ -6,10 +6,10 @@ Diyelim ki varsayılan olarak mobil düzen gösteren `example.com` adlı bir web
 
 Belki de bunu şöyle tanımlayabileceğinizi düşünüyorsunuz:
 
-*   **Şuradan Yönlendir**: `https://example.com/.*` (Normal İfade)
-*   **Şuraya Yönlendir**: `$0?layout=desktop`
+- **Şuradan Yönlendir**: `https://example.com/.*` (Normal İfade)
+- **Şuraya Yönlendir**: `$0?layout=desktop`
 
-`$0` hedef URL'yi referans alır. `example.com/hello` adresine erişmeye çalışırsanız, `example.com/hello?layout=desktop` adresine yönlendirilirsiniz. Bu özelliğe *ikame* denir.
+`$0` hedef URL'yi referans alır. `example.com/hello` adresine erişmeye çalışırsanız, `example.com/hello?layout=desktop` adresine yönlendirilirsiniz. Bu özelliğe _ikame_ denir.
 
 > [!TIP]
 > Joker Karakter modu için de ikame mevcuttur, çünkü dahili olarak Normal İfade'ye dönüştürülür.
@@ -26,9 +26,9 @@ Bu durumda, Normal İfade ile şöyle bir hariç tutulan URL deseni belirtebilir
 .*[&?]layout=[^&]*.*
 ```
 
-*   `.*`: Herhangi bir şeyle eşleşir
-*   `[&?]`: `&` veya `?` ile eşleşir
-*   `[^&]*`: `&` dışındaki herhangi bir şeyle eşleşir
+- `.*`: Herhangi bir şeyle eşleşir
+- `[&?]`: `&` veya `?` ile eşleşir
+- `[^&]*`: `&` dışındaki herhangi bir şeyle eşleşir
 
 ### Sorun 2: Mevcut parametreleri düzgün şekilde işleyememe
 
@@ -36,38 +36,36 @@ Hedef URL'de `example.com/hello?theme=dark` gibi başka sorgu parametreleri zate
 
 Bu durumda, ayarları şöyle değiştirin:
 
-*   **Şuradan Yönlendir**: `(https://example.com/[^?]*)(\?(.*))?`
-*   **Şuraya Yönlendir**: `$1?layout=desktop&$3`
+- **Şuradan Yönlendir**: `(https://example.com/[^?]*)(\?(.*))?`
+- **Şuraya Yönlendir**: `$1?layout=desktop&$3`
 
 Adım adım inceleyelim.
 
-*   `(https://example.com/[^?]*)`: `?`'nin önceki karakterine kadar olan kısmı eşleştirir.
-    *   `[^?]*` `?` dışındaki herhangi bir şeyle eşleşir.
-    *   Bu, daha sonra `$1` ile referans alabilmeniz için `()` ile sarılmıştır.
-*   `(\(.*))?`: `?` ile başlayan bir dizeyle eşleşir, bu da sorgu parametreleri anlamına gelir.
-    *   Bu aynı zamanda desenin sonundaki `?` niceleyici tarafından boş dizeyle de eşleşir, bu da *sıfır veya bir kez eşleşir* anlamına gelir.
-    *   Dış `()` ve iç `()` daha sonra `$2` ve `$3` ile referans alınabilir.
+- `(https://example.com/[^?]*)`: `?`'nin önceki karakterine kadar olan kısmı eşleştirir.
+  - `[^?]*` `?` dışındaki herhangi bir şeyle eşleşir.
+  - Bu, daha sonra `$1` ile referans alabilmeniz için `()` ile sarılmıştır.
+- `(\(.*))?`: `?` ile başlayan bir dizeyle eşleşir, bu da sorgu parametreleri anlamına gelir.
+  - Bu aynı zamanda desenin sonundaki `?` niceleyici tarafından boş dizeyle de eşleşir, bu da _sıfır veya bir kez eşleşir_ anlamına gelir.
+  - Dış `()` ve iç `()` daha sonra `$2` ve `$3` ile referans alınabilir.
 
 [RegExr](https://regexr.com) ayrıntıları anlamanıza yardımcı olabilir.
 
 > [!NOTE]
 > RegExr, `/`'yi `\` ile kaçırmadığınızda bir hata gösterir. Kaçırabilirsiniz, ancak RedirectWeb, kaçırma gerektirmeyen Apple tarafından farklı bir motor kullandığı için gerekli değildir.
 
-Bu mükemmel bir çözüm değildir, çünkü `example.com/hello` adresini `example.com/hello?layout=desktop&` adresine yönlendirir, bu da URL'nin sonunda gereksiz bir `&` içerir. Genellikle büyük bir sorun değildir, ancak kaldırmak isterseniz *Yakalama Grubu İşleme*'yi kullanabilirsiniz.
+Bu mükemmel bir çözüm değildir, çünkü `example.com/hello` adresini `example.com/hello?layout=desktop&` adresine yönlendirir, bu da URL'nin sonunda gereksiz bir `&` içerir. Genellikle büyük bir sorun değildir, ancak kaldırmak isterseniz _Yakalama Grubu İşleme_'yi kullanabilirsiniz.
 
 Sonuç olarak, nihai çıktı şudur:
 
-*   **Şuradan Yönlendir**: `(https://example.com/[^?]*)((\(.*))?)` (Normal İfade)
-*   **Şuraya Yönlendir**: `$1?layout=desktop$3`
-*   **Hariç Tutulan URL Deseni**: `.*[&?]layout=[^&]*.*` (Normal İfade)
-*   **Yakalama Grubu İşleme**:
-    *   **Grup**: `$3`
-    *   **İşlem**: Oluşumları Değiştir
-        *   **Hedef**: `\?(.*)`
-        *   **Değiştirme**: `&$1`
+- **Şuradan Yönlendir**: `(https://example.com/[^?]*)((\(.*))?)` (Normal İfade)
+- **Şuraya Yönlendir**: `$1?layout=desktop$3`
+- **Hariç Tutulan URL Deseni**: `.*[&?]layout=[^&]*.*` (Normal İfade)
+- **Yakalama Grubu İşleme**:
+  - **Grup**: `$3`
+  - **İşlem**: Oluşumları Değiştir
+    - **Hedef**: `\?(.*)`
+    - **Değiştirme**: `&$1`
 
 **<a href={useBaseUrl('rules/add-parameters.redirectweb')} download>⬇️ Kuralı İndir</a>**
 
-
 Bu sadece bir örnektir. Her sorunu ele almak için birden fazla kural da oluşturabilirsiniz. Çok daha basit olabilir.
-

@@ -1,4 +1,4 @@
-import TOCInline from '@theme/TOCInline';
+import TOCInline from "@theme/TOCInline";
 import Image from "@site/src/components/Image";
 import ExtensionPopup from "@site/static/img/extension-popup.png";
 import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
@@ -12,19 +12,36 @@ Tällä sivulla on lueteltu yleisiä ongelmia ja niiden ratkaisuja RedirectWebin
 
 <TOCInline toc={toc} />
 
-## Uudelleenohjaussäännöt eivät toimi {#rules-not-working}
+## Uudelleenohjaussäännöt eivät toimi {/* #rules-not-working */}
 
 Jos säännöt eivät toimi odotetulla tavalla, tarkista seuraavat kohdat:
 
 - **Selainlaajennus on asennettu ja otettu käyttöön oikealla sivulla:** Varmista, että olet asentanut RedirectWeb -selaimen laajennuksen ja että se on otettu käyttöön selaimessasi sillä sivulla, jolta haluat ohjata. Jos voit avata laajennuksen ponnahdusikkunan lähdesivulla kuten alla, laajennus on asennettu oikein:
-    <Image src={ExtensionPopup} alt="RedirectWeb -laajennuksen ponnahdusikkuna" width="260" hasShadow/>
+
+  <Image
+    src={ExtensionPopup}
+    alt="RedirectWeb -laajennuksen ponnahdusikkuna"
+    width="260"
+    hasShadow
+  />
 
 - **Säännön määritykset ovat oikein:** Tarkista RedirectWeb -natiivisovelluksesta uudelleenohjaussääntösi. Varmista, että lähde-URL-mallit, kohde-URL-osoitteet ja mahdolliset ehdot on määritetty oikein. Tarkistaaksesi säännön kelpoisuuden syötä esimerkkiosoite Edit Rule -näytön Examples‑kohtaan. Jos sääntö on kelvollinen, näet odotetun kohdeosoitteen syötteesi alla, kuten alla:
-    <Image src={RuleEditExampleResult} alt="Esimerkki Edit Rule -näytöstä, joka näyttää esimerkkiosoitteen tuloksen" width="260" hasShadow/>
+  <Image
+    src={RuleEditExampleResult}
+    alt="Esimerkki Edit Rule -näytöstä, joka näyttää esimerkkiosoitteen tuloksen"
+    width="260"
+    hasShadow
+  />
 
-## Laajennuksen ponnahdusikkunassa näkyy virhe {#error-shown-in-extension-popup}
+## Laajennuksen ponnahdusikkunassa näkyy virhe {/* #error-shown-in-extension-popup */}
 
-<Image src={ErrorOverlay} alt="RedirectWeb -virheilmoitus" width="260" hasShadow hasRoundedCorners/>
+<Image
+  src={ErrorOverlay}
+  alt="RedirectWeb -virheilmoitus"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > RedirectWeb -sovellusta ei ole asennettu tai se ei toimi oikein.  
 > Lataa sovellus App Storesta.
@@ -36,28 +53,41 @@ Varmista, että olet asentanut RedirectWebin uusimman version [App Storesta](htt
 Saatat joutua käynnistämään selaimesi uudelleen natiivisovelluksen asentamisen jälkeen.
 
 > [!NOTE]
-> * Sinun tulee asentaa RedirectWeb -natiivisovellus käyttääksesi selaimen laajennusta. Pelkkä laajennus ei riitä.
-> * Safari-käyttäjien ei tarvitse asentaa laajennusta erikseen, koska se sisältyy natiivisovellukseen.
+>
+> - Sinun tulee asentaa RedirectWeb -natiivisovellus käyttääksesi selaimen laajennusta. Pelkkä laajennus ei riitä.
+> - Safari-käyttäjien ei tarvitse asentaa laajennusta erikseen, koska se sisältyy natiivisovellukseen.
 
-## Alkuperäinen sivu välähtää lyhyesti ennen uudelleenohjausta {#original-page-flash}
+## Alkuperäinen sivu välähtää lyhyesti ennen uudelleenohjausta {/* #original-page-flash */}
 
 Tämä tapahtuu, kun käytät **Original**-tyyppisiä uudelleenohjaussääntöjä. Tämä tyyppi tarjoaa useita edistyneitä ominaisuuksia, mutta se voi aiheuttaa alkuperäisen sivun lyhyen välähdyksen, koska se saattaa sallia alkuperäisen sivun latautumisen ennen uudelleenohjausta.
 
 Avaa Edit Rule -näyttö ja muuta **Type** arvoksi **DNR** välttääksesi tämän ongelman.
 
-<Image src={EditRuleDnr} alt="RedirectWeb -laajennuksen ponnahdusikkuna" height="260" hasShadow hasRoundedCorners/>
+<Image
+  src={EditRuleDnr}
+  alt="RedirectWeb -laajennuksen ponnahdusikkuna"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
 
 > [!NOTE]
 > Firefoxissa tätä ongelmaa ei pitäisi esiintyä edes Original-tyypin kanssa, sillä se luottaa WebRequest-rajapintaan, joka estää alkuperäisen sivun latautumisen.
 
-## Virheitä näkyy Safarin Asetukset-ikkunassa {#safari-style-loading-errors}
+## Virheitä näkyy Safarin Asetukset-ikkunassa {/* #safari-style-loading-errors */}
 
 Saatat nähdä Safarin Asetukset -ikkunassa seuraavan kaltaisia virheilmoituksia:
 
-<Image src={PopupStyleLoadingError} alt="Näyttökuva virheilmoituksista Safarin Asetukset-ikkunassa" height="360" hasShadow hasRoundedCorners/>
+<Image
+  src={PopupStyleLoadingError}
+  alt="Näyttökuva virheilmoituksista Safarin Asetukset-ikkunassa"
+  height="360"
+  hasShadow
+  hasRoundedCorners
+/>
 
-> * Laajennuksen resursseista ei löydy tiedostoa "popup.mobile.css". Polku on virheellinen.
-> * Laajennuksen resursseista ei löydy tiedostoa "toolbar-button.mobile.css". Polku on virheellinen.
+> - Laajennuksen resursseista ei löydy tiedostoa "popup.mobile.css". Polku on virheellinen.
+> - Laajennuksen resursseista ei löydy tiedostoa "toolbar-button.mobile.css". Polku on virheellinen.
 
 Tämä ei vaikuta RedirectWebin toiminnallisuuteen. Voit turvallisesti jättää ne huomiotta.
 
