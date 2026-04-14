@@ -1,43 +1,46 @@
 import TOCInline from "@theme/TOCInline";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-# MDM-beállítások rendszergazdák számára
+# MDM beállítások rendszergazdák számára
 
-![Támogatott platformok: iOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20visionOS-white)
+A RedirectWeb támogatja az Apple Managed App Configuration (kezelt alkalmazáskonfiguráció) funkcióját, amely lehetővé teszi az Önök (informatikai rendszergazdák) számára, hogy központilag telepítsék és kezeljék az alkalmazásbeállításokat az alkalmazottak/diákok eszközein egy mobileszköz-kezelő (MDM) megoldáson keresztül, mint például a Jamf, Intune, Kandji stb.
 
-A RedirectWeb támogatja az Apple felügyelt alkalmazáskonfigurációját (Managed App Configuration), lehetővé téve Önnek (informatikai rendszergazdának), hogy az alkalmazás beállításait központilag telepítse és kezelje az alkalmazottak/diákok eszközein egy mobileszköz-kezelő (MDM) megoldáson keresztül, mint például a Jamf, Intune, Kandji stb.
-
-Ez az oldal ismerteti a konfigurálható kulcsokat, az alkalmazás viselkedését, a bevált gyakorlatokat és a korlátozásokat.
+Ez az oldal összefoglalja a konfigurálható kulcsokat, az alkalmazás viselkedését, a bevált gyakorlatokat és a korlátozásokat.
 
 <TOCInline toc={toc} />
 
 ## Áttekintés
 
-A konfigurációk MDM-en keresztül történő kiküldésével a következőket érheti el:
+> [!IMPORTANT]
+>
+> **Apple Business Manager / Apple School Manager (VPP) telepítések esetén:**
+> A szabványos RedirectWeb alkalmazás freemium In-App Purchase modellt használ, amely nem jogosult a VPP mennyiségi vásárlásra. A teljesen feloldott alkalmazás szervezetén belüli telepítéséhez kérjük, vásárolja meg a **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)** alkalmazást, amely egy kifejezetten MDM/VPP terjesztésre tervezett, előre kifizetett verzió.
 
-- **Kényszerített szabályok:** Szervezeti szintű átirányítási szabályok alkalmazása, amelyeket a felhasználók nem módosíthatnak vagy törölhetnek.
-- **Kezdeti szabályok terjesztése:** Sablon szabálykészlet terjesztése, amely alapértelmezettként szolgál az alkalmazás első indításakor.
-- **UI-vezérlés:** Hozzáférés korlátozása bizonyos funkciókhoz (például a Könyvtárhoz), és az alkalmazáson belül egyértelmű jelzés, hogy az szervezeti kezelés alatt áll.
-- **Nagy szabálykészletek lekérése (Fallback):** Az MDM-adatcsomag méretkorlátjának megkerülése a szabályok külső szerverről történő lekérésével.
+A konfigurációk MDM-en keresztüli kiküldésével a következőket érheti el:
+
+- **Kikényszerített szabályok:** Szervezeti szintű átirányítási szabályok alkalmazása, amelyeket a felhasználók nem módosíthatnak vagy törölhetnek.
+- **Kezdeti szabályterjesztés:** Egy sablon szabálykészlet terjesztése, amely alapértelmezettként szolgál az alkalmazás első indításakor.
+- **UI vezérlés:** Hozzáférés korlátozása bizonyos funkciókhoz (például a Könyvtárhoz), és az alkalmazáson belüli egyértelmű jelzés, hogy az szervezeti felügyelet alatt áll.
+- **Nagy szabályok lekérése (Fallback):** Az MDM adatcsomag-méretkorlátok megkerülése a szabályok külső szerverről történő lekérésével.
 
 ## Felhasználási esetek
 
-- **Zökkenőmentes útválasztás rendszerátállások során:**
-  Amikor egy régi belső rendszerről (pl. `legacy-crm.internal.local`) egy új platformra (pl. `salesforce.com`) állnak át, terjesszen egy `enforcedRuleSet`-et. Még ha az alkalmazottak a régi könyvjelzőket használják is, automatikusan az új rendszerbe irányítják őket, kiküszöbölve az elavult hivatkozásokkal kapcsolatos IT-támogatási jegyeket.
-- **Intranet hozzáférési segítség:**
-  Terjesszen átirányítási szabályokat egyéni URL-sémák használatával, hogy megkönnyítse az intranet erőforrásokhoz való hozzáférést alkalmazásszintű VPN-alagutakon keresztül, mint például az Omnissa Web.
+- **Zökkenőmentes útválasztás rendszermigrációk során:**
+  Amikor egy régi belső rendszerről (pl. `legacy-crm.internal.local`) egy új platformra (pl. `salesforce.com`) migrál, terjesszen egy `enforcedRuleSet`-et. Még ha az alkalmazottak régi könyvjelzőket is használnak, automatikusan átirányításra kerülnek az új rendszerbe, kiküszöbölve az elavult linkekkel kapcsolatos informatikai támogatási jegyeket.
+- **Intranetes hozzáférés segítése:**
+  Terjesszen átirányítási szabályokat egyedi URL-sémák használatával, hogy megkönnyítse az intranetes erőforrásokhoz való hozzáférést alkalmazásonkénti VPN-alagutakon keresztül, mint például az Omnissa Web.
 
 > [!WARNING]
 >
-> Az MDM-konfigurációs frissítések **csak akkor kerülnek azonnal alkalmazásra, ha a felhasználó megnyitja a RedirectWeb alkalmazást**.
-> Bár az alkalmazás háttérfeladatokat használ az MDM-frissítések csendes átküldéséhez a böngészőbővítménybe, ez az operációs rendszer által diktált "legjobb erőfeszítés" alapú végrehajtás. A végrehajtás időzítése rendkívül kiszámíthatatlan, és előfordulhat, hogy a feladat egyáltalán nem fut le.
-> Ezért erre a funkcióra **nem** szabad támaszkodni időkritikus incidenskezelés esetén (pl. kísérlet az összes alkalmazott azonnali átirányítására egy tartalék webhelyre egy felhőszolgáltatás kiesését követő percekben).
+> Az MDM konfigurációs frissítések azonnal alkalmazásra kerülnek, **de csak akkor, ha a felhasználó megnyitja a RedirectWeb alkalmazást**.
+> Bár az alkalmazás háttérfeladatokat használ az MDM frissítések csendes továbbítására a böngészőbővítménynek, ez egy "best-effort" (legjobb törekvés szerinti) végrehajtás, amelyet az operációs rendszer határoz meg. A végrehajtás időzítése kiszámíthatatlan, és előfordulhat, hogy a feladat egyáltalalán nem fut le.
+> Ezért erre a funkcióra **nem** szabad támaszkodni időkritikus incidenskezelés esetén (pl. kísérlet az összes alkalmazott azonnali átirányítására egy tartalék oldalra egy felhőszolgáltatás kiesését követő perceken belül).
 
 ## Demó
 
 <video
   src={useBaseUrl("/videos/mdm-settings-demo.mov")}
-  title="MDM-beállítások demó"
+  title="MDM beállítások demó"
   autoPlay
   playsInline
   muted
@@ -48,28 +51,28 @@ A konfigurációk MDM-en keresztül történő kiküldésével a következőket 
 
 A videóban használt plist fájl itt érhető el: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
-A videóban a ManageEngine MDM-jét használtuk a konfiguráció telepítéséhez, de ugyanez a konfiguráció más MDM-megoldásokkal is használható, amennyiben támogatják az Apple felügyelt alkalmazáskonfigurációját.
+A videóban a ManageEngine MDM-jét használtuk a konfiguráció telepítéséhez, de ugyanez a konfiguráció más MDM megoldásokkal is használható, amennyiben támogatják az Apple Managed App Configuration funkcióját.
 
 ## Konfigurálható kulcsok
 
-Telepítse a következő kulcsokat és értékeket a felügyelt alkalmazáskonfigurációhoz az MDM-konzolon keresztül, általában plist formátumban.
+Telepítse a következő kulcsokat és értékeket a Managed App Configuration-höz az MDM konzolján keresztül, általában plist formátumban.
 
-| Kulcs neve             | Típus                              | Leírás                                                                                                                                                                                                                                                                                                                                                                                      |
-| ---------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Szabálykészlet](#rule-set-object) | **[Kényszerített szabályok]** Egy magasabb prioritással alkalmazott szabálykészlet, mint a normál szabályok. A listában szereplő első szabály élvez elsőbbséget. A felhasználók nem szerkeszthetik, törölhetik vagy rendezhetik át ezeket a szabályokat. Mindig aktívak, figyelmen kívül hagyva az alkalmazás globális letiltó kapcsolóját, és nem szinkronizálódnak az iCloudon keresztül. |
-| `prefilledRuleSet`     | [Szabálykészlet](#rule-set-object) | **[Kezdeti szabályok]** Egy szabálykészlet, amely az alapértelmezett példaszabály helyett jön létre, amikor a felhasználó először indítja el az alkalmazást meglévő szabályok nélkül. A terjesztés után ezek normál szabályokként működnek, lehetővé téve a felhasználói módosítást, törlést és az iCloud-szinkronizálást.                                                                  |
-| `organizationName`     | String                             | Megjeleníti a "Kezeli: [organizationName]" feliratot az alkalmazáson belüli beállítások képernyő tetején, jelezve a felhasználónak, hogy az alkalmazás felügyelt.                                                                                                                                                                                                                           |
-| `managedConfigVersion` | String                             | Egy tetszőleges verziókarakterlánc a konfigurációhoz. Megjelenik a felhasználói felületen, lehetővé téve az informatikai támogatás számára, hogy hibaelhárításkor ellenőrizze, megérkezett-e a legfrissebb MDM-adatcsomag az eszközre.                                                                                                                                                      |
-| `showsLibrarySection`  | Boolean                            | Ha `false` értékre van állítva, a Szabálykönyvtár funkció rejtett marad, és a szakasz helyén egy "A szervezet korlátozta." hibaüzenet jelenik meg.                                                                                                                                                                                                                                          |
-| `fallback`             | [Fallback](#fallback-object)       | Adja meg ezt, ha a konfigurációk meghaladják az MDM-adatcsomag korlátait. Az alkalmazás JSON/XML fájlt fog lekérni erről az URL-ről a konfiguráció alkalmazásához.                                                                                                                                                                                                                          |
+| Kulcs neve             | Típus                              | Leírás                                                                                                                                                                                                                                                                                                                                                                                |
+| ---------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Szabálykészlet](#rule-set-object) | **[Kikényszerített szabályok]** A normál szabályoknál magasabb prioritással alkalmazott szabálykészlet. A listában szereplő első szabály élvez elsőbbséget. A felhasználók nem szerkeszthetik, törölhetik vagy rendezhetik át ezeket a szabályokat. Mindig aktívak, figyelmen kívül hagyva az alkalmazás globális kikapcsoló gombját, és nem szinkronizálódnak az iCloudon keresztül. |
+| `prefilledRuleSet`     | [Szabálykészlet](#rule-set-object) | **[Kezdeti szabályok]** Egy szabálykészlet, amely az alapértelmezett példaszabály helyett jön létre, amikor a felhasználó először indítja el az alkalmazást meglévő szabályok nélkül. A terjesztés után ezek normál szabályként működnek, lehetővé téve a felhasználói módosítást, törlést és az iCloud szinkronizálást.                                                              |
+| `organizationName`     | String                             | Megjeleníti a "Kezeli: [organizationName]" feliratot az alkalmazáson belüli beállítások képernyő tetején, jelezve a felhasználónak, hogy az alkalmazás felügyelt.                                                                                                                                                                                                                     |
+| `managedConfigVersion` | String                             | Tetszőleges verziókarakterlánc a konfigurációhoz. Megjelenik a felhasználói felületen, lehetővé téve az informatikai támogatás számára, hogy hibaelhárításkor ellenőrizze, megérkezett-e a legújabb MDM adatcsomag az eszközre.                                                                                                                                                       |
+| `showsLibrarySection`  | Boolean                            | Ha `false` értékre van állítva, a Szabálykönyvtár funkció elrejtésre kerül, és a szakaszt a "Szervezete korlátozta." hibaüzenet váltja fel.                                                                                                                                                                                                                                           |
+| `fallback`             | [Fallback](#fallback-object)       | Akkor adja meg, ha a konfigurációk meghaladják az MDM adatcsomag-korlátokat. Az alkalmazás erről az URL-ről fogja lekérni a JSON/XML-t a konfiguráció alkalmazásához.                                                                                                                                                                                                                 |
 
 Ezek a kulcsok mind opcionálisak.
 
 ### [Objektum] Szabálykészlet {/* #rule-set-object */}
 
-Minden szabályobjektum ugyanolyan formátumú, mint amit az [alkalmazáson keresztül megoszthat/exportálhat](export-or-import-rules), de át kell alakítania JSON-ból plist formátumba, így:
+Minden szabályobjektum ugyanolyan formátumú, mint az [alkalmazáson keresztül megosztható/exportálható](export-or-import-rules) objektum, de JSON-ból plist formátumba kell konvertálnia, így:
 
-```plist
+```xml
 ...
 	<key>enforcedRuleSet</key>
 	<dict>
@@ -87,7 +90,7 @@ Minden szabályobjektum ugyanolyan formátumú, mint amit az [alkalmazáson kere
 				<key>type</key>
 				<string>originalRedirect</string>
 				<key>title</key>
-				<string>Az én kényszerített szabályom</string>
+				<string>My enforced Rule</string>
 				<key>sourceURLPattern</key>
 				<dict>
 					<key>type</key>
@@ -105,30 +108,30 @@ Minden szabályobjektum ugyanolyan formátumú, mint amit az [alkalmazáson kere
 
 ### [Objektum] Fallback {/* #fallback-object */}
 
-| Kulcs neve        | Típus        | Leírás                                                                                                                                         |
-| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | Egy szabálykészleteket tartalmazó JSON/XML fájl végpontjának URL-je.                                                                           |
-| `authToken`       | String       | Egy hitelesítési token, amely az HTTP-fejléchez lesz fűzve a `fallbackDataURL` lekérésekor. (Használata: `Authorization: Bearer [authToken]`). |
+| Kulcs neve        | Típus        | Leírás                                                                                                                                 |
+| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Egy szabálykészleteket tartalmazó JSON/XML fájl végpont URL-je.                                                                        |
+| `authToken`       | String       | A `fallbackDataURL`-ről való lekéréskor a HTTP fejléchez fűzött hitelesítési token. (Használata: `Authorization: Bearer [authToken]`). |
 
-## Szabálykiértékelés és konfliktusfeloldás
+## Szabálykiértékelés és konfliktuskezelés
 
 1. Ha meg van adva `enforcedRuleSet`, annak szabályai abszolút prioritással kerülnek alkalmazásra.
-2. Ha nincsenek normál szabályok, de létezik `prefilledRuleSet`, akkor a `prefilledRuleSet` mentésre kerül normál szabályként.
-3. Az alapértelmezett "Példa átirányítási szabály" csak akkor jön létre, ha nincsenek MDM-szabályok konfigurálva, és nincsenek normál szabályok sem.
+2. Ha nincsenek normál szabályok, de létezik `prefilledRuleSet`, akkor a `prefilledRuleSet` normál szabályként kerül mentésre.
+3. Az alapértelmezett "Példa átirányítási szabály" csak akkor jön létre, ha nincsenek MDM szabályok konfigurálva, és nincsenek normál szabályok.
 
-## A Fallback URL viselkedése
+## Fallback URL viselkedése
 
-Ha egy kulcs mind a beágyazott MDM-adatcsomagban, mind a `fallbackDataURL` útján lekért adatokban szerepel, az alkalmazás a következőképpen kezeli a konfliktust:
+Ha egy kulcs mind a beágyazott MDM adatcsomagban, mind a `fallbackDataURL`-en keresztül lekért adatokban szerepel, az alkalmazás a következőképpen kezeli a konfliktust:
 
-- **A lekérés befejezése előtt:** A beágyazott beállítások szigorú prioritást élveznek és kerülnek felhasználásra.
-- **Sikeres lekérés után:** A `fallbackDataURL` címről lekért adatok felülírják a megfelelő beágyazott beállításokat.
+- **A lekérés befejezése előtt:** A beágyazott beállítások szigorú prioritást élveznek és használatban vannak.
+- **Sikeres lekérés után:** A `fallbackDataURL`-ről lekért adatok felülírják a megfelelő beágyazott beállításokat.
 - **Sikertelen lekérés után:** Az alkalmazás továbbra is a beágyazott beállításokat használja.
 - A csak a beágyazott adatcsomagban létező független kulcsok megmaradnak.
 
-## MDM-visszajelzés és állapotellenőrzés
+## MDM visszajelzés és állapotellenőrzés
 
-A konfiguráció sikeres alkalmazását az MDM-visszajelzési csatornán (`com.apple.feedback.managed`) keresztül ellenőrizheti, ha az MDM-megoldása támogatja azt. A konfiguráció feldolgozása (vagy az URL-lekérés befejezése) után az alkalmazás a következő adatokat küldi vissza:
+Ellenőrizheti, hogy a konfiguráció alkalmazása sikeres volt-e az MDM visszajelzési csatornán (`com.apple.feedback.managed`) keresztül, ha az MDM megoldása támogatja azt. A konfiguráció feldolgozása (vagy az URL-lekérés befejezése) után az alkalmazás a következő adatokat küldi vissza:
 
 - `managedConfigVersion`: A konfigurációs kísérlet verziókarakterlánca.
-- `result`: `success` vagy `error`.
-- `messages`: Egy tömb, amely részletes hiba- vagy figyelmeztető üzeneteket tartalmaz, ha vannak ilyenek.
+- `result`: Vagy `success` (siker), vagy `error` (hiba).
+- `messages`: Részletes hiba- vagy figyelmeztető üzeneteket tartalmazó tömb, ha van ilyen.

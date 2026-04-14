@@ -3,41 +3,44 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Ustawienia MDM dla administratorów
 
-![Obsługiwane platformy: iOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20visionOS-white)
+RedirectWeb obsługuje funkcję Managed App Configuration firmy Apple, umożliwiając (administratorom IT) centralne wdrażanie i zarządzanie ustawieniami aplikacji na urządzeniach pracowników lub uczniów za pomocą rozwiązania Mobile Device Management (MDM), takiego jak Jamf, Intune, Kandji itp.
 
-RedirectWeb obsługuje funkcję Managed App Configuration firmy Apple, co pozwala (administratorom IT) na centralne wdrażanie ustawień aplikacji i zarządzanie nimi na urządzeniach pracowników/uczniów za pomocą rozwiązania do zarządzania urządzeniami mobilnymi (MDM), takiego jak Jamf, Intune, Kandji itp.
-
-Ta strona opisuje klucze konfiguracyjne, zachowanie aplikacji, najlepsze praktyki i ograniczenia.
+Ta strona opisuje konfigurowalne klucze, zachowania aplikacji, najlepsze praktyki oraz ograniczenia.
 
 <TOCInline toc={toc} />
 
-## Omówienie
+## Przegląd
 
-Wypychając konfiguracje przez MDM, można osiągnąć następujące cele:
+> [!IMPORTANT]
+>
+> **W przypadku wdrożeń przez Apple Business Manager / Apple School Manager (VPP):**
+> Standardowa aplikacja RedirectWeb korzysta z modelu freemium z zakupami wewnątrz aplikacji (In-App Purchase), co sprawia, że nie kwalifikuje się do zakupów grupowych VPP. Aby wdrożyć w pełni odblokowaną aplikację w swojej organizacji, należy zakupić aplikację **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)**, która jest wersją płatną z góry, zaprojektowaną specjalnie do dystrybucji przez MDM/VPP.
 
-- **Wymuszone reguły:** Stosowanie ogólnofirmowych reguł przekierowań, których użytkownicy nie mogą modyfikować ani usuwać.
-- **Wstępna dystrybucja reguł:** Dystrybucja zestawu reguł szablonowych, który służy jako domyślny przy pierwszym uruchomieniu aplikacji.
-- **Kontrola interfejsu użytkownika:** Ograniczenie dostępu do określonych funkcji (takich jak Biblioteka) i wyraźne wskazanie w aplikacji, że podlega ona zarządzaniu przez organizację.
-- **Pobieranie dużych zestawów reguł (Fallback):** Obejście limitów rozmiaru danych MDM poprzez pobieranie reguł z zewnętrznego serwera.
+Przesyłając konfigurację za pośrednictwem MDM, możesz osiągnąć następujące cele:
+
+- **Wymuszone reguły:** Stosowanie ogólnorganizacyjnych reguł przekierowań, których użytkownicy nie mogą modyfikować ani usuwać.
+- **Wstępna dystrybucja reguł:** Udostępnianie zestawu reguł szablonowych, które służą jako domyślne przy pierwszym uruchomieniu aplikacji.
+- **Kontrola interfejsu użytkownika:** Ograniczenie dostępu do określonych funkcji (takich jak Biblioteka) i wyraźne wskazanie w aplikacji, że jest ona zarządzana przez organizację.
+- **Pobieranie dużych zestawów reguł (Fallback):** Ominięcie limitów rozmiaru danych MDM poprzez pobieranie reguł z zewnętrznego serwera.
 
 ## Przypadki użycia
 
-- **Bezproblemowe kierowanie podczas migracji systemów:**
-  Podczas migracji ze starego systemu wewnętrznego (np. `legacy-crm.internal.local`) na nową platformę (np. `salesforce.com`), należy udostępnić `enforcedRuleSet`. Nawet jeśli pracownicy korzystają ze starych zakładek, zostaną one automatycznie przekierowane do nowego systemu, co eliminuje zgłoszenia do pomocy technicznej IT dotyczące nieaktualnych linków.
+- **Bezproblemowe kierowanie ruchu podczas migracji systemów:**
+  W przypadku migracji ze starego systemu wewnętrznego (np. `legacy-crm.internal.local`) na nową platformę (np. `salesforce.com`), należy udostępnić `enforcedRuleSet`. Nawet jeśli pracownicy użyją starych zakładek, zostaną automatycznie przekierowani do nowego systemu, co eliminuje zgłoszenia do wsparcia IT dotyczące nieaktualnych linków.
 - **Pomoc w dostępie do intranetu:**
-  Dystrybucja reguł przekierowań przy użyciu niestandardowych schematów URL w celu ułatwienia dostępu do zasobów intranetu za pośrednictwem tuneli Per-App VPN, takich jak Omnissa Web.
+  Dystrybucja reguł przekierowań wykorzystujących niestandardowe schematy URL w celu ułatwienia dostępu do zasobów intranetowych za pośrednictwem tuneli Per-App VPN, takich jak Omnissa Web.
 
 > [!WARNING]
 >
-> Wypchnięcie konfiguracji MDM jest stosowane natychmiast **tylko wtedy, gdy użytkownik otworzy aplikację RedirectWeb**.
-> Chociaż aplikacja wykorzystuje zadania w tle do cichego przesyłania aktualizacji MDM do rozszerzenia przeglądarki, jest to wykonywane na zasadzie "najlepszych starań" podyktowanych przez system operacyjny. Czas wykonania jest wysoce nieprzewidywalny, a zadanie może w ogóle nie zostać uruchomione.
-> Dlatego nie należy polegać na tej funkcji w przypadku zdarzeń krytycznych czasowo (np. próby natychmiastowego przekierowania wszystkich pracowników do witryny zapasowej w ciągu kilku minut od awarii usługi w chmurze).
+> Aktualizacje konfiguracji MDM są stosowane natychmiast **tylko wtedy, gdy użytkownik otworzy aplikację RedirectWeb**.
+> Chociaż aplikacja wykorzystuje zadania w tle do cichego przesyłania aktualizacji MDM do rozszerzenia przeglądarki, jest to wykonanie typu "best-effort" (zależne od możliwości systemu), o którym decyduje system operacyjny. Czas wykonania jest wysoce nieprzewidywalny, a zadanie może nie zostać uruchomione wcale.
+> Dlatego nie należy polegać na tej funkcji w sytuacjach krytycznych czasowo (np. próba natychmiastowego przekierowania wszystkich pracowników na stronę zapasową w ciągu kilku minut od awarii usługi chmurowej).
 
 ## Demo
 
 <video
   src={useBaseUrl("/videos/mdm-settings-demo.mov")}
-  title="Demo ustawień MDM"
+  title="MDM Settings Demo"
   autoPlay
   playsInline
   muted
@@ -48,28 +51,28 @@ Wypychając konfiguracje przez MDM, można osiągnąć następujące cele:
 
 Plik plist użyty w filmie jest dostępny tutaj: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
-W filmie do wdrożenia konfiguracji użyto MDM firmy ManageEngine, ale tę samą konfigurację można zastosować w innych rozwiązaniach MDM, o ile obsługują one funkcję Managed App Configuration firmy Apple.
+W filmie do wdrożenia konfiguracji użyto rozwiązania ManageEngine MDM, ale ta sama konfiguracja może być stosowana w innych rozwiązaniach MDM, o ile obsługują one funkcję Managed App Configuration firmy Apple.
 
-## Klucze konfiguracyjne
+## Konfigurowalne klucze
 
 Wdróż następujące klucze i wartości dla Managed App Configuration za pośrednictwem konsoli MDM, zazwyczaj w formacie plist.
 
-| Nazwa klucza           | Typ                              | Opis                                                                                                                                                                                                                                                                                                                  |
-| ---------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Zestaw reguł](#rule-set-object) | **[Wymuszone reguły]** Zestaw reguł stosowany z wyższym priorytetem niż normalne reguły. Pierwsza reguła na liście ma pierwszeństwo. Użytkownicy nie mogą edytować, usuwać ani zmieniać kolejności tych reguł. Są one zawsze aktywne, ignorując globalny przełącznik aplikacji, i nie synchronizują się przez iCloud. |
-| `prefilledRuleSet`     | [Zestaw reguł](#rule-set-object) | **[Reguły wstępne]** Zestaw reguł utworzony w miejsce domyślnej przykładowej reguły, gdy użytkownik uruchamia aplikację po raz pierwszy bez istniejących reguł. Po dystrybucji działają one jako normalne reguły, umożliwiając użytkownikowi modyfikację, usuwanie i synchronizację przez iCloud.                     |
-| `organizationName`     | String                           | Wyświetla informację „Zarządzane przez [organizationName]” u góry ekranu ustawień w aplikacji, wskazując użytkownikowi, że aplikacja jest zarządzana.                                                                                                                                                                 |
-| `managedConfigVersion` | String                           | Dowolny ciąg znaków wersji dla konfiguracji. Wyświetlany w interfejsie użytkownika, umożliwiając wsparciu IT sprawdzenie podczas rozwiązywania problemów, czy najnowsze dane MDM dotarły do urządzenia.                                                                                                               |
-| `showsLibrarySection`  | Boolean                          | Jeśli ustawiono na `false`, funkcja Biblioteki reguł jest ukryta, a sekcja zostaje zastąpiona komunikatem o błędzie „Ograniczone przez Twoją organizację”.                                                                                                                                                            |
-| `fallback`             | [Fallback](#fallback-object)     | Należy określić to, gdy konfiguracje przekraczają limity danych MDM. Aplikacja pobierze format JSON/XML z tego adresu URL, aby zastosować konfigurację.                                                                                                                                                               |
+| Nazwa klucza           | Typ                              | Opis                                                                                                                                                                                                                                                                                                                |
+| ---------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Zestaw reguł](#rule-set-object) | **[Reguły wymuszone]** Zestaw reguł stosowany z wyższym priorytetem niż normalne reguły. Pierwsza reguła na liście ma pierwszeństwo. Użytkownicy nie mogą edytować, usuwać ani zmieniać kolejności tych reguł. Są one zawsze aktywne, ignorują globalny przełącznik aplikacji i nie synchronizują się przez iCloud. |
+| `prefilledRuleSet`     | [Zestaw reguł](#rule-set-object) | **[Reguły wstępne]** Zestaw reguł tworzony zamiast domyślnej reguły przykładowej, gdy użytkownik uruchamia aplikację po raz pierwszy bez istniejących reguł. Po dystrybucji działają one jak normalne reguły, umożliwiając modyfikację, usuwanie i synchronizację przez iCloud.                                     |
+| `organizationName`     | String                           | Wyświetla komunikat "Zarządzane przez [organizationName]" u góry ekranu ustawień w aplikacji, informując użytkownika, że aplikacja jest zarządzana.                                                                                                                                                                 |
+| `managedConfigVersion` | String                           | Dowolny ciąg znaków określający wersję konfiguracji. Wyświetlany w interfejsie użytkownika, umożliwiając wsparciu IT weryfikację, czy najnowsza konfiguracja MDM dotarła do urządzenia podczas rozwiązywania problemów.                                                                                             |
+| `showsLibrarySection`  | Boolean                          | Jeśli ustawione na `false`, funkcja Biblioteki Reguł jest ukryta, a sekcja zostaje zastąpiona komunikatem o błędzie "Ograniczone przez Twoją organizację".                                                                                                                                                          |
+| `fallback`             | [Fallback](#fallback-object)     | Należy określić to, gdy konfiguracje przekraczają limity rozmiaru danych MDM. Aplikacja pobierze dane JSON/XML z tego adresu URL, aby zastosować konfigurację.                                                                                                                                                      |
 
-Te klucze są opcjonalne.
+Wszystkie te klucze są opcjonalne.
 
 ### [Obiekt] Zestaw reguł {/* #rule-set-object */}
 
-Każdy obiekt reguły ma taki sam format jak ten, który można [udostępnić/wyeksportować za pomocą aplikacji](export-or-import-rules), ale należy go przekonwertować z formatu JSON na plist, w ten sposób:
+Każdy obiekt reguły ma taki sam format jak ten, który można [udostępnić/wyeksportować z aplikacji](export-or-import-rules), ale należy go przekonwertować z formatu JSON na plist, w ten sposób:
 
-```plist
+```xml
 ...
 	<key>enforcedRuleSet</key>
 	<dict>
@@ -105,30 +108,30 @@ Każdy obiekt reguły ma taki sam format jak ten, który można [udostępnić/wy
 
 ### [Obiekt] Fallback {/* #fallback-object */}
 
-| Nazwa klucza      | Typ          | Opis                                                                                                                                                  |
-| ----------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | Adres URL punktu końcowego pliku JSON/XML zawierającego zestawy reguł.                                                                                |
-| `authToken`       | String       | Token uwierzytelniający dołączany do nagłówka HTTP podczas pobierania z adresu `fallbackDataURL`. (Używany jako `Authorization: Bearer [authToken]`). |
+| Nazwa kluzy       | Typ          | Opis                                                                                                                                           |
+| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Adres URL punktu końcowego pliku JSON/XML zawierającego zestawy reguł.                                                                         |
+| `authToken`       | String       | Token uwierzytelniający dołączany do nagłówka HTTP podczas pobierania z `fallbackDataURL`. (Używany jako `Authorization: Bearer [authToken]`). |
 
-## Ocena reguł i rozstrzyganie konfliktów
+## Ewaluacja reguł i rozstrzyganie konfliktów
 
-1. Jeśli podano `enforcedRuleSet`, jego reguły są stosowane z bezwzględnym priorytetem.
-2. Jeśli nie ma normalnych reguł, ale istnieje `prefilledRuleSet`, `prefilledRuleSet` jest zapisywany jako normalne reguły.
-3. Domyślna "Przykładowa reguła przekierowania" jest generowana tylko wtedy, gdy nie skonfigurowano reguł MDM i nie ma normalnych reguł.
+1. Jeśli dostarczono `enforcedRuleSet`, jego reguły są stosowane z bezwzględnym priorytetem.
+2. Jeśli nie ma normalnych reguł, ale istnieje `prefilledRuleSet`, `prefilledRuleSet` zostaje zapisany jako reguły normalne.
+3. Domyślna "Przykładowa reguła przekierowania" jest generowana tylko wtedy, gdy nie skonfigurowano żadnych reguł MDM i nie ma żadnych normalnych reguł.
 
-## Zachowanie adresu URL Fallback
+## Zachowanie Fallback URL
 
-Gdy klucz istnieje zarówno w danych MDM, jak i w danych pobranych za pośrednictwem `fallbackDataURL`, aplikacja rozwiązuje konflikt w następujący sposób:
+Gdy klucz istnieje zarówno w danych przesyłanych bezpośrednio przez MDM, jak i w danych pobranych za pośrednictwem `fallbackDataURL`, aplikacja rozwiązuje konflikt w następujący sposób:
 
-- **Przed zakończeniem pobierania:** Ustawienia bezpośrednie mają bezwzględny priorytet i są używane.
-- **Po pomyślnym pobraniu:** Dane pobrane z `fallbackDataURL` nadpisują odpowiadające im ustawienia bezpośrednie.
-- **Po nieudanym pobraniu:** Aplikacja nadal korzysta z ustawień bezpośrednich.
-- Niezależne klucze, które istnieją tylko w danych bezpośrednich, zostają zachowane.
+- **Przed zakończeniem pobierania:** Ustawienia przesyłane bezpośrednio mają ścisły priorytet i są używane.
+- **Po pomyślnym pobraniu:** Dane pobrane z `fallbackDataURL` nadpisują odpowiadające im ustawienia przesyłane bezpośrednio.
+- **Po nieudanym pobraniu:** Aplikacja nadal korzysta z ustawień przesyłanych bezpośrednio.
+- Niezależne klucze, które istnieją tylko w danych przesyłanych bezpośrednio, zostają zachowane.
 
 ## Informacje zwrotne MDM i sprawdzanie statusu
 
-Możesz zweryfikować, czy konfiguracja została pomyślnie zastosowana, za pośrednictwem kanału informacji zwrotnych MDM (`com.apple.feedback.managed`), jeśli Twoje rozwiązanie MDM go obsługuje. Po przetworzeniu konfiguracji (lub zakończeniu pobierania z adresu URL) aplikacja zwraca następujące dane:
+Możesz zweryfikować, czy konfiguracja została pomyślnie zastosowana, za pośrednictwem kanału informacji zwrotnej MDM (`com.apple.feedback.managed`), jeśli Twoje rozwiązanie MDM go obsługuje. Po przetworzeniu konfiguracji (lub zakończeniu pobierania z adresu URL) aplikacja zwraca następujące dane:
 
 - `managedConfigVersion`: Ciąg znaków wersji próby konfiguracji.
-- `result`: `success` (sukces) lub `error` (błąd).
+- `result`: Albo `success` (sukces), albo `error` (błąd).
 - `messages`: Tablica zawierająca szczegółowe komunikaty o błędach lub ostrzeżeniach, jeśli dotyczy.

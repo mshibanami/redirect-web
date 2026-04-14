@@ -3,35 +3,38 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM-indstillinger for administratorer
 
-![Supported Platforms: iOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20visionOS-white)
+RedirectWeb understøtter Apples Managed App Configuration, hvilket gør det muligt for dig (it-administratorer) at udrulle og administrere app-indstillinger centralt på tværs af medarbejder-/studenterenheder via en Mobile Device Management-løsning (MDM), såsom Jamf, Intune, Kandji osv.
 
-RedirectWeb understøtter Apples Managed App Configuration, hvilket giver dig (it-administratorer) mulighed for at implementere og administrere app-indstillinger centralt på tværs af medarbejderes/studerendes enheder via en Mobile Device Management (MDM)-løsning, såsom Jamf, Intune, Kandji osv.
-
-Denne side beskriver de konfigurerbare nøgler, app-adfærd, bedste praksis og begrænsninger.
+Denne side beskriver de konfigurerbare nøgler, appens adfærd, bedste praksis og begrænsninger.
 
 <TOCInline toc={toc} />
 
 ## Oversigt
 
-Ved at udrulle konfigurationer gennem din MDM kan du opnå følgende:
+> [!IMPORTANT]
+>
+> **For udrulning via Apple Business Manager / Apple School Manager (VPP):**
+> Standardappen RedirectWeb bruger en freemium In-App Purchase-model, som ikke er berettiget til VPP-volumenindkøb. For at udrulle den fuldt oplåste app til din organisation skal du købe **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)**-appen, som er en version med forudbetaling designet specifikt til MDM/VPP-distribution.
+
+Ved at skubbe konfigurationer gennem din MDM kan du opnå følgende:
 
 - **Håndhævede regler:** Anvend organisationsdækkende omdirigeringsregler, som brugere ikke kan ændre eller slette.
-- **Indledende regeldistribution:** Distribuer et sæt af standardskabelonregler, der fungerer som standard ved appens første start.
-- **UI-kontrol:** Begræns adgangen til specifikke funktioner (som biblioteket) og angiv tydeligt i appen, at den er under organisatorisk administration.
-- **Hentning af store regelsæt (Fallback):** Omgå MDM-payload-størrelsesgrænser ved at hente regler fra en ekstern server.
+- **Indledende regeldistribution:** Distribuer et sæt skabelonregler, der fungerer som standard ved appens første start.
+- **Brugerfladekontrol:** Begræns adgangen til specifikke funktioner (som biblioteket) og angiv tydeligt i appen, at den er under organisatorisk ledelse.
+- **Hentning af store regelsæt (Fallback):** Omgå grænser for MDM-payload-størrelse ved at hente regler fra en ekstern server.
 
-## Anvendelsesscenarier
+## Brugsscenarier
 
 - **Sømløs routing under systemmigreringer:**
-  Når du migrerer fra et ældre internt system (f.eks. `legacy-crm.internal.local`) til en ny platform (f.eks. `salesforce.com`), kan du distribuere et `enforcedRuleSet`. Selvom medarbejdere bruger gamle bogmærker, omdirigeres de automatisk til det nye system, hvilket eliminerer it-supporthenvendelser vedrørende forældede links.
-- **Hjælp til intranetadgang:**
+  Når du migrerer fra et ældre internt system (f.eks. `legacy-crm.internal.local`) til en ny platform (f.eks. `salesforce.com`), skal du distribuere et `enforcedRuleSet`. Selvom medarbejdere bruger gamle bogmærker, bliver de automatisk omdirigeret til det nye system, hvilket eliminerer it-supporthenvendelser vedrørende forældede links.
+- **Hjælp til adgang til intranet:**
   Distribuer omdirigeringsregler ved hjælp af brugerdefinerede URL-skemaer for at lette adgangen til intranetressourcer via Per-App VPN-tunneler, såsom Omnissa Web.
 
 > [!WARNING]
 >
 > MDM-konfigurationsopdateringer anvendes kun med det samme, **hvis brugeren åbner RedirectWeb-appen**.
-> Selvom appen bruger baggrundsopgaver til lydløst at udrulle MDM-opdateringer til browserudvidelsen, er dette en "best-effort"-udførelse dikteret af operativsystemet. Tidspunktet for udførelsen er meget uforudsigeligt, og opgaven kører måske slet ikke.
-> Derfor bør denne funktion **ikke** benyttes til tidskritiske hændelsesresponser (f.eks. ved forsøg på øjeblikkeligt at omdirigere alle medarbejdere til et backupsite inden for få minutter efter et nedbrud i en cloudtjeneste).
+> Selvom appen benytter baggrundsopgaver til at skubbe MDM-opdateringer til browserudvidelsen lydløst, er dette en "best-effort"-udførelse dikteret af operativsystemet. Tidspunktet for udførelsen er meget uforudsigeligt, og opgaven kører muligvis slet ikke.
+> Derfor bør denne funktion **ikke** bruges til tidskritisk hændelseshåndtering (f.eks. forsøg på øjeblikkeligt at omdirigere alle medarbejdere til et backupsite inden for få minutter efter et nedbrud i en cloudtjeneste).
 
 ## Demo
 
@@ -52,16 +55,16 @@ I videoen blev ManageEngines MDM brugt til at udrulle konfigurationen, men den s
 
 ## Konfigurerbare nøgler
 
-Udrul følgende nøgler og værdier for Managed App Configuration via din MDM-konsol, typisk i plist-format.
+Udrul følgende nøgler og værdier til Managed App Configuration via din MDM-konsol, typisk i plist-formatet.
 
-| Nøglenavn              | Type                         | Beskrivelse                                                                                                                                                                                                                                                                                  |
-| ---------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Rule set](#rule-set-object) | **[Håndhævede regler]** Et regelsæt anvendt med højere prioritet end normale regler. Den første regel på listen har forrang. Brugere kan ikke redigere, slette eller omrokere disse regler. De er altid aktive, ignorerer appens globale deaktiveringsknap og synkroniseres ikke via iCloud. |
-| `prefilledRuleSet`     | [Rule set](#rule-set-object) | **[Indledende regler]** Et regelsæt oprettet i stedet for standardeksempelreglen, når en bruger starter appen for første gang uden eksisterende regler. Når de er distribueret, fungerer disse som normale regler, hvilket tillader brugerændring, sletning og iCloud-synkronisering.        |
-| `organizationName`     | String                       | Viser "Administreret af [organizationName]" øverst på indstillingsskærmen i appen, hvilket indikerer over for brugeren, at appen administreres.                                                                                                                                              |
-| `managedConfigVersion` | String                       | En vilkårlig versionsstreng for konfigurationen. Vises i brugerfladen, hvilket gør det muligt for it-support at verificere, om den seneste MDM-payload er nået frem til enheden under fejlfinding.                                                                                           |
-| `showsLibrarySection`  | Boolean                      | Hvis denne er sat til `false`, skjules regelbiblioteksfunktionen, og sektionen erstattes med fejlmeddelelsen "Begrænset af din organisation."                                                                                                                                                |
-| `fallback`             | [Fallback](#fallback-object) | Angiv denne, når konfigurationerne overstiger MDM-payload-grænserne. Appen vil hente JSON/XML fra denne URL for at anvende konfigurationen.                                                                                                                                                  |
+| Nøglenavn              | Type                         | Beskrivelse                                                                                                                                                                                                                                                                           |
+| ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Regelsæt](#rule-set-object) | **[Håndhævede regler]** Et regelsæt anvendt med højere prioritet end normale regler. Den første regel i listen har forrang. Brugere kan ikke redigere, slette eller omrokere disse regler. De er altid aktive, ignorerer appens globale afbryder og synkroniseres ikke via iCloud.    |
+| `prefilledRuleSet`     | [Regelsæt](#rule-set-object) | **[Indledende regler]** Et regelsæt oprettet i stedet for standardeksempelreglen, når en bruger starter appen for første gang uden eksisterende regler. Når de er distribueret, fungerer disse som normale regler, hvilket tillader brugerændring, sletning og iCloud-synkronisering. |
+| `organizationName`     | String                       | Viser "Administreres af [organizationName]" øverst på indstillingsskærmen i appen, hvilket indikerer for brugeren, at appen administreres.                                                                                                                                            |
+| `managedConfigVersion` | String                       | En vilkårlig versionsstreng til konfigurationen. Vises i brugerfladen, hvilket giver it-support mulighed for at verificere, om den seneste MDM-payload er nået frem til enheden under fejlfinding.                                                                                    |
+| `showsLibrarySection`  | Boolean                      | Hvis sat til `false`, skjules funktionen Regelbibliotek, og sektionen erstattes med fejlmeddelelsen "Begrænset af din organisation.".                                                                                                                                                 |
+| `fallback`             | [Fallback](#fallback-object) | Angiv dette, når konfigurationerne overstiger grænserne for MDM-payload. Appen vil hente JSON/XML fra denne URL for at anvende konfigurationen.                                                                                                                                       |
 
 Disse nøgler er alle valgfrie.
 
@@ -69,7 +72,7 @@ Disse nøgler er alle valgfrie.
 
 Hvert regelobjekt har samme format som det, du kan [dele/eksportere via appen](export-or-import-rules), men du skal konvertere det fra JSON til plist, som her:
 
-```plist
+```xml
 ...
 	<key>enforcedRuleSet</key>
 	<dict>
@@ -105,30 +108,30 @@ Hvert regelobjekt har samme format som det, du kan [dele/eksportere via appen](e
 
 ### [Objekt] Fallback {/* #fallback-object */}
 
-| Nøglenavn         | Type         | Beskrivelse                                                                                                                               |
-| ----------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | En slutpunkts-URL for en JSON/XML-fil, der indeholder regelsæt.                                                                           |
-| `authToken`       | String       | Et godkendelsestoken, der føjes til HTTP-headeren, når der hentes fra `fallbackDataURL`. (Brugt som `Authorization: Bearer [authToken]`). |
+| Nøglenavn         | Type         | Beskrivelse                                                                                                                              |
+| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | En slutpunkts-URL for en JSON/XML-fil, der indeholder regelsæt.                                                                          |
+| `authToken`       | String       | En godkendelsestoken tilføjet til HTTP-headeren, når der hentes fra `fallbackDataURL`. (Bruges som `Authorization: Bearer [authToken]`). |
 
-## Regelvurdering og konfliktløsning
+## Regelevaluering og konfliktløsning
 
 1. Hvis et `enforcedRuleSet` er angivet, anvendes dets regler med absolut prioritet.
-2. Hvis der ikke er nogen normale regler, men et `prefilledRuleSet` findes, gemmes `prefilledRuleSet` som normale regler.
-3. Standarden "Eksempel omdirigeringsregel" genereres kun, hvis der ikke er konfigureret nogen MDM-regler, og der ikke er nogen normale regler.
+2. Hvis der ikke er nogen normale regler, men der findes et `prefilledRuleSet`, gemmes `prefilledRuleSet` som normale regler.
+3. Standardreglen "Example redirection rule" genereres kun, hvis ingen MDM-regler er konfigureret, og der ikke er nogen normale regler.
 
 ## Fallback URL-adfærd
 
-Når en nøgle findes i både den indlejrede MDM-payload og de data, der hentes via `fallbackDataURL`, håndterer appen konflikten på følgende måde:
+Når en nøgle findes i både den indlejrede MDM-payload og de data, der hentes via `fallbackDataURL`, håndterer appen konflikten som følger:
 
 - **Før hentning er fuldført:** Indlejrede indstillinger prioriteres strengt og bruges.
 - **Efter succesfuld hentning:** Data hentet fra `fallbackDataURL` overskriver de tilsvarende indlejrede indstillinger.
-- **Efter mislykkedes hentning:** Appen fortsætter med at bruge de indlejrede indstillinger.
+- **Efter mislykket hentning:** Appen fortsætter med at bruge de indlejrede indstillinger.
 - Uafhængige nøgler, der kun findes i den indlejrede payload, bevares.
 
-## MDM-feedback og statustjek
+## MDM-feedback og statuskontrol
 
-Du kan verificere, om konfigurationen blev anvendt med succes via MDM-feedbackkanalen (`com.apple.feedback.managed`), hvis din MDM-løsning understøtter det. Efter behandling af konfigurationen (eller fuldførelse af URL-hentningen) returnerer appen følgende data:
+Du kan verificere, om konfigurationen blev anvendt succesfuldt via MDM-feedbackkanalen (`com.apple.feedback.managed`), hvis din MDM-løsning understøtter det. Efter behandling af konfigurationen (eller fuldførelse af URL-hentningen) returnerer appen følgende data:
 
 - `managedConfigVersion`: Versionsstrengen for konfigurationsforsøget.
-- `result`: Enten `success` or `error`.
-- `messages`: En matrix, der indeholder detaljerede fejl- eller advarselsmeddelelser, hvis relevant.
+- `result`: Enten `success` eller `error`.
+- `messages`: Et array indeholdende detaljerede fejl- eller advarselsmeddelelser, hvis relevant.
