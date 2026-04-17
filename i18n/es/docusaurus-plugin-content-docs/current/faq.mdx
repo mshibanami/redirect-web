@@ -3,77 +3,112 @@ import Image from "@site/src/components/Image";
 import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
 import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
 
-# Preguntas Frecuentes
+# FAQ
 
-## ¿Por qué debo permitir que la extensión lea/cambie mi información? {/* #why-allow-extension-to-read-change */}
+## ¿Por qué no funciona mi regla de redirección? {/* #redirection-not-working */}
 
-Es posible que veas una alerta como esta cuando configures RedirectWeb:
+Si una regla que creaste no se activa como esperabas, por favor comprueba lo siguiente:
+
+- **¿Está habilitada la extensión?** Comprueba los ajustes de extensiones de tu navegador para asegurarte de que RedirectWeb esté activado.
+- **¿Está activada la regla?** Abre la aplicación RedirectWeb y asegúrate de que el interruptor de la regla específica esté en la posición "Activado" (On).
+- **¿Es correcta la regla?** Prueba la regla escribiendo una URL en el campo Ejemplos (Examples) en la pantalla Editar regla (Edit Rule).
+- **[Safari] ¿Permitiste que la extensión acceda al sitio web de origen?**: Asegúrate de haber permitido que la extensión acceda al sitio web desde el cual deseas redirigir. Si puedes abrir el menú desplegable de la extensión, significa que esta tiene acceso al sitio web de origen.
+  > [!TIP]
+  > Para tu comodidad, recomendamos permitir el acceso a todos los sitios web. (¡Solo un consejo!)
+
+## ¿Por qué debería permitir que la extensión lea/cambie mi información? {/* #why-allow-extension-to-read-change */}
+
+Es posible que veas una alerta como esta al configurar RedirectWeb:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="Una alerta que requiere permiso" width="200" margin="0 0 16px 0" hasShadow />
+    <Image src={PermissionAlertSafari} alt="Una alerta de requerimiento de permisos" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Esta extensión podrá leer y alterar páginas web y ver tu historial de navegación en este sitio web. **Esto podría incluir información sensible, como contraseñas, números de teléfono y tarjetas de crédito.**
+    > Esta extensión podrá leer y modificar páginas web y ver tu historial de navegación en este sitio web. **Esto podría incluir información sensible, como contraseñas, números de teléfono y tarjetas de crédito.**
 
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="Una alerta que requiere permiso" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="Una alerta de requerimiento de permisos" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
     > Puede:
     > Leer y cambiar **todos tus datos** en **todos los sitios web**
 
 </IfBrowserStore>
 
-Esta extensión necesita tu permiso para observar la navegación de la página y redirigir a donde quieras saltar, y tu navegador muestra esto cuando la extensión solicita los permisos relacionados. Por lo tanto, si no lo permites, esta extensión no puede funcionar.
+Esta extensión necesita tu permiso para observar la navegación de la página y redirigirte a donde quieras ir, y tu navegador muestra esto cuando la extensión solicita los permisos relacionados. Por lo tanto, si no lo permites, esta extensión no podrá funcionar.
 
-Los permisos concedidos solo se utilizarán para funciones de la aplicación como la redirección, de acuerdo con la **[la política de privacidad](/privacy-policy)**.
+Los permisos concedidos solo se utilizarán para funciones de la aplicación como la redirección, de acuerdo con la **[política de privacidad](/privacy-policy)**.
 
-## ¿Debo seguir obteniendo la aplicación después de instalar la extensión para Chrome, Firefox o Edge? {/* #app-for-non-safari-browsers */}
+## Mi compra no se restaura incluso después de pulsar "Restaurar compra" {/* #purchase-not-restored */}
 
-Sí. Debes descargar [la aplicación RedirectWeb desde la App Store](https://apps.apple.com/app/id1571283503) independientemente del navegador que uses. Puedes instalar la extensión desde la tienda de extensiones de tu navegador, pero la aplicación es necesaria para administrar tus reglas, historial de compras y otras configuraciones en todos los dispositivos a través de iCloud.
+Si el botón Restaurar compra no funciona como se esperaba, sigue estos pasos de solución de problemas:
+
+1. Inicia sesión en [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) para confirmar que la transacción se completó correctamente y aparece en el historial de tu ID de Apple.
+2. Asegúrate de que el ID de Apple que tiene la sesión iniciada actualmente en la **aplicación App Store** sea el mismo que se utilizó para la compra original.
+   > [!NOTE]
+   >
+   > La cuenta con la que has iniciado sesión en la aplicación Ajustes de tu dispositivo a veces puede diferir de la utilizada en la aplicación App Store. Es la cuenta dentro de la aplicación App Store la que debe coincidir con tu historial de compras para que la restauración funcione correctamente.
+3. Si tienes varios ID de Apple, cierra la sesión en el App Store y vuelve a iniciarla con la cuenta correcta, luego intenta pulsar el botón Restaurar compra de nuevo.
+
+Si las cuentas coinciden pero la restauración sigue fallando, por favor [contáctanos](/contact-us) con una captura de pantalla de tu recibo o historial de compras. Investigaremos el problema más a fondo por ti.
+
+## ¿Debo descargar la aplicación de todas formas después de instalar la extensión para Chrome, Firefox o Edge? {/* #app-for-non-safari-browsers */}
+
+Sí. Debes descargar [la aplicación RedirectWeb del App Store](https://apps.apple.com/app/id1571283503) independientemente del navegador que utilices. Puedes instalar la extensión desde la tienda de extensiones de tu navegador, pero la aplicación es necesaria para gestionar tus reglas, el historial de compras y otros ajustes en tus dispositivos a través de iCloud.
+
+## ¿Necesito una extensión diferente para Chrome, Firefox o Edge si uso la aplicación Pro? {/* #different-extension-for-pro */}
+
+No. Ya sea que uses la aplicación RedirectWeb estándar o RedirectWeb Pro en tu Mac, debes instalar exactamente la misma extensión desde la tienda de extensiones respectiva de tu navegador. La extensión detectará automáticamente y se comunicará con cualquier versión de la aplicación que tengas instalada.
 
 ## ¿Funciona RedirectWeb en Windows, Android, Linux o cualquier otra plataforma? {/* #non-apple-platforms */}
 
-Por el momento no. RedirectWeb está estrechamente ligado al ecosistema de Apple, incluyendo iCloud y la Compra Universal. Disculpa las molestias.
+Por el momento no. RedirectWeb está estrechamente ligado al ecosistema de Apple, incluidos iCloud y la Compra Universal. Disculpa las molestias.
 
-## ¿Por qué esta extensión requiere un nuevo permiso? {/* #permission-alert-on-safari */}
+## ¿Por qué requiere esta extensión un nuevo permiso? {/* #permission-alert-on-safari */}
 
 Es posible que veas esta alerta en Safari después de actualizar RedirectWeb:
 
 <img
   src={require("/img/safari-additional-permission-alert.webp").default}
-  alt="Una alerta de deshabilitación de la aplicación"
+  alt="Una alerta de desactivación de la aplicación"
   width="280"
 />
 
 > "RedirectWeb" se ha actualizado y solicita permisos adicionales. Para proteger tu privacidad, esta extensión se ha desactivado.
 >
-> Puedes activar esta extensión en la sección Extensiones de la Configuración de Safari.
+> Puedes activar esta extensión en la sección Extensiones de los Ajustes de Safari.
 
-Esto se debe al permiso [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) requerido por el tipo [DNR](/rule-settings#type) introducido en la versión 7. Vuelve a habilitar la extensión. Disculpa las molestias.
+Esto se debe al permiso [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) requerido por el tipo [DNR](/rule-settings#type) introducido en la versión 7. Por favor, vuelve a activar la extensión. Disculpa las molestias.
 
-## ¿El contenido de la biblioteca se volverá de pago en el futuro? {/* #will-library-become-paid */}
+## ¿El contenido de la biblioteca pasará a ser de pago en el futuro? {/* #will-library-become-paid */}
 
-No, siempre será gratis. También puedes encontrar la fuente de todo el contenido [aquí](https://github.com/mshibanami/redirect-web/tree/main/library).
+No, siempre es gratuito. También puedes encontrar el código fuente de todo el contenido [aquí](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Compra única o suscripción anual: ¿Cuál es la mejor opción? {/* #one-time-or-subscription */}
+## ¿Cuál es la diferencia entre RedirectWeb y RedirectWeb Pro? {/* #difference-between-standard-and-pro */}
 
-Recomendamos la compra única, ya que la diferencia de precio es de solo US$2.00.
-La razón principal por la que ofrecemos la suscripción es para permitirte probar todas las funciones a través de su prueba gratuita. Aquí está el caso de uso esperado:
+Ambas versiones ofrecen exactamente las mismas funciones y reciben actualizaciones simultáneamente. La única diferencia es el modelo de pago:
 
-1. Suscríbete a la suscripción anual.
-2. Cancela inmediatamente la suscripción yendo a la aplicación Configuración, buscando "Suscripciones", tocando esta aplicación y seleccionando "Cancelar suscripción". Esto te permite disfrutar de la prueba gratuita sin ningún compromiso.
-3. Disfruta de acceso completo a todas las funciones durante 7 días.
-4. Si te gustan las funciones, opta por la compra única.
+- **RedirectWeb**: Una aplicación gratuita con funciones básicas (limitada a **1 regla activa**), que ofrece una compra dentro de la aplicación opcional (suscripción o pago único) para desbloquear todas las funciones, incluidas reglas ilimitadas y sincronización con iCloud.
+- **RedirectWeb Pro**: Una aplicación de pago por adelantado y totalmente desbloqueada. Esta versión fue creada específicamente para ser elegible para **Apple Business Manager** y **Apple School Manager (VPP)**, lo que permite a las organizaciones comprar la aplicación por volumen, algo que no es posible con las compras dentro de la aplicación. ¡Sin embargo, cualquier persona que prefiera una compra por adelantado puede comprarla!
+
+## Pago único, suscripción anual o versión Pro: ¿cuál es mejor? {/* #one-time-or-subscription-or-pro */}
+
+Recomendamos el pago único dentro de la aplicación RedirectWeb estándar o la compra de RedirectWeb Pro, ya que ofrecen el mismo valor.
+La razón principal por la que ofrecemos la suscripción es para permitirte probar todas las funciones a través de su prueba gratuita. Este es el caso de uso previsto:
+
+1. Suscríbete a la suscripción anual en la aplicación RedirectWeb estándar.
+2. Cancela inmediatamente la suscripción yendo a la aplicación Ajustes, buscando "Suscripciones", pulsando en esta aplicación y seleccionando "Cancelar suscripción". Esto te permite disfrutar de la prueba gratuita sin ningún compromiso.
+3. Disfruta de acceso total a todas las funciones durante 7 días.
+4. Si te gustan las funciones, opta por el pago único o compra la versión Pro.
 
 ¡Por supuesto, no hay nada de malo en continuar con la suscripción anual si lo prefieres!
 
-## ¿RedirectWeb inyecta anuncios u otro contenido no relacionado en los sitios web? {/* #does-it-inject-ads */}
+## ¿Injecta RedirectWeb anuncios u otro contenido no relacionado en los sitios web? {/* #does-it-inject-ads */}
 
-No, no inyecta ningún contenido de este tipo. Solo se inyecta en los sitios web de Safari el código necesario para proporcionar las funciones descritas en esta documentación y en la página de la aplicación en la App Store.
+No, no inyecta ningún contenido de este tipo. En los sitios web de Safari solo se inyecta el código necesario para proporcionar las funciones descritas en esta documentación y en la página de la aplicación en el App Store.
 
-## ¿Existe alguna posibilidad de que RedirectWeb se venda a otra persona? {/* #could-it-be-sold */}
+## ¿Hay alguna posibilidad de que RedirectWeb se venda alguna vez a otra persona? {/* #could-it-be-sold */}
 
-100% no. Las extensiones de navegador ejercen un control profundo sobre tu navegación y tus datos, y entregar RedirectWeb a otro propietario abriría la puerta a violaciones de la privacidad. Hemos visto extensiones cambiar de manos y luego recopilar datos de usuarios o inyectar anuncios sin previo aviso. Eso nunca sucederá aquí. Para obtener más información sobre estos riesgos, consulta el artículo de Matt Frisbie ["El feo negocio de monetizar el navegador"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) y la investigación de Brian Krebs ["¿Es tu extensión de navegador una puerta trasera de botnet?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100% no. Las extensiones de navegador ejercen un control profundo sobre tu navegación y tus datos, y entregar RedirectWeb a otro propietario abriría la puerta a violaciones de la privacidad. Hemos visto extensiones cambiar de manos y luego recopilar datos de usuarios o inyectar anuncios sin previo aviso. Eso nunca sucederá aquí. Para saber más sobre estos riesgos, consulta el artículo de Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) y la investigación de Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-RedirectWeb se basa en la confianza y la responsabilidad. Consideramos que es nuestro deber mantener tu información segura, y nos negamos a transferir la propiedad bajo ninguna circunstancia. RedirectWeb siempre permanecerá en nuestras manos, para que puedas navegar con total confianza.
+RedirectWeb se basa en la confianza y la responsabilidad. Consideramos que es nuestro deber mantener tu información a salvo y nos negamos a transferir la propiedad bajo cualquier circunstancia. RedirectWeb siempre permanecerá en nuestras manos, para que puedas navegar con total confianza.

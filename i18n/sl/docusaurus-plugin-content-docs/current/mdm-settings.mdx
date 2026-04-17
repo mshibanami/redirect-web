@@ -1,37 +1,40 @@
 import TOCInline from "@theme/TOCInline";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-# MDM nastavitve za skrbnike
+# MDM nastavitve za administratorje
 
-![Podprte platforme: iOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20visionOS-white)
+RedirectWeb podpira Applovo upravljano konfiguracijo aplikacij (Managed App Configuration), kar vam (IT administratorjem) omogoča uvajanje in upravljanje nastavitev aplikacije centralno na napravah zaposlenih/študentov prek rešitve za upravljanje mobilnih naprav (MDM), kot so Jamf, Intune, Kandji itd.
 
-RedirectWeb podpira Applov Managed App Configuration, kar vam (skrbnikom IT) omogoča uvajanje in upravljanje nastavitev aplikacij centralno v napravah zaposlenih/študentov prek rešitve za upravljanje mobilnih naprav (MDM), kot so Jamf, Intune, Kandji itd.
-
-Ta stran opisuje ključe, ki jih je mogoče konfigurirati, vedenje aplikacij, najboljše prakse in omejitve.
+Ta stran opisuje nastavljive ključe, vedenje aplikacije, najboljše prakse in omejitve.
 
 <TOCInline toc={toc} />
 
 ## Pregled
 
+> [!IMPORTANT]
+>
+> **Za uvajanje prek Apple Business Manager / Apple School Manager (VPP):**
+> Standardna aplikacija RedirectWeb uporablja model "freemium" z nakupi v aplikaciji, ki ni primeren za količinski nakup VPP. Če želite svoji organizaciji uvesti popolnoma odklenjeno aplikacijo, kupite aplikacijo **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)**, ki je plačljiva različica, zasnovana posebej za distribucijo MDM/VPP.
+
 S potiskanjem konfiguracij prek vašega MDM lahko dosežete naslednje:
 
-- **Uveljavljena pravila:** Uporabite pravila za preusmeritev na ravni celotne organizacije, ki jih uporabniki ne morejo spreminjati ali brisati.
-- **Začetna porazdelitev pravil:** Razdelite nabor predlog pravil, ki služi kot privzeti ob prvem zagonu aplikacije.
-- **Nadzor uporabniškega vmesnika:** Omejite dostop do določenih funkcij (kot je Knjižnica) in v aplikaciji jasno navedite, da je pod upravljanjem organizacije.
-- **Pridobivanje obsežnih pravil (nadomestna možnost):** Obidite omejitve velikosti koristne vsebine MDM s pridobivanjem pravil iz zunanjega strežnika.
+- **Uveljavljena pravila:** Uporabite pravila preusmerjanja na ravni celotne organizacije, ki jih uporabniki ne morejo spreminjati ali izbrisati.
+- **Začetna distribucija pravil:** Distribuirajte nabor vzorčnih pravil, ki služijo kot privzeta ob prvem zagonu aplikacije.
+- **Nadzor uporabniškega vmesnika:** Omejite dostop do določenih funkcij (kot je knjižnica) in v aplikaciji jasno navedite, da je pod upravljanjem organizacije.
+- **Pridobivanje obsežnih pravil (rezervna možnost):** Obidite omejitve velikosti podatkov MDM s pridobivanjem pravil z zunanjega strežnika.
 
 ## Primeri uporabe
 
-- **Brezhibno usmerjanje med migracijami sistemov:**
-  Pri selitvi z zastarelega notranjega sistema (npr. `legacy-crm.internal.local`) na novo platformo (npr. `salesforce.com`) razdelite `enforcedRuleSet`. Tudi če zaposleni uporabljajo stare zaznamke, so samodejno preusmerjeni na nov sistem, kar odpravi zahtevke za podporo IT glede zastarelih povezav.
+- **Brezhibno usmerjanje med migracijami sistema:**
+  Pri migraciji s starega internega sistema (npr. `legacy-crm.internal.local`) na novo platformo (npr. `salesforce.com`) distribuirajte `enforcedRuleSet`. Tudi če zaposleni uporabljajo stare zaznamke, so samodejno preusmerjeni na nov sistem, kar odpravlja zahtevke za IT podporo glede zastarelih povezav.
 - **Pomoč pri dostopu do intraneta:**
-  Razdelite pravila preusmeritve z uporabo shem URL po meri za lažji dostop do virov intraneta prek tunelov VPN za posamezne aplikacije, kot je Omnissa Web.
+  Distribuirajte pravila preusmerjanja z uporabo shem URL po meri za lažji dostop do virov intraneta prek tunelov VPN za posamezne aplikacije, kot je Omnissa Web.
 
 > [!WARNING]
 >
-> Potiski konfiguracije MDM se uveljavijo takoj **le, če uporabnik odpre aplikacijo RedirectWeb**.
-> Čeprav aplikacija uporablja naloge v ozadju za tiho potiskanje posodobitev MDM v razširitev brskalnika, je to izvajanje po načelu "najboljših moči", ki ga določa operacijski sistem. Čas izvajanja je zelo nepredvidljiv in naloga se morda sploh ne bo izvedla.
-> Zato se na to funkcijo **ne** smete zanašati pri časovno kritičnem odzivanju na incidente (npr. poskus takojšnje preusmeritve vseh zaposlenih na rezervno spletno mesto v nekaj minutah po izpadu storitve v oblaku).
+> Potiski konfiguracij MDM se uveljavijo takoj **le, če uporabnik odpre aplikacijo RedirectWeb**.
+> Čeprav aplikacija uporablja naloge v ozadju za tiho potiskanje posodobitev MDM v razširitev brskalnika, je to izvedba "po najboljših močeh", ki jo določa operacijski sistem. Čas izvedbe je nepredvidljiv in naloga se morda sploh ne bo izvedla.
+> Zato se na to funkcijo **ne** bi smeli zanašati pri časovno kritičnem odzivu na incidente (npr. poskus takojšnje preusmeritve vseh zaposlenih na rezervno spletno mesto v nekaj minutah po izpadu storitve v oblaku).
 
 ## Predstavitev
 
@@ -48,28 +51,28 @@ S potiskanjem konfiguracij prek vašega MDM lahko dosežete naslednje:
 
 Datoteka plist, uporabljena v videoposnetku, je na voljo tukaj: **[sample-mdm.plist](/misc/sample-mdm.plist)**
 
-V videoposnetku je bil za uvajanje konfiguracije uporabljen ManageEngine MDM, vendar se ista konfiguracija lahko uporabi za druge rešitve MDM, dokler podpirajo Applov Managed App Configuration.
+V videoposnetku je bil za uvajanje konfiguracije uporabljen ManageEngine MDM, vendar se lahko ista konfiguracija uporabi tudi za druge rešitve MDM, če podpirajo Applovo upravljano konfiguracijo aplikacij.
 
-## Ključi, ki jih je mogoče konfigurirati
+## Nastavljivi ključi
 
-Uvedite naslednje ključe in vrednosti za Managed App Configuration prek svoje konzole MDM, običajno v formatu plist.
+Uvedite naslednje ključe in vrednosti za upravljano konfiguracijo aplikacij prek vaše konzole MDM, običajno v obliki plist.
 
-| Ime ključa             | Tip                                    | Opis                                                                                                                                                                                                                                                                                                                                         |
-| :--------------------- | :------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Nabor pravil](#rule-set-object)       | **[Uveljavljena pravila]** Nabor pravil, uporabljen z višjo prioriteto kot običajna pravila. Prvo pravilo na seznamu ima prednost. Uporabniki teh pravil ne morejo urejati, brisati ali spreminjati njihovega vrstnega reda. Vedno so aktivna, ne glede na globalno stikalo za onemogočanje aplikacije, in se ne sinhronizirajo prek iCloud. |
-| `prefilledRuleSet`     | [Nabor pravil](#rule-set-object)       | **[Začetna pravila]** Nabor pravil, ustvarjen namesto privzetega primera pravila, ko uporabnik prvič zažene aplikacijo brez obstoječih pravil. Ko so razdeljena, delujejo kot običajna pravila, kar omogoča uporabniško spreminjanje, brisanje in sinhronizacijo iCloud.                                                                     |
-| `organizationName`     | String                                 | Na vrhu zaslona z nastavitvami v aplikaciji prikaže "Upravlja [organizationName]", kar uporabniku sporoča, da je aplikacija upravljana.                                                                                                                                                                                                      |
-| `managedConfigVersion` | String                                 | Poljuben niz različice za konfiguracijo. Prikazan v uporabniškem vmesniku, kar podpori IT omogoča preverjanje, ali je najnovejša vsebina MDM dosegla napravo pri odpravljanju težav.                                                                                                                                                         |
-| `showsLibrarySection`  | Boolean                                | Če je nastavljeno na `false`, je funkcija Knjižnica pravil skrita, razdelek pa nadomeščen z sporočilom o napaki "Omejeno s strani vaše organizacije.".                                                                                                                                                                                       |
-| `fallback`             | [Nadomestna možnost](#fallback-object) | To določite, ko konfiguracije presežejo omejitve koristne vsebine MDM. Aplikacija bo pridobila JSON/XML s tega URL-ja za uveljavitev konfiguracije.                                                                                                                                                                                          |
+| Ime ključa             | Vrsta                                | Opis                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`      | [Nabor pravil](#rule-set-object)     | **[Uveljavljena pravila]** Nabor pravil, uporabljen z višjo prioriteto kot običajna pravila. Prvo pravilo na seznamu ima prednost. Uporabniki teh pravil ne morejo urejati, brisati ali spreminjati njihovega vrstnega reda. Vedno so aktivna, ne glede na globalno stikalo za onemogočanje v aplikaciji, in se ne sinhronizirajo prek iCloud. |
+| `prefilledRuleSet`     | [Nabor pravil](#rule-set-object)     | **[Začetna pravila]** Nabor pravil, ustvarjen namesto privzetega primera pravila, ko uporabnik prvič zažene aplikacijo brez obstoječih pravil. Po distribuciji delujejo kot običajna pravila, kar uporabniku omogoča spreminjanje, brisanje in sinhronizacijo prek iCloud.                                                                     |
+| `organizationName`     | String                               | Prikaže "Upravlja [organizationName]" na vrhu zaslona z nastavitvami v aplikaciji, kar uporabniku pove, da je aplikacija upravljana.                                                                                                                                                                                                           |
+| `managedConfigVersion` | String                               | Poljubna nizovna različica konfiguracije. Prikazana v uporabniškem vmesniku, kar IT podpori omogoča preverjanje, ali je najnovejši paket MDM dosegel napravo pri odpravljanju težav.                                                                                                                                                           |
+| `showsLibrarySection`  | Boolean                              | Če je nastavljeno na `false`, je funkcija Knjižnica pravil skrita, razdelek pa je nadomeščen s sporočilom o napaki "Omejeno s strani vaše organizacije."                                                                                                                                                                                       |
+| `fallback`             | [Rezervna možnost](#fallback-object) | To določite, ko konfiguracije presežejo omejitve velikosti podatkov MDM. Aplikacija bo za uporabo konfiguracije pridobila JSON/XML s tega URL-ja.                                                                                                                                                                                              |
 
-Ti ključi so vsi neobvezni.
+Vsi ti ključi so neobvezni.
 
 ### [Objekt] Nabor pravil {/* #rule-set-object */}
 
-Vsak objekt pravila ima enak format kot tisti, ki ga lahko [delite/izvozite prek aplikacije](export-or-import-rules), vendar ga morate pretvoriti iz JSON v plist, takole:
+Vsak objekt pravila ima isto obliko kot tisti, ki ga lahko [delite/izvozite prek aplikacije](export-or-import-rules), vendar ga morate pretvoriti iz JSON v plist, takole:
 
-```plist
+```xml
 ...
 	<key>enforcedRuleSet</key>
 	<dict>
@@ -103,31 +106,31 @@ Vsak objekt pravila ima enak format kot tisti, ki ga lahko [delite/izvozite prek
 ...
 ```
 
-### [Objekt] Nadomestna možnost {/* #fallback-object */}
+### [Objekt] Rezervna možnost {/* #fallback-object */}
 
-| Ime ključa        | Tip          | Opis                                                                                                                                              |
-| :---------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `fallbackDataURL` | String (URL) | URL končne točke datoteke JSON/XML, ki vsebuje nabore pravil.                                                                                     |
-| `authToken`       | String       | Žeton za preverjanje pristnosti, dodan v glavo HTTP pri pridobivanju s `fallbackDataURL`. (Uporablja se kot `Authorization: Bearer [authToken]`). |
+| Ime ključa        | Vrsta        | Opis                                                                                                                                    |
+| ----------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | URL končne točke datoteke JSON/XML, ki vsebuje nabore pravil.                                                                           |
+| `authToken`       | String       | Žeton za avtentikacijo, dodan v glavo HTTP pri pridobivanju s `fallbackDataURL`. (Uporabljeno kot `Authorization: Bearer [authToken]`). |
 
-## Ocenjevanje pravil in reševanje sporov
+## Vrednotenje pravil in razreševanje sporov
 
-1. Če je na voljo `enforcedRuleSet`, se njegova pravila uporabijo z absolutno prednostjo.
+1. Če je na voljo `enforcedRuleSet`, se njegova pravila uporabijo s popolno prednostjo.
 2. Če ni običajnih pravil, obstaja pa `prefilledRuleSet`, se `prefilledRuleSet` shrani kot običajna pravila.
-3. Privzeto "Primer pravila preusmeritve" se generira le, če ni konfiguriranih nobenih pravil MDM in ni običajnih pravil.
+3. Privzeto "Primer pravila preusmerjanja" se ustvari le, če ni konfiguriranih nobenih pravil MDM in ni nobenih običajnih pravil.
 
-## Vedenje nadomestnega URL-ja
+## Vedenje rezervnega URL-ja
 
-Ko ključ obstaja tako v vključeni vsebini MDM kot v podatkih, pridobljenih prek `fallbackDataURL`, aplikacija rešuje spor na naslednji način:
+Ko ključ obstaja tako v vključeni vsebini MDM kot v podatkih, pridobljenih prek `fallbackDataURL`, aplikacija razreši spor na naslednji način:
 
-- **Pred dokončanjem pridobivanja:** Vključene nastavitve imajo strogo prednost in se uporabljajo.
-- **Po uspešnem pridobivanju:** Podatki, pridobljeni s `fallbackDataURL`, prepisujejo ustrezne vključene nastavitve.
-- **Po neuspešnem pridobivanju:** Aplikacija še naprej uporablja vključene nastavitve.
-- Samostojni ključi, ki obstajajo samo v vključeni vsebini, se ohranijo.
+- **Pred zaključkom pridobivanja:** Nastavitve v vsebini MDM imajo strogo prednost in se uporabljajo.
+- **Po uspešnem pridobivanju:** Podatki, pridobljeni s `fallbackDataURL`, prepišejo ustrezne nastavitve v vsebini MDM.
+- **Po neuspešnem pridobivanju:** Aplikacija še naprej uporablja nastavitve v vsebini MDM.
+- Samostojni ključi, ki obstajajo le v vključeni vsebini MDM, se ohranijo.
 
-## Povratne informacije MDM in preverjanje stanja
+## MDM povratne informacije in preverjanje stanja
 
-Prek povratnega kanala MDM (`com.apple.feedback.managed`) lahko preverite, ali je bila konfiguracija uspešno uporabljena, če vaša rešitev MDM to podpira. Po obdelavi konfiguracije (ali dokončanju pridobivanja URL-ja) aplikacija vrne naslednje podatke:
+Če vaša rešitev MDM to podpira, lahko prek kanala za povratne informacije MDM (`com.apple.feedback.managed`) preverite, ali je bila konfiguracija uspešno uveljavljena. Po obdelavi konfiguracije (ali zaključku pridobivanja z URL-ja) aplikacija vrne naslednje podatke:
 
 - `managedConfigVersion`: Niz različice poskusa konfiguracije.
 - `result`: Bodisi `success` (uspeh) bodisi `error` (napaka).

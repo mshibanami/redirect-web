@@ -3,38 +3,66 @@ import Image from "@site/src/components/Image";
 import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
 import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
 
-# Întrebări frecvente
+# FAQ
 
-## De ce ar trebui să permit extensiei să-mi citească/modifice informațiile? {/* #why-allow-extension-to-read-change */}
+## De ce nu funcționează regula mea de redirecționare? {/* #redirection-not-working */}
+
+Dacă o regulă pe care ați creat-o nu se declanșează conform așteptărilor, vă rugăm să verificați următoarele:
+
+- **Este extensia activată?** Verificați setările extensiilor browserului pentru a vă asigura că RedirectWeb este pornit.
+- **Este regula activată?** Deschideți aplicația RedirectWeb și asigurați-vă că comutatorul regulii respective este în poziția „Pornit” (On).
+- **Este regula corectă?** Testați regula introducând un URL în câmpul Exemple din ecranul Editează Regula.
+- **[Safari] Ați permis extensiei să acceseze site-ul sursă?**: Asigurați-vă că ați permis extensiei să acceseze site-ul web de la care doriți să faceți redirecționarea. Dacă puteți deschide fereastra popup a extensiei, înseamnă că extensia are acces la site-ul sursă.
+  > [!TIP]
+  > Pentru confortul dumneavoastră, vă recomandăm să permiteți accesul la toate site-urile web. (Doar un sfat!)
+
+## De ce ar trebui să permit extensiei să citească/modifice informațiile mele? {/* #why-allow-extension-to-read-change */}
 
 Este posibil să vedeți o alertă ca aceasta atunci când configurați RedirectWeb:
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="O alertă care necesită permisiune" width="200" margin="0 0 16px 0" hasShadow />
+    <Image src={PermissionAlertSafari} alt="An permission requiring alert" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Această extensie va putea citi și modifica paginile web și va putea vedea istoricul dvs. de navigare pe acest site web. **Aceasta ar putea include informații sensibile, inclusiv parole, numere de telefon și carduri de credit.**
+    > Această extensie va putea citi și modifica paginile web și va putea vedea istoricul de navigare pe acest site web. **Aceasta ar putea include informații confidențiale, inclusiv parole, numere de telefon și carduri de credit.**
 
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="O alertă care necesită permisiune" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="An permission requiring alert" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
     > Poate:
-    > Citi și modifica **toate datele dvs.** pe **toate site-urile web**
+    > Să citească și să modifice **toate datele tale** pe **toate site-urile web**
 
 </IfBrowserStore>
 
-Această extensie are nevoie de permisiunea dvs. pentru a observa navigarea paginii pentru a redirecționa oriunde doriți să săriți, iar browserul dvs. afișează acest lucru atunci când extensia solicită permisiunile aferente. Prin urmare, dacă nu o permiteți, această extensie nu poate funcționa.
+Această extensie are nevoie de permisiunea dumneavoastră pentru a observa navigarea pe pagină pentru a vă redirecționa oriunde doriți să ajungeți, iar browserul afișează acest lucru atunci când extensia solicită permisiunile aferente. Prin urmare, dacă nu o permiteți, această extensie nu poate funcționa.
 
-Permisiunile acordate vor fi utilizate numai pentru funcțiile aplicației, cum ar fi redirecționarea, în conformitate cu **[politica de confidențialitate](/privacy-policy)**.
+Permisiunile acordate vor fi folosite doar pentru funcțiile aplicației, cum ar fi redirecționarea, în conformitate cu **[politica de confidențialitate](/privacy-policy)**.
 
-## Ar trebui să obțin aplicația chiar și după instalarea extensiei pentru Chrome, Firefox sau Edge? {/* #app-for-non-safari-browsers */}
+## Achiziția mea nu este restaurată chiar și după ce am apăsat pe „Restaurare achiziție” {/* #purchase-not-restored */}
 
-Da. Trebuie să descărcați [aplicația RedirectWeb din App Store](https://apps.apple.com/app/id1571283503) indiferent de browserul pe care îl utilizați. Puteți instala extensia din magazinul de extensii al browserului dvs., dar aplicația este necesară pentru a vă gestiona regulile, istoricul achizițiilor și alte setări pe toate dispozitivele prin iCloud.
+Dacă butonul Restaurare achiziție nu funcționează conform așteptărilor, vă rugăm să urmați acești pași de depanare:
 
-## Funcționează RedirectWeb pe Windows, Android, Linux sau alte platforme? {/* #non-apple-platforms */}
+1. Conectați-vă la [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) pentru a confirma că tranzacția a fost finalizată cu succes și este listată în istoricul ID-ului dumneavoastră Apple.
+2. Asigurați-vă că ID-ul Apple conectat în prezent în **aplicația App Store** este același cu cel folosit pentru achiziția inițială.
+   > [!NOTE]
+   >
+   > Contul conectat în aplicația Configurări a dispozitivului dumneavoastră poate fi uneori diferit de cel utilizat în aplicația App Store. Contul din cadrul aplicației App Store este cel care trebuie să corespundă istoricului achizițiilor pentru ca restaurarea să funcționeze corect.
+3. Dacă aveți mai multe ID-uri Apple, vă rugăm să vă deconectați din App Store și să vă reconectați cu contul corect, apoi încercați din nou butonul Restaurare achiziție.
 
-Nu în acest moment. RedirectWeb este strâns legat de ecosistemul Apple, inclusiv iCloud și Universal Purchase. Ne pare rău pentru inconvenient.
+Dacă conturile corespund, dar restaurarea tot nu reușește, vă rugăm să [ne contactați](/contact-us) cu o captură de ecran a chitanței sau a istoricului achizițiilor. Vom investiga problema în continuare pentru dumneavoastră.
+
+## Ar trebui să mai descarc aplicația după instalarea extensiei pentru Chrome, Firefox sau Edge? {/* #app-for-non-safari-browsers */}
+
+Da. Trebuie să descărcați [aplicația RedirectWeb din App Store](https://apps.apple.com/app/id1571283503) indiferent de browserul pe care îl utilizați. Puteți instala extensia din magazinul de extensii al browserului dumneavoastră, dar aplicația este necesară pentru a vă gestiona regulile, istoricul achizițiilor și alte setări pe toate dispozitivele prin iCloud.
+
+## Am nevoie de o extensie diferită pentru Chrome, Firefox sau Edge dacă folosesc aplicația Pro? {/* #different-extension-for-pro */}
+
+Nu. Indiferent dacă utilizați aplicația standard RedirectWeb sau RedirectWeb Pro pe Mac, ar trebui să instalați exact aceeași extensie din magazinul de extensii al browserului respectiv. Extensia va detecta automat și va comunica cu orice versiune a aplicației aveți instalată.
+
+## Funcționează RedirectWeb pe Windows, Android, Linux sau orice alte platforme? {/* #non-apple-platforms */}
+
+Nu în acest moment. RedirectWeb este strâns legat de ecosistemul Apple, inclusiv iCloud și Universal Purchase. Ne cerem scuze pentru inconvenient.
 
 ## De ce această extensie necesită o nouă permisiune? {/* #permission-alert-on-safari */}
 
@@ -46,34 +74,41 @@ Este posibil să vedeți această alertă în Safari după actualizarea Redirect
   width="280"
 />
 
-> „RedirectWeb” a fost actualizat și solicită permisiuni suplimentare. Pentru a vă proteja confidențialitatea, această extensie a fost dezactivată.
+> „RedirectWeb” a fost actualizată și solicită permisiuni suplimentare. Pentru a vă proteja confidențialitatea, această extensie a fost dezactivată.
 >
-> Puteți activa această extensie în secțiunea Extensii din Setările Safari.
+> Puteți activa această extensie în secțiunea Extensii din Configurări Safari.
 
-Acest lucru se datorează permisiunii [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) necesare de tipul [DNR](/rule-settings#type) introdus în versiunea 7. Vă rugăm să reactivați extensia. Ne pare rău pentru inconvenient.
+Acest lucru se datorează permisiunii [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) solicitate de tipul [DNR](/rule-settings#type) introdus în versiunea 7. Vă rugăm să reactivați extensia. Ne cerem scuze pentru inconvenient.
 
-## Conținutul bibliotecii va deveni plătit în viitor? {/* #will-library-become-paid */}
+## Vor deveni cu plată conținuturile bibliotecii în viitor? {/* #will-library-become-paid */}
 
-Nu, este întotdeauna gratuit. Puteți găsi și sursa întregului conținut [aici](https://github.com/mshibanami/redirect-web/tree/main/library).
+Nu, este întotdeauna gratuit. De asemenea, puteți găsi sursa tuturor conținuturilor [aici](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Achiziție unică sau abonament anual: Care este cel mai bun? {/* #one-time-or-subscription */}
+## Care este diferența dintre RedirectWeb și RedirectWeb Pro? {/* #difference-between-standard-and-pro */}
 
-Recomandăm achiziția unică, deoarece diferența de preț este de doar 2,00 USD.
-Principalul motiv pentru care oferim abonamentul este să vă permitem să încercați toate funcționalitățile prin perioada de încercare gratuită. Iată cazul de utilizare așteptat:
+Ambele versiuni oferă exact aceleași caracteristici și primesc actualizări simultan. Singura diferență este modelul de plată:
 
-1. Abonați-vă la abonamentul anual.
-2. Anulați imediat abonamentul accesând aplicația Setări, căutând „Abonamente”, atingând această aplicație și selectând „Anulați abonamentul”. Acest lucru vă permite să vă bucurați de perioada de încercare gratuită fără niciun angajament.
-3. Bucurați-vă de acces complet la toate funcționalitățile timp de 7 zile.
-4. Dacă vă plac funcționalitățile, optați pentru achiziția unică.
+- **RedirectWeb**: O aplicație gratuită cu funcții de bază (limitată la **1 regulă activă**), care oferă o achiziție opțională în aplicație (abonament sau plată unică) pentru a debloca toate funcțiile, inclusiv reguli nelimitate și sincronizare iCloud.
+- **RedirectWeb Pro**: O aplicație cu plată în avans, complet deblocată. Această versiune a fost creată special pentru a fi eligibilă pentru **Apple Business Manager** și **Apple School Manager (VPP)**, permițând organizațiilor să achiziționeze aplicația în volum, ceea ce nu este posibil cu achizițiile în aplicație. Cu toate acestea, oricine preferă o achiziție în avans o poate cumpăra!
 
-Desigur, nu este nimic în neregulă cu continuarea abonamentului anual dacă preferați!
+## Plată unică, abonament anual sau versiunea Pro: care este cea mai bună? {/* #one-time-or-subscription-or-pro */}
 
-## Injectează RedirectWeb reclame sau alt conținut irelevant în site-uri web? {/* #does-it-inject-ads */}
+Vă recomandăm fie achiziția unică în cadrul aplicației standard RedirectWeb, fie cumpărarea RedirectWeb Pro, deoarece oferă aceeași valoare.
+Motivul principal pentru care oferim abonamentul este de a vă permite să încercați toate funcțiile prin perioada sa de probă gratuită. Iată cazul de utilizare preconizat:
 
-Nu, nu injectează un astfel de conținut. Doar codul necesar pentru a oferi funcționalitățile descrise în această documentație și pe pagina aplicației din App Store este injectat în site-urile web pe Safari.
+1. Abonați-vă la abonamentul anual în aplicația standard RedirectWeb.
+2. Anulați imediat abonamentul mergând în aplicația Configurări, căutând „Abonamente”, apăsând pe această aplicație și selectând „Anulare abonament”. Acest lucru vă permite să vă bucurați de perioada de probă gratuită fără niciun angajament.
+3. Bucurați-vă de acces complet la toate funcțiile timp de 7 zile.
+4. Dacă vă plac funcțiile, optați pentru achiziția unică sau cumpărați versiunea Pro.
 
-## Există vreo șansă ca RedirectWeb să fie vândut altcuiva? {/* #could-it-be-sold */}
+Desigur, nu este nimic greșit în a continua cu abonamentul anual dacă preferați!
 
-100% nu. Extensiile de browser dețin un control profund asupra navigării și datelor dvs., iar predarea RedirectWeb unui alt proprietar ar deschide ușa către încălcări ale confidențialității. Am văzut extensii schimbând proprietarii și apoi colectând datele utilizatorilor sau injectând reclame fără avertisment. Acest lucru nu se va întâmpla niciodată aici. Pentru mai multe despre aceste riscuri, consultați articolul lui Matt Frisbie „[Afacerea urâtă a monetizării browserului](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser)” și investigația lui Brian Krebs „[Extensia dvs. de browser este o ușă din spate a unui botnet?](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)”.
+## Injectează RedirectWeb reclame sau alt conținut necorelat în site-urile web? {/* #does-it-inject-ads */}
 
-RedirectWeb este fondat pe încredere și responsabilitate. Considerăm că este datoria noastră să vă păstrăm informațiile în siguranță și refuzăm să transferăm proprietatea în orice circumstanțe. RedirectWeb va rămâne întotdeauna în mâinile noastre, astfel încât să puteți naviga cu încredere deplină.
+Nu, nu injectează un astfel de conținut. Doar codul care este necesar pentru a oferi funcțiile descrise în această documentație și pe pagina aplicației din App Store este injectat în site-urile web din Safari.
+
+## Există vreo șansă ca RedirectWeb să fie vândută vreodată altcuiva? {/* #could-it-be-sold */}
+
+100% nu. Extensiile de browser exercită un control profund asupra navigării și datelor dumneavoastră, iar cedarea RedirectWeb unui alt proprietar ar deschide ușa către încălcări ale confidențialității. Am văzut extensii care și-au schimbat proprietarul și apoi au colectat datele utilizatorilor sau au injectat reclame fără avertisment. Acest lucru nu se va întâmpla niciodată aici. Pentru mai multe despre aceste riscuri, consultați articolul lui Matt Frisbie [„The Ugly Business of Monetizing Browser”](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) și investigația lui Brian Krebs [„Is Your Browser Extension a Botnet Backdoor?”](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+
+RedirectWeb se bazează pe încredere și responsabilitate. Considerăm că este datoria noastră să vă păstrăm informațiile în siguranță și refuzăm să transferăm proprietatea în orice circumstanțe. RedirectWeb va rămâne întotdeauna în mâinile noastre, astfel încât să puteți naviga cu încredere deplină.

@@ -5,6 +5,17 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # FAQ
 
+## Why is my redirection rule not working? {/* #redirection-not-working */}
+
+If a rule you created isn't triggering as expected, please check the following:
+
+- **Is the extension enabled?** Check your browser's extension settings to ensure RedirectWeb is turned on.
+- **Is the rule toggled on?** Open the RedirectWeb app and make sure the specific rule's switch is in the "On" position.
+- **Is the rule correct?** Test the rule by typing a URL in the Examples field in the Edit Rule screen.
+- **[Safari] Did you allow the extension to access the source website?**: Ensure you have allowed the extension to access the website you want to redirect from. If you can open the extension's popup, the extension has access to the source website.
+  > [!TIP]
+  > For your convenience, we recommend allowing access to all websites. (Just a tip!)
+
 ## Why should I allow the extension to read/change my information? {/* #why-allow-extension-to-read-change */}
 
 You may see an alert like this when you set up RedirectWeb:
@@ -45,6 +56,10 @@ If the accounts match but the restoration still fails, please [contact us](/cont
 
 Yes. You must download [the RedirectWeb app from the App Store](https://apps.apple.com/app/id1571283503) regardless of which browser you use. You can install the extension from your browser’s extension store, but the app is required to manage your rules, purchase history, and other settings across devices via iCloud.
 
+## Do I need a different extension for Chrome, Firefox, or Edge if I use the Pro app? {/* #different-extension-for-pro */}
+
+No. Whether you use the standard RedirectWeb app or RedirectWeb Pro on your Mac, you should install the exact same extension from your browser's respective extension store. The extension will automatically detect and communicate with whichever version of the app you have installed.
+
 ## Does RedirectWeb work on Windows, Android, Linux, or any other platforms? {/* #non-apple-platforms */}
 
 Not at this time. RedirectWeb is closely tied to Apple's ecosystem, including iCloud and Universal Purchase. Sorry for the inconvenience.
@@ -69,15 +84,22 @@ This is due to the [declarativeNetRequestWithHostAccess](https://developer.apple
 
 No, it's always free. You can also find the source of all the contents [here](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## One-time Purchase or Annual Subscription: Which is Best? {/* #one-time-or-subscription */}
+## What is the difference between RedirectWeb and RedirectWeb Pro? {/* #difference-between-standard-and-pro */}
 
-We recommend the one-time purchase, as the price difference is only US$2.00.
+Both versions offer the exact same features and receive updates simultaneously. The only difference is the payment model:
+
+- **RedirectWeb**: A free app with basic features (limited to **1 active rule**), offering an optional In-App Purchase (subscription or one-time payment) to unlock all features, including unlimited rules and iCloud sync.
+- **RedirectWeb Pro**: A paid, fully unlocked app. This version was created specifically to be eligible for **Apple Business Manager** and **Apple School Manager (VPP)**, allowing organizations to bulk-purchase the app, which is not possible with In-App Purchases. However, anyone who prefers an upfront purchase can buy it!
+
+## One-time Purchase, Annual Subscription, or Pro Version: Which is Best? {/* #one-time-or-subscription-or-pro */}
+
+We recommend either the one-time purchase within the standard RedirectWeb app or buying RedirectWeb Pro, as they offer the same value.
 The main reason we offer the subscription is to allow you to try all the features through its free trial. Here is the expected use case:
 
-1. Subscribe to the annual subscription.
+1. Subscribe to the annual subscription in the standard RedirectWeb app.
 2. Immediately cancel the subscription by going to the Settings app, searching for "Subscriptions", tapping on this app, and selecting "Cancel Subscription". This lets you enjoy the free trial without any commitment.
 3. Enjoy full access to all features for 7 days.
-4. If you like the features, opt for the one-time purchase.
+4. If you like the features, opt for the one-time purchase or buy the Pro version.
 
 Of course, there's nothing wrong with continuing with the annual subscription if you prefer!
 

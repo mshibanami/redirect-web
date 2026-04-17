@@ -3,8 +3,6 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # MDM Settings for Admins
 
-![Supported Platforms: iOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20visionOS-white)
-
 RedirectWeb supports Apple's Managed App Configuration, allowing you (IT administrators) to deploy and manage app settings centrally across employee/student devices via a Mobile Device Management (MDM) solution, such as Jamf, Intune, Kandji, etc.
 
 This page outlines the configurable keys, app behaviors, best practices, and limitations.
@@ -12,6 +10,11 @@ This page outlines the configurable keys, app behaviors, best practices, and lim
 <TOCInline toc={toc} />
 
 ## Overview
+
+> [!IMPORTANT]
+>
+> **For Apple Business Manager / Apple School Manager (VPP) Deployments:**
+> The standard RedirectWeb app uses a freemium In-App Purchase model, which is not eligible for VPP volume purchasing. To deploy the fully unlocked app to your organization, please purchase the **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)** app, which is a paid version designed specifically for MDM/VPP distribution.
 
 By pushing configurations through your MDM, you can achieve the following:
 
@@ -69,7 +72,7 @@ These keys are all optional.
 
 Each rule object has the same format as the one you can [share/export via the app](export-or-import-rules), but you need to convert it from JSON to plist, like this:
 
-```plist
+```xml
 ...
 	<key>enforcedRuleSet</key>
 	<dict>

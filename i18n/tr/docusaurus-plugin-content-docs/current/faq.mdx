@@ -5,14 +5,25 @@ import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissio
 
 # SSS
 
+## Yönlendirme kuralım neden çalışmıyor? {/* #redirection-not-working */}
+
+Oluşturduğunuz bir kural beklediğiniz gibi tetiklenmiyorsa lütfen aşağıdakileri kontrol edin:
+
+- **Uzantı etkin mi?** RedirectWeb'in açık olduğundan emin olmak için tarayıcınızın uzantı ayarlarını kontrol edin.
+- **Kural açık mı?** RedirectWeb uygulamasını açın ve ilgili kuralın anahtarının "Açık" konumda olduğundan emin olun.
+- **Kural doğru mu?** Kuralı Düzenle ekranındaki Örnekler alanına bir URL yazarak kuralı test edin.
+- **[Safari] Uzantının kaynak web sitesine erişmesine izin verdiniz mi?**: Uzantının yönlendirme yapmak istediğiniz web sitesine erişmesine izin verdiğinizden emin olun. Uzantının açılır penceresini açabiliyorsanız, uzantının kaynak web sitesine erişimi var demektir.
+  > [!TIP]
+  > Kolaylık olması açısından tüm web sitelerine erişime izin vermenizi öneririz. (Sadece bir ipucu!)
+
 ## Uzantının bilgilerimi okumasına/değiştirmesine neden izin vermeliyim? {/* #why-allow-extension-to-read-change */}
 
-RedirectWeb'i kurarken şöyle bir uyarı görebilirsiniz:
+RedirectWeb'i kurduğunuzda şuna benzer bir uyarı görebilirsiniz:
 
 <IfBrowserStore stores='appStore'>
     <Image src={PermissionAlertSafari} alt="İzin gerektiren bir uyarı" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Bu uzantı, bu web sitesindeki web sayfalarını okuyabilecek ve değiştirebilecek ve tarama geçmişinizi görebilecektir. **Bu, parolalar, telefon numaraları ve kredi kartları dahil hassas bilgiler içerebilir.**
+    > Bu uzantı, web sayfalarını okuyup değiştirebilir ve bu web sitesindeki tarama geçmişinizi görebilir. **Bu; parolalar, telefon numaraları ve kredi kartları dahil hassas bilgileri içerebilir.**
 
 </IfBrowserStore>
 
@@ -20,60 +31,84 @@ RedirectWeb'i kurarken şöyle bir uyarı görebilirsiniz:
     <Image src={PermissionAlertChrome} alt="İzin gerektiren bir uyarı" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
     > Şunları yapabilir:
-    > **Tüm web sitelerindeki tüm verilerinizi** okuyun ve değiştirin
+    > **Tüm web sitelerindeki** **tüm verilerinizi** okuyabilir ve değiştirebilir
 
 </IfBrowserStore>
 
-Bu uzantının, sayfa gezinmesini gözlemlemek için izninize ihtiyacı vardır, böylece istediğiniz yere yönlendirme yapabilir ve tarayıcınız, uzantı ilgili izinleri istediğinde bunu görüntüler. Bu nedenle, izin vermezseniz, bu uzantı çalışamaz.
+Bu uzantı, atlamak istediğiniz yere yönlendirmek amacıyla sayfa navigasyonunu izlemek için izninize ihtiyaç duyar ve tarayıcınız, uzantı ilgili izinleri istediğinde bunu görüntüler. Bu nedenle, izin vermezseniz bu uzantı çalışamaz.
 
-Verilen izinler, **[gizlilik politikasına](/privacy-policy)** uygun olarak yalnızca yönlendirme gibi uygulama işlevleri için kullanılacaktır.
+Verilen izinler, **[gizlilik politikasıyla](/privacy-policy)** uyumlu olarak yalnızca yönlendirme gibi uygulama işlevleri için kullanılacaktır.
 
-## Chrome, Firefox veya Edge için uzantıyı yükledikten sonra uygulamayı yine de almalı mıyım? {/* #app-for-non-safari-browsers */}
+## "Satın Alınanları Geri Yükle"ye dokunmama rağmen satın alımım geri yüklenmedi {/* #purchase-not-restored */}
 
-Evet. Hangi tarayıcıyı kullanırsanız kullanın [App Store'dan RedirectWeb uygulamasını indirmeniz](https://apps.apple.com/app/id1571283503) gerekir. Uzantıyı tarayıcınızın uzantı mağazasından yükleyebilirsiniz, ancak kurallarınızı, satın alma geçmişinizi ve diğer ayarlarınızı iCloud aracılığıyla cihazlar arasında yönetmek için uygulama gereklidir.
+Satın Alınanları Geri Yükle düğmesi beklendiği gibi çalışmıyorsa lütfen şu sorun giderme adımlarını izleyin:
 
-## RedirectWeb Windows, Android, Linux veya başka platformlarda çalışıyor mu? {/* #non-apple-platforms */}
+1. İşlemin başarıyla tamamlandığını ve Apple ID geçmişinizde listelendiğini onaylamak için [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) adresinde oturum açın.
+2. Şu anda **App Store uygulamasında** oturum açmış olan Apple ID'nin, orijinal satın alma işlemi için kullanılanla aynı olduğundan emin olun.
+   > [!NOTE]
+   >
+   > Cihazınızın Ayarlar uygulamasında oturum açmış olan hesap, bazen App Store uygulamasında kullanılandan farklı olabilir. Geri yükleme işleminin düzgün çalışması için satın alma geçmişinizle eşleşmesi gereken, App Store uygulamasındaki hesaptır.
+3. Birden fazla Apple ID'niz varsa lütfen App Store'dan çıkış yapın ve doğru hesapla tekrar giriş yapın, ardından Satın Alınanları Geri Yükle düğmesini tekrar deneyin.
 
-Şu anda hayır. RedirectWeb, iCloud ve Evrensel Satın Alma dahil olmak üzere Apple'ın ekosistemiyle yakından bağlantılıdır. Rahatsızlık için üzgünüz.
+Hesaplar eşleşiyor ancak geri yükleme hala başarısız oluyorsa, lütfen makbuzunuzun veya satın alma geçmişinizin ekran görüntüsüyle birlikte [bizimle iletişime geçin](/contact-us). Sorunu sizin için daha detaylı inceleyeceğiz.
 
-## Bu uzantı neden yeni bir izin gerektiriyor? {/* #permission-alert-on-safari */}
+## Chrome, Firefox veya Edge için uzantıyı yükledikten sonra uygulamayı yine de indirmeli miyim? {/* #app-for-non-safari-browsers */}
+
+Evet. Hangi tarayıcıyı kullanırsanız kullanın, [RedirectWeb uygulamasını App Store'dan](https://apps.apple.com/app/id1571283503) indirmelisiniz. Uzantıyı tarayıcınızın uzantı mağazasından yükleyebilirsiniz ancak kurallarınızı, satın alma geçmişinizi ve diğer ayarlarınızı iCloud aracılığıyla cihazlar arasında yönetmek için uygulama gereklidir.
+
+## Pro uygulamasını kullanıyorsam Chrome, Firefox veya Edge için farklı bir uzantıya ihtiyacım var mı? {/* #different-extension-for-pro */}
+
+Hayır. Mac'inizde ister standart RedirectWeb uygulamasını ister RedirectWeb Pro'yu kullanın, tarayıcınızın ilgili uzantı mağazasından tamamen aynı uzantıyı yüklemelisiniz. Uzantı, hangi uygulama sürümünün yüklü olduğunu otomatik olarak algılayacak ve onunla iletişim kuracaktır.
+
+## RedirectWeb; Windows, Android, Linux veya başka platformlarda çalışıyor mu? {/* #non-apple-platforms */}
+
+Şu an için hayır. RedirectWeb; iCloud ve Evrensel Satın Alma dahil olmak üzere Apple'ın ekosistemine sıkı sıkıya bağlıdır. Verdiğimiz rahatsızlıktan dolayı özür dileriz.
+
+## Bu uzantı neden yeni bir izin istiyor? {/* #permission-alert-on-safari */}
 
 RedirectWeb'i güncelledikten sonra Safari'de bu uyarıyı görebilirsiniz:
 
 <img
   src={require("/img/safari-additional-permission-alert.webp").default}
-  alt="Uygulamayı devre dışı bırakma uyarısı"
+  alt="Uygulamanın devre dışı bırakıldığına dair bir uyarı"
   width="280"
 />
 
 > "RedirectWeb" güncellendi ve ek izinler istiyor. Gizliliğinizi korumak için bu uzantı kapatıldı.
 >
-> Bu uzantıyı Safari Ayarları'nın Uzantılar bölümünde açabilirsiniz.
+> Bu uzantıyı Safari Ayarları'nın Uzantılar bölümünden açabilirsiniz.
 
-Bu, sürüm 7'de tanıtılan [DNR](/rule-settings#type) türünün gerektirdiği [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) izninden kaynaklanmaktadır. Lütfen uzantıyı yeniden etkinleştirin. Rahatsızlık için üzgünüz.
+Bu, sürüm 7 ile sunulan [DNR](/rule-settings#type) türü için gereken [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) izninden kaynaklanmaktadır. Lütfen uzantıyı tekrar etkinleştirin. Verdiğimiz rahatsızlıktan dolayı özür dileriz.
 
-## Kütüphanenin içerikleri gelecekte ücretli olacak mı? {/* #will-library-become-paid */}
+## Kütüphane içerikleri gelecekte ücretli olacak mı? {/* #will-library-become-paid */}
 
-Hayır, her zaman ücretsizdir. Tüm içeriklerin kaynağını [burada](https://github.com/mshibanami/redirect-web/tree/main/library) da bulabilirsiniz.
+Hayır, her zaman ücretsizdir. Ayrıca tüm içeriklerin kaynağını [burada](https://github.com/mshibanami/redirect-web/tree/main/library) bulabilirsiniz.
 
-## Tek Seferlik Satın Alma veya Yıllık Abonelik: Hangisi Daha İyi? {/* #one-time-or-subscription */}
+## RedirectWeb ile RedirectWeb Pro arasındaki fark nedir? {/* #difference-between-standard-and-pro */}
 
-Fiyat farkı sadece 2,00 ABD Doları olduğu için tek seferlik satın almayı öneriyoruz.
-Abonelik sunmamızın ana nedeni, ücretsiz deneme sürümü aracılığıyla tüm özellikleri denemenize olanak sağlamaktır. İşte beklenen kullanım durumu:
+Her iki sürüm de tamamen aynı özellikleri sunar ve güncellemeleri aynı anda alır. Tek fark ödeme modelidir:
 
-1. Yıllık aboneliğe abone olun.
-2. Ayarlar uygulamasına giderek, "Abonelikler"i arayarak, bu uygulamaya dokunarak ve "Aboneliği İptal Et"i seçerek aboneliği hemen iptal edin. Bu, herhangi bir taahhüt olmaksızın ücretsiz denemenin keyfini çıkarmanızı sağlar.
+- **RedirectWeb**: Temel özelliklere sahip ( **1 aktif kural** ile sınırlı), sınırsız kural ve iCloud senkronizasyonu dahil tüm özelliklerin kilidini açmak için isteğe bağlı Uygulama İçi Satın Alma (abonelik veya tek seferlik ödeme) sunan ücretsiz bir uygulama.
+- **RedirectWeb Pro**: Önceden ödemeli, kilidi tamamen açılmış bir uygulama. Bu sürüm, kuruluşların uygulamayı toplu olarak satın almasına olanak tanıyan (Uygulama İçi Satın Almalarla mümkün değildir) **Apple Business Manager** ve **Apple School Manager (VPP)** için uygun olması amacıyla özel olarak oluşturulmuştur. Ancak, önceden satın almayı tercih eden herkes onu satın alabilir!
+
+## Tek Seferlik Satın Alma, Yıllık Abonelik veya Pro Sürüm: Hangisi En İyisi? {/* #one-time-or-subscription-or-pro */}
+
+Aynı değeri sundukları için standart RedirectWeb uygulamasındaki tek seferlik satın almayı veya RedirectWeb Pro'yu satın almanızı öneririz.
+Abonelik sunmamızın ana nedeni, ücretsiz deneme sürümü aracılığıyla tüm özellikleri denemenize olanak tanımaktır. İşte beklenen kullanım durumu:
+
+1. Standart RedirectWeb uygulamasında yıllık aboneliğe abone olun.
+2. Ayarlar uygulamasına giderek, "Abonelikler"i arayarak, bu uygulamaya dokunarak ve "Aboneliği İptal Et"i seçerek aboneliği hemen iptal edin. Bu, herhangi bir taahhüt altına girmeden ücretsiz denemenin keyfini çıkarmanızı sağlar.
 3. 7 gün boyunca tüm özelliklere tam erişimin keyfini çıkarın.
-4. Özellikleri beğenirseniz, tek seferlik satın almayı tercih edin.
+4. Özellikleri beğenirseniz tek seferlik satın almayı tercih edin veya Pro sürümünü satın alın.
 
-Elbette, isterseniz yıllık aboneliğe devam etmenizde bir sakınca yoktur!
+Elbette, isterseniz yıllık abonelikle devam etmenizde bir sakınca yoktur!
 
-## RedirectWeb web sitelerine reklam veya başka ilgisiz içerik enjekte ediyor mu? {/* #does-it-inject-ads */}
+## RedirectWeb web sitelerine reklam veya diğer ilgisiz içerikler ekler mi? {/* #does-it-inject-ads */}
 
-Hayır, böyle bir içerik enjekte etmez. Yalnızca bu belgede ve App Store'daki uygulama sayfasında açıklanan özellikleri sağlamak için gerekli olan kod, Safari'deki web sitelerine enjekte edilir.
+Hayır, bu tür içerikler eklemez. Safari'deki web sitelerine yalnızca bu belgelerde ve App Store'daki uygulama sayfasında açıklanan özellikleri sağlamak için gerekli olan kodlar eklenir.
 
-## Is there any chance RedirectWeb could ever be sold to someone else? {/* #could-it-be-sold */}
+## RedirectWeb'in başkasına satılma ihtimali var mı? {/* #could-it-be-sold */}
 
-%100 hayır. Tarayıcı uzantıları, taramanız ve verileriniz üzerinde derin bir kontrol sağlar ve RedirectWeb'i başka bir sahibine devretmek, gizlilik ihlallerine kapı aralar. Uzantıların el değiştirdiğini ve ardından kullanıcı verilerini topladığını veya uyarı vermeden reklam enjekte ettiğini gördük. Bu burada asla olmayacak. Bu riskler hakkında daha fazla bilgi için Matt Frisbie'nin ["Tarayıcıdan Para Kazanmanın Çirkin İşleri"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) makalesine ve Brian Krebs'in ["Tarayıcı Uzantınız Bir Botnet Arka Kapısı mı?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/) araştırmasına bakın.
+%100 hayır. Tarayıcı uzantıları, tarama ve verileriniz üzerinde derin bir kontrole sahiptir ve RedirectWeb'i başka bir sahibe devretmek gizlilik ihlallerine kapı aralayacaktır. Uzantıların el değiştirdiğini ve ardından uyarı yapmaksızın kullanıcı verilerini topladığını veya reklam eklediğini gördük. Bu burada asla olmayacak. Bu riskler hakkında daha fazla bilgi için Matt Frisbie'nin ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) makalesine ve Brian Krebs'in ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/) incelemesine bakabilirsiniz.
 
-RedirectWeb, güven ve sorumluluk üzerine kurulmuştur. Bilgilerinizi güvende tutmayı görevimiz olarak görüyoruz ve hiçbir koşulda sahipliği devretmeyi reddediyoruz. RedirectWeb her zaman bizim elimizde kalacak, böylece tam bir güvenle gezinebilirsiniz.
+RedirectWeb güven ve sorumluluk üzerine kurulmuştur. Bilgilerinizi güvende tutmayı görevimiz olarak görüyoruz ve hiçbir koşulda sahiplik devretmeyi reddediyoruz. RedirectWeb her zaman bizim elimizde kalacak, böylece tam bir güvenle gezinebilirsiniz.
