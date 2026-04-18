@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "No.1 Enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1",
+      "isEnabled": true,
+      "comments": "",
+      "commentsOptions": {
+        "format": "plainText"
+      },
+      "exampleURLs": [""],
+      "excludeURLPatterns": [],
+      "captureGroupProcesses": [],
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      }
+    },
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "No.2 Enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/2"
+      },
+      "destinationURLPattern": "https://google.com/search?q=2",
+      "isEnabled": true,
+      "comments": "",
+      "commentsOptions": {
+        "format": "plainText"
+      },
+      "exampleURLs": [""],
+      "excludeURLPatterns": [],
+      "captureGroupProcesses": [],
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      }
+    }
+  ]
+}</string>
+	<key>prefilledRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "No.1 Prefilled Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/3"
+      },
+      "destinationURLPattern": "https://google.com/search?q=3",
+      "isEnabled": true,
+      "comments": "",
+      "commentsOptions": {
+        "format": "plainText"
+      },
+      "exampleURLs": [""],
+      "excludeURLPatterns": [],
+      "captureGroupProcesses": [],
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      }
+    },
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "No.2 Prefilled Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/4"
+      },
+      "destinationURLPattern": "https://google.com/search?q=4",
+      "isEnabled": true,
+      "comments": "",
+      "commentsOptions": {
+        "format": "plainText"
+      },
+      "exampleURLs": [""],
+      "excludeURLPatterns": [],
+      "captureGroupProcesses": [],
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      }
+    }
+  ]
+}</string>
+	<key>organizationName</key>
+	<string>Example Inc.</string>
+	<key>managedConfigVersion</key>
+	<string>1.2.3</string>
+	<key>showsLibrarySection</key>
+	<false/>
+</dict>
+</plist>

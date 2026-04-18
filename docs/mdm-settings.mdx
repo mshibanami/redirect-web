@@ -49,26 +49,36 @@ By pushing configurations through your MDM, you can achieve the following:
   width="640px"
 ></video>
 
-The plist file used in the video is available here: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+The plist file used in the video is available as **[sample-mdm.plist](/misc/sample-mdm.plist)**, which uses Dictionary (`<dict>`) keys. There is also **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)** which uses JSON String keys (same data).
 
 In the video, ManageEngine's MDM was used to deploy the configuration, but the same configuration can be used for other MDM solutions as long as they support Apple's Managed App Configuration.
+
+> [!NOTE]
+>
+> **Dictionary vs. JSON String:**
+> While the Dictionary type is more type-safe, some MDM solutions (such as Omnissa Workspace ONE UEM) don't support the Dictionary type in the managed app configuration. In such cases, using the JSON String type is a recommended workaround.
 
 ## Configurable Keys
 
 Deploy the following keys and values for Managed App Configuration via your MDM console, typically in the plist format.
 
-| Key Name               | Type                         | Description                                                                                                                                                                                                                                                                   |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Rule set](#rule-set-object) | **[Enforced Rules]** A rule set applied with higher priority than normal rules. The first rule in the list takes precedence. Users cannot edit, delete, or reorder these rules. They are always active, ignoring the app's global disable toggle, and do not sync via iCloud. |
-| `prefilledRuleSet`     | [Rule set](#rule-set-object) | **[Initial Rules]** A rule set created in place of the default example rule when a user launches the app for the first time without existing rules. Once distributed, these act as normal rules, allowing user modification, deletion, and iCloud sync.                       |
-| `organizationName`     | String                       | Displays "Managed by [organizationName]" at the top of the in-app settings screen, indicating to the user that the app is managed.                                                                                                                                            |
-| `managedConfigVersion` | String                       | An arbitrary version string for the configuration. Displayed in the UI, allowing IT support to verify if the latest MDM payload has reached the device when troubleshooting.                                                                                                  |
-| `showsLibrarySection`  | Boolean                      | If set to `false`, the Rule Library feature is hidden, and the section is replaced with a "Restricted by your organization." error message.                                                                                                                                   |
-| `fallback`             | [Fallback](#fallback-object) | Specify this when the configurations exceed the MDM payload limits. The app will fetch JSON/XML from this URL to apply the configuration.                                                                                                                                     |
+| Key Name                     | Type                         | Description                                                                                                                                                                                                                                              |
+| ---------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`            | [Rule Set](#rule-set-object) | A rule set applied with higher priority than normal rules. The first rule in the list takes precedence. Users cannot edit, delete, or reorder these rules. They are always active, ignoring the app's global disable toggle, and do not sync via iCloud. |
+| `enforcedRuleSetJSONString`  | [JSON String](#json-string)  | Same as `enforcedRuleSet`, but the rule set is provided as a raw JSON string. This is useful for MDM platforms that do not support the Dictionary type in the managed app configuration.                                                                 |
+| `prefilledRuleSet`           | [Rule Set](#rule-set-object) | A rule set created in place of the default example rule when a user launches the app for the first time without existing rules. Once distributed, these act as normal rules, allowing user modification, deletion, and iCloud sync.                      |
+| `prefilledRuleSetJSONString` | [JSON String](#json-string)  | Same as `prefilledRuleSet`, but the rule set is provided as a raw JSON string. This is useful for MDM platforms that do not support the Dictionary type in the managed app configuration.                                                                |
+| `organizationName`           | String                       | Displays "Managed by [organizationName]" at the top of the in-app settings screen, indicating to the user that the app is managed.                                                                                                                       |
+| `managedConfigVersion`       | String                       | An arbitrary version string for the configuration. Displayed in the UI, allowing IT support to verify if the latest MDM payload has reached the device when troubleshooting.                                                                             |
+| `showsLibrarySection`        | Boolean                      | If set to `false`, the Rule Library feature is hidden, and the section is replaced with a "Restricted by your organization." error message.                                                                                                              |
+| `fallback`                   | [Fallback](#fallback-object) | Specify this when the MDM payload size limit is exceeded. The app will fetch the configuration from the URL specified in `fallbackDataURL`.                                                                                                              |
+| `fallbackJSONString`         | [JSON String](#json-string)  | Same as `fallback`, but the fallback configuration is provided as a raw JSON string. This is useful for MDM platforms that do not support the Dictionary type in the managed app configuration.                                                          |
 
 These keys are all optional.
 
-### [Object] Rule Set {/* #rule-set-object */}
+### Configuration Value Types {/* #configuration-value-types */}
+
+#### Rule Set {/* #rule-set-object */}
 
 Each rule object has the same format as the one you can [share/export via the app](export-or-import-rules), but you need to convert it from JSON to plist, like this:
 
@@ -106,12 +116,46 @@ Each rule object has the same format as the one you can [share/export via the ap
 ...
 ```
 
-### [Object] Fallback {/* #fallback-object */}
+#### Fallback {/* #fallback-object */}
 
 | Key Name          | Type         | Description                                                                                                                                  |
 | ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `fallbackDataURL` | String (URL) | An endpoint URL of a JSON/XML file containing rule sets.                                                                                     |
 | `authToken`       | String       | An authentication token appended to the HTTP header when fetching from the `fallbackDataURL`. (Used as `Authorization: Bearer [authToken]`). |
+
+#### JSON String {/* #json-string */}
+
+Some MDM platforms (e.g., Omnissa Workspace ONE UEM) do not support the Dictionary (`<dict>`) type in the managed app configuration. As a workaround, keys ending in `JSONString` (such as `enforcedRuleSetJSONString`, `prefilledRuleSetJSONString`, and `fallbackJSONString`) accept the same data as their Dictionary counterparts, but encoded as a **raw JSON string** within a plist `<string>` element.
+
+The JSON string can be either minified or pretty-printed with newlines and indentation for readability, as shown in the following example:
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+
+> [!NOTE]
+>
+> If both a Dictionary key and its corresponding `JSONString` key are present (e.g., both `enforcedRuleSet` and `enforcedRuleSetJSONString`), the Dictionary key takes precedence.
 
 ## Rule Evaluation and Conflict Resolution
 
@@ -126,7 +170,7 @@ When a key exists in both the inline MDM payload and the data fetched via `fallb
 - **Before Fetch Completion:** Inline settings are strictly prioritized and used.
 - **After Successful Fetch:** Data retrieved from the `fallbackDataURL` overwrites the corresponding inline settings.
 - **After Failed Fetch:** The app continues to use the inline settings.
-- Independent keys that exist only in the inline payload are preserved.
+- **Independent Keys:** Keys that exist only in the inline payload are always preserved.
 
 ## MDM Feedback and Status Check
 
