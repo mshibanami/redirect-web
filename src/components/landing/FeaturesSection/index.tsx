@@ -78,6 +78,7 @@ const FeatureList: FeatureItem[] = [
       description: 'Landing page feature title for unlocking all features',
     }),
     icon: '💎',
+    thumbnail: '/img/landing-feature-unlock-all-features.jpg',
     description: translate({
       id: 'landingPage.feature.unlockAll.description',
       message:
