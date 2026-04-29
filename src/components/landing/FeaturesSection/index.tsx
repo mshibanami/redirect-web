@@ -20,7 +20,7 @@ const FeatureList: FeatureItem[] = [
       description: 'Landing page feature title for powerful redirection engine',
     }),
     icon: '🎯',
-    thumbnail: '/img/landing-feature-redirection-engine.png',
+    thumbnail: '/img/landing-feature-redirection-engine.jpg',
     description: translate({
       id: 'landingPage.feature.redirectionEngine.description',
       message:
@@ -35,7 +35,7 @@ const FeatureList: FeatureItem[] = [
       description: 'Landing page feature title for useful rules in library',
     }),
     icon: '📚',
-    thumbnail: '/img/landing-feature-library.png',
+    thumbnail: '/img/landing-feature-library.jpg',
     description: translate({
       id: 'landingPage.feature.library.description',
       message: 'Quick start with useful pre-made rules from the Library section in the app.',
@@ -49,7 +49,7 @@ const FeatureList: FeatureItem[] = [
       description: 'Landing page feature title for native UI',
     }),
     icon: '✨',
-    thumbnail: '/img/landing-feature-native-ui.png',
+    thumbnail: '/img/landing-feature-native-ui.jpg',
     description: translate({
       id: 'landingPage.feature.nativeUI.description',
       message: 'RedirectWeb offers a native app to provide a seamless experience on each platform.',
@@ -63,7 +63,7 @@ const FeatureList: FeatureItem[] = [
       description: 'Landing page feature title for cross-browser and cross-platform support',
     }),
     icon: '🖥️📱🥽',
-    thumbnail: '/img/landing-feature-multi-platform.png',
+    thumbnail: '/img/landing-feature-multi-platform.jpg',
     description: translate({
       id: 'landingPage.feature.crossBrowser.description',
       message:
