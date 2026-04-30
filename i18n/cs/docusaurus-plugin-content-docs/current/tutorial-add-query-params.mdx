@@ -44,7 +44,7 @@ Pojďme se podívat krok za krokem.
 - `(https://example.com/[^?]*)`: Shoduje se s částí až do předchozího znaku `?`.
   - `[^?]*` se shoduje s čímkoli kromě `?`.
   - Toto je zabaleno do `()`, takže na to můžete později odkazovat pomocí `$1`.
-- `(\(.*))?`: Shoduje se s řetězcem začínajícím `?`, což znamená parametry dotazu.
+- `(\?(.*))?`: Shoduje se s řetězcem začínajícím `?`, což znamená parametry dotazu.
   - Toto se také shoduje s prázdným řetězcem pomocí kvantifikátoru `?` na konci vzoru, který _shoduje nula nebo jedenkrát_.
   - Vnější `()` a vnitřní `()` lze později odkazovat pomocí `$2` a `$3`.
 
@@ -57,7 +57,7 @@ Toto není dokonalé řešení, protože přesměrovává `example.com/hello` na
 
 Závěrem, toto je konečný výstup:
 
-- **Přesměrovat z**: `(https://example.com/[^?]*)((\(.*))?)` (Regulární výraz)
+- **Přesměrovat z**: `(https://example.com/[^?]*)((\?(.*))?)` (Regulární výraz)
 - **Přesměrovat na**: `$1?layout=desktop$3`
 - **Vyloučený vzor URL**: `.*[&?]layout=[^&]*.*` (Regulární výraz)
 - **Zpracování zachycené skupiny**:

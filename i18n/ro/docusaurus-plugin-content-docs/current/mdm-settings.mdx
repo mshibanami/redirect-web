@@ -40,7 +40,7 @@ Prin transmiterea configurațiilor prin MDM-ul dvs., puteți realiza următoarel
 
 <video
   src={useBaseUrl("/videos/mdm-settings-demo.mov")}
-  title="MDM Settings Demo"
+  title="Demo setări MDM"
   autoPlay
   playsInline
   muted
@@ -49,26 +49,36 @@ Prin transmiterea configurațiilor prin MDM-ul dvs., puteți realiza următoarel
   width="640px"
 ></video>
 
-Fișierul plist utilizat în videoclip este disponibil aici: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+Fișierul plist utilizat în videoclip este disponibil aici: **[sample-mdm.plist](/misc/sample-mdm.plist)**, care folosește chei de tip dicționar (`<dict>`). Există, de asemenea, **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)** care folosește chei de tip șir JSON (aceleași date).
 
 În videoclip, MDM-ul ManageEngine a fost folosit pentru a implementa configurația, dar aceeași configurație poate fi folosită pentru alte soluții MDM atâta timp cât acestea acceptă Configurația Aplicației Gestionate de la Apple.
+
+> [!NOTE]
+>
+> **Dicționar (Dictionary) vs. Șir JSON:**
+> În timp ce tipul Dicționar (Dictionary) este mai sigur din punct de vedere al tipului, unele soluții MDM (cum ar fi Omnissa Workspace ONE UEM) nu acceptă tipul Dicționar în configurația aplicației gestionate. În astfel de cazuri, utilizarea tipului șir JSON este o soluție alternativă recomandată.
 
 ## Chei configurabile
 
 Implementați următoarele chei și valori pentru Configurația Aplicației Gestionate prin consola MDM, de obicei în format plist.
 
-| Numele cheii           | Tip                               | Descriere                                                                                                                                                                                                                                                                                                                         |
-| ---------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Set de reguli](#rule-set-object) | **[Reguli impuse]** Un set de reguli aplicat cu o prioritate mai mare decât regulile normale. Prima regulă din listă are prioritate. Utilizatorii nu pot edita, șterge sau reordona aceste reguli. Acestea sunt întotdeauna active, ignorând comutatorul de dezactivare globală al aplicației și nu se sincronizează prin iCloud. |
-| `prefilledRuleSet`     | [Set de reguli](#rule-set-object) | **[Reguli inițiale]** Un set de reguli creat în locul regulii de exemplu implicite atunci când un utilizator lansează aplicația pentru prima dată fără reguli existente. Odată distribuite, acestea acționează ca reguli normale, permițând modificarea de către utilizator, ștergerea și sincronizarea iCloud.                   |
-| `organizationName`     | String                            | Afișează „Gestionat de [organizationName]” în partea de sus a ecranului de setări din aplicație, indicând utilizatorului că aplicația este gestionată.                                                                                                                                                                            |
-| `managedConfigVersion` | String                            | Un șir de versiune arbitrar pentru configurație. Afișat în interfața de utilizare, permițând asistenței IT să verifice dacă cea mai recentă încărcătură utilă MDM a ajuns la dispozitiv în timpul depanării.                                                                                                                      |
-| `showsLibrarySection`  | Boolean                           | Dacă este setat la `false`, funcția Biblioteca de reguli este ascunsă, iar secțiunea este înlocuită cu mesajul de eroare „Restricționat de organizația dvs.”.                                                                                                                                                                     |
-| `fallback`             | [Fallback](#fallback-object)      | Specificați acest lucru atunci când configurațiile depășesc limitele de încărcătură utilă MDM. Aplicația va prelua JSON/XML de la această adresă URL pentru a aplica configurația.                                                                                                                                                |
+| Numele cheii                  | Tip                               | Descriere                                                                                                                                                                                                                                                                                                                         |
+| ----------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`             | [Set de reguli](#rule-set-object) | Un set de reguli aplicat cu o prioritate mai mare decât regulile normale. Prima regulă din listă are prioritate. Utilizatorii nu pot edita, șterge sau reordona aceste reguli. Acestea sunt întotdeauna active, ignorând comutatorul de dezactivare globală al aplicației și nu se sincronizează prin iCloud.                     |
+| `enforcedRuleSetJSONString`   | [Șir JSON](#json-string)          | La fel ca `enforcedRuleSet`, dar setul de reguli este furnizat ca un șir JSON brut. Acest lucru este util pentru platformele MDM care nu acceptă tipul Dicționar în configurația aplicației gestionate.                                                                                                                           |
+| `prefilledRuleSet`            | [Set de reguli](#rule-set-object) | Un set de reguli creat în locul regulii de exemplu implicite atunci când un utilizator lansează aplicația pentru prima dată fără reguli existente. Odată distribuite, acestea acționează ca reguli normale, permițând modificarea de către utilizator, ștergerea și sincronizarea iCloud.                                         |
+| `prefilledRuleSetJSONString`  | [Șir JSON](#json-string)          | La fel ca `prefilledRuleSet`, dar setul de reguli este furnizat ca un șir JSON brut. Acest lucru este util pentru platformele MDM care nu acceptă tipul Dicționar în configurația aplicației gestionate.                                                                                                                           |
+| `organizationName`            | String                            | Afișează „Gestionat de [organizationName]” în partea de sus a ecranului de setări din aplicație, indicând utilizatorului că aplicația este gestionată.                                                                                                                                                                            |
+| `managedConfigVersion`       | String                            | Un șir de versiune arbitrar pentru configurație. Afișat în interfața de utilizare, permițând asistenței IT să verifice dacă cea mai recentă încărcătură utilă MDM a ajuns la dispozitiv în timpul depanării.                                                                                                                      |
+| `showsLibrarySection`        | Boolean                           | Dacă este setat la `false`, funcția Biblioteca de reguli este ascunsă, iar secțiunea este înlocuită cu mesajul de eroare „Restricționat de organizația dvs.”.                                                                                                                                                                     |
+| `fallback`                   | [Fallback](#fallback-object)      | Specificați acest lucru atunci când configurațiile depășesc limitele de încărcătură utilă MDM. Aplicația va prelua configurația de la adresa URL specificată în `fallbackDataURL`.                                                                                                                                               |
+| `fallbackJSONString`         | [Șir JSON](#json-string)          | La fel ca `fallback`, dar configurația de rezervă este furnizată ca un șir JSON brut. Acest lucru este util pentru platformele MDM care nu acceptă tipul Dicționar în configurația aplicației gestionate.                                                                                                                       |
 
-Toate aceste chei sunt opționale.
+Toate these chei sunt opționale.
 
-### [Obiect] Set de reguli {/* #rule-set-object */}
+### Tipuri de valori de configurare {/* #configuration-value-types */}
+
+#### Set de reguli {/* #rule-set-object */}
 
 Fiecare obiect de regulă are același format ca cel pe care îl puteți [partaja/exporta prin intermediul aplicației](export-or-import-rules), dar trebuie să îl convertiți din JSON în plist, astfel:
 
@@ -90,7 +100,7 @@ Fiecare obiect de regulă are același format ca cel pe care îl puteți [partaj
 				<key>type</key>
 				<string>originalRedirect</string>
 				<key>title</key>
-				<string>My enforced Rule</string>
+				<string>Regula mea impusă</string>
 				<key>sourceURLPattern</key>
 				<dict>
 					<key>type</key>
@@ -106,12 +116,45 @@ Fiecare obiect de regulă are același format ca cel pe care îl puteți [partaj
 ...
 ```
 
-### [Obiect] Fallback {/* #fallback-object */}
+#### Fallback {/* #fallback-object */}
 
 | Numele cheii      | Tip          | Descriere                                                                                                                                        |
 | ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `fallbackDataURL` | String (URL) | O adresă URL endpoint a unui fișier JSON/XML care conține seturi de reguli.                                                                      |
 | `authToken`       | String       | Un token de autentificare atașat la antetul HTTP atunci când se preia de la `fallbackDataURL`. (Folosit ca `Authorization: Bearer [authToken]`). |
+
+#### Șir JSON {/* #json-string */}
+
+Unele platforme MDM (de exemplu, Omnissa Workspace ONE UEM) nu acceptă tipul Dicționar (`<dict>`) în configurația aplicației gestionate. Ca soluție, cheile care se termină în `JSONString` (cum ar fi `enforcedRuleSetJSONString`, `prefilledRuleSetJSONString` și `fallbackJSONString`) acceptă aceleași date ca și omologii lor de tip Dicționar, dar codificate ca un **șir JSON brut** într-un element `<string>` plist.
+
+Șirul JSON poate fi fie minimizat, fie formatat cu linii noi și indentare pentru lizibilitate, așa cum se arată în următorul exemplu:
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Dacă sunt prezente atât o cheie de tip Dicționar, cât și cheia sa corespunzătoare `JSONString` (de exemplu, atât `enforcedRuleSet` și `enforcedRuleSetJSONString`), cheia de tip Dicționar are prioritate.
 
 ## Evaluarea regulilor și rezolvarea conflictelor
 
@@ -126,7 +169,7 @@ Atunci când o cheie există atât în încărcătura utilă MDM inline, cât ș
 - **Înainte de finalizarea preluării:** Setările inline sunt strict prioritizate și utilizate.
 - **După preluarea reușită:** Datele recuperate de la `fallbackDataURL` suprascriu setările inline corespunzătoare.
 - **După eșecul preluării:** Aplicația continuă să folosească setările inline.
-- Cheile independente care există numai în încărcătura utilă inline sunt păstrate.
+- **Chei independente:** Cheile care există numai în încărcătura utilă inline sunt întotdeauna păstrate.
 
 ## Feedback MDM și verificarea stării
 

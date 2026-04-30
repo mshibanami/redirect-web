@@ -44,7 +44,7 @@ Echemos un vistazo paso a paso.
 - `(https://example.com/[^?]*)`: Coincide con la parte hasta el carácter anterior a `?`.
   - `[^?]*` coincide con cualquier cosa excepto `?`.
   - Esto está envuelto en `()` para que puedas hacer referencia a él con `$1` más tarde.
-- `(\(.*))?`: Coincide con una cadena que comienza con `?`, lo que significa parámetros de consulta.
+- `(\?\?\(.*))?`: Coincide con una cadena que comienza con `?`, lo que significa parámetros de consulta.
   - Esto también coincide con una cadena vacía por el cuantificador `?` al final del patrón, que _coincide cero o una vez_.
   - Los `()` externos y los `()` internos pueden ser referenciados con `$2` y `$3` más tarde.
 
@@ -57,7 +57,7 @@ Esta no es una solución perfecta, ya que redirige `example.com/hello` a `exampl
 
 En conclusión, esta es la salida final:
 
-- **Redirigir desde**: `(https://example.com/[^?]*)((\(.*))?)` (Expresión Regular)
+- **Redirigir desde**: `(https://example.com/[^?]*)((\?\?\(.*))?)` (Expresión Regular)
 - **Redirigir a**: `$1?layout=desktop$3`
 - **Patrón de URL excluido**: `.*[&?]layout=[^&]*.*` (Expresión Regular)
 - **Procesamiento de grupos de captura**:

@@ -44,7 +44,7 @@ Apskatīsim soli pa solim.
 - `(https://example.com/[^?]*)`: Atbilst daļai līdz `?` iepriekšējai rakstzīmei.
   - `[^?]*` atbilst jebkam, izņemot `?`.
   - Tas ir ietverts `()`, lai vēlāk varētu uz to atsaukties ar `$1`.
-- `(\(.*))?`: Atbilst virknei, kas sākas ar `?`, kas nozīmē vaicājuma parametrus.
+- `(\?\?\(.*))?`: Atbilst virknei, kas sākas ar `?`, kas nozīmē vaicājuma parametrus.
   - Tas atbilst arī tukšai virknei ar `?` kvantifikatoru modeļa beigās, kas _atbilst nullei vai vienai reizei_.
   - Ārējās `()` un iekšējās `()` var atsaukties ar `$2` un `$3` vēlāk.
 
@@ -57,7 +57,7 @@ Tas nav ideāls risinājums, jo tas pārvirza `example.com/hello` uz `example.co
 
 Noslēgumā, šis ir galīgais rezultāts:
 
-- **Pārvirzīt no**: `(https://example.com/[^?]*)((\(.*))?)` (Regulārā izteiksme)
+- **Pārvirzīt no**: `(https://example.com/[^?]*)((\?\?\(.*))?)` (Regulārā izteiksme)
 - **Pārvirzīt uz**: `$1?layout=desktop$3`
 - **Izslēgtais URL modelis**: `.*[&?]layout=[^&]*.*` (Regulārā izteiksme)
 - **Tveršanas grupas apstrāde**:

@@ -49,26 +49,36 @@ MDMを介して構成をプッシュすることで、以下のことが可能�
   width="640px"
 ></video>
 
-動画で使用されているplistファイルはこちらから入手できます： **[sample-mdm.plist](/misc/sample-mdm.plist)**
+動画で使用されているplistファイルは、Dictionary（`<dict>`）キーを使用した **[sample-mdm.plist](/misc/sample-mdm.plist)** として入手可能です。また、JSON Stringキーを使用した **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)** もあります（データ内容は同じです）。
 
 動画ではManageEngineのMDMを使用して構成をデプロイしていますが、AppleのManaged App Configurationをサポートしている他のMDMソリューションでも同じ構成を使用できます。
+
+> [!NOTE]
+>
+> **Dictionary vs. JSON String:**
+> Dictionary型の方が型安全ですが、一部のMDMソリューション（Omnissa Workspace ONE UEMなど）では、管理対象アプリの構成でDictionary型をサポートしていません。そのような場合、JSON String型を使用することが推奨される回避策です。
 
 ## 構成可能なキー
 
 MDMコンソールを介して、Managed App Configuration用の以下のキーと値をデプロイします（通常はplist形式）。
 
-| キー名                 | 型                                 | 説明                                                                                                                                                                                                                                                                                  |
-| ---------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [ルールセット](#rule-set-object)   | **[強制ルール]** 通常のルールよりも高い優先度で適用されるルールセット。リスト内の最初のルールが優先されます。ユーザーはこれらのルールを編集、削除、または並べ替えることはできません。これらは常にアクティブで、アプリのグローバルな無効化トグルを無視し、iCloud経由で同期されません。 |
-| `prefilledRuleSet`     | [ルールセット](#rule-set-object)   | **[初期ルール]** 既存のルールがない状態でユーザーが初めてアプリを起動したときに、デフォルトの例ルールの代わりに作成されるルールセット。一度配布されると、これらは通常のルールとして機能し、ユーザーによる変更、削除、およびiCloud同期が可能です。                                     |
-| `organizationName`     | String                             | アプリ内設定画面の上部に「Managed by [organizationName]」（[organizationName] によって管理されています）と表示され、アプリが管理されていることをユーザーに示します。                                                                                                                  |
-| `managedConfigVersion` | String                             | 構成の任意のバージョン文字列。UIに表示され、トラブルシューティング時にITサポートが最新のMDMペイロードがデバイスに到達したかどうかを確認できます。                                                                                                                                     |
-| `showsLibrarySection`  | Boolean                            | `false`に設定すると、ルールライブラリ機能が非表示になり、そのセクションは「Restricted by your organization.」（組織によって制限されています）というエラーメッセージに置き換わります。                                                                                                 |
-| `fallback`             | [フォールバック](#fallback-object) | 構成がMDMのペイロード制限を超える場合に指定します。アプリはこのURLからJSON/XMLを取得して構成を適用します。                                                                                                                                                                            |
+| キー名                       | 型                                 | 説明                                                                                                                                                                                                                                                                                  |
+| ---------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`            | [ルールセット](#rule-set-object)   | 通常のルールよりも高い優先度で適用されるルールセット。リスト内の最初のルールが優先されます。ユーザーはこれらのルールを編集、削除、または並べ替えることはできません。これらは常にアクティブで、アプリのグローバルな無効化トグルを無視し、iCloud経由で同期されません。                 |
+| `enforcedRuleSetJSONString`  | [JSON String](#json-string)        | `enforcedRuleSet`と同じですが、ルールセットは生のJSON文字列として提供されます。これは、管理対象アプリの構成でDictionary型をサポートしていないMDMプラットフォームで役立ちます。                                                                                                       |
+| `prefilledRuleSet`           | [ルールセット](#rule-set-object)   | 既存のルールがない状態でユーザーが初めてアプリを起動したときに、デフォルトの例ルールの代わりに作成されるルールセット。一度配布されると、これらは通常のルールとして機能し、ユーザーによる変更、削除、およびiCloud同期が可能です。                                                     |
+| `prefilledRuleSetJSONString` | [JSON String](#json-string)        | `prefilledRuleSet`と同じですが、ルールセットは生のJSON文字列として提供されます。これは、管理対象アプリの構成でDictionary型をサポートしていないMDMプラットフォームで役立ちます。                                                                                                       |
+| `organizationName`           | String                             | アプリ内設定画面の上部に「Managed by [organizationName]」（[organizationName] によって管理されています）と表示され、アプリが管理されていることをユーザーに示します。                                                                                                                  |
+| `managedConfigVersion`       | String                             | 構成の任意のバージョン文字列。UIに表示され、トラブルシューティング時にITサポートが最新のMDMペイロードがデバイスに到達したかどうかを確認できます。                                                                                                                                     |
+| `showsLibrarySection`        | Boolean                            | `false`に設定すると、ルールライブラリ機能が非表示になり、そのセクションは「Restricted by your organization.」（組織によって制限されています）というエラーメッセージに置き換わります。                                                                                                 |
+| `fallback`                   | [フォールバック](#fallback-object) | MDMのペイロードサイズ制限を超えた場合に指定します。アプリは、`fallbackDataURL`で指定されたURLから構成を取得します。                                                                                                                                                                   |
+| `fallbackJSONString`         | [JSON String](#json-string)        | `fallback`と同じですが、フォールバック構成は生のJSON文字列として提供されます。これは、管理対象アプリの構成でDictionary型をサポートしていないMDMプラットフォームで役立ちます。                                                                                                       |
 
 これらのキーはすべてオプションです。
 
-### [オブジェクト] ルールセット {/* #rule-set-object */}
+### 構成値の型 {/* #configuration-value-types */}
+
+#### ルールセット {/* #rule-set-object */}
 
 各ルールオブジェクトは、[アプリ経由で共有/エクスポート](export-or-import-rules)できるものと同じ形式ですが、次のようにJSONからplistに変換する必要があります。
 
@@ -106,12 +116,45 @@ MDMコンソールを介して、Managed App Configuration用の以下のキー�
 ...
 ```
 
-### [オブジェクト] フォールバック {/* #fallback-object */}
+#### フォールバック {/* #fallback-object */}
 
 | キー名            | 型           | 説明                                                                                                                              |
 | ----------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------- |
 | `fallbackDataURL` | String (URL) | ルールセットを含むJSON/XMLファイルのエンドポイントURL。                                                                           |
 | `authToken`       | String       | `fallbackDataURL`から取得する際にHTTPヘッダーに追加される認証トークン。(`Authorization: Bearer [authToken]` として使用されます)。 |
+
+#### JSON String {/* #json-string */}
+
+一部のMDMプラットフォーム（例：Omnissa Workspace ONE UEM）は、管理対象アプリの構成においてDictionary（`<dict>`）型をサポートしていません。回避策として、`JSONString`で終わるキー（`enforcedRuleSetJSONString`、`prefilledRuleSetJSONString`、`fallbackJSONString`など）は、Dictionary版と同じデータを受け取りますが、plistの`<string>`要素内で**生のJSON文字列**としてエンコードされます。
+
+JSON文字列は、次の例に示すように、読みやすさのために改行やインデントを含めた整形済みのもの、または最小化されたもののいずれでも可能です。
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Dictionaryキーとその対応する`JSONString`キーの両方が存在する場合（例：`enforcedRuleSet`と`enforcedRuleSetJSONString`の両方）、Dictionaryキーが優先されます。
 
 ## ルール評価と競合解決
 
@@ -126,7 +169,7 @@ MDMコンソールを介して、Managed App Configuration用の以下のキー�
 - **取得完了前:** インライン設定が厳格に優先され、使用されます。
 - **取得成功後:** `fallbackDataURL`から取得されたデータが、対応するインライン設定を上書きします。
 - **取得失敗後:** アプリは引き続きインライン設定を使用します。
-- インラインペイロードにのみ存在する独立したキーは保持されます。
+- **独立したキー:** インラインペイロードにのみ存在するキーは常に保持されます。
 
 ## MDMフィードバックとステータス確認
 

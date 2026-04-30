@@ -49,26 +49,36 @@ A konfigurációk MDM-en keresztüli kiküldésével a következőket érheti el
   width="640px"
 ></video>
 
-A videóban használt plist fájl itt érhető el: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+A videóban használt plist fájl elérhető **[sample-mdm.plist](/misc/sample-mdm.plist)** néven, amely Dictionary (`<dict>`) kulcsokat használ. Elérhető továbbá a **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)** is, amely JSON String kulcsokat használ (ugyanazokkal az adatokkal).
 
 A videóban a ManageEngine MDM-jét használtuk a konfiguráció telepítéséhez, de ugyanez a konfiguráció más MDM megoldásokkal is használható, amennyiben támogatják az Apple Managed App Configuration funkcióját.
+
+> [!NOTE]
+>
+> **Dictionary vs. JSON String:**
+> Bár a Dictionary (szótár) típus típusbiztosabb, bizonyos MDM megoldások (például az Omnissa Workspace ONE UEM) nem támogatják a Dictionary típust a kezelt alkalmazáskonfigurációban. Ilyen esetekben a JSON String típus használata javasolt megkerülő megoldásként.
 
 ## Konfigurálható kulcsok
 
 Telepítse a következő kulcsokat és értékeket a Managed App Configuration-höz az MDM konzolján keresztül, általában plist formátumban.
 
-| Kulcs neve             | Típus                              | Leírás                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Szabálykészlet](#rule-set-object) | **[Kikényszerített szabályok]** A normál szabályoknál magasabb prioritással alkalmazott szabálykészlet. A listában szereplő első szabály élvez elsőbbséget. A felhasználók nem szerkeszthetik, törölhetik vagy rendezhetik át ezeket a szabályokat. Mindig aktívak, figyelmen kívül hagyva az alkalmazás globális kikapcsoló gombját, és nem szinkronizálódnak az iCloudon keresztül. |
-| `prefilledRuleSet`     | [Szabálykészlet](#rule-set-object) | **[Kezdeti szabályok]** Egy szabálykészlet, amely az alapértelmezett példaszabály helyett jön létre, amikor a felhasználó először indítja el az alkalmazást meglévő szabályok nélkül. A terjesztés után ezek normál szabályként működnek, lehetővé téve a felhasználói módosítást, törlést és az iCloud szinkronizálást.                                                              |
-| `organizationName`     | String                             | Megjeleníti a "Kezeli: [organizationName]" feliratot az alkalmazáson belüli beállítások képernyő tetején, jelezve a felhasználónak, hogy az alkalmazás felügyelt.                                                                                                                                                                                                                     |
-| `managedConfigVersion` | String                             | Tetszőleges verziókarakterlánc a konfigurációhoz. Megjelenik a felhasználói felületen, lehetővé téve az informatikai támogatás számára, hogy hibaelhárításkor ellenőrizze, megérkezett-e a legújabb MDM adatcsomag az eszközre.                                                                                                                                                       |
-| `showsLibrarySection`  | Boolean                            | Ha `false` értékre van állítva, a Szabálykönyvtár funkció elrejtésre kerül, és a szakaszt a "Szervezete korlátozta." hibaüzenet váltja fel.                                                                                                                                                                                                                                           |
-| `fallback`             | [Fallback](#fallback-object)       | Akkor adja meg, ha a konfigurációk meghaladják az MDM adatcsomag-korlátokat. Az alkalmazás erről az URL-ről fogja lekérni a JSON/XML-t a konfiguráció alkalmazásához.                                                                                                                                                                                                                 |
+| Kulcs neve                     | Típus                              | Leírás                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`              | [Szabálykészlet](#rule-set-object) | A normál szabályoknál magasabb prioritással alkalmazott szabálykészlet. A listában szereplő első szabály élvez elsőbbséget. A felhasználók nem szerkeszthetik, törölhetik vagy rendezhetik át ezeket a szabályokat. Mindig aktívak, figyelmen kívül hagyva az alkalmazás globális kikapcsoló gombját, és nem szinkronizálódnak az iCloudon keresztül.                                   |
+| `enforcedRuleSetJSONString`    | [JSON String](#json-string)        | Ugyanaz, mint az `enforcedRuleSet`, de a szabálykészlet nyers JSON karakterláncként van megadva. Ez olyan MDM platformoknál hasznos, amelyek nem támogatják a Dictionary típust a kezelt alkalmazáskonfigurációban.                                                                                                                                                                   |
+| `prefilledRuleSet`             | [Szabálykészlet](#rule-set-object) | Egy szabálykészlet, amely az alapértelmezett példaszabály helyett jön létre, amikor a felhasználó először indítja el az alkalmazást meglévő szabályok nélkül. A terjesztés után ezek normál szabályként működnek, lehetővé téve a felhasználói módosítást, törlést és az iCloud szinkronizálást.                                                                                      |
+| `prefilledRuleSetJSONString`   | [JSON String](#json-string)        | Ugyanaz, mint a `prefilledRuleSet`, de a szabálykészlet nyers JSON karakterláncként van megadva. Ez olyan MDM platformoknál hasznos, amelyek nem támogatják a Dictionary típust a kezelt alkalmazáskonfigurációban.                                                                                                                                                                   |
+| `organizationName`             | String                             | Megjeleníti a "Kezeli: [organizationName]" feliratot az alkalmazáson belüli beállítások képernyő tetején, jelezve a felhasználónak, hogy az alkalmazás felügyelt.                                                                                                                                                                                                                     |
+| `managedConfigVersion`         | String                             | Tetszőleges verziókarakterlánc a konfigurációhoz. Megjelenik a felhasználói felületen, lehetővé téve az informatikai támogatás számára, hogy hibaelhárításkor ellenőrizze, megérkezett-e a legújabb MDM adatcsomag az eszközre.                                                                                                                                                       |
+| `showsLibrarySection`          | Boolean                            | Ha `false` értékre van állítva, a Szabálykönyvtár funkció elrejtésre kerül, és a szakaszt a "Szervezete korlátozta." hibaüzenet váltja fel.                                                                                                                                                                                                                                           |
+| `fallback`                     | [Fallback](#fallback-object)       | Akkor adja meg, ha a konfigurációk meghaladják az MDM adatcsomag-korlátokat. Az alkalmazás a `fallbackDataURL` helyen megadott URL-ről fogja lekérni a konfigurációt.                                                                                                                                                                                                                  |
+| `fallbackJSONString`           | [JSON String](#json-string)        | Ugyanaz, mint a `fallback`, de a fallback konfiguráció nyers JSON karakterláncként van megadva. Ez olyan MDM platformoknál hasznos, amelyek nem támogatják a Dictionary típust a kezelt alkalmazáskonfigurációban.                                                                                                                                                                   |
 
 Ezek a kulcsok mind opcionálisak.
 
-### [Objektum] Szabálykészlet {/* #rule-set-object */}
+### Konfigurációs értékek típusai {/* #configuration-value-types */}
+
+#### Szabálykészlet {/* #rule-set-object */}
 
 Minden szabályobjektum ugyanolyan formátumú, mint az [alkalmazáson keresztül megosztható/exportálható](export-or-import-rules) objektum, de JSON-ból plist formátumba kell konvertálnia, így:
 
@@ -106,12 +116,45 @@ Minden szabályobjektum ugyanolyan formátumú, mint az [alkalmazáson keresztü
 ...
 ```
 
-### [Objektum] Fallback {/* #fallback-object */}
+#### Fallback {/* #fallback-object */}
 
 | Kulcs neve        | Típus        | Leírás                                                                                                                                 |
 | ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `fallbackDataURL` | String (URL) | Egy szabálykészleteket tartalmazó JSON/XML fájl végpont URL-je.                                                                        |
 | `authToken`       | String       | A `fallbackDataURL`-ről való lekéréskor a HTTP fejléchez fűzött hitelesítési token. (Használata: `Authorization: Bearer [authToken]`). |
+
+#### JSON String {/* #json-string */}
+
+Bizonyos MDM platformok (pl. Omnissa Workspace ONE UEM) nem támogatják a Dictionary (`<dict>`) típust a kezelt alkalmazáskonfigurációban. Megkerülő megoldásként a `JSONString` végződésű kulcsok (például az `enforcedRuleSetJSONString`, `prefilledRuleSetJSONString` és `fallbackJSONString`) ugyanazokat az adatokat fogadják el, mint Dictionary megfelelőik, de nyers JSON karakterláncként kódolva egy plist `<string>` elemen belül.
+
+A JSON karakterlánc lehet tömörített (minified) vagy az olvashatóság érdekében újsorokkal és behúzásokkal formázott, ahogy az az alábbi példában látható:
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Ha a Dictionary kulcs és a hozzá tartozó `JSONString` kulcs is jelen van (például az `enforcedRuleSet` és az `enforcedRuleSetJSONString` is), a Dictionary kulcs élvez elsőbbséget.
 
 ## Szabálykiértékelés és konfliktuskezelés
 
@@ -126,7 +169,7 @@ Ha egy kulcs mind a beágyazott MDM adatcsomagban, mind a `fallbackDataURL`-en k
 - **A lekérés befejezése előtt:** A beágyazott beállítások szigorú prioritást élveznek és használatban vannak.
 - **Sikeres lekérés után:** A `fallbackDataURL`-ről lekért adatok felülírják a megfelelő beágyazott beállításokat.
 - **Sikertelen lekérés után:** Az alkalmazás továbbra is a beágyazott beállításokat használja.
-- A csak a beágyazott adatcsomagban létező független kulcsok megmaradnak.
+- **Független kulcsok:** Azok a kulcsok, amelyek csak a beágyazott adatcsomagban léteznek, minden esetben megmaradnak.
 
 ## MDM visszajelzés és állapotellenőrzés
 

@@ -44,7 +44,7 @@ Poglejmo korak za korakom.
 - `(https://example.com/[^?]*)`: Ujema se z delom do prejšnjega znaka `?`.
   - `[^?]*` se ujema s čimer koli razen z `?`.
   - To je ovito z `()` tako, da ga lahko kasneje referencirate z `$1`.
-- `(\(.*))?`: Ujema se z nizom, ki se začne z `?`, kar pomeni parametre poizvedbe.
+- `(\?\?\(.*))?`: Ujema se z nizom, ki se začne z `?`, kar pomeni parametre poizvedbe.
   - To se ujema tudi s praznim nizom z `?` kvantifikatorjem na koncu vzorca, ki _se ujema ničkrat ali enkrat_.
   - Zunanji `()` in notranji `()` se lahko kasneje referencirata z `$2` in `$3`.
 
@@ -57,7 +57,7 @@ To ni popolna rešitev, saj preusmeri `example.com/hello` na `example.com/hello?
 
 Skratka, to je končni rezultat:
 
-- **Preusmeri iz**: `(https://example.com/[^?]*)((\(.*))?)` (Regularni izraz)
+- **Preusmeri iz**: `(https://example.com/[^?]*)((\?\?\(.*))?)` (Regularni izraz)
 - **Preusmeri na**: `$1?layout=desktop$3`
 - **Izključen vzorec URL-ja**: `.*[&?]layout=[^&]*.*` (Regularni izraz)
 - **Obdelava zajetih skupin**:

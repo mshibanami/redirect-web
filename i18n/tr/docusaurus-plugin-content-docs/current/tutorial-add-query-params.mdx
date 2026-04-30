@@ -44,7 +44,7 @@ Adım adım inceleyelim.
 - `(https://example.com/[^?]*)`: `?`'nin önceki karakterine kadar olan kısmı eşleştirir.
   - `[^?]*` `?` dışındaki herhangi bir şeyle eşleşir.
   - Bu, daha sonra `$1` ile referans alabilmeniz için `()` ile sarılmıştır.
-- `(\(.*))?`: `?` ile başlayan bir dizeyle eşleşir, bu da sorgu parametreleri anlamına gelir.
+- `(\?\?\(.*))?`: `?` ile başlayan bir dizeyle eşleşir, bu da sorgu parametreleri anlamına gelir.
   - Bu aynı zamanda desenin sonundaki `?` niceleyici tarafından boş dizeyle de eşleşir, bu da _sıfır veya bir kez eşleşir_ anlamına gelir.
   - Dış `()` ve iç `()` daha sonra `$2` ve `$3` ile referans alınabilir.
 
@@ -57,7 +57,7 @@ Bu mükemmel bir çözüm değildir, çünkü `example.com/hello` adresini `exam
 
 Sonuç olarak, nihai çıktı şudur:
 
-- **Şuradan Yönlendir**: `(https://example.com/[^?]*)((\(.*))?)` (Normal İfade)
+- **Şuradan Yönlendir**: `(https://example.com/[^?]*)((\?\?\(.*))?)` (Normal İfade)
 - **Şuraya Yönlendir**: `$1?layout=desktop$3`
 - **Hariç Tutulan URL Deseni**: `.*[&?]layout=[^&]*.*` (Normal İfade)
 - **Yakalama Grubu İşleme**:

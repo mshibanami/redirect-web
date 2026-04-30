@@ -44,7 +44,7 @@ Katsotaanpa askel askeleelta.
 - `(https://example.com/[^?]*)`: Vastaa osaa `?`:n edelliseen merkkiin asti.
   - `[^?]*` vastaa mitä tahansa paitsi `?`.
   - Tämä on kääritty `()`-merkkien sisään, joten voit viitata siihen `$1`:llä myöhemmin.
-- `(\(.*))?`: Vastaa merkkijonoa, joka alkaa `?`:llä, mikä tarkoittaa kyselyparametreja.
+- `(\?\?\(.*))?`: Vastaa merkkijonoa, joka alkaa `?`:llä, mikä tarkoittaa kyselyparametreja.
   - Tämä vastaa myös tyhjää merkkijonoa kuvion lopussa olevan `?`-kvantifikaattorin avulla, joka _vastaa nolla tai yksi kertaa_.
   - Ulompaan `()`-merkkiin ja sisempään `()`-merkkiin voidaan viitata `$2`:lla ja `$3`:lla myöhemmin.
 
@@ -57,7 +57,7 @@ Tämä ei ole täydellinen ratkaisu, koska se ohjaa `example.com/hello` uudellee
 
 Yhteenvetona, tämä on lopullinen tulos:
 
-- **Uudelleenohjaa kohteesta**: `(https://example.com/[^?]*)((\(.*))?)` (Säännöllinen lauseke)
+- **Uudelleenohjaa kohteesta**: `(https://example.com/[^?]*)((\?\?\(.*))?)` (Säännöllinen lauseke)
 - **Uudelleenohjaa kohteeseen**: `$1?layout=desktop$3`
 - **Poissuljettu URL-kuvio**: `.*[&?]layout=[^&]*.*` (Säännöllinen lauseke)
 - **Sieppausryhmän käsittely**:

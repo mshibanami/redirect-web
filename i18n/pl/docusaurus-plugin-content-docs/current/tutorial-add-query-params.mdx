@@ -44,7 +44,7 @@ Przyjrzyjmy się krok po kroku.
 - `(https://example.com/[^?]*)`: Dopasowuje część do poprzedniego znaku `?`.
   - `[^?]*` dopasowuje wszystko oprócz `?`.
   - Jest to opakowane w `()`, więc możesz odwołać się do tego później za pomocą `$1`.
-- `(\(.*))?`: Dopasowuje ciąg znaków zaczynający się od `?`, co oznacza parametry zapytania.
+- `(\?\?\(.*))?`: Dopasowuje ciąg znaków zaczynający się od `?`, co oznacza parametry zapytania.
   - Dopasowuje również pusty ciąg znaków za pomocą kwantyfikatora `?` na końcu wzorca, który _dopasowuje zero lub jeden raz_.
   - Zewnętrzne `()` i wewnętrzne `()` mogą być później odwołane za pomocą `$2` i `$3`.
 
@@ -57,7 +57,7 @@ To nie jest idealne rozwiązanie, ponieważ przekierowuje `example.com/hello` do
 
 Podsumowując, oto ostateczny wynik:
 
-- **Przekieruj z**: `(https://example.com/[^?]*)((\(.*))?)` (Wyrażenie regularne)
+- **Przekieruj z**: `(https://example.com/[^?]*)((\?\?\(.*))?)` (Wyrażenie regularne)
 - **Przekieruj do**: `$1?layout=desktop$3`
 - **Wykluczony wzorzec adresu URL**: `.*[&?]layout=[^&]*.*` (Wyrażenie regularne)
 - **Przetwarzanie grup przechwytujących**:

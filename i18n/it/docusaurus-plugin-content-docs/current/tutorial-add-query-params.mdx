@@ -44,7 +44,7 @@ Diamo un'occhiata passo dopo passo.
 - `(https://example.com/[^?]*)`: Corrisponde alla parte fino al carattere precedente a `?`.
   - `[^?]*` corrisponde a qualsiasi cosa tranne `?`.
   - Questo è racchiuso tra `()` in modo da potervi fare riferimento con `$1` in seguito.
-- `(\(.*))?`: Corrisponde a una stringa che inizia con `?`, il che significa parametri di query.
+- `(\?\?\(.*))?`: Corrisponde a una stringa che inizia con `?`, il che significa parametri di query.
   - Questo corrisponde anche a una stringa vuota tramite il quantificatore `?` alla fine del pattern, che _corrisponde zero o una volta_.
   - Le `()` esterne e le `()` interne possono essere referenziate con `$2` e `$3` in seguito.
 
@@ -57,7 +57,7 @@ Questa non è una soluzione perfetta, poiché reindirizza `example.com/hello` a 
 
 In conclusione, questo è l'output finale:
 
-- **Reindirizza da**: `(https://example.com/[^?]*)((\(.*))?)` (Espressione regolare)
+- **Reindirizza da**: `(https://example.com/[^?]*)((\?\?\(.*))?)` (Espressione regolare)
 - **Reindirizza a**: `$1?layout=desktop$3`
 - **Pattern URL Escluso**: `.*[&?]layout=[^&]*.*` (Espressione regolare)
 - **Elaborazione Gruppo di Cattura**:

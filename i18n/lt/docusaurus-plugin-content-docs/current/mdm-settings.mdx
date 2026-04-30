@@ -49,26 +49,36 @@ Per MDM perduodami konfigūracijas galite pasiekti šiuos tikslus:
   width="640px"
 ></video>
 
-Vaizdo įraše naudotas „plist“ failas pateikiamas čia: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+Vaizdo įraše naudotas „plist“ failas pateikiamas čia: **[sample-mdm.plist](/misc/sample-mdm.plist)**, kuriame naudojami žodyno (`<dict>`) raktai. Taip pat yra **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)**, kuriame naudojami JSON eilutės raktai (tie patys duomenys).
 
 Vaizdo įraše konfigūracijai diegti buvo naudojamas „ManageEngine“ MDM, tačiau ta pati konfigūracija gali būti naudojama ir kitiems MDM sprendimams, jei jie palaiko „Apple“ valdomą programų konfigūraciją.
+
+> [!NOTE]
+>
+> **Žodynas (Dictionary) prieš JSON eilutę:**
+> Nors žodyno tipas yra saugesnis tipų požiūriu, kai kurie MDM sprendimai (pavyzdžiui, „Omnissa Workspace ONE UEM“) nepalaiko žodyno tipo valdomoje programos konfigūracijoje. Tokiais atvejais rekomenduojama naudoti JSON eilutės tipą.
 
 ## Konfigūruojami raktai
 
 Per savo MDM konsolę įdiekite šiuos valdomos programų konfigūracijos raktus ir reikšmes, paprastai „plist“ formatu.
 
-| Rakto pavadinimas      | Tipas                                    | Aprašymas                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Taisyklių rinkinys](#rule-set-object)   | **[Priverstinės taisyklės]** Taisyklių rinkinys, taikomas su didesniu prioritetu nei įprastos taisyklės. Pirmoji sąraše esanti taisyklė turi viršenybę. Vartotojai negali redaguoti, ištrinti ar keisti šių taisyklių eilės tvarkos. Jos visada aktyvios, nepaisant visuotinio programos išjungimo jungiklio, ir nėra sinchronizuojamos per „iCloud“. |
-| `prefilledRuleSet`     | [Taisyklių rinkinys](#rule-set-object)   | **[Pradinės taisyklės]** Taisyklių rinkinys, sukuriamas vietoj numatytosios pavyzdinės taisyklės, kai vartotojas pirmą kartą paleidžia programą be jokių esamų taisyklių. Jas paskirsčius, jos veikia kaip įprastos taisyklės, leidžiančios vartotojui jas keiti, trinti ir sinchronizuoti per „iCloud“.                                              |
-| `organizationName`     | String                                   | Programos nustatymų ekrano viršuje rodoma „Valdoma [organizationName]“, nurodant vartotojui, kad programa yra valdoma.                                                                                                                                                                                                                                |
-| `managedConfigVersion` | String                                   | Laisvai pasirenkama konfigūracijos versijos eilutė. Rodoma vartotojo sąsajoje, leidžianti IT pagalbai trikčių šalinimo metu patikrinti, ar įrenginį pasiekė naujausias MDM duomenų paketas.                                                                                                                                                           |
-| `showsLibrarySection`  | Boolean                                  | Jei nustatyta į `false`, taisyklių bibliotekos (Rule Library) funkcija paslepiama, o skyrius pakeičiamas klaidos pranešimu „Apribota jūsų organizacijos“.                                                                                                                                                                                             |
-| `fallback`             | [Atsarginis variantas](#fallback-object) | Nurodykite tai, kai konfigūracijos viršija MDM duomenų paketo apribojimus. Programa gaus JSON/XML iš šio URL, kad pritaikytų konfigūraciją.                                                                                                                                                                                                           |
+| Rakto pavadinimas             | Tipas                                    | Aprašymas                                                                                                                                                                                                                                                                                                                                             |
+| ----------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`             | [Taisyklių rinkinys](#rule-set-object)   | Taisyklių rinkinys, taikomas su didesniu prioritetu nei įprastos taisyklės. Pirmoji sąraše esanti taisyklė turi viršenybę. Vartotojai negali redaguoti, ištrinti ar keisti šių taisyklių eilės tvarkos. Jos visada aktyvios, nepaisant visuotinio programos išjungimo jungiklio, ir nėra sinchronizuojamos per „iCloud“.                              |
+| `enforcedRuleSetJSONString`   | [JSON eilutė](#json-string)              | Tas pats kaip `enforcedRuleSet`, tačiau taisyklių rinkinys pateikiamas kaip neapdorota JSON eilutė. Tai naudinga MDM platformoms, kurios nepalaiko žodyno tipo valdomoje programos konfigūracijoje.                                                                                                                                                   |
+| `prefilledRuleSet`            | [Taisyklių rinkinys](#rule-set-object)   | Taisyklių rinkinys, sukuriamas vietoj numatytosios pavyzdinės taisyklės, kai vartotojas pirmą kartą paleidžia programą be jokių esamų taisyklių. Jas paskirsčius, jos veikia kaip įprastos taisyklės, leidžiančios vartotojui jas keiti, trinti ir sinchronizuoti per „iCloud“.                                                                       |
+| `prefilledRuleSetJSONString`  | [JSON eilutė](#json-string)              | Tas pats kaip `prefilledRuleSet`, tačiau taisyklių rinkinys pateikiamas kaip neapdorota JSON eilutė. Tai naudinga MDM platformoms, kurios nepalaiko žodyno tipo valdomoje programos konfigūracijoje.                                                                                                                                                  |
+| `organizationName`            | String                                   | Programos nustatymų ekrano viršuje rodoma „Valdoma [organizationName]“, nurodant vartotojui, kad programa yra valdoma.                                                                                                                                                                                                                                |
+| `managedConfigVersion`        | String                                   | Laisvai pasirenkama konfigūracijos versijos eilutė. Rodoma vartotojo sąsajoje, leidžianti IT pagalbai trikčių šalinimo metu patikrinti, ar įrenginį pasiekė naujausias MDM duomenų paketas.                                                                                                                                                           |
+| `showsLibrarySection`         | Boolean                                  | Jei nustatyta į `false`, taisyklių bibliotekos (Rule Library) funkcija paslepiama, o skyrius pakeičiamas klaidos pranešimu „Apribota jūsų organizacijos“.                                                                                                                                                                                             |
+| `fallback`                    | [Atsarginis variantas](#fallback-object) | Nurodykite tai, kai konfigūracijos viršija MDM duomenų paketo apribojimus. Programa gaus konfigūraciją iš URL, nurodyto `fallbackDataURL`.                                                                                                                                                                                                            |
+| `fallbackJSONString`          | [JSON eilutė](#json-string)              | Tas pats kaip `fallback`, tačiau atsarginė konfigūracija pateikiama kaip neapdorota JSON eilutė. Tai naudinga MDM platformoms, kurios nepalaiko žodyno tipo valdomoje programos konfigūracijoje.                                                                                                                                                      |
 
 Visi šie raktai yra neprivalomi.
 
-### [Objektas] Taisyklių rinkinys {/* #rule-set-object */}
+### Konfigūracijos reikšmių tipai {/* #configuration-value-types */}
+
+#### Taisyklių rinkinys {/* #rule-set-object */}
 
 Kiekvienas taisyklės objektas yra tokio pat formato, kaip ir tas, kurį galite [bendrinti/eksportuoti per programą](export-or-import-rules), tačiau turite jį konvertuoti iš JSON į „plist“ formatą, štai taip:
 
@@ -106,12 +116,45 @@ Kiekvienas taisyklės objektas yra tokio pat formato, kaip ir tas, kurį galite 
 ...
 ```
 
-### [Objektas] Atsarginis variantas {/* #fallback-object */}
+#### Atsarginis variantas {/* #fallback-object */}
 
 | Rakto pavadinimas | Tipas        | Aprašymas                                                                                                                                                    |
 | ----------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `fallbackDataURL` | String (URL) | JSON/XML failo, kuriame yra taisyklių rinkiniai, galinio taško (endpoint) URL.                                                                               |
 | `authToken`       | String       | Autentifikavimo raktas (token), pridedamas prie HTTP antraštės gaunant duomenis iš `fallbackDataURL`. (Naudojamas kaip `Authorization: Bearer [authToken]`). |
+
+#### JSON eilutė {/* #json-string */}
+
+Kai kurios MDM platformos (pvz., „Omnissa Workspace ONE UEM“) nepalaiko žodyno (`<dict>`) tipo valdomoje programos konfigūracijoje. Kaip apeinamasis sprendimas, raktai, besibaigiantys `JSONString` (pvz., `enforcedRuleSetJSONString`, `prefilledRuleSetJSONString` ir `fallbackJSONString`), priima tuos pačius duomenis kaip ir jų žodyno atitikmenys, tačiau užkoduotus kaip **neapdorota JSON eilutė** „plist“ `<string>` elemente.
+
+JSON eilutė gali būti suspausta (minified) arba suformatuota su naujomis eilutėmis ir įtraukomis dėl geresnio skaitomumo, kaip parodyta šiame pavyzdyje:
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Jei yra ir žodyno raktas, ir atitinkamas `JSONString` raktas (pvz., ir `enforcedRuleSet`, ir `enforcedRuleSetJSONString`), pirmenybė teikiama žodyno raktui.
 
 ## Taisyklių vertinimas ir konfliktų sprendimas
 
@@ -126,7 +169,7 @@ Kai raktas egzistuoja ir tiesioginiame MDM duomenų pakete, ir duomenyse, gautuo
 - **Prieš užbaigiant gavimą:** Tiesioginiams nustatymams teikiama griežta pirmenybė ir jie naudojami.
 - **Sėkmingai gavus duomenis:** Iš `fallbackDataURL` gauti duomenys perrašo atitinkamus tiesioginius nustatymus.
 - **Nepavykus gauti duomenų:** Programa toliau naudoja tiesioginius nustatymus.
-- Nepriklausomi raktai, esantys tik tiesioginiame duomenų pakete, išsaugomi.
+- **Nepriklausomi raktai:** Raktai, esantys tik tiesioginiame duomenų pakete, visada išsaugomi.
 
 ## MDM grįžtamasis ryšys ir būsenos patikra
 

@@ -40,7 +40,7 @@ Ao enviar configurações através do seu MDM, pode alcançar o seguinte:
 
 <video
   src={useBaseUrl("/videos/mdm-settings-demo.mov")}
-  title="Demo de Configurações de MDM"
+  title="Demo de configurações de MDM"
   autoPlay
   playsInline
   muted
@@ -49,26 +49,36 @@ Ao enviar configurações através do seu MDM, pode alcançar o seguinte:
   width="640px"
 ></video>
 
-O ficheiro plist utilizado no vídeo está disponível aqui: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+O ficheiro plist utilizado no vídeo está disponível aqui: **[sample-mdm.plist](/misc/sample-mdm.plist)**, que utiliza chaves de dicionário (`<dict>`). Também está disponível o ficheiro **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)**, que utiliza chaves de String JSON (mesmos dados).
 
 No vídeo, foi utilizado o MDM da ManageEngine para implementar a configuração, mas a mesma configuração pode ser utilizada para outras soluções de MDM, desde que suportem a Configuração de Aplicações Geridas da Apple.
+
+> [!NOTE]
+>
+> **Dicionário (Dictionary) vs. String JSON:**
+> Embora o tipo Dicionário (Dictionary) seja mais seguro em termos de tipos, algumas soluções de MDM (como o Omnissa Workspace ONE UEM) não suportam o tipo Dicionário na configuração de aplicações geridas. Nesses casos, utilizar o tipo String JSON é uma solução alternativa recomendada.
 
 ## Chaves Configuráveis
 
 Implemente as seguintes chaves e valores para a Configuração de Aplicações Geridas através da sua consola de MDM, normalmente no formato plist.
 
-| Nome da Chave          | Tipo                                   | Descrição                                                                                                                                                                                                                                                                                                         |
-| ---------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Conjunto de regras](#rule-set-object) | **[Regras Forçadas]** Um conjunto de regras aplicado com prioridade superior às regras normais. A primeira regra na lista tem precedência. Os utilizadores não podem editar, eliminar nem reordenar estas regras. Estão sempre ativas, ignorando o interruptor global da aplicação, e não sincronizam via iCloud. |
-| `prefilledRuleSet`     | [Conjunto de regras](#rule-set-object) | **[Regras Iniciais]** Um conjunto de regras criado em vez da regra de exemplo padrão quando um utilizador lança a aplicação pela primeira vez sem regras existentes. Uma vez distribuídas, estas funcionam como regras normais, permitindo a modificação e eliminação pelo utilizador e sincronização via iCloud. |
-| `organizationName`     | String                                 | Apresenta "Gerido por [organizationName]" no topo do ecrã de definições na aplicação, indicando ao utilizador que a aplicação é gerida.                                                                                                                                                                           |
-| `managedConfigVersion` | String                                 | Uma string de versão arbitrária para a configuração. Apresentada na interface, permitindo que o suporte de TI verifique se o payload de MDM mais recente chegou ao dispositivo durante a resolução de problemas.                                                                                                  |
-| `showsLibrarySection`  | Boolean                                | Se definido como `false`, a funcionalidade de Biblioteca de Regras é ocultada e a secção é substituída por uma mensagem de erro "Restringido pela sua organização.".                                                                                                                                              |
-| `fallback`             | [Fallback](#fallback-object)           | Especifique isto quando as configurações excederem os limites de payload do MDM. A aplicação irá obter JSON/XML a partir deste URL para aplicar a configuração.                                                                                                                                                   |
+| Nome da Chave                 | Tipo                                   | Descrição                                                                                                                                                                                                                                                                                                         |
+| ----------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`             | [Conjunto de regras](#rule-set-object) | Um conjunto de regras aplicado com prioridade superior às regras normais. A primeira regra na lista tem precedência. Os utilizadores não podem editar, eliminar nem reordenar estas regras. Estão sempre ativas, ignorando o interruptor global da aplicação, e não sincronizam via iCloud.                       |
+| `enforcedRuleSetJSONString`   | [String JSON](#json-string)            | Igual a `enforcedRuleSet`, mas o conjunto de regras é fornecido como uma string JSON não formatada. Isto é útil para plataformas MDM que não suportam o tipo Dicionário na configuração de aplicações geridas.                                                                                                     |
+| `prefilledRuleSet`            | [Conjunto de regras](#rule-set-object) | Um conjunto de regras criado em vez da regra de exemplo padrão quando um utilizador lança a aplicação pela primeira vez sem regras existentes. Uma vez distribuídas, estas funcionam como regras normais, permitindo a modificação e eliminação pelo utilizador e sincronização via iCloud.                         |
+| `prefilledRuleSetJSONString`  | [String JSON](#json-string)            | Igual a `prefilledRuleSet`, mas o conjunto de regras é fornecido como uma string JSON não formatada. Isto é útil para plataformas MDM que não suportam o tipo Dicionário na configuração de aplicações geridas.                                                                                                   |
+| `organizationName`            | String                                 | Apresenta "Gerido por [organizationName]" no topo do ecrã de definições na aplicação, indicando ao utilizador que a aplicação é gerida.                                                                                                                                                                           |
+| `managedConfigVersion`       | String                                 | Uma string de versão arbitrária para a configuração. Apresentada na interface, permitindo que o suporte de TI verifique se o payload de MDM mais recente chegou ao dispositivo durante a resolução de problemas.                                                                                                  |
+| `showsLibrarySection`        | Boolean                                | Se definido como `false`, a funcionalidade de Biblioteca de Regras é ocultada e a secção é substituída por uma mensagem de erro "Restringido pela sua organização.".                                                                                                                                              |
+| `fallback`                   | [Fallback](#fallback-object)           | Especifique isto quando as configurações excederem os limites de payload do MDM. A aplicação irá obter a configuração a partir do URL especificado em `fallbackDataURL`.                                                                                                                                          |
+| `fallbackJSONString`         | [String JSON](#json-string)            | Igual a `fallback`, mas a configuração de fallback é fornecida como uma string JSON não formatada. Isto é útil para plataformas MDM que não suportam o tipo Dicionário na configuração de aplicações geridas.                                                                                                     |
 
 Estas chaves são todas opcionais.
 
-### [Objeto] Conjunto de Regras {/* #rule-set-object */}
+### Tipos de Valores de Configuração {/* #configuration-value-types */}
+
+#### Conjunto de Regras {/* #rule-set-object */}
 
 Cada objeto de regra tem o mesmo formato do que pode [partilhar/exportar através da aplicação](export-or-import-rules), mas terá de o converter de JSON para plist, desta forma:
 
@@ -90,7 +100,7 @@ Cada objeto de regra tem o mesmo formato do que pode [partilhar/exportar atravé
 				<key>type</key>
 				<string>originalRedirect</string>
 				<key>title</key>
-				<string>My enforced Rule</string>
+				<string>Minha regra forçada</string>
 				<key>sourceURLPattern</key>
 				<dict>
 					<key>type</key>
@@ -106,16 +116,49 @@ Cada objeto de regra tem o mesmo formato do que pode [partilhar/exportar atravé
 ...
 ```
 
-### [Objeto] Fallback {/* #fallback-object */}
+#### Fallback {/* #fallback-object */}
 
 | Nome da Chave     | Tipo         | Descrição                                                                                                                                     |
 | ----------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | `fallbackDataURL` | String (URL) | Um URL de endpoint de um ficheiro JSON/XML contendo conjuntos de regras.                                                                      |
 | `authToken`       | String       | Um token de autenticação anexado ao cabeçalho HTTP ao obter dados do `fallbackDataURL`. (Utilizado como `Authorization: Bearer [authToken]`). |
 
+#### String JSON {/* #json-string */}
+
+Algumas plataformas MDM (ex: Omnissa Workspace ONE UEM) não suportam o tipo Dicionário (`<dict>`) na configuração de aplicações geridas. Como solução, as chaves terminadas em `JSONString` (como `enforcedRuleSetJSONString`, `prefilledRuleSetJSONString` e `fallbackJSONString`) aceitam os mesmos dados que os seus equivalentes de Dicionário, mas codificados como uma **string JSON não formatada** dentro de um elemento `<string>` de um plist.
+
+A string JSON pode ser minificada ou formatada com quebras de linha e indentação para facilitar a leitura, como demonstrado no seguinte exemplo:
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Se estiverem presentes tanto uma chave de Dicionário como a sua chave `JSONString` correspondente (ex: ambas `enforcedRuleSet` e `enforcedRuleSetJSONString`), a chave de Dicionário terá precedência.
+
 ## Avaliação de Regras e Resolução de Conflitos
 
-1. Se um `enforcedRuleSet` for fornecido, as suas regras são aplicadas com prioridade absoluta.
+1. Se um `enforcedRuleSet` for fornecido, as suas regras são aplicadas com prioritude absoluta.
 2. Se não existirem regras normais, mas existir um `prefilledRuleSet`, o `prefilledRuleSet` é guardado como regras normais.
 3. A "Regra de redirecionamento de exemplo" padrão é gerada apenas se não existirem regras de MDM configuradas e se não existirem regras normais.
 
@@ -126,7 +169,7 @@ Quando uma chave existe tanto no payload de MDM inline como nos dados obtidos vi
 - **Antes da Conclusão da Obtenção:** As definições inline são estritamente priorizadas e utilizadas.
 - **Após Obtenção com Sucesso:** Os dados recuperados do `fallbackDataURL` substituem as definições inline correspondentes.
 - **Após Falha na Obtenção:** A aplicação continua a utilizar as definições inline.
-- As chaves independentes que existem apenas no payload inline são preservadas.
+- **Chaves Independentes:** As chaves que existem apenas no payload inline são sempre preservadas.
 
 ## Feedback de MDM e Verificação de Estado
 

@@ -3,7 +3,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # 面向管理员的 MDM 设置
 
-RedirectWeb 支持 Apple 的托管应用配置（Managed App Configuration），允许您（IT 管理员）通过移动设备管理（MDM）解决方案（如 Jamf、Intune、Kandji 等）在员工/学生的设备上集中部署和管理应用设置。
+RedirectWeb 支持 Apple 的托管应用配置 (Managed App Configuration)，允许您（IT 管理员）通过移动设备管理 (MDM) 解决方案（如 Jamf、Intune、Kandji 等）在员工/学生设备上集中部署和管理应用设置。
 
 本页面概述了可配置的键、应用行为、最佳实践和限制。
 
@@ -13,34 +13,34 @@ RedirectWeb 支持 Apple 的托管应用配置（Managed App Configuration），
 
 > [!IMPORTANT]
 >
-> **对于 Apple 商务管理 / Apple 校园管理 (VPP) 部署：**
-> 标准版 RedirectWeb 应用使用免费增值的应用内购买模式，不符合 VPP 批量购买资格。要为您的组织部署完全解锁的应用，请购买 **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)** 应用，这是一个专为 MDM/VPP 分发设计的预付费版本。
+> **关于 Apple 商务管理 / Apple 校园管理 (VPP) 部署：**
+> 标准版 RedirectWeb 应用采用免费增值 (Freemium) 的应用内购买模式，不符合 VPP 批量购买资格。若要在您的组织中部署完全解锁的应用，请购买 **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)** 应用，这是一个专门为 MDM/VPP 分发设计的付费版本。
 
 通过 MDM 推送配置，您可以实现以下目标：
 
-- **强制规则：** 应用组织范围内的重定向规则，用户无法修改或删除。
-- **初始规则分发：** 分发一组模板规则，作为应用首次启动时的默认设置。
-- **UI 控制：** 限制对特定功能（如库）的访问，并在应用内清楚地指示其受组织管理。
-- **大型规则获取（回退）：** 通过从外部服务器获取规则来绕过 MDM 负载大小限制。
+- **强制规则 (Enforced Rules)：** 应用组织范围内的重定向规则，用户无法修改或删除。
+- **初始规则分发：** 分发一个模板规则集，作为应用首次启动时的默认设置。
+- **UI 控制：** 限制对特定功能（如库）的访问，并在应用内清楚地标明其处于组织管理之下。
+- **大规则获取（回退）：** 通过从外部服务器获取规则来绕过 MDM 负载大小限制。
 
 ## 使用场景
 
 - **系统迁移期间的无缝路由：**
-  当从旧的内部系统（例如 `legacy-crm.internal.local`）迁移到新平台（例如 `salesforce.com`）时，分发 `enforcedRuleSet`。即使员工使用旧的书签，他们也会自动重定向到新系统，从而消除了有关过时链接的 IT 支持工单。
+  当从旧的内部系统（例如 `legacy-crm.internal.local`）迁移到新平台（例如 `salesforce.com`）时，分发一个 `enforcedRuleSet`。即使员工使用旧的书签，他们也会被自动重定向到新系统，从而消除了关于过时链接的 IT 支持工单。
 - **内网访问协助：**
   分发使用自定义 URL 方案的重定向规则，以方便通过每应用 VPN 隧道（如 Omnissa Web）访问内网资源。
 
 > [!WARNING]
 >
-> **仅当用户打开 RedirectWeb 应用时**，MDM 配置推送才会立即应用。
-> 虽然应用利用后台任务静默地将 MDM 更新推送到浏览器扩展，但这是由操作系统决定的“尽力而为”执行。执行时间高度不可预测，并且该任务可能根本不会运行。
-> 因此，**不**应依赖此功能进行时间紧迫的应急响应（例如，在云服务中断后的几分钟内尝试立即将所有员工重定向到备份站点）。
+> MDM 配置推送**仅在用户打开 RedirectWeb 应用时**立即应用。
+> 虽然应用利用后台任务静默地将 MDM 更新推送到浏览器扩展，但这是由操作系统决定的“尽力而为”执行。执行时机高度不可预测，任务甚至可能根本不运行。
+> 因此，**不应**依赖此功能进行时间紧迫的事件响应（例如，尝试在云服务中断后几分钟内立即将所有员工重定向到备用站点）。
 
 ## 演示
 
 <video
   src={useBaseUrl("/videos/mdm-settings-demo.mov")}
-  title="MDM Settings Demo"
+  title="MDM 设置演示"
   autoPlay
   playsInline
   muted
@@ -49,28 +49,38 @@ RedirectWeb 支持 Apple 的托管应用配置（Managed App Configuration），
   width="640px"
 ></video>
 
-视频中使用的 plist 文件可在此处获得：**[sample-mdm.plist](/misc/sample-mdm.plist)**
+视频中使用的 plist 文件可作为 **[sample-mdm.plist](/misc/sample-mdm.plist)** 获取，它使用了字典 (`<dict>`) 键。还有一个 **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)**，它使用了 JSON 字符串键（数据相同）。
 
-在视频中，使用了 ManageEngine 的 MDM 来部署配置，但只要支持 Apple 的托管应用配置，相同的配置也可以用于其他 MDM 解决方案。
+视频中使用了 ManageEngine 的 MDM 来部署配置，但只要支持 Apple 的托管应用配置，相同的配置也可以用于其他 MDM 解决方案。
 
-## 可配置的键
+> [!NOTE]
+>
+> **字典 vs. JSON 字符串：**
+> 虽然字典类型更加类型安全，但某些 MDM 解决方案（如 Omnissa Workspace ONE UEM）不支持托管应用配置中的字典类型。在这种情况下，推荐使用 JSON 字符串类型作为解决方法。
 
-通过您的 MDM 控制台为托管应用配置部署以下键和值，通常采用 plist 格式。
+## 可配置键
 
-| 键名                   | 类型                       | 描述                                                                                                                                                                                        |
-| ---------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [规则集](#rule-set-object) | **[强制规则]** 以比普通规则更高的优先级应用的规则集。列表中的第一个规则优先。用户无法编辑、删除或重新排序这些规则。它们始终处于活动状态，忽略应用的全局禁用开关，并且不会通过 iCloud 同步。 |
-| `prefilledRuleSet`     | [规则集](#rule-set-object) | **[初始规则]** 当用户在没有现有规则的情况下首次启动应用时，代替默认示例规则创建的规则集。一旦分发，这些规则将作为普通规则运行，允许用户修改、删除和 iCloud 同步。                           |
-| `organizationName`     | String                     | 在应用内设置屏幕顶部显示“由 [organizationName] 管理”，向用户指示该应用受管理。                                                                                                              |
-| `managedConfigVersion` | String                     | 配置的任意版本字符串。显示在 UI 中，允许 IT 支持在排除故障时验证最新的 MDM 负载是否已到达设备。                                                                                             |
-| `showsLibrarySection`  | Boolean                    | 如果设置为 `false`，则隐藏规则库功能，并将该部分替换为“由您的组织限制”错误消息。                                                                                                            |
-| `fallback`             | [回退](#fallback-object)   | 当配置超过 MDM 负载限制时指定此项。应用将从该 URL 获取 JSON/XML 以应用配置。                                                                                                                |
+通过您的 MDM 控制台部署以下 Managed App Configuration 的键和值，通常采用 plist 格式。
 
-这些键都是可选的。
+| 键名                         | 类型                         | 描述                                                                                                                                                                                                                             |
+| ---------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`            | [规则集](#rule-set-object)   | 应用优先级高于普通规则的规则集。列表中的第一条规则优先。用户无法编辑、删除或重新排序这些规则。它们始终处于激活状态，忽略应用的全局禁用开关，并且不会通过 iCloud 同步。                                                           |
+| `enforcedRuleSetJSONString`  | [JSON 字符串](#json-string)  | 与 `enforcedRuleSet` 相同，但规则集以原始 JSON 字符串形式提供。这对于在托管应用配置中不支持字典类型的 MDM 平台非常有用。                                                                                                         |
+| `prefilledRuleSet`           | [规则集](#rule-set-object)   | 当用户在没有现有规则的情况下首次启动应用时，代替默认示例规则创建的规则集。一旦分发，这些规则将作为普通规则运行，允许用户修改、删除和 iCloud 同步。                                                                               |
+| `prefilledRuleSetJSONString` | [JSON 字符串](#json-string)  | 与 `prefilledRuleSet` 相同，但规则集以原始 JSON 字符串形式提供。这对于在托管应用配置中不支持字典类型的 MDM 平台非常有用。                                                                                                         |
+| `organizationName`           | String                       | 在应用内设置屏幕顶部显示“由 [organizationName] 管理”，向用户表明应用已受管理。                                                                                                                                                   |
+| `managedConfigVersion`       | String                       | 配置的任意版本字符串。显示在 UI 中，允许 IT 支持在排除故障时验证最新的 MDM 负载是否已到达设备。                                                                                                                                  |
+| `showsLibrarySection`        | Boolean                      | 如果设置为 `false`，则规则库功能将被隐藏，该部分将被替换为“受您的组织限制”错误消息。                                                                                                                                             |
+| `fallback`                   | [回退](#fallback-object)     | 当 MDM 负载大小限制被超出时指定此项。应用将从 `fallbackDataURL` 中指定的 URL 获取配置。                                                                                                                                          |
+| `fallbackJSONString`         | [JSON 字符串](#json-string)  | 与 `fallback` 相同，但回退配置以原始 JSON 字符串形式提供。这对于在托管应用配置中不支持字典类型的 MDM 平台非常有用。                                                                                                              |
 
-### [对象] 规则集 {/* #rule-set-object */}
+这些键均为可选。
 
-每个规则对象与您可以通过[应用共享/导出](export-or-import-rules)的格式相同，但您需要将其从 JSON 转换为 plist，如下所示：
+### 配置值类型 {/* #configuration-value-types */}
+
+#### 规则集 {/* #rule-set-object */}
+
+每个规则对象具有与您通过应用[共享/导出](export-or-import-rules)的格式相同的格式，但您需要将其从 JSON 转换为 plist，如下所示：
 
 ```xml
 ...
@@ -106,12 +116,45 @@ RedirectWeb 支持 Apple 的托管应用配置（Managed App Configuration），
 ...
 ```
 
-### [对象] 回退 {/* #fallback-object */}
+#### 回退 {/* #fallback-object */}
 
 | 键名              | 类型         | 描述                                                                                                      |
 | ----------------- | ------------ | --------------------------------------------------------------------------------------------------------- |
 | `fallbackDataURL` | String (URL) | 包含规则集的 JSON/XML 文件的端点 URL。                                                                    |
 | `authToken`       | String       | 从 `fallbackDataURL` 获取时附加到 HTTP 标头的身份验证令牌。（用作 `Authorization: Bearer [authToken]`）。 |
+
+#### JSON 字符串 {/* #json-string */}
+
+某些 MDM 平台（如 Omnissa Workspace ONE UEM）不支持托管应用配置中的字典 (`<dict>`) 类型。作为一种解决方法，以 `JSONString` 结尾的键（如 `enforcedRuleSetJSONString`、`prefilledRuleSetJSONString` 和 `fallbackJSONString`）接受与其字典对应项相同的数据，但在 plist `<string>` 元素内编码为**原始 JSON 字符串**。
+
+JSON 字符串可以是压缩的，也可以是为了可读性而带有换行符和缩进的格式化字符串，如下例所示：
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> 如果同时存在字典键及其相应的 `JSONString` 键（例如，同时存在 `enforcedRuleSet` 和 `enforcedRuleSetJSONString`），则字典键优先。
 
 ## 规则评估和冲突解决
 
@@ -126,7 +169,7 @@ RedirectWeb 支持 Apple 的托管应用配置（Managed App Configuration），
 - **获取完成前：** 内联设置被严格优先使用。
 - **获取成功后：** 从 `fallbackDataURL` 检索的数据将覆盖相应的内联设置。
 - **获取失败后：** 应用继续使用内联设置。
-- 仅存在于内联负载中的独立键将被保留。
+- **独立键：** 仅存在于内联负载中的键将始终被保留。
 
 ## MDM 反馈和状态检查
 

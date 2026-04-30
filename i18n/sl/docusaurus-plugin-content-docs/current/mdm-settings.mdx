@@ -40,7 +40,7 @@ S potiskanjem konfiguracij prek vašega MDM lahko dosežete naslednje:
 
 <video
   src={useBaseUrl("/videos/mdm-settings-demo.mov")}
-  title="MDM Settings Demo"
+  title="Predstavitev MDM nastavitev"
   autoPlay
   playsInline
   muted
@@ -49,26 +49,36 @@ S potiskanjem konfiguracij prek vašega MDM lahko dosežete naslednje:
   width="640px"
 ></video>
 
-Datoteka plist, uporabljena v videoposnetku, je na voljo tukaj: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+Datoteka plist, uporabljena v videoposnetku, je na voljo tukaj: **[sample-mdm.plist](/misc/sample-mdm.plist)**, ki uporablja ključe slovarja (`<dict>`). Na voljo je tudi **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)**, ki uporablja ključe JSON niza (isti podatki).
 
 V videoposnetku je bil za uvajanje konfiguracije uporabljen ManageEngine MDM, vendar se lahko ista konfiguracija uporabi tudi za druge rešitve MDM, če podpirajo Applovo upravljano konfiguracijo aplikacij.
+
+> [!NOTE]
+>
+> **Slovar (Dictionary) proti JSON nizu:**
+> Čeprav je vrsta slovarja bolj varno določena, nekatere rešitve MDM (kot je Omnissa Workspace ONE UEM) ne podpirajo vrste slovarja v upravljani konfiguraciji aplikacij. V takšnih primerih je priporočljiva uporaba vrste JSON niz.
 
 ## Nastavljivi ključi
 
 Uvedite naslednje ključe in vrednosti za upravljano konfiguracijo aplikacij prek vaše konzole MDM, običajno v obliki plist.
 
-| Ime ključa             | Vrsta                                | Opis                                                                                                                                                                                                                                                                                                                                           |
-| ---------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Nabor pravil](#rule-set-object)     | **[Uveljavljena pravila]** Nabor pravil, uporabljen z višjo prioriteto kot običajna pravila. Prvo pravilo na seznamu ima prednost. Uporabniki teh pravil ne morejo urejati, brisati ali spreminjati njihovega vrstnega reda. Vedno so aktivna, ne glede na globalno stikalo za onemogočanje v aplikaciji, in se ne sinhronizirajo prek iCloud. |
-| `prefilledRuleSet`     | [Nabor pravil](#rule-set-object)     | **[Začetna pravila]** Nabor pravil, ustvarjen namesto privzetega primera pravila, ko uporabnik prvič zažene aplikacijo brez obstoječih pravil. Po distribuciji delujejo kot običajna pravila, kar uporabniku omogoča spreminjanje, brisanje in sinhronizacijo prek iCloud.                                                                     |
-| `organizationName`     | String                               | Prikaže "Upravlja [organizationName]" na vrhu zaslona z nastavitvami v aplikaciji, kar uporabniku pove, da je aplikacija upravljana.                                                                                                                                                                                                           |
-| `managedConfigVersion` | String                               | Poljubna nizovna različica konfiguracije. Prikazana v uporabniškem vmesniku, kar IT podpori omogoča preverjanje, ali je najnovejši paket MDM dosegel napravo pri odpravljanju težav.                                                                                                                                                           |
-| `showsLibrarySection`  | Boolean                              | Če je nastavljeno na `false`, je funkcija Knjižnica pravil skrita, razdelek pa je nadomeščen s sporočilom o napaki "Omejeno s strani vaše organizacije."                                                                                                                                                                                       |
-| `fallback`             | [Rezervna možnost](#fallback-object) | To določite, ko konfiguracije presežejo omejitve velikosti podatkov MDM. Aplikacija bo za uporabo konfiguracije pridobila JSON/XML s tega URL-ja.                                                                                                                                                                                              |
+| Ime ključa                    | Vrsta                                | Opis                                                                                                                                                                                                                                                                                                                                           |
+| ----------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`             | [Nabor pravil](#rule-set-object)     | Nabor pravil, uporabljen z višjo prioriteto kot običajna pravila. Prvo pravilo na seznamu ima prednost. Uporabniki teh pravil ne morejo urejati, brisati ali spreminjati njihovega vrstnega reda. Vedno so aktivna, ne glede na globalno stikalo za onemogočanje v aplikaciji, in se ne sinhronizirajo prek iCloud.                           |
+| `enforcedRuleSetJSONString`   | [JSON niz](#json-string)             | Enako kot `enforcedRuleSet`, vendar je nabor pravil podan kot surovi JSON niz. To je uporabno za platforme MDM, ki ne podpirajo vrste slovarja v upravljani konfiguraciji aplikacij.                                                                                                                                                           |
+| `prefilledRuleSet`            | [Nabor pravil](#rule-set-object)     | Nabor pravil, ustvarjen namesto privzetega primera pravila, ko uporabnik prvič zažene aplikacijo brez obstoječih pravil. Po distribuciji delujejo kot običajna pravila, kar uporabniku omogoča spreminjanje, brisanje in sinhronizacijo prek iCloud.                                                                                           |
+| `prefilledRuleSetJSONString`  | [JSON niz](#json-string)             | Enako kot `prefilledRuleSet`, vendar je nabor pravil podan kot surovi JSON niz. To je uporabno za platforme MDM, ki ne podpirajo vrste slovarja v upravljani konfiguraciji aplikacij.                                                                                                                                                         |
+| `organizationName`            | String                               | Prikaže "Upravlja [organizationName]" na vrhu zaslona z nastavitvami v aplikaciji, ločeno za uporabnika, da je aplikacija upravljana.                                                                                                                                                                                                          |
+| `managedConfigVersion`       | String                               | Poljubna nizovna različica konfiguracije. Prikazana v uporabniškem vmesniku, kar IT podpori omogoča preverjanje, ali je najnovejši paket MDM dosegel napravo pri odpravljanju težav.                                                                                                                                                           |
+| `showsLibrarySection`        | Boolean                              | Če je nastavljeno na `false`, je funkcija Knjižnica pravila skrita, razdelek pa je nadomeščen s sporočilom o napaki "Omejeno s strani vaše organizacije."                                                                                                                                                                                       |
+| `fallback`                   | [Rezervna možnost](#fallback-object) | To določite, ko konfiguracije presežejo omejitve velikosti podatkov MDM. Aplikacija bo pridobila konfiguracijo z URL-ja, določenega v `fallbackDataURL`.                                                                                                                                                                                       |
+| `fallbackJSONString`         | [JSON niz](#json-string)             | Enako kot `fallback`, vendar je rezervna konfiguracija podana kot surovi JSON niz. To je uporabno za platforme MDM, ki ne podpirajo vrste slovarja v upravljani konfiguraciji aplikacij.                                                                                                                                                       |
 
 Vsi ti ključi so neobvezni.
 
-### [Objekt] Nabor pravil {/* #rule-set-object */}
+### Vrste konfiguracijskih vrednosti {/* #configuration-value-types */}
+
+#### Nabor pravil {/* #rule-set-object */}
 
 Vsak objekt pravila ima isto obliko kot tisti, ki ga lahko [delite/izvozite prek aplikacije](export-or-import-rules), vendar ga morate pretvoriti iz JSON v plist, takole:
 
@@ -90,7 +100,7 @@ Vsak objekt pravila ima isto obliko kot tisti, ki ga lahko [delite/izvozite prek
 				<key>type</key>
 				<string>originalRedirect</string>
 				<key>title</key>
-				<string>My enforced Rule</string>
+				<string>Moje uveljavljeno pravilo</string>
 				<key>sourceURLPattern</key>
 				<dict>
 					<key>type</key>
@@ -106,12 +116,45 @@ Vsak objekt pravila ima isto obliko kot tisti, ki ga lahko [delite/izvozite prek
 ...
 ```
 
-### [Objekt] Rezervna možnost {/* #fallback-object */}
+#### Rezervna možnost {/* #fallback-object */}
 
 | Ime ključa        | Vrsta        | Opis                                                                                                                                    |
 | ----------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | `fallbackDataURL` | String (URL) | URL končne točke datoteke JSON/XML, ki vsebuje nabore pravil.                                                                           |
 | `authToken`       | String       | Žeton za avtentikacijo, dodan v glavo HTTP pri pridobivanju s `fallbackDataURL`. (Uporabljeno kot `Authorization: Bearer [authToken]`). |
+
+#### JSON niz {/* #json-string */}
+
+Nekatere platforme MDM (npr. Omnissa Workspace ONE UEM) ne podpirajo vrste slovarja (`<dict>`) v upravljani konfiguraciji aplikacij. Kot rešitev ključi, ki se končajo na `JSONString` (kot so `enforcedRuleSetJSONString`, `prefilledRuleSetJSONString` in `fallbackJSONString`), sprejemajo iste podatke kot njihovi sestrski slovarji, vendar kodirane kot **surovi JSON niz** znotraj elementa `<string>` datoteke plist.
+
+JSON niz je lahko stisnjen (minified) ali pregledno oblikovan z novimi vrsticami in zamiki za boljšo berljivost, kot je prikazano v naslednjem primeru:
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Če sta prisotna tako ključ slovarja kot pripadajoči ključ `JSONString` (npr. oba `enforcedRuleSet` in `enforcedRuleSetJSONString`), ima prednost ključ slovarja.
 
 ## Vrednotenje pravil in razreševanje sporov
 
@@ -126,7 +169,7 @@ Ko ključ obstaja tako v vključeni vsebini MDM kot v podatkih, pridobljenih pre
 - **Pred zaključkom pridobivanja:** Nastavitve v vsebini MDM imajo strogo prednost in se uporabljajo.
 - **Po uspešnem pridobivanju:** Podatki, pridobljeni s `fallbackDataURL`, prepišejo ustrezne nastavitve v vsebini MDM.
 - **Po neuspešnem pridobivanju:** Aplikacija še naprej uporablja nastavitve v vsebini MDM.
-- Samostojni ključi, ki obstajajo le v vključeni vsebini MDM, se ohranijo.
+- **Samostojni ključi:** Ključi, ki obstajajo le v vključeni vsebini MDM, se vedno ohranijo.
 
 ## MDM povratne informacije in preverjanje stanja
 

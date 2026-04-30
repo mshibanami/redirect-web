@@ -49,26 +49,36 @@ Työntämällä määrityksiä MDM-järjestelmäsi kautta voit saavuttaa seuraav
   width="640px"
 ></video>
 
-Videolla käytetty plist-tiedosto on saatavilla täältä: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+Videolla käytetty plist-tiedosto on saatavilla täältä: **[sample-mdm.plist](/misc/sample-mdm.plist)**, joka käyttää sanakirja-avaimia (`<dict>`). Saatavilla on myös **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)**, joka käyttää JSON-merkkijonoavaimia (samat tiedot).
 
 Videolla käytettiin ManageEnginen MDM-ratkaisua määrityksen käyttöönottoon, mutta samaa määritystä voidaan käyttää muiden MDM-ratkaisujen kanssa, kunhan ne tukevat Applen hallittua sovellusmääritystä.
+
+> [!NOTE]
+>
+> **Sanakirja vs. JSON-merkkijono:**
+> Vaikka sanakirjatyyppi (Dictionary) on tyyppiturvallisempi, jotkut MDM-ratkaisut (kuten Omnissa Workspace ONE UEM) eivät tue sanakirjatyyppiä hallitussa sovellusmäärityksessä. Tällaisissa tapauksissa JSON-merkkijonotyypin käyttö on suositeltava kiertotapa.
 
 ## Määritettävät avaimet
 
 Ota käyttöön seuraavat avaimet ja arvot hallittua sovellusmääritystä varten MDM-konsolisi kautta, yleensä plist-muodossa.
 
-| Avaimen nimi           | Tyyppi                           | Kuvaus                                                                                                                                                                                                                                                                                                                                               |
-| ---------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Sääntöjoukko](#rule-set-object) | **[Pakotetut säännöt]** Sääntöjoukko, jota sovelletaan korkeammalla prioriteetilla kuin tavallisia sääntöjä. Luettelon ensimmäinen sääntö on etusijalla. Käyttäjät eivät voi muokata, poistaa tai muuttaa näiden sääntöjen järjestystä. Ne ovat aina aktiivisia sovelluksen yleisestä kytkimestä huolimatta, eivätkä ne synkronoidu iCloudin kautta. |
-| `prefilledRuleSet`     | [Sääntöjoukko](#rule-set-object) | **[Alkuperäiset säännöt]** Sääntöjoukko, joka luodaan oletusarvoisen esimerkkisäännön sijasta, kun käyttäjä käynnistää sovelluksen ensimmäisen kerran ilman olemassa olevia sääntöjä. Kun ne on jaeltu, ne toimivat tavallisina sääntöinä, joita käyttäjä voi muokata ja poistaa ja jotka synkronoituvat iCloudin kautta.                            |
-| `organizationName`     | String                           | Näyttää tekstin "Hallinnoija: [organizationName]" sovelluksen asetussivun yläosassa, mikä osoittaa käyttäjälle, että sovellus on hallittu.                                                                                                                                                                                                           |
-| `managedConfigVersion` | String                           | Vapaavalintainen versio-merkkijono määritykselle. Näytetään käyttöliittymässä, jolloin IT-tuki voi vianmäärityksen yhteydessä varmistaa, onko uusin MDM-tiedonkuorma saapunut laitteeseen.                                                                                                                                                           |
-| `showsLibrarySection`  | Boolean                          | Jos asetuksena on `false`, Sääntökirjasto-ominaisuus piilotetaan ja osio korvataan virheilmoituksella "Organisaatiosi on rajoittanut tätä".                                                                                                                                                                                                          |
-| `fallback`             | [Fallback](#fallback-object)     | Määritä tämä, kun määritykset ylittävät MDM-tiedonkuorman rajat. Sovellus noutaa JSON/XML-tiedoston tästä URL-osoitteesta ja ottaa määritykset käyttöön.                                                                                                                                                                                             |
+| Avaimen nimi                 | Tyyppi                           | Kuvaus                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`            | [Sääntöjoukko](#rule-set-object) | Sääntöjoukko, jota sovelletaan korkeammalla prioriteetilla kuin tavallisia sääntöjä. Luettelon ensimmäinen sääntö on etusijalla. Käyttäjät eivät voi muokata, poistaa tai muuttaa näiden sääntöjen järjestystä. Ne ovat aina aktiivisia sovelluksen yleisestä kytkimestä huolimatta, eivätkä ne synkronoidu iCloudin kautta.                         |
+| `enforcedRuleSetJSONString`  | [JSON-merkkijono](#json-string)  | Sama kuin `enforcedRuleSet`, mutta sääntöjoukko annetaan raakana JSON-merkkijonona. Tämä on hyödyllinen MDM-alustoille, jotka eivät tue sanakirjatyyppiä hallitussa sovellusmäärityksessä.                                                                                                                                                           |
+| `prefilledRuleSet`           | [Sääntöjoukko](#rule-set-object) | Sääntöjoukko, joka luodaan oletusarvoisen esimerkkisäännön sijasta, kun käyttäjä käynnistää sovelluksen ensimmäisen kerran ilman olemassa olevia sääntöjä. Kun ne on jaeltu, ne toimivat tavallisina sääntöinä, joita käyttäjä voi muokata ja poistaa ja jotka synkronoituvat iCloudin kautta.                                                       |
+| `prefilledRuleSetJSONString` | [JSON-merkkijono](#json-string)  | Sama kuin `prefilledRuleSet`, mutta sääntöjoukko annetaan raakana JSON-merkkijonona. Tämä on hyödyllinen MDM-alustoille, jotka eivät tue sanakirjatyyppiä hallitussa sovellusmäärityksessä.                                                                                                                                                           |
+| `organizationName`           | String                           | Näyttää tekstin "Hallinnoija: [organizationName]" sovelluksen asetussivun yläosassa, mikä osoittaa käyttäjälle, että sovellus on hallittu.                                                                                                                                                                                                           |
+| `managedConfigVersion`       | String                           | Vapaavalintainen versio-merkkijono määritykselle. Näytetään käyttöliittymässä, jolloin IT-tuki voi vianmäärityksen yhteydessä varmistaa, onko uusin MDM-tiedonkuorma saapunut laitteeseen.                                                                                                                                                           |
+| `showsLibrarySection`        | Boolean                          | Jos asetuksena on `false`, Sääntökirjasto-ominaisuus piilotetaan ja osio korvataan virheilmoituksella "Organisaatiosi on rajoittanut tätä".                                                                                                                                                                                                          |
+| `fallback`                   | [Fallback](#fallback-object)     | Määritä tämä, kun määritykset ylittävät MDM-tiedonkuorman rajat. Sovellus noutaa määritykset `fallbackDataURL`-osoitteessa määritetystä URL-osoitteesta.                                                                                                                                                                                             |
+| `fallbackJSONString`         | [JSON-merkkijono](#json-string)  | Sama kuin `fallback`, mutta fallback-määritys annetaan raakana JSON-merkkijonona. Tämä on hyödyllinen MDM-alustoille, jotka eivät tue sanakirjatyyppiä hallitussa sovellusmäärityksessä.                                                                                                                                                           |
 
 Kaikki nämä avaimet ovat valinnaisia.
 
-### [Objekti] Sääntöjoukko {/* #rule-set-object */}
+### Määritysarvojen tyypit {/* #configuration-value-types */}
+
+#### Sääntöjoukko {/* #rule-set-object */}
 
 Jokaisella sääntöobjektilla on sama muoto kuin sillä, jonka voit [jakaa/viedä sovelluksen kautta](export-or-import-rules), mutta sinun on muunnettava se JSON-muodosta plist-muotoon seuraavasti:
 
@@ -106,12 +116,45 @@ Jokaisella sääntöobjektilla on sama muoto kuin sillä, jonka voit [jakaa/vied
 ...
 ```
 
-### [Objekti] Fallback {/* #fallback-object */}
+#### Fallback {/* #fallback-object */}
 
 | Avaimen nimi      | Tyyppi       | Kuvaus                                                                                                                                                     |
 | ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `fallbackDataURL` | String (URL) | JSON/XML-tiedoston päätepisteen URL-osoite, joka sisältää sääntöjoukkoja.                                                                                  |
 | `authToken`       | String       | Todennustunnus, joka lisätään HTTP-otsikkoon noudettaessa tietoja `fallbackDataURL`-osoitteesta. (Käytetään muodossa `Authorization: Bearer [authToken]`). |
+
+#### JSON-merkkijono {/* #json-string */}
+
+Jotkut MDM-alustat (esim. Omnissa Workspace ONE UEM) eivät tue sanakirjatyyppiä (`<dict>`) hallitussa sovellusmäärityksessä. Kiertotapana avaimet, jotka päättyvät `JSONString` (kuten `enforcedRuleSetJSONString`, `prefilledRuleSetJSONString` ja `fallbackJSONString`), hyväksyvät samat tiedot kuin niiden sanakirjavastineet, mutta koodattuna **raakana JSON-merkkijonona** plist-tiedoston `<string>`-elementin sisällä.
+
+JSON-merkkijono voi olla joko tiivistetty tai luettavuuden vuoksi muotoiltu rivinvaihdoilla ja sisennyksillä, kuten seuraavassa esimerkissä:
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Jos sekä sanakirja-avain että sitä vastaava `JSONString`-avain ovat molemmat käytössä (esim. sekä `enforcedRuleSet` että `enforcedRuleSetJSONString`), sanakirja-avain on ensisijainen.
 
 ## Sääntöjen arviointi ja ristiriitojen ratkaiseminen
 
@@ -126,7 +169,7 @@ Kun avain on sekä upotetussa MDM-tiedonkuormassa että `fallbackDataURL`-osoitt
 - **Ennen haun valmistumista:** Upotetut asetukset ovat ensisijaisia ja niitä käytetään.
 - **Onnistuneen haun jälkeen:** `fallbackDataURL`-osoitteesta noudetut tiedot korvaavat vastaavat upotetut asetukset.
 - **Epäonnistuneen haun jälkeen:** Sovellus jatkaa upotettujen asetusten käyttöä.
-- Erilliset avaimet, jotka ovat vain upotetussa tiedonkuormassa, säilytetään.
+- **Riippumattomat avaimet:** Avaimet, jotka ovat vain upotetussa tiedonkuormassa, säilytetään aina.
 
 ## MDM-palaute ja tilan tarkistus
 

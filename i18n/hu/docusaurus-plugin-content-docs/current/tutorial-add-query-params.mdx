@@ -44,7 +44,7 @@ Nézzük meg lépésről lépésre.
 - `(https://example.com/[^?]*)`: Illeszkedik a `?` előtti részre.
   - `[^?]*` bármit illeszt, kivéve `?`.
   - Ez `()`-vel van körülvéve, így később `$1`-gyel hivatkozhat rá.
-- `(\(.*))?`: Illeszkedik egy `?`-vel kezdődő karakterláncra, ami lekérdezési paramétereket jelent.
+- `(\?\?\(.*))?`: Illeszkedik egy `?`-vel kezdődő karakterláncra, ami lekérdezési paramétereket jelent.
   - Ez üres karakterláncot is illeszt a minta végén lévő `?` kvantifikátorral, ami _nulla vagy egy alkalommal illeszt_.
   - A külső `()` és a belső `()` később `$2`-vel és `$3`-mal hivatkozható.
 
@@ -57,7 +57,7 @@ Ez nem tökéletes megoldás, mivel az `example.com/hello` címet `example.com/h
 
 Összefoglalva, ez a végeredmény:
 
-- **Átirányítás innen**: `(https://example.com/[^?]*)((\(.*))?)` (Reguláris kifejezés)
+- **Átirányítás innen**: `(https://example.com/[^?]*)((\?\?\(.*))?)` (Reguláris kifejezés)
 - **Átirányítás ide**: `$1?layout=desktop$3`
 - **Kizárt URL minta**: `.*[&?]layout=[^&]*.*` (Reguláris kifejezés)
 - **Rögzítőcsoport-feldolgozás**:

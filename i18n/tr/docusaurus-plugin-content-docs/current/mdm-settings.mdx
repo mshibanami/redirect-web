@@ -3,9 +3,9 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Yöneticiler için MDM Ayarları
 
-RedirectWeb, Apple'ın Yönetilen Uygulama Yapılandırmasını (Managed App Configuration) destekleyerek siz (BT yöneticileri) için uygulama ayarlarını Jamf, Intune, Kandji vb. gibi bir Mobil Cihaz Yönetimi (MDM) çözümü aracılığıyla çalışan/öğrenci cihazlarına merkezi olarak dağıtmanıza ve yönetmenize olanak tanır.
+RedirectWeb, Apple'ın Yönetilen Uygulama Yapılandırmasını (Managed App Configuration) destekleyerek, sizlerin (BT yöneticileri) Jamf, Intune, Kandji vb. gibi bir Mobil Cihaz Yönetimi (MDM) çözümü aracılığıyla çalışan/öğrenci cihazlarında uygulama ayarlarını merkezi olarak dağıtmanıza ve yönetmenize olanak tanır.
 
-Bu sayfa, yapılandırılabilir anahtarları, uygulama davranışlarını, en iyi uygulamaları ve sınırlamaları özetlemektedir.
+Bu sayfa yapılandırılabilir anahtarları, uygulama davranışlarını, en iyi uygulamaları ve sınırlamaları özetlemektedir.
 
 <TOCInline toc={toc} />
 
@@ -13,28 +13,28 @@ Bu sayfa, yapılandırılabilir anahtarları, uygulama davranışlarını, en iy
 
 > [!IMPORTANT]
 >
-> **Apple İşletme Yönetimi / Apple Okul Yönetimi (VPP) Dağıtımları için:**
-> Standart RedirectWeb uygulaması, VPP toplu satın alımı için uygun olmayan bir freemium Uygulama İçi Satın Alma modeli kullanır. Tamamen kilidi açılmış uygulamayı kuruluşunuza dağıtmak için lütfen MDM/VPP dağıtımı için özel olarak tasarlanmış, peşin ödemeli bir sürüm olan **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)** uygulamasını satın alın.
+> **Apple Business Manager / Apple School Manager (VPP) Dağıtımları İçin:**
+> Standart RedirectWeb uygulaması, VPP toplu satın alımı için uygun olmayan, freemium Uygulama İçi Satın Alma modelini kullanır. Tam kilidi açılmış uygulamayı kuruluşunuza dağıtmak için lütfen özellikle MDM/VPP dağıtımı için tasarlanmış ücretli bir sürüm olan **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)** uygulamasını satın alın.
 
-Yapılandırmaları MDM'iniz üzerinden göndererek aşağıdakileri sağlayabilirsiniz:
+Yapılandırmaları MDM'niz aracılığıyla göndererek aşağıdakileri elde edebilirsiniz:
 
-- **Zorunlu Kurallar:** Kullanıcıların değiştiremeyeceği veya silemeyeceği kuruluş genelinde yönlendirme kuralları uygulayın.
-- **İlk Kural Dağıtımı:** Uygulamanın ilk açılışında varsayılan olarak hizmet veren bir şablon kural seti dağıtın.
-- **UI Kontrolü:** Belirli özelliklere (Kütüphane gibi) erişimi kısıtlayın ve uygulama içinde uygulamanın kuruluş yönetimi altında olduğunu açıkça belirtin.
-- **Büyük Kural Alımı (Yedek):** Kuralları harici bir sunucudan alarak MDM veri yükü boyutu sınırlarını aşın.
+- **Zorunlu Kurallar:** Kullanıcıların değiştiremeyeceği veya silemeyeceği kuruluş çapında yönlendirme kuralları uygulayın.
+- **Başlangıç Kuralı Dağıtımı:** Uygulamanın ilk açılışında varsayılan olarak hizmet veren bir şablon kural seti dağıtın.
+- **UI Kontrolü:** Belirli özelliklere (Kitaplık gibi) erişimi kısıtlayın ve uygulama içinde uygulamanın kuruluş yönetimi altında olduğunu açıkça belirtin.
+- **Büyük Kural Alma (Fallback):** Kuralları harici bir sunucudan alarak MDM yük boyutu sınırlarını aşın.
 
 ## Kullanım Durumları
 
 - **Sistem geçişleri sırasında sorunsuz yönlendirme:**
-  Eski bir dahili sistemden (örneğin, `legacy-crm.internal.local`) yeni bir platforma (örneğin, `salesforce.com`) geçerken bir `enforcedRuleSet` dağıtın. Çalışanlar eski yer imlerini kullansalar bile otomatik olarak yeni sisteme yönlendirilirler, bu da güncel olmayan bağlantılarla ilgili BT destek taleplerini ortadan kaldırır.
+  Eski bir dahili sistemden (örn. `legacy-crm.internal.local`) yeni bir platforma (örn. `salesforce.com`) geçerken bir `enforcedRuleSet` dağıtın. Çalışanlar eski yer imlerini kullansalar bile otomatik olarak yeni sisteme yönlendirilirler, bu da güncel olmayan bağlantılarla ilgili BT destek taleplerini ortadan kaldırır.
 - **İntranet Erişimi Yardımı:**
-  Omnissa Web gibi Uygulama Başına VPN (Per-App VPN) tünelleri aracılığıyla intranet kaynaklarına erişimi kolaylaştırmak için özel URL şemaları kullanan yönlendirme kuralları dağıtın.
+  Omnissa Web gibi Uygulama Başına VPN tünelleri aracılığıyla intranet kaynaklarına erişimi kolaylaştırmak için özel URL şemaları kullanan yönlendirme kuralları dağıtın.
 
 > [!WARNING]
 >
-> MDM yapılandırma gönderimleri, **yalnızca kullanıcı RedirectWeb uygulamasını açarsa** anında uygulanır.
-> Uygulama, MDM güncellemelerini tarayıcı uzantısına sessizce göndermek için arka plan görevlerini kullansa da, bu işletim sistemi tarafından dikte edilen "en iyi çaba" (best-effort) bir işlemdir. Yürütme zamanlaması son derece tahmin edilemezdir ve görev hiç çalışmayabilir.
-> Bu nedenle, bu özelliğe zamana duyarlı olay müdahalesi için (örneğin, bir bulut hizmeti kesintisinden birkaç dakika sonra tüm çalışanları anında bir yedek siteye yönlendirmeye çalışmak) **güvenilmemelidir**.
+> MDM yapılandırma gönderimleri, **yalnızca kullanıcı RedirectWeb uygulamasını açarsa** hemen uygulanır.
+> Uygulama, tarayıcı uzantısına MDM güncellemelerini sessizce göndermek için arka plan görevlerini kullansa da, bu işletim sistemi tarafından dikte edilen bir "en iyi çaba" (best-effort) yürütmedir. Yürütme zamanlaması son derece öngörülemezdir ve görev hiç çalışmayabilir.
+> Bu nedenle, bu özelliğe zaman açısından kritik olay müdahalesi için (örn. bir bulut hizmeti kesintisinden birkaç dakika sonra tüm çalışanları anında yedek bir siteye yönlendirmeye çalışmak) **güvenilmemelidir**.
 
 ## Demo
 
@@ -49,28 +49,38 @@ Yapılandırmaları MDM'iniz üzerinden göndererek aşağıdakileri sağlayabil
   width="640px"
 ></video>
 
-Videoda kullanılan plist dosyası burada mevcuttur: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+Videoda kullanılan plist dosyası, Sözlük (`<dict>`) anahtarlarını kullanan **[sample-mdm.plist](/misc/sample-mdm.plist)** olarak mevcuttur. Ayrıca JSON Dizesi anahtarlarını kullanan **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)** de mevcuttur (aynı veriler).
 
-Videoda yapılandırmayı dağıtmak için ManageEngine'in MDM'i kullanılmıştır, ancak aynı yapılandırma Apple'ın Yönetilen Uygulama Yapılandırmasını destekledikleri sürece diğer MDM çözümleri için de kullanılabilir.
+Videoda, yapılandırmayı dağıtmak için ManageEngine'in MDM'si kullanılmıştır, ancak Apple'ın Yönetilen Uygulama Yapılandırmasını destekledikleri sürece aynı yapılandırma diğer MDM çözümleri için de kullanılabilir.
+
+> [!NOTE]
+>
+> **Sözlük vs. JSON Dizesi:**
+> Sözlük türü daha fazla tür güvenliği sağlarken, bazı MDM çözümleri (Omnissa Workspace ONE UEM gibi) yönetilen uygulama yapılandırmasında Sözlük türünü desteklemez. Bu gibi durumlarda, JSON Dizesi türünü kullanmak önerilen bir geçici çözümdür.
 
 ## Yapılandırılabilir Anahtarlar
 
 Managed App Configuration için aşağıdaki anahtarları ve değerleri MDM konsolunuz aracılığıyla, genellikle plist formatında dağıtın.
 
-| Anahtar Adı            | Tür                            | Açıklama                                                                                                                                                                                                                                                                                                                           |
-| ---------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Kural seti](#rule-set-object) | **[Zorunlu Kurallar]** Normal kurallardan daha yüksek öncelikle uygulanan bir kural seti. Listedeki ilk kural önceliklidir. Kullanıcılar bu kuralları düzenleyemez, silemez veya yeniden sıralayamaz. Uygulamanın genel devre dışı bırakma anahtarını yok sayarak her zaman aktiftirler ve iCloud üzerinden senkronize edilmezler. |
-| `prefilledRuleSet`     | [Kural seti](#rule-set-object) | **[İlk Kurallar]** Bir kullanıcı uygulamayı mevcut kuralları olmadan ilk kez başlattığında varsayılan örnek kural yerine oluşturulan bir kural seti. Dağıtıldıktan sonra bunlar kullanıcı değişikliğine, silinmesine ve iCloud senkronizasyonuna izin veren normal kurallar gibi davranır.                                         |
-| `organizationName`     | String                         | Uygulama içi ayarlar ekranının üst kısmında "Managed by [organizationName]" (Yöneten: [organizationName]) yazısını görüntüleyerek kullanıcıya uygulamanın yönetildiğini belirtir.                                                                                                                                                  |
-| `managedConfigVersion` | String                         | Yapılandırma için rastgele bir sürüm dizesi. Kullanıcı arayüzünde görüntülenir ve sorun giderme sırasında BT desteğinin en son MDM veri yükünün cihaza ulaşıp ulaşmadığını doğrulamasına olanak tanır.                                                                                                                             |
-| `showsLibrarySection`  | Boolean                        | `false` olarak ayarlanırsa, Kural Kütüphanesi özelliği gizlenir ve bölüm "Kuruluşunuz tarafından kısıtlanmıştır." hata mesajıyla değiştirilir.                                                                                                                                                                                     |
-| `fallback`             | [Yedek](#fallback-object)      | Yapılandırmalar MDM veri yükü sınırlarını aştığında bunu belirtin. Uygulama, yapılandırmayı uygulamak için bu URL'den JSON/XML alacaktır.                                                                                                                                                                                          |
+| Anahtar Adı                  | Tür                          | Açıklama                                                                                                                                                                                                                                                        |
+| ---------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`            | [Kural Seti](#rule-set-object) | Normal kurallardan daha yüksek öncelikle uygulanan bir kural seti. Listedeki ilk kural önceliklidir. Kullanıcılar bu kuralları düzenleyemez, silemez veya yeniden sıralayamaz. Uygulamanın genel devre dışı bırakma düğmesini yok sayarak her zaman aktiftirler. |
+| `enforcedRuleSetJSONString`  | [JSON Dizesi](#json-string)   | `enforcedRuleSet` ile aynıdır, ancak kural seti ham bir JSON dizesi olarak sağlanır. Bu, yönetilen uygulama yapılandırmasında Sözlük türünü desteklemeyen MDM platformları için kullanışlıdır.                                                                   |
+| `prefilledRuleSet`           | [Kural Seti](#rule-set-object) | Mevcut kuralları olmayan bir kullanıcı uygulamayı ilk kez başlattığında varsayılan örnek kuralın yerine oluşturulan bir kural seti. Dağıtıldıktan sonra bunlar normal kurallar gibi hareket ederek kullanıcı değişikliğine, silinmesine ve iCloud senkronizasyonuna olanak tanır. |
+| `prefilledRuleSetJSONString` | [JSON Dizesi](#json-string)   | `prefilledRuleSet` ile aynıdır, ancak kural seti ham bir JSON dizesi olarak sağlanır. Bu, yönetilen uygulama yapılandırmasında Sözlük türünü desteklemeyen MDM platformları için kullanışlıdır.                                                                   |
+| `organizationName`           | Dize                         | Uygulama içi ayarlar ekranının üst kısmında "[organizationName] tarafından yönetiliyor" ifadesini görüntüleyerek kullanıcıya uygulamanın yönetildiğini belirtir.                                                                                                |
+| `managedConfigVersion`       | Dize                         | Yapılandırma için rastgele bir sürüm dizesi. BT desteğinin sorun giderme sırasında en son MDM yükünün cihaza ulaşıp ulaşmadığını doğrulamasına olanak tanıyacak şekilde kullanıcı arayüzünde görüntülenir.                                                       |
+| `showsLibrarySection`        | Boole                        | `false` olarak ayarlanırsa, Kural Kitaplığı özelliği gizlenir ve bölüm "Kuruluşunuz tarafından kısıtlandı" hata mesajıyla değiştirilir.                                                                                                                         |
+| `fallback`                   | [Fallback](#fallback-object)  | MDM yük boyutu sınırı aşıldığında bunu belirtin. Uygulama, yapılandırmayı `fallbackDataURL` içinde belirtilen URL'den alacaktır.                                                                                                                                 |
+| `fallbackJSONString`         | [JSON Dizesi](#json-string)   | `fallback` ile aynıdır, ancak fallback yapılandırması ham bir JSON dizesi olarak sağlanır. Bu, yönetilen uygulama yapılandırmasında Sözlük türünü desteklemeyen MDM platformları için kullanışlıdır.                                                              |
 
 Bu anahtarların tümü isteğe bağlıdır.
 
-### [Nesne] Kural Seti {/* #rule-set-object */}
+### Yapılandırma Değeri Türleri {/* #configuration-value-types */}
 
-Her kural nesnesi, [uygulama aracılığıyla paylaşabileceğiniz/dışa aktarabileceğiniz](export-or-import-rules) ile aynı formata sahiptir, ancak bunu şu şekilde JSON'dan plist'e dönüştürmeniz gerekir:
+#### Kural Seti {/* #rule-set-object */}
+
+Her kural nesnesi, [uygulama aracılığıyla paylaşabileceğiniz/dışa aktarabileceğiniz](export-or-import-rules) formatla aynı formata sahiptir, ancak bunu JSON'dan plist'e şu şekilde dönüştürmeniz gerekir:
 
 ```xml
 ...
@@ -106,32 +116,65 @@ Her kural nesnesi, [uygulama aracılığıyla paylaşabileceğiniz/dışa aktara
 ...
 ```
 
-### [Nesne] Yedek {/* #fallback-object */}
+#### Fallback {/* #fallback-object */}
 
-| Anahtar Adı       | Tür          | Açıklama                                                                                                                                                   |
-| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL` | String (URL) | Kural setlerini içeren bir JSON/XML dosyasının uç nokta URL'si.                                                                                            |
-| `authToken`       | String       | `fallbackDataURL` üzerinden veri alınırken HTTP başlığına eklenen bir kimlik doğrulama belirteci. (`Authorization: Bearer [authToken]` olarak kullanılır). |
+| Anahtar Adı       | Tür          | Açıklama                                                                                                                                           |
+| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | Dize (URL)   | Kural setlerini içeren bir JSON/XML dosyasının uç nokta URL'si.                                                                                    |
+| `authToken`       | Dize         | `fallbackDataURL` adresinden alınırken HTTP üstbilgisine eklenen bir kimlik doğrulama belirteci. (`Authorization: Bearer [authToken]` olarak kullanılır). |
 
-## Kural Değerlendirmesi ve Çakışma Çözümü
+#### JSON Dizesi {/* #json-string */}
 
-1. Bir `enforcedRuleSet` sağlanmışsa, kuralları mutlak öncelikle uygulanır.
-2. Normal kural yoksa ancak bir `prefilledRuleSet` varsa, `prefilledRuleSet` normal kurallar olarak kaydedilir.
-3. Varsayılan "Örnek yönlendirme kuralı" yalnızca hiçbir MDM kuralı yapılandırılmamışsa ve normal kural yoksa oluşturulur.
+Bazı MDM platformları (örn. Omnissa Workspace ONE UEM), yönetilen uygulama yapılandırmasında Sözlük (`<dict>`) türünü desteklemez. Geçici bir çözüm olarak, `JSONString` ile biten anahtarlar (`enforcedRuleSetJSONString`, `prefilledRuleSetJSONString` ve `fallbackJSONString` gibi), Sözlük karşılıklarıyla aynı verileri kabul eder ancak bir plist `<string>` öğesi içinde **ham bir JSON dizesi** olarak kodlanır.
 
-## Yedek URL Davranışı
+JSON dizesi, aşağıdaki örnekte gösterildiği gibi, okunabilirlik için küçültülebilir veya satır sonları ve girintilerle güzelce yazdırılabilir:
 
-Bir anahtar hem satır içi MDM veri yükünde hem de `fallbackDataURL` aracılığıyla getirilen verilerde mevcut olduğunda, uygulama çakışmayı şu şekilde yönetir:
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Hem bir Sözlük anahtarı hem de buna karşılık gelen `JSONString` anahtarı mevcutsa (örn. hem `enforcedRuleSet` hem de `enforcedRuleSetJSONString`), Sözlük anahtarı önceliklidir.
+
+## Kural Değerlendirmesi ve Çatışma Çözümü
+
+1. Bir `enforcedRuleSet` sağlanırsa, kuralları mutlak öncelikle uygulanır.
+2. Normal kural yoksa ancak bir `prefilledRuleSet` varsa, `prefilledRuleSet` normal kural olarak kaydedilir.
+3. Varsayılan "Örnek yönlendirme kuralı", yalnızca hiçbir MDM kuralı yapılandırılmamışsa ve normal kural yoksa oluşturulur.
+
+## Fallback URL Davranışı
+
+Bir anahtar hem satır içi MDM yükünde hem de `fallbackDataURL` aracılığıyla alınan verilerde mevcut olduğunda, uygulama çatışmayı şu şekilde ele alır:
 
 - **Alım Tamamlanmadan Önce:** Satır içi ayarlar kesinlikle önceliklidir ve kullanılır.
-- **Başarılı Alımdan Sonra:** `fallbackDataURL` adresinden alınan veriler, ilgili satır içi ayarların üzerine yazılır.
-- **Başarısız Alımdan Sonra:** Uygulama satır içi ayarları kullanmaya devam eder.
-- Yalnızca satır içi veri yükünde bulunan bağımsız anahtarlar korunur.
+- **Başarılı Alımdan Sonra:** `fallbackDataURL` adresinden alınan veriler ilgili satır içi ayarların üzerine yazılır.
+- **Başarısız Alımdan Sonra:** Uygulama, satır içi ayarları kullanmaya devam eder.
+- **Bağımsız Anahtarlar:** Yalnızca satır içi yükte bulunan anahtarlar her zaman korunur.
 
 ## MDM Geri Bildirimi ve Durum Kontrolü
 
 Yapılandırmanın başarıyla uygulanıp uygulanmadığını, MDM çözümünüz destekliyorsa MDM geri bildirim kanalı (`com.apple.feedback.managed`) aracılığıyla doğrulayabilirsiniz. Yapılandırmayı işledikten (veya URL alımını tamamladıktan) sonra uygulama aşağıdaki verileri döndürür:
 
-- `managedConfigVersion`: Yapılandırma denemesinin sürüm dizesi.
-- `result`: `success` (başarılı) veya `error` (hata).
+- `managedConfigVersion`: Yapılandırma girişiminin sürüm dizesi.
+- `result`: `success` veya `error`.
 - `messages`: Varsa, ayrıntılı hata veya uyarı mesajlarını içeren bir dizi.

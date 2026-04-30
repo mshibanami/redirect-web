@@ -40,7 +40,7 @@ Odoslaním konfigurácií prostredníctvom vášho MDM môžete dosiahnuť nasle
 
 <video
   src={useBaseUrl("/videos/mdm-settings-demo.mov")}
-  title="MDM Settings Demo"
+  title="Ukážka nastavení MDM"
   autoPlay
   playsInline
   muted
@@ -49,26 +49,36 @@ Odoslaním konfigurácií prostredníctvom vášho MDM môžete dosiahnuť nasle
   width="640px"
 ></video>
 
-Súbor plist použitý vo videu je k dispozícii tu: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+Súbor plist použitý vo videu je k dispozícii tu: **[sample-mdm.plist](/misc/sample-mdm.plist)**, ktorý používa kľúče typu dictionary (`<dict>`). K dispozícii je tiež súbor **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)**, ktorý používa kľúče typu JSON reťazec (rovnaké údaje).
 
 Vo videu bolo na nasadenie konfigurácie použité MDM od ManageEngine, ale rovnakú konfiguráciu možno použiť aj pre iné MDM riešenia, pokiaľ podporujú Managed App Configuration od Apple.
+
+> [!NOTE]
+>
+> **Dictionary vs. JSON reťazec:**
+> Hoci je typ Dictionary typovo bezpečnejší, niektoré MDM riešenia (napríklad Omnissa Workspace ONE UEM) nepodporujú typ Dictionary v spravovanej konfigurácii aplikácie. V takýchto prípadoch sa ako náhradné riešenie odporúča použiť typ JSON reťazec.
 
 ## Konfigurovateľné kľúče
 
 Nasaďte nasledujúce kľúče a hodnoty pre Managed App Configuration prostredníctvom konzoly MDM, zvyčajne vo formáte plist.
 
-| Názov kľúča            | Typ                                | Popis                                                                                                                                                                                                                                                                                           |
-| ---------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Sada pravidiel](#rule-set-object) | **[Vynútené pravidlá]** Sada pravidiel aplikovaná s vyššou prioritou ako bežné pravidlá. Prvé pravidlo v zozname má prednosť. Používatelia nemôžu tieto pravidlá upravovať, mazať ani meniť ich poradie. Sú vždy aktívne, ignorujú globálne vypnutie aplikácie a nesynchronizujú sa cez iCloud. |
-| `prefilledRuleSet`     | [Sada pravidiel](#rule-set-object) | **[Počiatočné pravidlá]** Sada pravidiel vytvorená namiesto predvoleného príkladu pravidla, keď používateľ prvýkrát spustí aplikáciu bez existujúcich pravidiel. Po distribúcii fungujú ako bežné pravidlá, čo umožňuje používateľovi ich úpravu, vymazanie a synchronizáciu cez iCloud.        |
-| `organizationName`     | String                             | Zobrazuje „Spravované organizáciou [organizationName]“ v hornej časti obrazovky s nastaveniami v aplikácii, čo používateľovi indikuje, že aplikácia je spravovaná.                                                                                                                              |
-| `managedConfigVersion` | String                             | Ľubovoľný reťazec verzie pre konfiguráciu. Zobrazuje sa v používateľskom rozhraní, čo umožňuje IT podpore pri riešení problémov overiť, či sa najnovší MDM payload dostal do zariadenia.                                                                                                        |
-| `showsLibrarySection`  | Boolean                            | Ak je nastavené na `false`, funkcia Knižnica pravidiel (Rule Library) je skrytá a sekcia je nahradená chybovým hlásením „Obmedzené vašou organizáciou“.                                                                                                                                         |
-| `fallback`             | [Fallback](#fallback-object)       | Toto špecifikujte, keď konfigurácie prekročia limity MDM payloadu. Aplikácia načíta JSON/XML z tejto URL adresy, aby aplikovala konfiguráciu.                                                                                                                                                   |
+| Názov kľúča                   | Typ                                | Popis                                                                                                                                                                                                                                                                                           |
+| ----------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`             | [Sada pravidiel](#rule-set-object) | Sada pravidiel aplikovaná s vyššou prioritou ako bežné pravidlá. Prvé pravidlo v zozname má prednosť. Používatelia nemôžu tieto pravidlá upravovať, mazať ani meniť ich poradie. Sú vždy aktívne, ignorujú globálne vypnutie aplikácie a nesynchronizujú sa cez iCloud.                         |
+| `enforcedRuleSetJSONString`   | [JSON reťazec](#json-string)       | Rovnaké ako `enforcedRuleSet`, ale sada pravidiel je poskytnutá ako surový JSON reťazec. Toto je užitočné pre MDM platformy, ktoré nepodporujú typ Dictionary v spravovanej konfigurácii aplikácie.                                                                                             |
+| `prefilledRuleSet`            | [Sada pravidiel](#rule-set-object) | Sada pravidiel vytvorená namiesto predvoleného príkladu pravidla, keď používateľ prvýkrát spustí aplikáciu bez existujúcich pravidiel. Po distribúcii fungujú ako bežné pravidlá, čo umožňuje používateľovi ich úpravu, vymazanie a synchronizáciu cez iCloud.                                   |
+| `prefilledRuleSetJSONString`  | [JSON reťazec](#json-string)       | Rovnaké ako `prefilledRuleSet`, ale sada pravidiel je poskytnutá ako surový JSON reťazec. Toto je užitočné pre MDM platformy, ktoré nepodporujú typ Dictionary v spravovanej konfigurácii aplikácie.                                                                                             |
+| `organizationName`            | String                             | Zobrazuje „Spravované organizáciou [organizationName]“ v hornej časti obrazovky s nastaveniami v aplikácii, čo používateľovi indikuje, že aplikácia je spravovaná.                                                                                                                              |
+| `managedConfigVersion`       | String                             | Ľubovoľný reťazec verzie pre konfiguráciu. Zobrazuje sa v používateľskom rozhraní, čo umožňuje IT podpore pri riešení problémov overiť, či sa najnovší MDM payload dostal do zariadenia.                                                                                                        |
+| `showsLibrarySection`        | Boolean                            | Ak je nastavené na `false`, funkcia Knižnica pravidiel (Rule Library) je skrytá a sekcia je nahradená chybovým hlásením „Obmedzené vašou organizáciou“.                                                                                                                                         |
+| `fallback`                   | [Fallback](#fallback-object)       | Toto špecifikujte, keď konfigurácie prekročia limity MDM payloadu. Aplikácia načíta konfiguráciu z URL adresy zadanej v `fallbackDataURL`.                                                                                                                                                      |
+| `fallbackJSONString`         | [JSON reťazec](#json-string)       | Rovnaké ako `fallback`, ale záložná konfigurácia je poskytnutá ako surový JSON reťazec. Toto je užitočné pre MDM platformy, ktoré nepodporujú typ Dictionary v spravovanej konfigurácii aplikácie.                                                                                             |
 
 Tieto kľúče sú všetky voliteľné.
 
-### [Objekt] Sada pravidiel {/* #rule-set-object */}
+### Typy konfiguračných hodnôt {/* #configuration-value-types */}
+
+#### Sada pravidiel {/* #rule-set-object */}
 
 Každý objekt pravidla má rovnaký formát ako ten, ktorý môžete [zdieľať/exportovať cez aplikáciu](export-or-import-rules), ale musíte ho previesť z JSON do plist, takto:
 
@@ -90,7 +100,7 @@ Každý objekt pravidla má rovnaký formát ako ten, ktorý môžete [zdieľať
 				<key>type</key>
 				<string>originalRedirect</string>
 				<key>title</key>
-				<string>My enforced Rule</string>
+				<string>Moje vynútené pravidlo</string>
 				<key>sourceURLPattern</key>
 				<dict>
 					<key>type</key>
@@ -106,12 +116,45 @@ Každý objekt pravidla má rovnaký formát ako ten, ktorý môžete [zdieľať
 ...
 ```
 
-### [Objekt] Fallback {/* #fallback-object */}
+#### Fallback {/* #fallback-object */}
 
 | Názov kľúča       | Typ          | Popis                                                                                                                                   |
 | ----------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | `fallbackDataURL` | String (URL) | URL koncového bodu súboru JSON/XML obsahujúceho sady pravidiel.                                                                         |
 | `authToken`       | String       | Autentifikačný token pridaný do hlavičky HTTP pri načítavaní z `fallbackDataURL`. (Používa sa ako `Authorization: Bearer [authToken]`). |
+
+#### JSON reťazec {/* #json-string */}
+
+Niektoré platformy MDM (napr. Omnissa Workspace ONE UEM) nepodporujú typ Dictionary (`<dict>`) v spravovanej konfigurácii aplikácie. Ako riešenie akceptujú kľúče končiace na `JSONString` (napríklad `enforcedRuleSetJSONString`, `prefilledRuleSetJSONString` a `fallbackJSONString`) rovnaké údaje ako ich náprotivky Dictionary, ale zakódované ako **surový JSON reťazec** v rámci elementu `<string>` súboru plist.
+
+JSON reťazec môže byť buď minifikovaný, alebo naformátovaný s novými riadkami a odsadením pre lepšiu čitateľnosť, ako je znázornené v nasledujúcom príklade:
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Ak je prítomný kľúč Dictionary aj jeho zodpovedajúci kľúč `JSONString` (napr. `enforcedRuleSet` a `enforcedRuleSetJSONString`), prednosť má kľúč Dictionary.
 
 ## Vyhodnocovanie pravidiel a riešenie konfliktov
 
@@ -126,7 +169,7 @@ Keď kľúč existuje v inline MDM payloade aj v údajoch načítaných cez `fal
 - **Pred dokončením načítania:** Inline nastavenia majú striktnú prioritu a používajú sa.
 - **Po úspešnom načítaní:** Údaje získané z `fallbackDataURL` prepíšu zodpovedajúce inline nastavenia.
 - **Po neúspešnom načítaní:** Aplikácia naďalej používa inline nastavenia.
-- Nezávislé kľúče, ktoré existujú iba v inline payloade, sa zachovajú.
+- **Nezávislé kľúče:** Kľúče, ktoré existujú iba v inline payloade, sa vždy zachovajú.
 
 ## Spätná väzba MDM a kontrola stavu
 

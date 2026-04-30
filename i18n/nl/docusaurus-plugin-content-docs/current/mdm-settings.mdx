@@ -14,7 +14,7 @@ Deze pagina beschrijft de configureerbare sleutels, app-gedrag, best practices e
 > [!IMPORTANT]
 >
 > **Voor implementaties via Apple Business Manager / Apple School Manager (VPP):**
-> De standaard RedirectWeb-app maakt gebruik van een freemium In-App Purchase-model, dat niet in aanmerking komt voor VPP-volumeverminderde aankopen. Om de volledig ontgrendelde app in uw organisatie te implementeren, schaft u de **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)**-app aan. Dit is een vooraf betaalde versie die specifiek is ontworpen voor MDM/VPP-distributie.
+> De standaard RedirectWeb-app maakt gebruik van een freemium In-App Purchase-model, dat niet in aanmerking komt voor VPP-volumeverminderde aankopen. Om de volledig ontgrendelde app in uw organisatie te implementeren, schaft u de **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)**-app aanschaft. Dit is een vooraf betaalde versie die specifiek is ontworpen voor MDM/VPP-distributie.
 
 Door configuraties via uw MDM te pushen, kunt u het volgende bereiken:
 
@@ -40,7 +40,7 @@ Door configuraties via uw MDM te pushen, kunt u het volgende bereiken:
 
 <video
   src={useBaseUrl("/videos/mdm-settings-demo.mov")}
-  title="MDM Settings Demo"
+  title="MDM-instellingen demo"
   autoPlay
   playsInline
   muted
@@ -49,26 +49,36 @@ Door configuraties via uw MDM te pushen, kunt u het volgende bereiken:
   width="640px"
 ></video>
 
-Het plist-bestand dat in de video wordt gebruikt, is hier beschikbaar: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+Het plist-bestand dat in de video wordt gebruikt, is hier beschikbaar: **[sample-mdm.plist](/misc/sample-mdm.plist)**, dat gebruikmaakt van Dictionary (`<dict>`)-sleutels. Er is ook **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)** beschikbaar die gebruikmaakt van JSON-tekenreekssleutels (dezelfde gegevens).
 
 In de video werd de MDM van ManageEngine gebruikt om de configuratie te implementeren, maar dezelfde configuratie kan worden gebruikt voor andere MDM-oplossingen, zolang ze Apple's Managed App Configuration ondersteunen.
+
+> [!NOTE]
+>
+> **Dictionary vs. JSON-tekenreeks:**
+> Hoewel het Dictionary-type meer type-veilig is, ondersteunen sommige MDM-oplossingen (zoals Omnissa Workspace ONE UEM) het Dictionary-type niet in de beheerde app-configuratie. In dergelijke gevallen is het gebruik van het type JSON-tekenreeks een aanbevolen oplossing.
 
 ## Configureerbare sleutels
 
 Implementeer de volgende sleutels en waarden voor Managed App Configuration via uw MDM-console, meestal in het plist-formaat.
 
-| Sleutelnaam            | Type                         | Beschrijving                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `enforcedRuleSet`      | [Regelset](#rule-set-object) | **[Afgedwongen regels]** Een regelset die met een hogere prioriteit wordt toegepast dan normale regels. De eerste regel in de lijst heeft voorrang. Gebruikers kunnen deze regels niet bewerken, verwijderen of de volgorde ervan wijzigen. Ze zijn altijd actief, negeren de algemene uitschakelknop van de app en worden niet gesynchroniseerd via iCloud. |
-| `prefilledRuleSet`     | [Regelset](#rule-set-object) | **[Initiële regels]** Een regelset die wordt gemaakt in plaats van de standaard voorbeeldregel wanneer een gebruiker de app voor de eerste keer start zonder bestaande regels. Eenmaal gedistribueerd fungeren deze als normale regels, waardoor wijziging, verwijdering en iCloud-synchronisatie door de gebruiker mogelijk zijn.                           |
-| `organizationName`     | String                       | Toont "Beheerd door [organizationName]" bovenaan het scherm met in-app instellingen, wat de gebruiker aangeeft dat de app wordt beheerd.                                                                                                                                                                                                                     |
-| `managedConfigVersion` | String                       | Een willekeurige versienummerreeks voor de configuratie. Wordt weergegeven in de gebruikersinterface, zodat IT-ondersteuning bij het oplossen van problemen kan controleren of de nieuwste MDM-payload het apparaat heeft bereikt.                                                                                                                           |
-| `showsLibrarySection`  | Boolean                      | Indien ingesteld op `false`, wordt de functie Regelbibliotheek verborgen en wordt de sectie vervangen door de foutmelding "Beperkt door uw organisatie.".                                                                                                                                                                                                    |
-| `fallback`             | [Fallback](#fallback-object) | Geef dit op wanneer de configuraties de MDM-payloadlimieten overschrijden. De app haalt JSON/XML op van deze URL om de configuratie toe te passen.                                                                                                                                                                                                           |
+| Sleutelnaam                   | Type                         | Beschrijving                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `enforcedRuleSet`             | [Regelset](#rule-set-object) | Een regelset die met een hogere prioriteit wordt toegepast dan normale regels. De eerste regel in de lijst heeft voorrang. Gebruikers kunnen deze regels niet bewerken, verwijderen of de volgorde ervan wijzigen. Ze zijn altijd actief, negeren de algemene uitschakelknop van de app en worden niet gesynchroniseerd via iCloud.                         |
+| `enforcedRuleSetJSONString`   | [JSON-tekenreeks](#json-string) | Hetzelfde als `enforcedRuleSet`, maar de regelset wordt geleverd als een ruwe JSON-tekenreeks. Dit is nuttig voor MDM-platforms die het Dictionary-type niet ondersteunen in de beheerde app-configuratie.                                                                                                                                                   |
+| `prefilledRuleSet`            | [Regelset](#rule-set-object) | Een regelset die wordt gemaakt in plaats van de standaard voorbeeldregel wanneer een gebruiker de app voor de eerste keer start zonder bestaande regels. Eenmaal gedistribueerd fungeren deze als normale regels, waardoor wijziging, verwijdering en iCloud-synchronisatie door de gebruiker mogelijk zijn.                                                 |
+| `prefilledRuleSetJSONString`  | [JSON-tekenreeks](#json-string) | Hetzelfde als `prefilledRuleSet`, maar de regelset wordt geleverd als een ruwe JSON-tekenreeks. Dit is nuttig voor MDM-platforms die het Dictionary-type niet ondersteunen in de beheerde app-configuratie.                                                                                                                                                   |
+| `organizationName`            | String                       | Toont "Beheerd door [organizationName]" bovenaan het scherm met in-app instellingen, wat de gebruiker aangeeft dat de app wordt beheerd.                                                                                                                                                                                                                     |
+| `managedConfigVersion`       | String                       | Een willekeurige versienummerreeks voor de configuratie. Wordt weergegeven in de gebruikersinterface, zodat IT-ondersteuning bij het oplossen van problemen kan controleren of de nieuwste MDM-payload het apparaat heeft bereikt.                                                                                                                           |
+| `showsLibrarySection`        | Boolean                      | Indien ingesteld op `false`, wordt de functie Regelbibliotheek verborgen en wordt de sectie vervangen door de foutmelding "Beperkt door uw organisatie.".                                                                                                                                                                                                    |
+| `fallback`                   | [Fallback](#fallback-object) | Geef dit op wanneer de configuraties de MDM-payloadlimieten overschrijden. De app haalt de configuratie op van de URL die is opgegeven in `fallbackDataURL`.                                                                                                                                                                                                  |
+| `fallbackJSONString`         | [JSON-tekenreeks](#json-string) | Hetzelfde als `fallback`, maar de fallback-configuratie wordt geleverd als een ruwe JSON-tekenreeks. Dit is nuttig voor MDM-platforms die het Dictionary-type niet ondersteunen in de beheerde app-configuratie.                                                                                                                                             |
 
 Deze sleutels zijn allemaal optioneel.
 
-### [Object] Regelset {/* #rule-set-object */}
+### Typen configuratiewaarden {/* #configuration-value-types */}
+
+#### Regelset {/* #rule-set-object */}
 
 Elk regelobject heeft hetzelfde formaat als degene die u kunt [delen/exporteren via de app](export-or-import-rules), maar u moet het converteren van JSON naar plist, zoals dit:
 
@@ -90,7 +100,7 @@ Elk regelobject heeft hetzelfde formaat als degene die u kunt [delen/exporteren 
 				<key>type</key>
 				<string>originalRedirect</string>
 				<key>title</key>
-				<string>My enforced Rule</string>
+				<string>Mijn afgedwongen regel</string>
 				<key>sourceURLPattern</key>
 				<dict>
 					<key>type</key>
@@ -106,12 +116,45 @@ Elk regelobject heeft hetzelfde formaat als degene die u kunt [delen/exporteren 
 ...
 ```
 
-### [Object] Fallback {/* #fallback-object */}
+#### Fallback {/* #fallback-object */}
 
 | Sleutelnaam       | Type         | Beschrijving                                                                                                                                               |
 | ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `fallbackDataURL` | String (URL) | Een eindpunt-URL van een JSON/XML-bestand met regelsets.                                                                                                   |
 | `authToken`       | String       | Een verificatietoken dat aan de HTTP-header wordt toegevoegd bij het ophalen van de `fallbackDataURL`. (Gebruikt als `Authorization: Bearer [authToken]`). |
+
+#### JSON-tekenreeks {/* #json-string */}
+
+Sommige MDM-platforms (bijv. Omnissa Workspace ONE UEM) ondersteunen het Dictionary (`<dict>`)-type niet in de beheerde app-configuratie. Als oplossing accepteren sleutels die eindigen op `JSONString` (zoals `enforcedRuleSetJSONString`, `prefilledRuleSetJSONString` en `fallbackJSONString`) dezelfde gegevens als hun Dictionary-tegenhangers, maar gecodeerd als een **ruwe JSON-tekenreeks** binnen een plist `<string>`-element.
+
+De JSON-tekenreeks kan worden geminimaliseerd of mooi worden opgemaakt met nieuwe regels en inspringing voor de leesbaarheid, zoals in het volgende voorbeeld:
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Indien zowel een Dictionary-sleutel als de bijbehorende `JSONString`-sleutel aanwezig zijn (bijv. zowel `enforcedRuleSet` en `enforcedRuleSetJSONString`), krijgt de Dictionary-sleutel voorrang.
 
 ## Regelevaluatie en conflictbeheersing
 
@@ -126,7 +169,7 @@ Wanneer een sleutel zowel in de inline MDM-payload als in de via `fallbackDataUR
 - **Vóór voltooiing van het ophalen:** Inline instellingen krijgen strikte prioriteit en worden gebruikt.
 - **Na succesvol ophalen:** Gegevens die zijn opgehaald van de `fallbackDataURL` overschrijven de overeenkomstige inline instellingen.
 - **Na mislukt ophalen:** De app blijft de inline instellingen gebruiken.
-- Onafhankelijke sleutels die alleen in de inline payload voorkomen, blijven behouden.
+- **Onafhankelijke sleutels:** Sleutels die alleen in de inline payload voorkomen, blijven altijd behouden.
 
 ## MDM-feedback en statuscontrole
 

@@ -49,26 +49,36 @@ MDM을 통해 구성을 푸시함으로써 다음과 같은 작업을 수행할 
   width="640px"
 ></video>
 
-동영상에서 사용된 plist 파일은 여기에서 확인할 수 있습니다: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+동영상에서 사용된 plist 파일은 Dictionary (`<dict>`) 키를 사용하는 **[sample-mdm.plist](/misc/sample-mdm.plist)**로 제공됩니다. 또한 동일한 데이터를 JSON 문자열 키로 사용하는 **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)**도 있습니다.
 
 동영상에서는 ManageEngine의 MDM을 사용하여 구성을 배포했지만, Apple의 Managed App Configuration을 지원하는 다른 MDM 솔루션에서도 동일한 구성을 사용할 수 있습니다.
+
+> [!NOTE]
+>
+> **Dictionary vs. JSON 문자열:**
+> Dictionary 유형이 더 타입 안정성이 높지만, 일부 MDM 솔루션(예: Omnissa Workspace ONE UEM)은 관리형 앱 구성에서 Dictionary 유형을 지원하지 않습니다. 이러한 경우 해결 방법으로 JSON 문자열 유형을 사용하는 것이 권장됩니다.
 
 ## 구성 가능한 키
 
 일반적으로 plist 형식으로 MDM 콘솔을 통해 Managed App Configuration용 다음 키와 값을 배포하십시오.
 
-| 키 이름                | 유형                          | 설명                                                                                                                                                                                                                                                                 |
-| ---------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [규칙 세트](#rule-set-object) | **[강제 규칙]** 일반 규칙보다 높은 우선순위로 적용되는 규칙 세트입니다. 목록의 첫 번째 규칙이 우선권을 가집니다. 사용자는 이 규칙을 편집, 삭제 또는 재정렬할 수 없습니다. 앱의 글로벌 비활성화 토글과 관계없이 항상 활성 상태이며 iCloud를 통해 동기화되지 않습니다. |
-| `prefilledRuleSet`     | [규칙 세트](#rule-set-object) | **[초기 규칙]** 기존 규칙이 없는 사용자가 앱을 처음 실행할 때 기본 예제 규칙 대신 생성되는 규칙 세트입니다. 일단 배포되면 일반 규칙으로 작동하여 사용자가 수정, 삭제 및 iCloud 동기화를 할 수 있습니다.                                                              |
-| `organizationName`     | String                        | 앱 내 설정 화면 상단에 "Managed by [organizationName]"을 표시하여 사용자에게 앱이 관리되고 있음을 알립니다.                                                                                                                                                          |
-| `managedConfigVersion` | String                        | 구성에 대한 임의의 버전 문자열입니다. UI에 표시되어 문제 해결 시 IT 지원팀이 최신 MDM 페이로드가 기기에 도달했는지 확인할 수 있도록 합니다.                                                                                                                          |
-| `showsLibrarySection`  | Boolean                       | `false`로 설정하면 규칙 라이브러리 기능이 숨겨지고 해당 섹션이 "조직에 의해 제한됨" 오류 메시지로 대체됩니다.                                                                                                                                                        |
-| `fallback`             | [Fallback](#fallback-object)  | 구성이 MDM 페이로드 제한을 초과하는 경우 이를 지정하십시오. 앱은 구성을 적용하기 위해 이 URL에서 JSON/XML을 가져옵니다.                                                                                                                                              |
+| 키 이름                      | 유형                          | 설명                                                                                                                                                                                                                                                                   |
+| ---------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`            | [규칙 세트](#rule-set-object) | 일반 규칙보다 높은 우선순위로 적용되는 규칙 세트입니다. 목록의 첫 번째 규칙이 우선권을 가집니다. 사용자는 이 규칙을 편집, 삭제 또는 재정렬할 수 없습니다. 앱의 글로벌 비활성화 토글과 관계없이 항상 활성 상태이며 iCloud를 통해 동기화되지 않습니다.                   |
+| `enforcedRuleSetJSONString`  | [JSON 문자열](#json-string)   | `enforcedRuleSet`과 동일하지만, 규칙 세트가 원시 JSON 문자열로 제공됩니다. 이는 관리형 앱 구성에서 Dictionary 유형을 지원하지 않는 MDM 플랫폼에 유용합니다.                                                                                                            |
+| `prefilledRuleSet`           | [규칙 세트](#rule-set-object) | 기존 규칙이 없는 사용자가 앱을 처음 실행할 때 기본 예제 규칙 대신 생성되는 규칙 세트입니다. 일단 배포되면 일반 규칙으로 작동하여 사용자가 수정, 삭제 및 iCloud 동기화를 할 수 있습니다.                                                                                |
+| `prefilledRuleSetJSONString` | [JSON 문자열](#json-string)   | `prefilledRuleSet`과 동일하지만, 규칙 세트가 원시 JSON 문자열로 제공됩니다. 이는 관리형 앱 구성에서 Dictionary 유형을 지원하지 않는 MDM 플랫폼에 유용합니다.                                                                                                           |
+| `organizationName`           | String                        | 앱 내 설정 화면 상단에 "Managed by [organizationName]"을 표시하여 사용자에게 앱이 관리되고 있음을 알립니다.                                                                                                                                                            |
+| `managedConfigVersion`       | String                        | 구성에 대한 임의의 버전 문자열입니다. UI에 표시되어 문제 해결 시 IT 지원팀이 최신 MDM 페이로드가 기기에 도달했는지 확인할 수 있도록 합니다.                                                                                                                            |
+| `showsLibrarySection`        | Boolean                       | `false`로 설정하면 규칙 라이브러리 기능이 숨겨지고 해당 섹션이 "조직에 의해 제한됨" 오류 메시지로 대체됩니다.                                                                                                                                                          |
+| `fallback`                   | [Fallback](#fallback-object)  | MDM 페이로드 크기 제한을 초과하는 경우 이를 지정하십시오. 앱은 `fallbackDataURL`에 지정된 URL에서 구성을 가져옵니다.                                                                                                                                                  |
+| `fallbackJSONString`         | [JSON 문자열](#json-string)   | `fallback`과 동일하지만, 대체 구성이 원시 JSON 문자열로 제공됩니다. 이는 관리형 앱 구성에서 Dictionary 유형을 지원하지 않는 MDM 플랫폼에 유용합니다.                                                                                                                    |
 
 이 키들은 모두 선택 사항입니다.
 
-### [객체] 규칙 세트 {/* #rule-set-object */}
+### 구성 값 유형 {/* #configuration-value-types */}
+
+#### 규칙 세트 {/* #rule-set-object */}
 
 각 규칙 객체는 [앱을 통해 공유/내보내기](export-or-import-rules)할 수 있는 것과 동일한 형식이지만, 다음과 같이 JSON에서 plist로 변환해야 합니다:
 
@@ -106,12 +116,45 @@ MDM을 통해 구성을 푸시함으로써 다음과 같은 작업을 수행할 
 ...
 ```
 
-### [객체] Fallback {/* #fallback-object */}
+#### Fallback {/* #fallback-object */}
 
 | 키 이름           | 유형         | 설명                                                                                                                       |
 | ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------- |
 | `fallbackDataURL` | String (URL) | 규칙 세트가 포함된 JSON/XML 파일의 엔드포인트 URL입니다.                                                                   |
 | `authToken`       | String       | `fallbackDataURL`에서 가져올 때 HTTP 헤더에 추가되는 인증 토큰입니다. (Authorization: Bearer [authToken] 형식으로 사용됨). |
+
+#### JSON 문자열 {/* #json-string */}
+
+일부 MDM 플랫폼(예: Omnissa Workspace ONE UEM)은 관리형 앱 구성에서 Dictionary (`<dict>`) 유형을 지원하지 않습니다. 이 문제를 해결하기 위해 `JSONString`으로 끝나는 키(`enforcedRuleSetJSONString`, `prefilledRuleSetJSONString`, `fallbackJSONString` 등)는 Dictionary 키와 동일한 데이터를 받지만, plist `<string>` 요소 내에 **원시 JSON 문자열**로 인코딩되어야 합니다.
+
+JSON 문자열은 다음 예제와 같이 가독성을 위해 줄 바꿈과 들여쓰기를 포함하거나 압축할 수 있습니다.
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Dictionary 키와 해당 `JSONString` 키가 모두 존재하는 경우(예: `enforcedRuleSet` 및 `enforcedRuleSetJSONString` 모두), Dictionary 키가 우선순위를 가집니다.
 
 ## 규칙 평가 및 충돌 해결
 
@@ -126,7 +169,7 @@ MDM을 통해 구성을 푸시함으로써 다음과 같은 작업을 수행할 
 - **가져오기 완료 전:** 인라인 설정이 엄격하게 우선순위를 가지며 사용됩니다.
 - **가져오기 성공 후:** `fallbackDataURL`에서 검색된 데이터가 해당 인라인 설정을 덮어씁니다.
 - **가져오기 실패 후:** 앱은 계속해서 인라인 설정을 사용합니다.
-- 인라인 페이로드에만 존재하는 독립적인 키는 유지됩니다.
+- **독립적인 키:** 인라인 페이로드에만 존재하는 키는 항상 유지됩니다.
 
 ## MDM 피드백 및 상태 확인
 

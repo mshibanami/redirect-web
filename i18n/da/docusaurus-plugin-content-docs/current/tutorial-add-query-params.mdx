@@ -36,7 +36,7 @@ Hvis destinations-URL'en allerede har andre forespørgselsparametre som `example
 
 I dette tilfælde skal du ændre indstillingerne således:
 
-- **Omdiriger fra**: `(https://example.com/[^?]*)(\(?.*))?`
+- **Omdiriger fra**: `(https://example.com/[^?]*)(\?(?.*))?`
 - **Omdiriger til**: `$1?layout=desktop&$3`
 
 Lad os se trin for trin.
@@ -44,7 +44,7 @@ Lad os se trin for trin.
 - `(https://example.com/[^?]*)`: Matcher den del indtil det forrige tegn af `?`.
   - `[^?]*` matcher alt undtagen `?`.
   - Dette er pakket ind i `()` så du kan referere til det med `$1` senere.
-- `(\(?.*))?`: Matcher en streng, der starter med `?`, hvilket betyder forespørgselsparametre.
+- `(\?(?.*))?`: Matcher en streng, der starter med `?`, hvilket betyder forespørgselsparametre.
   - Dette matcher også tom streng med `?`-kvantificeringen i slutningen af mønsteret, som _matcher nul eller én gang_.
   - Den ydre `()` og den indre `()` kan refereres til med `$2` og `$3` senere.
 
@@ -57,7 +57,7 @@ Dette er ikke en perfekt løsning, da den omdirigerer `example.com/hello` til `e
 
 Som konklusion er dette det endelige output:
 
-- **Omdiriger fra**: `(https://example.com/[^?]*)((\(?.*))?)` (Regulært udtryk)
+- **Omdiriger fra**: `(https://example.com/[^?]*)((\?(?.*))?)` (Regulært udtryk)
 - **Omdiriger til**: `$1?layout=desktop$3`
 - **Udelukket URL-mønster**: `.*[&?]layout=[^&]*.*` (Regulært udtryk)
 - **Behandling af fangstgrupper**:

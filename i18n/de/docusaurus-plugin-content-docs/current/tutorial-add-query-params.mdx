@@ -44,7 +44,7 @@ Schauen wir es uns Schritt für Schritt an.
 - `(https://example.com/[^?]*)`: Passt zu dem Teil bis zum vorherigen Zeichen von `?`.
   - `[^?]*` passt zu allem außer `?`.
   - Dies ist mit `()` umwickelt, so dass Sie es später mit `$1` referenzieren können.
-- `(\(.*))?`: Passt zu einer Zeichenfolge, die mit `?` beginnt, was Abfrageparameter bedeutet.
+- `(\?\?\(.*))?`: Passt zu einer Zeichenfolge, die mit `?` beginnt, was Abfrageparameter bedeutet.
   - Dies passt auch zu einer leeren Zeichenfolge durch den `?`-Quantifizierer am Ende des Musters, der _null oder einmal_ passt.
   - Die äußeren `()` und die inneren `()` können später mit `$2` und `$3` referenziert werden.
 
@@ -57,7 +57,7 @@ Dies ist keine perfekte Lösung, da sie `example.com/hello` zu `example.com/hell
 
 Zusammenfassend ist dies die endgültige Ausgabe:
 
-- **Umleiten von**: `(https://example.com/[^?]*)((\(.*))?)` (Regulärer Ausdruck)
+- **Umleiten von**: `(https://example.com/[^?]*)((\?\?\(.*))?)` (Regulärer Ausdruck)
 - **Umleiten zu**: `$1?layout=desktop$3`
 - **Ausgeschlossenes URL-Muster**: `.*[&?]layout=[^&]*.*` (Regulärer Ausdruck)
 - **Verarbeitung von Erfassungsgruppen**:

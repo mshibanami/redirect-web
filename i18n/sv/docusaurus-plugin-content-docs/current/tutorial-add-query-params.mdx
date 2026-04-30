@@ -44,7 +44,7 @@ Låt oss titta steg för steg.
 - `(https://example.com/[^?]*)`: Matchar delen fram till föregående tecken för `?`.
   - `[^?]*` matchar vad som helst utom `?`.
   - Detta är insvept med `()` så att du kan referera till det med `$1` senare.
-- `(\(.*))?`: Matchar en sträng som börjar med `?`, vilket betyder frågeparametrar.
+- `(\?\?\(.*))?`: Matchar en sträng som börjar med `?`, vilket betyder frågeparametrar.
   - Detta matchar också tom sträng med `?`-kvantifieraren i slutet av mönstret, vilket _matchar noll eller en gång_.
   - Den yttre `()` och den inre `()` kan refereras till med `$2` och `$3` senare.
 
@@ -57,7 +57,7 @@ Detta är ingen perfekt lösning, eftersom den omdirigerar `example.com/hello` t
 
 Sammanfattningsvis är detta det slutliga resultatet:
 
-- **Omdirigera från**: `(https://example.com/[^?]*)((\(.*))?)` (Reguljärt uttryck)
+- **Omdirigera från**: `(https://example.com/[^?]*)((\?\?\(.*))?)` (Reguljärt uttryck)
 - **Omdirigera till**: `$1?layout=desktop$3`
 - **Exkluderat URL-mönster**: `.*[&?]layout=[^&]*.*` (Reguljärt uttryck)
 - **Bearbetning av fångstgrupper**:

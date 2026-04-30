@@ -40,7 +40,7 @@ Genom att skicka ut konfigurationer via din MDM kan du uppnå följande:
 
 <video
   src={useBaseUrl("/videos/mdm-settings-demo.mov")}
-  title="MDM Settings Demo"
+  title="Demo för MDM-inställningar"
   autoPlay
   playsInline
   muted
@@ -49,26 +49,36 @@ Genom att skicka ut konfigurationer via din MDM kan du uppnå följande:
   width="640px"
 ></video>
 
-Plist-filen som används i videon finns tillgänglig här: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+Plist-filen som används i videon finns tillgänglig här: **[sample-mdm.plist](/misc/sample-mdm.plist)**, som använder Dictionary (`<dict>`)-nycklar. Det finns även **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)** som använder JSON-strängnycklar (samma data).
 
-I videon användes ManageEngines MDM för att distribuera konfigurationen, men samma konfiguration kan användas för andra MDM-lösningar så länge de stöder Apples Managed App Configuration.
+I videon användes ManageEngines MDM för att distribuera konfigurationen, mas samma konfiguration kan användas för andra MDM-lösningar så länge de stöder Apples Managed App Configuration.
+
+> [!NOTE]
+>
+> **Dictionary kontra JSON-sträng:**
+> Även om Dictionary-typen är mer typsäker, stöder vissa MDM-lösningar (som Omnissa Workspace ONE UEM) inte Dictionary-typen i den hanterade appkonfigurationen. I sådana fall är det rekommenderat att använda typen JSON-sträng som en lösning.
 
 ## Konfigurerbara nycklar
 
 Distribuera följande nycklar och värden för Managed App Configuration via din MDM-konsol, vanligtvis i plist-format.
 
-| Nyckelnamn             | Typ                                  | Beskrivning                                                                                                                                                                                                                                                                                                            |
-| ---------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Regeluppsättning](#rule-set-object) | **[Tvingande regler]** En regeluppsättning som tillämpas med högre prioritet än vanliga regler. Den första regeln i listan har företräde. Användare kan inte redigera, ta bort eller ändra ordning på dessa regler. De är alltid aktiva, ignorerar appens globala avstängningsknapp och synkroniseras inte via iCloud. |
-| `prefilledRuleSet`     | [Regeluppsättning](#rule-set-object) | **[Initiala regler]** En regeluppsättning som skapas istället för standardexemplet när en användare startar appen för första gången utan befintliga regler. När de väl har distribuerats fungerar dessa som vanliga regler, vilket tillåter användarändring, borttagning och iCloud-synkronisering.                    |
-| `organizationName`     | Sträng                               | Visar "Hanteras av [organizationName]" högst upp på inställningsskärmen i appen, vilket indikerar för användaren att appen hanteras.                                                                                                                                                                                   |
-| `managedConfigVersion` | Sträng                               | En godtycklig versionssträng för konfigurationen. Visas i gränssnittet, vilket gör att IT-support kan verifiera om den senaste MDM-nyttolasten har nått enheten vid felsökning.                                                                                                                                        |
-| `showsLibrarySection`  | Boolesk                              | Om inställd på `false` döljs funktionen Regelbibliotek, och avsnittet ersätts med felmeddelandet "Begränsat av din organisation.".                                                                                                                                                                                     |
-| `fallback`             | [Fallback](#fallback-object)         | Ange detta när konfigurationerna överskrider MDM-nyttolastbegränsningarna. Appen kommer att hämta JSON/XML från denna URL för att tillämpa konfigurationen.                                                                                                                                                            |
+| Nyckelnamn                    | Typ                                  | Beskrivning                                                                                                                                                                                                                                                                                                            |
+| ----------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`             | [Regeluppsättning](#rule-set-object) | En regeluppsättning som tillämpas med högre prioritet än vanliga regler. Den första regeln i listan har företräde. Användare kan inte redigera, ta bort eller ändra ordning på dessa regler. De är alltid aktiva, ignorerar appens globala avstängningsknapp och synkroniseras inte via iCloud.                       |
+| `enforcedRuleSetJSONString`   | [JSON-sträng](#json-string)          | Samma som `enforcedRuleSet`, men regeluppsättningen tillhandahålls som en rå JSON-sträng. Detta är användbart för MDM-plattformar som inte stöder Dictionary-typen i den hanterade appkonfigurationen.                                                                                                                 |
+| `prefilledRuleSet`            | [Regeluppsättning](#rule-set-object) | En regeluppsättning som skapas istället för standardexemplet när en användare startar appen för första gången utan befintliga regler. När de väl har distribuerats fungerar dessa som vanliga regler, vilket tillåter användarändring, borttagning och iCloud-synkronisering.                                           |
+| `prefilledRuleSetJSONString`  | [JSON-sträng](#json-string)          | Samma som `prefilledRuleSet`, men regeluppsättningen tillhandahålls som en rå JSON-sträng. Detta är användbart för MDM-plattformar som inte stöder Dictionary-typen i den hanterade appkonfigurationen.                                                                                                                 |
+| `organizationName`            | Sträng                               | Visar "Hanteras av [organizationName]" högst upp på inställningsskärmen i appen, vilket indikerar för användaren att appen hanteras.                                                                                                                                                                                   |
+| `managedConfigVersion`       | Sträng                               | En godtycklig versionssträng för konfigurationen. Visas i gränssnittet, vilket gör att IT-support kan verifiera om den senaste MDM-nyttolasten har nått enheten vid felsökning.                                                                                                                                        |
+| `showsLibrarySection`        | Boolesk                              | Om inställd på `false` döljs funktionen Regelbibliotek, och avsnittet ersätts med felmeddelandet "Begränsat av din organisation.".                                                                                                                                                                                     |
+| `fallback`                   | [Fallback](#fallback-object)         | Ange detta när konfigurationerna överskrider MDM-nyttolastbegränsningarna. Appen kommer att hämta konfigurationen från den URL som anges i `fallbackDataURL`.                                                                                                                                                         |
+| `fallbackJSONString`         | [JSON-sträng](#json-string)          | Samma som `fallback`, men fallback-konfigurationen tillhandahålls som en rå JSON-sträng. Detta är användbart för MDM-plattformar som inte stöder Dictionary-typen i den hanterade appkonfigurationen.                                                                                                                 |
 
 Dessa nycklar är alla valfria.
 
-### [Objekt] Regeluppsättning {/* #rule-set-object */}
+### Konfigurationsvärdetyper {/* #configuration-value-types */}
+
+#### Regeluppsättning {/* #rule-set-object */}
 
 Varje regelobjekt har samma format som det du kan [dela/exportera via appen](export-or-import-rules), men du behöver konvertera det från JSON till plist, så här:
 
@@ -90,7 +100,7 @@ Varje regelobjekt har samma format som det du kan [dela/exportera via appen](exp
 				<key>type</key>
 				<string>originalRedirect</string>
 				<key>title</key>
-				<string>My enforced Rule</string>
+				<string>Min tvingande regel</string>
 				<key>sourceURLPattern</key>
 				<dict>
 					<key>type</key>
@@ -106,12 +116,45 @@ Varje regelobjekt har samma format som det du kan [dela/exportera via appen](exp
 ...
 ```
 
-### [Objekt] Fallback {/* #fallback-object */}
+#### Fallback {/* #fallback-object */}
 
 | Nyckelnamn        | Typ          | Beskrivning                                                                                                                                  |
 | ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `fallbackDataURL` | Sträng (URL) | En slutpunkts-URL för en JSON/XML-fil som innehåller regeluppsättningar.                                                                     |
 | `authToken`       | Sträng       | En autentiseringstoken som läggs till i HTTP-huvudet vid hämtning från `fallbackDataURL`. (Används som `Authorization: Bearer [authToken]`). |
+
+#### JSON-sträng {/* #json-string */}
+
+Vissa MDM-plattformar (t.ex. Omnissa Workspace ONE UEM) stöder inte typen Dictionary (`<dict>`) i den hanterade appkonfigurationen. Som en lösning accepterar nycklar som slutar på `JSONString` (såsom `enforcedRuleSetJSONString`, `prefilledRuleSetJSONString` och `fallbackJSONString`) samma data som sina Dictionary-motsvarigheter, men kodade som en **rå JSON-sträng** i ett plist `<string>`-element.
+
+JSON-strängen kan antingen vara minifierad eller snyggt formaterad med nyradstecken och indrag för läsbarhet, som visas i följande exempel:
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Om både en Dictionary-nyckel och dess motsvarande `JSONString`-nyckel finns (t.ex. både `enforcedRuleSet` och `enforcedRuleSetJSONString`), har Dictionary-nyckeln företräde.
 
 ## Regelutvärdering och konflikthantering
 
@@ -126,7 +169,7 @@ När en nyckel finns i både den inbäddade MDM-nyttolasten och data som hämtas
 - **Innan hämtningen är klar:** Inbäddade inställningar prioriteras strikt och används.
 - **Efter lyckad hämtning:** Data som hämtas från `fallbackDataURL` skriver över motsvarande inbäddade inställningar.
 - **Efter misslyckad hämtning:** Appen fortsätter att använda de inbäddade inställningarna.
-- Oberoende nycklar som endast finns i den inbäddade nyttolasten bevaras.
+- **Oberoende nycklar:** Nycklar som endast finns i den inbäddade nyttolasten bevaras alltid.
 
 ## MDM-återkoppling och statuskontroll
 

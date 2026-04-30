@@ -3,7 +3,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Configuración de MDM para administradores
 
-RedirectWeb es compatible con la Managed App Configuration de Apple, lo que les permite a ustedes (administradores de TI) implementar y gestionar la configuración de la aplicación de forma centralizada en los dispositivos de empleados o estudiantes a través de una solución de gestión de dispositivos móviles (MDM), como Jamf, Intune, Kandji, etc.
+RedirectWeb es compatible con la Configuración de aplicaciones gestionadas (Managed App Configuration) de Apple, lo que les permite a ustedes (administradores de TI) implementar y gestionar los ajustes de la aplicación de forma centralizada en los dispositivos de empleados/estudiantes a través de una solución de Gestión de dispositivos móviles (MDM), como Jamf, Intune, Kandji, etc.
 
 Esta página describe las claves configurables, los comportamientos de la aplicación, las mejores prácticas y las limitaciones.
 
@@ -14,33 +14,33 @@ Esta página describe las claves configurables, los comportamientos de la aplica
 > [!IMPORTANT]
 >
 > **Para implementaciones de Apple Business Manager / Apple School Manager (VPP):**
-> La aplicación RedirectWeb estándar utiliza un modelo de compra dentro de la aplicación freemium, que no es elegible para las compras por volumen de VPP. Para implementar la aplicación completamente desbloqueada en su organización, adquiera la aplicación **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)**, que es una versión de pago por adelantado diseñada específicamente para la distribución a través de MDM/VPP.
+> La aplicación estándar RedirectWeb utiliza un modelo de compra desde la aplicación (In-App Purchase) de tipo "freemium", el cual no es elegible para compras por volumen de VPP. Para implementar la aplicación completamente desbloqueada en su organización, adquiera la aplicación **[RedirectWeb Pro](https://apps.apple.com/app/id6760209215)**, que es una versión de pago diseñada específicamente para la distribución a través de MDM/VPP.
 
 Al enviar configuraciones a través de su MDM, puede lograr lo siguiente:
 
-- **Reglas forzadas:** Aplique reglas de redirección para toda la organización que los usuarios no puedan modificar ni eliminar.
-- **Distribución inicial de reglas:** Distribuya un conjunto de reglas de plantilla que sirva como predeterminado al iniciar la aplicación por primera vez.
-- **Control de la interfaz de usuario:** Restrinja el acceso a funciones específicas (como la Biblioteca) e indique claramente dentro de la aplicación que está bajo gestión organizacional.
-- **Obtención de reglas grandes (Fallback):** Evite los límites de tamaño de carga útil de MDM obteniendo las reglas desde un servidor externo.
+- **Reglas obligatorias:** Aplique reglas de redirección para toda la organización que los usuarios no puedan modificar ni eliminar.
+- **Distribución inicial de reglas:** Distribuya un conjunto de reglas de plantilla que sirva como predeterminado en el primer inicio de la aplicación.
+- **Control de la interfaz de usuario (UI):** Restrinja el acceso a funciones específicas (como la Biblioteca) e indique claramente dentro de la aplicación que está bajo gestión organizacional.
+- **Obtención de reglas grandes (Respaldo/Fallback):** Evite los límites de tamaño de la carga útil de MDM obteniendo las reglas desde un servidor externo.
 
 ## Casos de uso
 
 - **Enrutamiento fluido durante migraciones de sistemas:**
-  Al migrar de un sistema interno heredado (por ejemplo, `legacy-crm.internal.local`) a una nueva plataforma (por ejemplo, `salesforce.com`), distribuya un `enforcedRuleSet`. Incluso si los empleados utilizan marcadores antiguos, son redirigidos automáticamente al nuevo sistema, eliminando los tickets de soporte de TI relacionados con enlaces desactualizados.
+  Al migrar de un sistema interno heredado (por ejemplo, `legacy-crm.internal.local`) a una nueva plataforma (por ejemplo, `salesforce.com`), distribuya un `enforcedRuleSet`. Incluso si los empleados utilizan marcadores antiguos, serán redirigidos automáticamente al nuevo sistema, eliminando los tickets de soporte técnico de TI relacionados con enlaces desactualizados.
 - **Asistencia para el acceso a la intranet:**
-  Distribuya reglas de redirección utilizando esquemas de URL personalizados para facilitar el acceso a los recursos de la intranet a través de túneles VPN por aplicación, como Omnissa Web.
+  Distribuya reglas de redirección utilizando esquemas de URL personalizados para facilitar el acceso a los recursos de la intranet a través de túneles VPN por aplicación (Per-App VPN), como Omnissa Web.
 
 > [!WARNING]
 >
-> Los envíos de configuración de MDM se aplican de inmediato **solo si el usuario abre la aplicación RedirectWeb**.
-> Si bien la aplicación utiliza tareas en segundo plano para enviar actualizaciones de MDM a la extensión del navegador de forma silenciosa, esta es una ejecución de "mejor esfuerzo" dictada por el sistema operativo. El tiempo de ejecución es altamente impredecible y es posible que la tarea no se ejecute en absoluto.
-> Por lo tanto, **no** se debe confiar en esta función para respuestas a incidentes críticos en los que el tiempo sea un factor clave (por ejemplo, intentar redirigir instantáneamente a todos los empleados a un sitio de respaldo a los pocos minutos de una interrupción del servicio en la nube).
+> Los cambios en la configuración de MDM se aplican inmediatamente **solo si el usuario abre la aplicación RedirectWeb**.
+> Aunque la aplicación utiliza tareas en segundo plano para enviar actualizaciones de MDM a la extensión del navegador de forma silenciosa, esta es una ejecución de "mejor esfuerzo" dictada por el sistema operativo. El momento de ejecución es altamente impredecible y es posible que la tarea no se ejecute en absoluto.
+> Por lo tanto, **no** se debe confiar en esta función para respuestas a incidentes críticos en los que el tiempo es esencial (por ejemplo, intentar redirigir instantáneamente a todos los empleados a un sitio de respaldo a los pocos minutos de una interrupción del servicio en la nube).
 
-## Demostración
+## Demo
 
 <video
   src={useBaseUrl("/videos/mdm-settings-demo.mov")}
-  title="Demostración de configuración de MDM"
+  title="MDM Settings Demo"
   autoPlay
   playsInline
   muted
@@ -49,26 +49,36 @@ Al enviar configuraciones a través de su MDM, puede lograr lo siguiente:
   width="640px"
 ></video>
 
-El archivo plist utilizado en el video está disponible aquí: **[sample-mdm.plist](/misc/sample-mdm.plist)**
+El archivo plist utilizado en el video está disponible como **[sample-mdm.plist](/misc/sample-mdm.plist)**, que utiliza claves de tipo Diccionario (`<dict>`). También está **[sample-mdm-json-string.plist](/misc/sample-mdm-json-string.plist)**, que utiliza claves de tipo Cadena JSON (JSON String) (los mismos datos).
 
-En el video, se utilizó el MDM de ManageEngine para implementar la configuración, pero se puede usar la misma configuración para otras soluciones de MDM, siempre que sean compatibles con la Managed App Configuration de Apple.
+En el video, se utilizó el MDM de ManageEngine para implementar la configuración, pero se puede utilizar la misma configuración para otras soluciones de MDM, siempre que sean compatibles con la Configuración de aplicaciones gestionadas (Managed App Configuration) de Apple.
+
+> [!NOTE]
+>
+> **Diccionario frente a Cadena JSON:**
+> Aunque el tipo Diccionario es más seguro en cuanto a tipos, algunas soluciones de MDM (como Omnissa Workspace ONE UEM) no admiten el tipo Diccionario en la configuración de aplicaciones gestionadas. En tales casos, el uso del tipo Cadena JSON (JSON String) es una alternativa recomendada.
 
 ## Claves configurables
 
-Implemente las siguientes claves y valores para la Managed App Configuration a través de su consola MDM, normalmente en formato plist.
+Implemente las siguientes claves y valores para la Configuración de aplicaciones gestionadas a través de su consola MDM, generalmente en formato plist.
 
-| Nombre de la clave     | Tipo                                   | Descripción                                                                                                                                                                                                                                                                                                                           |
-| ---------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enforcedRuleSet`      | [Conjunto de reglas](#rule-set-object) | **[Reglas forzadas]** Un conjunto de reglas que se aplica con mayor prioridad que las reglas normales. La primera regla de la lista tiene precedencia. Los usuarios no pueden editar, eliminar ni reordenar estas reglas. Siempre están activas, ignorando el interruptor global de la aplicación, y no se sincronizan vía iCloud.    |
-| `prefilledRuleSet`     | [Conjunto de reglas](#rule-set-object) | **[Reglas iniciales]** Un conjunto de reglas creado en lugar de la regla de ejemplo predeterminada cuando un usuario inicia la aplicación por primera vez sin reglas existentes. Una vez distribuidas, estas actúan como reglas normales, permitiendo la modificación, eliminación y sincronización vía iCloud por parte del usuario. |
-| `organizationName`     | String                                 | Muestra "Gestionado por [organizationName]" en la parte superior de la pantalla de configuración de la aplicación, indicando al usuario que la aplicación está gestionada.                                                                                                                                                            |
-| `managedConfigVersion` | String                                 | Una cadena de versión arbitraria para la configuración. Se muestra en la interfaz de usuario, lo que permite al soporte de TI verificar si la última carga útil de MDM ha llegado al dispositivo al solucionar problemas.                                                                                                             |
-| `showsLibrarySection`  | Boolean                                | Si se establece en `false`, la función de Biblioteca de reglas se oculta y la sección se reemplaza con un mensaje de error "Restringido por su organización".                                                                                                                                                                         |
-| `fallback`             | [Fallback](#fallback-object)           | Especifique esto cuando las configuraciones excedan los límites de carga útil de MDM. La aplicación obtendrá el JSON/XML de esta URL para aplicar la configuración.                                                                                                                                                                   |
+| Nombre de la clave           | Tipo                         | Descripción                                                                                                                                                                                                                                              |
+| ---------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enforcedRuleSet`            | [Rule Set](#rule-set-object) | Un conjunto de reglas que se aplica con mayor prioridad que las reglas normales. La primera regla de la lista tiene precedencia. Los usuarios no pueden editar, eliminar ni reordenar estas reglas. Siempre están activas, ignorando el interruptor de desactivación global de la aplicación, y no se sincronizan a través de iCloud. |
+| `enforcedRuleSetJSONString`  | [JSON String](#json-string)  | Igual que `enforcedRuleSet`, pero el conjunto de reglas se proporciona como una cadena JSON sin procesar. Esto es útil para las plataformas MDM que no admiten el tipo Diccionario en la configuración de aplicaciones gestionadas.                                                                 |
+| `prefilledRuleSet`           | [Rule Set](#rule-set-object) | Un conjunto de reglas que se crea en lugar de la regla de ejemplo predeterminada cuando un usuario inicia la aplicación por primera vez sin reglas existentes. Una vez distribuidas, estas actúan como reglas normales, permitiendo la modificación, eliminación y sincronización con iCloud por parte del usuario.                      |
+| `prefilledRuleSetJSONString` | [JSON String](#json-string)  | Igual que `prefilledRuleSet`, pero el conjunto de reglas se proporciona como una cadena JSON sin procesar. Esto es útil para las plataformas MDM que no admiten el tipo Diccionario en la configuración de aplicaciones gestionadas.                                                                |
+| `organizationName`           | String                       | Muestra "Gestionado por [organizationName]" en la parte superior de la pantalla de ajustes de la aplicación, indicando al usuario que la aplicación está gestionada.                                                                                                                       |
+| `managedConfigVersion`       | String                       | Una cadena de versión arbitraria para la configuración. Se muestra en la interfaz de usuario, lo que permite al soporte técnico de TI verificar si la última carga útil de MDM ha llegado al dispositivo durante la resolución de problemas.                                                                             |
+| `showsLibrarySection`        | Boolean                      | Si se establece en `false`, la función de Biblioteca de reglas se oculta y la sección se reemplaza por un mensaje de error que indica "Restringido por su organización".                                                                                                              |
+| `fallback`                   | [Fallback](#fallback-object) | Especifique esto cuando se exceda el límite de tamaño de la carga útil de MDM. La aplicación obtendrá la configuración desde la URL especificada en `fallbackDataURL`.                                                                                                              |
+| `fallbackJSONString`         | [JSON String](#json-string)  | Igual que `fallback`, pero la configuración de respaldo se proporciona como una cadena JSON sin procesar. Esto es útil para las plataformas MDM que no admiten el tipo Diccionario en la configuración de aplicaciones gestionadas.                                                          |
 
 Estas claves son todas opcionales.
 
-### [Objeto] Conjunto de reglas {/* #rule-set-object */}
+### Tipos de valores de configuración {/* #configuration-value-types */}
+
+#### Conjunto de reglas {/* #rule-set-object */}
 
 Cada objeto de regla tiene el mismo formato que el que puede [compartir/exportar a través de la aplicación](export-or-import-rules), pero debe convertirlo de JSON a plist, de esta manera:
 
@@ -106,32 +116,65 @@ Cada objeto de regla tiene el mismo formato que el que puede [compartir/exportar
 ...
 ```
 
-### [Objeto] Fallback {/* #fallback-object */}
+#### Respaldo (Fallback) {/* #fallback-object */}
 
-| Nombre de la clave | Tipo         | Descripción                                                                                                                                                           |
-| ------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fallbackDataURL`  | String (URL) | Una URL de punto final de un archivo JSON/XML que contiene conjuntos de reglas.                                                                                       |
-| `authToken`        | String       | Un token de autenticación que se añade al encabezado HTTP al realizar la obtención desde la `fallbackDataURL`. (Se utiliza como `Authorization: Bearer [authToken]`). |
+| Nombre de la clave | Tipo         | Descripción                                                                                                                                  |
+| ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fallbackDataURL` | String (URL) | Una URL de punto final de un archivo JSON/XML que contiene conjuntos de reglas.                                                                                     |
+| `authToken`       | String       | Un token de autenticación que se añade al encabezado HTTP al realizar la obtención desde `fallbackDataURL`. (Se utiliza como `Authorization: Bearer [authToken]`). |
+
+#### Cadena JSON (JSON String) {/* #json-string */}
+
+Algunas plataformas MDM (por ejemplo, Omnissa Workspace ONE UEM) no admiten el tipo Diccionario (`<dict>`) en la configuración de aplicaciones gestionadas. Como alternativa, las claves que terminan en `JSONString` (como `enforcedRuleSetJSONString`, `prefilledRuleSetJSONString` y `fallbackJSONString`) aceptan los mismos datos que sus contrapartes de tipo Diccionario, pero codificados como una **cadena JSON sin procesar** dentro de un elemento `<string>` de plist.
+
+La cadena JSON puede estar minificada o formateada con saltos de línea y sangría para facilitar su lectura, como se muestra en el siguiente ejemplo:
+
+```xml
+...
+	<key>enforcedRuleSetJSONString</key>
+	<string>{
+  "kind": "RedirectList",
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "5",
+  "redirects": [
+    {
+      "kind": "Redirect",
+      "type": "originalRedirect",
+      "title": "My enforced Rule",
+      "sourceURLPattern": {
+        "type": "wildcard",
+        "value": "https://example.com/1"
+      },
+      "destinationURLPattern": "https://google.com/search?q=1"
+    }
+  ]
+}</string>
+...
+```
+
+> [!NOTE]
+>
+> Si están presentes tanto una clave de Diccionario como su clave `JSONString` correspondiente (por ejemplo, tanto `enforcedRuleSet` y `enforcedRuleSetJSONString`), la clave de Diccionario tiene prioridad.
 
 ## Evaluación de reglas y resolución de conflictos
 
 1. Si se proporciona un `enforcedRuleSet`, sus reglas se aplican con prioridad absoluta.
 2. Si no hay reglas normales pero existe un `prefilledRuleSet`, el `prefilledRuleSet` se guarda como reglas normales.
-3. La "Regla de redirección de ejemplo" predeterminada se genera solo si no hay reglas de MDM configuradas y no hay reglas normales.
+3. La "Regla de redirección de ejemplo" predeterminada se genera solo si no se han configurado reglas de MDM y no hay reglas normales.
 
-## Comportamiento de la URL de fallback
+## Comportamiento de la URL de respaldo (Fallback)
 
-Cuando existe una clave tanto en la carga útil de MDM en línea como en los datos obtenidos a través de `fallbackDataURL`, la aplicación maneja el conflicto de la siguiente manera:
+Cuando una clave existe tanto en la carga útil de MDM en línea como en los datos obtenidos a través de `fallbackDataURL`, la aplicación gestiona el conflicto de la siguiente manera:
 
-- **Antes de completar la obtención:** Las configuraciones en línea se priorizan y utilizan estrictamente.
-- **Después de una obtención exitosa:** Los datos recuperados de la `fallbackDataURL` sobrescriben las configuraciones en línea correspondientes.
-- **Después de una obtención fallida:** La aplicación continúa utilizando las configuraciones en línea.
-- Se conservan las claves independientes que existen solo en la carga útil en línea.
+- **Antes de que se complete la obtención:** Los ajustes en línea se priorizan estrictamente y se utilizan.
+- **Después de una obtención exitosa:** Los datos recuperados de la `fallbackDataURL` sobrescriben los ajustes en línea correspondientes.
+- **Después de una obtención fallida:** La aplicación continúa utilizando los ajustes en línea.
+- **Claves independientes:** Las claves que existen solo en la carga útil en línea se conservan siempre.
 
 ## Comentarios de MDM y verificación de estado
 
-Puede verificar si la configuración se aplicó correctamente a través del canal de comentarios de MDM (`com.apple.feedback.managed`) si su solución de MDM es compatible con él. Después de procesar la configuración (o completar la obtención de la URL), la aplicación devuelve los siguientes datos:
+Puede verificar si la configuración se aplicó con éxito a través del canal de comentarios de MDM (`com.apple.feedback.managed`) si su solución de MDM lo admite. Después de procesar la configuración (o completar la obtención de la URL), la aplicación devuelve los siguientes datos:
 
 - `managedConfigVersion`: La cadena de versión del intento de configuración.
 - `result`: Ya sea `success` o `error`.
-- `messages`: Un array que contiene mensajes detallados de error o advertencia, si corresponde.
+- `messages`: Un arreglo que contiene mensajes detallados de error o advertencia, si corresponde.
