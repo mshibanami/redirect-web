@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")/.."
 
-readonly model="google/gemini-3-flash-preview"
+readonly model="gemini-3-flash-preview"
 readonly allTargetLangs=(
   "bg"
   "cs"
@@ -86,13 +86,16 @@ fi
 taskFilePath="$(pwd)/prompts/translate-library-i18n-messages-json.md"
 
 for lang in "${targetLangs[@]}"; do
-  prompt="Finish the task described in '$taskFilePath'. Target language: $lang."
+  prompt="Finish the task described in \`$taskFilePath\`. Target language: $lang."
   
   # Add rule IDs to prompt if specified
   if [ ${#ruleIds[@]} -gt 0 ]; then
     prompt="$prompt Rule IDs: ${ruleIds[*]}"
   fi
   
-  opencode run "$prompt" \
-    --model "$model"
+  gemini --model "$model" \
+    --approval-mode yolo \
+    --output-format text \
+    --include-directories "${PWD}" \
+    --prompt "$prompt"
 done
