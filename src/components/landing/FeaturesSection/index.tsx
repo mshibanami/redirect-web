@@ -86,6 +86,21 @@ const FeatureList: FeatureItem[] = [
       description: 'Landing page feature description for unlocking all features',
     }),
   },
+  {
+    title: translate({
+      id: 'landingPage.feature.enterprise.title',
+      message: 'Enterprise Support',
+      description: 'Landing page feature title for enterprise support',
+    }),
+    icon: '🏢',
+    thumbnail: '/img/landing-feature-enterprise.jpg',
+    description: translate({
+      id: 'landingPage.feature.enterprise.description',
+      message:
+        'Distribute rules to your team members and manage them centrally through MDM. Ideal for businesses, schools, and organizations.',
+      description: 'Landing page feature description for enterprise support',
+    }),
+  },
 ];
 
 function Feature({ title, icon, thumbnail, description }: FeatureItem) {
