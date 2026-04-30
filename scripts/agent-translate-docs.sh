@@ -87,7 +87,7 @@ fi
 taskFilePath="$(pwd)/prompts/translate-docs.md"
 
 for lang in "${targetLangs[@]}"; do
-  prompt="Finish the task described in `$taskFilePath`. Target language: $lang"
+  prompt="Finish the task described in \`$taskFilePath\`. Target language: $lang"
   
   if [ -n "$sourceFiles" ]; then
     prompt="$prompt Source files: $sourceFiles"
