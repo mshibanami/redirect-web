@@ -15,6 +15,17 @@
             },
             "replacement": "p/$0"
           }
+        },
+        {
+          "groupIndex": 2,
+          "process": {
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": ".+"
+            },
+            "replacement": "$0/"
+          }
         }
       ],
       "comments": "Using this rule, when you open Instagram posts and reels, you are redirected to imginn.com.\n\nImginn is an online instagram backup tool that helps users save instagram photos through the Instagram public API.",
@@ -26,11 +37,11 @@
         "https://www.instagram.com/p/DFxjb8PJcI5/?igsh=YWJjZGVmZ2hpamtsbW4=",
         "https://www.instagram.com/p/DFxjb8PJcI5/",
         "https://www.instagram.com/reel/DNfhyK4smoo/?igsh=ABCDEFG",
+        "https://www.instagram.com/reels/DNfhyK4smoo/",
         "https://www.instagram.com/ngnchiikawa",
         "https://www.instagram.com/ngnchiikawa?hl=en",
         "https://www.instagram.com/language/preferences/",
-        "https://www.instagram.com/archive/stories/",
-        "https://www.instagram.com/reels/DNfhyK4smoo/"
+        "https://www.instagram.com/archive/stories/"
       ],
       "excludeURLPatterns": [],
       "kind": "Redirect",
