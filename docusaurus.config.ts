@@ -203,10 +203,6 @@ const config: Config = {
           title: 'Help',
           items: [
             {
-              label: 'Troubleshooting',
-              to: '/troubleshooting',
-            },
-            {
               label: 'FAQ',
               to: '/faq',
             },
