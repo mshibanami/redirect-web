@@ -1,24 +1,104 @@
 import IfBrowserStore from "@site/src/components/IfBrowserStore";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 import Image from "@site/src/components/Image";
 import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
 import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
+import TOCInline from "@theme/TOCInline";
 
 # KKK
 
-## Miks mu ümbersuunamisreegel ei tööta? {/* #redirection-not-working */}
+<TOCInline toc={toc} />
+
+## Veaotsing
+
+### Miks minu reegel ei tööta? {/* #redirection-not-working */}
 
 Kui teie loodud reegel ei käivitu ootuspäraselt, kontrollige järgmist:
 
-- **Kas laiendus on lubatud?** Kontrollige oma brauseri laienduste seadeid ja veenduge, et RedirectWeb on sisse lülitatud.
-- **Kas reegel on sisse lülitatud?** Avage rakendus RedirectWeb ja veenduge, et konkreetse reegli lüliti on asendis "Sees".
-- **Kas reegel on õige?** Testige reeglit, sisestades URL-i reegli muutmise ekraanil väljale Näited (Examples).
-- **[Safari] Kas lubasite laiendusel juurdepääsu lähtesaidile?**: Veenduge, et olete lubanud laiendusel juurde pääseda veebisaidile, millelt soovite ümber suunata. Kui saate avada laienduse hüpikakna, on laiendusel juurdepääs lähtesaidile.
+- **Kas laiendus on lubatud?:** Veenduge, et olete installinud RedirectWebi brauserilaienduse ja see on teie brauseris lubatud veebilehe jaoks, millelt soovite ümber suunata. Kui saate avada laienduse hüpikakna selliselt, on see õigesti lubatud:
+
+      <Image
+
+  src={ExtensionPopup}
+  alt="RedirectWebi laienduse hüpikaken"
+  width="260"
+  hasShadow
+  />
+
   > [!TIP]
-  > Mugavuse huvides soovitame lubada juurdepääsu kõigile veebisaitidele. (Lihtsalt nõuanne!)
+  > \[Safari\] Mugavuse huvides soovitame lubada juurdepääsu kõigile veebisaitidele. (Lihtsalt nõuanne!)
 
-## Miks ma peaksin lubama laiendusel oma teavet lugeda/muuta? {/* #why-allow-extension-to-read-change */}
+- **Kas teie reegli konfiguratsioon on õige?:** Kontrollige oma ümbersuunamisreegleid RedirectWebi emakeelses rakenduses. Veenduge, et allika URL-i mustrid, sihtkoha URL-id ja kõik tingimused on õigesti seadistatud. Reegli kehtivuse kontrollimiseks lisage näidis-URL jaotisesse Examples (Näited) ekraanil Edit Rule (Muuda reeglit). Kui teie reegel on kehtiv, näete oma sisestuse all oodatavat sihtkoha URL-i, näiteks nii:
 
-Võite RedirectWebi seadistamisel näha sellist hoiatust:
+  <Image
+    src={RuleEditExampleResult}
+    alt="Näide reegli muutmise ekraanist, mis näitab näidis-URL-i tulemusi"
+    width="260"
+    hasShadow
+  />
+
+### Minu ostu ei taastata isegi pärast nupu "Restore Purchase" puudutamist {/* #purchase-not-restored */}
+
+Kui nupp Restore Purchase (Taasta ost) ei tööta ootuspäraselt, järgige neid veaotsingu samme:
+
+1. Logige sisse aadressile [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/), et kinnitada, et tehing sooritati edukalt ja see on kirjas teie Apple ID ajaloos.
+2. Veenduge, et **App Store'i rakendusse** sisse logitud Apple ID on sama, mida kasutasite algse ostu sooritamiseks.
+   > [!NOTE]
+   >
+   > Seadme rakendusse Settings (Seaded) sisse logitud konto võib mõnikord erineda App Store'i rakenduses kasutatavast kontost. Just App Store'i rakenduse konto peab vastama teie ostuajaloole, et taastamine toimiks õigesti.
+3. Kui teil on mitu Apple ID-d, logige App Store'ist välja ja logige sisse õige kontoga, seejärel proovige uuesti nuppu Restore Purchase.
+
+Kui kontod ühtivad, kuid taastamine ebaõnnestub endiselt, võtke meiega [ühendust](/contact-us) ja lisage ekraanipilt oma kviitungist või ostuajaloost. Uurime probleemi teie jaoks lähemalt.
+
+### Laienduse hüpikaken näitab viga {/* #error-shown-in-extension-popup */}
+
+<Image
+  src={ErrorOverlay}
+  alt="RedirectWebi veateade"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
+
+> RedirectWebi rakendust pole installitud või see ei tööta korralikult.  
+> Palun hankige rakendus App Store'ist.
+
+Kui näete laienduse hüpikakna avamisel ülaltoodud viga, tähendab see, et RedirectWebi emakeelne rakendus ei ole installitud või ei tööta korralikult.
+
+Veenduge, et olete installinud RedirectWebi uusima versiooni [App Store'ist](https://apps.apple.com/app/id1571283503).
+
+Võimalik, et pärast emakeelse rakenduse installimist peate ka brauseri uuesti käivitama.
+
+> [!NOTE]
+>
+> - Brauserilaienduse kasutamiseks peate installima RedirectWebi emakeelse rakenduse. Laiendus üksi ei tööta.
+> - Safari kasutajad ei pea laiendust eraldi installima, kuna see on emakeelse rakendusega kaasas.
+
+### Algne leht vilgub korraks enne ümbersuunamist {/* #original-page-flash */}
+
+See juhtub siis, kui kasutate **Original** tüüpi ümbersuunamisreegleid. See tüüp pakub mitmesuguseid lisafunktsioone, kuid see võib põhjustada algse lehe lühiajalist vilkumist, kuna see võib lubada algsel lehel laadida enne ümbersuunamist.
+
+Avage ekraan Edit Rule (Muuda reeglit) ja muutke **Type** (Tüüp) väärtuseks **DNR**, et seda probleemi vältida.
+
+<Image
+  src={EditRuleDnr}
+  alt="RedirectWebi laienduse hüpikaken"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
+
+> [!NOTE]
+> Firefoxis ei tohiks seda probleemi tekkida isegi Original tüübi puhul, kuna see tugineb WebRequest API-le, mis takistab algse lehe laadimist.
+
+## Privaatsus ja turvalisus
+
+### Miks peaksin lubama laiendusel oma teavet lugeda/muuta? {/* #why-allow-extension-to-read-change */}
+
+RedirectWebi seadistamisel võite näha sellist hoiatust:
 
 <IfBrowserStore stores='appStore'>
     <Image src={PermissionAlertSafari} alt="Luba nõudev hoiatus" width="200" margin="0 0 16px 0" hasShadow />
@@ -35,80 +115,75 @@ Võite RedirectWebi seadistamisel näha sellist hoiatust:
 
 </IfBrowserStore>
 
-See laiendus vajab teie luba lehel navigeerimise jälgimiseks, et suunata teid ümber sinna, kuhu soovite hüpata, ja teie brauser kuvab seda siis, kui laiendus küsib seotud luba. Seega, kui te seda ei luba, ei saa see laiendus töötada.
+See laiendus vajab teie luba lehel navigeerimise jälgimiseks, et see saaks teid sihtkohta ümber suunata. Teie brauser kuvab selle hoiatuse, kui laiendus neid õigusi taotleb. Seega, kui te seda ei luba, ei saa laiendus töötada.
 
-Antud load on kasutusel ainult rakenduse funktsioonide, näiteks ümbersuunamise jaoks, kooskõlas **[privaatsuspoliitikaga](/privacy-policy)**.
+Antud õigusi kasutatakse ainult rakenduse funktsioonide, näiteks ümbersuunamise jaoks, kooskõlas **[privaatsuspoliitikaga](/privacy-policy)**.
 
-## Minu ostu ei taastata isegi pärast nupu "Taasta ost" vajutamist {/* #purchase-not-restored */}
+### Miks see laiendus nõuab uut luba? {/* #permission-alert-on-safari */}
 
-Kui nupp Taasta ost ei tööta ootuspäraselt, järgige neid tõrkeotsingu samme:
-
-1. Logige sisse aadressile [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/), et kinnitada, et tehing viidi edukalt lõpule ja see on kirjas teie Apple ID ajaloos.
-2. Veenduge, et Apple ID, millega olete praegu **rakendusse App Store** sisse logitud, on sama, mida kasutasite algse ostu sooritamiseks.
-   > [!NOTE]
-   >
-   > Teie seadme rakendusse Seaded sisse logitud konto võib mõnikord erineda rakenduses App Store kasutatavast kontost. Taastamise korrektseks toimimiseks peab ostuajalooga ühtima just rakenduses App Store olev konto.
-3. Kui teil on mitu Apple ID-d, logige App Store'ist välja ja logige sisse õige kontoga, seejärel proovige uuesti nuppu Taasta ost.
-
-Kui kontod klapivad, kuid taastamine ebaõnnestub ikkagi, siis [võtke meiega ühendust](/contact-us) ja saatke ekraanipilt oma kviitungist või ostuajaloost. Uurime probleemi teie jaoks edasi.
-
-## Kas ma peaksin ikkagi rakenduse hankima pärast Chrome'i, Firefoxi või Edge'i laienduse installimist? {/* #app-for-non-safari-browsers */}
-
-Jah. Peate alla laadima [RedirectWebi rakenduse App Store'ist](https://apps.apple.com/app/id1571283503), olenemata sellest, millist brauserit kasutate. Saate installida laienduse oma brauseri laienduste poest, kuid rakendust on vaja teie reeglite, ostuajaloo ja muude seadete haldamiseks seadmete vahel iCloudi kaudu.
-
-## Kas ma vajan Chrome'i, Firefoxi või Edge'i jaoks teistsugust laiendust, kui kasutan Pro rakendust? {/* #different-extension-for-pro */}
-
-Ei. Olenemata sellest, kas kasutate oma Macis tavalist RedirectWebi rakendust või RedirectWeb Pro-d, peaksite installima täpselt sama laienduse oma brauseri vastavast laienduste poest. Laiendus tuvastab automaelt, milline rakenduse versioon teil on installitud, ja suhtleb sellega.
-
-## Kas RedirectWeb töötab Windowsis, Androidis, Linuxis või muudel platvormidel? {/* #non-apple-platforms */}
-
-Mitte praegu. RedirectWeb on tihedalt seotud Apple'i ökosüsteemiga, sealhulgas iCloudi ja universaalse ostuga (Universal Purchase). Vabandame ebamugavuste pärast.
-
-## Miks see laiendus uut luba küsib? {/* #permission-alert-on-safari */}
-
-Võite Safaris pärast RedirectWebi värskendamist näha seda hoiatust:
+Pärast RedirectWebi värskendamist võite Safaris näha seda hoiatust:
 
 <img
   src={require("/img/safari-additional-permission-alert.webp").default}
-  alt="Hoiatus rakenduse keelamise kohta"
+  alt="Hoiatus, mis näitab, et laiendus on välja lülitatud"
   width="280"
 />
 
-> "RedirectWeb" on värskendatud ja see küsib täiendavaid luba. Teie privaatsuse kaitsmiseks on see laiendus välja lülitatud.
+> "RedirectWeb" on värskendatud ja taotleb täiendavaid õigusi. Teie privaatsuse kaitsmiseks on see laiendus välja lülitatud.
 >
-> Saate selle laienduse sisse lülitada Safari seadete jaotises Laiendused.
+> Saate selle laienduse sisse lülitada Safari seadete jaotises Extensions (Laiendused).
 
-See on tingitud [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) loast, mida nõuab versioonis 7 kasutusele võetud [DNR](/rule-settings#type) tüüp. Palun lubage laiendus uuesti. Vabandame ebamugavuste pärast.
+See on tingitud [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) loast, mida nõuab versioonis 7 lisatud [DNR](/rule-settings#type) tüüp. Palun lubage laiendus uuesti. Vabandame ebamugavuste pärast.
 
-## Kas raamatukogu sisu muutub tulevikus tasuliseks? {/* #will-library-become-paid */}
+### Kas RedirectWeb sisestab veebisaitidele reklaame või muud asjakohatut sisu? {/* #does-it-inject-ads */}
+
+Ei, see ei sisesta sellist sisu. Safaris sisestatakse veebisaitidele ainult koodi, mis on vajalik käesolevas dokumentatsioonis ja App Store'i lehel kirjeldatud funktsioonide pakkumiseks.
+
+### Kas on mingit võimalust, et RedirectWeb müüakse kunagi kellelegi teisele maha? {/* #could-it-be-sold */}
+
+100% ei. Brauserilaiendustel on suur kontroll teie sirvimise ja andmete üle ning RedirectWebi andmine teisele omanikule avaks ukse privaatsusrikkumistele. Oleme näinud, kuidas laiendused vahetavad omanikku ja koguvad seejärel ilma hoiatuseta kasutajaandmeid või sisestavad reklaame. Seda ei juhtu siin kunagi. Nende riskide kohta lisateabe saamiseks lugege Matt Frisbie artiklit ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) ja Brian Krebsi uurimust ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+
+RedirectWeb põhineb usaldusel ja vastutusel. Peame oma kohuseks hoida teie andmeid turvaliselt ja keeldume omandiõiguse üleandmisest mis tahes asjaoludel. RedirectWeb jääb alati meie kätte, et saaksite sirvida täieliku usaldusega.
+
+## Platvormid ja brauserid
+
+### Kas peaksin rakenduse ikkagi hankima pärast laienduse installimist Chrome'i, Firefoxi või Edge'i jaoks? {/* #app-for-non-safari-browsers */}
+
+Jah. Peate alla laadima [RedirectWebi rakenduse App Store'ist](https://apps.apple.com/app/id1571283503) sõltumata sellest, millist brauserit te kasutate. Laienduse saate installida oma brauseri laienduste poest, kuid rakendus on vajalik teie reeglite, ostuajaloo ja muude seadete haldamiseks seadmete vahel iCloudi kaudu.
+
+### Kas ma vajan Chrome'i, Firefoxi või Edge'i jaoks teistsugust laiendust, kui kasutan Pro rakendust? {/* #different-extension-for-pro */}
+
+Ei. Olenemata sellest, kas kasutate oma Macis tavalist RedirectWebi rakendust või RedirectWeb Prod, peaksite installima täpselt sama laienduse oma brauseri vastavast laienduste poest. Laiendus tuvastab automaatselt ja suhtleb selle rakenduse versiooniga, mille olete installinud.
+
+### Kas RedirectWeb töötab Windowsis, Androidis, Linuxis või muudel platvormidel? {/* #non-apple-platforms */}
+
+Mitte praegu. RedirectWeb on tihedalt seotud Apple'i ökosüsteemiga, sealhulgas iCloudi ja universaalse ostuga (Universal Purchase). Vabandame ebamugavuste pärast.
+
+## Paketid ja hinnakiri
+
+### Mis vahe on RedirectWebil ja RedirectWeb Prol? {/* #difference-between-standard-and-pro */}
+
+Mõlemad versioonid pakuvad täpselt samu funktsioone ja saavad värskendusi samal ajal. Ainuke erinevus on maksemudel:
+
+- **RedirectWeb**: Tasuta rakendus põhifunktsioonidega (piiratud **1 aktiivse reegliga**), mis pakub valikulist rakendusesisest ostu (tellimus või ühekordne makse) kõigi funktsioonide, sealhulgas piiramatute reeglite ja iCloudi sünkroonimise avamiseks.
+- **RedirectWeb Pro**: Tasuline, täielikult avatud rakendus. See versioon loodi spetsiaalselt selleks, et see vastaks **Apple Business Manageri** ja **Apple School Manageri (VPP)** nõuetele, võimaldades organisatsioonidel rakendust hulgi osta, mis pole rakendusesiseste ostude puhul võimalik. Kuid igaüks, kes eelistab ettemaksu, saab selle osta!
+
+### Ühekordne ost, aastatellimus või Pro versioon: milline on parim? {/* #one-time-or-subscription-or-pro */}
+
+Soovitame kas ühekordset ostu tavalises RedirectWebi rakenduses või RedirectWeb Pro ostmist, kuna need pakuvad sama väärtust.
+Peamine põhjus, miks me tellimust pakume, on võimaldada teil proovida kõiki funktsioone tasuta prooviperioodi kaudu. Siin on oodatav kasutusjuht:
+
+1. Tellige aastatellimus tavalises RedirectWebi rakenduses.
+2. Tühistage tellimus kohe, minnes rakendusse Settings, otsides "Subscriptions", valides RedirectWebi ja puudutades "Cancel Subscription". See võimaldab teil nautida tasuta prooviperioodi ilma kohustusteta.
+3. Nautige täielikku juurdepääsu kõigile funktsioonidele 7 päeva jooksul.
+4. Kui funktsioonid teile meeldivad, valige ühekordne ost või ostke Pro versioon.
+
+Loomulikult pole midagi valesti ka aastatellimusega jätkamises, kui te seda eelistate!
+
+### Kas raamatukogu sisu muutub tulevikus tasuliseks? {/* #will-library-become-paid */}
 
 Ei, see on alati tasuta. Kogu sisu lähtekoodi leiate ka [siit](https://github.com/mshibanami/redirect-web/tree/main/library).
 
-## Mis vahe on RedirectWebil ja RedirectWeb Pro-l? {/* #difference-between-standard-and-pro */}
+## Täiendav abi
 
-Mõlemad versioonid pakuvad täpselt samu funktsioone ja saavad värskendusi üheaegselt. Ainus erinevus on maksemudel:
-
-- **RedirectWeb**: Tasuta rakendus põhifunktsioonidega (piiratud **1 aktiivse reegliga**), mis pakub valikulist rakendusesisest ostu (tellimus või ühekordne makse) kõigi funktsioonide, sealhulgas piiramatute reeglite ja iCloudi sünkroonimise avamiseks.
-- **RedirectWeb Pro**: Ettemakstud, täielikult avatud rakendus. See versioon loodi spetsiaalselt selleks, et see vastaks **Apple Business Manageri** ja **Apple School Manageri (VPP)** nõuetele, võimaldades organisatsioonidel rakendust hulgi osta, mis pole rakendusesiseste ostude puhul võimalik. Kuid igaüks, kes eelistab ettemaksu, saab selle osta!
-
-## Ühekordne ost, aastatellimus või Pro versioon: Kumb on parim? {/* #one-time-or-subscription-or-pro */}
-
-Soovitame kas ühekordset ostu tavalises RedirectWebi rakenduses või RedirectWeb Pro ostmist, kuna need pakuvad sama väärtust.
-Peamine põhjus, miks me tellimust pakume, on võimaldada teil proovida kõiki funktsioone selle tasuta prooviperioodi kaudu. Siin on eeldatav kasutusjuht:
-
-1. Tellige aastatellimus tavalises RedirectWebi rakenduses.
-2. Tühistage tellimus koheselt, minnes rakendusse Seaded, otsides märksõna "Tellimused", puudutades seda rakendust ja valides "Tühista tellimus". See võimaldab teil nautida tasuta prooviperioodi ilma igasuguse kohustuseta.
-3. Nautige täielikku juurdepääsu kõigile funktsioonidele 7 päeva jooksul.
-4. Kui funktsioonid meeldivad, valige ühekordne ost või ostke Pro versioon.
-
-Loomulikult pole midagi valesti aastatellimusega jätkamises, kui te seda eelistate!
-
-## Kas RedirectWeb sisestab veebisaitidele reklaame või muud asjakohatut sisu? {/* #does-it-inject-ads */}
-
-Ei, see ei sisesta sellist sisu. Safaris sisestatakse veebisaitidele ainult koodi, mis on vajalik käesolevas dokumentatsioonis ja App Store'i rakenduse lehel kirjeldatud funktsioonide pakkumiseks.
-
-## Kas on mingit võimalust, et RedirectWeb võidakse kunagi kellelegi teisele maha müüa? {/* #could-it-be-sold */}
-
-100% ei. Brauseri laiendustel on sügav kontroll teie sirvimise ja andmete üle ning RedirectWebi üleandmine teisele omanikule avaks ukse privaatsusrikkumistele. Oleme näinud, kuidas laiendused vahetavad omanikku ja hakkavad seejärel ilma hoiatuseta kasutajaandmeid koguma või reklaame sisestama. Seda ei juhtu siin kunagi. Nende riskide kohta lisateabe saamiseks vaadake Matt Frisbie artiklit ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) ja Brian Krebsi uurimust ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
-
-RedirectWeb põhineb usaldusel ja vastutusel. Peame oma kohuseks hoida teie teavet turvalisena ja keeldume omandiõiguse üleminekust mis tahes asjaoludel. RedirectWeb jääb alati meie kätte, nii et saate sirvida täieliku enesekindlusega.
+Kui teil on pärast ülaltoodud lahenduste proovimist endiselt probleeme, võtke meiega [ühendust](/contact-us).

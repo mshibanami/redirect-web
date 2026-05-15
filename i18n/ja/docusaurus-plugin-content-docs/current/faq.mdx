@@ -1,114 +1,188 @@
 import IfBrowserStore from "@site/src/components/IfBrowserStore";
+import ExtensionPopup from "@site/static/img/extension-popup.png";
+import RuleEditExampleResult from "@site/static/img/rule-edit-example-result.png";
+import ErrorOverlay from "@site/static/img/error-overlay.png";
+import EditRuleDnr from "@site/static/img/edit-rule-dnr.png";
 import Image from "@site/src/components/Image";
 import PermissionAlertSafari from "@site/static/img/prepareExtensionPermissionAlert@3x.png";
 import PermissionAlertChrome from "@site/static/img/macPrepareExtensionPermissionAlertChrome@3x.png";
+import TOCInline from "@theme/TOCInline";
 
 # FAQ
 
-## リダイレクトルールが機能しないのはなぜですか？ {/* #redirection-not-working */}
+<TOCInline toc={toc} />
+
+## トラブルシューティング
+
+### ルールが機能しないのはなぜですか？ {/* #redirection-not-working */}
 
 作成したルールが期待通りに動作しない場合は、以下を確認してください：
 
-- **拡張機能は有効になっていますか？** ブラウザの拡張機能設定を確認し、RedirectWebがオンになっていることを確認してください。
-- **ルールはオンになっていますか？** RedirectWebアプリを開き、特定のルールのスイッチが「オン」の位置にあることを確認してください。
-- **ルールは正しいですか？** ルール編集画面の「Examples」フィールドにURLを入力して、ルールをテストしてください。
-- **[Safari] 拡張機能にソースウェブサイトへのアクセスを許可しましたか？**: リダイレクト元のウェブサイトへのアクセスを拡張機能に許可していることを確認してください。拡張機能のポップアップを開くことができれば、拡張機能はそのウェブサイトへのアクセス権を持っています。
+- **拡張機能は有効になっていますか？:** RedirectWebブラウザ拡張機能がインストールされており、リダイレクト元のウェブページで有効になっていることを確認してください。以下のように拡張機能のポップアップを開くことができれば、正常に有効化されています：
+
+      <Image
+  src={ExtensionPopup}
+  alt="RedirectWeb extension popup"
+  width="260"
+  hasShadow
+  />
+
   > [!TIP]
-  > 利便性のために、すべてのウェブサイトへのアクセスを許可することをお勧めします。（ちょっとしたヒントです！）
+  > \[Safari\] 利便性のために、「すべてのウェブサイト」へのアクセスを許可することをお勧めします。（ヒントです！）
 
-## なぜ拡張機能に情報の読み取りや変更を許可する必要があるのですか？ {/* #why-allow-extension-to-read-change */}
+- **ルールの設定は正しいですか？:** RedirectWebネイティブアプリでリダイレクトルールを再確認してください。ソースURLパターン、ターゲットURL、および条件が正しく設定されていることを確認してください。ルールが有効かどうかを確認するには、「ルールを編集」画面の「例」セクションにサンプルのURLを入力してください。ルールが有効な場合、入力したURLの下に期待される遷移先のURLが表示されます（以下のようになります）：
 
-RedirectWebをセットアップする際、以下のようなアラートが表示されることがあります：
+  <Image
+    src={RuleEditExampleResult}
+    alt="An example of the rule edit screen showing the results for an example URL"
+    width="260"
+    hasShadow
+  />
+
+### 「購入を復元」をタップしても購入が復元されません {/* #purchase-not-restored */}
+
+「購入を復元」ボタンが期待通りに動作しない場合は、以下のトラブルシューティング手順に従ってください：
+
+1. [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) にログインし、取引が正常に完了しており、Apple IDの履歴に表示されていることを確認してください。
+2. 現在 **App Storeアプリ** にサインインしているApple IDが、元の購入に使用したものと同じであることを確認してください。
+   > [!NOTE]
+   >
+   > デバイスの「設定」アプリでサインインしているアカウントと、App Storeアプリで使用しているアカウントが異なる場合があります。復元を正常に機能させるには、App Storeアプリ内のアカウントが購入履歴と一致している必要があります。
+3. 複数のApple IDをお持ちの場合は、App Storeからサインアウトし、正しいアカウントで再度サインインしてから、もう一度「購入を復元」ボタンを試してください。
+
+アカウントが一致しているにもかかわらず復元に失敗する場合は、領収書または購入履歴のスクリーンショットを添えて [お問い合わせ](/contact-us) ください。詳細を調査いたします。
+
+### 拡張機能のポップアップにエラーが表示される {/* #error-shown-in-extension-popup */}
+
+<Image
+  src={ErrorOverlay}
+  alt="RedirectWeb error overlay"
+  width="260"
+  hasShadow
+  hasRoundedCorners
+/>
+
+> RedirectWeb app hasn't been installed or is not working properly.  
+> Please get the app from the App Store.
+
+拡張機能のポップアップを開いたときに上記のエラーが表示される場合、RedirectWebネイティブアプリがインストールされていないか、正常に動作していないことを意味します。
+
+[App Store](https://apps.apple.com/app/id1571283503) から最新バージョンのRedirectWebがインストールされていることを確認してください。
+
+また、ネイティブアプリのインストール後にブラウザを再起動する必要がある場合があります。
+
+> [!NOTE]
+>
+> - ブラウザ拡張機能を使用するには、RedirectWebネイティブアプリをインストールする必要があります。拡張機能単体では動作しません。
+> - Safariユーザーは、拡張機能がネイティブアプリに同梱されているため、別途インストールする必要はありません。
+
+### リダイレクトの前に元のページが一瞬表示される {/* #original-page-flash */}
+
+これは、**Original** タイプのリダイレクトルールを使用している場合に発生します。このタイプは様々な高度な機能を提供しますが、リダイレクトを実行する前に元のページを読み込むことを許可する場合があるため、一瞬元のページが表示される（フラッシュする）ことがあります。
+
+この問題を回避するには、「ルールを編集」画面を開き、**タイプ** を **DNR** に変更してください。
+
+<Image
+  src={EditRuleDnr}
+  alt="RedirectWeb extension popup"
+  height="260"
+  hasShadow
+  hasRoundedCorners
+/>
+
+> [!NOTE]
+> Firefoxでは、WebRequest APIを利用しており、元のページの読み込みを防止するため、Originalタイプであってもこの問題は発生しません。
+
+## プライバシーとセキュリティ
+
+### なぜ拡張機能に情報の読み取り/変更を許可する必要があるのですか？ {/* #why-allow-extension-to-read-change */}
+
+RedirectWebのセットアップ時に、以下のようなアラートが表示されることがあります：
 
 <IfBrowserStore stores='appStore'>
-    <Image src={PermissionAlertSafari} alt="許可を求めるアラート" width="200" margin="0 0 16px 0" hasShadow />
+    <Image src={PermissionAlertSafari} alt="A permission-requiring alert" width="200" margin="0 0 16px 0" hasShadow />
 
-    > この拡張機能は、ウェブページを読み取り、変更し、このウェブサイトでの閲覧履歴を表示できます。**これには、パスワード、電話番号、クレジットカードなどの機密情報が含まれる可能性があります。**
+    > この拡張機能は、ウェブページを読み取り、変更することができ、このウェブサイトでの閲覧履歴を表示することができます。**これには、パスワード、電話番号、クレジットカードなどの機密情報が含まれる可能性があります。**
 
 </IfBrowserStore>
 
 <IfBrowserStore stores='appStore' includes={false}>
-    <Image src={PermissionAlertChrome} alt="許可を求めるアラート" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
+    <Image src={PermissionAlertChrome} alt="A permission-requiring alert" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
-    > 次の権限が付与されます：
-    > **すべてのウェブサイト**にある**あなたの全データ**の読み取りと変更
+    > 次の権限が付与されます:
+    > **全ウェブサイト**にある**全データ**の読み取りと変更
 
 </IfBrowserStore>
 
-この拡張機能は、目的の場所にリダイレクトするためにページのナビゲーションを監視する許可を必要とし、拡張機能が関連する権限を要求するとブラウザがこれを表示します。したがって、許可しない場合、この拡張機能は動作できません。
+この拡張機能は、リダイレクトを行うためにページのナビゲーションを監視する許可を必要とします。ブラウザは、拡張機能がこれらの権限を要求したときにこのアラートを表示します。したがって、許可しない場合、拡張機能は機能しません。
 
-付与された権限は、**[プライバシーポリシー](/privacy-policy)**に従い、リダイレクトなどのアプリ機能のみに使用されます。
+付与された権限は、**[プライバシーポリシー](/privacy-policy)** に従い、リダイレクトなどのアプリ機能のためにのみ使用されます。
 
-## 「購入を復元」をタップしても購入が復元されません {/* #purchase-not-restored */}
+### なぜこの拡張機能は新しい権限を必要とするのですか？ {/* #permission-alert-on-safari */}
 
-「購入を復元」ボタンが期待通りに動作しない場合は、以下のトラブルシューティング手順に従ってください：
-
-1. [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) にログインし、取引が正常に完了し、Apple IDの履歴に記載されていることを確認してください。
-2. 現在 **App Storeアプリ** にサインインしているApple IDが、元の購入に使用したものと同じであることを確認してください。
-   > [!NOTE]
-   >
-   > デバイスの「設定」アプリでサインインしているアカウントは、App Storeアプリで使用されているアカウントと異なる場合があります。復元を正しく機能させるには、App Storeアプリ内のアカウントが購入履歴と一致している必要があります。
-3. 複数のApple IDをお持ちの場合は、App Storeからサインアウトし、正しいアカウントで再度サインインしてから、もう一度「購入を復元」ボタンを試してください。
-
-アカウントが一致しているにもかかわらず復元に失敗する場合は、領収書または購入履歴のスクリーンショットを添えて[お問い合わせ](/contact-us)ください。詳細を調査いたします。
-
-## Chrome、Firefox、Edge用の拡張機能をインストールした後も、アプリを入手する必要がありますか？ {/* #app-for-non-safari-browsers */}
-
-はい。使用するブラウザに関係なく、[App StoreからRedirectWebアプリ](https://apps.apple.com/app/id1571283503)をダウンロードする必要があります。拡張機能は各ブラウザの拡張機能ストアからインストールできますが、ルールの管理、購入履歴、その他の設定をiCloud経由でデバイス間で同期するにはアプリが必要です。
-
-## Proアプリを使用している場合、Chrome、Firefox、Edge用に別の拡張機能が必要ですか？ {/* #different-extension-for-pro */}
-
-いいえ。Macで標準のRedirectWebアプリを使用していてもRedirectWeb Proを使用していても、各ブラウザの拡張機能ストアからまったく同じ拡張機能をインストールしてください。拡張機能は、インストールされているアプリのバージョンを自動的に検出し、通信します。
-
-## RedirectWebはWindows、Android、Linux、またはその他のプラットフォームで動作しますか？ {/* #non-apple-platforms */}
-
-現時点では動作しません。RedirectWebは、iCloudやユニバーサル購入を含むAppleのエコシステムと密接に連携しています。ご不便をおかけして申し訳ありません。
-
-## なぜこの拡張機能は新しい権限を必要とするのですか？ {/* #permission-alert-on-safari */}
-
-RedirectWebをアップデートした後、Safariでこのアラートが表示されることがあります：
+RedirectWebのアップデート後、Safariでこのアラートが表示されることがあります：
 
 <img
   src={require("/img/safari-additional-permission-alert.webp").default}
-  alt="アプリの無効化に関するアラート"
+  alt="An alert indicating the extension has been turned off"
   width="280"
 />
 
-> "RedirectWeb"がアップデートされ、追加の権限を要求しています。プライバシーを保護するため、この拡張機能はオフになりました。
+> 「RedirectWeb」がアップデートされ、追加の権限を要求しています。プライバシーを保護するため、この拡張機能はオフになりました。
 >
-> Safariの設定の「拡張機能」セクションで、この拡張機能をオンにすることができます。
+> Safari設定の拡張機能セクションで、この拡張機能をオンにすることができます。
 
-これは、バージョン7で導入された[DNR](/rule-settings#type)タイプに必要な[declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension)権限によるものです。拡張機能を再度有効にしてください。ご不便をおかけして申し訳ありません。
+これは、バージョン7で導入された [DNR](/rule-settings#type) タイプで必要な [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) 権限によるものです。拡張機能を再度有効にしてください。ご不便をおかけして申し訳ありません。
 
-## ライブラリのコンテンツは将来的に有料になりますか？ {/* #will-library-become-paid */}
+### RedirectWebは、広告やその他の無関係なコンテンツをウェブサイトに挿入しますか？ {/* #does-it-inject-ads */}
 
-いいえ、常に無料です。すべてのコンテンツのソースは[こちら](https://github.com/mshibanami/redirect-web/tree/main/library)で確認できます。
+いいえ、そのようなコンテンツを挿入することはありません。Safari上のウェブサイトには、このドキュメントやApp Storeページで説明されている機能を提供するために必要なコードのみが挿入されます。
 
-## RedirectWebとRedirectWeb Proの違いは何ですか？ {/* #difference-between-standard-and-pro */}
+### RedirectWebが他の誰かに売却される可能性はありますか？ {/* #could-it-be-sold */}
 
-どちらのバージョンもまったく同じ機能を提供し、同時にアップデートを受け取ります。唯一の違いは支払いモデルです：
+100%ありません。ブラウザ拡張機能は閲覧内容やデータに対して深い制御権を持っており、RedirectWebを別の所有者に譲渡することはプライバシー侵害への扉を開くことになります。拡張機能の所有者が変わり、その後警告なしにユーザーデータを収集したり広告を挿入したりする事例を私たちは見てきました。そのようなことはここでは決して起こりません。これらのリスクの詳細については、Matt Frisbie氏の記事 ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) や、Brian Krebs氏の調査 ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/) を参照してください。
 
-- **RedirectWeb**: 基本機能（**有効なルールは1つ**まで）を備えた無料アプリで、無制限のルールやiCloud同期を含むすべての機能をアンロックするためのオプションのアプリ内課金（サブスクリプションまたは一回限りの購入）を提供しています。
-- **RedirectWeb Pro**: 前払いで、すべての機能がアンロックされたアプリです。このバージョンは、組織がアプリを一括購入できるように、**Apple Business Manager** および **Apple School Manager (VPP)** の対象となるよう特別に作成されました（アプリ内課金では一括購入が不可能なため）。もちろん、前払いを希望される方ならどなたでも購入いただけます！
+RedirectWebは信頼と責任に基づいています。皆様の情報を安全に保つことは私たちの義務であると考えており、いかなる状況下でも所有権を譲渡することを拒否します。RedirectWebは常に私たちの手元に留まり、皆様が完全に安心してブラウジングできるようにします。
 
-## 一回限りの購入、年間サブスクリプション、Proバージョン：どれが最適ですか？ {/* #one-time-or-subscription-or-pro */}
+## プラットフォームとブラウザ
 
-標準のRedirectWebアプリ内での一回限りの購入、またはRedirectWeb Proの購入をお勧めします。これらは同じ価値を提供します。
+### Chrome、Firefox、Edge用の拡張機能をインストールした後もアプリを入手する必要がありますか？ {/* #app-for-non-safari-browsers */}
+
+はい。使用するブラウザに関係なく、[App StoreからRedirectWebアプリ](https://apps.apple.com/app/id1571283503)をダウンロードする必要があります。拡張機能はブラウザの拡張機能ストアからインストールできますが、ルールの管理、購入履歴、その他の設定をiCloud経由でデバイス間で同期するにはアプリが必要です。
+
+### Proアプリを使用している場合、Chrome、Firefox、Edge用に別の拡張機能が必要ですか？ {/* #different-extension-for-pro */}
+
+いいえ。Macで標準のRedirectWebアプリを使用しているかRedirectWeb Proを使用しているかにかかわらず、それぞれのブラウザの拡張機能ストアから全く同じ拡張機能をインストールしてください。拡張機能は、インストールされているアプリのバージョンを自動的に検出して通信します。
+
+### RedirectWebはWindows、Android、Linux、その他のプラットフォームで動作しますか？ {/* #non-apple-platforms */}
+
+現時点では動作しません。RedirectWebはiCloudやユニバーサル購入など、Appleのエコシステムと密接に連携しています。ご不便をおかけして申し訳ありません。
+
+## プランと料金
+
+### RedirectWebとRedirectWeb Proの違いは何ですか？ {/* #difference-between-standard-and-pro */}
+
+両方のバージョンで全く同じ機能を提供し、同時にアップデートを受け取ります。唯一の違いは支払いモデルです：
+
+- **RedirectWeb**: 基本機能（**有効なルールは1つまで**に制限）を備えた無料アプリで、オプションのアプリ内課金（サブスクリプションまたは一括払い）によって、無制限のルールやiCloud同期を含むすべての機能を解除できます。
+- **RedirectWeb Pro**: 有料のフル解除済みアプリです。このバージョンは、組織がアプリを一括購入できるようにするための **Apple Business Manager** および **Apple School Manager (VPP)** に対応するために特別に作成されました（アプリ内課金では不可能なため）。もちろん、前払いを希望される方ならどなたでも購入いただけます！
+
+### 一括払い、年間サブスクリプション、Proバージョンのどれが最適ですか？ {/* #one-time-or-subscription-or-pro */}
+
+同じ価値を提供するため、標準のRedirectWebアプリ内での一括払い、またはRedirectWeb Proの購入のいずれかをお勧めします。
 サブスクリプションを提供している主な理由は、無料トライアルを通じてすべての機能を試せるようにするためです。想定されるユースケースは以下の通りです：
 
-1. 標準のRedirectWebアプリで年間サブスクリプションを契約します。
-2. すぐに「設定」アプリに移動し、「サブスクリプション」を検索して、このアプリをタップし、「サブスクリプションをキャンセル」を選択します。これにより、一切の負担なく無料トライアルを楽しむことができます。
-3. 7日間、すべての機能にフルアクセスできます。
-4. 機能が気に入った場合は、一回限りの購入を選択するか、Proバージョンを購入してください。
+1. 標準のRedirectWebアプリで年間サブスクリプションを契約する。
+2. すぐにサブスクリプションを解約する（「設定」アプリに移動し、「サブスクリプション」を検索してRedirectWebを選択し、「サブスクリプションをキャンセル」をタップします）。これにより、義務なしに無料トライアルを楽しむことができます。
+3. 7日間、すべての機能にフルアクセスして試す。
+4. 機能が気に入った場合は、一括払いを選択するか、Proバージョンを購入する。
 
-もちろん、ご希望であれば年間サブスクリプションを継続していただいても全く問題ありません！
+もちろん、お好みに応じて年間サブスクリプションを継続していただいても全く問題ありません！
 
-## RedirectWebはウェブサイトに広告やその他の無関係なコンテンツを挿入しますか？ {/* #does-it-inject-ads */}
+### ライブラリのコンテンツは将来的に有料になりますか？ {/* #will-library-become-paid */}
 
-いいえ、そのようなコンテンツを挿入することはありません。Safari上のウェブサイトには、このドキュメントおよびApp Storeのアプリページで説明されている機能を提供するために必要なコードのみが挿入されます。
+いいえ、常に無料です。すべてのコンテンツのソースは [こちら](https://github.com/mshibanami/redirect-web/tree/main/library) で確認できます。
 
-## RedirectWebが他者に売却される可能性はありますか？ {/* #could-it-be-sold */}
+## さらにサポートが必要な場合
 
-100%ありません。ブラウザ拡張機能はブラウジングやデータに対して深いコントロールを持っており、RedirectWebを別の所有者に譲渡することはプライバシー侵害への扉を開くことになります。拡張機能が所有者を変え、ユーザーデータを収集したり、警告なしに広告を挿入したりする事例を見てきました。そのようなことはここでは決して起こりません。これらのリスクの詳細については、Matt Frisbie氏の記事["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser)や、Brian Krebs氏の調査["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/20/is-your-browser-extension-a-botnet-backdoor/)を参照してください。
-
-RedirectWebは信頼と責任に基づいています。お客様の情報を安全に保つことが私たちの義務であると考えており、いかなる状況下でも所有権の譲渡を拒否します。RedirectWebは常に私たちの手元に留まるため、安心してブラウジングをお楽しみいただけます。
+上記の解決策を試しても問題が解決しない場合は、[お問い合わせ](/contact-us) ください。
