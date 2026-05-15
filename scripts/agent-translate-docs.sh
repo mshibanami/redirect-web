@@ -87,15 +87,26 @@ fi
 taskFilePath="$(pwd)/prompts/translate-docs.md"
 
 for lang in "${targetLangs[@]}"; do
-  prompt="Finish the task described in \`$taskFilePath\`. Target language: $lang"
-  
-  if [ -n "$sourceFiles" ]; then
-    prompt="$prompt Source files: $sourceFiles"
+  (
+    prompt="Finish the task described in \`$taskFilePath\`. Target language: $lang"
+    
+    if [ -n "$sourceFiles" ]; then
+      prompt="$prompt Source files: $sourceFiles"
+    fi
+    
+    echo "[Parallel] Starting translation for: $lang"
+    gemini --model "$model" \
+      --approval-mode yolo \
+      --output-format text \
+      --include-directories "${PWD}" \
+      --prompt "$prompt"
+    echo "[Parallel] Finished translation for: $lang"
+  ) &
+
+  # Limit concurrency to 3
+  if [[ $(jobs -r -p | wc -l) -ge 3 ]]; then
+    wait -n
   fi
-  
-  gemini --model "$model" \
-    --approval-mode yolo \
-    --output-format text \
-    --include-directories "${PWD}" \
-    --prompt "$prompt"
 done
+
+wait # Wait for all background jobs to complete

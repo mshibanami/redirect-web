@@ -86,16 +86,27 @@ fi
 taskFilePath="$(pwd)/prompts/translate-library-i18n-messages-json.md"
 
 for lang in "${targetLangs[@]}"; do
-  prompt="Finish the task described in \`$taskFilePath\`. Target language: $lang."
-  
-  # Add rule IDs to prompt if specified
-  if [ ${#ruleIds[@]} -gt 0 ]; then
-    prompt="$prompt Rule IDs: ${ruleIds[*]}"
+  (
+    prompt="Finish the task described in \`$taskFilePath\`. Target language: $lang."
+    
+    # Add rule IDs to prompt if specified
+    if [ ${#ruleIds[@]} -gt 0 ]; then
+      prompt="$prompt Rule IDs: ${ruleIds[*]}"
+    fi
+    
+    echo "[Parallel] Starting translation for: $lang"
+    gemini --model "$model" \
+      --approval-mode yolo \
+      --output-format text \
+      --include-directories "${PWD}" \
+      --prompt "$prompt"
+    echo "[Parallel] Finished translation for: $lang"
+  ) &
+
+  # Limit concurrency to 3
+  if [[ $(jobs -r -p | wc -l) -ge 3 ]]; then
+    wait -n
   fi
-  
-  gemini --model "$model" \
-    --approval-mode yolo \
-    --output-format text \
-    --include-directories "${PWD}" \
-    --prompt "$prompt"
 done
+
+wait # Wait for all background jobs to complete
