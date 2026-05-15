@@ -16,9 +16,9 @@ import TOCInline from "@theme/TOCInline";
 
 ### 규칙이 작동하지 않는 이유는 무엇인가요? {/* #redirection-not-working */}
 
-작성한 규칙이 예상대로 실행되지 않는 경우, 다음 사항을 확인해 주세요:
+만약 생성한 규칙이 예상대로 실행되지 않는다면, 다음 사항을 확인해 주세요:
 
-- **확장 프로그램이 활성화되어 있나요?:** RedirectWeb 브라우저 확장 프로그램이 설치되어 있고, 리디렉션을 수행하려는 웹 페이지의 브라우저에서 활성화되어 있는지 확인하세요. 다음과 같이 확장 프로그램의 팝업을 열 수 있다면 정상적으로 활성화된 것입니다:
+- **확장 프로그램이 활성화되어 있나요?:** RedirectWeb 브라우저 확장 프로그램이 설치되어 있고, 리다이렉트하려는 웹 페이지에서 활성화되어 있는지 확인하세요. 다음과 같이 확장 프로그램 팝업을 열 수 있다면 정상적으로 활성화된 것입니다:
 
       <Image
 
@@ -29,29 +29,29 @@ import TOCInline from "@theme/TOCInline";
   />
 
   > [!TIP]
-  > \[Safari\] 편의를 위해 모든 웹사이트에 대한 접근을 허용하는 것을 권장합니다. (작은 팁입니다!)
+  > \[Safari\] 편의를 위해 모든 웹사이트에 대한 접근을 허용하는 것을 추천합니다. (팁입니다!)
 
-- **규칙 설정이 올바른가요?:** RedirectWeb 네이티브 앱에서 리디렉션 규칙을 다시 한번 확인해 보세요. 소스 URL 패턴, 대상 URL 및 모든 조건이 올바르게 설정되었는지 확인하세요. 규칙의 유효성 여부를 확인하려면 규칙 편집 화면의 '예시(Examples)' 섹션에 예시 URL을 추가해 보세요. 규칙이 유효하다면 입력창 아래에 다음과 같이 예상되는 목적지 URL이 표시됩니다:
+- **규칙 설정이 올바른가요?:** RedirectWeb 네이티브 앱에서 리다이렉트 규칙을 다시 한번 확인해 주세요. 소스 URL 패턴, 대상 URL 및 기타 조건이 올바르게 설정되었는지 확인해야 합니다. 규칙이 유효한지 확인하려면 규칙 편집 화면의 Examples 섹션에 예시 URL을 추가해 보세요. 규칙이 유효하다면 다음과 같이 입력란 아래에 예상되는 대상 URL이 표시됩니다:
 
   <Image
     src={RuleEditExampleResult}
-    alt="예시 URL에 대한 결과가 표시된 규칙 편집 화면의 예"
+    alt="예시 URL에 대한 결과를 보여주는 규칙 편집 화면의 예"
     width="260"
     hasShadow
   />
 
-### "구매 복원"을 탭해도 구매 항목이 복원되지 않습니다 {/* #purchase-not-restored */}
+### “구입 항목 복원”을 눌러도 구입 항목이 복원되지 않습니다 {/* #purchase-not-restored */}
 
-구매 복원(Restore Purchase) 버튼이 예상대로 작동하지 않는 경우, 다음 문제 해결 단계를 따르세요:
+구입 항목 복원 버튼이 예상대로 작동하지 않는 경우, 다음 문제 해결 단계를 따르세요:
 
-1. [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/)에 로그인하여 거래가 성공적으로 완료되었고 Apple ID 내역에 표시되는지 확인합니다.
-2. 현재 **App Store 앱**에 로그인된 Apple ID가 원래 구매 시 사용한 계정과 동일한지 확인합니다.
+1. [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/)에 로그인하여 거래가 성공적으로 완료되었으며 Apple ID 내역에 표시되는지 확인합니다.
+2. 현재 **App Store 앱**에 로그인된 Apple ID가 원래 구입할 때 사용한 ID와 동일한지 확인하세요.
    > [!NOTE]
    >
-   > 기기의 설정 앱에 로그인된 계정은 가끔 App Store 앱에서 사용하는 계정과 다를 수 있습니다. 복원이 올바르게 작동하려면 App Store 앱 내의 계정이 구매 내역과 일치해야 합니다.
-3. 여러 개의 Apple ID가 있는 경우, App Store에서 로그아웃한 후 올바른 계정으로 다시 로그인한 다음 구매 복원 버튼을 다시 시도해 보세요.
+   > 기기의 설정 앱에 로그인된 계정은 가끔 App Store 앱에서 사용하는 계정과 다를 수 있습니다. 복원이 정상적으로 작동하려면 App Store 앱 내의 계정이 구입 내역과 일치해야 합니다.
+3. Apple ID가 여러 개인 경우 App Store에서 로그아웃한 후 올바른 계정으로 다시 로그인하고 구입 항목 복원 버튼을 다시 시도해 보세요.
 
-계정이 일치함에도 복원에 실패하는 경우, 영수증 또는 구매 내역의 스크린샷과 함께 [저희에게 문의](/contact-us)해 주세요. 문제를 자세히 조사해 드리겠습니다.
+계정이 일치함에도 복원에 실패하는 경우 영수증 또는 구입 내역의 스크린샷과 함께 [문의하기](/contact-us)로 연락해 주세요. 추가로 조사를 진행하겠습니다.
 
 ### 확장 프로그램 팝업에 오류가 표시됩니다 {/* #error-shown-in-extension-popup */}
 
@@ -66,22 +66,22 @@ import TOCInline from "@theme/TOCInline";
 > RedirectWeb 앱이 설치되지 않았거나 제대로 작동하지 않습니다.  
 > App Store에서 앱을 다운로드해 주세요.
 
-확장 프로그램 팝업을 열었을 때 위와 같은 오류가 표시된다면, RedirectWeb 네이티브 앱이 설치되지 않았거나 올바르게 실행되지 않고 있음을 의미합니다.
+확장 프로그램 팝업을 열 때 위와 같은 오류가 표시된다면, RedirectWeb 네이티브 앱이 설치되어 있지 않거나 제대로 실행되지 않고 있음을 의미합니다.
 
-[App Store](https://apps.apple.com/app/id1571283503)에서 최신 버전의 RedirectWeb이 설치되어 있는지 확인해 주세요.
+[App Store](https://apps.apple.com/app/id1571283503)에서 최신 버전의 RedirectWeb을 설치했는지 확인해 주세요.
 
-네이티브 앱을 설치한 후 브라우저를 다시 실행해야 할 수도 있습니다.
+네이티브 앱을 설치한 후 브라우저를 다시 시작해야 할 수도 있습니다.
 
 > [!NOTE]
 >
-> - 브라우저 확장 프로그램을 사용하려면 RedirectWeb 네이티브 앱을 설치해야 합니다. 확장 프로그램 단독으로는 작동하지 않습니다.
+> - 브라우저 확장 프로그램을 사용하려면 RedirectWeb 네이티브 앱을 설치해야 합니다. 확장 프로그램만으로는 작동하지 않습니다.
 > - Safari 사용자는 확장 프로그램이 네이티브 앱에 포함되어 있으므로 별도로 설치할 필요가 없습니다.
 
-### 리디렉션 전에 원래 페이지가 잠시 깜박입니다 {/* #original-page-flash */}
+### 리다이렉트되기 전에 원본 페이지가 잠시 깜빡입니다 {/* #original-page-flash */}
 
-이는 **Original** 유형의 리디렉션 규칙을 사용할 때 발생합니다. 이 유형은 다양한 고급 기능을 제공하지만, 리디렉션을 수행하기 전에 원래 페이지를 로드하도록 허용할 수 있기 때문에 원래 페이지가 잠시 나타날 수 있습니다.
+이 현상은 **Original** 유형의 리다이렉트 규칙을 사용할 때 발생합니다. 이 유형은 다양한 고급 기능을 제공하지만, 리다이렉트를 수행하기 전에 원본 페이지가 로드될 수 있어 페이지가 잠시 깜빡이는 현상이 나타날 수 있습니다.
 
-이 문제를 방지하려면 규칙 편집 화면을 열고 **유형(Type)**을 **DNR**로 변경하세요.
+규칙 편집 화면에서 **Type**을 **DNR**로 변경하여 이 문제를 방지하세요.
 
 <Image
   src={EditRuleDnr}
@@ -92,18 +92,28 @@ import TOCInline from "@theme/TOCInline";
 />
 
 > [!NOTE]
-> Firefox에서는 WebRequest API를 사용하므로 Original 유형에서도 원래 페이지가 로드되는 것을 방지하기 때문에 이 문제가 발생하지 않습니다.
+> Firefox에서는 Original 유형을 사용하더라도 원본 페이지 로드를 방지하는 WebRequest API를 사용하므로 이 문제가 발생하지 않습니다.
+
+## 규칙 라이브러리
+
+### 라이브러리의 규칙이 업데이트되면 제가 다운로드한 복사본도 자동으로 업데이트되나요? {/* #library-rule-updates */}
+
+현재로서는 그렇지 않습니다. 라이브러리에서 규칙을 가져오면 사용자의 목록에 일회성 복사본이 추가됩니다. 이후 라이브러리에서 규칙이 업데이트되어도 사용자의 복사본에는 자동으로 적용되지 않습니다. 최신 버전의 규칙을 사용하려면 라이브러리에서 다시 가져오세요.
+
+### 라이브러리 콘텐츠가 나중에 유료로 전환되나요? {/* #will-library-become-paid */}
+
+아니요, 항상 무료입니다. 모든 콘텐츠의 소스는 [여기](https://github.com/mshibanami/redirect-web/tree/main/library)에서 확인할 수 있습니다.
 
 ## 개인정보 보호 및 보안
 
-### 왜 확장 프로그램이 내 정보를 읽고 변경하도록 허용해야 하나요? {/* #why-allow-extension-to-read-change */}
+### 확장 프로그램이 내 정보를 읽거나 변경하도록 허용해야 하는 이유는 무엇인가요? {/* #why-allow-extension-to-read-change */}
 
 RedirectWeb을 설정할 때 다음과 같은 알림이 표시될 수 있습니다:
 
 <IfBrowserStore stores='appStore'>
     <Image src={PermissionAlertSafari} alt="권한 요청 알림" width="200" margin="0 0 16px 0" hasShadow />
 
-    > 이 확장 프로그램은 웹 페이지를 읽고 변경할 수 있으며, 이 웹사이트에서의 브라우징 내역을 볼 수 있습니다. **여기에는 암호, 전화번호, 신용카드 등의 민감한 정보가 포함될 수 있습니다.**
+    > 이 확장 프로그램은 웹 페이지를 읽고 수정할 수 있으며 이 웹사이트에서의 브라우징 기록을 볼 수 있습니다. **여기에는 비밀번호, 전화번호, 신용카드 등의 민감한 정보가 포함될 수 있습니다.**
 
 </IfBrowserStore>
 
@@ -115,13 +125,13 @@ RedirectWeb을 설정할 때 다음과 같은 알림이 표시될 수 있습니�
 
 </IfBrowserStore>
 
-이 확장 프로그램은 페이지 탐색을 관찰하여 사용자를 목적지로 리디렉션하기 위해 권한이 필요합니다. 브라우저는 확장 프로그램이 이러한 권한을 요청할 때 이 알림을 표시합니다. 따라서 이를 허용하지 않으면 확장 프로그램이 작동할 수 없습니다.
+이 확장 프로그램은 사용자를 대상 목적지로 리다이렉트하기 위해 페이지 탐색을 관찰할 수 있는 권한이 필요합니다. 확장 프로그램이 이러한 권한을 요청할 때 브라우저는 이 알림을 표시합니다. 따라서 이를 허용하지 않으면 확장 프로그램이 작동할 수 없습니다.
 
-부여된 권한은 **[개인정보 처리방침](/privacy-policy)**에 따라 리디렉션과 같은 앱 기능에만 사용됩니다.
+허용된 권한은 **[개인정보 처리방침](/privacy-policy)**에 따라 리다이렉트와 같은 앱 기능을 위해서만 사용됩니다.
 
-### 왜 이 확장 프로그램에 새로운 권한이 필요한가요? {/* #permission-alert-on-safari */}
+### 이 확장 프로그램에 왜 새로운 권한이 필요한가요? {/* #permission-alert-on-safari */}
 
-RedirectWeb을 업데이트한 후 Safari에서 이 알림을 볼 수 있습니다:
+RedirectWeb을 업데이트한 후 Safari에서 다음과 같은 알림이 표시될 수 있습니다:
 
 <img
   src={require("/img/safari-additional-permission-alert.webp").default}
@@ -129,7 +139,7 @@ RedirectWeb을 업데이트한 후 Safari에서 이 알림을 볼 수 있습니�
   width="280"
 />
 
-> "RedirectWeb"이 업데이트되었으며 추가 권한을 요청하고 있습니다. 개인정보 보호를 위해 이 확장 프로그램이 꺼졌습니다.
+> "RedirectWeb"이 업데이트되었으며 추가 권한을 요청하고 있습니다. 개인정보 보호를 위해 이 확장 프로그램은 꺼졌습니다.
 >
 > Safari 설정의 확장 프로그램 섹션에서 이 확장 프로그램을 켤 수 있습니다.
 
@@ -137,53 +147,49 @@ RedirectWeb을 업데이트한 후 Safari에서 이 알림을 볼 수 있습니�
 
 ### RedirectWeb이 웹사이트에 광고나 기타 관련 없는 콘텐츠를 삽입하나요? {/* #does-it-inject-ads */}
 
-아니요, 그러한 콘텐츠는 전혀 삽입하지 않습니다. Safari의 웹사이트에는 이 문서와 App Store 페이지에 설명된 기능을 제공하는 데 필요한 코드만 삽입됩니다.
+아니요, 그러한 콘텐츠를 삽입하지 않습니다. Safari의 웹사이트에는 이 문서와 App Store 페이지에 설명된 기능을 제공하는 데 필요한 코드만 삽입됩니다.
 
 ### RedirectWeb이 다른 사람에게 판매될 가능성이 있나요? {/* #could-it-be-sold */}
 
-100% 없습니다. 브라우저 확장 프로그램은 브라우징과 데이터에 대해 강력한 제어 권한을 가지며, RedirectWeb을 다른 소유자에게 넘기는 것은 개인정보 침해의 문을 여는 것과 같습니다. 저희는 확장 프로그램의 소유자가 바뀐 후 예고 없이 사용자 데이터를 수집하거나 광고를 삽입하는 사례를 보아왔습니다. 그런 일은 여기서 결코 일어나지 않을 것입니다. 이러한 위험에 대한 자세한 내용은 Matt Frisbie의 기사 ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) 및 Brian Krebs의 조사 ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)를 참조하세요.
+절대 아닙니다. 브라우저 확장 프로그램은 브라우징 및 데이터에 대해 강력한 제어 권한을 가지며, RedirectWeb의 소유권을 다른 사람에게 넘기는 것은 개인정보 침해의 문을 여는 것과 같습니다. 우리는 확장 프로그램의 주인이 바뀌면서 경고 없이 사용자 데이터를 수집하거나 광고를 삽입하는 사례를 보아왔습니다. 여기서는 그런 일이 절대 일어나지 않을 것입니다. 이러한 위험에 대한 자세한 내용은 Matt Frisbie의 기사 ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) 및 Brian Krebs의 조사 ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)를 참고하세요.
 
-RedirectWeb은 신뢰와 책임을 바탕으로 설립되었습니다. 저희는 사용자의 정보를 안전하게 지키는 것을 의무로 생각하며, 어떤 상황에서도 소유권을 이전하는 것을 거부합니다. RedirectWeb은 항상 저희가 직접 관리할 것이므로 안심하고 브라우징하실 수 있습니다.
+RedirectWeb은 신뢰와 책임을 바탕으로 설립되었습니다. 사용자의 정보를 안전하게 지키는 것을 우리의 의무로 여기며, 어떠한 상황에서도 소유권 이전을 거부합니다. RedirectWeb은 항상 우리의 손에 남아 있을 것이므로 안심하고 브라우징하실 수 있습니다.
 
 ## 플랫폼 및 브라우저
 
-### Chrome, Firefox 또는 Edge용 확장 프로그램을 설치한 후에도 앱을 설치해야 하나요? {/* #app-for-non-safari-browsers */}
+### Chrome, Firefox 또는 Edge용 확장 프로그램을 설치한 후에도 앱을 다운로드해야 하나요? {/* #app-for-non-safari-browsers */}
 
-네. 어떤 브라우저를 사용하든 [App Store에서 RedirectWeb 앱](https://apps.apple.com/app/id1571283503)을 다운로드해야 합니다. 브라우저의 확장 프로그램 스토어에서 확장 프로그램을 설치할 수 있지만, 규칙, 구매 내역 및 iCloud를 통한 기기 간 기타 설정을 관리하려면 앱이 필요합니다.
+네. 어떤 브라우저를 사용하든 [App Store에서 RedirectWeb 앱](https://apps.apple.com/app/id1571283503)을 다운로드해야 합니다. 브라우저의 확장 프로그램 스토어에서 확장 프로그램을 설치할 수 있지만, 규칙, 구입 내역 및 기타 설정을 iCloud를 통해 기기 간에 관리하려면 앱이 필요합니다.
 
 ### Pro 앱을 사용하는 경우 Chrome, Firefox 또는 Edge용으로 다른 확장 프로그램이 필요한가요? {/* #different-extension-for-pro */}
 
-아니요. Mac에서 표준 RedirectWeb 앱을 사용하든 RedirectWeb Pro를 사용하든, 각 브라우저의 확장 프로그램 스토어에서 동일한 확장 프로그램을 설치해야 합니다. 확장 프로그램은 설치된 앱의 버전을 자동으로 감지하여 통신합니다.
+아니요. Mac에서 일반 RedirectWeb 앱을 사용하든 RedirectWeb Pro를 사용하든, 브라우저의 각 확장 프로그램 스토어에서 동일한 확장 프로그램을 설치해야 합니다. 확장 프로그램은 설치된 앱의 버전을 자동으로 감지하여 통신합니다.
 
-### RedirectWeb이 Windows, Android, Linux 또는 기타 다른 플랫폼에서 작동하나요? {/* #non-apple-platforms */}
+### RedirectWeb이 Windows, Android, Linux 또는 기타 플랫폼에서도 작동하나요? {/* #non-apple-platforms */}
 
-현재는 지원하지 않습니다. RedirectWeb은 iCloud 및 유니버설 구매(Universal Purchase)를 포함한 Apple 생태계와 밀접하게 연결되어 있습니다. 불편을 드려 죄송합니다.
+현재로서는 지원되지 않습니다. RedirectWeb은 iCloud 및 유니버설 구입을 포함한 Apple 생태계와 밀접하게 연결되어 있습니다. 불편을 드려 죄송합니다.
 
-## 플랜 및 가격
+## 요금제 및 가격
 
 ### RedirectWeb과 RedirectWeb Pro의 차이점은 무엇인가요? {/* #difference-between-standard-and-pro */}
 
-두 버전 모두 동일한 기능을 제공하며 동시에 업데이트를 받습니다. 유일한 차이점은 결제 모델입니다:
+두 버전 모두 정확히 동일한 기능을 제공하며 동시에 업데이트를 받습니다. 유일한 차이점은 결제 방식입니다:
 
-- **RedirectWeb**: 기본 기능(활성 규칙 **1개로 제한**)을 제공하는 무료 앱이며, 무제한 규칙 및 iCloud 동기화를 포함한 모든 기능을 잠금 해제하기 위해 선택적인 앱 내 결제(구독 또는 일회성 결제)를 제공합니다.
-- **RedirectWeb Pro**: 유료로 제공되는 완전 잠금 해제 앱입니다. 이 버전은 특히 **Apple 비즈니스 매니저** 및 **Apple 스쿨 매니저(VPP)**를 통해 기관에서 앱을 대량 구매할 수 있도록 제작되었습니다(앱 내 결제로는 불가능). 물론 선불 구매를 선호하는 분이라면 누구나 구매할 수 있습니다!
+- **RedirectWeb**: 기본 기능을 갖춘 무료 앱(활성 규칙 **1개**로 제한)으로, 무제한 규칙 및 iCloud 동기화를 포함한 모든 기능을 잠금 해제하기 위해 선택적인 인앱 결제(구독 또는 일회성 결제)를 제공합니다.
+- **RedirectWeb Pro**: 모든 기능이 잠금 해제된 유료 앱입니다. 이 버전은 특히 **Apple Business Manager** 및 **Apple School Manager(VPP)**를 통해 기관에서 앱을 대량으로 구매할 수 있도록 만들어졌으며, 이는 인앱 결제로는 불가능합니다. 하지만 선불 결제를 선호하는 분이라면 누구든지 구매할 수 있습니다!
 
-### 일회성 구매, 연간 구독 또는 Pro 버전: 어떤 것이 가장 좋나요? {/* #one-time-or-subscription-or-pro */}
+### 일회성 결제, 연간 구독 또는 Pro 버전 중 무엇이 가장 좋나요? {/* #one-time-or-subscription-or-pro */}
 
-표준 RedirectWeb 앱 내에서 일회성 구매를 하거나 RedirectWeb Pro를 구매하는 것이 동일한 가치를 제공하므로 권장합니다.
-구독 모델을 제공하는 주요 이유는 무료 체험을 통해 모든 기능을 사용해 볼 수 있도록 하기 위함입니다. 예상되는 사용 사례는 다음과 같습니다:
+동일한 가치를 제공하므로 일반 RedirectWeb 앱 내에서의 일회성 결제 또는 RedirectWeb Pro 구매 중 하나를 추천합니다.
+구독 모델을 제공하는 주된 이유는 무료 체험을 통해 모든 기능을 사용해 볼 수 있도록 하기 위함입니다. 권장하는 사용 사례는 다음과 같습니다:
 
-1. 표준 RedirectWeb 앱에서 연간 구독을 신청합니다.
-2. 설정 앱에서 "구독"을 검색하고 RedirectWeb을 선택한 후 "구독 취소"를 탭하여 즉시 구독을 취소합니다. 이렇게 하면 약정 없이 무료 체험을 즐길 수 있습니다.
-3. 7일 동안 모든 기능을 자유롭게 사용해 봅니다.
-4. 기능이 마음에 든다면 일회성 구매를 하거나 Pro 버전을 구매합니다.
+1. 일반 RedirectWeb 앱에서 연간 구독을 신청합니다.
+2. 설정 앱으로 이동하여 "구독"을 검색하고, RedirectWeb을 선택한 다음 "구독 취소"를 눌러 즉시 구독을 취소합니다. 이렇게 하면 결제 부담 없이 무료 체험을 즐길 수 있습니다.
+3. 7일 동안 모든 기능에 대한 전체 액세스 권한을 누립니다.
+4. 기능이 마음에 든다면 일회성 결제를 선택하거나 Pro 버전을 구매하세요.
 
-물론 원하신다면 연간 구독을 계속 유지하셔도 괜찮습니다!
-
-### 나중에 라이브러리 콘텐츠가 유료로 전환되나요? {/* #will-library-become-paid */}
-
-아니요, 항상 무료입니다. 모든 콘텐츠의 소스는 [여기](https://github.com/mshibanami/redirect-web/tree/main/library)에서 확인할 수 있습니다.
+물론 원하신다면 연간 구독을 계속 유지하셔도 좋습니다!
 
 ## 추가 지원
 
-위의 해결 방법을 시도한 후에도 문제가 계속 발생하면 [저희에게 문의](/contact-us)해 주세요.
+위의 해결 방법을 시도한 후에도 문제가 계속 발생하면 [문의하기](/contact-us)로 연락해 주세요.

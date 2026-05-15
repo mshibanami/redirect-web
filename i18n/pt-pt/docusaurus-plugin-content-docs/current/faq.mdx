@@ -18,12 +18,12 @@ import TOCInline from "@theme/TOCInline";
 
 Se uma regra que criou não estiver a ser ativada como esperado, verifique o seguinte:
 
-- **A extensão está ativada?:** Certifique-se de que instalou a extensão de navegador RedirectWeb e que ela está ativada no seu navegador para a página web de onde pretende redirecionar. Se conseguir abrir a janela pop-up da extensão desta forma, ela está ativada corretamente:
+- **A extensão está ativa?:** Certifique-se de que instalou a extensão de navegador RedirectWeb e que esta está ativa no seu navegador para a página web da qual pretende redirecionar. Se conseguir abrir o popup da extensão desta forma, ela está ativa corretamente:
 
       <Image
 
   src={ExtensionPopup}
-  alt="Janela pop-up da extensão RedirectWeb"
+  alt="Popup da extensão RedirectWeb"
   width="260"
   hasShadow
   />
@@ -31,7 +31,7 @@ Se uma regra que criou não estiver a ser ativada como esperado, verifique o seg
   > [!TIP]
   > \[Safari\] Para sua conveniência, recomendamos permitir o acesso a todos os websites. (Apenas uma dica!)
 
-- **A configuração da sua regra está correta?:** Verifique novamente as suas regras de redirecionamento na aplicação nativa RedirectWeb. Certifique-se de que os padrões de URL de origem, os URLs de destino e quaisquer condições estão configurados corretamente. Para verificar se a sua regra é válida ou não, adicione um URL de exemplo na secção Exemplos no ecrã Editar Regra. Se a sua regra for válida, verá o URL de destino esperado por baixo da sua entrada, desta forma:
+- **A configuração da sua regra está correta?:** Verifique novamente as suas regras de redirecionamento na app nativa RedirectWeb. Certifique-se de que os padrões de URL de origem, os URLs de destino e quaisquer condições estão configurados corretamente. Para verificar se a sua regra é válida ou não, adicione um URL de exemplo na secção Exemplos no ecrã Editar Regra. Se a sua regra for válida, verá o URL de destino esperado por baixo da sua entrada, desta forma:
 
   <Image
     src={RuleEditExampleResult}
@@ -40,20 +40,20 @@ Se uma regra que criou não estiver a ser ativada como esperado, verifique o seg
     hasShadow
   />
 
-### A minha compra não é restaurada mesmo após tocar em "Restaurar Compra" {/* #purchase-not-restored */}
+### A minha compra não é restaurada mesmo depois de tocar em "Restaurar Compra" {/* #purchase-not-restored */}
 
 Se o botão Restaurar Compra não funcionar como esperado, siga estes passos de resolução de problemas:
 
 1. Inicie sessão em [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/) para confirmar que a transação foi concluída com sucesso e está listada no seu histórico de ID Apple.
-2. Certifique-se de que o ID Apple com sessão iniciada atualmente na **App Store** é o mesmo utilizado para a compra original.
+2. Certifique-se de que o ID Apple com sessão iniciada atualmente na **app App Store** é o mesmo utilizado para a compra original.
    > [!NOTE]
    >
-   > A conta com sessão iniciada na aplicação Definições do seu dispositivo pode, por vezes, ser diferente da utilizada na aplicação App Store. É a conta dentro da aplicação App Store que deve corresponder ao seu histórico de compras para que a restauração funcione corretamente.
+   > A conta com sessão iniciada na app Definições do seu dispositivo pode, por vezes, ser diferente da utilizada na app App Store. É a conta dentro da app App Store que deve coincidir com o seu histórico de compras para que o restauro funcione corretamente.
 3. Se tiver vários IDs Apple, termine a sessão na App Store e inicie sessão novamente com a conta correta, depois tente o botão Restaurar Compra novamente.
 
-Se as contas corresponderem mas a restauração ainda falhar, [contacte-nos](/contact-us) com uma captura de ecrã do seu recibo ou histórico de compras. Investigaremos o problema para si.
+Se as contas coincidirem mas o restauro continuar a falhar, por favor [contacte-nos](/contact-us) com uma captura de ecrã do seu recibo ou histórico de compras. Iremos investigar o problema por si.
 
-### A janela pop-up da extensão mostra um erro {/* #error-shown-in-extension-popup */}
+### O popup da extensão mostra um erro {/* #error-shown-in-extension-popup */}
 
 <Image
   src={ErrorOverlay}
@@ -63,29 +63,29 @@ Se as contas corresponderem mas a restauração ainda falhar, [contacte-nos](/co
   hasRoundedCorners
 />
 
-> A aplicação RedirectWeb não foi instalada ou não está a funcionar corretamente.  
-> Por favor, obtenha a aplicação na App Store.
+> A app RedirectWeb não foi instalada ou não está a funcionar corretamente.  
+> Por favor, obtenha a app na App Store.
 
-Se vir o erro acima ao abrir a janela pop-up da extensão, significa que a aplicação nativa RedirectWeb não está instalada ou não está a funcionar corretamente.
+Se vir o erro acima ao abrir o popup da extensão, significa que a app nativa RedirectWeb não está instalada ou não está a funcionar corretamente.
 
 Certifique-se de que instalou a versão mais recente do RedirectWeb a partir da [App Store](https://apps.apple.com/app/id1571283503).
 
-Poderá também ser necessário reiniciar o seu navegador após instalar a aplicação nativa.
+Poderá também precisar de reiniciar o seu navegador após instalar a app nativa.
 
 > [!NOTE]
 >
-> - Precisa de instalar a aplicação nativa RedirectWeb para utilizar a extensão de navegador. A extensão sozinha não funciona.
-> - Os utilizadores do Safari não precisam de instalar a extensão separadamente, pois ela vem incluída com a aplicação nativa.
+> - Precisa de instalar a app nativa RedirectWeb para utilizar a extensão do navegador. A extensão sozinha não funciona.
+> - Os utilizadores do Safari não precisam de instalar a extensão separadamente, pois esta vem incluída com a app nativa.
 
 ### A página original pisca brevemente antes do redirecionamento {/* #original-page-flash */}
 
-Isto acontece quando utiliza as regras de redirecionamento do tipo **Original**. Este tipo oferece várias funcionalidades avançadas, mas pode causar um breve piscar da página original porque pode permitir que a página original seja carregada antes de realizar o redirecionamento.
+Isto acontece quando utiliza as regras de redirecionamento do tipo **Original**. Este tipo oferece várias funcionalidades avançadas, mas pode causar um breve piscar da página original porque pode permitir que a página original carregue antes de efetuar o redirecionamento.
 
 Abra o ecrã Editar Regra e altere o **Tipo** para **DNR** para evitar este problema.
 
 <Image
   src={EditRuleDnr}
-  alt="Janela pop-up da extensão RedirectWeb"
+  alt="Popup da extensão RedirectWeb"
   height="260"
   hasShadow
   hasRoundedCorners
@@ -93,6 +93,16 @@ Abra o ecrã Editar Regra e altere o **Tipo** para **DNR** para evitar este prob
 
 > [!NOTE]
 > No Firefox, este problema não deve ocorrer mesmo com o tipo Original, uma vez que depende da API WebRequest, que impede o carregamento da página original.
+
+## Biblioteca de Regras
+
+### Se uma regra na biblioteca for atualizada, a minha cópia descarregada será atualizada automaticamente? {/* #library-rule-updates */}
+
+Até ao momento, não. Quando obtém uma regra da biblioteca, trata-se de uma cópia única adicionada à sua lista. Quaisquer atualizações subsequentes à regra na biblioteca não serão aplicadas automaticamente à sua cópia. Para utilizar a versão mais recente de uma regra, por favor obtenha-a novamente na biblioteca.
+
+### O conteúdo da biblioteca tornar-se-á pago no futuro? {/* #will-library-become-paid */}
+
+Não, será sempre gratuito. Também pode encontrar a origem de todos os conteúdos [aqui](https://github.com/mshibanami/redirect-web/tree/main/library).
 
 ## Privacidade e Segurança
 
@@ -115,9 +125,9 @@ Poderá ver um alerta como este ao configurar o RedirectWeb:
 
 </IfBrowserStore>
 
-Esta extensão precisa da sua permissão para observar a navegação nas páginas para que possa redirecioná-lo para o seu destino. O seu navegador apresenta este alerta quando a extensão solicita estas permissões. Portanto, se não permitir, a extensão não poderá funcionar.
+Esta extensão precisa da sua permissão para observar a navegação nas páginas para que o possa redirecionar para o seu destino. O seu navegador apresenta este alerta quando a extensão solicita estas permissões. Portanto, se não o permitir, a extensão não poderá funcionar.
 
-As permissões concedidas serão apenas utilizadas para as funções da aplicação, como o redirecionamento, em conformidade com **[a política de privacidade](/privacy-policy)**.
+As permissões concedidas serão utilizadas apenas para as funções da app, como o redirecionamento, em conformidade com **[a política de privacidade](/privacy-policy)**.
 
 ### Porque é que esta extensão requer uma nova permissão? {/* #permission-alert-on-safari */}
 
@@ -133,7 +143,7 @@ Poderá ver este alerta no Safari após atualizar o RedirectWeb:
 >
 > Pode ativar esta extensão na secção Extensões das Definições do Safari.
 
-Isto deve-se à permissão [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) exigida pelo tipo [DNR](/rule-settings#type) introduzido na versão 7. Por favor, reative a extensão. Lamentamos o incómodo.
+Isto deve-se à permissão [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extensions) exigida pelo tipo [DNR](/rule-settings#type) introduzido na versão 7. Por favor, volte a ativar a extensão. Pedimos desculpa pelo incómodo.
 
 ### O RedirectWeb injeta anúncios ou outro conteúdo não relacionado nos websites? {/* #does-it-inject-ads */}
 
@@ -141,49 +151,45 @@ Não, não injeta qualquer conteúdo desse tipo. Apenas o código necessário pa
 
 ### Existe alguma possibilidade de o RedirectWeb vir a ser vendido a outra pessoa? {/* #could-it-be-sold */}
 
-100% não. As extensões de navegador exercem um controlo profundo sobre a sua navegação e dados, e entregar o RedirectWeb a outro proprietário abriria a porta a violações de privacidade. Vimos extensões mudar de mãos e depois recolher dados dos utilizadores ou injetar anúncios sem aviso prévio. Isso nunca acontecerá aqui. Para saber mais sobre estes riscos, consulte o artigo de Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) e a investigação de Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100% não. As extensões de navegador detêm um controlo profundo sobre a sua navegação e dados, e entregar o RedirectWeb a outro proprietário abriria a porta a violações de privacidade. Vimos extensões mudar de mãos e depois recolher dados de utilizadores ou injetar anúncios sem aviso prévio. Isso nunca acontecerá aqui. Para saber mais sobre estes riscos, consulte o artigo de Matt Frisbie ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) e a investigação de Brian Krebs ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-O RedirectWeb baseia-se na confiança e responsabilidade. Consideramos que é nosso dever manter as suas informações seguras e recusamos transferir a propriedade sob quaisquer circunstâncias. O RedirectWeb permanecerá sempre nas nossas mãos, para que possa navegar com total confiança.
+O RedirectWeb baseia-se na confiança e responsabilidade. Consideramos que é nosso dever manter as suas informações seguras e recusamos transferir a propriedade em qualquer circunstância. O RedirectWeb permanecerá sempre nas nossas mãos, para que possa navegar com total confiança.
 
 ## Plataformas e Navegadores
 
-### Devo obter a aplicação após instalar a extensão para o Chrome, Firefox ou Edge? {/* #app-for-non-safari-browsers */}
+### Devo obter a app depois de instalar a extensão para Chrome, Firefox ou Edge? {/* #app-for-non-safari-browsers */}
 
-Sim. Deve descarregar a [aplicação RedirectWeb na App Store](https://apps.apple.com/app/id1571283503), independentemente do navegador que utilize. Pode instalar a extensão a partir da loja de extensões do seu navegador, mas a aplicação é necessária para gerir as suas regras, histórico de compras e outras definições entre dispositivos através do iCloud.
+Sim. Deve descarregar a [app RedirectWeb da App Store](https://apps.apple.com/app/id1571283503), independentemente do navegador que utilize. Pode instalar a extensão na loja de extensões do seu navegador, mas a app é necessária para gerir as suas regras, histórico de compras e outras definições entre dispositivos através do iCloud.
 
-### Preciso de uma extensão diferente para o Chrome, Firefox ou Edge se utilizar a aplicação Pro? {/* #different-extension-for-pro */}
+### Preciso de uma extensão diferente para Chrome, Firefox ou Edge se utilizar a app Pro? {/* #different-extension-for-pro */}
 
-Não. Quer utilize a aplicação RedirectWeb standard ou o RedirectWeb Pro no seu Mac, deve instalar exatamente a mesma extensão da loja de extensões do seu navegador respetivo. A extensão detetará automaticamente e comunicará com qualquer versão da aplicação que tenha instalada.
+Não. Quer utilize a app RedirectWeb standard ou o RedirectWeb Pro no seu Mac, deve instalar exatamente a mesma extensão na loja de extensões respetiva do seu navegador. A extensão detetará e comunicará automaticamente com qualquer versão da app que tenha instalada.
 
 ### O RedirectWeb funciona em Windows, Android, Linux ou noutras plataformas? {/* #non-apple-platforms */}
 
-Não de momento. O RedirectWeb está intimamente ligado ao ecossistema da Apple, incluindo o iCloud e a Compra Universal. Lamentamos o incómodo.
+Neste momento, não. O RedirectWeb está estreitamente ligado ao ecossistema da Apple, incluindo o iCloud e a Compra Universal. Pedimos desculpa pelo incómodo.
 
 ## Planos e Preços
 
 ### Qual é a diferença entre o RedirectWeb e o RedirectWeb Pro? {/* #difference-between-standard-and-pro */}
 
-Ambas as versões oferecem exatamente as mesmas funcionalidades e recebem atualizações em simultâneo. A única diferença é o modelo de pagamento:
+Ambas as versões oferecem exatamente as mesmas funcionalidades e recebem atualizações simultaneamente. A única diferença é o modelo de pagamento:
 
-- **RedirectWeb**: Uma aplicação gratuita com funcionalidades básicas (limitada a **1 regra ativa**), oferecendo uma Compra In-App opcional (assinatura ou pagamento único) para desbloquear todas as funcionalidades, incluindo regras ilimitadas e sincronização iCloud.
-- **RedirectWeb Pro**: Uma aplicação paga e totalmente desbloqueada. Esta versão foi criada especificamente para ser elegível para o **Apple Business Manager** e **Apple School Manager (VPP)**, permitindo que as organizações comprem a aplicação em volume, o que não é possível com Compras In-App. No entanto, qualquer pessoa que prefira uma compra inicial pode comprá-la!
+- **RedirectWeb**: Uma app gratuita com funcionalidades básicas (limitada a **1 regra ativa**), oferecendo uma Compra In-App opcional (subscrição ou pagamento único) para desbloquear todas as funcionalidades, incluindo regras ilimitadas e sincronização iCloud.
+- **RedirectWeb Pro**: Uma app paga, totalmente desbloqueada. Esta versão foi criada especificamente para ser elegível para o **Apple Business Manager** e **Apple School Manager (VPP)**, permitindo que as organizações comprem a app em volume, o que não é possível com Compras In-App. No entanto, qualquer pessoa que prefira uma compra imediata pode comprá-la!
 
-### Compra única, Assinatura Anual ou Versão Pro: Qual é a melhor? {/* #one-time-or-subscription-or-pro */}
+### Pagamento Único, Subscrição Anual ou Versão Pro: Qual é o Melhor? {/* #one-time-or-subscription-or-pro */}
 
-Recomendamos a compra única dentro da aplicação RedirectWeb standard ou a compra do RedirectWeb Pro, pois oferecem o mesmo valor.
-A principal razão pela qual oferecemos a assinatura é para lhe permitir experimentar todas as funcionalidades através do seu período experimental gratuito. Aqui está o caso de utilização esperado:
+Recomendamos o pagamento único dentro da app RedirectWeb standard ou a compra do RedirectWeb Pro, pois oferecem o mesmo valor.
+A principal razão pela qual oferecemos a subscrição é para permitir que experimente todas as funcionalidades através do seu período de teste gratuito. Aqui está o caso de utilização esperado:
 
-1. Subscreva a assinatura anual na aplicação RedirectWeb standard.
-2. Cancele imediatamente a assinatura indo à aplicação Definições, procurando por "Assinaturas", selecionando RedirectWeb e tocando em "Cancelar Assinatura". Isto permite-lhe desfrutar do período experimental gratuito sem qualquer compromisso.
+1. Subscreva a subscrição anual na app RedirectWeb standard.
+2. Cancele imediatamente a subscrição indo à app Definições, pesquisando por "Subscrições", selecionando RedirectWeb e tocando em "Cancelar Subscrição". Isto permite-lhe desfrutar do teste gratuito sem qualquer compromisso.
 3. Desfrute de acesso total a todas as funcionalidades durante 7 dias.
-4. Se gostar das funcionalidades, opte pela compra única ou compre a versão Pro.
+4. Se gostar das funcionalidades, opte pelo pagamento único ou compre a versão Pro.
 
-Claro que não há problema nenhum em continuar com a assinatura anual se preferir!
-
-### O conteúdo da biblioteca passará a ser pago no futuro? {/* #will-library-become-paid */}
-
-Não, é sempre gratuito. Também pode encontrar a fonte de todo o conteúdo [aqui](https://github.com/mshibanami/redirect-web/tree/main/library).
+Claro que não há qualquer problema em continuar com a subscrição anual se preferir!
 
 ## Assistência adicional
 
-Se continuar a ter problemas após tentar as soluções acima, [contacte-nos](/contact-us).
+Se continuar a ter problemas após tentar as soluções acima, por favor [contacte-nos](/contact-us).

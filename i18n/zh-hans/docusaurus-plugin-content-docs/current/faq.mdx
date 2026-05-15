@@ -16,9 +16,9 @@ import TOCInline from "@theme/TOCInline";
 
 ### 为什么我的规则不起作用？ {/* #redirection-not-working */}
 
-如果您创建的规则没有按预期触发，请检查以下几点：
+如果您创建的规则没有按预期触发，请检查以下内容：
 
-- **扩展程序是否已启用？：** 请确保您已安装 RedirectWeb 浏览器扩展程序，并在浏览器中为您想要重定向的网页启用了它。如果您能像这样打开扩展程序的弹出窗口，则说明它已正确启用：
+- **扩展程序是否已启用？：** 请确保您已安装 RedirectWeb 浏览器扩展程序，并且已在浏览器中为您要重定向的网页启用了该扩展程序。如果您能像这样打开扩展程序的弹出窗口，则说明它已正确启用：
 
       <Image
 
@@ -31,16 +31,16 @@ import TOCInline from "@theme/TOCInline";
   > [!TIP]
   > \[Safari\] 为了您的方便，我们建议允许访问所有网站。（只是一个建议！）
 
-- **您的规则配置是否正确？：** 请再次检查 RedirectWeb 原生应用中的重定向规则。确保来源 URL 模式、目标 URL 以及任何条件都已正确设置。要检查您的规则是否有效，请在“编辑规则”屏幕的“示例”部分添加一个示例 URL。如果您的规则有效，您将在输入下方看到预期的目标 URL，如下所示：
+- **您的规则配置是否正确？：** 请在 RedirectWeb 原生应用中仔细检查您的重定向规则。确保源 URL 模式、目标 URL 以及任何条件都已正确设置。要检查您的规则是否有效，请在“编辑规则”界面的“示例 (Examples)”部分添加一个示例 URL。如果您的规则有效，您将在输入框下方看到预期的目标 URL，如下所示：
 
   <Image
     src={RuleEditExampleResult}
-    alt="规则编辑屏幕的示例，显示了示例 URL 的结果"
+    alt="显示示例 URL 结果的规则编辑界面示例"
     width="260"
     hasShadow
   />
 
-### 即使点击“恢复购买”，我的购买也没有恢复 {/* #purchase-not-restored */}
+### 即使点击了“恢复购买”，我的购买也没有恢复 {/* #purchase-not-restored */}
 
 如果“恢复购买”按钮没有按预期工作，请按照以下故障排除步骤操作：
 
@@ -48,10 +48,10 @@ import TOCInline from "@theme/TOCInline";
 2. 确保当前登录 **App Store 应用** 的 Apple ID 与原始购买时使用的 Apple ID 相同。
    > [!NOTE]
    >
-   > 您设备“设置”应用中登录的账号有时可能与 App Store 应用中使用的账号不同。必须是 App Store 应用中的账号与您的购买历史记录匹配，恢复功能才能正常工作。
-3. 如果您有多个 Apple ID，请从 App Store 退出登录，然后使用正确的账号重新登录，再次尝试“恢复购买”按钮。
+   > 您设备的“设置”应用中登录的帐户有时可能与 App Store 应用中使用的帐户不同。必须是 App Store 应用中的帐户与您的购买历史记录匹配，恢复功能才能正常工作。
+3. 如果您有多个 Apple ID，请退出 App Store 并使用正确的帐户重新登录，然后再次尝试“恢复购买”按钮。
 
-如果账号匹配但恢复仍然失败，请[联系我们](/contact-us)并附上您的收据或购买历史记录的截图。我们将为您进一步调查此问题。
+如果帐户匹配但恢复仍然失败，请[联系我们](/contact-us)并附上您的收据或购买历史记录截图。我们将为您进一步调查此问题。
 
 ### 扩展程序的弹出窗口显示错误 {/* #error-shown-in-extension-popup */}
 
@@ -63,10 +63,10 @@ import TOCInline from "@theme/TOCInline";
   hasRoundedCorners
 />
 
-> RedirectWeb 应用尚未安装或运行不正常。  
+> RedirectWeb 应用尚未安装或运行不正常。
 > 请从 App Store 获取该应用。
 
-如果您在打开扩展程序弹出窗口时看到上述错误，这意味着 RedirectWeb 原生应用未安装或运行不正常。
+如果您在打开扩展程序弹出窗口时看到上述错误，则表示 RedirectWeb 原生应用未安装或运行不正常。
 
 请确保您已从 [App Store](https://apps.apple.com/app/id1571283503) 安装了最新版本的 RedirectWeb。
 
@@ -74,14 +74,14 @@ import TOCInline from "@theme/TOCInline";
 
 > [!NOTE]
 >
-> - 您需要安装 RedirectWeb 原生应用才能使用浏览器扩展程序。仅凭扩展程序是无法工作的。
+> - 您需要安装 RedirectWeb 原生应用才能使用浏览器扩展程序。扩展程序本身无法独立工作。
 > - Safari 用户不需要单独安装扩展程序，因为它已随原生应用一同提供。
 
 ### 重定向之前原始页面会闪烁一下 {/* #original-page-flash */}
 
-当您使用 **Original** 类型的重定向规则时，就会发生这种情况。此类型提供了各种高级功能，但由于它可能允许原始页面在执行重定向之前加载，因此可能会导致原始页面短暂闪烁。
+当您使用 **Original** 类型重定向规则时，会发生这种情况。此类型提供了各种高级功能，但可能会导致原始页面短暂闪烁，因为它可能在执行重定向之前允许加载原始页面。
 
-打开“编辑规则”屏幕并将 **Type** 更改为 **DNR** 以避免此问题。
+打开“编辑规则”界面并将 **类型 (Type)** 更改为 **DNR** 以避免此问题。
 
 <Image
   src={EditRuleDnr}
@@ -92,18 +92,28 @@ import TOCInline from "@theme/TOCInline";
 />
 
 > [!NOTE]
-> 在 Firefox 中，即使使用 Original 类型也不应该出现此问题，因为它依赖于 WebRequest API，该 API 会阻止原始页面的加载。
+> 在 Firefox 中，即使使用 Original 类型，也不应该出现此问题，因为它依赖于 WebRequest API，该 API 会阻止加载原始页面。
+
+## 规则库
+
+### 如果规则库中的规则更新了，我下载的副本会自动更新吗？ {/* #library-rule-updates */}
+
+目前不会。当您从规则库中获取规则时，它是添加到您的列表中的一次性副本。规则库中该规则的后续更新不会自动应用到您的副本。要使用规则的最新版本，请再次从规则库中获取。
+
+### 规则库的内容将来会收费吗？ {/* #will-library-become-paid */}
+
+不，它永远免费。您也可以在[此处](https://github.com/mshibanami/redirect-web/tree/main/library)找到所有内容的源代码。
 
 ## 隐私与安全
 
 ### 为什么我应该允许扩展程序读取/更改我的信息？ {/* #why-allow-extension-to-read-change */}
 
-设置 RedirectWeb 时，您可能会看到类似这样的警报：
+在设置 RedirectWeb 时，您可能会看到如下警报：
 
 <IfBrowserStore stores='appStore'>
     <Image src={PermissionAlertSafari} alt="需要权限的警报" width="200" margin="0 0 16px 0" hasShadow />
 
-    > 此扩展程序将能够读取和更改网页，并查看您在此网站上的浏览历史。**这可能包括敏感信息，包括密码、电话号码和信用卡。**
+    > 此扩展程序将能够读取和更改网页，并查看您在此网站上的浏览历史记录。**这可能包含敏感信息，包括密码、电话号码和信用卡。**
 
 </IfBrowserStore>
 
@@ -111,13 +121,13 @@ import TOCInline from "@theme/TOCInline";
     <Image src={PermissionAlertChrome} alt="需要权限的警报" height="200" hasRoundedCorners hasShadow margin="0 0 16px 0" />
 
     > 它可以：
-    > 读取和更改您在**所有网站**上的**所有数据**
+    > 读取并更改您在**所有网站**上的**所有数据**
 
 </IfBrowserStore>
 
-此扩展程序需要您的许可来观察页面导航，以便将您重定向到目标目的地。当扩展程序请求这些权限时，您的浏览器会显示此警报。因此，如果您不允许，扩展程序将无法运行。
+此扩展程序需要您的权限来观察页面导航，以便将您重定向到目标目的地。当扩展程序请求这些权限时，您的浏览器会显示此警报。因此，如果您不允许，扩展程序将无法运行。
 
-授予的权限将仅用于重定向等应用功能，并符合 **[隐私政策](/privacy-policy)**。
+授予的权限将仅用于应用功能（如重定向），并符合 **[隐私政策](/privacy-policy)**。
 
 ### 为什么此扩展程序需要新的权限？ {/* #permission-alert-on-safari */}
 
@@ -125,65 +135,61 @@ import TOCInline from "@theme/TOCInline";
 
 <img
   src={require("/img/safari-additional-permission-alert.webp").default}
-  alt="指示扩展程序已关闭的警报"
+  alt="指示扩展程序已被关闭的警报"
   width="280"
 />
 
-> “RedirectWeb”已更新，正在请求其他权限。为了保护您的隐私，此扩展程序已关闭。
+> “RedirectWeb”已更新并正在请求其他权限。为了保护您的隐私，此扩展程序已被关闭。
 >
 > 您可以在 Safari 设置的“扩展”部分开启此扩展程序。
 
-这是由于版本 7 中引入的 [DNR](/rule-settings#type) 类型需要 [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) 权限。请重新启用该扩展程序。给您带来的不便，我们深表歉意。
+这是由于第 7 版中引入的 [DNR](/rule-settings#type) 类型需要 [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) 权限。请重新启用该扩展程序。对此造成的不便，我们深表歉意。
 
-### RedirectWeb 是否会向网站注入广告或其他无关内容？ {/* #does-it-inject-ads */}
+### RedirectWeb 是否会在网站中注入广告或其他无关内容？ {/* #does-it-inject-ads */}
 
-不，它不会注入任何此类内容。只有在 Safari 上向网站注入了提供本文档和 App Store 页面中描述的功能所必需的代码。
+不，它不会注入任何此类内容。只有为本文件和 App Store 页面中描述的功能所必需的代码才会被注入到 Safari 上的网站中。
 
-### 有没有可能 RedirectWeb 会被卖给别人？ {/* #could-it-be-sold */}
+### RedirectWeb 有没有可能被卖给其他人？ {/* #could-it-be-sold */}
 
-100% 不会。浏览器扩展程序对您的浏览和数据拥有深度控制权，将 RedirectWeb 交给另一个所有者将为隐私侵犯打开大门。我们见过一些扩展程序易手后，在没有警告的情况下收集用户数据或注入广告。这种情况永远不会在这里发生。有关这些风险的更多信息，请参阅 Matt Frisbie 的文章[《浏览器变现的丑陋生意》(The Ugly Business of Monetizing Browser)](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser)和 Brian Krebs 的调查[《您的浏览器扩展程序是僵尸网络后门吗？》(Is Your Browser Extension a Botnet Backdoor?)](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)。
+100% 不可能。浏览器扩展程序对您的浏览和数据拥有深度控制权，将 RedirectWeb 转交给另一个所有者会为侵犯隐私打开大门。我们见过一些扩展程序易主后，在没有警告的情况下收集用户数据或注入广告。这在这里永远不会发生。有关这些风险的更多信息，请参阅 Matt Frisbie 的文章[《实现浏览器货币化的丑陋生意》(The Ugly Business of Monetizing Browser)](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) 和 Brian Krebs 的调查[《您的浏览器扩展程序是僵尸网络后门吗？》(Is Your Browser Extension a Botnet Backdoor?)](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/)。
 
-RedirectWeb 建立在信任和责任之上。我们认为保护您的信息安全是我们的职责，并且在任何情况下都拒绝转让所有权。RedirectWeb 将始终留在我们手中，因此您可以完全放心地浏览。
+RedirectWeb 建立在信任和责任之上。我们认为保护您的信息安全是我们的职责，并且我们拒绝在任何情况下转让所有权。RedirectWeb 将永远掌握在我们手中，因此您可以完全放心地浏览。
 
 ## 平台与浏览器
 
 ### 在为 Chrome、Firefox 或 Edge 安装扩展程序后，我还需要获取应用吗？ {/* #app-for-non-safari-browsers */}
 
-是的。无论您使用哪种浏览器，都必须从 [App Store 下载 RedirectWeb 应用](https://apps.apple.com/app/id1571283503)。您可以从浏览器的扩展商店安装扩展程序，但需要该应用通过 iCloud 在不同设备间管理您的规则、购买历史记录和其他设置。
+是的。无论您使用哪种浏览器，都必须[从 App Store 下载 RedirectWeb 应用](https://apps.apple.com/app/id1571283503)。您可以从浏览器的扩展商店安装扩展程序，但需要通过应用来管理您的规则、购买历史记录以及通过 iCloud 实现的跨设备设置。
 
-### 如果我使用 Pro 版应用，我是否需要为 Chrome、Firefox 或 Edge 安装不同的扩展程序？ {/* #different-extension-for-pro */}
+### 如果我使用 Pro 应用，Chrome、Firefox 或 Edge 是否需要不同的扩展程序？ {/* #different-extension-for-pro */}
 
-不。无论您在 Mac 上使用的是标准版 RedirectWeb 应用还是 RedirectWeb Pro，都应该从浏览器的相应扩展商店安装完全相同的扩展程序。扩展程序将自动检测并与您安装的任何版本的应用进行通信。
+不需要。无论您是在 Mac 上使用标准版 RedirectWeb 应用还是 RedirectWeb Pro，您都应该从浏览器各自的扩展商店安装完全相同的扩展程序。扩展程序将自动检测并与您安装的任何应用版本进行通信。
 
 ### RedirectWeb 是否可以在 Windows、Android、Linux 或任何其他平台上运行？ {/* #non-apple-platforms */}
 
-目前还不支持。RedirectWeb 与 Apple 的生态系统（包括 iCloud 和通用购买）紧密结合。给您带来的不便，我们深表歉意。
+目前不行。RedirectWeb 与 Apple 的生态系统（包括 iCloud 和通用购买）紧密相连。对此造成的不便，我们深表歉意。
 
-## 方案与价格
+## 方案与定价
 
-### RedirectWeb 和 RedirectWeb Pro 有什么区别？ {/* #difference-between-standard-and-pro */}
+### RedirectWeb 和 RedirectWeb Pro 之间有什么区别？ {/* #difference-between-standard-and-pro */}
 
-这两个版本提供完全相同的功能，并同时接收更新。唯一的区别是支付模式：
+两个版本提供完全相同的功能并同步接收更新。唯一的区别在于付费模式：
 
-- **RedirectWeb**：一个具有基础功能的免费应用（限制为 **1 条激活规则**），提供可选的应用内购买（订阅或一次性付款）以解锁所有功能，包括无限规则和 iCloud 同步。
-- **RedirectWeb Pro**：一个付费的、功能完全解锁的应用。此版本是专门为符合 **Apple 商务管理** 和 **Apple 校园教务管理 (VPP)** 的资格而创建的，允许组织批量购买应用，而这通过应用内购买是无法实现的。当然，任何喜欢预付款购买的人都可以购买它！
+- **RedirectWeb**: 一个具有基础功能的免费应用（限制为 **1 条活动规则**），提供可选的应用内购买（订阅或一次性付费）以解锁所有功能，包括无限规则和 iCloud 同步。
+- **RedirectWeb Pro**: 一个付费的、功能完全解锁的应用。此版本是专门为符合 **Apple Business Manager** 和 **Apple School Manager (VPP)** 的资格而创建的，允许组织批量购买该应用，而应用内购买则无法实现这一点。当然，任何喜欢预先付费的人也可以购买它！
 
-### 一次性购买、年度订阅还是 Pro 版本：哪个最好？ {/* #one-time-or-subscription-or-pro */}
+### 一次性购买、年度订阅还是 Pro 版本：哪种最好？ {/* #one-time-or-subscription-or-pro */}
 
-我们建议在标准版 RedirectWeb 应用内进行一次性购买，或者购买 RedirectWeb Pro，因为它们提供相同的价值。
-我们提供订阅的主要原因是通过其免费试用来允许您尝试所有功能。以下是预期的使用场景：
+我们推荐在标准版 RedirectWeb 应用内进行一次性购买，或者直接购买 RedirectWeb Pro，因为它们提供相同的价值。
+我们提供订阅的主要原因是让您可以通过免费试用来体验所有功能。以下是预期的使用场景：
 
 1. 在标准版 RedirectWeb 应用中订阅年度订阅。
-2. 立即取消订阅，方法是前往“设置”应用，搜索“订阅”，选择 RedirectWeb，然后点击“取消订阅”。这让您可以享受免费试用而无需任何承诺。
-3. 在 7 天内享受所有功能的完全访问权限。
+2. 立即取消订阅：前往“设置”应用，搜索“订阅”，选择 RedirectWeb，然后点击“取消订阅”。这让您可以享受免费试用而无需任何承诺。
+3. 在 7 天内享受所有功能的完整访问权限。
 4. 如果您喜欢这些功能，请选择一次性购买或购买 Pro 版本。
 
 当然，如果您愿意，继续年度订阅也没有任何问题！
 
-### 库的内容将来会收费吗？ {/* #will-library-become-paid */}
-
-不，它永远免费。您也可以在[此处](https://github.com/mshibanami/redirect-web/tree/main/library)找到所有内容的源代码。
-
 ## 进一步协助
 
-如果在尝试上述解决方案后仍然遇到问题，请[联系我们](/contact-us)。
+如果在尝试上述解决方案后仍遇到问题，请[联系我们](/contact-us)。

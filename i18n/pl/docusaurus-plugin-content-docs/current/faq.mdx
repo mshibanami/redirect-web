@@ -16,9 +16,9 @@ import TOCInline from "@theme/TOCInline";
 
 ### Dlaczego moja reguła nie działa? {/* #redirection-not-working */}
 
-Jeśli utworzona przez Ciebie reguła nie uruchamia się zgodnie z oczekiwaniami, sprawdź następujące kwestie:
+Jeśli utworzona przez Ciebie reguła nie działa zgodnie z oczekiwaniami, sprawdź następujące kwestie:
 
-- **Czy rozszerzenie jest włączone?:** Upewnij się, że zainstalowałeś rozszerzenie przeglądarki RedirectWeb i że jest ono włączone w Twojej przeglądarce dla strony internetowej, z której chcesz przekierować. Jeśli możesz otworzyć popup rozszerzenia w ten sposób, oznacza to, że jest ono poprawnie włączone:
+- **Czy rozszerzenie jest włączone?:** Upewnij się, że zainstalowałeś rozszerzenie przeglądarki RedirectWeb i że jest ono włączone w Twojej przeglądarce dla strony internetowej, z której chcesz przekierować. Jeśli możesz otworzyć popup rozszerzenia w ten sposób, oznacza to, że jest ono włączone poprawnie:
 
       <Image
 
@@ -31,7 +31,7 @@ Jeśli utworzona przez Ciebie reguła nie uruchamia się zgodnie z oczekiwaniami
   > [!TIP]
   > \[Safari\] Dla Twojej wygody zalecamy zezwolenie na dostęp do wszystkich stron internetowych. (To tylko wskazówka!)
 
-- **Czy konfiguracja reguły jest poprawna?:** Sprawdź dwukrotnie swoje reguły przekierowań w natywnej aplikacji RedirectWeb. Upewnij się, że wzorce adresów URL źródłowych, docelowe adresy URL i wszelkie warunki są poprawnie skonfigurowane. Aby sprawdzić, czy Twoja reguła jest prawidłowa, dodaj przykładowy adres URL w sekcji Przykłady na ekranie Edycji Reguły. Jeśli Twoja reguła jest prawidłowa, zobaczysz oczekiwany docelowy adres URL pod wprowadzonymi danymi, w ten sposób:
+- **Czy konfiguracja Twojej reguły jest poprawna?:** Sprawdź dwukrotnie swoje reguły przekierowań w aplikacji natywnej RedirectWeb. Upewnij się, że wzorce adresów URL źródłowych, docelowe adresy URL oraz wszelkie warunki są poprawnie skonfigurowane. Aby sprawdzić, czy Twoja reguła jest prawidłowa, dodaj przykładowy adres URL w sekcji Przykłady na ekranie Edycji Reguły. Jeśli Twoja reguła jest prawidłowa, zobaczysz oczekiwany docelowy adres URL pod wpisanymi danymi, w ten sposób:
 
   <Image
     src={RuleEditExampleResult}
@@ -40,7 +40,7 @@ Jeśli utworzona przez Ciebie reguła nie uruchamia się zgodnie z oczekiwaniami
     hasShadow
   />
 
-### Mój zakup nie został przywrócony nawet po kliknięciu "Przywróć zakup" {/* #purchase-not-restored */}
+### Mój zakup nie został przywrócony nawet po dotknięciu „Przywróć zakup” {/* #purchase-not-restored */}
 
 Jeśli przycisk Przywróć zakup nie działa zgodnie z oczekiwaniami, wykonaj następujące kroki rozwiązywania problemów:
 
@@ -48,10 +48,10 @@ Jeśli przycisk Przywróć zakup nie działa zgodnie z oczekiwaniami, wykonaj na
 2. Upewnij się, że Apple ID aktualnie zalogowany w **aplikacji App Store** jest tym samym, który został użyty do pierwotnego zakupu.
    > [!NOTE]
    >
-   > Konto zalogowane w aplikacji Ustawienia urządzenia może czasami różnić się od tego używanego w aplikacji App Store. To właśnie konto w aplikacji App Store musi zgadzać się z historią zakupów, aby przywracanie działało poprawnie.
+   > Konto zalogowane w aplikacji Ustawienia urządzenia może czasem różnić się od konta używanego w aplikacji App Store. To konto w aplikacji App Store musi zgadzać się z historią zakupów, aby przywracanie działało poprawnie.
 3. Jeśli masz wiele identyfikatorów Apple ID, wyloguj się z App Store i zaloguj ponownie na właściwe konto, a następnie spróbuj ponownie użyć przycisku Przywróć zakup.
 
-Jeśli konta się zgadzają, a przywracanie nadal kończy się niepowodzeniem, [skontaktuj się z nami](/contact-us), przesyłając zrzut ekranu paragonu lub historii zakupów. Zbadamy tę sprawę dla Ciebie.
+Jeśli konta się zgadzają, ale przywracanie nadal się nie udaje, [skontaktuj się z nami](/contact-us) z dołączonym zrzutem ekranu paragonu lub historii zakupów. Zbadamy sprawę dalej.
 
 ### Popup rozszerzenia wyświetla błąd {/* #error-shown-in-extension-popup */}
 
@@ -66,7 +66,7 @@ Jeśli konta się zgadzają, a przywracanie nadal kończy się niepowodzeniem, [
 > Aplikacja RedirectWeb nie została zainstalowana lub nie działa prawidłowo.  
 > Pobierz aplikację z App Store.
 
-Jeśli widzisz powyższy błąd po otwarciu popupu rozszerzenia, oznacza to, że natywna aplikacja RedirectWeb nie jest zainstalowana lub nie działa prawidłowo.
+Jeśli widzisz powyższy błąd podczas otwierania popupu rozszerzenia, oznacza to, że natywna aplikacja RedirectWeb nie jest zainstalowana lub nie działa poprawnie.
 
 Upewnij się, że zainstalowałeś najnowszą wersję RedirectWeb z [App Store](https://apps.apple.com/app/id1571283503).
 
@@ -74,12 +74,12 @@ Może być również konieczne ponowne uruchomienie przeglądarki po zainstalowa
 
 > [!NOTE]
 >
-> - Aby korzystać z rozszerzenia przeglądarki, musisz zainstalować natywną aplikację RedirectWeb. Samo rozszerzenie nie działa.
-> - Użytkownicy Safari nie muszą instalować rozszerzenia oddzielnie, ponieważ jest ono dołączone do aplikacji natywnej.
+> - Aby korzystać z rozszerzenia przeglądarki, musisz zainstalować aplikację natywną RedirectWeb. Samo rozszerzenie nie działa.
+> - Użytkownicy Safari nie muszą instalować rozszerzenia osobno, ponieważ jest ono dołączone do aplikacji natywnej.
 
-### Oryginalna strona mignie krótko przed przekierowaniem {/* #original-page-flash */}
+### Oryginalna strona miga krótko przed przekierowaniem {/* #original-page-flash */}
 
-Dzieje się tak, gdy używasz reguł przekierowania typu **Original**. Ten typ zapewnia różne zaawansowane funkcje, ale może powodować krótkie mignięcie oryginalnej strony, ponieważ może pozwolić na jej załadowanie przed wykonaniem przekierowania.
+Dzieje się tak, gdy używasz reguł przekierowania typu **Original**. Ten typ oferuje różne zaawansowane funkcje, ale może powodować krótkie mignięcie oryginalnej strony, ponieważ może pozwolić na jej załadowanie przed wykonaniem przekierowania.
 
 Otwórz ekran Edycji Reguły i zmień **Typ** na **DNR**, aby uniknąć tego problemu.
 
@@ -92,18 +92,28 @@ Otwórz ekran Edycji Reguły i zmień **Typ** na **DNR**, aby uniknąć tego pro
 />
 
 > [!NOTE]
-> W przeglądarce Firefox ten problem nie powinien występować nawet w przypadku typu Original, ponieważ opiera się on na interfejsie API WebRequest, który zapobiega ładowaniu oryginalnej strony.
+> W Firefoksie ten problem nie powinien występować nawet przy typie Original, ponieważ opiera się on na API WebRequest, które zapobiega załadowaniu oryginalnej strony.
+
+## Biblioteka reguł
+
+### Jeśli reguła w bibliotece zostanie zaktualizowana, czy moja pobrana kopia zostanie zaktualizowana automatycznie? {/* #library-rule-updates */}
+
+Obecnie nie. Kiedy pobierasz regułę z biblioteki, jest to jednorazowa kopia dodana do Twojej listy. Wszelkie późniejsze aktualizacje reguły w bibliotece nie zostaną automatycznie zastosowane do Twojej kopii. Aby korzystać z najnowszej wersji reguły, pobierz ją ponownie z biblioteki.
+
+### Czy zawartość biblioteki stanie się płatna w przyszłości? {/* #will-library-become-paid */}
+
+Nie, zawsze jest bezpłatna. Źródło wszystkich treści można również znaleźć [tutaj](https://github.com/mshibanami/redirect-web/tree/main/library).
 
 ## Prywatność i bezpieczeństwo
 
-### Dlaczego powinienem pozwolić rozszerzeniu na czytanie/zmianę moich informacji? {/* #why-allow-extension-to-read-change */}
+### Dlaczego powinienem zezwolić rozszerzeniu na czytanie/zmianę moich informacji? {/* #why-allow-extension-to-read-change */}
 
-Podczas konfiguracji RedirectWeb możesz zobaczyć alert taki jak ten:
+Podczas konfiguracji RedirectWeb możesz zobaczyć taki alert:
 
 <IfBrowserStore stores='appStore'>
     <Image src={PermissionAlertSafari} alt="Alert wymagający uprawnień" width="200" margin="0 0 16px 0" hasShadow />
 
-    > To rozszerzenie będzie mogło czytać i zmieniać strony internetowe oraz przeglądać historię przeglądania na tej stronie. **Może to obejmować wrażliwe informacje, w tym hasła, numery telefonów i karty kredytowe.**
+    > To rozszerzenie będzie mogło czytać i zmieniać strony internetowe oraz widzieć Twoją historię przeglądania na tej stronie. **Może to obejmować poufne informacje, w tym hasła, numery telefonów i karty kredytowe.**
 
 </IfBrowserStore>
 
@@ -115,7 +125,7 @@ Podczas konfiguracji RedirectWeb możesz zobaczyć alert taki jak ten:
 
 </IfBrowserStore>
 
-To rozszerzenie potrzebuje Twojej zgody na obserwowanie nawigacji na stronie, aby mogło przekierować Cię do celu. Twoja przeglądarka wyświetla ten alert, gdy rozszerzenie żąda tych uprawnień. Dlatego jeśli na to nie pozwolisz, rozszerzenie nie będzie mogło działać.
+To rozszerzenie potrzebuje Twojej zgody na obserwowanie nawigacji po stronach, aby mogło przekierować Cię do miejsca docelowego. Twoja przeglądarka wyświetla ten alert, gdy rozszerzenie prosi o te uprawnienia. Dlatego jeśli na to nie pozwolisz, rozszerzenie nie będzie mogło działać.
 
 Przyznane uprawnienia będą wykorzystywane wyłącznie do funkcji aplikacji, takich jak przekierowanie, zgodnie z **[polityką prywatności](/privacy-policy)**.
 
@@ -125,39 +135,39 @@ W Safari po aktualizacji RedirectWeb możesz zobaczyć ten alert:
 
 <img
   src={require("/img/safari-additional-permission-alert.webp").default}
-  alt="Alert wskazujący, że rozszerzenie zostało wyłączone"
+  alt="Alert informujący o wyłączeniu rozszerzenia"
   width="280"
 />
 
-> „RedirectWeb” został zaktualizowany i prosi o dodatkowe uprawnienia. Aby chronić Twoją prywatność, to rozszerzenie zostało wyłączone.
+> Rozszerzenie „RedirectWeb” zostało zaktualizowane i wymaga dodatkowych uprawnień. Aby chronić Twoją prywatność, rozszerzenie zostało wyłączone.
 >
 > Możesz włączyć to rozszerzenie w sekcji Rozszerzenia w Ustawieniach Safari.
 
-Wynika to z uprawnienia [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) wymaganego przez typ [DNR](/rule-settings#type) wprowadzony w wersji 7. Prosimy o ponowne włączenie rozszerzenia. Przepraszamy za niedogodności.
+Wynika to z uprawnienia [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension) wymaganego przez typ [DNR](/rule-settings#type) wprowadzonego w wersji 7. Prosimy o ponowne włączenie rozszerzenia. Przepraszamy za niedogodności.
 
 ### Czy RedirectWeb wstrzykuje reklamy lub inne niepowiązane treści do stron internetowych? {/* #does-it-inject-ads */}
 
-Nie, nie wstrzykuje żadnych takich treści. Do stron internetowych w Safari wstrzykiwany jest wyłącznie kod niezbędny do zapewnienia funkcji opisanych w niniejszej dokumentacji oraz na stronie App Store.
+Nie, nie wstrzykuje żadnych takich treści. Do stron internetowych w Safari wstrzykiwany jest wyłącznie kod niezbędny do zapewnienia funkcji opisanych w tej dokumentacji oraz na stronie w App Store.
 
 ### Czy istnieje szansa, że RedirectWeb zostanie kiedykolwiek sprzedany komuś innemu? {/* #could-it-be-sold */}
 
-W 100% nie. Rozszerzenia przeglądarki mają głęboką kontrolę nad Twoim przeglądaniem i danymi, a przekazanie RedirectWeb innemu właścicielowi otworzyłoby drzwi do naruszeń prywatności. Widzieliśmy przypadki, w których rozszerzenia zmieniały właścicieli, a następnie gromadziły dane użytkowników lub wstrzykiwały reklamy bez ostrzeżenia. Tutaj to się nigdy nie wydarzy. Więcej o tych zagrożeniach przeczytasz w artykule Matta Frisbiego [„The Ugly Business of Monetizing Browser”](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) oraz w dochodzeniu Briana Krebsa [„Is Your Browser Extension a Botnet Backdoor?”](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+W 100% nie. Rozszerzenia przeglądarki mają głęboką kontrolę nad Twoim przeglądaniem i danymi, a przekazanie RedirectWeb innemu właścicielowi otworzyłoby drzwi do naruszeń prywatności. Widzieliśmy przypadki, w których rozszerzenia zmieniały właściciela, a następnie bez ostrzeżenia zbierały dane użytkowników lub wstrzykiwały reklamy. Tutaj to się nigdy nie wydarzy. Więcej o tych zagrożeniach przeczytasz w artykule Matta Frisbiego [„The Ugly Business of Monetizing Browser”](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) oraz w dochodzeniu Briana Krebsa [„Is Your Browser Extension a Botnet Backdoor?”](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-RedirectWeb opiera się na zaufaniu i odpowiedzialności. Uważamy za nasz obowiązek dbanie o bezpieczeństwo Twoich informacji i odmawiamy przeniesienia własności w żadnych okolicznościach. RedirectWeb zawsze pozostanie w naszych rękach, dzięki czemu możesz przeglądać sieć z pełnym zaufaniem.
+RedirectWeb opiera się na zaufaniu i odpowiedzialności. Uważamy za nasz obowiązek dbanie o bezpieczeństwo Twoich informacji i odmawiamy przeniesienia własności w jakichkolwiek okolicznościach. RedirectWeb zawsze pozostanie w naszych rękach, dzięki czemu możesz przeglądać internet z pełnym zaufaniem.
 
 ## Platformy i przeglądarki
 
-### Czy nadal muszę pobrać aplikację po zainstalowaniu rozszerzenia dla Chrome, Firefox lub Edge? {/* #app-for-non-safari-browsers */}
+### Czy nadal powinienem pobrać aplikację po zainstalowaniu rozszerzenia dla Chrome, Firefox lub Edge? {/* #app-for-non-safari-browsers */}
 
-Tak. Musisz pobrać [aplikację RedirectWeb z App Store](https://apps.apple.com/app/id1571283503) niezależnie od używanej przeglądarki. Możesz zainstalować rozszerzenie ze sklepu z rozszerzeniami swojej przeglądarki, ale aplikacja jest wymagana do zarządzania regułami, historią zakupów i innymi ustawieniami na różnych urządzeniach za pośrednictwem iCloud.
+Tak. Musisz pobrać [aplikację RedirectWeb z App Store](https://apps.apple.com/app/id1571283503) niezależnie od tego, jakiej przeglądarki używasz. Możesz zainstalować rozszerzenie ze sklepu z rozszerzeniami swojej przeglądarki, ale aplikacja jest wymagana do zarządzania regułami, historią zakupów i innymi ustawieniami na różnych urządzeniach za pośrednictwem iCloud.
 
-### Czy potrzebuję innego rozszerzenia dla Chrome, Firefox lub Edge, jeśli używam aplikacji Pro? {/* #different-extension-for-pro */}
+### Czy potrzebuję innego rozszerzenia dla Chrome, Firefox lub Edge, jeśli korzystam z aplikacji Pro? {/* #different-extension-for-pro */}
 
-Nie. Niezależnie od tego, czy używasz standardowej aplikacji RedirectWeb, czy RedirectWeb Pro na komputerze Mac, powinieneś zainstalować dokładnie to samo rozszerzenie z odpowiedniego sklepu z rozszerzeniami Twojej przeglądarki. Rozszerzenie automatycznie wykryje i połączy się z zainstalowaną wersją aplikacji.
+Nie. Niezależnie od tego, czy używasz standardowej aplikacji RedirectWeb, czy RedirectWeb Pro na komputerze Mac, powinieneś zainstalować to samo rozszerzenie z odpowiedniego sklepu z rozszerzeniami swojej przeglądarki. Rozszerzenie automatycznie wykryje i połączy się z zainstalowaną wersją aplikacji.
 
 ### Czy RedirectWeb działa na systemach Windows, Android, Linux lub innych platformach? {/* #non-apple-platforms */}
 
-Obecnie nie. RedirectWeb jest ściśle powiązany z ekosystemem Apple, w tym iCloud i Universal Purchase. Przepraszamy za niedogodności.
+Obecnie nie. RedirectWeb jest ściśle powiązany z ekosystemem Apple, w tym z iCloud i Universal Purchase. Przepraszamy za niedogodności.
 
 ## Plany i ceny
 
@@ -166,24 +176,20 @@ Obecnie nie. RedirectWeb jest ściśle powiązany z ekosystemem Apple, w tym iCl
 Obie wersje oferują dokładnie te same funkcje i otrzymują aktualizacje jednocześnie. Jedyną różnicą jest model płatności:
 
 - **RedirectWeb**: Darmowa aplikacja z podstawowymi funkcjami (ograniczona do **1 aktywnej reguły**), oferująca opcjonalny zakup w aplikacji (subskrypcja lub płatność jednorazowa), aby odblokować wszystkie funkcje, w tym nieograniczoną liczbę reguł i synchronizację iCloud.
-- **RedirectWeb Pro**: Płatna, w pełni odblokowana aplikacja. Ta wersja została stworzona specjalnie po to, aby kwalifikować się do programów **Apple Business Manager** oraz **Apple School Manager (VPP)**, co pozwala organizacjom na masowy zakup aplikacji, co nie jest możliwe w przypadku zakupów w aplikacji. Jednak każdy, kto preferuje zakup z góry, może go dokonać!
+- **RedirectWeb Pro**: Płatna, w pełni odblokowana aplikacja. Ta wersja została stworzona specjalnie po to, aby kwalifikować się do programów **Apple Business Manager** i **Apple School Manager (VPP)**, co pozwala organizacjom na zbiorczy zakup aplikacji, co nie jest możliwe w przypadku zakupów wewnątrz aplikacji. Jednak każdy, kto preferuje zakup z góry, może ją kupić!
 
-### Zakup jednorazowy, subskrypcja roczna czy wersja Pro: Co jest najlepsze? {/* #one-time-or-subscription-or-pro */}
+### Zakup jednorazowy, subskrypcja roczna czy wersja Pro: co jest najlepsze? {/* #one-time-or-subscription-or-pro */}
 
-Zalecamy albo zakup jednorazowy w ramach standardowej aplikacji RedirectWeb, albo zakup RedirectWeb Pro, ponieważ oferują one tę samą wartość.
-Głównym powodem, dla którego oferujemy subskrypcję, jest umożliwienie wypróbowania wszystkich funkcji w ramach bezpłatnego okresu próbnego. Oto przewidywany scenariusz użycia:
+Polecamy albo zakup jednorazowy w ramach standardowej aplikacji RedirectWeb, albo zakup RedirectWeb Pro, ponieważ oferują one tę samą wartość.
+Głównym powodem, dla którego oferujemy subskrypcję, jest umożliwienie wypróbowania wszystkich funkcji w ramach bezpłatnego okresu próbnego. Oto oczekiwany scenariusz użycia:
 
 1. Wykup roczną subskrypcję w standardowej aplikacji RedirectWeb.
-2. Natychmiast anuluj subskrypcję, przechodząc do aplikacji Ustawienia, wyszukując „Subskrypcje”, wybierając RedirectWeb i dotykając „Anuluj subskrypcję”. Pozwala to cieszyć się bezpłatnym okresem próbnym bez żadnych zobowiązań.
+2. Natychmiast anuluj subskrypcję, przechodząc do aplikacji Ustawienia, wyszukując „Subskrypcje”, wybierając RedirectWeb i dotykając „Anuluj subskrypcję”. Pozwala to na korzystanie z bezpłatnego okresu próbnego bez żadnych zobowiązań.
 3. Ciesz się pełnym dostępem do wszystkich funkcji przez 7 dni.
 4. Jeśli funkcje Ci się spodobają, zdecyduj się na zakup jednorazowy lub kup wersję Pro.
 
-Oczywiście nie ma nic złego w kontynuowaniu rocznej subskrypcji, jeśli wolisz!
-
-### Czy zawartość biblioteki stanie się płatna w przyszłości? {/* #will-library-become-paid */}
-
-Nie, zawsze jest darmowa. Możesz również znaleźć źródło wszystkich treści [tutaj](https://github.com/mshibanami/redirect-web/tree/main/library).
+Oczywiście nie ma nic złego w kontynuowaniu subskrypcji rocznej, jeśli tak wolisz!
 
 ## Dalsza pomoc
 
-Jeśli po wypróbowaniu powyższych rozwiązań nadal występują problemy, [skontaktuj się z nami](/contact-us).
+Jeśli po wypróbowaniu powyższych rozwiązań nadal masz problemy, [skontaktuj się z nami](/contact-us).

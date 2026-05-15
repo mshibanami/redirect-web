@@ -18,7 +18,7 @@ import TOCInline from "@theme/TOCInline";
 
 Če se pravilo, ki ste ga ustvarili, ne sproži po pričakovanjih, preverite naslednje:
 
-- **Ali je razširitev omogočena?:** Prepričajte se, da ste namestili razširitev brskalnika RedirectWeb in da je v brskalniku omogočena za spletno stran, s katere želite preusmeriti. Če lahko odprete pojavno okno razširitve, kot je tole, je pravilno omogočena:
+- **Ali je razširitev omogočena?:** Prepričajte se, da ste namestili razširitev brskalnika RedirectWeb in da je v brskalniku omogočena za spletno stran, s katere želite preusmeriti. Če lahko odprete pojavno okno razširitve, kot je prikazano spodaj, je razširitev pravilno omogočena:
 
       <Image
 
@@ -29,9 +29,9 @@ import TOCInline from "@theme/TOCInline";
   />
 
   > [!TIP]
-  > \[Safari\] Za vaše udobje priporočamo omogočanje dostopa do vseh spletnih mest. (Samo namig!)
+  > \[Safari\] Za vaše udobje priporočamo, da dovolite dostop do vseh spletnih mest. (Samo nasvet!)
 
-- **Ali je konfiguracija vašega pravila pravilna?:** Dvakrat preverite svoja pravila preusmeritve v izvorni aplikaciji RedirectWeb. Prepričajte se, da so vzorci izvornih URL-jev, ciljni URL-ji in vsi pogoji pravilno nastavljeni. Če želite preveriti, ali je vaše pravilo veljavno ali ne, dodajte primer URL-ja v razdelku Primeri na zaslonu Uredi pravilo. Če je vaše pravilo veljavno, boste pod svojim vnosom videli pričakovani ciljni URL, takole:
+- **Ali je konfiguracija vašega pravila pravilna?:** Ponovno preverite svoja pravila za preusmeritev v izvorni aplikaciji RedirectWeb. Prepričajte se, da so vzorci izvornih URL-jev, ciljni URL-ji in vsi pogoji pravilno nastavljeni. Če želite preveriti, ali je vaše pravilo veljavno ali ne, dodajte primer URL-ja v razdelku Primeri na zaslonu Uredi pravilo. Če je vaše pravilo veljavno, boste pod svojim vnosom videli pričakovani ciljni URL, takole:
 
   <Image
     src={RuleEditExampleResult}
@@ -40,46 +40,46 @@ import TOCInline from "@theme/TOCInline";
     hasShadow
   />
 
-### Moj nakup ni obnovljen niti po tem, ko sem tapnil "Obnovi nakup" {/* #purchase-not-restored */}
+### Moj nakup ni obnovljen niti po pritisku na "Obnovi nakup" {/* #purchase-not-restored */}
 
 Če gumb Obnovi nakup ne deluje po pričakovanjih, sledite tem korakom za odpravljanje težav:
 
-1. Prijavite se na [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/), da potrdite, da je bila transakcija uspešno zaključena in je navedena v zgodovini vašega Apple ID-ja.
-2. Prepričajte se, da je Apple ID, s katerim ste trenutno prijavljeni v **aplikacijo App Store**, isti, kot ste ga uporabili za prvotni nakup.
+1. Prijavite se na [https://reportaproblem.apple.com/](https://reportaproblem.apple.com/), da potrdite, da je bila transakcija uspešno zaključena in je navedena v vaši zgodovini Apple ID.
+2. Prepričajte se, da je Apple ID, ki je trenutno vpisan v **aplikacijo App Store**, isti, kot je bil uporabljen za prvotni nakup.
    > [!NOTE]
    >
-   > Račun, s katerim ste prijavljeni v aplikacijo Nastavitve v svoji napravi, se lahko včasih razlikuje od tistega, ki se uporablja v aplikaciji App Store. Za pravilno delovanje obnove se mora z vašo zgodovino nakupov ujemati račun v aplikaciji App Store.
-3. Če imate več Apple ID-jev, se odjavite iz App Store in se znova prijavite s pravilnim računom, nato pa poskusite znova pritisniti gumb Obnovi nakup.
+   > Račun, ki je vpisan v aplikaciji Nastavitve vaše naprave, se lahko včasih razlikuje od tistega, ki se uporablja v aplikaciji App Store. Za pravilno delovanje obnove se mora ujemati račun v aplikaciji App Store.
+3. Če imate več Apple ID-jev, se odjavite iz App Store in se ponovno prijavite s pravilnim računom, nato pa ponovno poskusite z gumbom Obnovi nakup.
 
-Če se računa ujemata, vendar obnova še vedno ne uspe, nas [kontaktirajte](/contact-us) s posnetkom zaslona vašega računa ali zgodovine nakupov. Težavo bomo dodatno raziskali za vas.
+Če se računa ujemata, vendar obnova še vedno ne uspe, nas [kontaktirajte](/contact-us) s posnetkom zaslona vašega računa ali zgodovine nakupov. Težavo bomo podrobneje raziskali.
 
 ### Pojavno okno razširitve prikazuje napako {/* #error-shown-in-extension-popup */}
 
 <Image
   src={ErrorOverlay}
-  alt="Prekrivna plast napake RedirectWeb"
+  alt="Prekrivna plast z napako RedirectWeb"
   width="260"
   hasShadow
   hasRoundedCorners
 />
 
 > Aplikacija RedirectWeb ni bila nameščena ali ne deluje pravilno.  
-> Prosimo, pridobite aplikacijo v trgovini App Store.
+> Prosimo, prenesite aplikacijo iz trgovine App Store.
 
-Če ob odpiranju pojavnega okna razširitve vidite zgornjo napako, to pomeni, da izvorna aplikacija RedirectWeb ni nameščena ali ne deluje pravilno.
+Če pri odpiranju pojavnega okna razširitve vidite zgornjo napako, to pomeni, da izvorna aplikacija RedirectWeb ni nameščena ali ne deluje pravilno.
 
-Prepričajte se, da ste namestili najnovejšo različico RedirectWeb iz [App Store](https://apps.apple.com/app/id1571283503).
+Prepričajte se, da ste namestili najnovejšo različico RedirectWeb iz trgovine [App Store](https://apps.apple.com/app/id1571283503).
 
 Morda boste morali po namestitvi izvorne aplikacije ponovno zagnati brskalnik.
 
 > [!NOTE]
 >
-> - Za uporabo razširitve brskalnika morate namestiti izvorno aplikacijo RedirectWeb. Sama razširitev ne deluje.
+> - Za uporabo razširitve brskalnika morate namestiti izvorno aplikacijo RedirectWeb. Razširitev sama po sebi ne deluje.
 > - Uporabnikom Safarija razširitve ni treba nameščati posebej, saj je priložena izvorni aplikaciji.
 
-### Prvotna stran za kratek čas utripne pred preusmeritvijo {/* #original-page-flash */}
+### Prvotna stran na kratko utripne pred preusmeritvijo {/* #original-page-flash */}
 
-To se zgodi, ko uporabljate pravila preusmeritve tipa **Original**. Ta tip ponuja različne napredne funkcije, vendar lahko povzroči kratek utrip prvotne strani, ker lahko dovoli, da se prvotna stran naloži pred izvedbo preusmeritve.
+To se zgodi, ko uporabljate pravila preusmeritve tipa **Original**. Ta tip ponuja različne napredne funkcije, vendar lahko povzroči kratek utrip prvotne strani, ker se prvotna stran lahko naloži, preden se izvede preusmeritev.
 
 Odprite zaslon Uredi pravilo in spremenite **Tip** v **DNR**, da se izognete tej težavi.
 
@@ -94,16 +94,26 @@ Odprite zaslon Uredi pravilo in spremenite **Tip** v **DNR**, da se izognete tej
 > [!NOTE]
 > V Firefoxu se ta težava ne bi smela pojaviti niti pri tipu Original, saj se zanaša na API WebRequest, ki preprečuje nalaganje prvotne strani.
 
+## Knjižnica pravil
+
+### Če se pravilo v knjižnici posodobi, ali se bo moja prenesena kopija posodobila samodejno? {/* #library-rule-updates */}
+
+Trenutno ne. Ko pridobite pravilo iz knjižnice, se v vaš seznam doda enkratna kopija. Vse naknadne posodobitve pravila v knjižnici se ne bodo samodejno uveljavile v vaši kopiji. Če želite uporabiti najnovejšo različico pravila, ga ponovno pridobite iz knjižnice.
+
+### Ali bodo vsebine knjižnice v prihodnosti postale plačljive? {/* #will-library-become-paid */}
+
+Ne, vedno bodo brezplačne. Vir vseh vsebin lahko najdete tudi [tukaj](https://github.com/mshibanami/redirect-web/tree/main/library).
+
 ## Zasebnost in varnost
 
-### Zakaj bi moral razširitvi dovoliti branje/spreminjanje mojih podatkov? {/* #why-allow-extension-to-read-change */}
+### Zakaj bi moral razširitvi dovoliti branje/spreminjanje svojih podatkov? {/* #why-allow-extension-to-read-change */}
 
-Ob nastavitvi RedirectWeb lahko vidite takšno opozorilo:
+Pri nastavitvi RedirectWeb boste morda videli takšno opozorilo:
 
 <IfBrowserStore stores='appStore'>
     <Image src={PermissionAlertSafari} alt="Opozorilo, ki zahteva dovoljenje" width="200" margin="0 0 16px 0" hasShadow />
 
-    > Ta razširitev bo lahko brala in spreminjala spletne strani ter videla vašo zgodovino brskanja na tem spletnem mestu. **To bi lahko vključevalo občutljive podatke, vključno z gesli, telefonskimi številkami in kreditnimi karticami.**
+    > Ta razširitev bo lahko brala in spreminjala spletne strani ter videla vašo zgodovino brskanja na tem spletnem mestu. **To lahko vključuje občutljive podatke, vključno z gesli, telefonskimi številkami in kreditnimi karticami.**
 
 </IfBrowserStore>
 
@@ -115,17 +125,17 @@ Ob nastavitvi RedirectWeb lahko vidite takšno opozorilo:
 
 </IfBrowserStore>
 
-Ta razširitev potrebuje vaše dovoljenje za spremljanje navigacije po straneh, da vas lahko preusmeri na vaš cilj. Vaš brskalnik prikaže to opozorilo, ko razširitev zahteva ta dovoljenja. Če torej tega ne dovolite, razširitev ne more delovati.
+Ta razširitev potrebuje vaše dovoljenje za opazovanje navigacije po straneh, da vas lahko preusmeri na vaš cilj. Vaš brskalnik prikaže to opozorilo, ko razširitev zahteva ta dovoljenja. Če torej tega ne dovolite, razširitev ne more delovati.
 
 Podeljena dovoljenja bodo uporabljena samo za funkcije aplikacije, kot je preusmeritev, v skladu s **[politiko zasebnosti](/privacy-policy)**.
 
 ### Zakaj ta razširitev zahteva novo dovoljenje? {/* #permission-alert-on-safari */}
 
-V Safariju lahko po posodobitvi RedirectWeb vidite to opozorilo:
+V Safariju boste po posodobitvi RedirectWeb morda videli to opozorilo:
 
 <img
   src={require("/img/safari-additional-permission-alert.webp").default}
-  alt="Opozorilo, ki nakazuje, da je bila razširitev izklopljena"
+  alt="Opozorilo, ki navaja, da je bila razširitev izklopljena"
   width="280"
 />
 
@@ -133,57 +143,53 @@ V Safariju lahko po posodobitvi RedirectWeb vidite to opozorilo:
 >
 > To razširitev lahko vklopite v razdelku Razširitve v nastavitvah Safarija.
 
-To je posledica dovoljenja [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension), ki ga zahteva tip [DNR](/rule-settings#type), uveden v različici 7. Ponovno omogočite razširitev. Opravičujemo se za nevšečnosti.
+To je posledica dovoljenja [declarativeNetRequestWithHostAccess](https://developer.apple.com/documentation/safariservices/safari_web_extensions/blocking_content_with_your_safari_web_extension), ki ga zahteva tip [DNR](/rule-settings#type), uveden v različici 7. Prosimo, ponovno omogočite razširitev. Opravičujemo se za nevšečnosti.
 
-### Ali RedirectWeb v spletna mesta vstavlja oglase ali drugo nepovezano vsebino? {/* #does-it-inject-ads */}
+### Ali RedirectWeb v spletna mesta vbrizgava oglase ali drugo nepovezano vsebino? {/* #does-it-inject-ads */}
 
-Ne, ne vstavlja nobene takšne vsebine. V spletna mesta v Safariju se vstavi samo koda, ki je potrebna za zagotavljanje funkcij, opisanih v tej dokumentaciji in na strani trgovine App Store.
+Ne, ne vbrizgava nobene takšne vsebine. V spletna mesta v Safariju se vbrizga samo koda, ki je potrebna za zagotavljanje funkcij, opisanih v tej dokumentaciji in na strani App Store.
 
-### Ali obstaja kakšna možnost, da bi bil RedirectWeb kdaj prodan nekomu drugemu? {/* #could-it-be-sold */}
+### Ali obstaja kakšna možnost, da bi bil RedirectWeb kdaj prodan komu drugemu? {/* #could-it-be-sold */}
 
-100-odstotno ne. Razširitve brskalnika imajo globok nadzor nad vašim brskanjem in podatki, predaja RedirectWeb drugemu lastniku pa bi odprla vrata kršitvam zasebnosti. Videli smo razširitve, ki so zamenjale lastnika in nato brez opozorila zbirale podatke uporabnikov ali vstavljale oglase. To se tukaj ne bo nikoli zgodilo. Za več o teh tveganjih si oglejte članek Matta Frisbieja ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) in preiskavo Briana Krebsa ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
+100-odstotno ne. Razširitve brskalnika imajo globok nadzor nad vašim brskanjem in podatki, predaja RedirectWeb drugemu lastniku pa bi odprla vrata kršitvam zasebnosti. Videli smo primere, ko so razširitve zamenjale lastnika in nato brez opozorila zbirale uporabniške podatke ali vbrizgavale oglase. To se tukaj nikoli ne bo zgodilo. Več o teh tveganjih si preberite v članku Matta Frisbieja ["The Ugly Business of Monetizing Browser"](https://mattfrisbie.substack.com/p/the-ugly-business-of-monetizing-browser) in preiskavi Briana Krebsa ["Is Your Browser Extension a Botnet Backdoor?"](https://krebsonsecurity.com/2021/03/is-your-browser-extension-a-botnet-backdoor/).
 
-RedirectWeb temelji na zaupanju in odgovornosti. Smatramo, da je naša dolžnost varovati vaše podatke, in zavračamo prenos lastništva pod kakršnimi koli pogoji. RedirectWeb bo vedno ostal v naših rokah, tako da lahko brskate s popolnim zaupanjem.
+RedirectWeb temelji na zaupanju in odgovornosti. Smatramo, da je naša dolžnost varovati vaše podatke, zato pod nobenim pogojem ne bomo prenesli lastništva. RedirectWeb bo vedno ostal v naših rokah, tako da lahko brskate s popolnim zaupanjem.
 
 ## Platforme in brskalniki
 
-### Ali naj si vseeno priskrbim aplikacijo po namestitvi razširitve za Chrome, Firefox ali Edge? {/* #app-for-non-safari-browsers */}
+### Ali moram še vedno prenesti aplikacijo po namestitvi razširitve za Chrome, Firefox ali Edge? {/* #app-for-non-safari-browsers */}
 
-Da. Prenesti morate [aplikacijo RedirectWeb iz trgovine App Store](https://apps.apple.com/app/id1571283503) ne glede na to, kateri brskalnik uporabljate. Razširitev lahko namestite iz trgovine z razširitvami svojega brskalnika, vendar je aplikacija potrebna za upravljanje vaših pravil, zgodovine nakupov in drugih nastavitev v napravah prek iCloud.
+Da. Prenesti morate [aplikacijo RedirectWeb iz trgovine App Store](https://apps.apple.com/app/id1571283503) ne glede na to, kateri brskalnik uporabljate. Razširitev lahko namestite iz trgovine z razširitvami vašega brskalnika, vendar je aplikacija potrebna za upravljanje vaših pravil, zgodovine nakupov in drugih nastavitev v napravah prek iCloud.
 
-### Ali potrebujem drugo razširitev za Chrome, Firefox ali Edge, če uporabljam aplikacijo Pro? {/* #different-extension-for-pro */}
+### Ali potrebujem drugačno razširitev za Chrome, Firefox ali Edge, če uporabljam aplikacijo Pro? {/* #different-extension-for-pro */}
 
 Ne. Ne glede na to, ali na svojem Macu uporabljate standardno aplikacijo RedirectWeb ali RedirectWeb Pro, morate namestiti popolnoma isto razširitev iz ustrezne trgovine z razširitvami vašega brskalnika. Razširitev bo samodejno zaznala in komunicirala s tisto različico aplikacije, ki jo imate nameščeno.
 
-### Ali RedirectWeb deluje na sistemih Windows, Android, Linux ali katerih koli drugih platformah? {/* #non-apple-platforms */}
+### Ali RedirectWeb deluje na Windows, Android, Linux ali katerih koli drugih platformah? {/* #non-apple-platforms */}
 
-Trenutno ne. RedirectWeb je tesno povezan z Applovim ekosistemom, vključno z iCloud in univerzalnim nakupom (Universal Purchase). Opravičujemo se za nevšečnosti.
+Trenutno ne. RedirectWeb je tesno povezan z Applovim ekosistemom, vključno z iCloud in univerzalnim nakupom. Opravičujemo se za nevšečnosti.
 
 ## Paketi in cene
 
 ### Kakšna je razlika med RedirectWeb in RedirectWeb Pro? {/* #difference-between-standard-and-pro */}
 
-Obe različici ponujata popolnoma iste funkcije in hkrati prejemata posodobitve. Edina razlika je v plačilnem modelu:
+Obe različici ponujata popolnoma enake funkcije in hkrati prejemata posodobitve. Edina razlika je v plačilnem modelu:
 
-- **RedirectWeb**: Brezplačna aplikacija z osnovnimi funkcijami (omejena na **1 aktivno pravilo**), ki ponuja neobvezne nakupe v aplikaciji (naročnina ali enkratno plačilo) za odklenitev vseh funkcij, vključno z neomejenimi pravili in sinhronizacijo iCloud.
-- **RedirectWeb Pro**: Plačljiva, popolnoma odklenjena aplikacija. Ta različica je bila ustvarjena posebej zato, da bi bila primerna za **Apple Business Manager** in **Apple School Manager (VPP)**, kar organizacijam omogoča množičen nakup aplikacije, kar z nakupi v aplikaciji ni mogoče. Lahko pa jo kupi vsak, ki ima raje plačilo vnaprej!
+- **RedirectWeb**: Brezplačna aplikacija z osnovnimi funkcijami (omejena na **1 aktivno pravilo**), ki ponuja izbirni nakup v aplikaciji (naročnina ali enkratno plačilo) za odklenitev vseh funkcij, vključno z neomejenimi pravili in sinhronizacijo iCloud.
+- **RedirectWeb Pro**: Plačljiva, popolnoma odklenjena aplikacija. Ta različica je bila ustvarjena posebej za to, da je primerna za **Apple Business Manager** in **Apple School Manager (VPP)**, kar organizacijam omogoča množičen nakup aplikacije, kar pri nakupih v aplikaciji ni mogoče. Lahko pa jo kupi kdorkoli, ki ima raje takojšen nakup!
 
-### Enkratni nakup, letna naročnina ali različica Pro: katera je najboljša? {/* #one-time-or-subscription-or-pro */}
+### Enkratni nakup, letna naročnina ali različica Pro: Kaj je najboljše? {/* #one-time-or-subscription-or-pro */}
 
-Priporočamo bodisi enkratni nakup znotraj standardne aplikacije RedirectWeb bodisi nakup RedirectWeb Pro, saj ponujata enako vrednost.
-Glavni razlog, da ponujamo naročnino, je, da vam omogočimo preizkus vseh funkcij prek brezplačnega preizkusnega obdobja. Tukaj je pričakovani primer uporabe:
+Priporočamo enkratni nakup znotraj standardne aplikacije RedirectWeb ali nakup RedirectWeb Pro, saj ponujata enako vrednost.
+Glavni razlog, zakaj ponujamo naročnino, je, da vam omogočimo preizkus vseh funkcij prek brezplačnega preizkusnega obdobja. Tukaj je pričakovan primer uporabe:
 
 1. Naročite se na letno naročnino v standardni aplikaciji RedirectWeb.
-2. Takoj prekličite naročnino tako, da odprete aplikacijo Nastavitve, poiščete "Naročnine", izberete RedirectWeb in tapnete "Prekliči naročnino". To vam omogoča, da uživate v brezplačnem preizkusu brez kakršne koli obveznosti.
-3. Uživajte v polnem dostopu do vseh funkcij 7 dni.
+2. Naročnino takoj prekličite tako, da odprete aplikacijo Nastavitve, poiščete "Naročnine", izberete RedirectWeb in pritisnete "Prekliči naročnino". To vam omogoča uporabo brezplačnega preizkusnega obdobja brez kakršne koli obveznosti.
+3. 7 dni uživajte v polnem dostopu do vseh funkcij.
 4. Če so vam funkcije všeč, se odločite za enkratni nakup ali kupite različico Pro.
 
-Seveda ni nič narobe, če nadaljujete z letno naročnino, če želite!
+Seveda ni nič narobe, če nadaljujete z letno naročnino, če vam je to ljubše!
 
-### Ali bodo vsebine knjižnice v prihodnosti postale plačljive? {/* #will-library-become-paid */}
+## Dodatna pomoč
 
-Ne, vedno so brezplačne. Vir vseh vsebin lahko najdete tudi [tukaj](https://github.com/mshibanami/redirect-web/tree/main/library).
-
-## Nadaljnja pomoč
-
-Če imate po poskusu zgornjih rešitev še vedno težave, nas [kontaktirajte](/contact-us).
+Če imate po preizkusu zgornjih rešitev še vedno težave, nas [kontaktirajte](/contact-us).
