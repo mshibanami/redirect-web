@@ -1,0 +1,65 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "4",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "captureGroupProcesses": [
+        {
+          "groupIndex": 1,
+          "process": {
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": ".+"
+            },
+            "replacement": "?tweet=$0"
+          }
+        },
+        {
+          "groupIndex": 2,
+          "process": {
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": ".+"
+            },
+            "replacement": "twitter-search?q=$0&type=tweets"
+          }
+        },
+        {
+          "groupIndex": 3,
+          "process": {
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": ".+"
+            },
+            "replacement": "&type=$0"
+          }
+        }
+      ],
+      "comments": "This allows you to redirect from X (Twitter) to Twitter Viewer (twitterwebviewer.com).\n\n**Twitter Viewer** is a web-based alternative for viewing public Twitter content without logging in or creating an account. It allows you to browse public profiles, tweets, replies, photos, and videos, as well as search for tweets and users.",
+      "commentsOptions": {
+        "format": "markdown"
+      },
+      "destinationURLPattern": "https://twitterwebviewer.com/$1$2$3$4",
+      "exampleURLs": [
+        "https://x.com/ngntrtr/status/1922142036292968487",
+        "https://x.com/ngntrtr/status/1922142036292968487?utm_source=xxx",
+        "https://x.com/search?f=tweets&q=a%20new%20hand%20touches%20the%20beacon"
+      ],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https://(?:x|twitter).com/(?:(?:i/web/status|[A-Za-z0-9_]+/status)/([0-9]+)(?:[/?#].*)?|search\\?(?=[^#]*\\bq=([^&#]+))[^#]*(?:#.*)?|([A-Za-z0-9_]+)/?(?:[?#].*)?)"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "X (Twitter) → Twitter Viewer",
+      "type": "originalRedirect"
+    }
+  ]
+}
