@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")/.."
 
-readonly model="gemini-3-flash-preview"
+readonly model="Gemini 3.7 Flash (Medium)"
 readonly allTargetLangs=(
   "bg"
   "cs"
@@ -95,10 +95,9 @@ for lang in "${targetLangs[@]}"; do
     fi
     
     echo "[Parallel] Starting translation for: $lang"
-    gemini --model "$model" \
-      --approval-mode yolo \
+    agy --model "$model" \
+      --dangerously-skip-permissions \
       --output-format text \
-      --include-directories "${PWD}" \
       --prompt "$prompt"
     echo "[Parallel] Finished translation for: $lang"
   ) &
