@@ -17,8 +17,57 @@
           }
         },
         {
+          "groupIndex": 1,
           "process": {
-            "id": "nothing"
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": "search-advanced"
+            },
+            "replacement": "twitter-advanced-search"
+          }
+        },
+        {
+          "groupIndex": 1,
+          "process": {
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": "hashtag/([^/?#]+)"
+            },
+            "replacement": "twitter-advanced-search?q=%23$1"
+          }
+        },
+        {
+          "groupIndex": 1,
+          "process": {
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": "([A-Za-z0-9_]+)/media"
+            },
+            "replacement": "twitter-advanced-search?q=from%3A$1%20filter%3Amedia"
+          }
+        },
+        {
+          "groupIndex": 1,
+          "process": {
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": "([A-Za-z0-9_]+)/(?:with_replies|followers|following|likes|lists|communities|highlights|articles)"
+            },
+            "replacement": "$1"
+          }
+        },
+        {
+          "process": {
+            "id": "replaceOccurrences",
+            "matchingPattern": {
+              "type": "regularExpression",
+              "value": "(?:home|explore(?:/.*)?)"
+            },
+            "replacement": ""
           }
         }
       ],
@@ -31,13 +80,17 @@
         "https://x.com/ngntrtr/status/1922142036292968487",
         "https://x.com/ngntrtr/status/1922142036292968487?utm_source=xxx",
         "https://x.com/search?f=tweets&q=%22a%20new%20hand%20touches%20the%20beacon%22",
-        "https://x.com/ngntrtr"
+        "https://x.com/ngntrtr",
+        "https://x.com/home",
+        "https://x.com/hashtag/WWDC",
+        "https://x.com/NASA/followers",
+        "https://x.com/NASA/media"
       ],
       "excludeURLPatterns": [],
       "kind": "Redirect",
       "sourceURLPattern": {
         "type": "regularExpression",
-        "value": "^https://(?:x|twitter)\\.com/(search\\?(?=[^#]*\\bq=[^&#]+)[^#]*|[A-Za-z0-9_]+/status/[0-9]+|[A-Za-z0-9_]+)(?:[/?#].*)?$"
+        "value": "https://(?:x|twitter)\\.com/(?:(search\\?(?=[^#]*\\bq=[^&#]+)[^#]*|search-advanced|hashtag/[^/?#]+|home|explore(?:/[^?#]*)?|[A-Za-z0-9_]+/status/[0-9]+|[A-Za-z0-9_]+/(?:media|with_replies|followers|following|likes|lists|communities|highlights|articles)|(?!(?:notifications|messages|settings|compose|intent|i|search|search-advanced|hashtag|home|explore|login|logout|signup|account|bookmarks)(?:[/?#]|$))[A-Za-z0-9_]+))?(?:[/?#].*)?"
       },
       "targetBrowserOptions": {
         "browsers": [],
