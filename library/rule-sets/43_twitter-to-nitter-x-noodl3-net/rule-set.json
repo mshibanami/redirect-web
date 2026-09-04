@@ -1,0 +1,31 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "4",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "captureGroupProcesses": [],
+      "comments": "This allows you to redirect from X (Twitter) to x.noodl3.net, which is powered by Nitter.\n\n**Nitter** is a free and open-source alternative Twitter front-end focused on privacy and performance.\n\nx.noodl3.net is just one of many Nitter instances. You can find other instances here:\n\n- https://status.d420.de\n- https://github.com/zedeus/nitter/wiki/Instances\n",
+      "commentsOptions": {
+        "format": "markdown"
+      },
+      "destinationURLPattern": "https://x.noodl3.net/$1",
+      "exampleURLs": [
+        "https://x.com/UN/status/1841123718212284495",
+        "https://twitter.com/search?f=tweets&q=world"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https://(?:x|twitter).com/(.*)"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "X (Twitter) → Nitter (x.noodl3.net)",
+      "type": "originalRedirect"
+    }
+  ]
+}
