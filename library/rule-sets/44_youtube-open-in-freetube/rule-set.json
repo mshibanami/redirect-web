@@ -1,0 +1,46 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "4",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "appURL": "file:///Applications/FreeTube.app",
+      "captureGroupProcesses": [],
+      "comments": "This rule opens YouTube links in the FreeTube app automatically.\n\n**FreeTube** is an open-source desktop YouTube client built with privacy in mind. It lets you watch YouTube without ads and without Google tracking you.\n\n⬇️ **Download the FreeTube app:**  \nhttps://freetubeapp.io/#download",
+      "commentsOptions": {
+        "format": "markdown"
+      },
+      "destinationURLPattern": "freetube://$0",
+      "exampleURLs": [
+        "https://www.youtube.com/watch?v=lXKDu6cdXLI",
+        "https://m.youtube.com/watch?v=lXKDu6cdXLI",
+        "https://youtu.be/lXKDu6cdXLI?t=42",
+        "https://www.youtube.com/shorts/lXKDu6cdXLI",
+        "https://www.youtube.com/live/lXKDu6cdXLI",
+        "https://www.youtube.com/playlist?list=PLgKCjZ2WsVLS1xisCnw_DpTg52sy7upu_",
+        "https://www.youtube.com/watch?v=gjoKKyskco4&list=PLgKCjZ2WsVLS1xisCnw_DpTg52sy7upu_",
+        "https://www.youtube.com/@YouTube/videos",
+        "https://www.youtube.com/channel/UCBR8-60-B28hp2BmDPdntcQ",
+        "https://www.youtube.com/hashtag/music",
+        "https://www.youtube.com/results?search_query=freetube",
+        "https://www.youtube.com/feed/subscriptions",
+        "https://www.youtube.com/feed/history",
+        "https://music.youtube.com/watch?v=lXKDu6cdXLI",
+        "https://www.youtube.com/clip/UgkxU2HSeGL_NvmDJ-nQJrlLwllwMDBdGZFs",
+        "https://www.youtube.com/@YouTube/posts"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https://(?:(?:www\\.|m\\.)?youtube\\.com/(?:(?:watch\\?(?:.*&)?v=[\\w-]{11}|playlist/?\\?(?:.*&)?list=|results\\?(?:.*&)?search_query=).*|(?:(?:shorts|live|embed)/(?!live_stream\\b)[\\w-]+|hashtag/[^/?#&]+|(?:post|clip)/[^/?#]+|(?:(?:channel|c|user)/|@)[^/?#]+(?:/(?:join|featured|videos|shorts|live|streams|podcasts|releases|courses|playlists|about|community|posts|channels))?/?)(?:[?#].*)?)|youtu\\.be/[\\w-]{11}(?:[?#].*)?)"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "YouTube: Open in FreeTube",
+      "type": "originalRedirect"
+    }
+  ]
+}
