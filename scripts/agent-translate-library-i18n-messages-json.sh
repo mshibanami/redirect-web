@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")/.."
 
-readonly model="Gemini 3.7 Flash (Medium)"
+readonly model="Gemini 3.8 Flash (Low)"
 readonly allTargetLangs=(
   "bg"
   "cs"
