@@ -1,0 +1,42 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "4",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "appURL": "file:///Applications/Spotify.app",
+      "captureGroupProcesses": [],
+      "comments": "This rule opens Spotify links in the Spotify app automatically.\n\n⬇️ **Download the Spotify app:**  \nhttps://www.spotify.com/download/",
+      "commentsOptions": {
+        "format": "markdown"
+      },
+      "destinationURLPattern": "spotify:$1:$2",
+      "exampleURLs": [
+        "https://open.spotify.com/track/6rqhFgbbKwnb9MLmUQDhG6",
+        "https://open.spotify.com/track/6rqhFgbbKwnb9MLmUQDhG6?si=0123456789abcdef",
+        "https://open.spotify.com/intl-ja/track/6rqhFgbbKwnb9MLmUQDhG6",
+        "https://open.spotify.com/album/4aawyAB9vmqN3uQ7FjRGTy",
+        "https://open.spotify.com/intl-de/album/4aawyAB9vmqN3uQ7FjRGTy?highlight=spotify:track:6rqhFgbbKwnb9MLmUQDhG6",
+        "https://open.spotify.com/artist/0TnOYISbd1XYRBk9myaseg",
+        "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M",
+        "https://open.spotify.com/user/spotify/playlist/37i9dQZF1DXcBWIGoYBM5M",
+        "https://open.spotify.com/show/5CfCWKI5pZ28U0uOzXkDHe",
+        "https://open.spotify.com/episode/512ojhOuo1ktJprKbVcKyQ?t=120",
+        "https://open.spotify.com/user/spotify",
+        "https://open.spotify.com/search/daft%20punk"
+      ],
+      "excludeURLPatterns": [],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https://open\\.spotify\\.com/(?:intl-[\\w-]+/)?(?:user/[^/?#]+/)?(track|album|artist|playlist|show|episode|user|search)/([^/?#]+)/?(?:[?#].*)?"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "Spotify: Open in Spotify App",
+      "type": "originalRedirect"
+    }
+  ]
+}
