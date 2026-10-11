@@ -1,6 +1,6 @@
 # 与其他工具的比较
 
-RedirectWeb 有许多功能相似的工具。RedirectWeb 并非要取代它们，而是要补充它们。以下是一些比较。
+有几个工具与 RedirectWeb 的功能有所重叠。RedirectWeb 旨在与它们协同工作，本页将它与各个工具进行对比。
 
 > [!NOTE]
 > 这些比较基于 2025 年 10 月的状态。如果您发现任何过时信息或错误，请[联系我们](/contact-us)。谢谢！🙏
@@ -9,43 +9,42 @@ RedirectWeb 有许多功能相似的工具。RedirectWeb 并非要取代它们�
 
 Redirector 是一个很棒的浏览器重定向扩展。它完全免费且开源，并且也适用于非 Apple 平台。但 RedirectWeb 还有一些您可能会喜欢的功能：
 
-- **详细的规则设置：** 支持多个排除模式、多个进程匹配以及仅在 RedirectWeb 中可用的字符串替换功能。
-- **在原生应用中打开：** 在 Mac 上，您可以选择在哪里打开目标 URL。它直接调用 `open` 命令（而不是深度链接）。
-- **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) 支持：** 提供闪电般的重定向速度。
-- **集中式规则管理：** 通过原生应用在一个地方管理所有浏览器的规则。
-- **Manifest V3 和 V2 支持：** RedirectWeb 在基于 Chromium 的浏览器上支持 V3，在 Firefox 上支持 MV2，允许使用与 Redirector 相同的 API，以实现灵活性和效率。
-- **Safari 支持：** RedirectWeb 支持 iOS 和 macOS 上的 Safari；Redirector 不支持。
+- 规则可以包含多个排除模式和多个处理匹配，并且字符串替换功能仅在 RedirectWeb 中可用。
+- 在 Mac 上，您可以选择由哪个原生应用打开目标 URL。RedirectWeb 直接调用 `open` 命令（而不是深度链接）。
+- 它支持 [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/)，这让重定向速度更快。
+- 您可以在原生应用这一个地方统一管理所有浏览器的规则。
+- 它在基于 Chromium 的浏览器上使用 Manifest V3，在 Firefox 上使用 V2（在此可以使用与 Redirector 相同的 API）。
+- 它支持 iOS 和 macOS 上的 Safari。Redirector 则不支持。
 
-我们非常尊重 Redirector，并提供它也能处理的重定向规则的导入/导出功能，因此您可以灵活地在它们之间切换。有关更多详细信息，请参阅[此处](/export-or-import-rules)。
+我们非常尊重 Redirector，RedirectWeb 可以按照 Redirector 同样支持的格式导入和导出重定向规则，因此您可以在两者之间进行切换。详情请参阅[导出或导入规则](/export-or-import-rules)。
 
 ## 像 [Tampermonkey](https://www.tampermonkey.net/) 或 [Greasemonkey](https://www.greasespot.net/) 这样的用户脚本管理器 {/* #userscript-managers */}
 
-用户脚本管理器非常强大和灵活。您可以用它们做很多事情，包括重定向。但是，与 RedirectWeb 相比，它们有一些缺点：
+用户脚本管理器非常强大且灵活。您可以用它们做很多事情，包括重定向。但是，与 RedirectWeb 相比，它们有一些缺点：
 
-- **复杂性：** 编写和维护脚本可能很复杂且耗时，特别是对于不熟悉编程的用户。RedirectWeb 提供了一个用户友好的界面，无需编码即可创建和管理规则。
-- **安全性：** 用户脚本管理器可能会引入性能开销，特别是如果脚本复杂或未优化。如果编写不当，它们还可能导致无限重定向循环。RedirectWeb 旨在高效且安全。
-- **更新的 API 支持：** 某些用户脚本管理器可能无法访问 Declarative Net Request (DNR) API，该 API 可以提供更快、更高效的重定向。RedirectWeb 支持 DNR 以获得更好的性能。
+- 编写和维护脚本需要花费时间，尤其是如果您不熟悉编程的话。RedirectWeb 让您无需编写代码即可创建和管理规则。
+- 脚本可能会带来性能开销，特别是当它们较为复杂或未经过优化时；编写不当的脚本还可能导致无限重定向循环。RedirectWeb 旨在做到高效且安全。
+- 某些用户脚本管理器可能无法使用 Declarative Net Request (DNR) API，而该 API 重定向速度更快且更高效。RedirectWeb 支持 DNR。
 
 ## Apple 的 [快捷指令](https://support.apple.com/guide/shortcuts/welcome/ios) {/* #why-not-shortcuts */}
 
-快捷指令是 Apple 在 iOS 和 macOS 上提供的强大自动化工具。您可以创建快捷指令来执行各种任务，包括打开 URL。但是，它需要手动触发，并且并非为无缝网页浏览而设计。
+快捷指令是 Apple 为 iOS 和 macOS 提供的自动化工具。您可以为许多任务创建快捷指令，包括打开 URL。但是，您必须手动触发快捷指令，并且快捷指令并不是为了在您浏览网页时重定向页面而设计的。
 
 ## [OpenIn](https://loshadki.app/openin4/) 或 [Velja](https://sindresorhus.com/velja) {/* #openin-or-velja */}
 
-OpenIn 和 Velja 都是浏览器选择器应用，它们也有浏览器扩展，可让您从浏览器中在另一个应用中打开链接。RedirectWeb 也具有浏览器到应用的重定向功能。但是，它们之间存在一些差异：
+OpenIn 和 Velja 都是浏览器选择器应用，它们也提供浏览器扩展，让您可以从浏览器在另一个应用中打开链接。RedirectWeb 也可以从浏览器重定向到应用，但两者在两个方面有所不同：
 
-- **自动重定向：** 它们需要您手动选择其工具栏图标才能在另一个应用中打开链接。RedirectWeb 根据您的规则自动重定向 URL，无需额外步骤。这是处理链接的两种不同方法。
-
-- **跨平台支持：** 虽然它们是为 Mac 设计的，但 RedirectWeb 支持 Mac 上的所有主流浏览器以及 iPhone、iPad 和 Apple Vision Pro 上的 Safari。
+- 使用 OpenIn 和 Velja 时，您需要点击它们的工具栏图标才能在另一个应用中打开链接。RedirectWeb 则会根据您的规则自动重定向 URL。
+- OpenIn 和 Velja 是专为 Mac 设计的。RedirectWeb 支持 Mac 上的所有主流浏览器，以及 iPhone、iPad 和 Apple Vision Pro 上的 Safari。
 
 ## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {/* #stopthemadness */}
 
-StopTheMadness 是一个浏览器扩展，提供各种功能来增强网页浏览，包括重定向。但是，与 RedirectWeb 相比，它有一些限制：
+StopTheMadness 是一个具有许多用于改善网页浏览体验功能的浏览器扩展，其中包括重定向。但是，与 RedirectWeb 相比，它有一些局限性：
 
-- **规则灵活性：** StopTheMadness 的规则配置选项有限。RedirectWeb 提供更详细的规则设置，包括多个排除模式、捕获组处理等。
-- **功能的复杂性：** StopTheMadness 包含许多功能，对于只需要重定向的用户来说可能没有必要。RedirectWeb 专注于重定向。
-- **价格：** StopTheMadness 售价 12-15 美元，没有免费试用或免费计划。RedirectWeb 提供免费计划，包含基本功能，以及包含所有功能的免费试用订阅，以及一杯咖啡价格的一次性购买选项。
+- 它的规则配置选项较为有限。RedirectWeb 具有更详细的规则设置，包括多个排除模式和捕获组处理。
+- 它包含很多功能，如果您只需要重定向，这些功能可能用不上。RedirectWeb 仅专注于重定向。
+- 它的售价为 12–15 美元，没有免费试用或免费方案。RedirectWeb 提供具有基本功能的免费方案、可免费试用所有功能的订阅方案，以及仅需一杯咖啡价格的一次性购买选项。
 
 ## 最后...
 
-上述工具各有优点，您可能会发现它们更适合您的需求。我们鼓励您探索并使用最符合您要求的工具！😊
+这些工具各有千秋，其中某一个可能比 RedirectWeb 更适合您。选择最适合您的工具即可！😊

@@ -1,50 +1,50 @@
 # Összehasonlítás más eszközökkel
 
-Számos eszköz létezik, amelyek hasonló funkciókkal rendelkeznek, mint a RedirectWeb. A RedirectWeb nem próbálja meg helyettesíteni őket, hanem kiegészíteni. Íme néhány összehasonlítás.
+Számos eszköz funkciója fedi egymást a RedirectWebbel. Úgy tervezték, hogy együttműködjön velük, és ez az oldal összehasonlítja mindegyikkel.
 
 > [!NOTE]
-> Ezek az összehasonlítások 2025. októberi állapotot tükrözik. Kérjük, [lépjen kapcsolatba velünk](/contact-us), ha elavult információt vagy hibát talál. Köszönjük! 🙏
+> Ezek az összehasonlítások a 2025. októberi állapoton alapulnak. Kérjük, [lépjen kapcsolatba velünk](/contact-us), ha elavult információt vagy hibát talál. Köszönjük! 🙏
 
 ## [Redirector](https://github.com/einaregilsson/Redirector) {/* #redirector */}
 
-A Redirector egy nagyszerű böngészőbővítmény az átirányításhoz. Teljesen ingyenes és nyílt forráskódú, és nem Apple platformokon is működik. A RedirectWeb azonban rendelkezik néhány extra funkcióval, amelyek tetszhetnek:
+A Redirector egy nagyszerű böngészőbővítmény az átirányításhoz. Teljesen ingyenes és nyílt forráskódú, és nem Apple-platformokon is működik. A RedirectWeb azonban tartalmaz néhány további funkciót, amelyek tetszhetnek:
 
-- **Részletes szabálybeállítások:** Több kizárási mintát, több folyamatillesztést és karakterlánc-cserét támogat, amelyek csak a RedirectWebben érhetők el.
-- **Megnyitás natív alkalmazásokban:** Macen kiválaszthatja, hogy hol nyissa meg a cél URL-t. Közvetlenül az `open` parancsot hívja meg (nem mélylinkelés).
-- **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) támogatás:** Villámgyors átirányítást biztosít.
-- **Központosított szabálykezelés:** Az összes böngészőhöz tartozó szabályokat egy helyen kezelheti a natív alkalmazáson keresztül.
-- **Manifest V3 és V2 támogatás:** A RedirectWeb támogatja a V3-at a Chromium-alapú böngészőkön és az MV2-t a Firefoxon, lehetővé téve ugyanazt az API-t, mint a Redirector a rugalmasság és hatékonyság érdekében.
-- **Safari támogatás:** A RedirectWeb támogatja a Safarit iOS-en és macOS-en; a Redirector nem.
+- A szabályok több kizárási mintát és több egyezésfeldolgozást is tartalmazhatnak, a karakterlánc-helyettesítési funkciók pedig kizárólag a RedirectWebben érhetők el.
+- Macen kiválaszthatja, hogy melyik natív alkalmazás nyissa meg a cél URL-t. A RedirectWeb közvetlenül az `open` parancsot hívja meg (nem mélylinkelést).
+- Támogatja a [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) funkciót, ami gyorsabbá teszi az átirányítást.
+- A szabályokat az összes böngészőhöz egy helyen, a natív alkalmazásban kezelheti.
+- Chromium-alapú böngészőkön a Manifest V3-at, Firefoxon pedig a V2-t használja, ahol ugyanazt az API-t használhatja, mint a Redirector.
+- Támogatja a Safarit iOS-en és macOS-en. A Redirector nem.
 
-Nagyra becsüljük a Redirectort, és kínálunk átirányítási szabályok importálását/exportálását, amelyeket az is kezelni tud, így rugalmasan válthat közöttük. További részletekért lásd [itt](/export-or-import-rules).
+Nagyra becsüljük a Redirectort, és a RedirectWeb képes olyan formátumban importálni és exportálni az átirányítási szabályokat, amelyet a Redirector is kezel, így válthat a kettő között. A részletekért lásd a [Szabályok exportálása vagy importálása](/export-or-import-rules) részt.
 
 ## Felhasználói szkriptkezelők, mint a [Tampermonkey](https://www.tampermonkey.net/) vagy a [Greasemonkey](https://www.greasespot.net/) {/* #userscript-managers */}
 
-A felhasználói szkriptkezelők nagyon erősek és rugalmasak. Sok mindent megtehet velük, beleértve az átirányítást is. Azonban van néhány hátrányuk a RedirectWebhez képest:
+A felhasználói szkriptkezelők rendkívül hatékonyak és rugalmasak. Nagyon sok mindenre használhatók, beleértve az átirányítást is. Azonban van néhány hátrányuk a RedirectWebhez képest:
 
-- **Komplexitás:** A szkriptek írása és karbantartása bonyolult és időigényes lehet, különösen azoknak a felhasználóknak, akik nem ismerik a programozást. A RedirectWeb felhasználóbarát felületet biztosít a szabályok létrehozásához és kezeléséhez kódolás nélkül.
-- **Biztonság:** A felhasználói szkriptkezelők teljesítménybeli többletterhelést okozhatnak, különösen, ha a szkriptek bonyolultak vagy nincsenek optimalizálva. Végtelen átirányítási hurkot is okozhatnak, ha nem gondosan írják meg őket. A RedirectWeb hatékony és biztonságos.
-- **Újabb API támogatás:** Egyes felhasználói szkriptkezelők nem férhetnek hozzá a Declarative Net Request (DNR) API-hoz, amely gyorsabb és hatékonyabb átirányítást biztosíthat. A RedirectWeb támogatja a DNR-t a jobb teljesítmény érdekében.
+- A szkriptek írása és karbantartása időt vesz igénybe, különösen, ha nem jártas a programozásban. A RedirectWeb segítségével kódolás nélkül hozhat létre és kezelhet szabályokat.
+- A szkriptek teljesítménybeli többletterhelést okozhatnak, különösen, ha bonyolultak vagy nincsenek optimalizálva, és egy figyelmetlenül megírt szkript végtelen átirányítási hurkot okozhat. A RedirectWebet úgy tervezték, hogy hatékony és biztonságos legyen.
+- Előfordulhat, hogy egyes felhasználói szkriptkezelők nem férnek hozzá a Declarative Net Request (DNR) API-hoz, amely gyorsabban és hatékonyabban képes átirányítani. A RedirectWeb támogatja a DNR-t.
 
-## Apple [Shortcuts](https://support.apple.com/guide/shortcuts/welcome/ios) {/* #why-not-shortcuts */}
+## Az Apple [Parancsikonok](https://support.apple.com/guide/shortcuts/welcome/ios) funkciója {/* #why-not-shortcuts */}
 
-A Shortcuts az Apple hatékony automatizálási eszköze, amely iOS-en és macOS-en is elérhető. Létrehozhat parancsikonokat különböző feladatok elvégzésére, beleértve az URL-ek megnyitását is. Azonban manuálisan indítható, és nem zökkenőmentes webböngészésre tervezték.
+A Shortcuts az Apple automatizálási eszköze iOS és macOS rendszerekhez. Számos feladathoz hozhat létre parancsikonokat, beleértve az URL-ek megnyitását is. A parancsikonokat azonban manuálisan kell elindítania, és a Shortcuts nem arra készült, hogy böngészés közben átirányítsa az oldalakat.
 
 ## [OpenIn](https://loshadki.app/openin4/) vagy [Velja](https://sindresorhus.com/velja) {/* #openin-or-velja */}
 
-Az OpenIn és a Velja is böngészőválasztó alkalmazások, és böngészőbővítményekkel is rendelkeznek, amelyek lehetővé teszik a linkek megnyitását egy másik alkalmazásban egy böngészőből. A RedirectWeb is rendelkezik böngészőből alkalmazásba történő átirányítási képességgel. Azonban vannak különbségek:
+Az OpenIn és a Velja egyaránt böngészőválasztó alkalmazás, és olyan böngészőbővítményekkel is rendelkeznek, amelyekkel a böngészőből nyithat meg linkeket egy másik alkalmazásban. A RedirectWeb szintén képes átirányítani egy böngészőből egy alkalmazásba, de két dologban különbözik:
 
-- **Automatikus átirányítás:** Manuálisan kell kiválasztania az eszköztár ikonjukat, hogy megnyisson egy linket egy másik alkalmazásban. A RedirectWeb automatikusan átirányítja az URL-eket a szabályai alapján, extra lépések nélkül. Ez a két különböző megközelítés a linkkezeléshez.
-- **Platformfüggetlen támogatás:** Míg ezek Macre készültek, a RedirectWeb támogatja az összes főbb böngészőt Macen, valamint a Safarit iPhone-on, iPaden és Apple Vision Prón.
+- Az OpenIn és a Velja esetében az eszköztár ikonjukra kell kattintania ahhoz, hogy megnyisson egy linket egy másik alkalmazásban. A RedirectWeb a szabályai alapján automatikusan átirányítja az URL-eket.
+- Az OpenIn és a Velja Macre készült. A RedirectWeb támogatja az összes főbb böngészőt Macen, valamint a Safarit iPhone-on, iPaden és Apple Vision Prón.
 
 ## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {/* #stopthemadness */}
 
-A StopTheMadness egy böngészőbővítmény, amely különböző funkciókat biztosít a webböngészés javítására, beleértve az átirányítást is. Azonban vannak korlátai a RedirectWebhez képest:
+A StopTheMadness egy olyan böngészőbővítmény, amely számos funkciót kínál a webböngészés javítására, beleértve az átirányítást is. Azonban van néhány korlátja a RedirectWebhez képest:
 
-- **Szabályrugalmasság:** A StopTheMadness korlátozott szabálykonfigurációs lehetőségekkel rendelkezik. A RedirectWeb részletesebb szabálybeállításokat kínál, beleértve a több kizárási mintát, a csoportos feldolgozást és még sok mást.
-- **Funkciók komplexitása:** A StopTheMadness számos olyan funkciót tartalmaz, amelyekre nem feltétlenül van szükség azoknak a felhasználóknak, akik csak átirányítást szeretnének. A RedirectWeb kizárólag az átirányításra összpontosít.
-- **Ár:** A StopTheMadness 12-15 USD-be kerül ingyenes próbaverzió vagy ingyenes csomag nélkül. A RedirectWeb ingyenes csomagot kínál alapvető funkciókkal, valamint előfizetést az összes funkció ingyenes próbaverziójával, és egyszeri vásárlási lehetőséget egy kávé áráért.
+- A szabálykonfigurációs lehetőségei korlátozottak. A RedirectWeb részletesebb szabálybeállításokkal rendelkezik, beleértve a több kizárási mintát és az illesztési csoportok (capturing groups) feldolgozását.
+- Számos olyan funkciót tartalmaz, amelyekre nincs szüksége, ha csak átirányítást szeretne. A RedirectWeb kizárólag átirányítást végez.
+- 12-15 USD-be kerül, és nincs ingyenes próbaverziója vagy ingyenes csomagja. A RedirectWeb kínál egy ingyenes csomagot az alapvető funkciókkal, egy előfizetést az összes funkció ingyenes próbaverziójával, valamint egy egyszeri vásárlási lehetőséget egy kávé áráért.
 
 ## Végül...
 
-A fenti eszközök a maguk módján nagyszerűek, és lehet, hogy jobban megfelelnek az Ön igényeinek. Javasoljuk, hogy fedezze fel és használja azokat az eszközöket, amelyek a legjobban illeszkednek az Ön igényeihez! 😊
+Ezek az eszközök a maguk módján nagyszerűek, és előfordulhat, hogy valamelyik jobban megfelel Önnek, mint a RedirectWeb. Használja azt, amelyik a leginkább illik az igényeihez! 😊

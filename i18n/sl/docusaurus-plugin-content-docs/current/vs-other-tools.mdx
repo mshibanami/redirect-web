@@ -1,50 +1,50 @@
 # Primerjava z drugimi orodji
 
-Obstajajo različna orodja s podobno funkcionalnostjo kot RedirectWeb. RedirectWeb jih ne poskuša nadomestiti, ampak jih dopolnjuje. Tukaj je nekaj primerjav.
+Več orodij se prekriva z aplikacijo RedirectWeb. Namenjena je delu ob njih, ta stran pa jo primerja z vsakim izmed njih.
 
 > [!NOTE]
-> Te primerjave temeljijo na stanju iz oktobra 2025. Prosimo, [kontaktirajte nas](/contact-us), če najdete kakršne koli zastarele informacije ali napake. Hvala! 🙏
+> Te primerjave temeljijo na stanju iz oktobra 2025. Prosimo, [stopite v stik z nami](/contact-us), če najdete kakršne koli zastarele informacije ali napake. Hvala! 🙏
 
 ## [Redirector](https://github.com/einaregilsson/Redirector) {/* #redirector */}
 
 Redirector je odlična razširitev brskalnika za preusmerjanje. Je popolnoma brezplačen in odprtokoden ter deluje tudi na platformah, ki niso Apple. Vendar ima RedirectWeb nekaj dodatnih funkcij, ki bi vam lahko bile všeč:
 
-- **Podrobne nastavitve pravil:** Podpira več vzorcev izključitev, več obdelav ujemanja in funkcije zamenjave nizov, ki so na voljo samo v RedirectWeb.
-- **Odpiranje v izvornih aplikacijah:** Na Macu lahko izberete, kje se bo odprl ciljni URL. Neposredno kliče ukaz `open` (ne globoko povezovanje).
-- **Podpora za [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Zagotavlja izjemno hitro preusmerjanje.
-- **Centralizirano upravljanje pravil:** Upravljajte pravila za vse brskalnike na enem mestu prek izvorne aplikacije.
-- **Podpora za Manifest V3 in V2:** RedirectWeb podpira V3 v brskalnikih, ki temeljijo na Chromiumu, in MV2 v Firefoxu, kar omogoča uporabo istega API-ja kot Redirector za prilagodljivost in učinkovitost.
-- **Podpora za Safari:** RedirectWeb podpira Safari v sistemih iOS in macOS; Redirector ne.
+- Pravila imajo lahko več vzorcev izključitve in več obdelav ujemanj, funkcije zamenjave nizov pa so na voljo samo v RedirectWeb.
+- Na Macu lahko izberete, katera izvorna aplikacija odpre ciljni URL. RedirectWeb neposredno pokliče ukaz `open` (ne globoko povezovanje).
+- Podpira [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/), kar pospeši preusmerjanje.
+- Pravila za vse brskalnike upravljate na enem mestu, v izvorni aplikaciji.
+- Uporablja Manifest V3 v brskalnikih, ki temeljijo na Chromiumu, in V2 v Firefoxu, kjer lahko uporablja isti API kot Redirector.
+- Podpira Safari v sistemih iOS in macOS. Redirector ga ne.
 
-Zelo spoštujemo Redirector in ponujamo uvoz/izvoz pravil za preusmerjanje, ki jih lahko obravnava tudi on, tako da lahko prožno preklapljate med njima. Več podrobnosti si oglejte [tukaj](/export-or-import-rules).
+Zelo spoštujemo Redirector, RedirectWeb pa lahko uvozi in izvozi pravila za preusmerjanje v obliki, ki jo podpira tudi Redirector, tako da lahko preklapljate med obema. Za podrobnosti glejte [Izvoz ali uvoz pravil](/export-or-import-rules).
 
-## Upravitelji uporabniških skript, kot sta [Tampermonkey](https://www.tampermonkey.net/) ali [Greasemonkey](https://www.greasespot.net/) {/* #userscript-managers */}
+## Upravitelji uporabniških skriptov, kot sta [Tampermonkey](https://www.tampermonkey.net/) ali [Greasemonkey](https://www.greasespot.net/) {/* #userscript-managers */}
 
-Upravitelji uporabniških skript so zelo zmogljivi in prilagodljivi. Z njimi lahko počnete veliko stvari, vključno s preusmerjanjem. Vendar imajo v primerjavi z RedirectWeb nekaj pomanjkljivosti:
+Upravitelji uporabniških skriptov so zelo zmogljivi in prilagodljivi. Z njimi lahko počnete veliko stvari, vključno s preusmerjanjem. Vendar imajo v primerjavi z RedirectWeb nekatere pomanjkljivosti:
 
-- **Kompleksnost:** Pisanje in vzdrževanje skript je lahko kompleksno in dolgotrajno, zlasti za uporabnike, ki niso seznanjeni s programiranjem. RedirectWeb ponuja uporabniku prijazen vmesnik za ustvarjanje in upravljanje pravil brez kodiranja.
-- **Varnost:** Upravitelji uporabniških skript lahko povzročijo stroške delovanja, zlasti če so skripti kompleksni ali niso optimizirani. Prav tako lahko povzročijo neskončno zanko preusmerjanja, če niso skrbno napisani. RedirectWeb je zasnovan tako, da je učinkovit in varen.
-- **Podpora za novejše API-je:** Nekateri upravitelji uporabniških skript morda nimajo dostopa do API-ja Declarative Net Request (DNR), ki lahko zagotovi hitrejše in učinkovitejše preusmerjanje. RedirectWeb podpira DNR za boljšo zmogljivost.
+- Pisanje in vzdrževanje skriptov vzame čas, še posebej, če niste seznanjeni s programiranjem. RedirectWeb vam omogoča ustvarjanje in upravljanje pravil brez programiranja.
+- Skripti lahko povzročijo dodatno obremenitev delovanja, zlasti če so zapleteni ali neoptimizirani, nepazljivo napisan skript pa lahko povzroči neskončno zanko preusmerjanja. RedirectWeb je zasnovan tako, da je učinkovit in varen.
+- Nekateri upravitelji uporabniških skriptov morda nimajo dostopa do API-ja Declarative Net Request (DNR), ki lahko preusmerja hitreje in bolj učinkovito. RedirectWeb podpira DNR.
 
-## Apple's [Shortcuts](https://support.apple.com/guide/shortcuts/welcome/ios) {/* #why-not-shortcuts */}
+## Applov [Shortcuts](https://support.apple.com/guide/shortcuts/welcome/ios) {/* #why-not-shortcuts */}
 
-Shortcuts je Applovo zmogljivo orodje za avtomatizacijo, ki je na voljo v sistemih iOS in macOS. Z njim lahko ustvarite bližnjice za izvajanje različnih nalog, vključno z odpiranjem URL-jev. Vendar se sproži ročno in ni zasnovan za brezhibno brskanje po spletu.
+Shortcuts je Applovo orodje za avtomatizacijo za iOS in macOS. Ustvarite lahko bližnjice za številna opravila, vključno z odpiranjem URL-jev. Vendar morate bližnjico sprožiti ročno, orodje Shortcuts pa ni zasnovano za preusmerjanje strani med brskanjem.
 
 ## [OpenIn](https://loshadki.app/openin4/) ali [Velja](https://sindresorhus.com/velja) {/* #openin-or-velja */}
 
-OpenIn in Velja sta obe aplikaciji za izbiro brskalnika, imata pa tudi razširitve brskalnika, ki vam omogočajo odpiranje povezav v drugi aplikaciji iz brskalnika. RedirectWeb ima tudi zmožnost preusmerjanja iz brskalnika v aplikacijo. Vendar obstajajo nekatere razlike:
+OpenIn in Velja sta aplikaciji za izbiro brskalnika, na voljo pa imata tudi razširitve brskalnika, ki vam omogočajo odpiranje povezav v drugi aplikaciji iz brskalnika. RedirectWeb lahko prav tako preusmeri iz brskalnika v aplikacijo, vendar se razlikuje v dveh pogledih:
 
-- **Samodejno preusmerjanje:** Zahtevata ročno izbiro ikone v orodni vrstici za odpiranje povezave v drugi aplikaciji. RedirectWeb samodejno preusmerja URL-je na podlagi vaših pravil brez dodatnih korakov. To sta dva različna pristopa k obravnavi povezav.
-- **Cross-platform support:** Medtem ko sta zasnovana za Mac, RedirectWeb podpira vse glavne brskalnike na Macu in Safari na iPhonu, iPadu in Apple Vision Pro.
+- Z OpenIn in Velja izberete njuno ikono v orodni vrstici, da odprete povezavo v drugi aplikaciji. RedirectWeb samodejno preusmerja URL-je na podlagi vaših pravil.
+- OpenIn in Velja sta zasnovana za Mac. RedirectWeb podpira vse glavne brskalnike na Macu in Safari na napravah iPhone, iPad ter Apple Vision Pro.
 
 ## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {/* #stopthemadness */}
 
-StopTheMadness je razširitev brskalnika, ki ponuja različne funkcije za izboljšanje brskanja po spletu, vključno s preusmerjanjem. Vendar ima v primerjavi z RedirectWeb nekaj omejitev:
+StopTheMadness je razširitev brskalnika s številnimi funkcijami za izboljšanje brskanja po spletu, vključno s preusmerjanjem. Vendar ima v primerjavi z RedirectWeb nekaj omejitev:
 
-- **Prilagodljivost pravil:** StopTheMadness ima omejene možnosti konfiguracije pravil. RedirectWeb ponuja podrobnejše nastavitve pravil, vključno z več vzorci izključitev, obdelavo zajemalnih skupin in še več.
-- **Kompleksnost funkcij:** StopTheMadness vključuje veliko funkcij, ki morda niso potrebne za uporabnike, ki želijo samo preusmerjanje. RedirectWeb se osredotoča izključno na preusmerjanje.
-- **Cena:** StopTheMadness stane 12-15 USD brez brezplačnega preizkusa ali brezplačnega načrta. RedirectWeb ponuja brezplačen načrt z osnovnimi funkcijami in naročnino z brezplačnim preizkusom vseh funkcij ter možnost enkratnega nakupa za ceno kave.
+- Možnosti konfiguracije njegovih pravil so omejene. RedirectWeb ima podrobnejše nastavitve pravil, vključno z več vzorci izključitve in obdelavo zajemalnih skupin.
+- Vključuje številne funkcije, ki jih morda ne potrebujete, če želite le preusmerjanje. RedirectWeb izvaja le preusmerjanje.
+- Stane 12–15 USD ter nima brezplačnega preizkusa ali brezplačnega paketa. RedirectWeb ponuja brezplačen paket z osnovnimi funkcijami, naročnino z brezplačnim preizkusom vseh funkcij in možnost enkratnega nakupa za ceno kave.
 
-## Nazadnje...
+## Za konec...
 
-Zgoraj omenjena orodja so odlična na svoj način in morda se vam zdijo bolj primerna za vaše potrebe. Spodbujamo vas, da raziščete in uporabite orodja, ki najbolje ustrezajo vašim zahtevam! 😊
+Ta orodja so odlična vsako na svoj način in morda vam katero izmed njih ustreza bolje kot RedirectWeb. Uporabite tisto, ki vam najbolj ustreza! 😊

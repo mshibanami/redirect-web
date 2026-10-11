@@ -1,6 +1,6 @@
 # Comparação com Outras Ferramentas
 
-Existem várias ferramentas com funcionalidade semelhante ao RedirectWeb. O RedirectWeb não tenta substituí-las, mas sim complementá-las. Aqui estão algumas comparações.
+Várias ferramentas coincidem com o RedirectWeb. Ele foi feito para funcionar em conjunto com elas, e esta página compara-o com cada uma.
 
 > [!NOTE]
 > Estas comparações são baseadas no estado de outubro de 2025. Por favor, [entre em contato conosco](/contact-us) se encontrar alguma informação desatualizada ou erros. Obrigado! 🙏
@@ -9,43 +9,42 @@ Existem várias ferramentas com funcionalidade semelhante ao RedirectWeb. O Redi
 
 Redirector é uma ótima extensão de navegador para redirecionamento. É totalmente gratuita e de código aberto, e também funciona em plataformas que não são da Apple. Mas o RedirectWeb tem alguns recursos extras que você pode gostar:
 
-- **Configurações de regra detalhadas:** Suporta múltiplos padrões de exclusão, múltiplos processamentos de correspondências e recursos de substituição de string disponíveis apenas no RedirectWeb.
-- **Abrir em aplicativos nativos:** No Mac, você pode escolher onde abrir a URL de destino. Ele chama o comando `open` diretamente (não é deep linking).
-- **Suporte a [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/):** Oferece redirecionamento extremamente rápido.
-- **Gerenciamento centralizado de regras:** Gerencie regras para todos os navegadores em um só lugar através do aplicativo nativo.
-- **Suporte a Manifest V3 e V2:** O RedirectWeb suporta V3 em navegadores baseados em Chromium e MV2 no Firefox, permitindo o uso da mesma API que o Redirector para flexibilidade e eficiência.
-- **Suporte ao Safari:** O RedirectWeb suporta Safari no iOS e macOS; o Redirector não.
+- As regras podem ter múltiplos padrões de exclusão e múltiplos processamentos de correspondências, e os recursos de substituição de string estão disponíveis apenas no RedirectWeb.
+- No Mac, você pode escolher qual aplicativo nativo abre a URL de destino. O RedirectWeb chama o comando `open` diretamente (não é deep linking).
+- Ele suporta [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/), o que torna o redirecionamento mais rápido.
+- Você gerencia as regras de todos os navegadores em um só lugar, no aplicativo nativo.
+- Ele usa Manifest V3 em navegadores baseados no Chromium e V2 no Firefox, onde pode usar a mesma API que o Redirector.
+- Ele suporta o Safari no iOS e macOS. O Redirector não.
 
-Nós respeitamos muito o Redirector e oferecemos importação/exportação de regras de redirecionamento que ele também pode lidar, para que você possa alternar entre eles de forma flexível. Veja mais detalhes [aqui](/export-or-import-rules).
+Nós respeitamos muito o Redirector, e o RedirectWeb pode importar e exportar regras de redirecionamento em um formato que o Redirector também suporta, para que você possa alternar entre os dois. Consulte [Exportar ou importar regras](/export-or-import-rules) para obter detalhes.
 
 ## Gerenciadores de Userscript como [Tampermonkey](https://www.tampermonkey.net/) ou [Greasemonkey](https://www.greasespot.net/) {/* #userscript-managers */}
 
 Gerenciadores de userscript são muito poderosos e flexíveis. Você pode fazer muitas coisas com eles, incluindo redirecionamento. No entanto, eles têm algumas desvantagens em comparação com o RedirectWeb:
 
-- **Complexidade:** Escrever e manter scripts pode ser complexo e demorado, especialmente para usuários que não estão familiarizados com programação. O RedirectWeb oferece uma interface amigável para criar e gerenciar regras sem codificação.
-- **Segurança:** Gerenciadores de userscript podem introduzir sobrecarga de desempenho, especialmente se os scripts forem complexos ou não otimizados. Eles também podem causar um loop de redirecionamento infinito se não forem escritos com cuidado. O RedirectWeb é projetado para ser eficiente e seguro.
-- **Suporte a API mais recente:** Alguns gerenciadores de userscript podem não ter acesso à API Declarative Net Request (DNR), que pode fornecer redirecionamento mais rápido e eficiente. O RedirectWeb suporta DNR para melhor desempenho.
+- Escrever e manter scripts leva tempo, especialmente se você não estiver familiarizado com programação. O RedirectWeb permite que você crie e gerencie regras sem programar.
+- Os scripts podem adicionar sobrecarga de desempenho, especialmente se forem complexos ou não otimizados, e um script escrito sem cuidado pode causar um loop de redirecionamento infinito. O RedirectWeb foi projetado para ser eficiente e seguro.
+- Alguns gerenciadores de userscript podem não ter acesso à API Declarative Net Request (DNR), que pode redirecionar de forma mais rápida e eficiente. O RedirectWeb suporta DNR.
 
 ## [Atalhos](https://support.apple.com/guide/shortcuts/welcome/ios) da Apple {/* #why-not-shortcuts */}
 
-Atalhos é a poderosa ferramenta de automação da Apple disponível no iOS e macOS. Você pode criar atalhos para realizar várias tarefas, incluindo abrir URLs. No entanto, ele é acionado manualmente e não foi projetado para navegação web contínua.
+O Atalhos é a ferramenta de automação da Apple para iOS e macOS. Você pode criar atalhos para muitas tarefas, incluindo abrir URLs. No entanto, você precisa acionar um atalho manualmente, e o Atalhos não foi projetado para redirecionar páginas enquanto você navega.
 
 ## [OpenIn](https://loshadki.app/openin4/) ou [Velja](https://sindresorhus.com/velja) {/* #openin-or-velja */}
 
-OpenIn e Velja são ambos aplicativos seletores de navegador, e eles também têm extensões de navegador que permitem abrir links em outro aplicativo a partir de um navegador. O RedirectWeb também possui um recurso de redirecionamento de navegador para aplicativo. No entanto, existem algumas diferenças:
+OpenIn e Velja são ambos aplicativos seletores de navegador, e eles também têm extensões de navegador que permitem abrir links em outro aplicativo a partir de um navegador. O RedirectWeb também pode redirecionar de um navegador para um aplicativo, mas se diferencia de duas maneiras:
 
-- **Redirecionamento automático:** Eles exigem que você selecione manualmente o ícone da barra de ferramentas para abrir um link em outro aplicativo. O RedirectWeb redireciona URLs automaticamente com base em suas regras, sem etapas extras. Essas são duas abordagens diferentes para o tratamento de links.
-- **Suporte multiplataforma:** Embora sejam projetados para Mac, o RedirectWeb suporta todos os principais navegadores no Mac e Safari no iPhone, iPad e Apple Vision Pro.
+- Com o OpenIn e o Velja, você seleciona o ícone da barra de ferramentas deles para abrir um link em outro aplicativo. O RedirectWeb redireciona URLs automaticamente com base em suas regras.
+- O OpenIn e o Velja são projetados para Mac. O RedirectWeb suporta todos os principais navegadores no Mac e o Safari no iPhone, iPad e Apple Vision Pro.
 
 ## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {/* #stopthemadness */}
 
-StopTheMadness é uma extensão de navegador que oferece vários recursos para aprimorar a navegação na web, incluindo redirecionamento. No entanto, ele tem algumas limitações em comparação com o RedirectWeb:
+StopTheMadness é uma extensão de navegador com muitos recursos para melhorar a navegação na web, incluindo redirecionamento. No entanto, ela tem algumas limitações em comparação com o RedirectWeb:
 
-- **Flexibilidade de regras:** StopTheMadness tem opções limitadas de configuração de regras. O RedirectWeb oferece configurações de regras mais detalhadas, incluindo múltiplos padrões de exclusão, processamento de grupos de captura e muito mais.
-
-- **Complexidade dos recursos:** StopTheMadness inclui muitos recursos que podem não ser necessários para usuários que desejam apenas redirecionamento. O RedirectWeb se concentra exclusivamente no redirecionamento.
-- **Preço:** StopTheMadness custa 12-15 USD sem um teste gratuito ou um plano gratuito. O RedirectWeb oferece um plano gratuito com recursos básicos, e uma assinatura com um teste gratuito de todos os recursos, e uma opção de compra única pelo preço de um café.
+- Suas opções de configuração de regras são limitadas. O RedirectWeb possui configurações de regras mais detalhadas, incluindo múltiplos padrões de exclusão e processamento de grupos de captura.
+- Inclui muitos recursos que você pode não precisar se desejar apenas redirecionamento. O RedirectWeb faz apenas redirecionamento.
+- Custa de 12 a 15 USD e não possui teste gratuito nem plano gratuito. O RedirectWeb tem um plano gratuito com recursos básicos, uma assinatura com teste gratuito de todos os recursos e uma opção de compra única pelo preço de um café.
 
 ## Por último...
 
-As ferramentas acima são ótimas à sua maneira, e você pode achá-las mais adequadas às suas necessidades. Nós o encorajamos a explorar e usar as ferramentas que melhor se adaptam aos seus requisitos! 😊
+Essas ferramentas são ótimas à sua maneira, e uma delas pode ser mais adequada para você do que o RedirectWeb. Use a que melhor se adaptar! 😊

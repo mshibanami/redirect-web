@@ -1,50 +1,50 @@
 # Vergelijking met andere tools
 
-Er zijn verschillende tools met vergelijkbare functionaliteit als RedirectWeb. RedirectWeb probeert deze niet te vervangen, maar probeert ze aan te vullen. Hier zijn enkele vergelijkingen.
+Er zijn verschillende tools die overlappen met RedirectWeb. Het is bedoeld om ermee samen te werken, en deze pagina vergelijkt het met elk daarvan.
 
 > [!NOTE]
 > Deze vergelijkingen zijn gebaseerd op de situatie in oktober 2025. Neem [contact met ons op](/contact-us) als u verouderde informatie of fouten vindt. Bedankt! 🙏
 
 ## [Redirector](https://github.com/einaregilsson/Redirector) {/* #redirector */}
 
-Redirector is een geweldige browserextensie voor omleidingen. Het is volledig gratis en open source, en het werkt ook op niet-Apple-platforms. Maar RedirectWeb heeft enkele extra functies die u misschien bevalt:
+Redirector is een geweldige browserextensie voor omleidingen. Het is volledig gratis en open source, en het werkt ook op niet-Apple-platforms. Maar RedirectWeb heeft enkele extra functies die u wellicht bevallen:
 
-- **Gedetailleerde regelinstellingen:** Ondersteunt meerdere uitsluitingspatronen, meerdere procesovereenkomsten en stringvervangingsfuncties die alleen beschikbaar zijn in RedirectWeb.
-- **Openen in native apps:** Op Mac kunt u kiezen waar de doel-URL moet worden geopend. Het roept de `open` opdracht direct aan (geen deep linking).
-- **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) ondersteuning:** Biedt razendsnelle omleidingen.
-- **Gecentraliseerd regelbeheer:** Beheer regels voor alle browsers op één plek via de native app.
-- **Manifest V3 & V2 ondersteuning:** RedirectWeb ondersteunt V3 op Chromium-gebaseerde browsers en MV2 op Firefox, waardoor dezelfde API als Redirector kan worden gebruikt voor flexibiliteit en efficiëntie.
-- **Safari ondersteuning:** RedirectWeb ondersteunt Safari op iOS en macOS; Redirector niet.
+- Regels kunnen meerdere uitsluitingspatronen en meerdere procesovereenkomsten hebben, en de stringvervangingsfuncties zijn alleen beschikbaar in RedirectWeb.
+- Op Mac kunt u kiezen welke native app de doel-URL opent. RedirectWeb roept de `open`-opdracht direct aan (geen deep linking).
+- Het ondersteunt [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/), wat omleidingen sneller maakt.
+- U beheert de regels voor alle browsers op één plek, de native app.
+- Het gebruikt Manifest V3 op Chromium-gebaseerde browsers en V2 op Firefox, waar het dezelfde API kan gebruiken als Redirector.
+- Het ondersteunt Safari op iOS en macOS. Redirector niet.
 
-We respecteren Redirector ten zeerste en bieden import/export van omleidingsregels die het ook kan verwerken, zodat u flexibel tussen beide kunt wisselen. Zie meer details [hier](/export-or-import-rules).
+We hebben veel respect voor Redirector, en RedirectWeb kan omleidingsregels importeren en exporteren in een formaat dat Redirector ook ondersteunt, zodat u tussen beide kunt wisselen. Zie [Regels exporteren of importeren](/export-or-import-rules) voor details.
 
 ## Userscript managers zoals [Tampermonkey](https://www.tampermonkey.net/) of [Greasemonkey](https://www.greasespot.net/) {/* #userscript-managers */}
 
 Userscript managers zijn erg krachtig en flexibel. U kunt er zoveel mee doen, inclusief omleidingen. Ze hebben echter enkele nadelen in vergelijking met RedirectWeb:
 
-- **Complexiteit:** Het schrijven en onderhouden van scripts kan complex en tijdrovend zijn, vooral voor gebruikers die niet bekend zijn met programmeren. RedirectWeb biedt een gebruiksvriendelijke interface om regels te maken en te beheren zonder te coderen.
-- **Veiligheid:** Userscript managers kunnen prestatieoverhead introduceren, vooral als de scripts complex of niet geoptimaliseerd zijn. Ze kunnen ook een oneindige omleidingslus veroorzaken als ze niet zorgvuldig zijn geschreven. RedirectWeb is ontworpen om efficiënt en veilig te zijn.
-- **Nieuwere API ondersteuning:** Sommige userscript managers hebben mogelijk geen toegang tot de Declarative Net Request (DNR) API, die snellere en efficiëntere omleidingen kan bieden. RedirectWeb ondersteunt DNR voor betere prestaties.
+- Het schrijven en onderhouden van scripts kost tijd, vooral als u niet bekend bent met programmeren. Met RedirectWeb kunt u regels maken en beheren zonder te programmeren.
+- Scripts kunnen prestatieoverhead toevoegen, vooral als ze complex of niet geoptimaliseerd zijn, en een onzorgvuldig geschreven script kan een oneindige omleidingslus veroorzaken. RedirectWeb is ontworpen om efficiënt en veilig te zijn.
+- Sommige userscript managers hebben mogelijk geen toegang tot de Declarative Net Request (DNR) API, die sneller en efficiënter kan omleiden. RedirectWeb ondersteunt DNR.
 
 ## Apple's [Shortcuts](https://support.apple.com/guide/shortcuts/welcome/ios) {/* #why-not-shortcuts */}
 
-Shortcuts is Apple's krachtige automatiseringstool die beschikbaar is op iOS en macOS. U kunt snelkoppelingen maken om verschillende taken uit te voeren, waaronder het openen van URL's. Het wordt echter handmatig geactiveerd en is niet ontworpen voor naadloos browsen op het web.
+Shortcuts is Apple's automatiseringstool voor iOS en macOS. U kunt snelkoppelingen maken voor veel taken, waaronder het openen van URL's. U moet een snelkoppeling echter handmatig activeren, en Shortcuts is niet ontworpen om pagina's om te leiden tijdens het browsen.
 
 ## [OpenIn](https://loshadki.app/openin4/) of [Velja](https://sindresorhus.com/velja) {/* #openin-or-velja */}
 
-OpenIn en Velja zijn beide browserkiezer-apps, en ze hebben ook browserextensies waarmee u links vanuit een browser in een andere app kunt openen. RedirectWeb heeft ook een browser-naar-app omleidingsmogelijkheid. Er zijn echter enkele verschillen:
+OpenIn en Velja zijn beide browserkiezer-apps, en ze hebben ook browserextensies waarmee u links vanuit een browser in een andere app kunt openen. RedirectWeb kan ook omleiden van een browser naar een app, maar verschilt op twee manieren:
 
-- **Automatische omleiding:** Ze vereisen dat u handmatig hun werkbalkpictogram selecteert om een link in een andere app te openen. RedirectWeb leidt URL's automatisch om op basis van uw regels zonder extra stappen. Dit zijn twee verschillende benaderingen voor het afhandelen van links.
-- **Cross-platform ondersteuning:** Hoewel ze zijn ontworpen voor Mac, ondersteunt RedirectWeb alle belangrijke browsers op Mac en Safari op iPhone, iPad en Apple Vision Pro.
+- Met OpenIn en Velja selecteert u hun werkbalkpictogram om een link in een andere app te openen. RedirectWeb leidt URL's automatisch om op basis van uw regels.
+- OpenIn en Velja zijn ontworpen voor Mac. RedirectWeb ondersteunt alle grote browsers op Mac, en Safari op iPhone, iPad en Apple Vision Pro.
 
 ## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {/* #stopthemadness */}
 
-StopTheMadness is een browserextensie die verschillende functies biedt om het browsen op het web te verbeteren, inclusief omleidingen. Het heeft echter enkele beperkingen in vergelijking met RedirectWeb:
+StopTheMadness is een browserextensie met veel functies om het surfen op het web te verbeteren, inclusief omleidingen. Het heeft echter enkele beperkingen in vergelijking met RedirectWeb:
 
-- **Regelflexibiliteit:** StopTheMadness heeft beperkte configuratieopties voor regels. RedirectWeb biedt meer gedetailleerde regelinstellingen, waaronder meerdere uitsluitingspatronen, verwerking van opnamegroepen en meer.
-- **Complexiteit van functies:** StopTheMadness bevat veel functies die mogelijk niet nodig zijn voor gebruikers die alleen omleidingen willen. RedirectWeb richt zich uitsluitend op omleidingen.
-- **Prijs:** StopTheMadness kost 12-15 USD zonder een gratis proefperiode of een gratis abonnement. RedirectWeb biedt een gratis abonnement met basisfuncties, en een abonnement met een gratis proefperiode van alle functies, en een eenmalige aankoopoptie voor de prijs van een kopje koffie.
+- De configuratieopties voor regels zijn beperkt. RedirectWeb heeft gedetailleerdere regelinstellingen, waaronder meerdere uitsluitingspatronen en de verwerking van vastleggroepen.
+- Het bevat veel functies die u mogelijk niet nodig hebt als u alleen omleidingen wilt. RedirectWeb doet uitsluitend omleidingen.
+- Het kost 12-15 USD en heeft geen gratis proefperiode of gratis abonnement. RedirectWeb heeft een gratis abonnement met basisfuncties, een abonnement met een gratis proefperiode van alle functies, en een eenmalige aankoopoptie voor de prijs van een kopje koffie.
 
 ## Tot slot...
 
-De bovenstaande tools zijn op hun eigen manier geweldig, en u vindt ze misschien geschikter voor uw behoeften. We moedigen u aan om de tools te verkennen en te gebruiken die het beste bij uw vereisten passen! 😊
+Deze tools zijn geweldig op hun eigen manier, en een ervan past wellicht beter bij u dan RedirectWeb. Gebruik wat het beste bij u past! 😊

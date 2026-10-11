@@ -1,50 +1,50 @@
 # 他のツールとの比較
 
-RedirectWeb と同様の機能を持つツールは他にもありますが、RedirectWeb はそれらを置き換えるのではなく、補完することを目指しています。ここではいくつかの比較を紹介します。
+いくつかのツールは RedirectWeb と機能が重複しています。RedirectWeb はそれらと連携して動作することを意図しており、このページではそれぞれのツールとの比較を行っています。
 
 > [!NOTE]
 > これらの比較は2025年10月時点のものです。古い情報や間違いを見つけた場合は、[お問い合わせ](/contact-us)ください。ありがとうございます！ 🙏
 
 ## [Redirector](https://github.com/einaregilsson/Redirector) {/* #redirector */}
 
-Redirector はリダイレクトのための優れたブラウザ拡張機能です。完全に無料でオープンソースであり、Apple以外のプラットフォームでも動作します。しかし、RedirectWeb には以下のような追加機能があります。
+Redirector はリダイレクトのための優れたブラウザ拡張機能です。完全に無料でオープンソースであり、Apple以外のプラットフォームでも動作します。しかし、RedirectWeb には気に入っていただけるかもしれないいくつかの追加機能があります：
 
-- **詳細なルール設定:** 複数の除外パターン、複数のプロセス一致、および文字列置換機能は RedirectWeb でのみ利用可能です。
-- **ネイティブアプリで開く:** Mac では、ターゲットURLを開く場所を選択できます。`open` コマンドを直接呼び出します（ディープリンクではありません）。
-- **[DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) サポート:** 超高速なリダイレクトを提供します。
-- **一元化されたルール管理:** ネイティブアプリを介して、すべてのブラウザのルールを一元的に管理します。
-- **Manifest V3 & V2 サポート:** RedirectWeb は Chromium ベースのブラウザで V3 を、Firefox で MV2 をサポートしており、柔軟性と効率性のために Redirector と同じ API を使用できます。
-- **Safari サポート:** RedirectWeb は iOS および macOS の Safari をサポートしていますが、Redirector はサポートしていません。
+- ルールに複数の除外パターンや複数の処理一致を設定でき、文字列置換機能は RedirectWeb でのみ利用可能です。
+- Mac では、ターゲット URL を開くネイティブアプリを選択できます。RedirectWeb は `open` コマンドを直接呼び出します（ディープリンクではありません）。
+- [DNR](https://blog.mozilla.org/addons/2023/05/17/declarativenetrequest-available-in-firefox/) をサポートしており、リダイレクトがより高速になります。
+- すべてのブラウザのルールを1か所（ネイティブアプリ）で管理できます。
+- Chromium ベースのブラウザでは Manifest V3 を、Firefox では V2 を使用しており、Firefox では Redirector と同じ API を使用できます。
+- iOS および macOS の Safari をサポートしています。Redirector はサポートしていません。
 
-私たちは Redirector を非常に尊重しており、Redirector でも処理できるリダイレクトルールのインポート/エクスポート機能を提供しているため、柔軟に切り替えることができます。詳細については[こちら](/export-or-import-rules)をご覧ください。
+私たちは Redirector を深く尊重しており、RedirectWeb は Redirector でも扱える形式でリダイレクトルールをインポートおよびエクスポートできるため、2つのツール間を行き来することができます。詳細は[ルールのインポート・エクスポート](/export-or-import-rules)を参照してください。
 
-## [Tampermonkey](https://www.tampermonkey.net/) や [Greasemonkey](https://www.greasespot.net/) のようなユーザースクリプトマネージャー {/* #userscript-managers */}
+## [Tampermonkey](https://www.tampermonkey.net/) や [Greasemonkey](https://www.greasespot.net/) などのユーザースクリプトマネージャー {/* #userscript-managers */}
 
-ユーザースクリプトマネージャーは非常に強力で柔軟です。リダイレクトを含む多くのことができます。しかし、RedirectWeb と比較するといくつかの欠点があります。
+ユーザースクリプトマネージャーは非常に強力で柔軟です。リダイレクトを含め、非常に多くのことができます。しかし、RedirectWeb と比較するといくつかの欠点があります：
 
-- **複雑さ:** スクリプトの記述と保守は、プログラミングに慣れていないユーザーにとっては複雑で時間がかかる場合があります。RedirectWeb は、コーディングなしでルールを作成および管理するためのユーザーフレンドリーなインターフェースを提供します。
-- **安全性:** ユーザースクリプトマネージャーは、スクリプトが複雑であったり最適化されていない場合、パフォーマンスのオーバーヘッドを引き起こす可能性があります。また、慎重に記述されていない場合、無限リダイレクトループを引き起こす可能性もあります。RedirectWeb は効率的で安全に設計されています。
-- **新しい API サポート:** 一部のユーザースクリプトマネージャーは、より高速で効率的なリダイレクトを提供できる Declarative Net Request (DNR) API にアクセスできない場合があります。RedirectWeb は、パフォーマンス向上のために DNR をサポートしています。
+- スクリプトの作成と保守には、特にプログラミングに詳しくない場合、時間がかかります。RedirectWeb では、コーディングなしでルールを作成および管理できます。
+- スクリプトは、特に複雑であったり最適化されていない場合、パフォーマンスのオーバーヘッドを引き起こす可能性があり、不用意に作成されたスクリプトは無限リダイレクトループを引き起こす可能性があります。RedirectWeb は効率的かつ安全に動作するよう設計されています。
+- 一部のユーザースクリプトマネージャーは、より高速かつ効率的にリダイレクトできる Declarative Net Request (DNR) API にアクセスできない場合があります。RedirectWeb は DNR をサポートしています。
 
-## Apple の [ショートカット](https://support.apple.com/guide/shortcuts/welcome/ios) {/* #why-not-shortcuts */}
+## Apple の[ショートカット](https://support.apple.com/guide/shortcuts/welcome/ios) {/* #why-not-shortcuts */}
 
-ショートカットは、iOS および macOS で利用できる Apple の強力な自動化ツールです。URL を開くなど、さまざまなタスクを実行するためのショートカットを作成できます。ただし、手動でトリガーされるため、シームレスなウェブブラウジングには設計されていません。
+ショートカットは iOS および macOS 向けの Apple の自動化ツールです。URL を開くことを含む、多くのタスク向けのショートカットを作成できます。しかし、ショートカットは手動で実行する必要があり、ブラウジング中にページをリダイレクトするようには設計されていません。
 
-## [OpenIn](https://loshadki.app/openin4/) または [Velja](https://sindresorhus.com/velja) {/* #openin-or-velja */}
+## [OpenIn](https://loshadki.app/openin4/) や [Velja](https://sindresorhus.com/velja) {/* #openin-or-velja */}
 
-OpenIn と Velja はどちらもブラウザピッカーアプリであり、ブラウザから別のアプリでリンクを開くことができるブラウザ拡張機能も持っています。RedirectWeb もブラウザからアプリへのリダイレクト機能を備えています。ただし、いくつかの違いがあります。
+OpenIn と Velja はどちらもブラウザピッカーアプリであり、ブラウザから別のアプリでリンクを開くことができるブラウザ拡張機能も備えています。RedirectWeb もブラウザからアプリへのリダイレクトが可能ですが、主に2つの点で異なります：
 
-- **自動リダイレクト:** これらは、別のアプリでリンクを開くためにツールバーアイコンを手動で選択する必要があります。RedirectWeb は、追加の手順なしでルールに基づいて URL を自動的にリダイレクトします。これらはリンク処理に対する2つの異なるアプローチです。
-- **クロスプラットフォームサポート:** これらは Mac 向けに設計されていますが、RedirectWeb は Mac のすべての主要ブラウザと、iPhone、iPad、Apple Vision Pro の Safari をサポートしています。
+- OpenIn や Velja では、別のアプリでリンクを開くためにツールバーアイコンを選択します。RedirectWeb はルールに基づいて URL を自動的にリダイレクトします。
+- OpenIn と Velja は Mac 向けに設計されています。RedirectWeb は Mac 上のすべての主要ブラウザに加えて、iPhone、iPad、Apple Vision Pro の Safari もサポートしています。
 
 ## [StopTheMadness](https://underpassapp.com/StopTheMadness/) {/* #stopthemadness */}
 
-StopTheMadness は、リダイレクトを含むウェブブラウジングを強化するためのさまざまな機能を提供するブラウザ拡張機能です。しかし、RedirectWeb と比較するといくつかの制限があります。
+StopTheMadness はリダイレクトを含む、ウェブブラウジングを向上させるための多くの機能を備えたブラウザ拡張機能です。しかし、RedirectWeb と比較するといくつかの制限があります：
 
-- **ルール設定の柔軟性:** StopTheMadness はルール設定オプションが限られています。RedirectWeb は、複数の除外パターン、キャプチャグループ処理など、より詳細なルール設定を提供します。
-- **機能の複雑さ:** StopTheMadness には、リダイレクトのみを必要とするユーザーには不要な多くの機能が含まれています。RedirectWeb はリダイレクトのみに焦点を当てています。
-- **価格:** StopTheMadness は無料トライアルや無料プランなしで12〜15米ドルかかります。RedirectWeb は、基本的な機能を備えた無料プラン、すべての機能の無料トライアル付きサブスクリプション、およびコーヒー1杯分の価格での一括購入オプションを提供しています。
+- ルールの設定オプションが限られています。RedirectWeb は、複数の除外パターンやキャプチャグループ処理など、より詳細なルール設定を備えています。
+- リダイレクトのみを行いたい場合には不要かもしれない多くの機能が含まれています。RedirectWeb はリダイレクトのみを行います。
+- 12〜15米ドルかかり、無料トライアルや無料プランがありません。RedirectWeb には、基本機能を備えた無料プラン、すべての機能を試せる無料トライアル付きのサブスクリプション、そしてコーヒー1杯分の価格での買い切りオプションがあります。
 
 ## 最後に...
 
-上記のツールはそれぞれ優れた点があり、あなたのニーズにより適しているかもしれません。あなたの要件に最適なツールを探索し、使用することをお勧めします！ 😊
+これらのツールはそれぞれ独自の方法で優れており、RedirectWeb よりもあなたに合っているものもあるかもしれません。最適なものをぜひ使ってみてください！ 😊
