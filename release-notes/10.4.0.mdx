@@ -1,0 +1,34 @@
+---
+title: Version 10.4.0
+date: 2026-10-15
+---
+
+![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
+
+- Added new capturing group processing types. ([#119](https://github.com/mshibanami/redirect-web/issues/119)) You can now choose from the following options:
+  - Lowercase
+  - Uppercase
+  - Capitalize Words
+  - Uppercase First Character
+  - Lowercase First Character
+- [macOS] Fixed an issue where the Back button sometimes could not return to the previous page after a rule opened another app. ([#52](https://github.com/mshibanami/redirect-web/issues/52))
+- Fixed an issue where going back after a redirect could land on the original page and redirect you again.
+- DNR rules now also work when a site changes pages without reloading, such as when you click a video on YouTube.
+  - Browsers apply [DNR](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest) rules to network requests, so an in-page transition normally may not trigger them. That was counterintuitive for RedirectWeb users, so the extension now handles these transitions too.
+- [macOS] Added a shooting star animation when you click the Get button in the Library, as in the iOS version. 💫
+- Other minor bug fixes and performance improvements.
+
+{/* truncate */}
+
+## ⬇️ Download links
+
+- **App**
+  - [RedirectWeb](https://apps.apple.com/app/id1571283503)
+  - [RedirectWeb Pro](https://apps.apple.com/app/id6760209215)
+- **Browser Extensions**
+  - Safari: Bundled in the native apps.
+  - [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
+  - [Firefox, Zen](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox Add-ons)
+  - [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge Add-ons)
+
+Thank you for your continued support! If you enjoy using RedirectWeb, please consider leaving a review on the stores. It really helps!
