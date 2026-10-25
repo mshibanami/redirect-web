@@ -1,0 +1,27 @@
+---
+title: Version 10.4.2
+date: 2026-10-25
+---
+
+![Supported Platforms: iOS | macOS | visionOS](https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20visionOS-white)
+
+* **FIXED** Requests between the extension and the app could hang while waiting for a response, among other messaging bugs.
+* **FIXED** Unreliable redirects.
+* **FIXED** The app could crash when opening a page with a specific character in its title.
+    Currently, the app doesn't check page titles. However, to decide whether to redirect, the extension sends a summary of the open tab to the app's native code. The code that converts this data for the native side mishandled the text, causing the app to crash. (This seems to be a Safari bug, and we've added this fix as a workaround.)
+* **ADDED** Connection diagnostic reports. You can start recording and copy the report from the ellipsis menu in the extension popup.
+
+{/* truncate */}
+
+## ⬇️ Download links
+
+- **App**
+  - [RedirectWeb](https://apps.apple.com/app/id1571283503)
+  - [RedirectWeb Pro](https://apps.apple.com/app/id6760209215)
+- **Browser Extensions**
+  - Safari: Bundled in the native apps.
+  - [Chrome, Opera, Brave, Vivaldi](https://chromewebstore.google.com/detail/ffglckbhfbfmdkefdmjbhpnffkcmlhdh) (Chrome Web Store)
+  - [Firefox, Zen](https://addons.mozilla.org/firefox/addon/redirect-web/) (Firefox Add-ons)
+  - [Edge](https://microsoftedge.microsoft.com/addons/detail/hmfkakfdccgdpgemaicfgngnmflefpga) (Microsoft Edge Add-ons)
+
+Thank you for your continued support! If you enjoy using RedirectWeb, please consider leaving a review on the stores. It really helps!
