@@ -8,8 +8,10 @@ date: 2026-10-25
 * **FIXED** Requests between the extension and the app could hang while waiting for a response, among other messaging bugs.
 * **FIXED** Unreliable redirects.
 * **FIXED** The app could crash when opening a page with a specific character in its title.
-    Currently, the app doesn't check page titles. However, to decide whether to redirect, the extension sends a summary of the open tab to the app's native code. The code that converts this data for the native side mishandled the text, causing the app to crash. (This seems to be a Safari bug, and we've added this fix as a workaround.)
+  Currently, the app doesn't check page titles. However, to decide whether to redirect, the extension sends a summary of the open tab to the app's native code. The code that converts this data for the native side mishandled the text, causing the app to crash. (This seems to be a Safari bug, and we've added this fix as a workaround.)
 * **ADDED** Connection diagnostic reports. You can start recording and copy the report from the ellipsis menu in the extension popup.
+
+The crash bugs and the redirection issues were reported by users. Thank you very much for your help! 🙇
 
 {/* truncate */}
 
