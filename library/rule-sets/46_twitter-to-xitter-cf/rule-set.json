@@ -1,0 +1,40 @@
+{
+  "bundleID": "io.github.mshibanami.RedirectWebForSafari",
+  "formatVersion": "4",
+  "kind": "RedirectList",
+  "redirects": [
+    {
+      "captureGroupProcesses": [],
+      "comments": "This allows you to redirect from X (Twitter) to xitter.cf, which is powered by [teapawt](https://github.com/4cuck/teapawt).\n\n**teapawt** is a free and open-source alternative Twitter front-end focused on privacy and performance.",
+      "commentsOptions": {
+        "format": "markdown"
+      },
+      "destinationURLPattern": "https://xitter.cf/$1",
+      "exampleURLs": [
+        "https://x.com/UN/status/2114205560165777874",
+        "https://twitter.com/search?f=tweets&q=united+nations",
+        "https://mobile.twitter.com/UN",
+        "https://x.com/UN/media",
+        "https://x.com/hashtag/UN",
+        "https://x.com/i/status/2114205560165777874"
+      ],
+      "excludeURLPatterns": [
+        {
+          "type": "regularExpression",
+          "value": "https://(?:(?:www|mobile)\\.)?(?:x|twitter)\\.com/(?:(?:home|messages|notifications|compose|settings|login|logout|signup|account|share|tos|privacy|jobs)|explore/tabs|intent/(?!follow)[^?#]*|i/(?!(?:web/)?status/|lists/|broadcasts/)[^?#]*|[^/?#]+/(?:followers|following|verified_followers|likes|highlights)|[^/?#]+/status/\\d+/analytics)(?:[/?#].*)?"
+        }
+      ],
+      "kind": "Redirect",
+      "sourceURLPattern": {
+        "type": "regularExpression",
+        "value": "https://(?:(?:www|mobile)\\.)?(?:x|twitter)\\.com/(.*)"
+      },
+      "targetBrowserOptions": {
+        "browsers": [],
+        "selectionType": "including"
+      },
+      "title": "X (Twitter) → teapawt (xitter.cf)",
+      "type": "originalRedirect"
+    }
+  ]
+}
